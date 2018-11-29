@@ -1,0 +1,307 @@
+<?xml version='1.0' encoding='utf-8'?>
+<Sg w='1200' h='500' p='1'>
+<!-- Sg Configuration File -->
+<!-- name: name of the widget or the resource -->
+<!-- SgBMP{n}: n static SgBMP resources -->
+<!-- w: width of the widget  -->
+<!-- h: height of the widget -->
+<!-- This SgBMP(x,y) center point is use for rotation -->
+<!-- refresh: it is a function called if this widget is in display -->
+<SgWidget
+	name     = 'sgwClusterBackground'
+	type     = 'SgBMP{1}'
+	x        = '0'
+	y        = '0'
+	w        = '1200'
+	h        = '500'
+	layer    = '0'
+	refresh  = 'NULL'
+	cache    = 'NULL'
+	weight   = '500'
+	>
+	<SgBMP
+		name   = 'ClusterBackground'
+		locate = 'virtual_cluster/pics/bg.png'
+		x      = '600'
+		y      = '250'
+		/>
+</SgWidget>
+
+<SgWidget
+	name     = 'sgwClusterTachoPointer'
+	type     = 'SgBMP{1}'
+	x        = '340'
+	y        = '285'
+	w        = '200'	
+	h        = '16'
+	layer    = '2'
+	refresh  = 'RefreshClusterTachoPointer'
+	cache    = 'CacheClusterTachoPointer'
+	weight   = '20'
+	>
+	<SgBMP
+		name   = 'ClusterTachoPointer'
+		locate = 'virtual_cluster/pics/pointer_big.png'
+		x      = '30'
+		y      = '8'
+		/>
+</SgWidget>
+
+<SgWidget
+	name     = 'sgwClusterSpeedPointer'
+	type     = 'SgBMP{1}'
+	x        = '850'
+	y        = '285'
+	w        = '200'
+	h        = '16'
+	layer    = '2'
+	refresh  = 'RefreshClusterSpeedPointer'
+	cache    = 'CacheClusterSpeedPointer'
+	weight   = '20'
+	>
+	<SgBMP
+		name   = 'ClusterSpeedPointer'
+		locate = 'virtual_cluster/pics/pointer_big.png'
+		x      = '30'
+		y      = '8'
+		/>
+</SgWidget>
+
+<SgWidget
+	name     = 'sgwClusterTempPointer'
+	type     = 'SgBMP{1}'
+	x        = '134'
+	y        = '383'
+	w        = '80'
+	h        = '8'
+	layer    = '2'
+	refresh  = 'RefreshClusterTempPointer'
+	cache    = 'CacheClusterTempPointer'
+	weight   = '15'
+	>
+	<SgBMP 
+		name   = 'ClusterTempPointer'
+		locate = 'virtual_cluster/pics/pointer_small.png'
+		x      = '4'
+		y      = '4'
+		/>
+</SgWidget>
+
+<SgWidget
+	name     = 'sgwClusterFuelPointer'
+	type     = 'SgBMP{1}'
+	x        = '1055'
+	y        = '383'
+	w        = '80'
+	h        = '8'
+	layer    = '2'
+	refresh  = 'RefreshClusterFuelPointer'
+	cache    = 'CacheClusterFuelPointer'
+	weight   = '15'
+	>
+	<SgBMP
+		name   = 'ClusterFuelPointer'
+		locate = 'virtual_cluster/pics/pointer_small.png'
+		x      = '4'
+		y      = '4'
+		/>
+</SgWidget>
+
+<SgWidget
+	name     = 'sgwTelltaleTPMS'
+	type     = 'SgBMP{1}'
+	x        = '400'
+	y        = '315'
+	w        = '53'
+	h        = '49'
+	layer    = '1'
+	refresh  = 'RefreshTelltaleTPMS'
+	cache    = 'CacheTelltaleTPMS'
+	weight   = '10'
+	>
+	<SgBMP
+		name   = 'TelltaleTPMS'
+		locate = 'virtual_cluster/pics/tt_tpms.png'
+		x      = '21'
+		y      = '18'
+		/>
+</SgWidget>
+
+<SgWidget
+	name     = 'sgwTelltaleLowOil'
+	type     = 'SgBMP{1}'
+	x        = '220'
+	y        = '320'
+	w        = '64'
+	h        = '36'
+	layer    = '1'
+	refresh  = 'RefreshTelltaleLowOil'
+	cache    = 'CacheTelltaleLowOil'
+	weight   = '10'
+	>
+	<SgBMP
+		name   = 'TelltaleLowOil'
+		locate = 'virtual_cluster/pics/tt_low_oil.png'
+		x      = '32'
+		y      = '18'
+		/>
+</SgWidget>
+
+<SgWidget
+	name     = 'sgwTelltaleTurnRight'
+	type     = 'SgBMP{1}'
+	x        = '810'
+	y        = '25'
+	w        = '29'	
+	h        = '36'
+	layer    = '1'
+	refresh  = 'RefreshTelltaleTurnRight'
+	cache    = 'CacheTelltaleTurnRight'
+	weight   = '10'
+	>
+	<SgBMP
+		name   = 'TelltaleTurnRight'
+		locate = 'virtual_cluster/pics/tt_turn_right.png'
+		x      = '15'
+		y      = '18'
+		/>
+</SgWidget>
+
+<SgWidget
+	name     = 'sgwTelltaleTurnLeft'
+	type     = 'SgBMP{1}'
+	x        = '340'
+	y        = '25'
+	w        = '29'
+	h        = '36'
+	layer    = '1'
+	refresh  = 'RefreshTelltaleTurnLeft'
+	cache    = 'CacheTelltaleTurnLeft'
+	weight   = '10'
+	>
+	<SgBMP
+		name   = 'TelltaleTurnLeft'
+		locate = 'virtual_cluster/pics/tt_turn_left.png'
+		x      = '15'
+		y      = '18'
+		/>
+</SgWidget>
+
+<SgWidget
+	name     = 'sgwTelltalePosLamp'
+	type     = 'SgBMP{1}'
+	x        = '561'
+	y        = '25'
+	w        = '58'
+	h        = '36'
+	layer    = '1'
+	refresh  = 'RefreshTelltalePosLamp'
+	cache    = 'CacheTelltalePosLamp'
+	weight   = '10'
+	>
+	<SgBMP
+		name   = 'TelltalePosLamp'
+		locate = 'virtual_cluster/pics/tt_poslamp.png'
+		x      = '29'
+		y      = '18'
+		/>
+</SgWidget>
+
+<SgWidget
+	name     = 'sgwTelltaleAutoCruise'
+	type     = 'SgBMP{1}'
+	x        = '625'
+	y        = '25'
+	w        = '41'
+	h        = '36'
+	layer    = '1'
+	refresh  = 'RefreshTelltaleAutoCruise'
+	cache    = 'CacheTelltaleAutoCruise'
+	weight   = '10'
+	>
+	<SgBMP
+		name   = 'TelltaleAutoCruise'
+		locate = 'virtual_cluster/pics/tt_auto_cruise.png'
+		x      = '20'
+		y      = '18'
+		/>
+</SgWidget>
+
+<SgWidget
+	name     = 'sgwTelltaleHighBeam'
+	type     = 'SgBMP{1}'
+	x        = '497'
+	y        = '25'
+	w        = '55'
+	h        = '36'
+	layer    = '1'
+	refresh  = 'RefreshTelltaleHighBeam'
+	cache    = 'CacheTelltaleHighBeam'
+	weight   = '10'
+	>
+	<SgBMP
+		name   = 'TelltaleHighBeam'
+		locate = 'virtual_cluster/pics/tt_high_beam.png'
+		x      = '27'
+		y      = '18'
+		/>
+</SgWidget>
+<SgWidget
+	name     = 'sgwTelltaleSeatbeltDriver'
+	type     = 'SgBMP{1}'
+	x        = '448'
+	y        = '25'
+	w        = '27'
+	h        = '36'
+	layer    = '1'
+	refresh  = 'RefreshTelltaleSeatbeltDriver'
+	cache    = 'CacheTelltaleSeatbeltDriver'
+	weight   = '10'
+	>
+	<SgBMP
+		name   = 'TelltaleSeatbeltDriver'
+		locate = 'virtual_cluster/pics/tt_seatbelt_driver.png'
+		x      = '13'
+		y      = '18'
+		/>
+</SgWidget>
+<SgWidget
+	name     = 'sgwTelltaleSeatbeltPassenger'
+	type     = 'SgBMP{1}'
+	x        = '677'
+	y        = '25'
+	w        = '32'
+	h        = '36'
+	layer    = '1'
+	refresh  = 'RefreshTelltaleSeatbeltPassenger'
+	cache    = 'CacheTelltaleSeatbeltPassenger'
+	weight   = '10'
+	>
+	<SgBMP
+		name   = 'TelltaleSeatbeltPassenger'
+		locate = 'virtual_cluster/pics/tt_seatbelt_passenger.png'
+		x      = '13'
+		y      = '18'
+		/>
+</SgWidget>
+<SgWidget
+	name     = 'sgwTelltaleAirbag'
+	type     = 'SgBMP{1}'
+	x        = '725'
+	y        = '25'
+	w        = '38'
+	h        = '36'
+	layer    = '1'
+	refresh  = 'RefreshTelltaleAirbag'
+	cache    = 'CacheTelltaleAirbag'
+	weight   = '10'
+	>
+	<SgBMP
+		name   = 'TelltaleAirbag'
+		locate = 'virtual_cluster/pics/tt_airbag.png'
+		x      = '19'
+		y      = '18'
+		/>
+</SgWidget>
+</Sg>
+

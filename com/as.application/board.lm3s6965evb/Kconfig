@@ -1,0 +1,8 @@
+config ARCH_LM3S6965EVB
+    bool
+    default y
+    select DEFAULT_ASKAR
+
+config ARCH
+    string
+    default "lm3s"

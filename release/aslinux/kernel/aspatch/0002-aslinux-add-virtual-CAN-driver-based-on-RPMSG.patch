@@ -1,0 +1,42 @@
+From 45dffd341e44433a8573642177d50aecb1fee95e Mon Sep 17 00:00:00 2001
+From: parai <parai@foxmail.com>
+Date: Sun, 24 Jul 2016 10:43:35 +0800
+Subject: [PATCH 2/2] aslinux: add virtual CAN driver based on RPMSG
+
+Signed-off-by: parai <parai@foxmail.com>
+---
+ drivers/net/can/Kconfig  | 6 ++++++
+ drivers/net/can/Makefile | 1 +
+ 2 files changed, 7 insertions(+)
+
+diff --git a/drivers/net/can/Kconfig b/drivers/net/can/Kconfig
+index 98d73aa..7818744 100644
+--- a/drivers/net/can/Kconfig
++++ b/drivers/net/can/Kconfig
+@@ -137,6 +137,12 @@ config CAN_XILINXCAN
+ 	  Xilinx CAN driver. This driver supports both soft AXI CAN IP and
+ 	  Zynq CANPS IP.
+ 
++config CAN_ASVIRT
++	tristate "ASVIRT CAN"
++	depends on RPMSG
++	---help---
++	  AS virtual CAN driver based on RPMSG
++
+ source "drivers/net/can/mscan/Kconfig"
+ 
+ source "drivers/net/can/sja1000/Kconfig"
+diff --git a/drivers/net/can/Makefile b/drivers/net/can/Makefile
+index fc93041..34bb3d3 100644
+--- a/drivers/net/can/Makefile
++++ b/drivers/net/can/Makefile
+@@ -28,5 +28,6 @@ obj-$(CONFIG_PCH_CAN)		+= pch_can.o
+ obj-$(CONFIG_CAN_GRCAN)		+= grcan.o
+ obj-$(CONFIG_CAN_RCAR)		+= rcar_can.o
+ obj-$(CONFIG_CAN_XILINXCAN)	+= xilinx_can.o
++obj-$(CONFIG_CAN_ASVIRT)	+= asvirt_can.o
+ 
+ subdir-ccflags-$(CONFIG_CAN_DEBUG_DEVICES) := -DDEBUG
+-- 
+1.9.1
+

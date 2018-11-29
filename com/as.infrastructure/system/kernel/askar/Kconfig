@@ -1,0 +1,43 @@
+choice
+	prompt "Schedule Policy"
+	default SCHED_BUBBLE
+
+config SCHED_BUBBLE
+	bool "bubble sort scheduler"
+
+config SCHED_FIFO
+	bool "fifo scheduler"
+
+config SCHED_LIST
+	bool "list scheduler"
+
+endchoice
+
+config PTHREAD
+	bool "posix pthreads based on askar OSEK core"
+	default y
+if PTHREAD
+config OS_PTHREAD_PRIORITY
+	int "the posix thread priority range"
+	default 32
+
+config OS_PTHREAD_NUM
+	int "the maxmium number of posix threads can be created"
+	default 32
+
+config PTHREAD_SIGNAL
+	bool "posix pthreads signal"
+	default y
+
+config PTHREAD_CLEANUP
+	bool "posix pthreads cleanup feature"
+	default y
+endif
+# diable pthread related types defined by compiler library
+config __sigset_t_defined
+	int
+	default 1
+
+config _BITS_PTHREADTYPES_H
+	int
+	default 1

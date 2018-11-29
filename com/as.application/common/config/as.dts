@@ -1,0 +1,11 @@
+/dts-v1/;
+
+/ {
+	repo-name = "as";
+	license = "GPLv2";
+	author {
+		full-name = "parai wang";
+		email = "parai@foxmail.com";
+		birth-year = <1989>;
+	};
+};

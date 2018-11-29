@@ -1,0 +1,36 @@
+import os
+from building import *
+import xcc
+
+xcc.SetDefaultRTOS('toppers_osek')
+
+cwd = GetCurrentDir()
+
+Import('asenv')
+arch = asenv['arch']
+MODULES = asenv['MODULES']
+
+asenv.Append(CPPPATH=['%s/include'%(cwd)])
+asenv.Append(CPPPATH=['%s/kernel'%(cwd)])
+
+objs = []
+
+objs += Glob('kernel/*.c')
+if(arch == 'cortex-m'):
+    asenv.Append(CPPPATH=['%s/portable/armv7_m'%(cwd)])
+    asenv.Append(ASFLAGS=['-I%s/portable/armv7_m'%(cwd)])
+    objs += Glob('portable/armv7_m/*.c')
+    if('gcc' in asenv['CC']):
+        objs += Glob('portable/armv7_m/gcc/*.s')
+    elif(asenv['CC'][-10:]=='iccarm.exe'):
+        objs += Glob('portable/armv7_m/icc/*.S')
+    else:
+        assert(0)
+elif(os.path.exists('%s/portable/%s'%(cwd,arch))):
+    asenv.Append(CPPPATH=['%s/portable/%s'%(cwd,arch)])
+    asenv.Append(ASFLAGS=['-I%s/portable/%s'%(cwd,arch)])
+    objs += Glob('portable/%s/*.c'%(arch))
+else:
+    assert(0)
+
+Return('objs')

@@ -1,0 +1,193 @@
+<?xml version='1.0' encoding='utf-8'?>
+
+<XCP>
+	<General>
+		<Command name='Connect' ID='0xFF'>
+			<Request>
+				<Data name='Mode' type='U8 Select'>
+					<Select name='Normal' value='0x00'/>
+					<Select name='user define' value='0x01'/>
+				</Data>
+			</Request>
+			<Response>
+				<Data name='RESOURCE' type='U8' display='hex' default='0'/>
+				<Data name='COMM_MODE_BASIC' type='U8' display='hex' default='0'/>
+				<Data name='MAX_CTO' type='U8' display='dec' default='0'/>
+				<Data name='MAX_DTO' type='U16' display='dec' default='0'/>
+				<Data name='XCP Protocol Layer Version Number' type='U16' display='hex' default='0'/>
+			</Response>			
+		</Command>
+		<Command name='GetSeed' ID='0xF8'>
+			<Request>
+				<Data name='Mode' type='U8 Select'>
+					<Select name='Normal' value='0x00'/>
+					<Select name='user define' value='0x01'/>
+				</Data>
+				<Data name='Type' type='U8 Select'>
+					<Select name='CALPAG' value='0x01'/>
+					<Select name='DAQ' value='0x04'/>
+					<Select name='STIM' value='0x08'/>
+					<Select name='PGM' value='0x10'/>
+				</Data>
+			</Request>
+			<Response>
+				<Data name='seed length' type='U8' display='dec' />
+				<Data name='seed' type='U8Array' display='hex' size='4' />
+			</Response>
+		</Command>
+		<Command name='Unlock' ID='0xF7'>
+			<Request>
+				<Data name='key length' type='U8' default='4' display='dec' />
+				<Data name='key' type='U8Array' display='hex' size='4' default='[0x00,0x00,0x00,0x00]' />
+			</Request>
+			<Response>
+			</Response>
+		</Command>
+		<Command name='Disconnect' ID='0xFE'><Request></Request><Response></Response></Command>
+		<Command name='GetStatus' ID='0xFD'>
+			<Request></Request>
+			<Response>
+				<Data name='status' type='U8' display='hex' default='0'/>
+				<Data name='protecton' type='U8' display='hex' default='0'/>
+				<Data name='reserved' type='U8' display='hex' default='0'/>
+				<Data name='session configuration ID' type='U8' display='hex' default='0'/>
+			</Response>
+		</Command>
+		<Command name='GetID' ID='0xFA'>
+			<Request>
+				<Data name='ID Type' type='U8 Select'>
+					<Select name='Caption' value='0x00'/>
+					<Select name='MC2File' value='0x01'/>
+					<Select name='MC2Path' value='0x02'/>
+					<Select name='MC2Url' value='0x03'/>
+					<Select name='MC2Upload' value='0x04'/>
+				</Data>
+			</Request>
+			<Response>
+				<Data name='Mode' type='U8' display='hex' default='0'/>
+				<Data name='reserved' type='U16' display='hex' default='0'/>
+				<Data name='Length' type='U32' display='dec' default='0'/>
+			</Response>			
+		</Command>
+		<Command name='SetMTA' ID='0xF6'>
+			<Request>
+				<Data name='reserved' type='U16' display='hex' default='0'/>
+				<Data name='extension' type='U8 Select'>
+					<Select name='MEMORY' value='0x00'/>
+					<Select name='FLASH' value='0x01'/>
+					<Select name='DIO_PORT' value='0x02'/>
+					<Select name='DIO_CHANNEL' value='0x03'/>
+				</Data>
+				<Data name='address' type='U32' display='hex' default='0x4deca0'/>
+			</Request>
+			<Response>
+			</Response>
+		</Command>
+		<Command name='Download' ID='0xF0'>
+			<Request>
+				<Data name='length' type='U8' display='dec' default='4'/>
+				<Data name='byte0' type='U8' display='hex' default='0'/>
+				<Data name='byte1' type='U8' display='hex' default='1'/>
+				<Data name='byte2' type='U8' display='hex' default='2'/>
+				<Data name='byte3' type='U8' display='hex' default='3'/>
+				<Data name='byte4' type='U8' display='hex' default='4'/>
+				<Data name='byte5' type='U8' display='hex' default='5'/>
+			</Request>
+			<Response>
+			</Response>
+		</Command>
+		<Command name='ShortUpload' ID='0xF4'>
+			<Request>
+				<Data name='length' type='U8' display='dec' default='4'/>
+				<Data name='reserved' type='U8' display='dec' default='0'/>
+				<Data name='extension' type='U8 Select'>
+					<Select name='MEMORY' value='0x00'/>
+					<Select name='FLASH' value='0x01'/>
+					<Select name='DIO_PORT' value='0x02'/>
+					<Select name='DIO_CHANNEL' value='0x03'/>
+				</Data>
+				<Data name='address' type='U32' display='hex' default='0x4deca0'/>
+			</Request>
+			<Response>
+				<Data name='byte0' type='U8' display='hex' default='0'/>
+				<Data name='byte1' type='U8' display='hex' default='0'/>
+				<Data name='byte2' type='U8' display='hex' default='0'/>
+				<Data name='byte3' type='U8' display='hex' default='0'/>
+				<Data name='byte4' type='U8' display='hex' default='0'/>
+				<Data name='byte5' type='U8' display='hex' default='0'/>
+				<Data name='byte6' type='U8' display='hex' default='0'/>
+			</Response>
+		</Command>
+		<Command name='SetDAQPtr' ID='0xE2'>
+			<Request>
+				<Data name='reserved' type='U8' display='dec' default='0'/>
+				<Data name='daqListNumber' type='U16' display='dec' default='0'/>
+				<Data name='odtNumber' type='U8' display='dec' default='0'/>
+				<Data name='odtEntryNumber' type='U8' display='dec' default='0'/>
+			</Request>
+			<Response>
+			</Response>
+		</Command>
+		<Command name='WriteDAQ' ID='0xE1'>
+			<Request>
+				<Data name='bitOffSet' type='U8' display='dec' default='0'/>
+				<Data name='daqElemSize' type='U8' display='dec' default='0'/>
+				<Data name='extension' type='U8 Select'>
+					<Select name='MEMORY' value='0x00'/>
+					<Select name='FLASH' value='0x01'/>
+					<Select name='DIO_PORT' value='0x02'/>
+					<Select name='DIO_CHANNEL' value='0x03'/>
+				</Data>
+				<Data name='Address' type='U32' display='dec' default='0x4deca0'/>
+			</Request>
+			<Response>
+			</Response>
+		</Command>
+		<Command name='ClearDAQList' ID='0xE3'>
+			<Request>
+				<Data name='reserved' type='U8' display='dec' default='0'/>
+				<Data name='daqListNumber' type='U16' display='dec' default='0'/>
+			</Request>
+			<Response>
+			</Response>
+		</Command>
+		<Command name='StartStopDAQList' ID='0xDE'>
+			<Request>
+				<Data name='mode' type='U8 Select'>
+					<Select name='Stop' value='0x00'/>
+					<Select name='Start' value='0x01'/>
+					<Select name='Select' value='0x02'/>
+				</Data>
+				<Data name='daqListNumber' type='U16' display='dec' default='0'/>
+			</Request>
+			<Response>
+				<Data name='XcpOdt2DtoMapping.XcpDtoPid' type='U8' display='dec' default='0'/>
+			</Response>
+		</Command>
+		<Command name='StartStopSync' ID='0xDD'>
+			<Request>
+				<Data name='mode' type='U8 Select'>
+					<Select name='Stop' value='0x00'/>
+					<Select name='Start' value='0x01'/>
+					<Select name='Select' value='0x02'/>
+				</Data>
+			</Request>
+			<Response>
+			</Response>
+		</Command>
+		<Command name='SetDAQListMode' ID='0xE0'>
+			<Request>
+				<Data name='modeBits' type='U8' display='hex' default='0xc0'/>
+				<Data name='list' type='U16' display='dec' default='0'/>
+				<Data name='eventChannel' type='U16' display='dec' default='0'/>
+				<Data name='prescale' type='U8' display='dec' default='1'/>
+				<Data name='priority' type='U8' display='dec' default='0'/>
+			</Request>
+			<Response>
+			</Response>
+		</Command>		
+	</General>
+	<Memory>
+		<MTA name='RAM' />
+	</Memory>
+</XCP>

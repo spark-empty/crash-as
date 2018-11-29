@@ -1,0 +1,52 @@
+import os
+from building import *
+
+cwd = GetCurrentDir()
+
+Import('asenv')
+ASROOT = asenv['ASROOT']
+
+objs = []
+
+if(asenv['RELEASE']=='asboot'):
+    asenv.Append(CPPDEFINES='configTOTAL_HEAP_SIZE=0x7000')
+else:
+    asenv.Append(CPPDEFINES='configTOTAL_HEAP_SIZE=0x300000')
+asenv.Append(CPPDEFINES='OS_TICKS_PER_SECOND=100')
+asenv.Append(CPPDEFINES='USECONDS_PER_TICK=10000')
+
+lds = '%s/script/linker-common.lds'%(cwd)
+asenv.Append(LINKFLAGS='-static -T %s'%(lds))
+asenv.Append(LINKFLAGS='-Map build/s3c2440a/s3c2440a.map')
+
+MODULES = ['ECUM','SCHM','MCU','DET',
+           'CLIB_ASHEAP','CLIB_MISCLIB',
+           'CLIB_STDIO_PRINTF',
+           'TRAMPOLINE',
+           ]
+
+ARCH='s3c2440a'
+arch='arm920t'
+
+if(asenv['MODULES'] is None):
+    asenv['MODULES'] = MODULES
+else:
+    MODULES = asenv['MODULES']
+
+asenv['ARCH'] = ARCH
+asenv['arch'] = arch
+
+if('run' in COMMAND_LINE_TARGETS):
+    qemu = Qemu('%s/com/as.application/board.s3c2440a/qemu/qemu-system-arm.exe'%(ASROOT))
+    target = '%s/release/%s/s3c2440a'%(ASROOT,asenv['RELEASE'])
+    if(IsPlatformWindows()): target = target + '.exe'
+    qemu.Run('-M mini2440 -kernel %s'%(target),where='%s/com/as.application/board.s3c2440a/qemu'%(ASROOT))
+
+asenv.Append(CPPPATH=['%s/../board.posix/common'%(cwd)])
+
+if('MCU' in MODULES):
+    objs += Glob('%s/../board.posix/common/Mcu*.c'%(cwd))
+
+objs += Glob('common/*.xml')
+
+Return('objs')

@@ -1,0 +1,9 @@
+config ARCH_X86
+    bool
+    default y
+    select CLIB_NEWLIB
+    select DEFAULT_ASKAR
+
+config ARCH
+    string
+    default "x86"

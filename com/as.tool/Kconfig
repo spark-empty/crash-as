@@ -1,0 +1,29 @@
+menu "automotive software toolchain"
+
+choice
+	prompt "base building platform"
+	default PLATFORM_MSYS2
+
+config PLATFORM_MINGW
+	bool "mingw"
+
+config PLATFORM_MSYS2
+	bool "msys2"
+
+config PLATFORM_LINUX
+	bool "linux"
+
+endchoice
+
+config MINGW_GCC_PATH
+	string "directory path of mingw gcc.exe"
+	default "c:/MinGW/bin"
+	depends on (PLATFORM_MINGW || PLATFORM_MSYS2)
+
+config MSYS2_GCC_PATH
+	string "directory path of msys2 gcc.exe"
+	default "c:/msys64/mingw64/bin"
+	depends on (PLATFORM_MINGW || PLATFORM_MSYS2)
+
+endmenu
+

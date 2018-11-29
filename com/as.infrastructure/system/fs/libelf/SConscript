@@ -1,0 +1,18 @@
+import os
+from building import *
+
+cwd = GetCurrentDir()
+
+Import('asenv')
+arch = asenv['arch']
+ASROOT = asenv['ASROOT']
+MODULES = asenv['MODULES']
+
+objs = []
+
+objs += Glob('*.c')
+objs += Glob('arch/%s/*.c'%(arch))
+
+asenv.Append(CPPPATH = ['%s/include'%(cwd),cwd])
+
+Return('objs')

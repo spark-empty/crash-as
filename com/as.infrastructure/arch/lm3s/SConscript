@@ -1,0 +1,30 @@
+from building import *
+Import('asenv')
+
+cwd = GetCurrentDir()
+
+asenv.Append(CCFLAGS=['-O0','-g'])
+asenv.Append(ASFLAGS=['-g'])
+
+asenv.Append(CCFLAGS=['-mcpu=cortex-m3','-mthumb'])
+asenv.Append(ASFLAGS=['-mcpu=cortex-m3','-mthumb'])
+asenv.Append(CPPPATH=['%s/DriverLib'%(cwd)])
+asenv.Append(CPPPATH=['%s/DriverLib/src'%(cwd)])
+
+asenv.Append(CPPPATH=['%s/../stm32f1/Libraries/CMSIS/Include'%(cwd)])
+asenv.Append(CPPDEFINES='CHIP_LM3S6965')
+
+asenv.Append(CCFLAGS=['-ffunction-sections','-fdata-sections'])
+asenv.Append(LINKFLAGS=['--gc-sections'])
+
+asenv.Append(LIBS=['gcc'])
+
+SelectCompilerArmNoneEabi()
+
+objs = []
+
+objs += Glob('mcal/*.c')
+objs += Glob('DriverLib/src/*.c')
+objs += Glob('../common/mcal/SCan.c')
+
+Return('objs')

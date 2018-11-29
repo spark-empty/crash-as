@@ -1,0 +1,40 @@
+import os
+from building import *
+Import('asenv')
+MODULES = asenv['MODULES']
+ASROOT = asenv['ASROOT']
+BOARD = asenv['BOARD']
+cwd = GetCurrentDir()
+
+uip=Package('https://github.com/contiki-os/contiki.git', version='release-3-1')
+
+MKDir('%s/core'%(cwd))
+
+
+MKSymlink('%s/core/net'%(uip),'%s/core/net'%(cwd))
+
+asenv.Append(CPPPATH=['%s/include'%(cwd),cwd])
+
+objs = []
+
+objs += Glob('%s/core/lib/memb.c'%(uip))
+objs += Glob('%s/core/lib/random.c'%(uip))
+objs += Glob('core/net/ipv4/*.c')
+objs += Glob('core/net/ip/*.c')
+objs += Glob('core/*.c')
+
+if(('SOAD' in MODULES) and (BOARD != 'posix')):
+    lwip = Package('lwip')
+    objs += Glob('%s/src/core/ipv4/ip_addr.c'%(lwip))
+    objs += Glob('%s/src/core/def.c'%(lwip))
+    asenv.Append(CPPPATH=['%s/src/include'%(lwip),
+                          '%s/src/include/ipv4'%(lwip),
+                          '%s/com/as.infrastructure/arch/common/lwip'%(ASROOT)])
+    asenv.Append(CPPDEFINES=['ipaddr_addr=inet_addr'])
+
+asenv.Append(CPPDEFINES=['UIP_CONF_BUFFER_SIZE=1500'])
+
+SrcRemove(objs, ['uip-over-mesh.c','slipdev.c','dhcpc.c'])
+
+Return('objs')
+

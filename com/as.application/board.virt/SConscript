@@ -1,0 +1,56 @@
+import os
+from building import *
+
+cwd = GetCurrentDir()
+
+Import('asenv')
+ASROOT = asenv['ASROOT']
+
+objs = []
+
+asenv.Append(CPPDEFINES='configTOTAL_HEAP_SIZE=0x800000')
+asenv.Append(CPPDEFINES='PAGE_SIZE=0x1000')
+asenv.Append(CPPDEFINES='OS_TICKS_PER_SECOND=1000')
+asenv.Append(CPPDEFINES='USECONDS_PER_TICK=10000')
+asenv.Append(CPPDEFINES='ENABLE_SHELL_ECHO_BACK')
+
+lds = '%s/script/linker-app.lds'%(cwd)
+asenv.Append(LINKFLAGS='-static -T %s'%(lds))
+if(not IsPlatformWindows()):
+    asenv.Append(LINKFLAGS='-Map build/virt/virt.map')
+
+MODULES = ['ECUM','SCHM','MCU','DET',
+           'CLIB_ASHEAP','CLIB_MISCLIB',
+           'CLIB_STDIO_PRINTF',
+           'ASKAR',
+           ]
+
+ARCH='virt'
+arch='arm64'
+
+if(asenv['MODULES'] is None):
+    asenv['MODULES'] = MODULES
+else:
+    MODULES = asenv['MODULES']
+
+asenv['ARCH'] = ARCH
+asenv['arch'] = arch
+
+if('run' in COMMAND_LINE_TARGETS):
+    qemu = Qemu()
+    target = '%s/release/%s/virt'%(ASROOT,asenv['RELEASE'])
+    if(IsPlatformWindows()): target = target + '.exe'
+    qemu.Run('-M virt -cpu cortex-a57 -kernel %s'%(target))
+
+asenv.Append(CPPPATH=['%s/../board.posix/common'%(cwd)])
+
+if('MCU' in MODULES):
+    objs += Glob('%s/../board.posix/common/Mcu*.c'%(cwd))
+
+if('EEP' in MODULES):
+    objs += Glob('%s/../board.posix/common/Eep*.c'%(cwd))
+
+if('FLS' in MODULES):
+    objs += Glob('%s/../board.posix/common/Fls*.c'%(cwd))
+
+Return('objs')

@@ -1,0 +1,16 @@
+<?xml version='1.0' encoding='utf-8'?>
+<AS>
+	<KSM>
+		<!-- A KSM will automatically has the sate: -->
+		<!-- Init -->
+		<!-- Start -->
+		<!-- Stop -->
+		<USB2Serial><Running/></USB2Serial>
+	</KSM>
+	<Os>
+	    <ISR Name='USART1_IrqHandler' Vector='15'/>
+	    <ISR Name='TC0_IrqHandler'    Vector='23'/>   
+	    <ISR Name='USBD_IrqHandler'   Vector='34'/>  
+	</Os>
+</AS>
+

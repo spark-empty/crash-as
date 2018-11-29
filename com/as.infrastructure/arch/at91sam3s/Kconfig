@@ -1,0 +1,18 @@
+if ARCH_AT91SAM3S
+menu "AUTOSAR MCAL&CDD for arch AT91SAM3S"
+
+config MCU
+	bool "MCAL MCU driver"
+	default y
+
+config USB_DRV
+	bool "USB driver"
+	default y
+	select USB
+
+config USB
+	bool "USB core"
+	default y
+
+endmenu
+endif

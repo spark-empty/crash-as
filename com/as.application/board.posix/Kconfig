@@ -1,0 +1,8 @@
+config ARCH_POSIX
+    bool
+    default y
+    select DEFAULT_TINYOS
+
+config ARCH
+    string
+    default "posix"

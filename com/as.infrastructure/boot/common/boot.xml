@@ -1,0 +1,57 @@
+<?xml version='1.0' encoding='utf-8'?>
+<AS>
+	<Os>
+	    <!-- OsRef: toppers_osek freertos -->
+	    <OsRef name='tinyos'/>
+		
+	    <!-- format, check easySAR.arxml -->
+	    <General ErrorHook="ErrorHook" 
+	    		PostTaskHook="PostTaskHook" 
+	    		PreTaskHook="PreTaskHook"
+	    		ProtectionHook="NULL" 
+	    		ShutdownHook="ShutdownHook" 
+	    		StartupHook="StartupHook" 
+	    		Comment="Not Used" />
+
+	    <Task Name="SchM_Startup"  
+	    		Activation="1" 
+				Autostart="True" 
+				Priority="7" 
+				Schedule="FULL" 
+				StackSize="512"
+	     		Comment="*" />
+				
+		<Task Name="SchM_BswService"  
+	    		Activation="5" 
+				Autostart="False" 
+				Priority="8" 
+				Schedule="FULL" 
+				StackSize="512"
+	     		Comment="*" />
+				
+		<Task Name="TaskIdle"  
+	    		Activation="1" 
+				Autostart="False" 
+				Priority="0" 
+				Schedule="FULL" 
+				StackSize="512"
+	     		Comment="*" />
+				
+		<Counter Name="OsClock" 
+					MaxAllowed="0xFFFF" 
+					MinCycle="1"  
+					TicksPerBase="1" 
+					Comment="*" />	
+	    
+		<Alarm Name="Alarm_BswService" 
+				Autostart="False" 
+				Period="5" 
+				StartTime="5"
+				Counter="OsClock"
+				Action="ActivateTask"	
+				Task="SchM_BswService"				
+				Event="TBD"  
+				Callback="TBD" 
+				Comment="*" />      
+	</Os>
+</AS>

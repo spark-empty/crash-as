@@ -1,0 +1,16 @@
+import os
+from building import *
+
+Import('asenv')
+MODULES=asenv['MODULES']
+
+assert(asenv['BOARD'] == 'posix')
+
+objs = []
+
+objs +=  SConscript('can/SConscript')
+
+if('AWS' in MODULES):
+    objs +=  SConscript('device/websock/SConscript')
+
+Return('objs')

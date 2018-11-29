@@ -1,0 +1,58 @@
+import os
+from building import *
+
+cwd = GetCurrentDir()
+
+Import('asenv')
+
+assert(asenv['BOARD'] == 'posix')
+
+objs = []
+
+asenv.Append(CCFLAGS='-I%s'%(cwd))
+asenv.Append(CCFLAGS='-I%s/rs232'%(cwd))
+
+if(IsPlatformWindows()):
+    peakcan = Package('https://www.peak-system.com/fileadmin/media/files/pcan-basic.zip')
+    zlgcan_o = Package('http://www.zlg.cn/data/upload/software/Can/CAN_lib.zip')
+    zlgcan = str(Glob('%s/CAN_lib/CAN*'%(zlgcan_o))[0])
+
+if(IsPlatformWindows()):
+    asenv.Append(CCFLAGS='-I%s/"PCAN-Basic API"/Include'%(peakcan))
+    MKSymlink('%s/../../cancasexl.access/vxlapi.h'%(cwd),'%s/vxlapi.h'%(cwd))
+    MKSymlink('%s/../../cancasexl.access/xlLoadlib.cpp'%(cwd),'%s/xlLoadlib.c'%(cwd))
+    asenv.Append(CCFLAGS=['-DDYNAMIC_XLDRIVER_DLL', '-DPOINTER_32='])
+    if(asenv['msys2']):
+        asenv.Append(CCFLAGS='-I%s/ControlCAN/64'%(zlgcan))
+        
+        MKSymlink('%s/ControlCAN/64/ControlCAN.dll'%(zlgcan),
+                  '%s/release/%s/ControlCAN.dll'%(asenv['ASROOT'],asenv['RELEASE']))
+        MKSymlink('%s/"PCAN-Basic API"/x64/PCANBasic.dll'%(peakcan),
+                  '%s/release/%s/PCANBasic.dll'%(asenv['ASROOT'],asenv['RELEASE']))
+    else:
+        asenv.Append(CCFLAGS='-I%s/ControlCAN/32'%(zlgcan))
+        MKSymlink('%s/ControlCAN/32/ControlCAN.dll'%(zlgcan),
+                  '%s/release/%s/ControlCAN.dll'%(asenv['ASROOT'],asenv['RELEASE']))
+        MKSymlink('%s/"PCAN-Basic API"/Win32/PCANBasic.dll'%(peakcan),
+                  '%s/release/%s/PCANBasic.dll'%(asenv['ASROOT'],asenv['RELEASE']))
+
+objs +=  Glob('*.c')
+objs +=  Glob('rs232/*.c')
+
+if(IsPlatformWindows()):
+    if(asenv['msys2']):
+        objs += Glob('%s/PCAN-Basic API/x64/VC_LIB/PCANBasic.lib'%(peakcan))
+        objs += Glob('%s/ControlCAN/64/ControlCAN.lib'%(zlgcan))
+    else:
+        objs += Glob('%s/PCAN-Basic API/Win32/VC_LIB/PCANBasic.lib'%(peakcan))
+        objs += Glob('%s/ControlCAN/32/ControlCAN.lib'%(zlgcan))
+src = '%s/socketwin_can_driver.c'%(cwd)
+tgt = '%s/../script/socketwin_can_driver.exe'%(cwd)
+cmd = 'gcc %s -D__SOCKET_WIN_CAN_DRIVER__ -I%s/com/as.infrastructure/include -o %s'%(src,asenv['ASROOT'],tgt)
+if(IsPlatformWindows()):
+    cmd += ' -D__WINDOWS__ -lwsock32'
+else:
+    cmd += ' -D__LINUX__'
+MKObject([src], tgt, cmd)
+
+Return('objs')

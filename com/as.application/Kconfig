@@ -1,0 +1,52 @@
+source "$ASROOT/com/as.application/board.$BOARD/Kconfig"
+
+menu "Run Time Environment"
+config RTE
+	bool "Run Time Environment"
+	default y if ARCH_POSIX
+
+config RTE_SWC_TELLTALE
+	bool "demo telltale software component"
+	default y if ARCH_POSIX && DIO
+	depends on RTE
+
+config RTE_SWC_GAUGE
+	bool "demo gauge software component"
+	default y if ARCH_POSIX && STMO
+	depends on RTE
+
+endmenu
+
+menu "ASCORE simple test case"
+config TEST
+	bool "some simple test case for ascore"
+	default n
+
+config PTHREAD_TEST
+	bool "askar pthread test case"
+	depends on ASKAR && PTHREAD && TEST
+	default n
+
+
+config FEE_TEST
+	bool "FEE test case"
+	depends on FEE && TEST
+	default n
+
+config EA_TEST
+	bool "EA test case"
+	depends on EA && TEST
+	default n
+
+config NVM_TEST
+	bool "NVM test case"
+	depends on NVM && TEST
+	default n
+
+config DEM_TEST
+	bool "DEM test case"
+	depends on DEM && TEST
+	default n
+
+endmenu
+

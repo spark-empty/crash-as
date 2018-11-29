@@ -1,0 +1,8 @@
+import os
+Import('asenv')
+objs = []
+
+objs += SConscript('as.application/SConscript')
+objs += SConscript('as.infrastructure/SConscript')
+
+Return('objs')

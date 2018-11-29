@@ -1,0 +1,52 @@
+/*
+ * DTS file for aslinux virtual pinctrl&gpio driver
+ *
+ * Copyright (C) 2016  AS <parai@foxmail.com>
+ *
+ * Licensed under GPLv2 or later.
+ */
+gpio0: pinctrl@0 {
+	#gpio-cells = <2>;
+	compatible = "as,virtual-pinctrl";
+	reg = <0 0x10000>;
+	gpio-controller;
+	
+	pingrp0: pinapp@0 {
+		pinapp {
+			as,pins = "pingrp0";
+			as,function = "general pingrp0";
+		};
+	};
+	
+	pingrp1: pinapp@1 {
+		pinapp {
+			as,pins = "pingrp1";
+			as,function = "general pingrp1";
+		};
+	};
+	
+	pingrp2: pinapp@2 {
+		pinapp {
+			as,pins = "pingrp2";
+			as,function = "general pingrp2";
+		};
+	};
+	
+	pingrp3: pinapp@3 {
+		pinapp {
+			as,pins = "pingrp0";
+			as,function = "general pingrp3";
+		};
+	};
+	
+};
+
+
+firmware_mcu: remoteproc@0 {
+	compatible = "as,virtual-rproc";
+	reg = <0 0x10000>;
+	fwname = "AUTOSAR";
+	
+	pinctrl-names = "default";
+	pinctrl-0 = <&pingrp2>;
+};

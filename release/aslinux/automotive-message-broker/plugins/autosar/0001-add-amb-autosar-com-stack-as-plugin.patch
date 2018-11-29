@@ -1,0 +1,36 @@
+From 63da01c4549e6b3f7425bb0271bf01b046b257c6 Mon Sep 17 00:00:00 2001
+From: parai <parai@foxmail.com>
+Date: Sat, 20 Aug 2016 08:18:13 +0800
+Subject: [PATCH] add amb autosar com stack as plugin
+
+Signed-off-by: parai <parai@foxmail.com>
+---
+ CMakeLists.txt         | 1 +
+ plugins/CMakeLists.txt | 2 ++
+ 2 files changed, 3 insertions(+)
+
+diff --git a/CMakeLists.txt b/CMakeLists.txt
+index 867717c..284b41b 100644
+--- a/CMakeLists.txt
++++ b/CMakeLists.txt
+@@ -48,6 +48,7 @@ option(enable_icecc "Enable icecc checking, for distributed compilation" ON)
+ option(enable_docs "enable Doxygen doc generation" OFF)
+ option(usebluez5 "use bluez 5 API" OFF)
+ option(xwalk_vehicle_extension "Crosswalk vehicle extension" OFF)
++option(autosar_plugin "use AUTOSAR COM stack" ON)
+ set(XWALK_EXTENSION_PATH "/automotive-message-broker/xwalk" CACHE PATH "directory the xwalk extension will be installed to")
+ 
+ #turn on -fpic/-fpie:
+diff --git a/plugins/CMakeLists.txt b/plugins/CMakeLists.txt
+index 6b119c8..86ed2d0 100644
+--- a/plugins/CMakeLists.txt
++++ b/plugins/CMakeLists.txt
+@@ -51,3 +51,5 @@ add_subdirectory(bluetooth)
+ add_subdirectory(cansimplugin)
+ add_subdirectory(cangenplugin)
+ add_subdirectory(chrony)
++add_subdirectory(autosar)
++
+-- 
+1.9.1
+

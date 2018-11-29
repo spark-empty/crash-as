@@ -1,0 +1,120 @@
+# Maintainer: Martell Malone <martellmalone@gmail.com>
+
+_realname=qemu
+pkgbase=mingw-w64-${_realname}
+pkgname="${MINGW_PACKAGE_PREFIX}-${_realname}"
+pkgver=2.10.0
+pkgrel=1
+pkgdesc="A generic and open source processor emulator (mingw-w64)"
+arch=('any')
+license=('GPL2' 'LGPL2')
+url="https://qemu.org/"
+makedepends=("${MINGW_PACKAGE_PREFIX}-gcc"
+             "${MINGW_PACKAGE_PREFIX}-python2"
+             'perl' 'bison')
+depends=("${MINGW_PACKAGE_PREFIX}-curl"
+         "${MINGW_PACKAGE_PREFIX}-glib2"
+         "${MINGW_PACKAGE_PREFIX}-gnutls"
+         "${MINGW_PACKAGE_PREFIX}-gtk3"
+         "${MINGW_PACKAGE_PREFIX}-libjpeg"
+         "${MINGW_PACKAGE_PREFIX}-libpng"
+         "${MINGW_PACKAGE_PREFIX}-libssh2"
+         "${MINGW_PACKAGE_PREFIX}-libusb"
+         "${MINGW_PACKAGE_PREFIX}-lzo2"
+         "${MINGW_PACKAGE_PREFIX}-pixman"
+         "${MINGW_PACKAGE_PREFIX}-snappy"
+         "${MINGW_PACKAGE_PREFIX}-SDL"
+         "${MINGW_PACKAGE_PREFIX}-usbredir")
+source=(https://download.qemu.org/${_realname}-${pkgver}.tar.xz)
+sha256sums=('55d81ac987a4821d2744359c026d766459319ba9c013746570369068d93ff335')
+options=('!strip' 'debug')
+_pkgfqn="${_realname}-${pkgver}"
+noextract=(${_pkgfqn}.tar.xz)
+
+prepare() {
+  asdir=${srcdir}/../../../..
+  if ! [[ -d ${srcdir}/${_pkgfqn} ]] ; then
+    tar -xJf ${srcdir}/${_pkgfqn}.tar.xz -C ${srcdir} 2>/dev/null || true
+    tar -xJf ${srcdir}/${_pkgfqn}.tar.xz -C ${srcdir} --skip-old-files
+    head -n 11 ${asdir}/com/as.tool/qemu//hw/char/Makefile >> ${srcdir}/${_pkgfqn}/hw/char/Makefile.objs
+    echo "LIBS += -lpyas /mingw64/lib/Packet.lib /mingw64/lib/wpcap.lib /mingw64/lib/PCANBasic.lib /mingw64/lib/ControlCAN.lib" >> ${srcdir}/${_pkgfqn}/hw/char/Makefile.objs
+  fi
+
+  cd ${asdir}/release/aslua
+  make clean
+  make 81 -i
+  make 82 forceclib=yes msys=yes -i
+  cp ${asdir}/release/aslua/out/libpyas.a /mingw64/lib -v
+
+  if ! [[ -d ${asdir}/release/download/WpdPack_4_1_2/WpdPack ]] ; then
+    cd ${asdir}/release/download
+    wget https://www.winpcap.org/install/bin/WpdPack_4_1_2.zip
+    mkdir WpdPack_4_1_2
+    unzip WpdPack_4_1_2.zip -d WpdPack_4_1_2
+    cd -
+  fi
+  
+  if ! [[ -d /mingw64/include/pcap ]] ; then
+    cp ${asdir}/release/download/WpdPack_4_1_2/WpdPack/Include/* /mingw64/include -rv
+    cp ${asdir}/release/download/WpdPack_4_1_2/WpdPack/Lib/x64/* /mingw64/lib -v
+  fi
+  
+  if ! [[ -f /mingw64/lib/PCANBasic.lib ]] ; then
+    cp ${asdir}/release/download/pcan-basic/"PCAN-Basic API"/x64/VC_LIB/PCANBasic.lib /mingw64/lib -v
+  fi
+
+  if ! [[ -f /mingw64/lib/ControlCAN.lib ]] ; then
+    cp ${asdir}/release/download/ControlCAN/64/ControlCAN.lib /mingw64/lib -v
+  fi
+
+  if ! [[ -f /mingw64/include/sys/queue.h ]] ; then
+    mkdir -p /mingw64/include/sys
+    cp ${asdir}/com/as.infrastructure/include/sys/queue.h /mingw64/include/sys -v
+  fi
+
+  cp ${asdir}/com/as.tool/qemu/hw/char/*.c ${srcdir}/${_pkgfqn}/hw/char -v
+
+  cd ${srcdir}/${_pkgfqn}
+}
+
+build() {
+  export CC=${MINGW_PREFIX}/bin/gcc
+  export CXX=${MINGW_PREFIX}/bin/g++
+
+  mkdir -p "${srcdir}/build-${MINGW_CHOST}"
+  cd "${srcdir}/build-${MINGW_CHOST}"
+
+  declare -a extra_config
+  if check_option "strip" "n"; then
+    extra_config+=("--disable-strip")
+  fi
+
+  ../${_realname}-${pkgver}/configure \
+    --prefix=${MINGW_PREFIX} \
+    --host-cc=${CC} \
+    --python=${MINGW_PREFIX}/bin/python2 \
+    --datadir=${MINGW_PREFIX}/etc/qemu \
+    --mandir=${MINGW_PREFIX}/share/qemu \
+    --bindir=${MINGW_PREFIX}/bin \
+    --libdir=${MINGW_PREFIX}/lib \
+    --sysconfdir=${MINGW_PREFIX}/etc/qemu \
+    --enable-libssh2 \
+    --enable-lzo \
+    --enable-snappy \
+    --disable-docs \
+    --enable-gtk \
+    --with-gtkabi=3.0 \
+    --disable-xen \
+    --disable-vnc-sasl \
+    --disable-kvm \
+    --disable-bluez \
+    --disable-spice \
+    "${extra_config[@]}"
+
+  make
+}
+
+package() {
+  cd "${srcdir}/build-${MINGW_CHOST}"
+  make -j1 DESTDIR="${pkgdir}" install
+}

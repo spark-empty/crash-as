@@ -1,0 +1,14 @@
+<ConsoleZWorkspace>
+	<Tab Title="ConsoleZ" Name="aslua">
+		<View Title="ConsoleZ" CurrentDirectory="release\aslua" ShellArguments=""/>
+	</Tab>
+	<Tab Title="ConsoleZ" Name="ascore">
+		<View Title="ConsoleZ" CurrentDirectory="release\ascore" ShellArguments=""/>
+	</Tab>
+	<Tab Title="ConsoleZ" Name="asboot">
+		<View Title="ConsoleZ" CurrentDirectory="release\asboot" ShellArguments=""/>
+	</Tab>
+	<Tab Title="ConsoleZ" Name="as.one.py">
+		<View Title="ConsoleZ" CurrentDirectory="com\as.tool\as.one.py" ShellArguments=""/>
+	</Tab>
+</ConsoleZWorkspace>

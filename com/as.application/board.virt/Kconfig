@@ -1,0 +1,8 @@
+config ARCH_VIRT
+    bool
+    default y
+    select DEFAULT_ASKAR
+
+config ARCH
+    string
+    default "virt"

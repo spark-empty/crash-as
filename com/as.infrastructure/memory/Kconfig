@@ -1,0 +1,23 @@
+menu "AUTOSAR Memory Stack"
+config EA
+	bool "EEPROM Abstraction Layer"
+	depends on EEP
+	default y
+
+config FEE
+	bool "Flash EEPROM Emulation"
+	depends on FLS
+	default y
+
+config MEMIF
+	bool "Memory Abstraction Interface"
+	depends on (EA || FEE)
+	default y
+
+config NVM
+	bool "NVRAM Manager"
+	depends on MEMIF
+	select CLIB_MBOX
+	default y
+
+endmenu

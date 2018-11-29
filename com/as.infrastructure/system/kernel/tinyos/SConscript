@@ -1,0 +1,32 @@
+import os
+from building import *
+import xcc
+
+xcc.SetDefaultRTOS('tinyos')
+
+cwd = GetCurrentDir()
+
+Import('asenv')
+arch = asenv['arch']
+
+asenv.Append(CPPPATH=['%s'%(cwd)])
+if(arch=='arm'):
+    asenv.Append(CPPPATH=['%s/portable/posix'%(cwd)])
+elif(arch=='cortex-m'):
+    asenv.Append(CPPPATH=['%s/portable/armv7_m'%(cwd)])
+else:
+    asenv.Append(CPPPATH=['%s/portable/%s'%(cwd,arch)])
+
+objs = []
+
+objs += Glob('*.c')
+if(arch=='arm'):
+    objs += Glob('../askar/portable/arm/startup.S')
+elif(arch=='cortex-m'):
+    objs += Glob('%s/portable/armv7_m/*.c'%(cwd))
+    objs += Glob('%s/portable/armv7_m/gcc/*.s'%(cwd))
+else:
+    objs += Glob('portable/%s/*.c'%(arch))
+    objs += Glob('portable/%s/*.S'%(arch))
+
+Return('objs')

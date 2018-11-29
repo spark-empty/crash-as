@@ -1,0 +1,21 @@
+*~
+## Vim...
+.*.swp
+##python
+*.pyc
+##Xcode related file
+*.pbxproj
+##build stuff
+*.o
+*.dep
+##Mac OS X stuff
+.DS_Store
+##LaTeX stuff
+*.aux
+*.log
+*.idx
+*.bbl
+*.blg
+*.synctex.gz
+*.toc
+*.out

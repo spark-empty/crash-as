@@ -1,0 +1,10 @@
+from building import *
+Import('asenv')
+MODULES = asenv['MODULES']
+env = GetELFEnv()
+
+for src in Glob('*.c'):
+    env.SharedLibrary(src)
+
+if('DLL_FREERTOS' in MODULES):
+    SConscript('freertos/SConscript')

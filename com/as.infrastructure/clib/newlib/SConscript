@@ -1,0 +1,48 @@
+import os
+from building import *
+
+cwd = GetCurrentDir()
+
+Import('asenv')
+ASROOT = asenv['ASROOT']
+MODULES = asenv['MODULES']
+
+newlib=Package('ftp://sourceware.org/pub/newlib/newlib-3.0.0.tar.gz') +'/newlib-3.0.0' 
+
+MKSymlink(newlib,'%s/newlib'%(cwd))
+
+libgcc2 = 'https://raw.githubusercontent.com/gcc-mirror/gcc/master'
+MKDir('%s/libgcc'%(cwd))
+Download('%s/libgcc/libgcc2.c'%(libgcc2),'%s/libgcc/libgcc2.c'%(cwd))
+Download('%s/libgcc/libgcc2.h'%(libgcc2),'%s/libgcc/libgcc2.h'%(cwd))
+Download('%s/include/longlong.h'%(libgcc2),'%s/libgcc/longlong.h'%(cwd))
+
+RMFile('%s/newlib/libc/include/signal.h'%(newlib))
+RMFile('%s/newlib/libc/include/sched.h'%(newlib))
+RMFile('%s/newlib/libc/include/pthread.h'%(newlib))
+RMFile('%s/newlib/libc/include/sys/dirent.h'%(newlib))
+
+if(not os.path.exists('%s/libgcc/libgcc_tm.h'%(cwd))):
+    cmd = 'sed -i "26c //" %s/libgcc/libgcc2.c'%(cwd)
+    cmd += ' && sed -i "27c //" %s/libgcc/libgcc2.c'%(cwd)
+    cmd += ' && sed -i "28c //" %s/libgcc/libgcc2.c'%(cwd)
+    cmd += ' && sed -i "29c //" %s/libgcc/libgcc2.c'%(cwd)
+    RunCommand(cmd)
+    fp = open('%s/libgcc/libgcc_tm.h'%(cwd),'w')
+    fp.write('''#define MIN_UNITS_PER_WORD 4
+#define LIBGCC2_MAX_UNITS_PER_WORD 4
+#define L_moddi3
+#define L_divdi3
+#define L_umoddi3
+#define L_udivdi3
+typedef unsigned long size_t;\n''')
+    fp.close()
+
+asenv.Append(CPPPATH=['%s/newlib/newlib/libc/include'%(cwd)])
+asenv.Append(CPPDEFINES=['USE_NEWLIB'])
+
+objs = []
+
+objs += Glob('libgcc/*.c')
+
+Return('objs')

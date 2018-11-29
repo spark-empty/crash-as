@@ -1,0 +1,34 @@
+import os
+from building import *
+Import('asenv')
+ASROOT = asenv['ASROOT']
+arch = asenv['arch']
+cwd = GetCurrentDir()
+
+cmd = 'sed -i "274c /*static*/ PT_THREAD(process_thread_##name(struct pt *process_pt, \\\\\\\\" core/sys/process.h'
+cmd += ' && sed -i "475c // addr.s_addr = inet_addr(__argv[1]);" cpu/native/net/wpcap.c'
+
+protothread = Package('https://github.com/contiki-os/contiki.git', cmd=cmd, version='release-3-1')
+
+MKSymlink('%s/release/download/contiki/core/sys'%(asenv['ASROOT']),'%s/core/sys'%(cwd))
+MKSymlink('%s/release/download/contiki/core/lib'%(asenv['ASROOT']),'%s/core/lib'%(cwd))
+
+
+asenv.Append(CPPPATH=['%s/core'%(protothread),'%s/include'%cwd,
+                      '%s/platform/native'%cwd])
+
+objs= []
+
+for obj in ['core/sys/pro*.c','core/sys/*timer.c','core/sys/autostart.c',
+            'core/lib/list.c',
+            'platform/native/*.c','core/*.c']:
+    objs += Glob(obj)
+
+SrcRemove(objs, ['rtimer.c'])
+
+if('CONTIKI' in asenv['MODULES']):
+    asenv.Append(CPPPATH=['%s/../tinyos'%(cwd)])
+    if(arch=='arm'):
+        objs += Glob('../askar/portable/arm/startup.S')
+
+Return('objs')

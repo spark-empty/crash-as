@@ -1,0 +1,30 @@
+import os
+from building import *
+
+cwd = GetCurrentDir()
+
+Import('asenv')
+
+if(not IsPlatformWindows()):
+    cmd = 'make'
+else:
+    cmd = 'sed -i "67c die(\\"realloc()\ failed (len=%d)\\", (int)len);" util.h'
+    cmd += ' && sed -i "21c CFLAGS = -g -Os $(SHAREDLIB_CFLAGS) $(WARNINGS)" Makefile'
+    cmd += ' && sed -i "9c util.c fnmatch.c" Makefile.convert-dtsv0'
+
+libfdt = Package('https://github.com/dgibson/dtc.git', cmd=cmd, version='v1.4.7')
+
+if(IsPlatformWindows()):
+    msys2_runtime = 'https://raw.githubusercontent.com/git-for-windows/msys2-runtime/master'
+    Download('%s//include/fnmatch.h'%(msys2_runtime),'%s/fnmatch.h'%(libfdt))
+    Download('https://raw.githubusercontent.com/libgit2/libgit2/master/src/fnmatch.c', '%s/fnmatch.c'%(libfdt))
+    cmd = 'sed -i "s/p_fnmatch(/fnmatch(/g" fnmatch.c'
+    cmd += ' && sed -i "s/FNM_NOSYS/2/g" fnmatch.c'
+    cmd += ' && sed -i "s/FNM_NORES/3/g" fnmatch.c'
+    cmd += ' && sed -i "s/git__tolower/tolower/g" fnmatch.c'
+    cmd += ' && sed -i "s/lstat/stat/g" fstree.c'
+    MKObject([],libfdt+'/dtc.exe','cd %s && %s && make'%(libfdt,cmd), False)
+
+asenv.Append(CPPPATH=['%s/libfdt'%(libfdt)])
+objs = Glob('%s/libfdt/*.c'%(libfdt))
+Return('objs')

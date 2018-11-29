@@ -1,0 +1,31 @@
+# scons for ascore
+import os
+import sys
+studio=os.path.abspath('../../com/as.tool/config.infrastructure.system/')
+sys.path.append(studio)
+from building import *
+
+asenv = PrepareEnv('ascore')
+BOARD = asenv['BOARD']
+ASROOT = asenv['ASROOT']
+
+bdir = 'build/%s'%(BOARD)
+objs = SConscript('%s/com/SConscript'%(ASROOT),variant_dir=bdir, duplicate=0)
+objs += SConscript('app/SConscript',variant_dir=bdir+'/app', duplicate=0)
+
+try:
+    target = BOARD
+    if(IsPlatformWindows()):target += '.exe'
+    action = '%s %s %s.s19'%(asenv['S19'],target,BOARD)
+    asenv['POSTACTION'].append(action)
+    pys19 = '%s %s/com/as.tool/lua/script/s19.py'%(asenv['python3'],ASROOT)
+    s19dir = '%s/release/asboot/build/%s/config'%(ASROOT,BOARD)
+    MKDir(s19dir)
+    action = '%s -c %s.s19 -o %s/app_s19.c'%(pys19,BOARD,s19dir)
+    asenv['POSTACTION'].append(action)
+except KeyError:
+    pass
+
+Building(BOARD,objs)
+
+SConscript('elf/SConscript')

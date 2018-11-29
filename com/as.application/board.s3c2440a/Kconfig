@@ -1,0 +1,8 @@
+config ARCH_S3C2440A
+    bool
+    default y
+    select DEFAULT_TRAMPOLINE
+
+config ARCH
+    string
+    default "s3c2440a"

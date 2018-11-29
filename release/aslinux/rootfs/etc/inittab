@@ -1,0 +1,2 @@
+# id:runlevels:action:process
+T0:23:respawn:/sbin/getty -L ttyAMA0 9600 vt100

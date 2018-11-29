@@ -1,0 +1,12 @@
+menu "AUTOSAR MCAL&CDD for arch lm3s"
+
+
+config CAN
+	bool "MCAL CAN driver"
+	default y
+
+config MCU
+	bool "MCAL MCU driver"
+	default y
+
+endmenu

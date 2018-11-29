@@ -1,0 +1,17 @@
+menu "AUTOSAR Diagnostic Stack"
+
+config DCM
+	bool "Diagnostic Communication Manager"
+	depends on PDUR
+	default y
+
+config DEM
+	bool "Diagnostic Event Manager"
+	depends on NVM
+	default y
+
+config DET
+	bool "Development Error Trace"
+	default y
+
+endmenu

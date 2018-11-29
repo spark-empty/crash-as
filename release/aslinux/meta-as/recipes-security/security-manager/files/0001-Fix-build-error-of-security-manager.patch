@@ -1,0 +1,44 @@
+From e09d4e00d3b1dddbdb9777c7298471b635dfc677 Mon Sep 17 00:00:00 2001
+From: Parai Wang <parai@foxmail.com>
+Date: Sat, 11 Mar 2017 11:42:30 +0800
+Subject: [PATCH] Fix build error of security-manager
+
+1. no include of <vector>
+2. no definition of SMACK64IPINT and SMACK64IPOUT
+
+Signed-off-by: Parai Wang <parai@foxmail.com>
+---
+ src/client/client-security-manager.cpp | 3 +++
+ src/common/include/privilege_db.h      | 2 +-
+ 2 files changed, 4 insertions(+), 1 deletion(-)
+
+diff --git a/src/client/client-security-manager.cpp b/src/client/client-security-manager.cpp
+index 74a6b30..d118120 100644
+--- a/src/client/client-security-manager.cpp
++++ b/src/client/client-security-manager.cpp
+@@ -47,6 +47,9 @@
+ #include <security-manager.h>
+ #include <client-offline.h>
+ 
++#define XATTR_NAME_SMACKIPIN "SMACK64IPIN"
++#define XATTR_NAME_SMACKIPOUT "SMACK64IPOUT"
++
+ static const char *EMPTY = "";
+ 
+ /**
+diff --git a/src/common/include/privilege_db.h b/src/common/include/privilege_db.h
+index 03c6680..d3dd5e0 100644
+--- a/src/common/include/privilege_db.h
++++ b/src/common/include/privilege_db.h
+@@ -32,7 +32,7 @@
+ #include <map>
+ #include <stdbool.h>
+ #include <string>
+-
++#include <vector>
+ #include <dpl/db/sql_connection.h>
+ 
+ #ifndef PRIVILEGE_DB_H_
+-- 
+1.9.1
+

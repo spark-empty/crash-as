@@ -1,0 +1,57 @@
+if ARCH_ANY
+menu "AUTOSAR MCAL&CDD for arch ANY"
+
+config CAN
+	bool "MCAL CAN driver"
+	default n
+
+config LIN
+	bool "MCAL LIN driver"
+	default n
+
+config SPI
+	bool "MCAL SPI driver"
+	default n
+
+config DIO
+	bool "MCAL DIO driver"
+	default n
+
+config MCU
+	bool "MCAL MCU driver"
+	default y
+
+config WDG
+	bool "MCAL Watch Dog driver"
+	default n
+
+config PORT
+	bool "MCAL PORT driver"
+	default n
+
+config ADC
+	bool "MCAL ADC driver"
+	default n
+
+config ICU
+	bool "MCAL ICU driver"
+	default n
+
+config PWM
+	bool "MCAL PWM driver"
+	default n
+
+config GPT
+	bool "MCAL GPT driver"
+	default n
+
+config FLS
+	bool "MCAL FLS driver"
+	default n
+
+config FLASH
+	bool "HIS FLASH driver"
+	default n
+
+endmenu
+endif

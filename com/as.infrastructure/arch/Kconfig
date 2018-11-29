@@ -1,0 +1,1 @@
+source "$ASROOT/com/as.infrastructure/arch/$ARCH/Kconfig"

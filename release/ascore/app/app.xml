@@ -1,0 +1,33 @@
+<?xml version='1.0' encoding='utf-8'?>
+<AS>
+	<Os>	
+		<Task Name="TaskApp"  
+	    		Activation="1" 
+				Autostart="True" 
+				Priority="5" 
+				Schedule="FULL" 
+				StackSize="2048"
+				Application="OsDefaultApp"
+	     		Comment="*" >
+			<EventList Max="TBD">
+				<Event Comment="*" Mask="0x01" Name="Event1" />
+				<Event Comment="*" Mask="0x02" Name="Event2" />
+				<Event Comment="*" Mask="0x04" Name="Event3" />
+				<Event Comment="*" Mask="0x08" Name="Event4" />
+				<Event Comment="*" Mask="0x10" Name="Event5" />
+			</EventList>
+		</Task>
+		
+		<Alarm Name="AlarmApp" 
+			Autostart="False" 
+			Period="5" 
+			StartTime="5"
+			Counter="OsClock"
+			Action="ActivateTask"	
+			Task="TaskApp"				
+			Event="TBD"  
+			Callback="TBD" 
+			Application="OsDefaultApp"
+			Comment="*" />
+ 	</Os>
+</AS>

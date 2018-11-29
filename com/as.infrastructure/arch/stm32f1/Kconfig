@@ -1,0 +1,38 @@
+if ARCH_STM31F1
+menu "AUTOSAR MCAL&CDD for arch STM32F1"
+
+config CAN
+	bool "MCAL CAN driver"
+	default y
+
+config SCAN
+	bool "MCAL CAN driver on UART"
+	default n
+
+config DIO
+	bool "MCAL DIO driver"
+	default y
+
+config MCU
+	bool "MCAL MCU driver"
+	default y
+
+config PORT
+	bool "MCAL PORT driver"
+	default y
+
+config LWIP_DRV
+	bool "LWIP driver"
+	default y
+
+config USB_DRV
+	bool "USB driver"
+	default y
+	select USB
+
+config USB
+	bool "USB core"
+	default y
+
+endmenu
+endif

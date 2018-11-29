@@ -1,0 +1,8 @@
+menu "elf application config"
+
+config DLL_FREERTOS
+	bool "freertos posix arch port sample"
+	depends on PTHREAD_SIGNAL
+	default y
+
+endmenu

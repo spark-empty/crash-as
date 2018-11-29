@@ -1,0 +1,43 @@
+import os
+from building import *
+
+cwd = GetCurrentDir()
+
+Import('asenv')
+ASROOT = asenv['ASROOT']
+MODULES = asenv['MODULES']
+
+objs = []
+
+cmd = 'rm -f source/diskio.c'
+cmd += ' && sed -i "138c #define FF_FS_RPATH       2" source/ffconf.h'
+cmd += ' && sed -i "41c #define FF_USE_MKFS        1" source/ffconf.h'
+
+fatfs = Package('http://elm-chan.org/fsw/ff/arc/ff13.zip', cmd=cmd)
+
+MKSymlink(fatfs,'%s/fatfs'%(cwd))
+
+if('RTTHREAD' not in MODULES):
+    objs += Glob('fatfs/source/*.c')
+    asenv.Append(CPPPATH = ['%s/fatfs/source'%(cwd)])
+
+# FATFS NATIVE TOOS
+srcs = Glob('%s/com/as.infrastructure/arch/posix/mcal/diskio.c'%(ASROOT))
+srcs += Glob('%s/com/as.infrastructure/diagnostic/Det/asdebug.c'%(ASROOT))
+srcs += Glob('fatfs/source/*.c')
+if(IsPlatformWindows()):
+    try:
+        cmd = '%s/gcc -D__WINDOWS__'%(asenv['CONFIGS']['MSYS2_GCC_PATH'])
+    except TypeError:
+        cmd = 'gcc -D__WINDOWS__'
+else:
+    cmd ='gcc -D__LINUX__'
+for src in srcs:
+    cmd += ' %s'%(src)
+cmd += ' -I%s/fatfs/source'%(cwd)
+cmd += ' -I%s/com/as.infrastructure/include'%(ASROOT)
+cmd += ' -DUSE_DET -DUSE_FATFS -DFATFS_NATIVE_TOOL'
+cmd += ' -std=gnu99 -o %s/fatfs.exe'%(cwd)
+MKObject(srcs,'%s/fatfs.exe'%(cwd),cmd, False)
+
+Return('objs')

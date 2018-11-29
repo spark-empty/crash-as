@@ -1,0 +1,24 @@
+<?xml version='1.0' encoding='utf-8'?>
+<AS>
+	<Os>
+		<Task Name="Rte_Runnable"  
+			Activation="5" 
+			Autostart="False" 
+			Priority="10" 
+			Schedule="FULL" 
+			StackSize="512"
+			Comment="*" />
+
+		<Alarm Name="Alarm_Rte_Runnable" 
+				Autostart="False" 
+				Period="5" 
+				StartTime="5"
+				Counter="OsClock"
+				Action="ActivateTask"	
+				Task="Rte_Runnable"				
+				Event="TBD"  
+				Callback="TBD" 
+				Comment="*" />
+	</Os>
+	<KSM> <RteIdle><Running/></RteIdle> </KSM>
+</AS>

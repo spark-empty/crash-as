@@ -1,0 +1,47 @@
+# scons for asboot
+import os
+import sys
+studio=os.path.abspath('../../com/as.tool/config.infrastructure.system/')
+sys.path.append(studio)
+from building import *
+
+asenv = PrepareEnv('asboot')
+BOARD = asenv['BOARD']
+ASROOT = asenv['ASROOT']
+
+bdir = 'build/%s'%(BOARD)
+objs = SConscript('%s/com/SConscript'%(ASROOT),variant_dir=bdir, duplicate=0)
+
+try:
+    flsdrv = asenv['flsdrv']
+    flsobjs = flsdrv['objs']
+    flsenv = Environment(CC=asenv['CC'], LINK=asenv['LINK'], TOOLS=asenv['TOOLS'],
+                         CPPDEFINES=flsdrv['CPPDEFINES'],CPPPATH=flsdrv['CPPPATH'],
+                         CCFLAGS=flsdrv['CCFLAGS'], LINKFLAGS=flsdrv['LINKFLAGS'])
+    if(not GetOption('verbose')):
+        # override the default verbose command string
+        flsenv.Replace(
+          ARCOMSTR = 'AR $SOURCE',
+          ASCOMSTR = 'AS $SOURCE',
+          ASPPCOMSTR = 'AS $SOURCE',
+          CCCOMSTR = 'CC $SOURCE',
+          CXXCOMSTR = 'CXX $SOURCE',
+          LINKCOMSTR = 'LINK $TARGET'
+        )
+    target=BOARD+'-flsdrv'
+    if(IsPlatformWindows()):target += '.exe'
+    flsenv.Program(target,flsobjs)
+    action = '%s %s %s-flsdrv.s19'%(asenv['S19'],target,BOARD)
+    flsenv.AddPostAction(target,action)
+except KeyError:
+    print('there is no flash-drv!')
+
+try:
+    target = BOARD
+    if(IsPlatformWindows()):target += '.exe'
+    action = '%s %s %s.s19'%(asenv['S19'],target,BOARD)
+    asenv['POSTACTION'].append(action)
+except KeyError:
+    pass
+
+Building(BOARD,objs)

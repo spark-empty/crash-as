@@ -1,0 +1,11 @@
+menu "as packages config"
+
+if RT_USING_DFS
+    config RT_USING_LWEXT4
+        bool "Using lwext4 file system"
+        default y
+        help
+            The lwext file system is a light weight ext2/3/4 file system.
+endif
+
+endmenu

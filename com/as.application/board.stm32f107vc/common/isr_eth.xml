@@ -1,0 +1,6 @@
+<?xml version='1.0' encoding='utf-8'?>
+<AS>
+	<Os>
+	    <ISR Name='knl_isr_eth_process' Vector='61'  Application="OsDefaultApp"/>
+	</Os>
+</AS>

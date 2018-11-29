@@ -1,0 +1,43 @@
+import os
+from building import *
+
+Import('asenv')
+MODULES=asenv['MODULES']
+ASROOT=asenv['ASROOT']
+
+cwd = GetCurrentDir()
+
+objs = []
+
+if('PCI' in MODULES):
+    objs += Glob('bsp/pci-virt.c')
+
+if('CAN' in MODULES):
+    asenv.Append(CPPDEFINES=['CAN_LL_DL=64'])
+
+if('MCU' in MODULES):
+    objs += Glob('../common/mcal/Mcu.c')
+
+if('EEP' in MODULES):
+    objs += Glob('../posix/mcal/Eep.c')
+
+if('FLS' in MODULES):
+    objs += Glob('../posix/mcal/Fls.c')
+
+if('LWIP' in MODULES):
+    if(IsPlatformWindows()):
+        asenv.Append(CPPDEFINES='USE_PCAPIF')
+
+asenv.Append(CCFLAGS=['-O0','-g'])
+asenv.Append(ASFLAGS=['-g'])
+asenv.Append(ASFLAGS=['-I%s/bsp'%(cwd)])
+
+asenv.Append(CPPPATH=['%s/bsp'%(cwd),'%s/mcal'%(cwd)])
+
+
+asenv.Append(CCFLAGS=['-ffunction-sections','-fdata-sections'])
+asenv.Append(LINKFLAGS='--gc-sections')
+
+SelectCompilerArm64()
+
+Return('objs')

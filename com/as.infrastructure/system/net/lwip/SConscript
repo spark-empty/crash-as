@@ -1,0 +1,43 @@
+import os
+from building import *
+
+cwd = GetCurrentDir()
+
+Import('asenv')
+ASROOT = asenv['ASROOT']
+MODULES=asenv['MODULES']
+
+download = '%s/release/download'%(ASROOT)
+lwip=Package('git://git.savannah.nongnu.org/lwip.git', version='STABLE-1_4_1')
+cmd = 'sed -i "22c #include <ddk/ntddndis.h>" ports/win32/pcapif_helper.c'
+lwipc=Package('git://git.savannah.nongnu.org/lwip/lwip-contrib.git', cmd=cmd, version='STABLE-1_4_1')
+
+MKSymlink('%s/ports/win32/lwipcfg_msvc.h.example'%(lwipc),
+          '%s/ports/win32/lwipcfg_msvc.h'%(lwipc))
+MKSymlink(lwip,'%s/lwip'%(cwd))
+MKSymlink(lwipc,'%s/lwip-contrib'%(cwd))
+
+objs = []
+
+objs += Glob('lwip/src/api/*.c')
+objs += Glob('lwip/src/core/*.c')
+objs += Glob('lwip/src/core/ipv4/*.c')
+objs += Glob('lwip/src/core/snmp/*.c')
+objs += Glob('lwip/src/netif/*.c')
+objs += Glob('lwip/src/netif/ppp/*.c')
+
+asenv.Append(CPPPATH = ['%s/lwip/src/include'%(cwd)])
+asenv.Append(CPPPATH = ['%s/lwip/src/include/ipv4'%(cwd)])
+
+if('LWIP_POSIX_ARCH' in MODULES):
+    asenv.Append(CPPPATH=[cwd])
+    objs += Glob('lwip-contrib/ports/unix/sys_arch.c')
+    MKSymlink('%s/lwip-contrib/ports/unix/include/arch/sys_arch.h'%(cwd),
+              '%s/lwip_sys_arch.h'%(cwd))
+    objs += Glob('lwip-contrib/apps/httpserver/*.c')
+
+print('INFO: set LWIP_DEBUG=yes to enable debug')
+if(os.getenv('LWIP_DEBUG')=='yes'):
+    asenv.Append(CPPDEFINES = '-DLWIP_DEBUG=1')
+
+Return('objs')

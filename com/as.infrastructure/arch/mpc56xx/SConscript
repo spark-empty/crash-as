@@ -1,0 +1,41 @@
+import os
+from building import *
+
+Import('asenv')
+MODULES=asenv['MODULES']
+ASROOT=asenv['ASROOT']
+
+cwd = GetCurrentDir()
+
+objs = []
+
+if('CAN' in MODULES):
+    objs += Glob('mcal/Can.c')
+    asenv.Append(CPPDEFINES=['CAN_LL_DL=8'])
+
+if('DIO' in MODULES):
+    objs += Glob('mcal/Dio.c')
+
+if('MCU' in MODULES):
+    objs += Glob('mcal/Mcu.c')
+
+if('PORT' in MODULES):
+    objs += Glob('mcal/Port.c')
+
+if('FLASH' in MODULES):
+    objs += Glob('mcal/Flash.c')
+    asenv.Append(CPPDEFINES=['FLASH_ERASE_SIZE=0x20000','FLASH_WRITE_SIZE=8'])
+
+if(os.getenv('USE_CWCC') == 'no'):
+    SelectCompilerPPCEabi()
+else:
+    SelectCompilerCWCC()
+    asenv.Append(ASFLAGS=['-proc=56X'])
+    asenv.Append(CCFLAGS=['-proc=56X'])
+    asenv.Append(LINKFLAGS=['-proc=56X'])
+    asenv.Append(LINKFLAGS=['-srec','mpc56xx.s19','-sreceol','unix'])
+    asenv.Append(LINKFLAGS=['-m','_start'])
+    asenv.Append(LINKFLAGS=['-romaddr','0x0','-rambuffer','0x0','-gdwarf-2',
+                            '-code_merging','all'])
+
+Return('objs')

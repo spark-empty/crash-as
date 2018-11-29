@@ -1,0 +1,48 @@
+import os
+from building import *
+import xcc
+
+cwd = GetCurrentDir()
+
+Import('asenv')
+MODULES = asenv['MODULES']
+
+objs = []
+
+asenv.Append(CPPPATH=[cwd])
+
+if('ANYOS' not in MODULES):
+    objs += Glob('*.c')
+else:
+    # simple OSAL just make BSW of as build pass and then 
+    # to post link with other OS
+    asenv.Append(CPPPATH=['%s/tinyos'%(cwd)])
+    asenv.Append(CPPDEFINES=['USE_OSAL'])
+
+if('ASKAR' in MODULES):
+    objs += SConscript('askar/SConscript')
+elif('TINYOS' in MODULES):
+    objs += SConscript('tinyos/SConscript')
+elif('RTTHREAD' in MODULES):
+    objs += SConscript('rtthread/SConscript')
+elif('ATK2_SC4' in MODULES):
+    objs += SConscript('toppers-atk/atk2-sc4/SConscript')
+elif('TRAMPOLINE' in MODULES):
+    objs += SConscript('trampoline/SConscript')
+elif('TOPPERS_OSEK' in MODULES):
+    objs += SConscript('toppers_osek/SConscript')
+elif('FREERTOS' in MODULES):
+    objs += SConscript('freertos/SConscript')
+elif('MINIX' in MODULES):
+    objs += SConscript('minix/SConscript')
+elif('ANYOS' in MODULES):
+    xcc.SetDefaultRTOS('anyos')
+elif('CONTIKI' in MODULES):
+    xcc.SetDefaultRTOS('contiki')
+else:
+    assert(0)
+
+if(('PROTOTHREAD' in MODULES) or ('CONTIKI' in MODULES)):
+    objs += SConscript('contiki/SConscript')
+
+Return('objs')

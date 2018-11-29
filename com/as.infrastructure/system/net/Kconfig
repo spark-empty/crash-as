@@ -1,0 +1,34 @@
+menu "Internet Protocol"
+config LWIP
+	bool "LWIP"
+	depends on LWIP_DRV
+	default y
+
+config UIP
+	bool "UIP"
+	depends on UIP_DRV
+	select PROTOTHREAD
+	default y
+
+if !RTTHREAD
+choice
+	prompt "LWIP arch"
+	default LWIP_POSIX_ARCH if ARCH_POSIX
+	default LWIP_OSEK_ARCH  if !ARCH_POSIX
+	depends on LWIP
+
+config LWIP_POSIX_ARCH
+	bool "lwip standard porting based on pthread"
+
+config LWIP_OSEK_ARCH
+	bool "lwip standard porting based on OSEK"
+
+endchoice
+endif
+
+config FTP
+	bool "File Transfer Protocol Daemon"
+	depends on (LWIP || UIP) && (VFS || RT_USING_DFS)
+	default y
+
+endmenu

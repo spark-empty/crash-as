@@ -1,0 +1,30 @@
+import os
+from building import *
+
+cwd = GetCurrentDir()
+
+Import('asenv')
+MODULES = asenv['MODULES']
+
+objs = []
+
+if(asenv['RELEASE']=='asboot'):
+    objs += Glob('common/*.c')
+    objs += Glob('common/*.xml')
+    objs += Glob('common/*.arxml')
+    asenv.Append(CPPPATH=['%s/common'%(cwd)])
+    asenv.Append(CPPDEFINES=['__AS_BOOTLOADER__','NO_STDIO_RINGBUFFER'])
+    #if('MINIBLT' in MODULES):
+    if True:
+        asenv.Prepend(CPPPATH=['%s/mininc'%(cwd)])
+        MKDir('%s/mininc'%(cwd))
+        for f in ['CanIf_Cbk.h', 'CanIf.h', 'CanTp_Cbk.h',
+                  'CanTp.h', 'Dcm.h', 'Dcm_Internal.h',
+                  'Dcm_Cbk.h','Xcp.h']:
+            fl = '%s/mininc/%s'%(cwd,f)
+            if(not os.path.exists(fl)):
+                fp = open(fl,'w')
+                fp.write('#include "miniblt.h"\n')
+                fp.close()
+
+Return('objs')

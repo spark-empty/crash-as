@@ -1,0 +1,25 @@
+import os
+from building import *
+
+cwd = GetCurrentDir()
+
+Import('asenv')
+MODULES = asenv['MODULES']
+
+objs = []
+
+if('DCM' in MODULES):
+    if('DCM_MINI' in MODULES):
+        objs += Glob('Dcm/DcmMini.c')
+    else:
+        objs += Glob('Dcm/*.c')
+        SrcRemove(objs, ['DcmMini.c'])
+    asenv.Append(CPPPATH=['%s/Dcm/inc'%(cwd)])
+
+if('DEM' in MODULES):
+    objs += Glob('Dem/*.c')
+
+if('DET' in MODULES):
+    objs += Glob('Det/*.c')
+
+Return('objs')

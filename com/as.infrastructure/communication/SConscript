@@ -1,0 +1,77 @@
+import os
+from building import *
+
+cwd = GetCurrentDir()
+
+Import('asenv')
+MODULES = asenv['MODULES']
+
+objs = []
+
+if('CANIF' in MODULES):
+    objs += Glob('CanIf/*.c')
+    objs += Glob('CanIf/*.xml')
+
+if('CANNM' in MODULES):
+    objs += Glob('CanNm/*.c')
+
+if('CANSM' in MODULES):
+    objs += Glob('CanSM/*.c')
+    asenv.Append(CPPPATH=['%s/CanSM'%(cwd)])
+
+if('CANTP' in MODULES):
+    if('CANTP_MINI' in MODULES):
+        objs += Glob('CanTp/CanTpMini.c')
+    else:
+        objs += Glob('CanTp/CanTp.c')
+    asenv.Append(CPPPATH=['%s/CanTp'%(cwd)])
+
+if('COM' in MODULES):
+    objs += Glob('Com/*.c')
+    asenv.Append(CPPPATH=['%s/Com'%(cwd)])
+
+if('COMM' in MODULES):
+    objs += Glob('ComM/*.c')
+    asenv.Append(CPPPATH=['%s/ComM'%(cwd)])
+
+if('DOIP' in MODULES):
+    objs += Glob('DoIP/*.c')
+    asenv.Append(CPPPATH=['%s/DoIP'%(cwd)])
+
+if('NM' in MODULES):
+    objs += Glob('Nm/*.c')
+    asenv.Append(CPPPATH=['%s/Nm'%(cwd)])
+
+if('OSEKNM' in MODULES):
+    objs += Glob('OsekNm/*.c')
+    asenv.Append(CPPPATH=['%s/OsekNm'%(cwd)])
+
+if('PCI' in MODULES):
+    objs += Glob('Pci/pci*.c')
+    asenv.Append(CPPPATH=['%s/Pci'%(cwd)])
+
+if('PDUR' in MODULES):
+    objs += Glob('PduR/*.c')
+    asenv.Append(CPPPATH=['%s/PduR'%(cwd)])
+
+if('RPMSG' in MODULES):
+    objs += Glob('RPmsg/*.c')
+    asenv.Append(CPPPATH=['%s/RPmsg'%(cwd)])
+
+if('SOAD' in MODULES):
+    objs += Glob('SoAd/*.c')
+    asenv.Append(CPPPATH=['%s/SoAd'%(cwd)])
+
+if('XCP' in MODULES):
+    if('XCP_MINI' in MODULES):
+        objs += Glob('Xcp/XcpMini.c')
+    else:
+        objs += Glob('Xcp/*.c')
+        SrcRemove(objs, ['XcpMini.c'])
+    asenv.Append(CPPPATH=['%s/Xcp'%(cwd)])
+
+if('J1939TP' in MODULES):
+    objs += Glob('J1939Tp/*.c')
+    asenv.Append(CPPPATH=['%s/J1939Tp'%(cwd)])
+
+Return('objs')

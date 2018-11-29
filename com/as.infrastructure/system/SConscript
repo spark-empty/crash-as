@@ -1,0 +1,41 @@
+from building import *
+
+cwd = GetCurrentDir()
+
+Import('asenv')
+MODULES = asenv['MODULES']
+
+objs = []
+
+objs += SConscript('kernel/SConscript')
+
+if('ECUM' in MODULES):
+    objs += Glob('EcuM/*.c')
+    asenv.Append(CPPPATH=['%s/EcuM'%(cwd)])
+
+if('SCHM' in MODULES):
+    objs += Glob('SchM/*.c')
+    asenv.Append(CPPPATH=['%s/SchM'%(cwd)])
+
+if('SG' in MODULES):
+    objs += Glob('gui/Sg/*.c')
+    asenv.Append(CPPPATH=['%s/gui/Sg'%(cwd)])
+
+if('LVGL' in MODULES):
+    objs += SConscript('gui/lvgl/SConscript')
+
+objs += Glob('Crc/*.c')
+
+objs += SConscript('net/SConscript')
+objs += SConscript('fs/SConscript')
+
+if('SHELL' in MODULES):
+    objs += Glob('shell/shell.c')
+    objs += Glob('shell/shell.xml')
+    if('FLASH_CMD' in MODULES):
+        objs += Glob('shell/FlashCmd.c')
+
+if('CPLUSPLUS' in MODULES):
+    objs += Glob('cplusplus/*.cpp')
+
+Return('objs')

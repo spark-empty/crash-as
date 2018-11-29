@@ -1,0 +1,17 @@
+mainmenu "Automotive Software AS Configuration"
+
+config BOARD
+    string
+    option env="BOARD"
+    default "posix"
+
+config ASROOT
+    string
+    option env="ASROOT"
+    default "../.."
+
+source "$ASROOT/com/as.tool/Kconfig"
+source "$ASROOT/com/as.application/Kconfig"
+source "$ASROOT/com/as.infrastructure/Kconfig"
+source "SgDesign/Kconfig"
+source "elf/Kconfig"

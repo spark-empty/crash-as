@@ -1,0 +1,33 @@
+import os
+
+Import('asenv')
+MODULES=asenv['MODULES']
+
+objs = []
+
+if('CLIB_ASHEAP' in MODULES):
+    objs += Glob('asheap.c')
+
+if('CLIB_MBOX' in MODULES):
+    objs += Glob('mbox.c')
+    objs += Glob('cirq_buffer.c')
+
+if('CLIB_MISCLIB' in MODULES):
+    objs += Glob('misclib.c')
+
+if('CLIB_QSORT' in MODULES):
+    objs += Glob('qsort.c')
+
+if('CLIB_STDIO_PRINTF' in MODULES):
+    objs += Glob('stdio_printf.c')
+
+if('CLIB_STDIO_CAN' in MODULES):
+    objs += Glob('stdio_can.c')
+
+if('CLIB_STRTOK_R' in MODULES):
+    objs += Glob('strtok_r.c')
+
+if('CLIB_NEWLIB' in MODULES):
+    objs += SConscript('newlib/SConscript')
+
+Return('objs')

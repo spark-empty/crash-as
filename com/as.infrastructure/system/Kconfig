@@ -1,0 +1,78 @@
+menu "System"
+
+config CRC
+	bool "CRC"
+	default y
+
+config ECUM
+	bool "Ecu Manager"
+	default y
+
+choice
+	prompt "GUI"
+	default SG
+	depends on LCD
+
+config SG
+	bool "Static GUI"
+
+config LVGL
+	bool "Littlev Graphics Libraray"
+
+endchoice
+
+choice
+	prompt "LVGL example"
+	default LV_DEMO
+	depends on LVGL
+
+config LV_DEMO
+	bool "demo"
+
+config LV_BENCHMARK
+	bool "benchmark"
+
+config LV_SYSMON
+	bool "sysmon"
+
+config LV_TERMINAL
+	bool "terminal"
+
+config LV_TPCAL
+	bool "tpcal"
+
+endchoice
+
+config SCHM
+	bool "Scheduler Manager"
+	default y
+
+config SHELL
+	bool "SHELL"
+	default y
+	depends on !RTTHREAD
+
+config FLASH_CMD
+	bool "Flash erase/write/read commad on shell"
+	default n
+	depends on FLASH && SHELL
+
+config MEM_CMD
+	bool "memory write/read commad on shell"
+	default n
+	depends on SHELL
+
+config JMP_CMD
+	bool "jump to program at special address"
+	default n
+	depends on SHELL
+
+config CPLUSPLUS
+	bool "C++ support"
+	default n
+
+source "$ASROOT/com/as.infrastructure/system/fs/Kconfig"
+source "$ASROOT/com/as.infrastructure/system/kernel/Kconfig"
+source "$ASROOT/com/as.infrastructure/system/net/Kconfig"
+
+endmenu

@@ -1,0 +1,42 @@
+import os
+from building import *
+
+Import('asenv')
+MODULES=asenv['MODULES']
+ASROOT=asenv['ASROOT']
+
+cwd = GetCurrentDir()
+
+objs = []
+
+if('CAN' in MODULES):
+    objs += Glob('mcal/Can.c')
+    objs += Glob('../common/mcal/SCan.c')
+    asenv.Append(CPPDEFINES=['CAN_LL_DL=64'])
+
+if('LCD' in MODULES):
+    objs += Glob('mcal/Lcd.c')
+
+if('MCU' in MODULES):
+    objs += Glob('mcal/Mcu.c')
+
+asenv.Append(ASFLAGS=['-DTEXT_BASE=0x30000000'])
+
+asenv.Append(CCFLAGS=['-O0','-g'])
+asenv.Append(ASFLAGS=['-g'])
+
+asenv.Append(CCFLAGS=['-mcpu=arm920t','-marm'])
+asenv.Append(ASFLAGS=['-mcpu=arm920t','-marm'])
+asenv.Append(CPPPATH=['%s/mcal'%(cwd)])
+
+asenv.Append(CCFLAGS=['-ffunction-sections','-fdata-sections'])
+asenv.Append(LINKFLAGS='--gc-sections')
+
+asenv.Append(LIBS=['c','gcc'])
+
+SelectCompilerArmNoneEabi()
+
+if(asenv['RELEASE']=='asboot'):
+    asenv['flsdrv']['objs'] += Glob('../common/mcal/RamFlash.c')
+    
+Return('objs')

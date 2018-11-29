@@ -1,0 +1,18 @@
+from building import *
+Import('asenv')
+
+freertos = '%s/com/as.infrastructure/system/kernel/freertos'%(asenv['ASROOT'])
+env = GetELFEnv()
+
+objs = []
+
+env.Append(CPPPATH='%s/config'%(freertos))
+env.Append(CPPPATH='%s/source/include'%(freertos))
+env.Append(CPPPATH='%s/source/portable/GCC/Posix'%(freertos))
+
+objs += Glob('%s/config/*.c'%(freertos))
+objs += Glob('%s/source/*.c'%(freertos))
+objs += Glob('%s/source/portable/GCC/Posix/*.c'%(freertos))
+objs += Glob('%s/source/portable/MemMang/heap_3.c'%(freertos))
+
+env.SharedLibrary('freertos',objs)

@@ -1,0 +1,25 @@
+
+PLATFORM='gcc'
+ARCH='arm'
+CPU='arm926'
+CROSS_TOOL='gcc'
+EXEC_PATH=''
+PREFIX=''
+
+CXX = PREFIX + 'g++'
+CC = PREFIX + 'gcc'
+AS = PREFIX + 'gcc'
+AR = PREFIX + 'ar'
+LINK = PREFIX + 'gcc'
+TARGET_EXT = 'axf'
+SIZE = PREFIX + 'size'
+OBJDUMP = PREFIX + 'objdump'
+OBJCPY = PREFIX + 'objcopy'
+
+
+CFLAGS = ''
+CXXFLAGS = ''
+AFLAGS = ''
+LFLAGS = ''
+CPATH = ''
+LPATH = ''

@@ -1,0 +1,44 @@
+import os
+from building import *
+
+cwd = GetCurrentDir()
+
+Import('asenv')
+ASROOT = asenv['ASROOT']
+
+objs = []
+
+asenv.Append(CCFLAGS=' -I%s/common '%(cwd))
+
+lds = '%s/script/linker.lds'%(cwd)
+asenv.Append(LINKFLAGS=' -static -T %s '%(lds))
+asenv.Append(LINKFLAGS='-Map build/lm3s6965evb/lm3s6965evb.map')
+
+asenv.Append(CPPDEFINES='OS_TICKS_PER_SECOND=100')
+asenv.Append(CPPDEFINES='USECONDS_PER_TICK=10000')
+
+MODULES = ['ECUM','SCHM','MCU',
+           'DET',
+           'CAN','CANIF','PDUR','COM','COMM','CANTP','CANNM',
+           'DCM','CANNM','CANSM','NM','OSEKNM','XCP',
+           'CLIB_MISCLIB','CLIB_STDIO_PRINTF',
+           'ASKAR'
+           ]
+
+ARCH='lm3s'
+arch='cortex-m'
+
+asenv['MODULES'] = MODULES
+asenv['ARCH'] = ARCH
+asenv['arch'] = arch
+
+if('run' in COMMAND_LINE_TARGETS):
+    qemu = Qemu()
+    qemu = Qemu(qemu.qemu)
+    target = '%s/release/%s/lm3s6965evb'%(ASROOT,asenv['RELEASE'])
+    if(IsPlatformWindows()): target = target + '.exe'
+    qemu.Run('-cpu cortex-m3 -nographic -monitor null -semihosting -machine lm3s6965evb -kernel %s'%(target))
+
+objs += Glob('common/*.c')
+
+Return('objs')

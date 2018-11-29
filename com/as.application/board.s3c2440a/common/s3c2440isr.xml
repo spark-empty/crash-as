@@ -1,0 +1,7 @@
+<?xml version='1.0' encoding='utf-8'?>
+<AS>
+    <Os>
+        <ISR Name="TIMER4"   Vector="14" Application="OsDefaultApp" Comment=""/>
+        <ISR Name="UART0_RX" Vector="32" Application="OsDefaultApp" Comment=""/> 
+    </Os>
+</AS>

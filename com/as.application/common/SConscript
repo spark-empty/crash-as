@@ -1,0 +1,66 @@
+import os
+from building import *
+
+cwd = GetCurrentDir()
+
+Import('asenv')
+BOARD = asenv['BOARD']
+MODULES = asenv['MODULES']
+
+objs = []
+
+if(asenv['RELEASE'] == 'ascore'):
+    objs += Glob('*.xml')
+    objs += Glob('*.arxml')
+
+if(('LWIP' in MODULES) and ('RTTHREAD' not in MODULES)):
+    objs += Glob('config/lwip.xml')
+
+if('CANNM' in MODULES):
+    objs += Glob('config/CanNm*.c')
+
+if('CANSM' in MODULES):
+    objs += Glob('config/CanSM*.c')
+
+if('COMM' in MODULES):
+    objs += Glob('config/ComM*.c')
+
+if('DEM' in MODULES):
+    objs += Glob('config/Dem*.c')
+
+if('ECUM' in MODULES):
+    objs += Glob('config/EcuM*.c')
+
+if('NM' in MODULES):
+    objs += Glob('config/Nm*.c')
+
+if('OSEKNM' in MODULES):
+    objs += Glob('config/OsekNm*.c')
+    objs += Glob('config/config.xml')
+
+if('PCI' in MODULES):
+    objs += Glob('config/pci*.c')
+
+if('RPMSG' in MODULES):
+    objs += Glob('config/RPmsg*.c')
+    objs += Glob('config/Rproc*.c')
+    objs += Glob('config/VirQ*.c')
+
+if('SOAD' in MODULES):
+    objs += Glob('config/SoAd*.c')
+
+if('RTE' in MODULES):
+    objs += Glob('rte/*.c')
+    objs += Glob('rte/*.xml')
+
+if('TEST' in MODULES):
+    objs += Glob('test/*.c')
+    objs += Glob('test/*.xml')
+    asenv.Append(CPPPATH=['%s/test'%(cwd)])
+
+if('FDT' in MODULES):
+    objs += Glob('config/as.dts')
+
+asenv.Append(CPPPATH=['%s/config'%(cwd)])
+
+Return('objs')

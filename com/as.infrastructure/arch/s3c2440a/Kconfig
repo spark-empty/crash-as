@@ -1,0 +1,17 @@
+if ARCH_S3C2440A
+menu "AUTOSAR MCAL&CDD for arch s3c2440a"
+
+config CAN
+	bool "MCAL CAN driver on Serial"
+	default y
+
+config LCD
+	bool "LCD driver"
+	default y
+
+config MCU
+	bool "MCAL MCU driver"
+	default y
+
+endmenu
+endif

@@ -1,0 +1,25 @@
+if ARCH_MPC56XX
+menu "AUTOSAR MCAL&CDD for arch MPC56XX"
+
+config CAN
+	bool "MCAL CAN driver"
+	default y
+
+config DIO
+	bool "MCAL DIO driver"
+	default y
+
+config MCU
+	bool "MCAL MCU driver"
+	default y
+
+config PORT
+	bool "MCAL PORT driver"
+	default y
+
+config FLASH
+	bool "HIS FLASH driver"
+	default n
+
+endmenu
+endif

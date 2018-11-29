@@ -1,0 +1,12 @@
+<?xml version='1.0' encoding='utf-8'?>
+<AS>
+	<Os>
+		<ISR Name='Can_1_TxIsr' Vector='19'  Application="OsDefaultApp"/>
+		<ISR Name='Can_1_RxIsr' Vector='20'  Application="OsDefaultApp"/>
+		<ISR Name='Can_1_ErrIsr' Vector='22'  Application="OsDefaultApp"/>
+
+		<ISR Name='Can_2_TxIsr' Vector='63'  Application="OsDefaultApp"/>
+		<ISR Name='Can_2_RxIsr' Vector='64'  Application="OsDefaultApp"/>
+		<ISR Name='Can_2_ErrIsr' Vector='66'  Application="OsDefaultApp"/>
+	</Os>
+</AS>

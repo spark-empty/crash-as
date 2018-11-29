@@ -1,0 +1,24 @@
+import os
+from building import *
+
+cwd = GetCurrentDir()
+
+Import('asenv')
+MODULES = asenv['MODULES']
+
+objs = []
+
+if('IFX' in MODULES):
+    objs += Glob('Ifx/*.c')
+
+if('FDT' in MODULES):
+    objs += SConscript('libfdt/SConscript')
+
+if('TRACE' in MODULES):
+    objs += Glob('trace/*.c')
+    asenv.Append(CPPPATH=['%s/trace'%(cwd)])
+
+objs += Glob('ringbuffer/*.c')
+asenv.Append(CPPPATH=['%s/ringbuffer'%(cwd)])
+
+Return('objs')

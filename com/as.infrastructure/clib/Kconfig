@@ -1,0 +1,43 @@
+menu "C Library"
+
+config CLIB_ASHEAP
+	bool "Memory Heap malloc/free..."
+	default n
+
+config CLIB_MBOX
+	bool "Message Box"
+	select CLIB_ASHEAP
+	default y
+
+config CLIB_MISCLIB
+	bool "Miscellaneous C Library"
+	default y
+
+config CLIB_QSORT
+	bool "Queue Sort"
+	default y
+
+config CLIB_STDIO_PRINTF
+	bool "stdio printf related"
+	default y
+
+config CLIB_STDIO_CAN
+	bool "stdio on CAN"
+	depends on CAN
+	default y
+
+config CLIB_STRTOK_R
+	bool "string strtok_r related"
+	default y
+
+config CLIB_NEWLIB
+	bool "Newlib: a C library intended for use on embedded systems"
+	default n
+
+if CLIB_NEWLIB
+config _SYS__PTHREADTYPES_H_
+	int
+	default 1
+endif
+
+endmenu

@@ -1,0 +1,66 @@
+import os
+from building import *
+
+Import('asenv')
+MODULES=asenv['MODULES']
+ASROOT=asenv['ASROOT']
+
+cwd = GetCurrentDir()
+
+objs = []
+
+if('MCU' in MODULES):
+    objs += Glob('mcal/Mcu.c')
+
+if('USB' in MODULES):
+    objs += Glob('libraries/usb/common/core/*.c')
+    objs += Glob('libraries/usb/common/cdc/*.c')
+    objs += Glob('libraries/usb/device/core/*.c')
+    asenv.Append(CPPPATH=['%s/libraries/usb/include'%(cwd)])
+    asenv.Append(CPPPATH=['%s/libraries/usb/common/core'%(cwd)])
+    asenv.Append(CPPPATH=['%s/libraries/usb/common/cdc'%(cwd)])
+    asenv.Append(CPPPATH=['%s/libraries/usb/device/core'%(cwd)])
+    asenv.Append(CPPDEFINES=['USBD_LEDUSB=LED_RED'])
+
+if('USB_SERIAL' in MODULES):
+    objs += Glob('libraries/usb/device/cdc-serial/*.c')
+    asenv.Append(CPPPATH=['%s/libraries/usb/device/cdc-serial'%(cwd)])
+
+objs += Glob('libraries/libchip_sam3s/source/*.c')
+objs += Glob('libraries/libboard_sam3s-ek/source/*.c')
+SrcRemove(objs,['supc.c','syscalls.c','hsmci.c','board_cstartup_iar.c'])
+asenv.Append(CPPPATH=['%s/libraries/libchip_sam3s'%(cwd)])
+asenv.Append(CPPPATH=['%s/libraries/libchip_sam3s/include'%(cwd)])
+asenv.Append(CPPPATH=['%s/libraries/libboard_sam3s-ek'%(cwd)])
+asenv.Append(CPPPATH=['%s/libraries/libboard_sam3s-ek/include'%(cwd)])
+
+print('INFO: set USE_IAR=YES to enable IAR compiler')
+if(os.getenv('USE_IAR')=='YES'):
+    SelectCompilerARMICC()
+    asenv.Append(CCFLAGS=['--cpu=Cortex-M3','-e','--fpu=None','--endian=little',
+                          '--no_cse','--no_unroll','--no_inline','--no_code_motion',
+                          '--no_tbaa','--no_clustering','--no_scheduling',
+                          '--diag_suppress=Pa050'])
+    asenv.Append(ASFLAGS=['--cpu','Cortex-M3','--fpu','None'])
+    asenv.Append(LINKFLAGS=['--semihosting','--entry','__iar_program_start','--vfe'])
+    asenv.Append(CCFLAGS=['--dlib_config','%s/INC/c/DLib_Config_Normal.h'%(iarPath)])
+    asenv.Append(CCFLAGS=['-I%s/CMSIS/Include'%(iarPath)])
+    asenv.Append(CPPDEFINES=['SCB_VTOR_TBLBASE_Pos=29'])
+    asenv.Append(LINKFLAGS=['--config', '%s/config/linker/Atmel/sam3s4a/flash.icf'%(iarPath)])
+else:
+    SelectCompilerArmNoneEabi()
+    asenv.Append(CPPPATH=['%s/libraries/libchip_sam3s/cmsis'%(cwd)])
+    asenv.Append(CCFLAGS=['-O0','-g'])
+    asenv.Append(ASFLAGS=['-g'])
+
+    asenv.Append(CCFLAGS=['-mcpu=cortex-m3','-mthumb'])
+    asenv.Append(ASFLAGS=['-mcpu=cortex-m3','-mthumb'])
+
+    asenv.Append(CCFLAGS=['-ffunction-sections','-fdata-sections'])
+    asenv.Append(LINKFLAGS='--gc-sections')
+
+    asenv.Append(LIBS=['c','gcc'])
+    asenv.Append(LINKFLAGS='-static -T %s'%(asenv['LINKSCRIPT']))
+    asenv.Append(LINKFLAGS='-Map build/at91sam3s/at91sam3s.map')
+
+Return('objs')

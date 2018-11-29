@@ -1,0 +1,21 @@
+import os
+from building import *
+
+cwd = GetCurrentDir()
+
+Import('asenv')
+
+MODULES = asenv['MODULES']
+
+objs = []
+
+objs +=  Glob('*.c')
+objs +=  Glob('*.xml')
+
+if('CPLUSPLUS' in MODULES):
+    objs +=  Glob('*.cpp')
+
+if('SG' in MODULES):
+    objs += SConscript('%s/../SgDesign/SConscript'%(cwd))
+
+Return('objs')

@@ -1,0 +1,42 @@
+menu "AUTOSAR MCAL&CDD for arch virt"
+
+config PCI
+	bool "PCI driver"
+	default y
+	select CLIB_ASHEAP
+
+config CAN
+	bool "MCAL CAN driver"
+	depends on PCI
+	default y
+
+config FATFS_DRV
+	bool "FATFS diskio driver"
+	depends on PCI
+	default y
+
+config LWEXT4_DRV
+	bool "LWEXT4 blockdev driver"
+	depends on PCI
+	default n
+
+config EEP
+	bool "MCAL EEP driver"
+	depends on (FATFS || LWEXT4)
+	default y
+
+config FLS
+	bool "MCAL FLS driver"
+	depends on (FATFS || LWEXT4)
+	default y
+
+config MCU
+	bool "MCAL MCU driver"
+	default y
+
+config LWIP_DRV
+	bool "LWIP driver"
+	depends on PCI
+	default y
+
+endmenu

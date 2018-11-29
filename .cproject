@@ -1,0 +1,230 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<?fileVersion 4.0.0?><cproject storage_type_id="org.eclipse.cdt.core.XmlProjectDescriptionStorage">
+	<storageModule moduleId="org.eclipse.cdt.core.settings">
+		<cconfiguration id="cdt.managedbuild.toolchain.gnu.cygwin.base.187652737">
+			<storageModule buildSystemId="org.eclipse.cdt.managedbuilder.core.configurationDataProvider" id="cdt.managedbuild.toolchain.gnu.cygwin.base.187652737" moduleId="org.eclipse.cdt.core.settings" name="Default">
+				<externalSettings/>
+				<extensions>
+					<extension id="org.eclipse.cdt.core.Cygwin_PE" point="org.eclipse.cdt.core.BinaryParser"/>
+					<extension id="org.eclipse.cdt.core.GASErrorParser" point="org.eclipse.cdt.core.ErrorParser"/>
+					<extension id="org.eclipse.cdt.core.GmakeErrorParser" point="org.eclipse.cdt.core.ErrorParser"/>
+					<extension id="org.eclipse.cdt.core.GLDErrorParser" point="org.eclipse.cdt.core.ErrorParser"/>
+					<extension id="org.eclipse.cdt.core.CWDLocator" point="org.eclipse.cdt.core.ErrorParser"/>
+					<extension id="org.eclipse.cdt.core.GCCErrorParser" point="org.eclipse.cdt.core.ErrorParser"/>
+				</extensions>
+			</storageModule>
+			<storageModule moduleId="cdtBuildSystem" version="4.0.0">
+				<configuration artifactName="${ProjName}" buildProperties="" description="" id="cdt.managedbuild.toolchain.gnu.cygwin.base.187652737" name="Default" optionalBuildProperties="" parent="org.eclipse.cdt.build.core.emptycfg">
+					<folderInfo id="cdt.managedbuild.toolchain.gnu.cygwin.base.187652737.675186970" name="/" resourcePath="">
+						<toolChain id="cdt.managedbuild.toolchain.gnu.cygwin.base.2126511002" name="Cygwin GCC" superClass="cdt.managedbuild.toolchain.gnu.cygwin.base">
+							<targetPlatform archList="all" binaryParser="org.eclipse.cdt.core.Cygwin_PE" id="cdt.managedbuild.target.gnu.platform.cygwin.base.661879957" name="Debug Platform" osList="win32" superClass="cdt.managedbuild.target.gnu.platform.cygwin.base"/>
+							<builder id="cdt.managedbuild.target.gnu.builder.cygwin.base.1104724502" keepEnvironmentInBuildfile="false" managedBuildOn="false" name="Gnu Make Builder" superClass="cdt.managedbuild.target.gnu.builder.cygwin.base"/>
+							<tool id="cdt.managedbuild.tool.gnu.assembler.cygwin.base.1660948285" name="GCC Assembler" superClass="cdt.managedbuild.tool.gnu.assembler.cygwin.base">
+								<option id="gnu.both.asm.option.include.paths.2049711593" name="Include paths (-I)" superClass="gnu.both.asm.option.include.paths"/>
+								<inputType id="cdt.managedbuild.tool.gnu.assembler.input.1965581437" superClass="cdt.managedbuild.tool.gnu.assembler.input"/>
+							</tool>
+							<tool id="cdt.managedbuild.tool.gnu.archiver.cygwin.base.1733392190" name="GCC Archiver" superClass="cdt.managedbuild.tool.gnu.archiver.cygwin.base"/>
+							<tool id="cdt.managedbuild.tool.gnu.cpp.compiler.cygwin.base.30914242" name="Cygwin C++ Compiler" superClass="cdt.managedbuild.tool.gnu.cpp.compiler.cygwin.base">
+								<option id="gnu.cpp.compiler.option.include.paths.8319862" name="Include paths (-I)" superClass="gnu.cpp.compiler.option.include.paths" useByScannerDiscovery="false"/>
+								<option id="gnu.cpp.compiler.option.preprocessor.def.2139064304" name="Defined symbols (-D)" superClass="gnu.cpp.compiler.option.preprocessor.def" useByScannerDiscovery="false" valueType="definedSymbols">
+									<listOptionValue builtIn="false" value="USE_CAN"/>
+									<listOptionValue builtIn="false" value="USE_CANIF"/>
+									<listOptionValue builtIn="false" value="USE_PDUR"/>
+									<listOptionValue builtIn="false" value="USE_COM"/>
+									<listOptionValue builtIn="false" value="USE_DCM"/>
+									<listOptionValue builtIn="false" value="USE_CANTP"/>
+									<listOptionValue builtIn="false" value="USE_MEMIF"/>
+									<listOptionValue builtIn="false" value="USE_NVM"/>
+									<listOptionValue builtIn="false" value="USE_FLS"/>
+									<listOptionValue builtIn="false" value="USE_FEE"/>
+									<listOptionValue builtIn="false" value="USE_EEP"/>
+									<listOptionValue builtIn="false" value="USE_EA"/>
+									<listOptionValue builtIn="false" value="USE_OSEKNM"/>
+									<listOptionValue builtIn="false" value="USE_KERNEL"/>
+									<listOptionValue builtIn="false" value="USE_COMM"/>
+									<listOptionValue builtIn="false" value="USE_DET"/>
+									<listOptionValue builtIn="false" value="USE_DEM"/>
+									<listOptionValue builtIn="false" value="USE_NM"/>
+									<listOptionValue builtIn="false" value="USE_CANSM"/>
+									<listOptionValue builtIn="false" value="USE_FATFS"/>
+									<listOptionValue builtIn="false" value="USE_LWEXT4"/>
+									<listOptionValue builtIn="false" value="USE_LWIP"/>
+									<listOptionValue builtIn="false" value="USE_DOIP"/>
+									<listOptionValue builtIn="false" value="USE_PCI"/>
+									<listOptionValue builtIn="false" value="USE_SOAD"/>
+									<listOptionValue builtIn="false" value="__WINDOWS__"/>
+									<listOptionValue builtIn="false" value="USE_SHELL"/>
+									<listOptionValue builtIn="false" value="OS_PTHREAD_NUM=32"/>
+									<listOptionValue builtIn="false" value="USE_CPLUSPLUS"/>
+									<listOptionValue builtIn="false" value="USE_PROTOTHREAD"/>
+									<listOptionValue builtIn="false" value="USE_PTHREAD_SIGNAL"/>
+									<listOptionValue builtIn="false" value="USE_SCHED_BUBBLE"/>
+									<listOptionValue builtIn="false" value="USE_PTHREAD_CLEANUP"/>
+									<listOptionValue builtIn="false" value="USE_SCHED_LIST"/>
+									<listOptionValue builtIn="false" value="USE_SCHED_FIFO"/>
+									<listOptionValue builtIn="false" value="USE_PTHREAD"/>
+									<listOptionValue builtIn="false" value="USE_LIBDL"/>
+									<listOptionValue builtIn="false" value="USE_XCP"/>
+									<listOptionValue builtIn="false" value="USE_UIP"/>
+									<listOptionValue builtIn="false" value="USE_RINGBUFFER"/>
+									<listOptionValue builtIn="false" value="STM32F107xC"/>
+								</option>
+								<inputType id="cdt.managedbuild.tool.gnu.cpp.compiler.input.cygwin.567764495" superClass="cdt.managedbuild.tool.gnu.cpp.compiler.input.cygwin"/>
+							</tool>
+							<tool id="cdt.managedbuild.tool.gnu.c.compiler.cygwin.base.1364658609" name="Cygwin C Compiler" superClass="cdt.managedbuild.tool.gnu.c.compiler.cygwin.base">
+								<option id="gnu.c.compiler.option.include.paths.1425965822" name="Include paths (-I)" superClass="gnu.c.compiler.option.include.paths" useByScannerDiscovery="false"/>
+								<option id="gnu.c.compiler.option.preprocessor.def.symbols.1337770893" name="Defined symbols (-D)" superClass="gnu.c.compiler.option.preprocessor.def.symbols" useByScannerDiscovery="false" valueType="definedSymbols">
+									<listOptionValue builtIn="false" value="USE_CAN"/>
+									<listOptionValue builtIn="false" value="USE_CANIF"/>
+									<listOptionValue builtIn="false" value="USE_PDUR"/>
+									<listOptionValue builtIn="false" value="USE_COM"/>
+									<listOptionValue builtIn="false" value="USE_DCM"/>
+									<listOptionValue builtIn="false" value="USE_CANTP"/>
+									<listOptionValue builtIn="false" value="USE_MEMIF"/>
+									<listOptionValue builtIn="false" value="USE_NVM"/>
+									<listOptionValue builtIn="false" value="USE_FLS"/>
+									<listOptionValue builtIn="false" value="USE_FEE"/>
+									<listOptionValue builtIn="false" value="USE_EEP"/>
+									<listOptionValue builtIn="false" value="USE_EA"/>
+									<listOptionValue builtIn="false" value="USE_OSEKNM"/>
+									<listOptionValue builtIn="false" value="USE_KERNEL"/>
+									<listOptionValue builtIn="false" value="USE_COMM"/>
+									<listOptionValue builtIn="false" value="USE_DET"/>
+									<listOptionValue builtIn="false" value="USE_DEM"/>
+									<listOptionValue builtIn="false" value="USE_NM"/>
+									<listOptionValue builtIn="false" value="USE_CANSM"/>
+									<listOptionValue builtIn="false" value="USE_FATFS"/>
+									<listOptionValue builtIn="false" value="USE_LWEXT4"/>
+									<listOptionValue builtIn="false" value="USE_LWIP"/>
+									<listOptionValue builtIn="false" value="USE_DOIP"/>
+									<listOptionValue builtIn="false" value="USE_PCI"/>
+									<listOptionValue builtIn="false" value="USE_SOAD"/>
+									<listOptionValue builtIn="false" value="__WINDOWS__"/>
+									<listOptionValue builtIn="false" value="USE_SHELL"/>
+									<listOptionValue builtIn="false" value="OS_PTHREAD_NUM=32"/>
+									<listOptionValue builtIn="false" value="USE_CPLUSPLUS"/>
+									<listOptionValue builtIn="false" value="USE_PROTOTHREAD"/>
+									<listOptionValue builtIn="false" value="USE_PTHREAD_SIGNAL"/>
+									<listOptionValue builtIn="false" value="USE_SCHED_BUBBLE"/>
+									<listOptionValue builtIn="false" value="USE_PTHREAD_CLEANUP"/>
+									<listOptionValue builtIn="false" value="USE_SCHED_LIST"/>
+									<listOptionValue builtIn="false" value="USE_SCHED_FIFO"/>
+									<listOptionValue builtIn="false" value="USE_PTHREAD"/>
+									<listOptionValue builtIn="false" value="USE_LIBDL"/>
+									<listOptionValue builtIn="false" value="USE_XCP"/>
+									<listOptionValue builtIn="false" value="USE_UIP"/>
+									<listOptionValue builtIn="false" value="USE_RINGBUFFER"/>
+									<listOptionValue builtIn="false" value="STM32F107xC"/>
+								</option>
+								<inputType id="cdt.managedbuild.tool.gnu.c.compiler.input.cygwin.1824387882" superClass="cdt.managedbuild.tool.gnu.c.compiler.input.cygwin"/>
+							</tool>
+							<tool id="cdt.managedbuild.tool.gnu.c.linker.cygwin.base.81732477" name="Cygwin C Linker" superClass="cdt.managedbuild.tool.gnu.c.linker.cygwin.base"/>
+							<tool id="cdt.managedbuild.tool.gnu.cpp.linker.cygwin.base.463051976" name="Cygwin C++ Linker" superClass="cdt.managedbuild.tool.gnu.cpp.linker.cygwin.base">
+								<inputType id="cdt.managedbuild.tool.gnu.cpp.linker.input.544619286" superClass="cdt.managedbuild.tool.gnu.cpp.linker.input">
+									<additionalInput kind="additionalinputdependency" paths="$(USER_OBJS)"/>
+									<additionalInput kind="additionalinput" paths="$(LIBS)"/>
+								</inputType>
+							</tool>
+						</toolChain>
+					</folderInfo>
+				</configuration>
+			</storageModule>
+			<storageModule moduleId="org.eclipse.cdt.core.externalSettings"/>
+			<storageModule moduleId="ilg.gnuarmeclipse.managedbuild.packs"/>
+			<storageModule moduleId="ilg.gnumcueclipse.managedbuild.packs"/>
+		</cconfiguration>
+	</storageModule>
+	<storageModule moduleId="cdtBuildSystem" version="4.0.0">
+		<project id="as.null.1346592132" name="as"/>
+	</storageModule>
+	<storageModule moduleId="org.eclipse.cdt.core.LanguageSettingsProviders"/>
+	<storageModule moduleId="scannerConfiguration">
+		<autodiscovery enabled="true" problemReportingEnabled="true" selectedProfileId=""/>
+		<scannerConfigBuildInfo instanceId="cdt.managedbuild.toolchain.gnu.cygwin.base.187652737;cdt.managedbuild.toolchain.gnu.cygwin.base.187652737.675186970;cdt.managedbuild.tool.gnu.cpp.compiler.cygwin.base.30914242;cdt.managedbuild.tool.gnu.cpp.compiler.input.cygwin.567764495">
+			<autodiscovery enabled="true" problemReportingEnabled="true" selectedProfileId=""/>
+		</scannerConfigBuildInfo>
+		<scannerConfigBuildInfo instanceId="cdt.managedbuild.toolchain.gnu.cygwin.base.187652737;cdt.managedbuild.toolchain.gnu.cygwin.base.187652737.675186970;cdt.managedbuild.tool.gnu.c.compiler.cygwin.base.1364658609;cdt.managedbuild.tool.gnu.c.compiler.input.cygwin.1824387882">
+			<autodiscovery enabled="true" problemReportingEnabled="true" selectedProfileId=""/>
+		</scannerConfigBuildInfo>
+	</storageModule>
+	<storageModule moduleId="org.eclipse.cdt.internal.ui.text.commentOwnerProjectMappings"/>
+	<storageModule moduleId="org.eclipse.cdt.make.core.buildtargets">
+		<buildTargets>
+			<target name="all" path="release/asboot" targetID="org.eclipse.cdt.build.MakeTargetBuilder">
+				<buildCommand>c:/Python27/scons.bat</buildCommand>
+				<stopOnError>true</stopOnError>
+				<useDefaultCommand>false</useDefaultCommand>
+				<runAllBuilders>true</runAllBuilders>
+			</target>
+			<target name="clean" path="release/asboot" targetID="org.eclipse.cdt.build.MakeTargetBuilder">
+				<buildCommand>c:/Python27/scons.bat</buildCommand>
+				<buildTarget>-c</buildTarget>
+				<stopOnError>true</stopOnError>
+				<useDefaultCommand>false</useDefaultCommand>
+				<runAllBuilders>true</runAllBuilders>
+			</target>
+			<target name="config" path="release/asboot" targetID="org.eclipse.cdt.build.MakeTargetBuilder">
+				<buildCommand>c:/Python27/scons.bat</buildCommand>
+				<buildTarget>studio</buildTarget>
+				<stopOnError>true</stopOnError>
+				<useDefaultCommand>false</useDefaultCommand>
+				<runAllBuilders>true</runAllBuilders>
+			</target>
+			<target name="run" path="release/asboot" targetID="org.eclipse.cdt.build.MakeTargetBuilder">
+				<buildCommand>c:/Python27/scons.bat</buildCommand>
+				<buildArguments/>
+				<buildTarget>run</buildTarget>
+				<stopOnError>true</stopOnError>
+				<useDefaultCommand>false</useDefaultCommand>
+				<runAllBuilders>true</runAllBuilders>
+			</target>
+			<target name="all" path="release/ascore" targetID="org.eclipse.cdt.build.MakeTargetBuilder">
+				<buildCommand>c:/Python27/scons.bat</buildCommand>
+				<stopOnError>true</stopOnError>
+				<useDefaultCommand>false</useDefaultCommand>
+				<runAllBuilders>true</runAllBuilders>
+			</target>
+			<target name="clean" path="release/ascore" targetID="org.eclipse.cdt.build.MakeTargetBuilder">
+				<buildCommand>c:/Python27/scons.bat</buildCommand>
+				<buildTarget>-c</buildTarget>
+				<stopOnError>true</stopOnError>
+				<useDefaultCommand>false</useDefaultCommand>
+				<runAllBuilders>true</runAllBuilders>
+			</target>
+			<target name="config" path="release/ascore" targetID="org.eclipse.cdt.build.MakeTargetBuilder">
+				<buildCommand>c:/Python27/scons.bat</buildCommand>
+				<buildTarget>studio</buildTarget>
+				<stopOnError>true</stopOnError>
+				<useDefaultCommand>false</useDefaultCommand>
+				<runAllBuilders>true</runAllBuilders>
+			</target>
+			<target name="run" path="release/ascore" targetID="org.eclipse.cdt.build.MakeTargetBuilder">
+				<buildCommand>c:/Python27/scons.bat</buildCommand>
+				<buildArguments/>
+				<buildTarget>run</buildTarget>
+				<stopOnError>true</stopOnError>
+				<useDefaultCommand>false</useDefaultCommand>
+				<runAllBuilders>true</runAllBuilders>
+			</target>
+			<target name="clean" path="release/aslua" targetID="org.eclipse.cdt.build.MakeTargetBuilder">
+				<buildCommand>make</buildCommand>
+				<buildTarget>clean</buildTarget>
+				<stopOnError>true</stopOnError>
+				<useDefaultCommand>true</useDefaultCommand>
+				<runAllBuilders>true</runAllBuilders>
+			</target>
+			<target name="all" path="release/aslua" targetID="org.eclipse.cdt.build.MakeTargetBuilder">
+				<buildCommand>make</buildCommand>
+				<buildTarget>aslua</buildTarget>
+				<stopOnError>true</stopOnError>
+				<useDefaultCommand>true</useDefaultCommand>
+				<runAllBuilders>true</runAllBuilders>
+			</target>
+		</buildTargets>
+	</storageModule>
+	<storageModule moduleId="refreshScope" versionNumber="2">
+		<configuration configurationName="Default">
+			<resource resourceType="PROJECT" workspacePath="/as"/>
+		</configuration>
+	</storageModule>
+</cproject>

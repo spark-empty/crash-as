@@ -1,0 +1,27 @@
+from building import *
+
+Import('asenv')
+MODULES = asenv['MODULES']
+
+cwd = GetCurrentDir()
+
+objs = []
+
+if('FATFS' in MODULES):
+    objs += SConscript('fatfs/SConscript')
+
+if('LWEXT4' in MODULES):
+    objs += SConscript('lwext4/SConscript')
+
+if('LIBELF' in MODULES):
+    objs += SConscript('libelf/SConscript')
+
+if('VFS' in MODULES):
+    objs += Glob('vfs/*.c')
+    asenv.Append(CPPPATH =['%s/vfs'%(cwd)])
+
+if('LIBDL' in MODULES):
+    objs += Glob('libdl/*.c')
+    asenv.Append(CPPPATH =['%s/libdl'%(cwd)])
+
+Return('objs')

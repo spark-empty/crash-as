@@ -1,0 +1,28 @@
+import os
+from building import *
+
+cwd = GetCurrentDir()
+
+Import('asenv')
+arch = asenv['arch']
+MODULES = asenv['MODULES']
+
+asenv.Append(CPPPATH=['%s/include'%(cwd)])
+asenv.Append(CPPPATH=['%s/kernel'%(cwd)])
+asenv.Append(CPPPATH=['%s/portable/%s'%(cwd,arch)])
+
+objs = []
+
+objs += Glob('kernel/*.c')
+objs += Glob('portable/%s/*.c'%(arch))
+objs += Glob('portable/%s/*.S'%(arch))
+
+if('PTHREAD' in MODULES):
+    asenv.Append(CPPPATH=['%s/kernel/posix/include'%(cwd)])
+    objs += Glob('kernel/posix/*.c')
+    if('PTHREAD_SIGNAL' not in MODULES):
+        SrcRemove(objs, ['posix.c'])
+    else:
+        objs += Glob('kernel/posix/posix.xml')
+
+Return('objs')

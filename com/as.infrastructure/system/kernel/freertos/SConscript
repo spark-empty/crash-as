@@ -1,0 +1,38 @@
+import os
+from building import *
+import xcc
+
+xcc.SetDefaultRTOS('freertos')
+
+cwd = GetCurrentDir()
+
+Import('asenv')
+arch = asenv['arch']
+MODULES = asenv['MODULES']
+
+asenv.Append(CPPPATH=['%s/config'%(cwd)])
+asenv.Append(CPPPATH=['%s/source/include'%(cwd)])
+
+objs = []
+
+objs += Glob('source/*.c')
+objs += Glob('source/portable/MemMang/heap_4.c')
+
+if(arch == 'cortex-m'):
+    if('gcc' in asenv['CC']):
+        asenv.Append(CPPPATH=['%s/source/portable/GCC/ARM_CM3'%(cwd)])
+        objs += Glob('source/portable/GCC/ARM_CM3/*.c')
+        objs += Glob('source/portable/GCC/ARM_CM3/*.s')
+    elif(asenv['CC'][-10:]=='iccarm.exe'):
+        asenv.Append(CPPPATH=['%s/source/portable/IAR/ARM_CM3'%(cwd)])
+        objs += Glob('source/portable/IAR/ARM_CM3/*.c')
+        objs += Glob('source/portable/IAR/ARM_CM3/*.S')
+    else:
+        assert(0)
+if(arch == 'mpc56xx'):
+    asenv.Append(CPPPATH=['%s/source/portable/mpc56xx'%(cwd)])
+    objs += Glob('source/portable/mpc56xx/*.c')
+else:
+    assert(0)
+
+Return('objs')

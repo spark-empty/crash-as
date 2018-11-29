@@ -1,0 +1,134 @@
+From 12d95bd4edff517bd0f563af13475d58b3b92d37 Mon Sep 17 00:00:00 2001
+From: parai <parai@foxmail.com>
+Date: Tue, 1 Aug 2017 21:30:30 +0800
+Subject: [PATCH] asvirt driver for kernel v4.x
+
+1.virtual pinctrl driver
+2.virtual remoterproc
+3.virtual can based on rpmsg
+
+Signed-off-by: parai <parai@foxmail.com>
+---
+ arch/arm/boot/dts/vexpress-v2p-ca9.dts |  1 +
+ arch/arm/mach-vexpress/Kconfig         |  3 +++
+ drivers/net/can/Kconfig                |  6 ++++++
+ drivers/net/can/Makefile               |  1 +
+ drivers/pinctrl/Kconfig                |  8 ++++++++
+ drivers/pinctrl/Makefile               |  1 +
+ drivers/remoteproc/Kconfig             | 10 ++++++++++
+ drivers/remoteproc/Makefile            |  2 ++
+ 8 files changed, 32 insertions(+)
+
+diff --git a/arch/arm/boot/dts/vexpress-v2p-ca9.dts b/arch/arm/boot/dts/vexpress-v2p-ca9.dts
+index d949fac..6eabdff 100644
+--- a/arch/arm/boot/dts/vexpress-v2p-ca9.dts
++++ b/arch/arm/boot/dts/vexpress-v2p-ca9.dts
+@@ -359,4 +359,5 @@
+ 
+ 		/include/ "vexpress-v2m.dtsi"
+ 	};
++	/include/ "vexpress-v2p-asvirt.dtsi"
+ };
+diff --git a/arch/arm/mach-vexpress/Kconfig b/arch/arm/mach-vexpress/Kconfig
+index 10f9389..1aacd23 100644
+--- a/arch/arm/mach-vexpress/Kconfig
++++ b/arch/arm/mach-vexpress/Kconfig
+@@ -21,6 +21,9 @@ menuconfig ARCH_VEXPRESS
+ 	select VEXPRESS_CONFIG
+ 	select VEXPRESS_SYSCFG
+ 	select MFD_VEXPRESS_SYSREG
++	select PINCTRL
++	select HAS_DMA
++	select SAMPLES
+ 	help
+ 	  This option enables support for systems using Cortex processor based
+ 	  ARM core and logic (FPGA) tiles on the Versatile Express motherboard,
+diff --git a/drivers/net/can/Kconfig b/drivers/net/can/Kconfig
+index e8c96b8..d78db36 100644
+--- a/drivers/net/can/Kconfig
++++ b/drivers/net/can/Kconfig
+@@ -137,6 +137,12 @@ config CAN_XILINXCAN
+ 	  Xilinx CAN driver. This driver supports both soft AXI CAN IP and
+ 	  Zynq CANPS IP.
+ 
++config CAN_ASVIRT
++	tristate "ASVIRT CAN"
++	depends on RPMSG
++	---help---
++	  AS virtual CAN driver based on RPMSG
++
+ source "drivers/net/can/mscan/Kconfig"
+ 
+ source "drivers/net/can/sja1000/Kconfig"
+diff --git a/drivers/net/can/Makefile b/drivers/net/can/Makefile
+index c533c62..53045841 100644
+--- a/drivers/net/can/Makefile
++++ b/drivers/net/can/Makefile
+@@ -28,6 +28,7 @@ obj-$(CONFIG_PCH_CAN)		+= pch_can.o
+ obj-$(CONFIG_CAN_GRCAN)		+= grcan.o
+ obj-$(CONFIG_CAN_RCAR)		+= rcar_can.o
+ obj-$(CONFIG_CAN_XILINXCAN)	+= xilinx_can.o
++obj-$(CONFIG_CAN_ASVIRT)	+= asvirt_can.o
+ 
+ subdir-ccflags-y += -D__CHECK_ENDIAN__
+ subdir-ccflags-$(CONFIG_CAN_DEBUG_DEVICES) += -DDEBUG
+diff --git a/drivers/pinctrl/Kconfig b/drivers/pinctrl/Kconfig
+index 100d9ac..018067f 100644
+--- a/drivers/pinctrl/Kconfig
++++ b/drivers/pinctrl/Kconfig
+@@ -253,6 +253,14 @@ config PINCTRL_TB10X
+ 	depends on OF && ARC_PLAT_TB10X
+ 	select GPIOLIB
+ 
++config ASLINUX_VIRT_GPIO
++    bool "aslinux virtual gpio driver"
++    depends on ARCH_VEXPRESS
++	select PINMUX
++	select GENERIC_PINCONF
++    help
++      aslinux virtual gpio driver sample code
++
+ endmenu
+ 
+ endif
+diff --git a/drivers/pinctrl/Makefile b/drivers/pinctrl/Makefile
+index f4216d9..2c0eaec 100644
+--- a/drivers/pinctrl/Makefile
++++ b/drivers/pinctrl/Makefile
+@@ -53,3 +53,4 @@ obj-$(CONFIG_PLAT_SPEAR)	+= spear/
+ obj-$(CONFIG_ARCH_SUNXI)	+= sunxi/
+ obj-$(CONFIG_ARCH_VT8500)	+= vt8500/
+ obj-$(CONFIG_ARCH_MEDIATEK)	+= mediatek/
++obj-$(CONFIG_ASLINUX_VIRT_GPIO) += pinctrl-asvirt.o
+diff --git a/drivers/remoteproc/Kconfig b/drivers/remoteproc/Kconfig
+index 5e343ba..f92941d 100644
+--- a/drivers/remoteproc/Kconfig
++++ b/drivers/remoteproc/Kconfig
+@@ -64,4 +64,14 @@ config DA8XX_REMOTEPROC
+ 	  It's safe to say n here if you're not interested in multimedia
+ 	  offloading.
+ 
++config ASVIRT_REMOTEPROC
++	tristate "ASLINUX virtual remoteproc support"
++	depends on ARCH_VEXPRESS
++	select REMOTEPROC
++	select RPMSG
++	help
++	  Say y here to support ASLINUX's virtual remote processors
++	  via the remote processor framework, the 2 processors core
++	  and MCU are both simulated by threads.
++
+ endmenu
+diff --git a/drivers/remoteproc/Makefile b/drivers/remoteproc/Makefile
+index ac2ff75..855628b 100644
+--- a/drivers/remoteproc/Makefile
++++ b/drivers/remoteproc/Makefile
+@@ -10,3 +10,5 @@ remoteproc-y				+= remoteproc_elf_loader.o
+ obj-$(CONFIG_OMAP_REMOTEPROC)		+= omap_remoteproc.o
+ obj-$(CONFIG_STE_MODEM_RPROC)	 	+= ste_modem_rproc.o
+ obj-$(CONFIG_DA8XX_REMOTEPROC)		+= da8xx_remoteproc.o
++obj-$(CONFIG_ASVIRT_REMOTEPROC)		+= asvirt_remoteproc.o
++obj-$(CONFIG_ASVIRT_REMOTEPROC)		+= rproc-asvirt/
+-- 
+1.9.1
+

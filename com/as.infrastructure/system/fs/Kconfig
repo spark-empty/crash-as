@@ -1,0 +1,27 @@
+menu "File System"
+config FATFS
+	bool "FATFS File System"
+	depends on FATFS_DRV
+	default y
+
+config LWEXT4
+	bool "LWEXT4 File System"
+	depends on LWEXT4_DRV
+	default y
+
+config VFS
+	bool "Virtual File System"
+	depends on (FATFS || LWEXT4)
+	default y
+
+config LIBELF
+	bool "Library for manipulating ELF files"
+	depends on VFS && !ARCH_POSIX
+	default y
+
+config LIBDL
+	bool "programming interface to dynamic linking loader"
+	depends on LIBELF
+	default y
+
+endmenu

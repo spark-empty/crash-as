@@ -1,0 +1,37 @@
+import os
+from building import *
+import xcc
+
+xcc.SetDefaultRTOS('trampoline')
+
+cwd = GetCurrentDir()
+
+Import('asenv')
+BOARD = asenv['BOARD']
+MODULES = asenv['MODULES']
+
+asenv.Append(CPPPATH=['%s/os'%(cwd)])
+asenv.Append(CPPPATH=['%s/debug'%(cwd)])
+asenv.Append(CPPPATH=['%s/autosar'%(cwd)])
+asenv.Append(CPPDEFINES=['WITH_SYSTEM_CALL=YES','__use_os_trampoline__'])
+
+asenv.Append(ASFLAGS=['-I%s/os'%(cwd)])
+asenv.Append(ASFLAGS=['-DWITH_SYSTEM_CALL=YES'])
+objs = []
+
+objs += Glob('os/*.c')
+objs += Glob('debug/*.c')
+objs += Glob('autosar/*.c')
+SrcRemove(objs,'tpl_os_stm_kernel.c')
+
+if(BOARD=='s3c2440a'):
+    asenv.Append(CPPPATH=['%s/machines/cortex-a'%(cwd)])
+    objs += Glob('machines/cortex-a/*.c')
+    objs += Glob('machines/cortex-a/*.S')
+    objs += Glob('machines/s3c2440a/*.c')
+    SrcRemove(objs,'tpl_startup.S')
+    objs += Glob('../toppers-atk/atk2-sc4/portable/arm920t/gcc/startup.S')
+else:
+    raise Exception('board %s is not supported by AS trampoline!')
+
+Return('objs')

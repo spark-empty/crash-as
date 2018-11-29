@@ -1,0 +1,42 @@
+import os
+from building import *
+
+cwd = GetCurrentDir()
+
+Import('asenv')
+ASROOT = asenv['ASROOT']
+MODULES = asenv['MODULES']
+
+
+cmd = 'sed -i "40c static const char *fname = \\"ExtFs.img\\";" blockdev/linux/file_dev.c'
+cmd += ' && sed -i "43c #define EXT4_FILEDEV_BSIZE 4096" blockdev/linux/file_dev.c'
+cmd += ' && sed -i "28c -DWIN32=1 \\\\\\\\" Makefile'
+cmd += ' && sed -i "156c /*fflush(stdout);*/ \\\\\\\\" include/ext4_debug.h'
+
+lwext4 = Package('https://github.com/parai/lwext4.git', cmd=cmd)
+
+MKSymlink(lwext4,'%s/lwext4'%(cwd))
+
+if((IsPlatformWindows()) and asenv['msys2']):
+    src = Glob('%s/src/*.c'%(lwext4))
+    tgt = '%s/build_generic/fs_test/lwext4-mkfs.exe'%(lwext4)
+    cmd = 'cd %s && make && cd build_generic && make'%(lwext4)
+    MKObject(src, tgt, cmd, False)
+
+objs = []
+
+objs += Glob('lwext4/src/*.c')
+
+asenv.Append(CPPPATH = ['%s/lwext4/include'%(cwd)])
+asenv.Append(CPPDEFINES = 'CONFIG_USE_DEFAULT_CFG')
+if('RTTHREAD' in MODULES):
+    objs += Glob('*.c')
+    asenv.Append(CPPPATH = ['%s'%(cwd)])
+
+asenv.Append(CPPDEFINES='CONFIG_HAVE_OWN_OFLAGS=0')
+
+if(asenv['BOARD']=='posix'):
+    objs += Glob('lwext4/blockdev/linux/*.c')
+    asenv.Append(CPPPATH = ['%s/lwext4/blockdev/linux'%(cwd)])
+
+Return('objs')

@@ -1,0 +1,117 @@
+<?xml version='1.0' encoding='utf-8'?>
+<Sg w='320' h='480' p='1'>
+<!-- Sg Configuration File -->
+<!-- name: name of the widget or the resource -->
+<!-- SgBMP{n}: n static SgBMP resources -->
+<!-- w: width of the widget  -->
+<!-- h: height of the widget -->
+<!-- This SgBMP(x,y) center point is use for rotation -->	
+<!-- refresh: it is a function called if this widget is in display -->	
+<SgWidget 
+	name     = 'sgwWatchBackground'	
+	type     = 'SgBMP{1}' 			
+	x        = '0'
+	y        = '0'
+	w        = '320'	
+	h        = '480'
+	layer    = '0'
+	refresh  = 'NULL'
+	cache    = 'NULL'
+	weight   = '500'
+	>
+	<SgBMP 
+		name   = 'WatchBackground' 
+		locate = 'watch/watch_bg.png' 
+		x      = '160' 				
+		y      = '160'  					
+		/>
+</SgWidget>
+
+<SgWidget 
+	name     = 'sgwPointerHour'
+	type     = 'SgBMP{1}' 
+	x        = '160'
+	y        = '240'
+	w        = '109'
+	h        = '14'	
+	layer    = '1'
+	refresh  = 'RefreshPointerHour'	
+	cache    = 'NULL'
+	weight   = '20'
+	>
+	<SgBMP 
+		name='PointerHour' 
+		locate='watch/watch_pointer_hour.png' 
+		x='27' 
+		y='7' 
+		/>
+</SgWidget>
+
+<SgWidget 
+	name     = 'sgwPointerMinute'
+	type     = 'SgBMP{1}' 
+	x        = '160'
+	y        = '240'	
+	w        = '136'
+	h        = '12'		
+	layer    = '2'
+	refresh  = 'RefreshPointerMinute'		
+	cache    = 'NULL'
+	weight   = '20'
+	>
+	<SgBMP 
+		name='sgwPointerMinute' 
+		locate='watch/watch_pointer_minute.png' 
+		x='25'
+		y='6' 
+		/>
+</SgWidget>
+
+<SgWidget 
+	name     = 'sgwPointerSecond'
+	type     = 'SgBMP{1}' 
+	x        = '160'
+	y        = '240'
+	w        = '149'
+	h        = '15'			
+	layer    = '3'
+	refresh  = 'RefresPointerSecond'
+	cache    = 'NULL'
+	weight   = '20'
+	>
+	<SgBMP 
+		name='PointerSecond' 
+		locate='watch/watch_pointer_second.png' 
+		x='45' 
+		y='7' 
+		/>
+</SgWidget>
+
+<SgWidget 
+	name  = "sgwDate"
+	type     = 'SgTXT{1}' 
+	x        = '0'
+	y        = '430'
+	w        = '320'
+	h        = '16'			
+	layer    = '3'
+	refresh  = 'RefreshDate'
+	cache    = 'NULL'
+	weight   = '20'
+	>
+	<SgTXT refer='Chinese16x16' />
+</SgWidget>
+
+<!-- SgFont -->
+<!-- w: with of the font -->
+<!-- h: height of the font -->
+<!-- locate: resource location directory, each charactor should be PNG -->
+<SgFont
+	name   = 'Chinese16x16'
+	type   = 'SgFont'
+	w      = '16'
+	h      = '16'
+	locate = 'watch/Chinese16x16'
+	/>
+</Sg>	
+

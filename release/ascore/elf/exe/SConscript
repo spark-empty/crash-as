@@ -1,0 +1,7 @@
+from building import *
+
+env = GetELFEnv(False)
+
+if(env is not None):
+    for src in Glob('*.c'):
+        env.Program(src)

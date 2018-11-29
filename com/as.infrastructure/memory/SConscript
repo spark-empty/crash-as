@@ -1,0 +1,24 @@
+import os
+from building import *
+
+cwd = GetCurrentDir()
+
+Import('asenv')
+MODULES = asenv['MODULES']
+
+objs = []
+
+if('EA' in MODULES):
+    objs += Glob('Ea/*.c')
+    asenv.Append(CPPPATH=['%s/Ea'%(cwd)])
+
+if('FEE' in MODULES):
+    objs += Glob('Fee/*.c')
+
+if('MEMIF' in MODULES):
+    objs += Glob('MemIf/*.c')
+
+if('NVM' in MODULES):
+    objs += Glob('NvM/*.c')
+
+Return('objs')

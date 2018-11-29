@@ -1,0 +1,16 @@
+
+
+
+HOSTNAME=`/bin/hostname`
+PS1="[\u@\h \w]\# "
+export PS1 HOSTNAME
+
+
+export TSLIB_ROOT=/lib
+export TSLIB_TSDEVICE=/dev/input/touchscreen0
+export TSLIB_CONFFILE=/etc/ts.conf
+export TSLIB_PLUGINDIR=/lib/ts
+
+export TSLIB_CALIBFILE=/etc/pointercal
+export TSLIB_CONSOLEDEVICE=none
+export TSLIB_FBDEVICE=/dev/fb0

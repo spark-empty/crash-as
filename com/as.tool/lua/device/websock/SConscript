@@ -1,0 +1,36 @@
+import os
+from building import *
+
+cwd = GetCurrentDir()
+
+Import('asenv')
+ASROOT=asenv['ASROOT']
+
+assert(asenv['BOARD'] == 'posix')
+
+objs = []
+
+download = '%s/release/download'%(ASROOT)
+jsonc='%s/json-c'%(download)
+
+if(not os.path.exists(jsonc)):
+    MKDir(download)
+    RunCommand('cd %s && git clone https://github.com/json-c/json-c.git'%(download))
+    if(IsPlatformWindows()):
+        RunCommand('cd %s/json-c && mkdir build && cd build && cmake ../ && cp config.h ../config.h && cp json_config.h ../json_config.h'%(download))
+        asenv.Append(CCFLAGS='-D_MSC_VER')
+        RunCommand('cd %s/json-c && sed -i "11c #include <windows.h>" json_util.c'%(download))
+    else:
+        RunCommand('cd %s/json-c && sh ./autogen.sh && ./configure'%(download))
+
+MKSymlink(jsonc,'%s/json-c'%(cwd))
+
+objs +=  Glob('*.c')
+asenv.Append(CCFLAGS=['-I%s'%(cwd),'-DUSE_AWS'])
+
+objs +=  Glob('json-c/*.c')
+asenv.Append(CCFLAGS='-I%s/json-c'%(cwd))
+if(('-D_MSC_VER' not in asenv['CCFLAGS']) and (IsPlatformWindows())):
+    asenv.Append(CCFLAGS='-D_MSC_VER')
+
+Return('objs')

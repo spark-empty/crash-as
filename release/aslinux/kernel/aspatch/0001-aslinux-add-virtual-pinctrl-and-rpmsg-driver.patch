@@ -1,0 +1,101 @@
+From 0ff32dccd9d961f0164fc46583eb7d6f85d8e42a Mon Sep 17 00:00:00 2001
+From: parai <parai@foxmail.com>
+Date: Sat, 23 Jul 2016 11:32:33 +0800
+Subject: [PATCH] aslinux: add virtual pinctrl and rpmsg driver
+
+Signed-off-by: parai <parai@foxmail.com>
+---
+ arch/arm/boot/dts/vexpress-v2p-ca9.dts |  1 +
+ arch/arm/mach-vexpress/Kconfig         |  3 +++
+ drivers/pinctrl/Kconfig                |  8 ++++++++
+ drivers/pinctrl/Makefile               |  2 ++
+ drivers/remoteproc/Kconfig             | 11 +++++++++++
+ drivers/remoteproc/Makefile            |  2 ++
+ 6 files changed, 27 insertions(+)
+
+diff --git a/arch/arm/boot/dts/vexpress-v2p-ca9.dts b/arch/arm/boot/dts/vexpress-v2p-ca9.dts
+index 23662b5..f8cae6b 100644
+--- a/arch/arm/boot/dts/vexpress-v2p-ca9.dts
++++ b/arch/arm/boot/dts/vexpress-v2p-ca9.dts
+@@ -356,4 +356,5 @@
+ 
+ 		/include/ "vexpress-v2m.dtsi"
+ 	};
++	/include/ "vexpress-v2p-asvirt.dtsi"
+ };
+diff --git a/arch/arm/mach-vexpress/Kconfig b/arch/arm/mach-vexpress/Kconfig
+index b2cfba1..20344d8 100644
+--- a/arch/arm/mach-vexpress/Kconfig
++++ b/arch/arm/mach-vexpress/Kconfig
+@@ -20,6 +20,9 @@ menuconfig ARCH_VEXPRESS
+ 	select VEXPRESS_CONFIG
+ 	select VEXPRESS_SYSCFG
+ 	select MFD_VEXPRESS_SYSREG
++	select PINCTRL
++	select HAS_DMA
++	select SAMPLES
+ 	help
+ 	  This option enables support for systems using Cortex processor based
+ 	  ARM core and logic (FPGA) tiles on the Versatile Express motherboard,
+diff --git a/drivers/pinctrl/Kconfig b/drivers/pinctrl/Kconfig
+index c6a66de..7b83329 100644
+--- a/drivers/pinctrl/Kconfig
++++ b/drivers/pinctrl/Kconfig
+@@ -223,6 +223,14 @@ config PINCTRL_TB10X
+ 	bool
+ 	depends on ARC_PLAT_TB10X
+ 
++config ASLINUX_VIRT_GPIO
++    bool "aslinux virtual gpio driver"
++    depends on ARCH_VEXPRESS
++	select PINMUX
++	select GENERIC_PINCONF
++    help
++      aslinux virtual gpio driver sample code
++
+ endmenu
+ 
+ endif
+diff --git a/drivers/pinctrl/Makefile b/drivers/pinctrl/Makefile
+index 51f52d3..95562ac 100644
+--- a/drivers/pinctrl/Makefile
++++ b/drivers/pinctrl/Makefile
+@@ -47,3 +47,5 @@ obj-$(CONFIG_PINCTRL_SH_PFC)	+= sh-pfc/
+ obj-$(CONFIG_PLAT_SPEAR)	+= spear/
+ obj-$(CONFIG_ARCH_SUNXI)	+= sunxi/
+ obj-$(CONFIG_ARCH_VT8500)	+= vt8500/
++obj-$(CONFIG_ASLINUX_VIRT_GPIO)        += pinctrl-asvirt.o
++
+diff --git a/drivers/remoteproc/Kconfig b/drivers/remoteproc/Kconfig
+index 5e343ba..1999738 100644
+--- a/drivers/remoteproc/Kconfig
++++ b/drivers/remoteproc/Kconfig
+@@ -64,4 +64,15 @@ config DA8XX_REMOTEPROC
+ 	  It's safe to say n here if you're not interested in multimedia
+ 	  offloading.
+ 
++config ASVIRT_REMOTEPROC
++	tristate "ASLINUX virtual remoteproc support"
++	depends on ARCH_VEXPRESS
++	select REMOTEPROC
++	select RPMSG
++	help
++	  Say y here to support ASLINUX's virtual remote processors 
++	  via the remote processor framework, the 2 processors core
++	  and MCU are both simulated by threads.
++
+ endmenu
++
+diff --git a/drivers/remoteproc/Makefile b/drivers/remoteproc/Makefile
+index ac2ff75..855628b 100644
+--- a/drivers/remoteproc/Makefile
++++ b/drivers/remoteproc/Makefile
+@@ -10,3 +10,5 @@ remoteproc-y				+= remoteproc_elf_loader.o
+ obj-$(CONFIG_OMAP_REMOTEPROC)		+= omap_remoteproc.o
+ obj-$(CONFIG_STE_MODEM_RPROC)	 	+= ste_modem_rproc.o
+ obj-$(CONFIG_DA8XX_REMOTEPROC)		+= da8xx_remoteproc.o
++obj-$(CONFIG_ASVIRT_REMOTEPROC)		+= asvirt_remoteproc.o
++obj-$(CONFIG_ASVIRT_REMOTEPROC)		+= rproc-asvirt/
+-- 
+1.9.1
+

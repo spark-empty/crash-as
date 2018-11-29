@@ -1,0 +1,108 @@
+import os
+from building import *
+
+cwd = GetCurrentDir()
+
+Import('asenv')
+ASROOT = asenv['ASROOT']
+
+MODULES = ['ECUM','SCHM','MCU',
+           'DET','SHELL',
+           'SCAN','CANIF','PDUR','COM','COMM','CANTP','J1939TP',
+           'CANNM','CANSM','NM','OSEKNM','XCP',
+           'DCM',
+           'PORT','DIO','DEMO_LED_APP',
+           'ASKAR',
+           'USB','USB_CAN'
+           ]
+
+ARCH='stm32f1'
+arch='cortex-m'
+
+MODULES += ['CLIB_MBOX']
+MODULES += ['CLIB_MISCLIB','CLIB_STRTOK_R']
+MODULES += ['CLIB_STDIO_PRINTF']
+MODULES += ['CLIB_STDIO_CAN']
+
+# post special process for asboot release
+if(asenv['RELEASE']=='asboot'):
+    MODULES = ['ECUM','SCHM','MCU','DET',
+               'SCAN','CANIF','PDUR','CANTP','DCM',
+               'CLIB_STDIO_PRINTF',
+               'CLIB_MISCLIB',
+               'TINYOS',
+               'USB','USB_CAN','CANTP_MINI','DCM_MINI',
+               'SHELL','FLASH_CMD','MEM_CMD','JMP_CMD','CLIB_STRTOK_R'
+               ]
+    lds = '%s/script/linker-flsdrv.lds'%(cwd)
+    asenv['flsdrv'] = {'CPPDEFINES':['FLASH_DRIVER_DYNAMIC_DOWNLOAD',
+                                  'FLASH_WRITE_SIZE=4',
+                                  'CHIP_STM32F10X','STM32F10X_CL'],
+                       'CCFLAGS':[],
+                       'CPPPATH':['%s/com/as.infrastructure/include'%(ASROOT)],
+                       'LINKFLAGS':['-static','-T%s'%(lds),'-Map','build/stm32f107vc/stm32f107vc-flsdrv.map'],
+                       'objs':[]}
+
+if(asenv['MODULES'] is None):
+    asenv['MODULES'] = MODULES
+else:
+    MODULES = asenv['MODULES']
+
+asenv['ARCH'] = ARCH
+asenv['arch'] = arch
+
+objs = []
+
+if(asenv['RELEASE']=='asboot'):
+    lds = '%s/script/linker-boot.lds'%(cwd)
+else:
+    lds = '%s/script/linker-app.lds'%(cwd)
+asenv.Append(LINKFLAGS='-static -T %s'%(lds))
+asenv.Append(LINKFLAGS='-Map build/stm32f107vc/stm32f107vc.map')
+
+asenv.Append(CPPPATH=['%s/common'%(cwd)])
+
+if('CAN' in MODULES):
+    objs += Glob('common/Can*.c')
+    objs += Glob('common/isr_can.xml')
+    asenv.Append(CPPDEFINES=['NOT_PYGEN_CAN'])
+
+if('SCAN' in MODULES):
+    asenv.Append(CPPDEFINES=['NOT_PYGEN_CAN'])
+
+if('SHELL' in MODULES):
+    objs += Glob('common/isr_usart2.xml')
+
+if('DIO' in MODULES):
+    objs += Glob('common/Dio*.c')
+
+if('MCU' in MODULES):
+    objs += Glob('common/Mcu*.c')
+
+if('PORT' in MODULES):
+    objs += Glob('common/Port*.c')
+
+if('LWIP' in MODULES):
+    objs += Glob('common/isr_eth.xml')
+
+if('DEMO_LED_APP' in MODULES):
+    objs += Glob('leds/*.xml')
+    objs += Glob('leds/*.c')
+
+if('USB' in MODULES):
+    asenv['PACKAGES'].append({'url':'https://gitlab.com/as-boards/stm32f107vc.git'})
+
+asenv.Append(CPPDEFINES=['CHIP_STM32F10X','STM32F10X_CL'])
+asenv.Append(CPPDEFINES=['ENABLE_SHELL_ECHO_BACK'])
+
+if('run' in COMMAND_LINE_TARGETS):
+    SelectCompilerArmNoneEabi()
+    if(asenv['RELEASE']!='asboot'):
+        cmd = 'cd %s/release/asboot && scons'%(ASROOT)
+        RunCommand(cmd)
+    gdb = asenv['CC'].split(' ')[0][:-3]+'gdb'
+    cmd = 'cd %s/release/asboot && %s -x %s/script/rom.gdbinit'%(ASROOT,gdb, cwd)
+    RunCommand(cmd)
+    exit()
+
+Return('objs')

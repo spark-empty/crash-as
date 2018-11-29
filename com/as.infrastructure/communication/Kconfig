@@ -1,0 +1,73 @@
+menu "AUTOSAR Communication Stack"
+
+config CANIF
+	bool "Communication CAN Interface"
+	depends on CAN
+	default y
+
+config CANNM
+	bool "Communication CAN Network Management"
+	depends on CANIF
+	default y
+
+config CANSM
+	bool "Communication CAN State Manager"
+	depends on CANIF
+	default y
+
+config CANTP
+	bool "Communication CAN Transport Layer"
+	depends on CANIF
+	default y
+
+config COM
+	bool "Communication Signals"
+	depends on PDUR
+	default y
+
+config COMM
+	bool "Communication Manager"
+	depends on PDUR
+	default y
+
+config DOIP
+	bool "Diagnostic Over IP"
+	depends on SOAD
+	default y
+
+config NM
+	bool "Network Manager"
+	depends on CANNM
+	default y
+
+config OSEKNM
+	bool "OSEK Network Managment"
+	depends on CANIF
+	default y
+
+config PDUR
+	bool "PDU Router"
+	depends on (CANIF || SOAD)
+	default y
+
+config RPMSG
+	bool "Remote Processor Message"
+	depends on IPC
+	default y
+
+config SOAD
+	bool "Socket Adapter"
+	depends on (LWIP || UIP)
+	default y
+
+config XCP
+	bool "Extened Calibration Protocol"
+	depends on PDUR
+	default y
+
+config J1939TP
+	bool "J1939 Transport Layer"
+	depends on PDUR
+	default y
+
+endmenu

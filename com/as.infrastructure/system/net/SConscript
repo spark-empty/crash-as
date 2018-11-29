@@ -1,0 +1,22 @@
+from building import *
+
+Import('asenv')
+MODULES = asenv['MODULES']
+
+cwd = GetCurrentDir()
+
+objs = []
+
+if(('LWIP' in MODULES) and ('RTTHREAD' not in MODULES)):
+    objs += SConscript('lwip/SConscript')
+
+if( (('LWIP' in MODULES) or ('UIP' in MODULES)) 
+   and ('FTP' in MODULES)):
+    objs += Glob('ftp/*.c')
+    asenv.Append(CPPDEFINES = 'FTPD_DEBUG')
+    asenv.Append(CPPPATH = ['%s/ftp'%(cwd)])
+
+if('UIP' in MODULES):
+    objs += SConscript('uip/SConscript')
+
+Return('objs')

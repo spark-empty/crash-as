@@ -1,0 +1,12 @@
+{
+	"plugins" : "/etc/ambd/plugins.d",
+	"sources" : [
+		{
+			"name" : "AUTOSAR",
+			"path" : "/usr/local/lib/x86_64-linux-gnu/automotive-message-broker/autosarplugin.so",
+			"delay" : "1"
+		}
+	],
+	"sinks": [	]
+}
+

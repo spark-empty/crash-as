@@ -1,0 +1,8 @@
+
+# what is the meaning? I don't know, I copy from net.
+proc    /proc   proc    defaults        0       0
+sysfs   /sys    sysfs   defaults        0       0
+tmpfs   /tmp    tmpfs   defaults        0       0
+tmpfs   /dev    tmpfs   defaults        0       0
+smackfs /smack smackfs smackfsdef=* 0 0
+

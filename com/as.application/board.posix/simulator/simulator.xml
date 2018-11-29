@@ -1,0 +1,10 @@
+<?xml version='1.0' encoding='utf-8'?>
+<AS>
+    <KSM>
+        <!-- A KSM will automatically has the sate: -->
+        <!-- Init -->
+        <!-- Start -->
+        <!-- Stop -->
+        <Simulator><Running/></Simulator>
+    </KSM>
+</AS>

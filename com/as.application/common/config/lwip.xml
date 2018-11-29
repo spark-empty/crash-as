@@ -1,0 +1,61 @@
+<?xml version='1.0' encoding='utf-8'?>
+<AS>
+	<Os>
+		<!-- priority should be higher than SchM_Startup -->
+	    <Task Name="TaskLwip"  
+	    		Activation="1" 
+				Autostart="True" 
+				Priority="9"
+				Schedule="FULL" 
+				StackSize="2048"
+				Application="OsDefaultApp"
+	     		Comment="*" >
+			<ApplicationModeList Max="32">
+				<ApplicationMode 
+					Name="OSDEFAULTAPPMODE" 
+					Comment="start if mode is OSDEFAULTAPPMODE"
+				/>
+			</ApplicationModeList>
+			<EventList>
+				<!-- python: for i in range(0,32): print("<Event Name=\"Event%s\" Mask=\"0x%08x\" />"%(i,1<<i)) -->
+				<Event Name="Event0" Mask="0x00000001" />
+				<Event Name="Event1" Mask="0x00000002" />
+				<Event Name="Event2" Mask="0x00000004" />
+				<Event Name="Event3" Mask="0x00000008" />
+				<Event Name="Event4" Mask="0x00000010" />
+				<Event Name="Event5" Mask="0x00000020" />
+				<Event Name="Event6" Mask="0x00000040" />
+				<Event Name="Event7" Mask="0x00000080" />
+				<Event Name="Event8" Mask="0x00000100" />
+				<Event Name="Event9" Mask="0x00000200" />
+				<Event Name="Event10" Mask="0x00000400" />
+				<Event Name="Event11" Mask="0x00000800" />
+				<Event Name="Event12" Mask="0x00001000" />
+				<Event Name="Event13" Mask="0x00002000" />
+				<Event Name="Event14" Mask="0x00004000" />
+				<Event Name="Event15" Mask="0x00008000" />
+				<Event Name="Event16" Mask="0x00010000" />
+				<Event Name="Event17" Mask="0x00020000" />
+				<Event Name="Event18" Mask="0x00040000" />
+				<Event Name="Event19" Mask="0x00080000" />
+				<Event Name="Event20" Mask="0x00100000" />
+				<Event Name="Event21" Mask="0x00200000" />
+				<Event Name="Event22" Mask="0x00400000" />
+				<Event Name="Event23" Mask="0x00800000" />
+			</EventList>
+		</Task>
+
+		<Alarm Name="Alarm_Lwip" 
+			Autostart="False" 
+			Period="5" 
+			StartTime="5"
+			Counter="OsClock"
+			Action="SetEvent"	
+			Task="TaskLwip"				
+			Event="Event22"  
+			Callback="TBD" 
+			Application="OsDefaultApp"
+			Comment="*" />
+ 	</Os>
+ 	<KSM> <LwipIdle><Running/></LwipIdle> </KSM>
+</AS>

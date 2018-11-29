@@ -1,0 +1,25 @@
+import os
+from building import *
+import xcc
+
+xcc.SetDefaultRTOS('atk2-sc4')
+
+cwd = GetCurrentDir()
+
+Import('asenv')
+arch = asenv['arch']
+MODULES = asenv['MODULES']
+
+asenv.Append(CPPPATH=['%s/include'%(cwd)])
+asenv.Append(CPPPATH=['%s/kernel'%(cwd)])
+asenv.Append(CPPPATH=['%s/portable/%s'%(cwd,arch)])
+asenv.Append(ASFLAGS=['-I%s/portable/%s'%(cwd,arch)])
+
+objs = []
+
+objs += Glob('kernel/*.c')
+objs += Glob('portable/%s/*.c'%(arch))
+objs += Glob('portable/%s/gcc/*.S'%(arch))
+objs += Glob('portable/%s/*.of'%(arch))
+
+Return('objs')

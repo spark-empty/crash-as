@@ -1,0 +1,13 @@
+import os
+from building import *
+Import('asenv')
+
+cwd = GetCurrentDir()
+
+list = os.listdir(cwd)
+
+if('LIBELF' in asenv['MODULES']):
+    for d in list:
+        path = os.path.join(cwd, d)
+        if os.path.isfile(os.path.join(path, 'SConscript')):
+            SConscript(os.path.join(d, 'SConscript'))

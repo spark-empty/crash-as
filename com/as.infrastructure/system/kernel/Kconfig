@@ -1,0 +1,82 @@
+menu "Operating System"
+
+config DEFAULT_ASKAR
+	bool
+
+config DEFAULT_TINYOS
+	bool
+
+config DEFAULT_RTTHREAD
+	bool
+
+config DEFAULT_ATK2_SC4
+	bool
+
+config DEFAULT_TRAMPOLINE
+	bool
+
+config DEFAULT_TOPPERS_OSEK
+	bool
+
+config DEFAULT_FREERTOS
+	bool
+
+config DEFAULT_MINIX
+	bool
+
+config DEFAULT_CONTIKI
+	bool
+
+choice
+	prompt "RTOS"
+	default ASKAR if DEFAULT_ASKAR
+	default TINYOS if DEFAULT_TINYOS
+	default RTTHREAD if DEFAULT_RTTHREAD
+	default ATK2_SC4 if DEFAULT_ATK2_SC4
+	default TRAMPOLINE if DEFAULT_TRAMPOLINE
+	default TOPPERS_OSEK if DEFAULT_TOPPERS_OSEK
+	default FREERTOS if DEFAULT_FREERTOS
+	default CONTIKI if DEFAULT_CONTIKI
+	default MINIX if DEFAULT_MINIX
+
+config ASKAR
+	bool "askar:Automotive oSeK AutosaR/pthreads RTOS"
+
+config TINYOS
+	bool "tiny OSEK BCC1 RTOS"
+
+config RTTHREAD
+	bool "rt-thread"
+
+config ATK2_SC4
+	bool "ask-sc4"
+
+config TRAMPOLINE
+	bool "trampoline"
+
+config TOPPERS_OSEK
+	bool "toppers osek"
+
+config FREERTOS
+	bool "freertos"
+
+config CONTIKI
+	bool "Contiki: The Open Source OS for the Internet of Things"
+
+config MINIX
+	bool "minix 3.0: internal study purpose"
+
+config ANYOS
+	bool "any other 3rd party OS under board.any"
+
+endchoice
+
+config PROTOTHREAD
+	bool "protothread(or named coroutine)"
+	default y if !ARCH_POSIX
+
+if ASKAR
+source "$ASROOT/com/as.infrastructure/system/kernel/askar/Kconfig"
+endif
+
+endmenu

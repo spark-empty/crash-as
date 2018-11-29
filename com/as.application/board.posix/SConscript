@@ -1,0 +1,137 @@
+import os
+from building import *
+
+cwd = GetCurrentDir()
+
+Import('asenv')
+ASROOT = asenv['ASROOT']
+
+if('run' in COMMAND_LINE_TARGETS):
+    build = '%s/release/%s'%(ASROOT,asenv['RELEASE'])
+    python = asenv['python3']
+    if(IsPlatformWindows()):
+        python = 'start ' + python
+        if(not asenv['msys2']):
+            RunCommand('%s -O2 -shared -Wall -o %s/backtrace.dll %s/com/as.infrastructure/diagnostic/Det/backtrace.c -lbfd -lintl -liberty -limagehlp -D__ASDEBUG_BACKTRACE__'
+                   %(asenv['CC'],build,ASROOT))
+        extfs = '%s/ExtFs.img'%(build)
+        if(asenv['msys2'] and (asenv['RELEASE'] == 'ascore') and (not os.path.exists(extfs))):
+            lwext4mkfs = '%s/release/download/lwext4/build_generic/fs_test/lwext4-mkfs.exe'%(ASROOT)
+            RunCommand('echo "0" > %s && truncate -s 33554432 %s'%(extfs,extfs))
+            RunCommand('%s -i %s -b 4096 -e 4'%(lwext4mkfs,extfs))
+        candrvtgt = '%s/com/as.tool/lua/script/socketwin_can_driver.exe'%(ASROOT)
+        RunCommand('start %s 0'%(candrvtgt))
+        RunCommand('start %s 1'%(candrvtgt))
+    
+    if('asone' in COMMAND_LINE_TARGETS):
+        RunCommand('cd %s/com/as.tool/as.one.py && %s main.py'%(ASROOT,python))
+
+    target = '%s/release/%s/posix'%(ASROOT,asenv['RELEASE'])
+    if(not IsPlatformWindows()):
+        target = 'sudo ' + target
+    else:
+        import glob
+        bin = asenv['CC'][:-3]
+        src = target+'.exe'
+        tgt = bin+'posix.exe'
+        RunCommand('cp -f %s %s'%(src, tgt))
+        for dll in Glob('%s/*.dll'%(build)):
+            src = str(dll)
+            tgt = bin+os.path.basename(src)
+            MKObject(src, tgt, 'cp -f %s %s'%(src, tgt))
+        target = bin+'posix.exe'
+    RunCommand('cd %s && %s'%(build,target))
+    exit(0)
+
+MODULES = ['ECUM','SCHM','MCU',
+           'DET','DEM','SHELL',
+           'CAN','CANIF','PDUR','COM','COMM','CANTP',
+           'DCM','CANNM','CANSM','NM','OSEKNM','XCP',
+           'PORT','DIO','EEP','FLS','STMO',
+           'EA','FEE','MEMIF','NVM',
+           'LCD','FDT',
+           'TINYOS',
+           'J1939TP',
+           'TRACE',
+           ]
+
+if(not IsPlatformWindows()):
+    MODULES.append('AWS')
+
+ARCH='posix'
+arch='posix'
+
+MODULES += ['SOAD','DOIP','LWIP','LWIP_POSIX_ARCH']
+
+MODULES += ['FATFS','LWEXT4','VFS','FTP']
+
+if(IsPlatformWindows()):
+    MODULES += ['CLIB_STRTOK_R']
+    asenv.Append(CPPDEFINES='OS_TICKS_PER_SECOND=1000')
+else:
+    asenv.Append(CPPDEFINES='OS_TICKS_PER_SECOND=1000000')
+
+MODULES += ['CLIB_MBOX']
+MODULES += ['CLIB_MISCLIB']
+MODULES += ['CLIB_STDIO_PRINTF']
+MODULES += ['CLIB_STDIO_CAN']
+
+MODULES += ['RTE','RTE_SWC_TELLTALE']
+
+if(cwd.find('travis') != -1):
+    # this is on travis, GUI is not possible as rely on QT to generate pictures to C source code
+    MODULES.remove('LCD')
+    MODULES.remove('FATFS')
+else:
+    if(os.getenv('GUI') in ['GTK','OPENVG']):
+        MODULES.append(os.getenv('GUI'))
+    else:
+        print('WARNING: use default GTK GUI for posix')
+        MODULES.append('GTK')
+
+    MODULES.append('SG')
+
+# post special process for asboot release
+if(asenv['RELEASE']=='asboot'):
+    MODULES = ['ECUM','SCHM','MCU','DET',
+               'CAN','CANIF','PDUR','CANTP',
+               'DCM','XCP',
+               'FLASH',
+               'TINYOS',
+               'CANTP_MINI',
+               ]
+
+if(asenv['MODULES'] is None):
+    asenv['MODULES'] = MODULES
+else:
+    MODULES = asenv['MODULES']
+
+asenv['ARCH'] = ARCH
+asenv['arch'] = arch
+
+objs = []
+
+asenv.Append(CPPPATH=['%s/common'%(cwd)])
+
+if('DIO' in MODULES):
+    objs += Glob('common/Dio*.c')
+
+if('EEP' in MODULES):
+    objs += Glob('common/Eep*.c')
+
+if('IPC' in MODULES):
+    objs += Glob('common/Ipc*.c')
+
+if('MCU' in MODULES):
+    objs += Glob('common/Mcu*.c')
+
+if('PORT' in MODULES):
+    objs += Glob('common/Port*.c')
+
+if('STMO' in MODULES):
+    objs += Glob('common/Stmo*.c')
+
+objs += Glob('simulator/*.c')
+objs += Glob('simulator/*.xml')
+
+Return('objs')

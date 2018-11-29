@@ -1,0 +1,34 @@
+import os
+from building import *
+
+cwd = GetCurrentDir()
+
+Import('asenv')
+
+MODULES=asenv['MODULES']
+
+if('SG_DEMO_WATCH' in MODULES):
+    sgapp = 'watch'
+elif('SG_DEMO_CLUSTER' in MODULES):
+    sgapp = 'virtual_cluster'
+else:
+    sgapp = 'watch'
+
+doneFlag = '%s/SgRes/%s.done'%(cwd,sgapp)
+if((not os.path.exists(doneFlag)) and (not asenv.GetOption('clean'))):
+    RMDir('%s/SgRes'%(cwd))
+    MKDir('%s/SgRes'%(cwd))
+    RunCommand('cd %s && %s %s/com/as.tool/config.infrastructure.gui/Sg.py %s/%s/Sg.xml'%(cwd,asenv['python3'],asenv['ASROOT'],cwd,sgapp))
+    MKFile(doneFlag)
+
+if(asenv.GetOption('clean')):
+    RMDir('%s/SgRes'%(cwd))
+
+objs = []
+
+objs +=  Glob('SgRes/*.c')
+objs +=  Glob('%s/src/*.c'%(sgapp))
+
+asenv.Append(CCFLAGS='-I%s/SgRes'%(cwd))
+
+Return('objs')
