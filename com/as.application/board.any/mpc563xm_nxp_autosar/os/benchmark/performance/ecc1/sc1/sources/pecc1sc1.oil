@@ -1,0 +1,167 @@
+/**************************************************************************************
+* 
+*  Freescale(TM) and the Freescale logo are trademarks of Freescale Semiconductor, Inc. 
+*  All other product or service names are the property of their respective owners. 
+*  (C) Freescale Semiconductor, Inc. 2008 - 2009
+* 
+*  You can use this example for any purpose on any computer system with the
+*  following restrictions:
+*
+*  1. This example is provided "as is", without warranty.
+*
+*  2. You don't remove this copyright notice from this example or any direct derivation 
+*     thereof.
+*
+*  Description:  AUTOSAR OS/MPC56xxAM performance benchmark for ECC1/SC1
+*
+**************************************************************************************/
+
+OIL_VERSION = "3.0";
+
+#include "os_mpc56xxAM.oin"
+
+CPU Cpu1 {
+    APPMODE Mode1;
+    
+    OS Os1 {
+
+#include "..\..\..\common\target.oin"
+        }; 
+#include "..\..\..\..\common\options.oin"        
+        STATUS = STANDARD;
+    };
+
+#include "..\..\..\common\performance.oin"
+
+    ISR OneEventISR {
+        CATEGORY = 2;
+        PRIORITY = 1;
+        IrqChannel = EXTERNAL {
+            IrqNumber = 209; // eMIOS Channel 23
+        };
+    };
+    
+    TASK TASK_3_EVT {        
+        AUTOSTART = TRUE;
+        PRIORITY = 24;
+        SCHEDULE = FULL;
+        ACTIVATION = 1;		
+        EVENT = EVT3;
+        STACKSIZE = 512;
+    };
+    TASK TASK_4_EVT {
+        AUTOSTART = TRUE;
+        PRIORITY = 25;
+        SCHEDULE = FULL;
+        ACTIVATION = 1;        		
+        EVENT = EVT4;
+        STACKSIZE = 512;
+    };
+  
+    ALARM ALARM_TWO {
+        COUNTER = Counter2;
+        ACTION = SETEVENT {
+            TASK = TASK_ALM_EVT;
+            EVENT = EVT_ALM;
+        };
+        AUTOSTART = FALSE;
+    };
+    
+    TASK TASK_ALM_EVT {
+        AUTOSTART = TRUE;
+        PRIORITY = 26;
+        SCHEDULE = FULL;        
+        STACKSIZE = 512;
+        ACTIVATION = 1;
+        EVENT = EVT_ALM;
+    };    
+    
+    ALARM ALARM_1 {
+        ACTION = SETEVENT {
+            TASK = TASK_h1;
+            EVENT = EVT1h;
+        };
+    };
+    ALARM ALARM_2 {
+        ACTION = SETEVENT {
+            TASK = TASK_h2;
+            EVENT = EVT2h;
+        };
+    };
+    ALARM ALARM_3 {
+        ACTION = SETEVENT {
+            TASK = TASK_h3;
+            EVENT = EVT3h;
+        };
+    };
+    ALARM ALARM_4 {
+        ACTION = SETEVENT {
+            TASK = TASK_h4;
+            EVENT = EVT4h;
+        };
+    };
+    ALARM ALARM_5 {
+        ACTION = ACTIVATETASK {
+            TASK = TASK_h5;
+        };        
+    };
+    ALARM ALARM_6 {
+        ACTION = ACTIVATETASK {
+            TASK = TASK_h6;
+        };        
+    };
+    ALARM ALARM_7 {
+        ACTION = ACTIVATETASK {
+            TASK = TASK_h7;
+        };        
+    };
+    ALARM ALARM_8 {
+        ACTION = ACTIVATETASK {
+            TASK = TASK_h8;
+        };        
+    };    
+
+    TASK TASK_h1 {
+        AUTOSTART = TRUE;
+        EVENT = EVT1h;
+        STACKSIZE = 512;
+    };
+    TASK TASK_h2 {
+        AUTOSTART = TRUE;
+        EVENT = EVT2h;
+        STACKSIZE = 512;
+    };
+    TASK TASK_h3 {
+        AUTOSTART = TRUE;
+        EVENT = EVT3h;
+        STACKSIZE = 512;
+    };
+    TASK TASK_h4 {
+        AUTOSTART = TRUE;
+        EVENT = EVT4h;
+        STACKSIZE = 512;
+    };
+    
+    EVENT EVT3 {
+        MASK = 16;
+    };
+    EVENT EVT4 {
+        MASK = 32;
+    };
+    EVENT EVT_ALM {
+        MASK = 64;
+    };
+
+    EVENT EVT1h {
+        MASK = 1;
+    };
+    EVENT EVT2h {
+        MASK = 2;
+    };
+    EVENT EVT3h {
+        MASK = 4;
+    };
+    EVENT EVT4h {
+        MASK = 8;
+    };    
+};

@@ -1,0 +1,1283 @@
+<?xml version="1.0"?>
+<AUTOSAR xmlns="http://autosar.org/3.0.2" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://autosar.org/3.0.2 autosar.xsd">
+  <TOP-LEVEL-PACKAGES>
+    <AR-PACKAGE UUID="ECUC:AUTOSAR">
+      <SHORT-NAME>TS_T2D14M20I0R0</SHORT-NAME>
+      <ELEMENTS>
+        <ECU-PARAMETER-DEFINITION UUID="ECUC:1c234422-e83c-48f9-964f-0f2f1d23e73e">
+          <SHORT-NAME>Icu_AUTOSARParameterDefinition</SHORT-NAME>
+          <MODULE-REFS>
+            <MODULE-REF DEST="MODULE-DEF">/TS_T2D14M20I0R0/Icu</MODULE-REF>
+          </MODULE-REFS>
+        </ECU-PARAMETER-DEFINITION>
+        <MODULE-DEF UUID="ECUC:08b95162-2ceb-4668-b04a-ae1bdecff6b8">
+          <SHORT-NAME>Icu</SHORT-NAME>
+          <DESC>
+            <L-2 L="EN">Configuration of the Icu (Input Capture Unit) module.</L-2>
+          </DESC>
+          <ADMIN-DATA>
+            <LANGUAGE>EN</LANGUAGE>
+            <DOC-REVISIONS>
+              <DOC-REVISION>
+                <REVISION-LABEL>1.2</REVISION-LABEL>
+                <ISSUED-BY>anonymous</ISSUED-BY>
+                <DATE>2008-05-26T21:32:52</DATE>
+                <MODIFICATIONS>
+                  <MODIFICATION>
+                    <CHANGE>
+                      <L-2 L="EN">ChangeTitle</L-2>
+                    </CHANGE>
+                    <REASON>
+                      <L-2 L="EN">Reason</L-2>
+                    </REASON>
+                  </MODIFICATION>
+                </MODIFICATIONS>
+              </DOC-REVISION>
+            </DOC-REVISIONS>
+          </ADMIN-DATA>
+          <LOWER-MULTIPLICITY>1</LOWER-MULTIPLICITY>
+          <UPPER-MULTIPLICITY>1</UPPER-MULTIPLICITY>
+          <REFINED-MODULE-DEF-REF DEST="MODULE-DEF">/AUTOSAR/Icu</REFINED-MODULE-DEF-REF>
+          <SUPPORTED-CONFIG-VARIANTS>
+            <SUPPORTED-CONFIG-VARIANT>VARIANT-PRE-COMPILE</SUPPORTED-CONFIG-VARIANT>
+            <SUPPORTED-CONFIG-VARIANT>VARIANT-POST-BUILD</SUPPORTED-CONFIG-VARIANT>
+          </SUPPORTED-CONFIG-VARIANTS>
+          <CONTAINERS>
+            <PARAM-CONF-CONTAINER-DEF UUID="ECUC:0b23808d-0e89-4b12-92d8-afca6609e31c">
+              <SHORT-NAME>IcuConfigSet</SHORT-NAME>
+              <DESC>
+                <L-2>This container is the base for a multiple configuration set</L-2>
+              </DESC>
+              <LOWER-MULTIPLICITY>1</LOWER-MULTIPLICITY>
+              <UPPER-MULTIPLICITY>1</UPPER-MULTIPLICITY>
+              <MULTIPLE-CONFIGURATION-CONTAINER>true</MULTIPLE-CONFIGURATION-CONTAINER>
+              <PARAMETERS>
+                <DERIVED-INTEGER-PARAM-DEF UUID="ECUC:959f7cc8-5fab-4c8f-b093-c2d451af92da">
+                  <SHORT-NAME>IcuMaxChannel</SHORT-NAME>
+                  <DESC>
+                    <L-2>The value for the IcuMaxChannel must match with the number of IcuChannel configured For calculating the correct value use the CALC button. NoteTotal number of configured channels should be same across all IcuConfigSets. </L-2>
+                  </DESC>
+                  <LOWER-MULTIPLICITY>1</LOWER-MULTIPLICITY>
+                  <UPPER-MULTIPLICITY>1</UPPER-MULTIPLICITY>
+                  <IMPLEMENTATION-CONFIG-CLASSES>
+                    <IMPLEMENTATION-CONFIG-CLASS>
+                      <CONFIG-CLASS>PRE-COMPILE</CONFIG-CLASS>
+                      <CONFIG-VARIANT>VARIANT-PRE-COMPILE</CONFIG-VARIANT>
+                    </IMPLEMENTATION-CONFIG-CLASS>
+                    <IMPLEMENTATION-CONFIG-CLASS>
+                      <CONFIG-CLASS>POST-BUILD</CONFIG-CLASS>
+                      <CONFIG-VARIANT>VARIANT-POST-BUILD</CONFIG-VARIANT>
+                    </IMPLEMENTATION-CONFIG-CLASS>
+                  </IMPLEMENTATION-CONFIG-CLASSES>
+                  <ORIGIN>AUTOSAR_ECUC</ORIGIN>
+                  <SYMBOLIC-NAME-VALUE>false</SYMBOLIC-NAME-VALUE>
+                  <DEFAULT-VALUE>3</DEFAULT-VALUE>
+                  <MAX>25</MAX>
+                  <MIN>1</MIN>
+                  <CALCULATION-FORMULA>number of configured icu channels</CALCULATION-FORMULA>
+                  <CALCULATION-LANGUAGE>INFORMAL</CALCULATION-LANGUAGE>
+                </DERIVED-INTEGER-PARAM-DEF>
+              </PARAMETERS>
+              <SUB-CONTAINERS>
+                <PARAM-CONF-CONTAINER-DEF UUID="ECUC:6f89c374-0348-48a3-bfb5-8f0ac4d43ebe">
+                  <SHORT-NAME>IcuChannel</SHORT-NAME>
+                  <DESC>
+                    <L-2 L="EN">Configuration of an individual ICU channel.</L-2>
+                  </DESC>
+                  <LOWER-MULTIPLICITY>1</LOWER-MULTIPLICITY>
+                  <UPPER-MULTIPLICITY>*</UPPER-MULTIPLICITY>
+                  <MULTIPLE-CONFIGURATION-CONTAINER>false</MULTIPLE-CONFIGURATION-CONTAINER>
+                  <PARAMETERS>
+                    <INTEGER-PARAM-DEF UUID="ECUC:a7d59b9f-f83b-4b71-b872-fc0c3ec70fdc">
+                      <SHORT-NAME>IcuChannelId</SHORT-NAME>
+                      <DESC>
+                        <L-2>Channel Id of the ICU channel.  This value will be assigned to the symbolic name derived of the IcuChannel container short name.</L-2>
+                      </DESC>
+                      <LOWER-MULTIPLICITY>1</LOWER-MULTIPLICITY>
+                      <UPPER-MULTIPLICITY>1</UPPER-MULTIPLICITY>
+                      <IMPLEMENTATION-CONFIG-CLASSES>
+                        <IMPLEMENTATION-CONFIG-CLASS>
+                          <CONFIG-CLASS>PRE-COMPILE</CONFIG-CLASS>
+                          <CONFIG-VARIANT>VARIANT-PRE-COMPILE</CONFIG-VARIANT>
+                        </IMPLEMENTATION-CONFIG-CLASS>
+                        <IMPLEMENTATION-CONFIG-CLASS>
+                          <CONFIG-CLASS>PRE-COMPILE</CONFIG-CLASS>
+                          <CONFIG-VARIANT>VARIANT-POST-BUILD</CONFIG-VARIANT>
+                        </IMPLEMENTATION-CONFIG-CLASS>
+                      </IMPLEMENTATION-CONFIG-CLASSES>
+                      <ORIGIN>AUTOSAR_ECUC</ORIGIN>
+                      <SYMBOLIC-NAME-VALUE>true</SYMBOLIC-NAME-VALUE>
+                      <DEFAULT-VALUE>1</DEFAULT-VALUE>
+                      <MAX>24</MAX>
+                      <MIN>0</MIN>
+                    </INTEGER-PARAM-DEF>
+                    <ENUMERATION-PARAM-DEF UUID="ECUC:96355a3a-6c31-454e-bf6a-85da43856700">
+                      <SHORT-NAME>IcuHwChannel</SHORT-NAME>
+                      <DESC>
+                        <L-2>Selects the physical HwChannelId Channel.
+                                                    </L-2>
+                      </DESC>
+                      <LOWER-MULTIPLICITY>1</LOWER-MULTIPLICITY>
+                      <UPPER-MULTIPLICITY>1</UPPER-MULTIPLICITY>
+                      <IMPLEMENTATION-CONFIG-CLASSES>
+                        <IMPLEMENTATION-CONFIG-CLASS>
+                          <CONFIG-CLASS>PRE-COMPILE</CONFIG-CLASS>
+                          <CONFIG-VARIANT>VARIANT-PRE-COMPILE</CONFIG-VARIANT>
+                        </IMPLEMENTATION-CONFIG-CLASS>
+                        <IMPLEMENTATION-CONFIG-CLASS>
+                          <CONFIG-CLASS>PRE-COMPILE</CONFIG-CLASS>
+                          <CONFIG-VARIANT>VARIANT-POST-BUILD</CONFIG-VARIANT>
+                        </IMPLEMENTATION-CONFIG-CLASS>
+                      </IMPLEMENTATION-CONFIG-CLASSES>
+                      <ORIGIN>Freescale</ORIGIN>
+                      <SYMBOLIC-NAME-VALUE>false</SYMBOLIC-NAME-VALUE>
+                      <DEFAULT-VALUE>EMIOS_0_CH_0</DEFAULT-VALUE>
+                      <LITERALS>
+                        <ENUMERATION-LITERAL-DEF UUID="0ab6af2e-4940-4c19-8c83-9ca4459a0eff">
+                          <SHORT-NAME>EMIOS_0_CH_0</SHORT-NAME>
+                        </ENUMERATION-LITERAL-DEF>
+                        <ENUMERATION-LITERAL-DEF UUID="3c9e942a-59e9-448f-8623-cd238a9e6d2b">
+                          <SHORT-NAME>EMIOS_0_CH_2</SHORT-NAME>
+                        </ENUMERATION-LITERAL-DEF>
+                        <ENUMERATION-LITERAL-DEF UUID="e8f6b08e-f710-4f87-88ce-279a64c33c04">
+                          <SHORT-NAME>EMIOS_0_CH_4</SHORT-NAME>
+                        </ENUMERATION-LITERAL-DEF>
+                        <ENUMERATION-LITERAL-DEF UUID="f313122e-8256-48ec-bda1-8feae14c3587">
+                          <SHORT-NAME>EMIOS_0_CH_8</SHORT-NAME>
+                        </ENUMERATION-LITERAL-DEF>
+                        <ENUMERATION-LITERAL-DEF UUID="6866f508-94df-4f7d-964c-683d6f1142ec">
+                          <SHORT-NAME>EMIOS_0_CH_9</SHORT-NAME>
+                        </ENUMERATION-LITERAL-DEF>
+                        <ENUMERATION-LITERAL-DEF UUID="84c1aba3-9cc1-488d-8ded-cb3b558820ec">
+                          <SHORT-NAME>EMIOS_0_CH_10</SHORT-NAME>
+                        </ENUMERATION-LITERAL-DEF>
+                        <ENUMERATION-LITERAL-DEF UUID="c08c4357-295b-4c0b-80a6-eb086c7b5038">
+                          <SHORT-NAME>EMIOS_0_CH_11</SHORT-NAME>
+                        </ENUMERATION-LITERAL-DEF>
+                        <ENUMERATION-LITERAL-DEF UUID="e347bce8-de3e-4e92-868a-cc3f20d21620">
+                          <SHORT-NAME>EMIOS_0_CH_12</SHORT-NAME>
+                        </ENUMERATION-LITERAL-DEF>
+                        <ENUMERATION-LITERAL-DEF UUID="752cb28f-4f5e-4563-8ca2-837baed8e5b2">
+                          <SHORT-NAME>EMIOS_0_CH_14</SHORT-NAME>
+                        </ENUMERATION-LITERAL-DEF>
+                        <ENUMERATION-LITERAL-DEF UUID="58d42e48-a2f8-464c-ba49-88aead44d76d">
+                          <SHORT-NAME>EMIOS_0_CH_15</SHORT-NAME>
+                        </ENUMERATION-LITERAL-DEF>
+                        <ENUMERATION-LITERAL-DEF UUID="391b6b89-778a-4161-8587-83e54ba32106">
+                          <SHORT-NAME>EMIOS_0_CH_23</SHORT-NAME>
+                        </ENUMERATION-LITERAL-DEF>
+                        <ENUMERATION-LITERAL-DEF UUID="483fcd52-c94d-460d-a6ff-9cbf6bb855b7">
+                          <SHORT-NAME>IRQ_0</SHORT-NAME>
+                        </ENUMERATION-LITERAL-DEF>
+                        <ENUMERATION-LITERAL-DEF UUID="8bfe0b30-d6a5-4817-adcd-eaecd6496966">
+                          <SHORT-NAME>IRQ_3</SHORT-NAME>
+                        </ENUMERATION-LITERAL-DEF>
+                        <ENUMERATION-LITERAL-DEF UUID="2e87799c-ab69-4980-b9d4-780f113dd8ae">
+                          <SHORT-NAME>IRQ_4</SHORT-NAME>
+                        </ENUMERATION-LITERAL-DEF>
+                        <ENUMERATION-LITERAL-DEF UUID="f4360258-be36-420d-a7b0-12e4e31181b4">
+                          <SHORT-NAME>IRQ_8</SHORT-NAME>
+                        </ENUMERATION-LITERAL-DEF>
+                        <ENUMERATION-LITERAL-DEF UUID="29fbd2c4-6590-46f3-9e31-ebf99f02b4c6">
+                          <SHORT-NAME>IRQ_9</SHORT-NAME>
+                        </ENUMERATION-LITERAL-DEF>
+                        <ENUMERATION-LITERAL-DEF UUID="444961be-7ea7-4ddc-bf05-bde51ed7bbeb">
+                          <SHORT-NAME>IRQ_10</SHORT-NAME>
+                        </ENUMERATION-LITERAL-DEF>
+                        <ENUMERATION-LITERAL-DEF UUID="aefb6dc5-d8f8-4647-87b7-a5a16b656dbc">
+                          <SHORT-NAME>IRQ_11</SHORT-NAME>
+                        </ENUMERATION-LITERAL-DEF>
+                        <ENUMERATION-LITERAL-DEF UUID="c3f4de14-8a4e-4f70-bc75-cd40849794e7">
+                          <SHORT-NAME>IRQ_12</SHORT-NAME>
+                        </ENUMERATION-LITERAL-DEF>
+                        <ENUMERATION-LITERAL-DEF UUID="b3a8a99a-1783-49c5-bcc1-210d44974663">
+                          <SHORT-NAME>IRQ_13</SHORT-NAME>
+                        </ENUMERATION-LITERAL-DEF>
+                        <ENUMERATION-LITERAL-DEF UUID="a66a90e8-6fc5-48a7-824b-b76570c4dce8">
+                          <SHORT-NAME>IRQ_14</SHORT-NAME>
+                        </ENUMERATION-LITERAL-DEF>
+                        <ENUMERATION-LITERAL-DEF UUID="1ca7d7d0-cc51-4a50-80bd-793d6afd0eea">
+                          <SHORT-NAME>IRQ_15</SHORT-NAME>
+                        </ENUMERATION-LITERAL-DEF>
+                      </LITERALS>
+                    </ENUMERATION-PARAM-DEF>
+                    <BOOLEAN-PARAM-DEF UUID="ECUC:24a8de7f-0402-4a3f-81c7-4e121fc1e62a">
+                      <SHORT-NAME>IcuEmiosFreeze</SHORT-NAME>
+                      <DESC>
+                        <L-2>If selected eMIOS channel registers are freezed in debug mode.NoteThis is an Implementation Specific Parameter. </L-2>
+                      </DESC>
+                      <LOWER-MULTIPLICITY>1</LOWER-MULTIPLICITY>
+                      <UPPER-MULTIPLICITY>1</UPPER-MULTIPLICITY>
+                      <IMPLEMENTATION-CONFIG-CLASSES>
+                        <IMPLEMENTATION-CONFIG-CLASS>
+                          <CONFIG-CLASS>PRE-COMPILE</CONFIG-CLASS>
+                          <CONFIG-VARIANT>VARIANT-PRE-COMPILE</CONFIG-VARIANT>
+                        </IMPLEMENTATION-CONFIG-CLASS>
+                        <IMPLEMENTATION-CONFIG-CLASS>
+                          <CONFIG-CLASS>PRE-COMPILE</CONFIG-CLASS>
+                          <CONFIG-VARIANT>VARIANT-POST-BUILD</CONFIG-VARIANT>
+                        </IMPLEMENTATION-CONFIG-CLASS>
+                      </IMPLEMENTATION-CONFIG-CLASSES>
+                      <ORIGIN>Freescale</ORIGIN>
+                      <SYMBOLIC-NAME-VALUE>false</SYMBOLIC-NAME-VALUE>
+                      <DEFAULT-VALUE>false</DEFAULT-VALUE>
+                    </BOOLEAN-PARAM-DEF>
+                    <ENUMERATION-PARAM-DEF UUID="ECUC:5c6d41a9-8a3f-4a29-b9ec-9f3d44cf6f33">
+                      <SHORT-NAME>IcuEmiosPrescaler</SHORT-NAME>
+                      <DESC>
+                        <L-2>If an eMIOS channel is being used,   this parameter configures the clock divider value for the internal prescaler of specific Unified Channel. Prescaled clock used as clock source for the programmable input filter. NoteThis is an Implementation Specific Parameter. </L-2>
+                      </DESC>
+                      <LOWER-MULTIPLICITY>1</LOWER-MULTIPLICITY>
+                      <UPPER-MULTIPLICITY>1</UPPER-MULTIPLICITY>
+                      <IMPLEMENTATION-CONFIG-CLASSES>
+                        <IMPLEMENTATION-CONFIG-CLASS>
+                          <CONFIG-CLASS>PRE-COMPILE</CONFIG-CLASS>
+                          <CONFIG-VARIANT>VARIANT-PRE-COMPILE</CONFIG-VARIANT>
+                        </IMPLEMENTATION-CONFIG-CLASS>
+                        <IMPLEMENTATION-CONFIG-CLASS>
+                          <CONFIG-CLASS>PRE-COMPILE</CONFIG-CLASS>
+                          <CONFIG-VARIANT>VARIANT-POST-BUILD</CONFIG-VARIANT>
+                        </IMPLEMENTATION-CONFIG-CLASS>
+                      </IMPLEMENTATION-CONFIG-CLASSES>
+                      <ORIGIN>Freescale</ORIGIN>
+                      <SYMBOLIC-NAME-VALUE>false</SYMBOLIC-NAME-VALUE>
+                      <DEFAULT-VALUE>EMIOS_PRESCALER_DIVIDE_1</DEFAULT-VALUE>
+                      <LITERALS>
+                        <ENUMERATION-LITERAL-DEF UUID="c4f3c2b5-62cb-49f3-86f6-53f205bac3e1">
+                          <SHORT-NAME>EMIOS_PRESCALER_DIVIDE_1</SHORT-NAME>
+                        </ENUMERATION-LITERAL-DEF>
+                        <ENUMERATION-LITERAL-DEF UUID="e09b7036-49ef-4134-b0ec-2574f3bb6b2e">
+                          <SHORT-NAME>EMIOS_PRESCALER_DIVIDE_2</SHORT-NAME>
+                        </ENUMERATION-LITERAL-DEF>
+                        <ENUMERATION-LITERAL-DEF UUID="af78b667-48fa-44c2-a389-0ed873bb9acb">
+                          <SHORT-NAME>EMIOS_PRESCALER_DIVIDE_3</SHORT-NAME>
+                        </ENUMERATION-LITERAL-DEF>
+                        <ENUMERATION-LITERAL-DEF UUID="f87d0422-790f-43e9-8cfb-31b7efb90e0d">
+                          <SHORT-NAME>EMIOS_PRESCALER_DIVIDE_4</SHORT-NAME>
+                        </ENUMERATION-LITERAL-DEF>
+                      </LITERALS>
+                    </ENUMERATION-PARAM-DEF>
+                    <ENUMERATION-PARAM-DEF UUID="ECUC:0ceeb7a7-ebe9-4403-a6f9-5e902c9028dc">
+                      <SHORT-NAME>IcuEmiosPrescaler_Alternate</SHORT-NAME>
+                      <DESC>
+                        <L-2>If an eMIOS channel is being used,   this parameter configures the alternate clock divider value for the internal prescaler of specific Unified Channel. Prescaled clock used as clock source for the programmable input filter. NoteThis is an Implementation Specific Parameter. </L-2>
+                      </DESC>
+                      <LOWER-MULTIPLICITY>1</LOWER-MULTIPLICITY>
+                      <UPPER-MULTIPLICITY>1</UPPER-MULTIPLICITY>
+                      <IMPLEMENTATION-CONFIG-CLASSES>
+                        <IMPLEMENTATION-CONFIG-CLASS>
+                          <CONFIG-CLASS>PRE-COMPILE</CONFIG-CLASS>
+                          <CONFIG-VARIANT>VARIANT-PRE-COMPILE</CONFIG-VARIANT>
+                        </IMPLEMENTATION-CONFIG-CLASS>
+                        <IMPLEMENTATION-CONFIG-CLASS>
+                          <CONFIG-CLASS>PRE-COMPILE</CONFIG-CLASS>
+                          <CONFIG-VARIANT>VARIANT-POST-BUILD</CONFIG-VARIANT>
+                        </IMPLEMENTATION-CONFIG-CLASS>
+                      </IMPLEMENTATION-CONFIG-CLASSES>
+                      <ORIGIN>Freescale</ORIGIN>
+                      <SYMBOLIC-NAME-VALUE>false</SYMBOLIC-NAME-VALUE>
+                      <DEFAULT-VALUE>EMIOS_PRESCALER_DIVIDE_1</DEFAULT-VALUE>
+                      <LITERALS>
+                        <ENUMERATION-LITERAL-DEF UUID="a5df9837-c91c-4792-8c5a-d983a18c0f53">
+                          <SHORT-NAME>EMIOS_PRESCALER_DIVIDE_1</SHORT-NAME>
+                        </ENUMERATION-LITERAL-DEF>
+                        <ENUMERATION-LITERAL-DEF UUID="dfbbc299-558a-4b1b-a942-b9498f9108e9">
+                          <SHORT-NAME>EMIOS_PRESCALER_DIVIDE_2</SHORT-NAME>
+                        </ENUMERATION-LITERAL-DEF>
+                        <ENUMERATION-LITERAL-DEF UUID="4f4ed481-4665-4ccc-8cf8-0fa3beead835">
+                          <SHORT-NAME>EMIOS_PRESCALER_DIVIDE_3</SHORT-NAME>
+                        </ENUMERATION-LITERAL-DEF>
+                        <ENUMERATION-LITERAL-DEF UUID="35a7f1da-5944-4839-8fa1-e03929b1536a">
+                          <SHORT-NAME>EMIOS_PRESCALER_DIVIDE_4</SHORT-NAME>
+                        </ENUMERATION-LITERAL-DEF>
+                      </LITERALS>
+                    </ENUMERATION-PARAM-DEF>
+                    <ENUMERATION-PARAM-DEF UUID="ECUC:5aef4fb6-5842-4562-bdeb-e585e8fcc228">
+                      <SHORT-NAME>IcuEmiosDigitalFilter</SHORT-NAME>
+                      <DESC>
+                        <L-2>If a eMIOS channel is being used this option is active, possible values are: 0 (Bypassed), 2, 4, 8, 16 FLT_Clock periods. This parameter configures programmable input filter. It selects the minimum input pulse width [FLT_CLK periods] that can pass through the filter. NoteThis is an Implementation Specific Parameter.</L-2>
+                      </DESC>
+                      <LOWER-MULTIPLICITY>1</LOWER-MULTIPLICITY>
+                      <UPPER-MULTIPLICITY>1</UPPER-MULTIPLICITY>
+                      <IMPLEMENTATION-CONFIG-CLASSES>
+                        <IMPLEMENTATION-CONFIG-CLASS>
+                          <CONFIG-CLASS>PRE-COMPILE</CONFIG-CLASS>
+                          <CONFIG-VARIANT>VARIANT-PRE-COMPILE</CONFIG-VARIANT>
+                        </IMPLEMENTATION-CONFIG-CLASS>
+                        <IMPLEMENTATION-CONFIG-CLASS>
+                          <CONFIG-CLASS>PRE-COMPILE</CONFIG-CLASS>
+                          <CONFIG-VARIANT>VARIANT-POST-BUILD</CONFIG-VARIANT>
+                        </IMPLEMENTATION-CONFIG-CLASS>
+                      </IMPLEMENTATION-CONFIG-CLASSES>
+                      <ORIGIN>Freescale</ORIGIN>
+                      <SYMBOLIC-NAME-VALUE>false</SYMBOLIC-NAME-VALUE>
+                      <DEFAULT-VALUE>EMIOS_DIGITAL_FILTER_BYPASSED</DEFAULT-VALUE>
+                      <LITERALS>
+                        <ENUMERATION-LITERAL-DEF UUID="1e3a6c7a-ec0d-46ec-a2e1-510a06172920">
+                          <SHORT-NAME>EMIOS_DIGITAL_FILTER_BYPASSED</SHORT-NAME>
+                        </ENUMERATION-LITERAL-DEF>
+                        <ENUMERATION-LITERAL-DEF UUID="784f2627-91b2-407b-9f64-5090396167ac">
+                          <SHORT-NAME>EMIOS_DIGITAL_FILTER_02</SHORT-NAME>
+                        </ENUMERATION-LITERAL-DEF>
+                        <ENUMERATION-LITERAL-DEF UUID="3fc3b1d5-fb07-44ce-95e5-747891facbca">
+                          <SHORT-NAME>EMIOS_DIGITAL_FILTER_04</SHORT-NAME>
+                        </ENUMERATION-LITERAL-DEF>
+                        <ENUMERATION-LITERAL-DEF UUID="9249f405-49bb-4c5f-aedb-528584720a74">
+                          <SHORT-NAME>EMIOS_DIGITAL_FILTER_08</SHORT-NAME>
+                        </ENUMERATION-LITERAL-DEF>
+                        <ENUMERATION-LITERAL-DEF UUID="a80ab6f3-e6fc-4b7d-96be-c6fd7da7989f">
+                          <SHORT-NAME>EMIOS_DIGITAL_FILTER_16</SHORT-NAME>
+                        </ENUMERATION-LITERAL-DEF>
+                      </LITERALS>
+                    </ENUMERATION-PARAM-DEF>
+                    <ENUMERATION-PARAM-DEF UUID="ECUC:f949ad40-626b-4036-a457-80832f7634a9">
+                      <SHORT-NAME>IcuEmiosBusSelect</SHORT-NAME>
+                      <DESC>
+                        <L-2>Selects the counter used with the unified channel NoteThis is an Implementation Specific Parameter.</L-2>
+                      </DESC>
+                      <LOWER-MULTIPLICITY>1</LOWER-MULTIPLICITY>
+                      <UPPER-MULTIPLICITY>1</UPPER-MULTIPLICITY>
+                      <IMPLEMENTATION-CONFIG-CLASSES>
+                        <IMPLEMENTATION-CONFIG-CLASS>
+                          <CONFIG-CLASS>PRE-COMPILE</CONFIG-CLASS>
+                          <CONFIG-VARIANT>VARIANT-PRE-COMPILE</CONFIG-VARIANT>
+                        </IMPLEMENTATION-CONFIG-CLASS>
+                        <IMPLEMENTATION-CONFIG-CLASS>
+                          <CONFIG-CLASS>PRE-COMPILE</CONFIG-CLASS>
+                          <CONFIG-VARIANT>VARIANT-POST-BUILD</CONFIG-VARIANT>
+                        </IMPLEMENTATION-CONFIG-CLASS>
+                      </IMPLEMENTATION-CONFIG-CLASSES>
+                      <ORIGIN>Freescale</ORIGIN>
+                      <SYMBOLIC-NAME-VALUE>false</SYMBOLIC-NAME-VALUE>
+                      <DEFAULT-VALUE>EMIOS_BUS_INTERNAL_COUNTER</DEFAULT-VALUE>
+                      <LITERALS>
+                        <ENUMERATION-LITERAL-DEF UUID="f32fc1f3-be30-4e60-94e5-5006518c92a7">
+                          <SHORT-NAME>EMIOS_BUS_A</SHORT-NAME>
+                        </ENUMERATION-LITERAL-DEF>
+                        <ENUMERATION-LITERAL-DEF UUID="b8486863-792f-4d74-afd3-218d83d13427">
+                          <SHORT-NAME>EMIOS_BUS_DIVERSE</SHORT-NAME>
+                        </ENUMERATION-LITERAL-DEF>
+                        <ENUMERATION-LITERAL-DEF UUID="6baf149c-a793-4be5-a508-ca2c1e4cfc9d">
+                          <SHORT-NAME>EMIOS_BUS_INTERNAL_COUNTER</SHORT-NAME>
+                        </ENUMERATION-LITERAL-DEF>
+                      </LITERALS>
+                    </ENUMERATION-PARAM-DEF>
+                    <ENUMERATION-PARAM-DEF UUID="ECUC:b35fdbca-2c1e-4eb7-b6b0-6a65ee28faf9">
+                      <SHORT-NAME>IcuDefaultStartEdge</SHORT-NAME>
+                      <DESC>
+                        <L-2>Configures the default-activation-edge which shall be used for this channelif there was no activation-edge configured by the call of service Icu_SetActivationCondition().In case the Measurement Mode is "IcuSignalMeasurement" and the properties "DutyCycle" or "Period" are set, the edge configured here is used as Default Period Start Edge.Implementation Type: Icu_ActivationType</L-2>
+                      </DESC>
+                      <LOWER-MULTIPLICITY>1</LOWER-MULTIPLICITY>
+                      <UPPER-MULTIPLICITY>1</UPPER-MULTIPLICITY>
+                      <IMPLEMENTATION-CONFIG-CLASSES>
+                        <IMPLEMENTATION-CONFIG-CLASS>
+                          <CONFIG-CLASS>PRE-COMPILE</CONFIG-CLASS>
+                          <CONFIG-VARIANT>VARIANT-PRE-COMPILE</CONFIG-VARIANT>
+                        </IMPLEMENTATION-CONFIG-CLASS>
+                        <IMPLEMENTATION-CONFIG-CLASS>
+                          <CONFIG-CLASS>POST-BUILD</CONFIG-CLASS>
+                          <CONFIG-VARIANT>VARIANT-POST-BUILD</CONFIG-VARIANT>
+                        </IMPLEMENTATION-CONFIG-CLASS>
+                      </IMPLEMENTATION-CONFIG-CLASSES>
+                      <ORIGIN>AUTOSAR_ECUC</ORIGIN>
+                      <SYMBOLIC-NAME-VALUE>false</SYMBOLIC-NAME-VALUE>
+                      <DEFAULT-VALUE>ICU_RISING_EDGE</DEFAULT-VALUE>
+                      <LITERALS>
+                        <ENUMERATION-LITERAL-DEF UUID="19bc2cde-1207-4541-8bd9-07366ce92018">
+                          <SHORT-NAME>ICU_BOTH_EDGES</SHORT-NAME>
+                        </ENUMERATION-LITERAL-DEF>
+                        <ENUMERATION-LITERAL-DEF UUID="de643e0c-6c7a-45af-a272-f79073bd842e">
+                          <SHORT-NAME>ICU_FALLING_EDGE</SHORT-NAME>
+                        </ENUMERATION-LITERAL-DEF>
+                        <ENUMERATION-LITERAL-DEF UUID="880e54e4-4829-4bf2-8e98-6baec61e353d">
+                          <SHORT-NAME>ICU_RISING_EDGE</SHORT-NAME>
+                        </ENUMERATION-LITERAL-DEF>
+                      </LITERALS>
+                    </ENUMERATION-PARAM-DEF>
+                    <ENUMERATION-PARAM-DEF UUID="ECUC:c116c5c6-5a81-4674-828f-02a297d9b9d3">
+                      <SHORT-NAME>IcuMeasurementMode</SHORT-NAME>
+                      <DESC>
+                        <L-2>Configures the measurement mode of this channel.User should enable optional parameters with respect to the selected IcuMeasurementMode.Implementation Type: Icu_MeasurementModeType</L-2>
+                      </DESC>
+                      <LOWER-MULTIPLICITY>1</LOWER-MULTIPLICITY>
+                      <UPPER-MULTIPLICITY>1</UPPER-MULTIPLICITY>
+                      <IMPLEMENTATION-CONFIG-CLASSES>
+                        <IMPLEMENTATION-CONFIG-CLASS>
+                          <CONFIG-CLASS>PRE-COMPILE</CONFIG-CLASS>
+                          <CONFIG-VARIANT>VARIANT-PRE-COMPILE</CONFIG-VARIANT>
+                        </IMPLEMENTATION-CONFIG-CLASS>
+                        <IMPLEMENTATION-CONFIG-CLASS>
+                          <CONFIG-CLASS>POST-BUILD</CONFIG-CLASS>
+                          <CONFIG-VARIANT>VARIANT-POST-BUILD</CONFIG-VARIANT>
+                        </IMPLEMENTATION-CONFIG-CLASS>
+                      </IMPLEMENTATION-CONFIG-CLASSES>
+                      <ORIGIN>AUTOSAR_ECUC</ORIGIN>
+                      <SYMBOLIC-NAME-VALUE>false</SYMBOLIC-NAME-VALUE>
+                      <DEFAULT-VALUE>ICU_MODE_SIGNAL_EDGE_DETECT</DEFAULT-VALUE>
+                      <LITERALS>
+                        <ENUMERATION-LITERAL-DEF UUID="74ae0616-f836-485a-a8bd-1691398b0a14">
+                          <SHORT-NAME>ICU_MODE_EDGE_COUNTER</SHORT-NAME>
+                        </ENUMERATION-LITERAL-DEF>
+                        <ENUMERATION-LITERAL-DEF UUID="227da51e-6a54-4f70-b215-32a40ecb0246">
+                          <SHORT-NAME>ICU_MODE_SIGNAL_EDGE_DETECT</SHORT-NAME>
+                        </ENUMERATION-LITERAL-DEF>
+                        <ENUMERATION-LITERAL-DEF UUID="5b349f9b-c418-46c3-a3b5-2f02f9a19e35">
+                          <SHORT-NAME>ICU_MODE_SIGNAL_MEASUREMENT</SHORT-NAME>
+                        </ENUMERATION-LITERAL-DEF>
+                        <ENUMERATION-LITERAL-DEF UUID="a58e2669-4849-421e-a1ba-fa572b1ebf3a">
+                          <SHORT-NAME>ICU_MODE_TIMESTAMP</SHORT-NAME>
+                        </ENUMERATION-LITERAL-DEF>
+                      </LITERALS>
+                    </ENUMERATION-PARAM-DEF>
+                    <ENUMERATION-PARAM-DEF UUID="ECUC:4fc03ba0-142c-4209-b3a9-568bca1eacbf">
+                      <SHORT-NAME>IcuUserModeForDutycycle</SHORT-NAME>
+                      <DESC>
+                        <L-2> Selection of the signal measurement mode when IcuSignalMeasurementProperty is ICU_DUTY_CYCLE.
+                                                              Note
+                                                               This parameter will be enabled in configuration only when IcuSignalMeasurementProperty is ICU_DUTY_CYCLE.
+                                                               The following channels support IPM and IPWM mode.
+                                                    
+                                                             ICU channels- With IPM,IPWM modeICU channels- Without IPM,IPWM mode
+                                                            EMIOS_0_CH_0EMIOS_0_CH_1
+                                                            EMIOS_0_CH_8EMIOS_0_CH_2
+                                                            EMIOS_0_CH_9EMIOS_0_CH_4
+                                                            EMIOS_0_CH_10EMIOS_0_CH_11
+                                                            EMIOS_0_CH_12EMIOS_0_CH_13
+                                                            EMIOS_0_CH_14-
+                                                            EMIOS_0_CH_15-
+                                                            EMIOS_0_CH_23-
+                                                   
+
+                                                   Advantages of IPM,IPWM mode over SAIC
+
+                                                            The size of the driver code to measure duty cycle is less for a channel which supports IPWM mode
+                                                            as compared to a channel which uses SAIC mode to capture the duty cycle. 
+
+                                                            For every period of the measured signal, the interrupt generated is just 1 in IPWM mode
+                                                            as compared to a channel which uses SAIC mode where the number of interrupt generated is 2
+
+                                                            Because of these reasons the driver code execution speed is faster in IPWM mode as compared to SAIC mode.
+
+                                                          Limitation of IPM,IPWM mode over SAIC
+
+                                                          If we configure the EMIOS channel which uses IPWM mode to capture a duty cycle of a varying PWM Singal, we will get the interrupt
+                                                          during only one edge i.e opposite edge of the starting edge. But to capture the duty cycle of a varying PWM Signal, we have to get the interrupt
+                                                          during both falling edge and rising edge. Hence in IPWM mode we get the delayed duty cycle values
+                                                          Because of this limitation of IPWM mode, we can use EMIOS channel which uses SAIC mode 
+                                                          to capture the duty cycle of a varying PWM Signal.                                        
+                                                        </L-2>
+                      </DESC>
+                      <LOWER-MULTIPLICITY>1</LOWER-MULTIPLICITY>
+                      <UPPER-MULTIPLICITY>1</UPPER-MULTIPLICITY>
+                      <IMPLEMENTATION-CONFIG-CLASSES>
+                        <IMPLEMENTATION-CONFIG-CLASS>
+                          <CONFIG-CLASS>PRE-COMPILE</CONFIG-CLASS>
+                          <CONFIG-VARIANT>VARIANT-PRE-COMPILE</CONFIG-VARIANT>
+                        </IMPLEMENTATION-CONFIG-CLASS>
+                        <IMPLEMENTATION-CONFIG-CLASS>
+                          <CONFIG-CLASS>POST-BUILD</CONFIG-CLASS>
+                          <CONFIG-VARIANT>VARIANT-POST-BUILD</CONFIG-VARIANT>
+                        </IMPLEMENTATION-CONFIG-CLASS>
+                      </IMPLEMENTATION-CONFIG-CLASSES>
+                      <ORIGIN>AUTOSAR_ECUC</ORIGIN>
+                      <SYMBOLIC-NAME-VALUE>false</SYMBOLIC-NAME-VALUE>
+                      <DEFAULT-VALUE>SAIC</DEFAULT-VALUE>
+                      <LITERALS>
+                        <ENUMERATION-LITERAL-DEF UUID="0fbd47c6-002f-4e02-9019-b36bbad8aaf0">
+                          <SHORT-NAME>IPWM</SHORT-NAME>
+                        </ENUMERATION-LITERAL-DEF>
+                        <ENUMERATION-LITERAL-DEF UUID="a8e6d70f-3c37-4ae3-872c-6ae0afc26deb">
+                          <SHORT-NAME>SAIC</SHORT-NAME>
+                        </ENUMERATION-LITERAL-DEF>
+                      </LITERALS>
+                    </ENUMERATION-PARAM-DEF>
+                    <FUNCTION-NAME-DEF UUID="ECUC:2306bf18-2f46-40c4-9457-4c1a3ef6c351">
+                      <SHORT-NAME>IcuOverflowNotification</SHORT-NAME>
+                      <DESC>
+                        <L-2>Icu Overflow Notification HandlerIn order to activate this field you have to:enable IcuOverflowNotificationApi,choose one of the modes:ICU_MODE_EDGE_COUNTER,ICU_MODE_SIGNAL_MEASUREMENT,ICU_MODE_TIMESTAMPIcuEmiosBusSelect must be set as EMIOS_BUS_INTERNAL_COUNTER to enable overflow detection on the internal counterNote:Due to hardware implementattion, the Icu Overflow Notification is not syncronous with the event for ICU_MODE_SIGNAL_MEASUREMENT and ICU_MODE_TIMESTAMP modes. The notification will be triggered when measurement completes (for ICU_MODE_SIGNAL_MEASUREMENT) or the next timestamp event occurs (for ICU_MODE_TIMESTAMP).</L-2>
+                      </DESC>
+                      <LOWER-MULTIPLICITY>1</LOWER-MULTIPLICITY>
+                      <UPPER-MULTIPLICITY>1</UPPER-MULTIPLICITY>
+                      <IMPLEMENTATION-CONFIG-CLASSES>
+                        <IMPLEMENTATION-CONFIG-CLASS>
+                          <CONFIG-CLASS>PRE-COMPILE</CONFIG-CLASS>
+                          <CONFIG-VARIANT>VARIANT-PRE-COMPILE</CONFIG-VARIANT>
+                        </IMPLEMENTATION-CONFIG-CLASS>
+                        <IMPLEMENTATION-CONFIG-CLASS>
+                          <CONFIG-CLASS>POST-BUILD</CONFIG-CLASS>
+                          <CONFIG-VARIANT>VARIANT-POST-BUILD</CONFIG-VARIANT>
+                        </IMPLEMENTATION-CONFIG-CLASS>
+                      </IMPLEMENTATION-CONFIG-CLASSES>
+                      <ORIGIN>Freescale</ORIGIN>
+                      <SYMBOLIC-NAME-VALUE>false</SYMBOLIC-NAME-VALUE>
+                      <DEFAULT-VALUE>NULL_PTR</DEFAULT-VALUE>
+                    </FUNCTION-NAME-DEF>
+                    <BOOLEAN-PARAM-DEF UUID="ECUC:850fc92c-1280-4e86-87c9-5285bb8d9baf">
+                      <SHORT-NAME>IcuWakeupCapability</SHORT-NAME>
+                      <DESC>
+                        <L-2>Information about the wakeup-capability of this channel.true: Channel is wakeup capable.false: Channel is not wakeup capable.</L-2>
+                      </DESC>
+                      <LOWER-MULTIPLICITY>1</LOWER-MULTIPLICITY>
+                      <UPPER-MULTIPLICITY>1</UPPER-MULTIPLICITY>
+                      <IMPLEMENTATION-CONFIG-CLASSES>
+                        <IMPLEMENTATION-CONFIG-CLASS>
+                          <CONFIG-CLASS>PRE-COMPILE</CONFIG-CLASS>
+                          <CONFIG-VARIANT>VARIANT-PRE-COMPILE</CONFIG-VARIANT>
+                        </IMPLEMENTATION-CONFIG-CLASS>
+                        <IMPLEMENTATION-CONFIG-CLASS>
+                          <CONFIG-CLASS>POST-BUILD</CONFIG-CLASS>
+                          <CONFIG-VARIANT>VARIANT-POST-BUILD</CONFIG-VARIANT>
+                        </IMPLEMENTATION-CONFIG-CLASS>
+                      </IMPLEMENTATION-CONFIG-CLASSES>
+                      <ORIGIN>AUTOSAR_ECUC</ORIGIN>
+                      <SYMBOLIC-NAME-VALUE>false</SYMBOLIC-NAME-VALUE>
+                      <DEFAULT-VALUE>false</DEFAULT-VALUE>
+                    </BOOLEAN-PARAM-DEF>
+                  </PARAMETERS>
+                  <SUB-CONTAINERS>
+                    <PARAM-CONF-CONTAINER-DEF UUID="ECUC:b913134b-d269-41f9-8aee-2cc3b3bc1838">
+                      <SHORT-NAME>IcuEdgeCounterMeasurement</SHORT-NAME>
+                      <DESC>
+                        <L-2>This container contains the configuration (parameters) in case the measurement mode is "IcuEdgeCounter"</L-2>
+                      </DESC>
+                      <LOWER-MULTIPLICITY>0</LOWER-MULTIPLICITY>
+                      <UPPER-MULTIPLICITY>1</UPPER-MULTIPLICITY>
+                      <MULTIPLE-CONFIGURATION-CONTAINER>false</MULTIPLE-CONFIGURATION-CONTAINER>
+                    </PARAM-CONF-CONTAINER-DEF>
+                    <PARAM-CONF-CONTAINER-DEF UUID="ECUC:a91d9e86-1c09-4b85-9d55-902485e128d8">
+                      <SHORT-NAME>IcuSignalEdgeDetection</SHORT-NAME>
+                      <DESC>
+                        <L-2>This container contains the configuration (parameters) in case the measurement mode is "IcuSignalEdgeDetection"</L-2>
+                      </DESC>
+                      <LOWER-MULTIPLICITY>0</LOWER-MULTIPLICITY>
+                      <UPPER-MULTIPLICITY>1</UPPER-MULTIPLICITY>
+                      <MULTIPLE-CONFIGURATION-CONTAINER>false</MULTIPLE-CONFIGURATION-CONTAINER>
+                      <PARAMETERS>
+                        <FUNCTION-NAME-DEF UUID="ECUC:ed2116ae-ff40-4443-847e-5f017189e6d5">
+                          <SHORT-NAME>IcuSignalNotification</SHORT-NAME>
+                          <DESC>
+                            <L-2> Notification function for signal notification.</L-2>
+                          </DESC>
+                          <LOWER-MULTIPLICITY>1</LOWER-MULTIPLICITY>
+                          <UPPER-MULTIPLICITY>1</UPPER-MULTIPLICITY>
+                          <IMPLEMENTATION-CONFIG-CLASSES>
+                            <IMPLEMENTATION-CONFIG-CLASS>
+                              <CONFIG-CLASS>PRE-COMPILE</CONFIG-CLASS>
+                              <CONFIG-VARIANT>VARIANT-PRE-COMPILE</CONFIG-VARIANT>
+                            </IMPLEMENTATION-CONFIG-CLASS>
+                            <IMPLEMENTATION-CONFIG-CLASS>
+                              <CONFIG-CLASS>POST-BUILD</CONFIG-CLASS>
+                              <CONFIG-VARIANT>VARIANT-POST-BUILD</CONFIG-VARIANT>
+                            </IMPLEMENTATION-CONFIG-CLASS>
+                          </IMPLEMENTATION-CONFIG-CLASSES>
+                          <ORIGIN>AUTOSAR_ECUC</ORIGIN>
+                          <SYMBOLIC-NAME-VALUE>false</SYMBOLIC-NAME-VALUE>
+                          <DEFAULT-VALUE>NULL_PTR</DEFAULT-VALUE>
+                        </FUNCTION-NAME-DEF>
+                      </PARAMETERS>
+                    </PARAM-CONF-CONTAINER-DEF>
+                    <PARAM-CONF-CONTAINER-DEF UUID="ECUC:8a9e95f5-d320-448d-95d2-ba6cd18c843d">
+                      <SHORT-NAME>IcuSignalMeasurement</SHORT-NAME>
+                      <DESC>
+                        <L-2>This container contains the configuration (parameters) in case the measurement mode is "IcuSignalMeasurement"</L-2>
+                      </DESC>
+                      <LOWER-MULTIPLICITY>0</LOWER-MULTIPLICITY>
+                      <UPPER-MULTIPLICITY>1</UPPER-MULTIPLICITY>
+                      <MULTIPLE-CONFIGURATION-CONTAINER>false</MULTIPLE-CONFIGURATION-CONTAINER>
+                      <PARAMETERS>
+                        <ENUMERATION-PARAM-DEF UUID="ECUC:a4e141b5-0a89-4a45-bca8-5f4666834c0a">
+                          <SHORT-NAME>IcuSignalMeasurementProperty</SHORT-NAME>
+                          <DESC>
+                            <L-2>Configures the property that could be measured in case the mode is "IcuSignalMeasurement".This property can not be changed during runtime.Followings are measurement modeICU_DUTY_CYCLEICU_HIGH_TIMEICU_LOW_TIMEICU_PERIOD_TIMEImplementation Type: Icu_SignalMeasurementPropertyType</L-2>
+                          </DESC>
+                          <LOWER-MULTIPLICITY>1</LOWER-MULTIPLICITY>
+                          <UPPER-MULTIPLICITY>1</UPPER-MULTIPLICITY>
+                          <IMPLEMENTATION-CONFIG-CLASSES>
+                            <IMPLEMENTATION-CONFIG-CLASS>
+                              <CONFIG-CLASS>PRE-COMPILE</CONFIG-CLASS>
+                              <CONFIG-VARIANT>VARIANT-PRE-COMPILE</CONFIG-VARIANT>
+                            </IMPLEMENTATION-CONFIG-CLASS>
+                            <IMPLEMENTATION-CONFIG-CLASS>
+                              <CONFIG-CLASS>POST-BUILD</CONFIG-CLASS>
+                              <CONFIG-VARIANT>VARIANT-POST-BUILD</CONFIG-VARIANT>
+                            </IMPLEMENTATION-CONFIG-CLASS>
+                          </IMPLEMENTATION-CONFIG-CLASSES>
+                          <ORIGIN>AUTOSAR_ECUC</ORIGIN>
+                          <SYMBOLIC-NAME-VALUE>false</SYMBOLIC-NAME-VALUE>
+                          <DEFAULT-VALUE>ICU_DUTY_CYCLE</DEFAULT-VALUE>
+                          <LITERALS>
+                            <ENUMERATION-LITERAL-DEF UUID="7d0b6d6d-c0f6-483a-912c-4000423e7260">
+                              <SHORT-NAME>ICU_DUTY_CYCLE</SHORT-NAME>
+                            </ENUMERATION-LITERAL-DEF>
+                            <ENUMERATION-LITERAL-DEF UUID="8b3066f8-5aba-4811-acc1-2a573fa94c5c">
+                              <SHORT-NAME>ICU_HIGH_TIME</SHORT-NAME>
+                            </ENUMERATION-LITERAL-DEF>
+                            <ENUMERATION-LITERAL-DEF UUID="4ac123c1-b1bc-413b-9a3d-b30165d90789">
+                              <SHORT-NAME>ICU_LOW_TIME</SHORT-NAME>
+                            </ENUMERATION-LITERAL-DEF>
+                            <ENUMERATION-LITERAL-DEF UUID="04388853-a836-4299-b807-94ec82980003">
+                              <SHORT-NAME>ICU_PERIOD_TIME</SHORT-NAME>
+                            </ENUMERATION-LITERAL-DEF>
+                          </LITERALS>
+                        </ENUMERATION-PARAM-DEF>
+                      </PARAMETERS>
+                    </PARAM-CONF-CONTAINER-DEF>
+                    <PARAM-CONF-CONTAINER-DEF UUID="ECUC:0ea62b03-f050-48f0-bc12-46753250ea78">
+                      <SHORT-NAME>IcuTimestampMeasurement</SHORT-NAME>
+                      <DESC>
+                        <L-2 L="EN">This container contains the configuration (parameters) in case the measurement mode is "IcuTimestamp"</L-2>
+                      </DESC>
+                      <LOWER-MULTIPLICITY>0</LOWER-MULTIPLICITY>
+                      <UPPER-MULTIPLICITY>1</UPPER-MULTIPLICITY>
+                      <MULTIPLE-CONFIGURATION-CONTAINER>false</MULTIPLE-CONFIGURATION-CONTAINER>
+                      <PARAMETERS>
+                        <ENUMERATION-PARAM-DEF UUID="ECUC:d0c617e0-ebe3-4cba-a938-788944740e81">
+                          <SHORT-NAME>IcuTimestampMeasurementProperty</SHORT-NAME>
+                          <DESC>
+                            <L-2> Configures the handling of the buffer in case the mode is "Timestamp"Following type of buffer inplemented in current implementation.ICU_CIRCULAR_BUFFER.ICU_LINEAR_BUFFER.Implementation Type: Icu_TimestampBufferType</L-2>
+                          </DESC>
+                          <LOWER-MULTIPLICITY>1</LOWER-MULTIPLICITY>
+                          <UPPER-MULTIPLICITY>1</UPPER-MULTIPLICITY>
+                          <IMPLEMENTATION-CONFIG-CLASSES>
+                            <IMPLEMENTATION-CONFIG-CLASS>
+                              <CONFIG-CLASS>PRE-COMPILE</CONFIG-CLASS>
+                              <CONFIG-VARIANT>VARIANT-PRE-COMPILE</CONFIG-VARIANT>
+                            </IMPLEMENTATION-CONFIG-CLASS>
+                            <IMPLEMENTATION-CONFIG-CLASS>
+                              <CONFIG-CLASS>POST-BUILD</CONFIG-CLASS>
+                              <CONFIG-VARIANT>VARIANT-POST-BUILD</CONFIG-VARIANT>
+                            </IMPLEMENTATION-CONFIG-CLASS>
+                          </IMPLEMENTATION-CONFIG-CLASSES>
+                          <ORIGIN>AUTOSAR_ECUC</ORIGIN>
+                          <SYMBOLIC-NAME-VALUE>false</SYMBOLIC-NAME-VALUE>
+                          <DEFAULT-VALUE>ICU_LINEAR_BUFFER</DEFAULT-VALUE>
+                          <LITERALS>
+                            <ENUMERATION-LITERAL-DEF UUID="9822fa60-f69f-4b27-9ce3-dd3a11cabd63">
+                              <SHORT-NAME>ICU_CIRCULAR_BUFFER</SHORT-NAME>
+                            </ENUMERATION-LITERAL-DEF>
+                            <ENUMERATION-LITERAL-DEF UUID="854015f6-bf85-4af8-b118-8da1f03aae35">
+                              <SHORT-NAME>ICU_LINEAR_BUFFER</SHORT-NAME>
+                            </ENUMERATION-LITERAL-DEF>
+                          </LITERALS>
+                        </ENUMERATION-PARAM-DEF>
+                        <FUNCTION-NAME-DEF UUID="ECUC:dda4f66d-21d3-4bad-b831-01e0a197936f">
+                          <SHORT-NAME>IcuTimestampNotification</SHORT-NAME>
+                          <DESC>
+                            <L-2>Notification function if the number of requested timestamps(Notification interval  0) are acquired.</L-2>
+                          </DESC>
+                          <LOWER-MULTIPLICITY>1</LOWER-MULTIPLICITY>
+                          <UPPER-MULTIPLICITY>1</UPPER-MULTIPLICITY>
+                          <IMPLEMENTATION-CONFIG-CLASSES>
+                            <IMPLEMENTATION-CONFIG-CLASS>
+                              <CONFIG-CLASS>PRE-COMPILE</CONFIG-CLASS>
+                              <CONFIG-VARIANT>VARIANT-PRE-COMPILE</CONFIG-VARIANT>
+                            </IMPLEMENTATION-CONFIG-CLASS>
+                            <IMPLEMENTATION-CONFIG-CLASS>
+                              <CONFIG-CLASS>POST-BUILD</CONFIG-CLASS>
+                              <CONFIG-VARIANT>VARIANT-POST-BUILD</CONFIG-VARIANT>
+                            </IMPLEMENTATION-CONFIG-CLASS>
+                          </IMPLEMENTATION-CONFIG-CLASSES>
+                          <ORIGIN>AUTOSAR_ECUC</ORIGIN>
+                          <SYMBOLIC-NAME-VALUE>false</SYMBOLIC-NAME-VALUE>
+                          <DEFAULT-VALUE>NULL_PTR</DEFAULT-VALUE>
+                        </FUNCTION-NAME-DEF>
+                      </PARAMETERS>
+                    </PARAM-CONF-CONTAINER-DEF>
+                    <PARAM-CONF-CONTAINER-DEF UUID="ECUC:8a9e95f5-d320-448d-95d2-ba6cd18c843f">
+                      <SHORT-NAME>IcuWakeup</SHORT-NAME>
+                      <DESC>
+                        <L-2 L="EN">This container contains the configuration (parameters) needed to configure a wakeup capable channel</L-2>
+                      </DESC>
+                      <LOWER-MULTIPLICITY>0</LOWER-MULTIPLICITY>
+                      <UPPER-MULTIPLICITY>1</UPPER-MULTIPLICITY>
+                      <MULTIPLE-CONFIGURATION-CONTAINER>false</MULTIPLE-CONFIGURATION-CONTAINER>
+                      <REFERENCES>
+                        <SYMBOLIC-NAME-REFERENCE-PARAM-DEF UUID="ECUC:d9737ad3-d80d-40cf-a3e1-86d9a65360ba">
+                          <SHORT-NAME>IcuChannelWakeupInfo</SHORT-NAME>
+                          <DESC>
+                            <L-2>If the wakeup-capability is true the wakeup source referenced  is transmitted to the ECU State Manager (EcuM) .Implementation Type: reference to EcuM_WakeupSourceType</L-2>
+                          </DESC>
+                          <LOWER-MULTIPLICITY>1</LOWER-MULTIPLICITY>
+                          <UPPER-MULTIPLICITY>1</UPPER-MULTIPLICITY>
+                          <IMPLEMENTATION-CONFIG-CLASSES>
+                            <IMPLEMENTATION-CONFIG-CLASS>
+                              <CONFIG-CLASS>PRE-COMPILE</CONFIG-CLASS>
+                              <CONFIG-VARIANT>VARIANT-PRE-COMPILE</CONFIG-VARIANT>
+                            </IMPLEMENTATION-CONFIG-CLASS>
+                            <IMPLEMENTATION-CONFIG-CLASS>
+                              <CONFIG-CLASS>PRE-COMPILE</CONFIG-CLASS>
+                              <CONFIG-VARIANT>VARIANT-POST-BUILD</CONFIG-VARIANT>
+                            </IMPLEMENTATION-CONFIG-CLASS>
+                          </IMPLEMENTATION-CONFIG-CLASSES>
+                          <ORIGIN>AUTOSAR_ECUC</ORIGIN>
+                          <DESTINATION-REF DEST="PARAM-CONF-CONTAINER-DEF">/AUTOSAR/EcuM/EcuMConfiguration/EcuMWakeupSource</DESTINATION-REF>
+                        </SYMBOLIC-NAME-REFERENCE-PARAM-DEF>
+                      </REFERENCES>
+                    </PARAM-CONF-CONTAINER-DEF>
+                  </SUB-CONTAINERS>
+                </PARAM-CONF-CONTAINER-DEF>
+              </SUB-CONTAINERS>
+            </PARAM-CONF-CONTAINER-DEF>
+            <PARAM-CONF-CONTAINER-DEF UUID="ECUC:17221067-e6ee-4ddf-901a-19ebf3336882">
+              <SHORT-NAME>IcuGeneral</SHORT-NAME>
+              <DESC>
+                <L-2 L="EN">Configuration of general ICU parameters.</L-2>
+              </DESC>
+              <LOWER-MULTIPLICITY>1</LOWER-MULTIPLICITY>
+              <UPPER-MULTIPLICITY>1</UPPER-MULTIPLICITY>
+              <MULTIPLE-CONFIGURATION-CONTAINER>false</MULTIPLE-CONFIGURATION-CONTAINER>
+              <PARAMETERS>
+                <BOOLEAN-PARAM-DEF UUID="ECUC:ef9abd03-2d65-4218-8bdf-052eb162a2e9">
+                  <SHORT-NAME>IcuDevErrorDetect</SHORT-NAME>
+                  <DESC>
+                    <L-2> Switches the Development Error Detection and Notification on or off.true: Enabled.false: Disabled.</L-2>
+                  </DESC>
+                  <LOWER-MULTIPLICITY>1</LOWER-MULTIPLICITY>
+                  <UPPER-MULTIPLICITY>1</UPPER-MULTIPLICITY>
+                  <IMPLEMENTATION-CONFIG-CLASSES>
+                    <IMPLEMENTATION-CONFIG-CLASS>
+                      <CONFIG-CLASS>PRE-COMPILE</CONFIG-CLASS>
+                      <CONFIG-VARIANT>VARIANT-PRE-COMPILE</CONFIG-VARIANT>
+                    </IMPLEMENTATION-CONFIG-CLASS>
+                    <IMPLEMENTATION-CONFIG-CLASS>
+                      <CONFIG-CLASS>PRE-COMPILE</CONFIG-CLASS>
+                      <CONFIG-VARIANT>VARIANT-POST-BUILD</CONFIG-VARIANT>
+                    </IMPLEMENTATION-CONFIG-CLASS>
+                  </IMPLEMENTATION-CONFIG-CLASSES>
+                  <ORIGIN>AUTOSAR_ECUC</ORIGIN>
+                  <SYMBOLIC-NAME-VALUE>false</SYMBOLIC-NAME-VALUE>
+                  <DEFAULT-VALUE>true</DEFAULT-VALUE>
+                </BOOLEAN-PARAM-DEF>
+                <INTEGER-PARAM-DEF UUID="ECUC:973991a2-3c81-49f9-bf0d-c37f85f61012">
+                  <SHORT-NAME>IcuIndex</SHORT-NAME>
+                  <DESC>
+                    <L-2>Specifies the InstanceId of this module instance. If only one instance is present it shall have the Id 0.  NoteIn current implementation this parameter is not used..</L-2>
+                  </DESC>
+                  <LOWER-MULTIPLICITY>1</LOWER-MULTIPLICITY>
+                  <UPPER-MULTIPLICITY>1</UPPER-MULTIPLICITY>
+                  <IMPLEMENTATION-CONFIG-CLASSES>
+                    <IMPLEMENTATION-CONFIG-CLASS>
+                      <CONFIG-CLASS>PRE-COMPILE</CONFIG-CLASS>
+                      <CONFIG-VARIANT>VARIANT-PRE-COMPILE</CONFIG-VARIANT>
+                    </IMPLEMENTATION-CONFIG-CLASS>
+                    <IMPLEMENTATION-CONFIG-CLASS>
+                      <CONFIG-CLASS>PRE-COMPILE</CONFIG-CLASS>
+                      <CONFIG-VARIANT>VARIANT-POST-BUILD</CONFIG-VARIANT>
+                    </IMPLEMENTATION-CONFIG-CLASS>
+                  </IMPLEMENTATION-CONFIG-CLASSES>
+                  <ORIGIN>AUTOSAR_ECUC</ORIGIN>
+                  <SYMBOLIC-NAME-VALUE>false</SYMBOLIC-NAME-VALUE>
+                  <DEFAULT-VALUE>0</DEFAULT-VALUE>
+                  <MAX>255</MAX>
+                  <MIN>0</MIN>
+                </INTEGER-PARAM-DEF>
+                <BOOLEAN-PARAM-DEF UUID="ECUC:763e1eaa-1eef-4466-9c0b-1be4ca081c82">
+                  <SHORT-NAME>IcuReportWakeupSource</SHORT-NAME>
+                  <DESC>
+                    <L-2>Switch for enabling Wakeup source reporting.true: Report Wakeup source.false: Do not report Wakeup source.</L-2>
+                  </DESC>
+                  <LOWER-MULTIPLICITY>1</LOWER-MULTIPLICITY>
+                  <UPPER-MULTIPLICITY>1</UPPER-MULTIPLICITY>
+                  <IMPLEMENTATION-CONFIG-CLASSES>
+                    <IMPLEMENTATION-CONFIG-CLASS>
+                      <CONFIG-CLASS>PRE-COMPILE</CONFIG-CLASS>
+                      <CONFIG-VARIANT>VARIANT-PRE-COMPILE</CONFIG-VARIANT>
+                    </IMPLEMENTATION-CONFIG-CLASS>
+                    <IMPLEMENTATION-CONFIG-CLASS>
+                      <CONFIG-CLASS>PRE-COMPILE</CONFIG-CLASS>
+                      <CONFIG-VARIANT>VARIANT-POST-BUILD</CONFIG-VARIANT>
+                    </IMPLEMENTATION-CONFIG-CLASS>
+                  </IMPLEMENTATION-CONFIG-CLASSES>
+                  <ORIGIN>AUTOSAR_ECUC</ORIGIN>
+                  <SYMBOLIC-NAME-VALUE>false</SYMBOLIC-NAME-VALUE>
+                  <DEFAULT-VALUE>true</DEFAULT-VALUE>
+                </BOOLEAN-PARAM-DEF>
+              </PARAMETERS>
+            </PARAM-CONF-CONTAINER-DEF>
+            <PARAM-CONF-CONTAINER-DEF UUID="ECUC:7279a3c6-d6f9-439a-9c9b-63846fd66eed">
+              <SHORT-NAME>IcuNonAUTOSAR</SHORT-NAME>
+              <DESC>
+                <L-2> 
+                                        Enabling the settings of this section will configure the driver in a mode not compliant with AUTOSAR requirements. 
+                                        </L-2>
+              </DESC>
+              <LOWER-MULTIPLICITY>1</LOWER-MULTIPLICITY>
+              <UPPER-MULTIPLICITY>1</UPPER-MULTIPLICITY>
+              <MULTIPLE-CONFIGURATION-CONTAINER>false</MULTIPLE-CONFIGURATION-CONTAINER>
+              <PARAMETERS>
+                <BOOLEAN-PARAM-DEF UUID="ECUC:afd9d0be-6080-4ab2-9b18-f636e3b97a8e">
+                  <SHORT-NAME>IcuEnableDualClockMode</SHORT-NAME>
+                  <DESC>
+                    <L-2>
+                                                 Enables prescaler settings at mode transition.true: Enabled.false: Disabled.
+                                                 Note This feature is not required by Autosar.
+                                             </L-2>
+                  </DESC>
+                  <LOWER-MULTIPLICITY>1</LOWER-MULTIPLICITY>
+                  <UPPER-MULTIPLICITY>1</UPPER-MULTIPLICITY>
+                  <IMPLEMENTATION-CONFIG-CLASSES>
+                    <IMPLEMENTATION-CONFIG-CLASS>
+                      <CONFIG-CLASS>PRE-COMPILE</CONFIG-CLASS>
+                      <CONFIG-VARIANT>VARIANT-PRE-COMPILE</CONFIG-VARIANT>
+                    </IMPLEMENTATION-CONFIG-CLASS>
+                    <IMPLEMENTATION-CONFIG-CLASS>
+                      <CONFIG-CLASS>PRE-COMPILE</CONFIG-CLASS>
+                      <CONFIG-VARIANT>VARIANT-POST-BUILD</CONFIG-VARIANT>
+                    </IMPLEMENTATION-CONFIG-CLASS>
+                  </IMPLEMENTATION-CONFIG-CLASSES>
+                  <ORIGIN>Freescale</ORIGIN>
+                  <SYMBOLIC-NAME-VALUE>false</SYMBOLIC-NAME-VALUE>
+                  <DEFAULT-VALUE>false</DEFAULT-VALUE>
+                </BOOLEAN-PARAM-DEF>
+              </PARAMETERS>
+            </PARAM-CONF-CONTAINER-DEF>
+            <PARAM-CONF-CONTAINER-DEF UUID="ECUC:ba9fb925-4a20-4749-a6ef-8c4d1dc3541a">
+              <SHORT-NAME>IcuOptionalApis</SHORT-NAME>
+              <DESC>
+                <L-2 L="EN">This container contains all configuration switches for configuring optional API services of the ICU driver.</L-2>
+              </DESC>
+              <LOWER-MULTIPLICITY>1</LOWER-MULTIPLICITY>
+              <UPPER-MULTIPLICITY>1</UPPER-MULTIPLICITY>
+              <MULTIPLE-CONFIGURATION-CONTAINER>false</MULTIPLE-CONFIGURATION-CONTAINER>
+              <PARAMETERS>
+                <BOOLEAN-PARAM-DEF UUID="ECUC:5b960a45-bd98-424b-8d44-ef4ebca6c948">
+                  <SHORT-NAME>IcuDeInitApi</SHORT-NAME>
+                  <DESC>
+                    <L-2>Adds / removes the service Icu_DeInit() from the code.true: Icu_DeInit() can be used.false: Icu_DeInit() can not be used.</L-2>
+                  </DESC>
+                  <LOWER-MULTIPLICITY>1</LOWER-MULTIPLICITY>
+                  <UPPER-MULTIPLICITY>1</UPPER-MULTIPLICITY>
+                  <IMPLEMENTATION-CONFIG-CLASSES>
+                    <IMPLEMENTATION-CONFIG-CLASS>
+                      <CONFIG-CLASS>PRE-COMPILE</CONFIG-CLASS>
+                      <CONFIG-VARIANT>VARIANT-PRE-COMPILE</CONFIG-VARIANT>
+                    </IMPLEMENTATION-CONFIG-CLASS>
+                    <IMPLEMENTATION-CONFIG-CLASS>
+                      <CONFIG-CLASS>PRE-COMPILE</CONFIG-CLASS>
+                      <CONFIG-VARIANT>VARIANT-POST-BUILD</CONFIG-VARIANT>
+                    </IMPLEMENTATION-CONFIG-CLASS>
+                  </IMPLEMENTATION-CONFIG-CLASSES>
+                  <ORIGIN>AUTOSAR_ECUC</ORIGIN>
+                  <SYMBOLIC-NAME-VALUE>false</SYMBOLIC-NAME-VALUE>
+                  <DEFAULT-VALUE>true</DEFAULT-VALUE>
+                </BOOLEAN-PARAM-DEF>
+                <BOOLEAN-PARAM-DEF UUID="ECUC:8f11c791-3039-420e-85f8-efd5100a39a4">
+                  <SHORT-NAME>IcuDisableWakeupApi</SHORT-NAME>
+                  <DESC>
+                    <L-2>Adds / removes the service Icu_DisableWakeup() from the code.true: Icu_DisableWakeup() can be used.false: Icu_DisableWakeup() can not be used.</L-2>
+                  </DESC>
+                  <LOWER-MULTIPLICITY>1</LOWER-MULTIPLICITY>
+                  <UPPER-MULTIPLICITY>1</UPPER-MULTIPLICITY>
+                  <IMPLEMENTATION-CONFIG-CLASSES>
+                    <IMPLEMENTATION-CONFIG-CLASS>
+                      <CONFIG-CLASS>PRE-COMPILE</CONFIG-CLASS>
+                      <CONFIG-VARIANT>VARIANT-PRE-COMPILE</CONFIG-VARIANT>
+                    </IMPLEMENTATION-CONFIG-CLASS>
+                    <IMPLEMENTATION-CONFIG-CLASS>
+                      <CONFIG-CLASS>PRE-COMPILE</CONFIG-CLASS>
+                      <CONFIG-VARIANT>VARIANT-POST-BUILD</CONFIG-VARIANT>
+                    </IMPLEMENTATION-CONFIG-CLASS>
+                  </IMPLEMENTATION-CONFIG-CLASSES>
+                  <ORIGIN>AUTOSAR_ECUC</ORIGIN>
+                  <SYMBOLIC-NAME-VALUE>false</SYMBOLIC-NAME-VALUE>
+                  <DEFAULT-VALUE>true</DEFAULT-VALUE>
+                </BOOLEAN-PARAM-DEF>
+                <BOOLEAN-PARAM-DEF UUID="ECUC:2f0f412c-e841-4b89-a4f5-1d2e0eea9c0b">
+                  <SHORT-NAME>IcuEdgeCountApi</SHORT-NAME>
+                  <DESC>
+                    <L-2>Adds / removes all services related to the edge counting functionality as listed below, from the code: Icu_ResetEdgeCount(), Icu_EnableEdgeCount(), Icu_DisableEdgeCount(), Icu_GetEdgeNumbers().true: The services listed above can be used.false: The services listed above can not be used.</L-2>
+                  </DESC>
+                  <LOWER-MULTIPLICITY>1</LOWER-MULTIPLICITY>
+                  <UPPER-MULTIPLICITY>1</UPPER-MULTIPLICITY>
+                  <IMPLEMENTATION-CONFIG-CLASSES>
+                    <IMPLEMENTATION-CONFIG-CLASS>
+                      <CONFIG-CLASS>PRE-COMPILE</CONFIG-CLASS>
+                      <CONFIG-VARIANT>VARIANT-PRE-COMPILE</CONFIG-VARIANT>
+                    </IMPLEMENTATION-CONFIG-CLASS>
+                    <IMPLEMENTATION-CONFIG-CLASS>
+                      <CONFIG-CLASS>PRE-COMPILE</CONFIG-CLASS>
+                      <CONFIG-VARIANT>VARIANT-POST-BUILD</CONFIG-VARIANT>
+                    </IMPLEMENTATION-CONFIG-CLASS>
+                  </IMPLEMENTATION-CONFIG-CLASSES>
+                  <ORIGIN>AUTOSAR_ECUC</ORIGIN>
+                  <SYMBOLIC-NAME-VALUE>false</SYMBOLIC-NAME-VALUE>
+                  <DEFAULT-VALUE>true</DEFAULT-VALUE>
+                </BOOLEAN-PARAM-DEF>
+                <BOOLEAN-PARAM-DEF UUID="ECUC:36280ef5-220e-461b-ba59-e96371097484">
+                  <SHORT-NAME>IcuEnableWakeupApi</SHORT-NAME>
+                  <DESC>
+                    <L-2>Adds / removes the service Icu_EnableWakeup() from the code.true: Icu_EnableWakeup() can be used.false: Icu_EnableWakeup() can not be used.</L-2>
+                  </DESC>
+                  <LOWER-MULTIPLICITY>1</LOWER-MULTIPLICITY>
+                  <UPPER-MULTIPLICITY>1</UPPER-MULTIPLICITY>
+                  <IMPLEMENTATION-CONFIG-CLASSES>
+                    <IMPLEMENTATION-CONFIG-CLASS>
+                      <CONFIG-CLASS>PRE-COMPILE</CONFIG-CLASS>
+                      <CONFIG-VARIANT>VARIANT-PRE-COMPILE</CONFIG-VARIANT>
+                    </IMPLEMENTATION-CONFIG-CLASS>
+                    <IMPLEMENTATION-CONFIG-CLASS>
+                      <CONFIG-CLASS>PRE-COMPILE</CONFIG-CLASS>
+                      <CONFIG-VARIANT>VARIANT-POST-BUILD</CONFIG-VARIANT>
+                    </IMPLEMENTATION-CONFIG-CLASS>
+                  </IMPLEMENTATION-CONFIG-CLASSES>
+                  <ORIGIN>AUTOSAR_ECUC</ORIGIN>
+                  <SYMBOLIC-NAME-VALUE>false</SYMBOLIC-NAME-VALUE>
+                  <DEFAULT-VALUE>true</DEFAULT-VALUE>
+                </BOOLEAN-PARAM-DEF>
+                <BOOLEAN-PARAM-DEF UUID="ECUC:6d2282a8-d58c-4afd-8fd9-5b68fe087ed0">
+                  <SHORT-NAME>IcuGetDutyCycleValuesApi</SHORT-NAME>
+                  <DESC>
+                    <L-2>Adds / removes the service Icu_GetDutyCycleValues() from the code.true: Icu_GetDutyCycleValues() can be used.false: Icu_GetDutyCycleValues() can not be used. NoteIf IcuSignalMeasurementApi == OFF this switch is shall also be set to OFF.</L-2>
+                  </DESC>
+                  <LOWER-MULTIPLICITY>1</LOWER-MULTIPLICITY>
+                  <UPPER-MULTIPLICITY>1</UPPER-MULTIPLICITY>
+                  <IMPLEMENTATION-CONFIG-CLASSES>
+                    <IMPLEMENTATION-CONFIG-CLASS>
+                      <CONFIG-CLASS>PRE-COMPILE</CONFIG-CLASS>
+                      <CONFIG-VARIANT>VARIANT-PRE-COMPILE</CONFIG-VARIANT>
+                    </IMPLEMENTATION-CONFIG-CLASS>
+                    <IMPLEMENTATION-CONFIG-CLASS>
+                      <CONFIG-CLASS>PRE-COMPILE</CONFIG-CLASS>
+                      <CONFIG-VARIANT>VARIANT-POST-BUILD</CONFIG-VARIANT>
+                    </IMPLEMENTATION-CONFIG-CLASS>
+                  </IMPLEMENTATION-CONFIG-CLASSES>
+                  <ORIGIN>AUTOSAR_ECUC</ORIGIN>
+                  <SYMBOLIC-NAME-VALUE>false</SYMBOLIC-NAME-VALUE>
+                  <DEFAULT-VALUE>true</DEFAULT-VALUE>
+                </BOOLEAN-PARAM-DEF>
+                <BOOLEAN-PARAM-DEF UUID="ECUC:f7d6ed0d-eb2a-4f58-91f5-16cdb64debc4">
+                  <SHORT-NAME>IcuGetInputStateApi</SHORT-NAME>
+                  <DESC>
+                    <L-2> Adds / removes the service Icu_GetInputState() from the code.true: Icu_GetInputState() can be used.false: Icu_GetInputState() can not be used.</L-2>
+                  </DESC>
+                  <LOWER-MULTIPLICITY>1</LOWER-MULTIPLICITY>
+                  <UPPER-MULTIPLICITY>1</UPPER-MULTIPLICITY>
+                  <IMPLEMENTATION-CONFIG-CLASSES>
+                    <IMPLEMENTATION-CONFIG-CLASS>
+                      <CONFIG-CLASS>PRE-COMPILE</CONFIG-CLASS>
+                      <CONFIG-VARIANT>VARIANT-PRE-COMPILE</CONFIG-VARIANT>
+                    </IMPLEMENTATION-CONFIG-CLASS>
+                    <IMPLEMENTATION-CONFIG-CLASS>
+                      <CONFIG-CLASS>PRE-COMPILE</CONFIG-CLASS>
+                      <CONFIG-VARIANT>VARIANT-POST-BUILD</CONFIG-VARIANT>
+                    </IMPLEMENTATION-CONFIG-CLASS>
+                  </IMPLEMENTATION-CONFIG-CLASSES>
+                  <ORIGIN>AUTOSAR_ECUC</ORIGIN>
+                  <SYMBOLIC-NAME-VALUE>false</SYMBOLIC-NAME-VALUE>
+                  <DEFAULT-VALUE>true</DEFAULT-VALUE>
+                </BOOLEAN-PARAM-DEF>
+                <BOOLEAN-PARAM-DEF UUID="ECUC:9d134588-133f-4574-9f0a-8945a20bbd00">
+                  <SHORT-NAME>IcuGetTimeElapsedApi</SHORT-NAME>
+                  <DESC>
+                    <L-2>Adds / removes the service Icu_GetTimeElapsed() from the code.true: Icu_GetTimeElapsed() can be used.false: Icu_GetTimeElapsed() can not be used.Note If IcuSignalMeasurementApi == OFF this switch is shall also be set to OFF.</L-2>
+                  </DESC>
+                  <LOWER-MULTIPLICITY>1</LOWER-MULTIPLICITY>
+                  <UPPER-MULTIPLICITY>1</UPPER-MULTIPLICITY>
+                  <IMPLEMENTATION-CONFIG-CLASSES>
+                    <IMPLEMENTATION-CONFIG-CLASS>
+                      <CONFIG-CLASS>PRE-COMPILE</CONFIG-CLASS>
+                      <CONFIG-VARIANT>VARIANT-PRE-COMPILE</CONFIG-VARIANT>
+                    </IMPLEMENTATION-CONFIG-CLASS>
+                    <IMPLEMENTATION-CONFIG-CLASS>
+                      <CONFIG-CLASS>PRE-COMPILE</CONFIG-CLASS>
+                      <CONFIG-VARIANT>VARIANT-POST-BUILD</CONFIG-VARIANT>
+                    </IMPLEMENTATION-CONFIG-CLASS>
+                  </IMPLEMENTATION-CONFIG-CLASSES>
+                  <ORIGIN>AUTOSAR_ECUC</ORIGIN>
+                  <SYMBOLIC-NAME-VALUE>false</SYMBOLIC-NAME-VALUE>
+                  <DEFAULT-VALUE>true</DEFAULT-VALUE>
+                </BOOLEAN-PARAM-DEF>
+                <BOOLEAN-PARAM-DEF UUID="ECUC:cff6e9cc-2901-42cc-abbe-eb271fa987ff">
+                  <SHORT-NAME>IcuGetVersionInfoApi</SHORT-NAME>
+                  <DESC>
+                    <L-2>Adds / removes the service Icu_GetVersionInfo() from the code.true: Icu_GetVersionInfo() can be used.false: Icu_GetVersionInfo() can not be used.</L-2>
+                  </DESC>
+                  <LOWER-MULTIPLICITY>1</LOWER-MULTIPLICITY>
+                  <UPPER-MULTIPLICITY>1</UPPER-MULTIPLICITY>
+                  <IMPLEMENTATION-CONFIG-CLASSES>
+                    <IMPLEMENTATION-CONFIG-CLASS>
+                      <CONFIG-CLASS>PRE-COMPILE</CONFIG-CLASS>
+                      <CONFIG-VARIANT>VARIANT-PRE-COMPILE</CONFIG-VARIANT>
+                    </IMPLEMENTATION-CONFIG-CLASS>
+                    <IMPLEMENTATION-CONFIG-CLASS>
+                      <CONFIG-CLASS>PRE-COMPILE</CONFIG-CLASS>
+                      <CONFIG-VARIANT>VARIANT-POST-BUILD</CONFIG-VARIANT>
+                    </IMPLEMENTATION-CONFIG-CLASS>
+                  </IMPLEMENTATION-CONFIG-CLASSES>
+                  <ORIGIN>AUTOSAR_ECUC</ORIGIN>
+                  <SYMBOLIC-NAME-VALUE>false</SYMBOLIC-NAME-VALUE>
+                  <DEFAULT-VALUE>true</DEFAULT-VALUE>
+                </BOOLEAN-PARAM-DEF>
+                <BOOLEAN-PARAM-DEF UUID="ECUC:857c2495-886e-4824-bb4d-6a4094219d5a">
+                  <SHORT-NAME>IcuSetModeApi</SHORT-NAME>
+                  <DESC>
+                    <L-2>Adds / removes the service Icu_SetMode() from the code.true: Icu_SetMode() can be used.false: Icu_SetMode() can not be used.</L-2>
+                  </DESC>
+                  <LOWER-MULTIPLICITY>1</LOWER-MULTIPLICITY>
+                  <UPPER-MULTIPLICITY>1</UPPER-MULTIPLICITY>
+                  <IMPLEMENTATION-CONFIG-CLASSES>
+                    <IMPLEMENTATION-CONFIG-CLASS>
+                      <CONFIG-CLASS>PRE-COMPILE</CONFIG-CLASS>
+                      <CONFIG-VARIANT>VARIANT-PRE-COMPILE</CONFIG-VARIANT>
+                    </IMPLEMENTATION-CONFIG-CLASS>
+                    <IMPLEMENTATION-CONFIG-CLASS>
+                      <CONFIG-CLASS>PRE-COMPILE</CONFIG-CLASS>
+                      <CONFIG-VARIANT>VARIANT-POST-BUILD</CONFIG-VARIANT>
+                    </IMPLEMENTATION-CONFIG-CLASS>
+                  </IMPLEMENTATION-CONFIG-CLASSES>
+                  <ORIGIN>AUTOSAR_ECUC</ORIGIN>
+                  <SYMBOLIC-NAME-VALUE>false</SYMBOLIC-NAME-VALUE>
+                  <DEFAULT-VALUE>true</DEFAULT-VALUE>
+                </BOOLEAN-PARAM-DEF>
+                <BOOLEAN-PARAM-DEF UUID="ECUC:d584a2a2-8b95-4d66-b502-38f505b15b08">
+                  <SHORT-NAME>IcuSignalMeasurementApi</SHORT-NAME>
+                  <DESC>
+                    <L-2>Adds / removes the services Icu_StartSignalMeasurement() and Icu_StopSignalMeasurement() from the code.true: Icu_StartSignalMeasurement() and Icu_StopSignalMeasurement() can be used.false: Icu_StartSignalMeasurement() and Icu_StopSignalMeasurement() can not be used.</L-2>
+                  </DESC>
+                  <LOWER-MULTIPLICITY>1</LOWER-MULTIPLICITY>
+                  <UPPER-MULTIPLICITY>1</UPPER-MULTIPLICITY>
+                  <IMPLEMENTATION-CONFIG-CLASSES>
+                    <IMPLEMENTATION-CONFIG-CLASS>
+                      <CONFIG-CLASS>PRE-COMPILE</CONFIG-CLASS>
+                      <CONFIG-VARIANT>VARIANT-PRE-COMPILE</CONFIG-VARIANT>
+                    </IMPLEMENTATION-CONFIG-CLASS>
+                    <IMPLEMENTATION-CONFIG-CLASS>
+                      <CONFIG-CLASS>PRE-COMPILE</CONFIG-CLASS>
+                      <CONFIG-VARIANT>VARIANT-POST-BUILD</CONFIG-VARIANT>
+                    </IMPLEMENTATION-CONFIG-CLASS>
+                  </IMPLEMENTATION-CONFIG-CLASSES>
+                  <ORIGIN>AUTOSAR_ECUC</ORIGIN>
+                  <SYMBOLIC-NAME-VALUE>false</SYMBOLIC-NAME-VALUE>
+                  <DEFAULT-VALUE>true</DEFAULT-VALUE>
+                </BOOLEAN-PARAM-DEF>
+                <BOOLEAN-PARAM-DEF UUID="ECUC:1afab2d4-7319-4a9d-ae7a-2168cd39dee5">
+                  <SHORT-NAME>IcuTimestampApi</SHORT-NAME>
+                  <DESC>
+                    <L-2> Adds / removes all services related to the timestamping functionality as listed below from the code: Icu_StartTimestamp(), Icu_StopTimestamp(), Icu_GetTimestampIndex().true: The services listed above can be used.false: The services listed above can not be used.</L-2>
+                  </DESC>
+                  <LOWER-MULTIPLICITY>1</LOWER-MULTIPLICITY>
+                  <UPPER-MULTIPLICITY>1</UPPER-MULTIPLICITY>
+                  <IMPLEMENTATION-CONFIG-CLASSES>
+                    <IMPLEMENTATION-CONFIG-CLASS>
+                      <CONFIG-CLASS>PRE-COMPILE</CONFIG-CLASS>
+                      <CONFIG-VARIANT>VARIANT-PRE-COMPILE</CONFIG-VARIANT>
+                    </IMPLEMENTATION-CONFIG-CLASS>
+                    <IMPLEMENTATION-CONFIG-CLASS>
+                      <CONFIG-CLASS>PRE-COMPILE</CONFIG-CLASS>
+                      <CONFIG-VARIANT>VARIANT-POST-BUILD</CONFIG-VARIANT>
+                    </IMPLEMENTATION-CONFIG-CLASS>
+                  </IMPLEMENTATION-CONFIG-CLASSES>
+                  <ORIGIN>AUTOSAR_ECUC</ORIGIN>
+                  <SYMBOLIC-NAME-VALUE>false</SYMBOLIC-NAME-VALUE>
+                  <DEFAULT-VALUE>true</DEFAULT-VALUE>
+                </BOOLEAN-PARAM-DEF>
+                <BOOLEAN-PARAM-DEF UUID="ECUC:0fc713b0-d470-40aa-b02e-12a708bfecf5">
+                  <SHORT-NAME>IcuOverflowNotificationApi</SHORT-NAME>
+                  <DESC>
+                    <L-2>Add / removes Overflow Notification functionality.Enabling IcuOverflowNotificationApi overflow events will not be treated as errors and a Notification Handler can be provided.If this optional API is not enabled, overflow events will trigger DET Report Error.Note:Due to hardware implementattion, the Icu Overflow Notification is not syncronous with the event for ICU_MODE_SIGNAL_MEASUREMENT and ICU_MODE_TIMESTAMP modes. The notification will be triggered when measurement completes (for ICU_MODE_SIGNAL_MEASUREMENT) or the next timestamp event occurs (for ICU_MODE_TIMESTAMP).</L-2>
+                  </DESC>
+                  <LOWER-MULTIPLICITY>1</LOWER-MULTIPLICITY>
+                  <UPPER-MULTIPLICITY>1</UPPER-MULTIPLICITY>
+                  <IMPLEMENTATION-CONFIG-CLASSES>
+                    <IMPLEMENTATION-CONFIG-CLASS>
+                      <CONFIG-CLASS>PRE-COMPILE</CONFIG-CLASS>
+                      <CONFIG-VARIANT>VARIANT-PRE-COMPILE</CONFIG-VARIANT>
+                    </IMPLEMENTATION-CONFIG-CLASS>
+                    <IMPLEMENTATION-CONFIG-CLASS>
+                      <CONFIG-CLASS>PRE-COMPILE</CONFIG-CLASS>
+                      <CONFIG-VARIANT>VARIANT-POST-BUILD</CONFIG-VARIANT>
+                    </IMPLEMENTATION-CONFIG-CLASS>
+                  </IMPLEMENTATION-CONFIG-CLASSES>
+                  <ORIGIN>Freescale</ORIGIN>
+                  <SYMBOLIC-NAME-VALUE>false</SYMBOLIC-NAME-VALUE>
+                  <DEFAULT-VALUE>false</DEFAULT-VALUE>
+                </BOOLEAN-PARAM-DEF>
+              </PARAMETERS>
+            </PARAM-CONF-CONTAINER-DEF>
+            <PARAM-CONF-CONTAINER-DEF UUID="ECUC:8cb0f183-ae5c-42e6-8664-099b05bfc739">
+              <SHORT-NAME>CommonPublishedInformation</SHORT-NAME>
+              <DESC>
+                <L-2>CommonPublishedInformationCommon container, aggregated by all modules. It contains published information about vendor and versions.</L-2>
+              </DESC>
+              <LOWER-MULTIPLICITY>1</LOWER-MULTIPLICITY>
+              <UPPER-MULTIPLICITY>1</UPPER-MULTIPLICITY>
+              <MULTIPLE-CONFIGURATION-CONTAINER>false</MULTIPLE-CONFIGURATION-CONTAINER>
+              <PARAMETERS>
+                <INTEGER-PARAM-DEF UUID="ECUC:070e2017-a06b-4ddc-a523-5dae9914762d">
+                  <SHORT-NAME>ArMajorVersion</SHORT-NAME>
+                  <DESC>
+                    <L-2>AUTOSAR Major VersionMajor version number of AUTOSAR specification on which the appropriate implementation is based on.</L-2>
+                  </DESC>
+                  <LOWER-MULTIPLICITY>1</LOWER-MULTIPLICITY>
+                  <UPPER-MULTIPLICITY>1</UPPER-MULTIPLICITY>
+                  <IMPLEMENTATION-CONFIG-CLASSES>
+                    <IMPLEMENTATION-CONFIG-CLASS>
+                      <CONFIG-CLASS>PUBLISHED-INFORMATION</CONFIG-CLASS>
+                      <CONFIG-VARIANT>VARIANT-PRE-COMPILE</CONFIG-VARIANT>
+                    </IMPLEMENTATION-CONFIG-CLASS>
+                  </IMPLEMENTATION-CONFIG-CLASSES>
+                  <ORIGIN>Freescale</ORIGIN>
+                  <SYMBOLIC-NAME-VALUE>false</SYMBOLIC-NAME-VALUE>
+                  <DEFAULT-VALUE>3</DEFAULT-VALUE>
+                  <MAX>3</MAX>
+                  <MIN>3</MIN>
+                </INTEGER-PARAM-DEF>
+                <INTEGER-PARAM-DEF UUID="ECUC:a9ca30e0-752c-4e70-8057-495dc23fd0e5">
+                  <SHORT-NAME>ArMinorVersion</SHORT-NAME>
+                  <DESC>
+                    <L-2>AUTOSAR Minor VersionMinor version number of AUTOSAR specification on which the appropriate implementation is based on.</L-2>
+                  </DESC>
+                  <LOWER-MULTIPLICITY>1</LOWER-MULTIPLICITY>
+                  <UPPER-MULTIPLICITY>1</UPPER-MULTIPLICITY>
+                  <IMPLEMENTATION-CONFIG-CLASSES>
+                    <IMPLEMENTATION-CONFIG-CLASS>
+                      <CONFIG-CLASS>PUBLISHED-INFORMATION</CONFIG-CLASS>
+                      <CONFIG-VARIANT>VARIANT-PRE-COMPILE</CONFIG-VARIANT>
+                    </IMPLEMENTATION-CONFIG-CLASS>
+                  </IMPLEMENTATION-CONFIG-CLASSES>
+                  <ORIGIN>Freescale</ORIGIN>
+                  <SYMBOLIC-NAME-VALUE>false</SYMBOLIC-NAME-VALUE>
+                  <DEFAULT-VALUE>0</DEFAULT-VALUE>
+                  <MAX>0</MAX>
+                  <MIN>0</MIN>
+                </INTEGER-PARAM-DEF>
+                <INTEGER-PARAM-DEF UUID="ECUC:f0f59bfb-59d2-4e09-906b-a847dc3b5cd0">
+                  <SHORT-NAME>ArPatchVersion</SHORT-NAME>
+                  <DESC>
+                    <L-2>AUTOSAR Patch VersionPatch version number of AUTOSAR specification on which the appropriate implementation is based on.</L-2>
+                  </DESC>
+                  <LOWER-MULTIPLICITY>1</LOWER-MULTIPLICITY>
+                  <UPPER-MULTIPLICITY>1</UPPER-MULTIPLICITY>
+                  <IMPLEMENTATION-CONFIG-CLASSES>
+                    <IMPLEMENTATION-CONFIG-CLASS>
+                      <CONFIG-CLASS>PUBLISHED-INFORMATION</CONFIG-CLASS>
+                      <CONFIG-VARIANT>VARIANT-PRE-COMPILE</CONFIG-VARIANT>
+                    </IMPLEMENTATION-CONFIG-CLASS>
+                  </IMPLEMENTATION-CONFIG-CLASSES>
+                  <ORIGIN>Freescale</ORIGIN>
+                  <SYMBOLIC-NAME-VALUE>false</SYMBOLIC-NAME-VALUE>
+                  <DEFAULT-VALUE>1</DEFAULT-VALUE>
+                  <MAX>1</MAX>
+                  <MIN>1</MIN>
+                </INTEGER-PARAM-DEF>
+                <INTEGER-PARAM-DEF UUID="ECUC:92ce495a-ac73-4e7e-ba26-38077d5f6599">
+                  <SHORT-NAME>ModuleId</SHORT-NAME>
+                  <DESC>
+                    <L-2>Module IDModule ID of this module.</L-2>
+                  </DESC>
+                  <LOWER-MULTIPLICITY>1</LOWER-MULTIPLICITY>
+                  <UPPER-MULTIPLICITY>1</UPPER-MULTIPLICITY>
+                  <IMPLEMENTATION-CONFIG-CLASSES>
+                    <IMPLEMENTATION-CONFIG-CLASS>
+                      <CONFIG-CLASS>PUBLISHED-INFORMATION</CONFIG-CLASS>
+                      <CONFIG-VARIANT>VARIANT-PRE-COMPILE</CONFIG-VARIANT>
+                    </IMPLEMENTATION-CONFIG-CLASS>
+                  </IMPLEMENTATION-CONFIG-CLASSES>
+                  <ORIGIN>Freescale</ORIGIN>
+                  <SYMBOLIC-NAME-VALUE>false</SYMBOLIC-NAME-VALUE>
+                  <DEFAULT-VALUE>122</DEFAULT-VALUE>
+                  <MAX>122</MAX>
+                  <MIN>122</MIN>
+                </INTEGER-PARAM-DEF>
+                <INTEGER-PARAM-DEF UUID="ECUC:b58d5c1c-079d-4264-bc33-ce0b4be2fafb">
+                  <SHORT-NAME>SwMajorVersion</SHORT-NAME>
+                  <DESC>
+                    <L-2>Software Major VersionMajor version number of the vendor specific implementation of the module. The numbering is vendor specific.</L-2>
+                  </DESC>
+                  <LOWER-MULTIPLICITY>1</LOWER-MULTIPLICITY>
+                  <UPPER-MULTIPLICITY>1</UPPER-MULTIPLICITY>
+                  <IMPLEMENTATION-CONFIG-CLASSES>
+                    <IMPLEMENTATION-CONFIG-CLASS>
+                      <CONFIG-CLASS>PUBLISHED-INFORMATION</CONFIG-CLASS>
+                      <CONFIG-VARIANT>VARIANT-PRE-COMPILE</CONFIG-VARIANT>
+                    </IMPLEMENTATION-CONFIG-CLASS>
+                  </IMPLEMENTATION-CONFIG-CLASSES>
+                  <ORIGIN>Freescale</ORIGIN>
+                  <SYMBOLIC-NAME-VALUE>false</SYMBOLIC-NAME-VALUE>
+                  <DEFAULT-VALUE>2</DEFAULT-VALUE>
+                  <MAX>2</MAX>
+                  <MIN>2</MIN>
+                </INTEGER-PARAM-DEF>
+                <INTEGER-PARAM-DEF UUID="ECUC:79783471-df35-4cb8-ab5a-96989f5a5d8d">
+                  <SHORT-NAME>SwMinorVersion</SHORT-NAME>
+                  <DESC>
+                    <L-2>Software Minor VersionMinor version number of the vendor specific implementation of the module. The numbering is vendor specific.</L-2>
+                  </DESC>
+                  <LOWER-MULTIPLICITY>1</LOWER-MULTIPLICITY>
+                  <UPPER-MULTIPLICITY>1</UPPER-MULTIPLICITY>
+                  <IMPLEMENTATION-CONFIG-CLASSES>
+                    <IMPLEMENTATION-CONFIG-CLASS>
+                      <CONFIG-CLASS>PUBLISHED-INFORMATION</CONFIG-CLASS>
+                      <CONFIG-VARIANT>VARIANT-PRE-COMPILE</CONFIG-VARIANT>
+                    </IMPLEMENTATION-CONFIG-CLASS>
+                  </IMPLEMENTATION-CONFIG-CLASSES>
+                  <ORIGIN>Freescale</ORIGIN>
+                  <SYMBOLIC-NAME-VALUE>false</SYMBOLIC-NAME-VALUE>
+                  <DEFAULT-VALUE>0</DEFAULT-VALUE>
+                  <MAX>0</MAX>
+                  <MIN>0</MIN>
+                </INTEGER-PARAM-DEF>
+                <INTEGER-PARAM-DEF UUID="ECUC:8933e32d-d23a-4cf4-b1a2-788952657668">
+                  <SHORT-NAME>SwPatchVersion</SHORT-NAME>
+                  <DESC>
+                    <L-2>Software Patch VersionPatch level version number of the vendor specific implementation of the module. The numbering is vendor specific.</L-2>
+                  </DESC>
+                  <LOWER-MULTIPLICITY>1</LOWER-MULTIPLICITY>
+                  <UPPER-MULTIPLICITY>1</UPPER-MULTIPLICITY>
+                  <IMPLEMENTATION-CONFIG-CLASSES>
+                    <IMPLEMENTATION-CONFIG-CLASS>
+                      <CONFIG-CLASS>PUBLISHED-INFORMATION</CONFIG-CLASS>
+                      <CONFIG-VARIANT>VARIANT-PRE-COMPILE</CONFIG-VARIANT>
+                    </IMPLEMENTATION-CONFIG-CLASS>
+                  </IMPLEMENTATION-CONFIG-CLASSES>
+                  <ORIGIN>Freescale</ORIGIN>
+                  <SYMBOLIC-NAME-VALUE>false</SYMBOLIC-NAME-VALUE>
+                  <DEFAULT-VALUE>0</DEFAULT-VALUE>
+                  <MAX>0</MAX>
+                  <MIN>0</MIN>
+                </INTEGER-PARAM-DEF>
+                <STRING-PARAM-DEF UUID="ECUC:d1fbe669-dff2-4241-ab61-342769399b4e">
+                  <SHORT-NAME>VendorApiInfix</SHORT-NAME>
+                  <DESC>
+                    <L-2>Vendor Api InfixIn driver modules which can be instantiated several times on a single ECU, BSW00347 requires that the name of APIs is extended by the VendorId and a vendor specific name.This parameter is used to specify the vendor specific name. In total, the implementation specific name is generated as follows:_VendorId_.E.g.  assuming that the VendorId of the implementor is 123 and the implementer chose a VendorApiInfix of "v11r456" a api name Can_Write defined in the SWS will translate to Can_123_v11r456Write.This parameter is mandatory for all modules with upper multiplicity  1. It shall not be used for modules with upper multiplicity =1.</L-2>
+                  </DESC>
+                  <LOWER-MULTIPLICITY>0</LOWER-MULTIPLICITY>
+                  <UPPER-MULTIPLICITY>1</UPPER-MULTIPLICITY>
+                  <IMPLEMENTATION-CONFIG-CLASSES>
+                    <IMPLEMENTATION-CONFIG-CLASS>
+                      <CONFIG-CLASS>PUBLISHED-INFORMATION</CONFIG-CLASS>
+                      <CONFIG-VARIANT>VARIANT-PRE-COMPILE</CONFIG-VARIANT>
+                    </IMPLEMENTATION-CONFIG-CLASS>
+                  </IMPLEMENTATION-CONFIG-CLASSES>
+                  <ORIGIN>Freescale</ORIGIN>
+                  <SYMBOLIC-NAME-VALUE>false</SYMBOLIC-NAME-VALUE>
+                  <DEFAULT-VALUE>
+                  </DEFAULT-VALUE>
+                </STRING-PARAM-DEF>
+                <INTEGER-PARAM-DEF UUID="ECUC:464eeccf-3f36-4529-b17d-deea6f26ba66">
+                  <SHORT-NAME>VendorId</SHORT-NAME>
+                  <DESC>
+                    <L-2>Vendor IDVendor ID of the dedicated implementation of this module according to the AUTOSAR vendor list.</L-2>
+                  </DESC>
+                  <LOWER-MULTIPLICITY>1</LOWER-MULTIPLICITY>
+                  <UPPER-MULTIPLICITY>1</UPPER-MULTIPLICITY>
+                  <IMPLEMENTATION-CONFIG-CLASSES>
+                    <IMPLEMENTATION-CONFIG-CLASS>
+                      <CONFIG-CLASS>PUBLISHED-INFORMATION</CONFIG-CLASS>
+                      <CONFIG-VARIANT>VARIANT-PRE-COMPILE</CONFIG-VARIANT>
+                    </IMPLEMENTATION-CONFIG-CLASS>
+                  </IMPLEMENTATION-CONFIG-CLASSES>
+                  <ORIGIN>Freescale</ORIGIN>
+                  <SYMBOLIC-NAME-VALUE>false</SYMBOLIC-NAME-VALUE>
+                  <DEFAULT-VALUE>43</DEFAULT-VALUE>
+                  <MAX>43</MAX>
+                  <MIN>43</MIN>
+                </INTEGER-PARAM-DEF>
+              </PARAMETERS>
+            </PARAM-CONF-CONTAINER-DEF>
+          </CONTAINERS>
+        </MODULE-DEF>
+      </ELEMENTS>
+    </AR-PACKAGE>
+  </TOP-LEVEL-PACKAGES>
+</AUTOSAR>

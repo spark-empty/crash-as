@@ -1,0 +1,171 @@
+/**************************************************************************************
+* 
+*  Freescale(TM) and the Freescale logo are trademarks of Freescale Semiconductor, Inc. 
+*  All other product or service names are the property of their respective owners. 
+*  (C) Freescale Semiconductor, Inc. 2008 - 2009
+* 
+*  You can use this example for any purpose on any computer system with the
+*  following restrictions:
+*
+*  1. This example is provided "as is", without warranty.
+*
+*  2. You don't remove this copyright notice from this example or any direct derivation 
+*     thereof.
+*
+*  Description:  AUTOSAR OS/MPC56xxAM memory benchmark for ECC1/SC2
+*
+**************************************************************************************/
+
+OIL_VERSION = "3.0";
+
+#include "os_mpc56xxAM.oin"
+
+CPU Cpu1 {
+    APPMODE Mode1;
+    
+    OS Os1 {
+#include "..\..\..\common\target.oin"
+#include "..\..\..\..\common\tptimer.oin"
+        };                         
+#include "..\..\..\..\common\options.oin"                
+        STATUS = STANDARD;                
+    };
+
+#include "..\..\..\common\memory.oin"
+
+    TASK TASKBGND {
+        STACKSIZE = 512;
+    };
+    TASK TASK1 {
+        EVENT = EVENT1;
+        STACKSIZE = 512;
+        TIMING_PROTECTION = TRUE {
+            EXECUTIONBUDGET = 30000000;
+            TIMEFRAME = 0;
+            MAXOSINTERRUPTLOCKTIME=0;
+            MAXALLINTERRUPTLOCKTIME=0;
+        }; 
+    };
+    TASK TASK2 {
+        EVENT = EVENT2;
+        STACKSIZE = 512;
+        TIMING_PROTECTION = TRUE {
+            EXECUTIONBUDGET = 30000000;
+            TIMEFRAME = 0;
+            MAXOSINTERRUPTLOCKTIME=0;
+            MAXALLINTERRUPTLOCKTIME=0;
+        }; 
+    };
+    TASK TASK3 {
+        EVENT = EVENT3;
+        STACKSIZE = 512;
+        TIMING_PROTECTION = TRUE {
+            EXECUTIONBUDGET = 30000000;
+            TIMEFRAME = 0;
+            MAXOSINTERRUPTLOCKTIME=0;
+            MAXALLINTERRUPTLOCKTIME=0;
+        }; 
+    };
+    TASK TASK4 {
+        EVENT = EVENT4;
+        STACKSIZE = 512;
+        TIMING_PROTECTION = TRUE {
+            EXECUTIONBUDGET = 30000000;
+            TIMEFRAME = 0;
+            MAXOSINTERRUPTLOCKTIME=0;
+            MAXALLINTERRUPTLOCKTIME=0;
+        }; 
+    };
+    TASK TASK5 {
+        EVENT = EVENT5;
+        STACKSIZE = 512;
+        TIMING_PROTECTION = TRUE {
+            EXECUTIONBUDGET = 30000000;
+            TIMEFRAME = 0;
+            MAXOSINTERRUPTLOCKTIME=0;
+            MAXALLINTERRUPTLOCKTIME=0;
+        }; 
+    };
+    TASK TASK6 {
+        EVENT = EVENT6;
+        STACKSIZE = 512;
+        TIMING_PROTECTION = TRUE {
+            EXECUTIONBUDGET = 30000000;
+            TIMEFRAME = 0;
+            MAXOSINTERRUPTLOCKTIME=0;
+            MAXALLINTERRUPTLOCKTIME=0;
+        }; 
+    };
+    TASK TASK7 {
+        EVENT = EVENT7;
+        STACKSIZE = 512;
+        TIMING_PROTECTION = TRUE {
+            EXECUTIONBUDGET = 30000000;
+            TIMEFRAME = 0;
+            MAXOSINTERRUPTLOCKTIME=0;
+            MAXALLINTERRUPTLOCKTIME=0;
+        }; 
+    };
+    TASK TASK8 {
+        EVENT = EVENT8;
+        STACKSIZE = 512;
+        TIMING_PROTECTION = TRUE {
+            EXECUTIONBUDGET = 30000000;
+            TIMEFRAME = 0;
+            MAXOSINTERRUPTLOCKTIME=0;
+            MAXALLINTERRUPTLOCKTIME=0;
+        }; 
+    };
+    TASK TASK9 {
+        EVENT = EVENT9;
+        STACKSIZE = 512;
+        TIMING_PROTECTION = TRUE {
+            EXECUTIONBUDGET = 30000000;
+            TIMEFRAME = 0;
+            MAXOSINTERRUPTLOCKTIME=0;
+            MAXALLINTERRUPTLOCKTIME=0;
+        }; 
+    };
+    TASK TASK10 {
+        EVENT = EVENT10;
+        STACKSIZE = 512;
+        TIMING_PROTECTION = TRUE {
+            EXECUTIONBUDGET = 30000000;
+            TIMEFRAME = 0;
+            MAXOSINTERRUPTLOCKTIME=0;
+            MAXALLINTERRUPTLOCKTIME=0;
+        }; 
+    };
+       
+    EVENT EVENT1 {
+        MASK = 1;
+    };
+    EVENT EVENT2 {
+        MASK = 2;
+    };
+    EVENT EVENT3 {
+        MASK = 4;
+    };
+    EVENT EVENT4 {
+        MASK = 8;
+    };
+    EVENT EVENT5 {
+        MASK = 16;
+    };
+    EVENT EVENT6 {
+        MASK = 32;
+    };
+    EVENT EVENT7 {
+        MASK = 64;
+    };
+    EVENT EVENT8 {
+        MASK = 128;
+    };
+    EVENT EVENT9 {
+        MASK = 1;
+    };
+    EVENT EVENT10 {
+        MASK = 2;
+    };    
+};
+                           

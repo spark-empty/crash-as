@@ -1,0 +1,50 @@
+import os
+from building import *
+import xcc
+
+Import('asenv')
+ASROOT = asenv['ASROOT']
+arch = asenv['arch']
+cwd = GetCurrentDir()
+
+xcc.SetDefaultRTOS('anyos')
+asenv.Append(CPPPATH=['%s/../tinyos'%(cwd)])
+asenv.Append(CPPDEFINES=['USE_OSAL'])
+
+minix = Package('https://github.com/Stichting-MINIX-Research-Foundation/minix.git', version='R3.3.0')
+MKSymlink(minix,'%s/minix'%(cwd))
+
+env = ForkEnv(asenv)
+for i in ['CPPPATH','CCFLAGS','CPPDEFINES']:
+    env[i] = []
+
+objs= []
+
+objs += Glob('minix/minix/kernel/*.c')
+objs += Glob('minix/minix/kernel/system/*.c')
+
+env.Append(CPPPATH=['%s/minix/minix/include'%(cwd)])
+env.Append(CPPPATH=['%s/minix/include'%(cwd)])
+env.Append(CPPPATH=['%s/minix/minix'%(cwd)])
+env.Append(CPPPATH=['%s/minix/sys/sys'%(cwd)])
+env.Append(CPPPATH=['%s/minix/sys'%(cwd)])
+
+env.Append(CCFLAGS=['-nostdinc'])
+
+env.Append(CPPDEFINES=['__minix','_MINIX_SYSTEM'])
+
+if(arch == 'arm'):
+    #objs += Glob('minix/minix/kernel/arch/earm/*.c')
+    #objs += Glob('minix/minix/kernel/arch/earm/*.S')
+    env.Append(CPPPATH=['%s/minix/minix/kernel/arch/earm/include'%(cwd)])
+    env.Append(CPPPATH=['%s/minix/minix/kernel/arch/earm/bsp/include'%(cwd)])
+    env.Append(CPPPATH=[minix+'/sys/arch/arm'])
+    env.Append(CPPPATH=[minix+'/sys/arch/evbarm'])
+    env.Append(CPPPATH=[minix+'/minix/include/arch/earm'])
+    MKSymlink(minix+'/sys/arch/arm/include',minix+'/sys/arch/arm/machine')
+    MKSymlink(minix+'/sys/arch/arm/include',minix+'/sys/arch/arm/arm')
+    MKSymlink(minix+'/minix/include/arch/earm/include',minix+'/minix/include/arch/earm/machine')
+    MKSymlink(minix+'/sys/arch/evbarm/include',minix+'/sys/arch/evbarm/machine')
+
+objs = env.Object(objs)
+Return('objs')

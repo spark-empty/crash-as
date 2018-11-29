@@ -1,0 +1,45 @@
+;This script sets up internal memory of the XPC56xx EVB evaluation board.
+
+SYStem.RESet
+SYStem.CPU MPC5644A
+SYStem.BdmClock 4.MHz
+SYStem.option DUALPORT ON
+SYStem.UP
+
+; Set up MMU TLBs as BAM do:
+
+; Invalidate MMU0
+MMU.TLB1.SET 0. 0x00000000 0x00000000 0x00000000
+
+; Setup MMU for Periph bridge B and BAM
+; Base address = 0xFFF0_0000
+; TLB1, 1 MByte Memory Space, Guarded, Cachable, All Access
+MMU.TLB1.SET 0. 0xC0000500 0xFFF0000A 0xFFF0003F
+ 
+; Set up MMU for Internal Flash
+; Base address = 0x0000_0000
+; TLB1, 16 MByte Memory Space, Not Guarded, Don't Cache, All Access
+MMU.TLB1.SET 1. 0xC0000700 0x00000020 0x0000003F 
+
+; Setup MMU for Calibration EBI
+; Base address = 0x2000_0000
+; TLB1, 16 MByte Memory Space, Not Guarded, Don't Cache, All Access
+MMU.TLB1.SET 2. 0xC0000700 0x20000020 0x0000003F 
+
+; Set up MMU for Internal SRAM
+; Base address = 0x4000_0000
+; TLB1, 256 KByte Memory Space, Not Guarded, Cachable, All Access
+MMU.TLB1.SET 3. 0xC0000400 0x40000020 0x4000003F
+
+; Set up MMU for Periph bridge A
+; Base address = 0xC3F0_0000
+; TLB4, 1 MByte Memory Space, Guarded, Cachable, All Access
+MMU.TLB1.SET 4. 0xC0000500 0xC3F0000A 0xC3F0003F 
+
+
+;initialize internal SRAM (192K)
+Data.Set EA:0x40000000--0x4002FFFF %quad 0xDEADBEEFDEADBEEF
+PRINT "internal SRAM is initialized"
+
+Data.Set sd:0xc3fbc006 %be 0x80
+

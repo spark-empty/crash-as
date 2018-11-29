@@ -1,0 +1,161 @@
+/**************************************************************************************
+* 
+*  Freescale(TM) and the Freescale logo are trademarks of Freescale Semiconductor, Inc. 
+*  All other product or service names are the property of their respective owners. 
+*  (C) Freescale Semiconductor, Inc. 2008 - 2009
+* 
+*  You can use this example for any purpose on any computer system with the
+*  following restrictions:
+*
+*  1. This example is provided "as is", without warranty.
+*
+*  2. You don't remove this copyright notice from this example or any direct derivation 
+*     thereof.
+*
+*  Description:  AUTOSAR OS/MPC56xxAM memory benchmark for BCC1/SC4
+*
+******************************************************************************/
+
+OIL_VERSION = "3.0";
+
+#include "os_mpc56xxAM.oin"
+
+CPU Cpu1 {
+    APPMODE Mode1;
+    
+    OS Os1 {
+#include "..\..\..\common\target.oin"
+#include "..\..\..\..\common\tptimer.oin"
+			InternalRAM = TRUE;
+			InternalROM = TRUE;
+        };        
+#include "..\..\..\..\common\options.oin"        
+        STATUS = EXTENDED;        
+    };
+
+#include "..\..\..\common\memory.oin"
+
+    TASK TASKBGND {
+        STACKSIZE = 512;
+    };
+    TASK TASK1 {
+        STACKSIZE = 256;
+        TIMING_PROTECTION = TRUE {
+            EXECUTIONBUDGET = 30000000;
+            TIMEFRAME = 0;
+            MAXOSINTERRUPTLOCKTIME=0;
+            MAXALLINTERRUPTLOCKTIME=0;
+        };  
+    };
+    TASK TASK2 {
+        STACKSIZE = 256;
+        TIMING_PROTECTION = TRUE {
+            EXECUTIONBUDGET = 30000000;
+            TIMEFRAME = 0;
+            MAXOSINTERRUPTLOCKTIME=0;
+            MAXALLINTERRUPTLOCKTIME=0;
+        };  
+    };
+    TASK TASK3 {
+        STACKSIZE = 256;
+        TIMING_PROTECTION = TRUE {
+            EXECUTIONBUDGET = 30000000;
+            TIMEFRAME = 0;
+            MAXOSINTERRUPTLOCKTIME=0;
+            MAXALLINTERRUPTLOCKTIME=0;
+        };  
+    };
+    TASK TASK4 {
+        STACKSIZE = 256;
+        TIMING_PROTECTION = TRUE {
+            EXECUTIONBUDGET = 30000000;
+            TIMEFRAME = 0;
+            MAXOSINTERRUPTLOCKTIME=0;
+            MAXALLINTERRUPTLOCKTIME=0;
+        };  
+    };
+    TASK TASK5 {
+        STACKSIZE = 256;
+        TIMING_PROTECTION = TRUE {
+            EXECUTIONBUDGET = 30000000;
+            TIMEFRAME = 0;
+            MAXOSINTERRUPTLOCKTIME=0;
+            MAXALLINTERRUPTLOCKTIME=0;
+        };  
+    };
+    TASK TASK6 {
+        STACKSIZE = 256;
+        TIMING_PROTECTION = TRUE {
+            EXECUTIONBUDGET = 30000000;
+            TIMEFRAME = 0;
+            MAXOSINTERRUPTLOCKTIME=0;
+            MAXALLINTERRUPTLOCKTIME=0;
+        };  
+    };
+    TASK TASK7 {
+        STACKSIZE = 256;
+        TIMING_PROTECTION = TRUE {
+            EXECUTIONBUDGET = 30000000;
+            TIMEFRAME = 0;
+            MAXOSINTERRUPTLOCKTIME=0;
+            MAXALLINTERRUPTLOCKTIME=0;
+        };  
+    };
+    TASK TASK8 {
+        STACKSIZE = 256;
+        TIMING_PROTECTION = TRUE {
+            EXECUTIONBUDGET = 30000000;
+            TIMEFRAME = 0;
+            MAXOSINTERRUPTLOCKTIME=0;
+            MAXALLINTERRUPTLOCKTIME=0;
+        };  
+    };
+    TASK TASK9 {
+        STACKSIZE = 256;
+        TIMING_PROTECTION = TRUE {
+            EXECUTIONBUDGET = 30000000;
+            TIMEFRAME = 0;
+            MAXOSINTERRUPTLOCKTIME=0;
+            MAXALLINTERRUPTLOCKTIME=0;
+        };  
+    };
+    TASK TASK10 {
+        STACKSIZE = 256;
+        TIMING_PROTECTION = TRUE {
+            EXECUTIONBUDGET = 30000000;
+            TIMEFRAME = 0;
+            MAXOSINTERRUPTLOCKTIME=0;
+            MAXALLINTERRUPTLOCKTIME=0;
+        };  
+    };
+        
+    APPLICATION TrustedApplication {
+        TRUSTED = TRUE;
+        STARTUPHOOK = FALSE;
+        SHUTDOWNHOOK = FALSE;
+        ERRORHOOK = FALSE;
+        HAS_RESTARTTASK = FALSE;
+        COUNTER = COUNTER1;
+        TASK = TASKBGND; 
+        TASK = TASK1; 
+        TASK = TASK2; 
+        TASK = TASK3; 
+        TASK = TASK4; 
+        TASK = TASK5; 
+        TASK = TASK6; 
+        TASK = TASK7; 
+        TASK = TASK8; 
+        TASK = TASK9; 
+        TASK = TASK10; 
+        ALARM = ALARM1;
+        ALARM = ALARM2;
+        ALARM = ALARM3;
+        ALARM = ALARM4;
+        ALARM = ALARM5;
+        ALARM = ALARM6;
+        ALARM = ALARM7;
+        ALARM = ALARM8;
+        ALARM = ALARM9;
+        ALARM = ALARM10;
+   };
+};

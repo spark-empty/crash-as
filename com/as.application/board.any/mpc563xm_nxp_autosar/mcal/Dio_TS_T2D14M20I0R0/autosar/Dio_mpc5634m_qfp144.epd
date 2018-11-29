@@ -1,0 +1,602 @@
+<?xml version="1.0"?>
+<AUTOSAR xmlns="http://autosar.org/3.0.2" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://autosar.org/3.0.2 autosar.xsd">
+  <TOP-LEVEL-PACKAGES>
+    <AR-PACKAGE UUID="ECUC:AUTOSAR">
+      <SHORT-NAME>TS_T2D14M20I0R0</SHORT-NAME>
+      <ELEMENTS>
+        <ECU-PARAMETER-DEFINITION UUID="ECUC:f94ab35f-8cff-4624-bcc2-6fddfecdb391">
+          <SHORT-NAME>Dio_AUTOSARParameterDefinition</SHORT-NAME>
+          <MODULE-REFS>
+            <MODULE-REF DEST="MODULE-DEF">/TS_T2D14M20I0R0/Dio</MODULE-REF>
+          </MODULE-REFS>
+        </ECU-PARAMETER-DEFINITION>
+        <MODULE-DEF UUID="ECUC:405c8f5c-a993-408d-b674-43d695b9f453">
+          <SHORT-NAME>Dio</SHORT-NAME>
+          <DESC>
+            <L-2>
+                                        Configuration of the Dio module.
+                                    </L-2>
+          </DESC>
+          <ADMIN-DATA>
+            <LANGUAGE>EN</LANGUAGE>
+            <DOC-REVISIONS>
+              <DOC-REVISION>
+                <REVISION-LABEL>2.0.0</REVISION-LABEL>
+                <ISSUED-BY>Freescale</ISSUED-BY>
+                <DATE>2011-12-06T17:00:00</DATE>
+                <MODIFICATIONS>
+                  <MODIFICATION>
+                    <CHANGE>
+                      <L-2 L="EN">Release 2.0.0</L-2>
+                    </CHANGE>
+                    <REASON>
+                      <L-2 L="EN">Release 2.0.0</L-2>
+                    </REASON>
+                  </MODIFICATION>
+                </MODIFICATIONS>
+              </DOC-REVISION>
+            </DOC-REVISIONS>
+          </ADMIN-DATA>
+          <LOWER-MULTIPLICITY>1</LOWER-MULTIPLICITY>
+          <UPPER-MULTIPLICITY>1</UPPER-MULTIPLICITY>
+          <REFINED-MODULE-DEF-REF DEST="MODULE-DEF">/AUTOSAR/Dio</REFINED-MODULE-DEF-REF>
+          <SUPPORTED-CONFIG-VARIANTS>
+            <SUPPORTED-CONFIG-VARIANT>VARIANT-PRE-COMPILE</SUPPORTED-CONFIG-VARIANT>
+            <SUPPORTED-CONFIG-VARIANT>VARIANT-POST-BUILD</SUPPORTED-CONFIG-VARIANT>
+          </SUPPORTED-CONFIG-VARIANTS>
+          <CONTAINERS>
+            <PARAM-CONF-CONTAINER-DEF UUID="ECUC:128648b5-e6d2-48ce-81e7-b1b3cdefd327">
+              <SHORT-NAME>CommonPublishedInformation</SHORT-NAME>
+              <DESC>
+                <L-2>
+                                            Common container, aggregated by all modules. It contains published information about vendor and versions.
+                                        </L-2>
+              </DESC>
+              <LOWER-MULTIPLICITY>1</LOWER-MULTIPLICITY>
+              <UPPER-MULTIPLICITY>1</UPPER-MULTIPLICITY>
+              <MULTIPLE-CONFIGURATION-CONTAINER>false</MULTIPLE-CONFIGURATION-CONTAINER>
+              <PARAMETERS>
+                <INTEGER-PARAM-DEF UUID="ECUC:07ae8a7e-1c23-4085-b297-c34d91c4f8c8">
+                  <SHORT-NAME>ArMajorVersion</SHORT-NAME>
+                  <DESC>
+                    <L-2>
+                                                Major version number of AUTOSAR specification on which the appropriate implementation is based on.
+                                            </L-2>
+                  </DESC>
+                  <LOWER-MULTIPLICITY>1</LOWER-MULTIPLICITY>
+                  <UPPER-MULTIPLICITY>1</UPPER-MULTIPLICITY>
+                  <IMPLEMENTATION-CONFIG-CLASSES>
+                    <IMPLEMENTATION-CONFIG-CLASS>
+                      <CONFIG-CLASS>PUBLISHED-INFORMATION</CONFIG-CLASS>
+                      <CONFIG-VARIANT>VARIANT-PRE-COMPILE</CONFIG-VARIANT>
+                    </IMPLEMENTATION-CONFIG-CLASS>
+                  </IMPLEMENTATION-CONFIG-CLASSES>
+                  <ORIGIN>Freescale</ORIGIN>
+                  <SYMBOLIC-NAME-VALUE>false</SYMBOLIC-NAME-VALUE>
+                  <DEFAULT-VALUE>2</DEFAULT-VALUE>
+                  <MAX>2</MAX>
+                  <MIN>2</MIN>
+                </INTEGER-PARAM-DEF>
+                <INTEGER-PARAM-DEF UUID="ECUC:50483b66-43f1-413e-ab73-2709c610785b">
+                  <SHORT-NAME>ArMinorVersion</SHORT-NAME>
+                  <DESC>
+                    <L-2>
+                                                Minor version number of AUTOSAR specification on which the appropriate implementation is based on.
+                                            </L-2>
+                  </DESC>
+                  <LOWER-MULTIPLICITY>1</LOWER-MULTIPLICITY>
+                  <UPPER-MULTIPLICITY>1</UPPER-MULTIPLICITY>
+                  <IMPLEMENTATION-CONFIG-CLASSES>
+                    <IMPLEMENTATION-CONFIG-CLASS>
+                      <CONFIG-CLASS>PUBLISHED-INFORMATION</CONFIG-CLASS>
+                      <CONFIG-VARIANT>VARIANT-PRE-COMPILE</CONFIG-VARIANT>
+                    </IMPLEMENTATION-CONFIG-CLASS>
+                  </IMPLEMENTATION-CONFIG-CLASSES>
+                  <ORIGIN>Freescale</ORIGIN>
+                  <SYMBOLIC-NAME-VALUE>false</SYMBOLIC-NAME-VALUE>
+                  <DEFAULT-VALUE>2</DEFAULT-VALUE>
+                  <MAX>2</MAX>
+                  <MIN>2</MIN>
+                </INTEGER-PARAM-DEF>
+                <INTEGER-PARAM-DEF UUID="ECUC:c1dfa181-a64d-4371-8be1-2c31e53b28e8">
+                  <SHORT-NAME>ArPatchVersion</SHORT-NAME>
+                  <DESC>
+                    <L-2>
+                                                Patch version number of AUTOSAR specification on which the appropriate implementation is based on.
+                                            </L-2>
+                  </DESC>
+                  <LOWER-MULTIPLICITY>1</LOWER-MULTIPLICITY>
+                  <UPPER-MULTIPLICITY>1</UPPER-MULTIPLICITY>
+                  <IMPLEMENTATION-CONFIG-CLASSES>
+                    <IMPLEMENTATION-CONFIG-CLASS>
+                      <CONFIG-CLASS>PUBLISHED-INFORMATION</CONFIG-CLASS>
+                      <CONFIG-VARIANT>VARIANT-PRE-COMPILE</CONFIG-VARIANT>
+                    </IMPLEMENTATION-CONFIG-CLASS>
+                  </IMPLEMENTATION-CONFIG-CLASSES>
+                  <ORIGIN>Freescale</ORIGIN>
+                  <SYMBOLIC-NAME-VALUE>false</SYMBOLIC-NAME-VALUE>
+                  <DEFAULT-VALUE>1</DEFAULT-VALUE>
+                  <MAX>1</MAX>
+                  <MIN>1</MIN>
+                </INTEGER-PARAM-DEF>
+                <INTEGER-PARAM-DEF UUID="ECUC:b2162c16-d029-4a44-b3fe-6aaac4bca996">
+                  <SHORT-NAME>ModuleId</SHORT-NAME>
+                  <DESC>
+                    <L-2>
+                                                Module ID of this module from Module List.
+                                            </L-2>
+                  </DESC>
+                  <LOWER-MULTIPLICITY>1</LOWER-MULTIPLICITY>
+                  <UPPER-MULTIPLICITY>1</UPPER-MULTIPLICITY>
+                  <IMPLEMENTATION-CONFIG-CLASSES>
+                    <IMPLEMENTATION-CONFIG-CLASS>
+                      <CONFIG-CLASS>PUBLISHED-INFORMATION</CONFIG-CLASS>
+                      <CONFIG-VARIANT>VARIANT-PRE-COMPILE</CONFIG-VARIANT>
+                    </IMPLEMENTATION-CONFIG-CLASS>
+                  </IMPLEMENTATION-CONFIG-CLASSES>
+                  <ORIGIN>Freescale</ORIGIN>
+                  <SYMBOLIC-NAME-VALUE>false</SYMBOLIC-NAME-VALUE>
+                  <DEFAULT-VALUE>120</DEFAULT-VALUE>
+                  <MAX>120</MAX>
+                  <MIN>120</MIN>
+                </INTEGER-PARAM-DEF>
+                <INTEGER-PARAM-DEF UUID="ECUC:1b7dfc1b-14f0-49f6-8bc5-07896c4d0c9f">
+                  <SHORT-NAME>SwMajorVersion</SHORT-NAME>
+                  <DESC>
+                    <L-2>
+                                                Major version number of the vendor specific implementation of the module.
+                                            </L-2>
+                  </DESC>
+                  <LOWER-MULTIPLICITY>1</LOWER-MULTIPLICITY>
+                  <UPPER-MULTIPLICITY>1</UPPER-MULTIPLICITY>
+                  <IMPLEMENTATION-CONFIG-CLASSES>
+                    <IMPLEMENTATION-CONFIG-CLASS>
+                      <CONFIG-CLASS>PUBLISHED-INFORMATION</CONFIG-CLASS>
+                      <CONFIG-VARIANT>VARIANT-PRE-COMPILE</CONFIG-VARIANT>
+                    </IMPLEMENTATION-CONFIG-CLASS>
+                  </IMPLEMENTATION-CONFIG-CLASSES>
+                  <ORIGIN>Freescale</ORIGIN>
+                  <SYMBOLIC-NAME-VALUE>false</SYMBOLIC-NAME-VALUE>
+                  <DEFAULT-VALUE>2</DEFAULT-VALUE>
+                  <MAX>2</MAX>
+                  <MIN>2</MIN>
+                </INTEGER-PARAM-DEF>
+                <INTEGER-PARAM-DEF UUID="ECUC:e82d7a4c-862e-4b69-b51b-649061499140">
+                  <SHORT-NAME>SwMinorVersion</SHORT-NAME>
+                  <DESC>
+                    <L-2>
+                                                Minor version number of the vendor specific implementation of the module.
+                                            </L-2>
+                  </DESC>
+                  <LOWER-MULTIPLICITY>1</LOWER-MULTIPLICITY>
+                  <UPPER-MULTIPLICITY>1</UPPER-MULTIPLICITY>
+                  <IMPLEMENTATION-CONFIG-CLASSES>
+                    <IMPLEMENTATION-CONFIG-CLASS>
+                      <CONFIG-CLASS>PUBLISHED-INFORMATION</CONFIG-CLASS>
+                      <CONFIG-VARIANT>VARIANT-PRE-COMPILE</CONFIG-VARIANT>
+                    </IMPLEMENTATION-CONFIG-CLASS>
+                  </IMPLEMENTATION-CONFIG-CLASSES>
+                  <ORIGIN>Freescale</ORIGIN>
+                  <SYMBOLIC-NAME-VALUE>false</SYMBOLIC-NAME-VALUE>
+                  <DEFAULT-VALUE>0</DEFAULT-VALUE>
+                  <MAX>0</MAX>
+                  <MIN>0</MIN>
+                </INTEGER-PARAM-DEF>
+                <INTEGER-PARAM-DEF UUID="ECUC:d518bcde-120c-4030-9285-2809826ec47c">
+                  <SHORT-NAME>SwPatchVersion</SHORT-NAME>
+                  <DESC>
+                    <L-2>
+                                                Patch version number of the vendor specific implementation of the module.
+                                            </L-2>
+                  </DESC>
+                  <LOWER-MULTIPLICITY>1</LOWER-MULTIPLICITY>
+                  <UPPER-MULTIPLICITY>1</UPPER-MULTIPLICITY>
+                  <IMPLEMENTATION-CONFIG-CLASSES>
+                    <IMPLEMENTATION-CONFIG-CLASS>
+                      <CONFIG-CLASS>PUBLISHED-INFORMATION</CONFIG-CLASS>
+                      <CONFIG-VARIANT>VARIANT-PRE-COMPILE</CONFIG-VARIANT>
+                    </IMPLEMENTATION-CONFIG-CLASS>
+                  </IMPLEMENTATION-CONFIG-CLASSES>
+                  <ORIGIN>Freescale</ORIGIN>
+                  <SYMBOLIC-NAME-VALUE>false</SYMBOLIC-NAME-VALUE>
+                  <DEFAULT-VALUE>0</DEFAULT-VALUE>
+                  <MAX>0</MAX>
+                  <MIN>0</MIN>
+                </INTEGER-PARAM-DEF>
+                <STRING-PARAM-DEF UUID="ECUC:e56181b7-0162-4605-b78f-0541ae9b0d83">
+                  <SHORT-NAME>VendorApiInfix</SHORT-NAME>
+                  <DESC>
+                    <L-2>
+                                                In driver modules which can be instantiated several times on a single ECU, BSW00347 requires that the name of APIs is extended by the VendorId and a vendor specific name.
+                                                This parameter is used to specify the vendor specific name. In total, the implementation specific name is generated as follows:
+                                                _VendorId_
+                                                E.g. assuming that the VendorId of the implementor is 123 and the implementer chose a VendorApiInfix of "v11r456" a api name Can_Write defined in the SWS will translate to Can_123_v11r456Write.
+                                                This parameter is mandatory for all modules with upper multiplicity  1.
+                                                It shall not be used for modules with upper multiplicity = 1.
+                                            </L-2>
+                  </DESC>
+                  <LOWER-MULTIPLICITY>0</LOWER-MULTIPLICITY>
+                  <UPPER-MULTIPLICITY>1</UPPER-MULTIPLICITY>
+                  <IMPLEMENTATION-CONFIG-CLASSES>
+                    <IMPLEMENTATION-CONFIG-CLASS>
+                      <CONFIG-CLASS>PUBLISHED-INFORMATION</CONFIG-CLASS>
+                      <CONFIG-VARIANT>VARIANT-PRE-COMPILE</CONFIG-VARIANT>
+                    </IMPLEMENTATION-CONFIG-CLASS>
+                  </IMPLEMENTATION-CONFIG-CLASSES>
+                  <ORIGIN>AUTOSAR_ECUC V1.0.0</ORIGIN>
+                  <SYMBOLIC-NAME-VALUE>false</SYMBOLIC-NAME-VALUE>
+                  <DEFAULT-VALUE>
+                  </DEFAULT-VALUE>
+                </STRING-PARAM-DEF>
+                <INTEGER-PARAM-DEF UUID="ECUC:406f5b72-c5bc-4c24-af6f-b1300a9d1d5c">
+                  <SHORT-NAME>VendorId</SHORT-NAME>
+                  <DESC>
+                    <L-2>
+                                                Vendor ID of the dedicated implementation of this module.
+                                            </L-2>
+                  </DESC>
+                  <LOWER-MULTIPLICITY>1</LOWER-MULTIPLICITY>
+                  <UPPER-MULTIPLICITY>1</UPPER-MULTIPLICITY>
+                  <IMPLEMENTATION-CONFIG-CLASSES>
+                    <IMPLEMENTATION-CONFIG-CLASS>
+                      <CONFIG-CLASS>PUBLISHED-INFORMATION</CONFIG-CLASS>
+                      <CONFIG-VARIANT>VARIANT-PRE-COMPILE</CONFIG-VARIANT>
+                    </IMPLEMENTATION-CONFIG-CLASS>
+                  </IMPLEMENTATION-CONFIG-CLASSES>
+                  <ORIGIN>Freescale</ORIGIN>
+                  <SYMBOLIC-NAME-VALUE>false</SYMBOLIC-NAME-VALUE>
+                  <DEFAULT-VALUE>43</DEFAULT-VALUE>
+                  <MAX>43</MAX>
+                  <MIN>43</MIN>
+                </INTEGER-PARAM-DEF>
+              </PARAMETERS>
+            </PARAM-CONF-CONTAINER-DEF>
+            <PARAM-CONF-CONTAINER-DEF UUID="ECUC:f63d8428-d828-40a8-a09c-bce5956a9dfc">
+              <SHORT-NAME>DioGeneral</SHORT-NAME>
+              <DESC>
+                <L-2>
+                                            General DIO module configuration parameters.
+                                        </L-2>
+              </DESC>
+              <LOWER-MULTIPLICITY>1</LOWER-MULTIPLICITY>
+              <UPPER-MULTIPLICITY>1</UPPER-MULTIPLICITY>
+              <MULTIPLE-CONFIGURATION-CONTAINER>false</MULTIPLE-CONFIGURATION-CONTAINER>
+              <PARAMETERS>
+                <BOOLEAN-PARAM-DEF UUID="ECUC:77a8d75b-33dd-4f9d-911f-1f84ebec4204">
+                  <SHORT-NAME>DioDevErrorDetect</SHORT-NAME>
+                  <DESC>
+                    <L-2>
+                                                Switches the Development Error Detection and Notification ON or OFF.
+                                            </L-2>
+                  </DESC>
+                  <LOWER-MULTIPLICITY>1</LOWER-MULTIPLICITY>
+                  <UPPER-MULTIPLICITY>1</UPPER-MULTIPLICITY>
+                  <IMPLEMENTATION-CONFIG-CLASSES>
+                    <IMPLEMENTATION-CONFIG-CLASS>
+                      <CONFIG-CLASS>PRE-COMPILE</CONFIG-CLASS>
+                      <CONFIG-VARIANT>VARIANT-PRE-COMPILE</CONFIG-VARIANT>
+                    </IMPLEMENTATION-CONFIG-CLASS>
+                    <IMPLEMENTATION-CONFIG-CLASS>
+                      <CONFIG-CLASS>PRE-COMPILE</CONFIG-CLASS>
+                      <CONFIG-VARIANT>VARIANT-POST-BUILD</CONFIG-VARIANT>
+                    </IMPLEMENTATION-CONFIG-CLASS>
+                  </IMPLEMENTATION-CONFIG-CLASSES>
+                  <ORIGIN>AUTOSAR_ECUC</ORIGIN>
+                  <SYMBOLIC-NAME-VALUE>false</SYMBOLIC-NAME-VALUE>
+                  <DEFAULT-VALUE>true</DEFAULT-VALUE>
+                </BOOLEAN-PARAM-DEF>
+                <BOOLEAN-PARAM-DEF UUID="ECUC:4d7be610-011d-42fb-93c5-2cdc700ff0d9">
+                  <SHORT-NAME>DioVersionInfoApi</SHORT-NAME>
+                  <DESC>
+                    <L-2>
+                                                Adds / removes the service Dio_GetVersionInfo() from the code.
+                                            </L-2>
+                  </DESC>
+                  <LOWER-MULTIPLICITY>1</LOWER-MULTIPLICITY>
+                  <UPPER-MULTIPLICITY>1</UPPER-MULTIPLICITY>
+                  <IMPLEMENTATION-CONFIG-CLASSES>
+                    <IMPLEMENTATION-CONFIG-CLASS>
+                      <CONFIG-CLASS>PRE-COMPILE</CONFIG-CLASS>
+                      <CONFIG-VARIANT>VARIANT-PRE-COMPILE</CONFIG-VARIANT>
+                    </IMPLEMENTATION-CONFIG-CLASS>
+                    <IMPLEMENTATION-CONFIG-CLASS>
+                      <CONFIG-CLASS>PRE-COMPILE</CONFIG-CLASS>
+                      <CONFIG-VARIANT>VARIANT-POST-BUILD</CONFIG-VARIANT>
+                    </IMPLEMENTATION-CONFIG-CLASS>
+                  </IMPLEMENTATION-CONFIG-CLASSES>
+                  <ORIGIN>AUTOSAR_ECUC</ORIGIN>
+                  <SYMBOLIC-NAME-VALUE>false</SYMBOLIC-NAME-VALUE>
+                  <DEFAULT-VALUE>true</DEFAULT-VALUE>
+                </BOOLEAN-PARAM-DEF>
+                <BOOLEAN-PARAM-DEF UUID="ECUC:f224ad86-938a-4732-916a-09b15cbf9404">
+                  <SHORT-NAME>DioReversePortBits</SHORT-NAME>
+                  <DESC>
+                    <L-2>
+                                                If this box is checked, the bits written to defined ports will be reversed.
+                                                Writing 3 to PORTA with checkbox disabled will set pins 14 and 15
+                                                Writing 3 to PORTA with checkbox enabled will set pins 0 and 1
+                                            </L-2>
+                  </DESC>
+                  <LOWER-MULTIPLICITY>1</LOWER-MULTIPLICITY>
+                  <UPPER-MULTIPLICITY>1</UPPER-MULTIPLICITY>
+                  <IMPLEMENTATION-CONFIG-CLASSES>
+                    <IMPLEMENTATION-CONFIG-CLASS>
+                      <CONFIG-CLASS>PRE-COMPILE</CONFIG-CLASS>
+                      <CONFIG-VARIANT>VARIANT-PRE-COMPILE</CONFIG-VARIANT>
+                    </IMPLEMENTATION-CONFIG-CLASS>
+                    <IMPLEMENTATION-CONFIG-CLASS>
+                      <CONFIG-CLASS>PRE-COMPILE</CONFIG-CLASS>
+                      <CONFIG-VARIANT>VARIANT-POST-BUILD</CONFIG-VARIANT>
+                    </IMPLEMENTATION-CONFIG-CLASS>
+                  </IMPLEMENTATION-CONFIG-CLASSES>
+                  <ORIGIN>Freescale</ORIGIN>
+                  <SYMBOLIC-NAME-VALUE>false</SYMBOLIC-NAME-VALUE>
+                  <DEFAULT-VALUE>false</DEFAULT-VALUE>
+                </BOOLEAN-PARAM-DEF>
+                <BOOLEAN-PARAM-DEF UUID="ECUC:4e75f581-489f-44b9-a6af-6bb592933c2d">
+                  <SHORT-NAME>DioMaskedWritePortApi</SHORT-NAME>
+                  <DESC>
+                    <L-2>
+                                                Defines whether the driver function Dio_MaskedWritePort() will be
+                                                included at compile time or excluded.
+                                                True  - Dio_MaskedWritePort() API enabled.
+                                                False - Dio_MaskedWritePort() API disabled.
+                                            </L-2>
+                  </DESC>
+                  <LOWER-MULTIPLICITY>1</LOWER-MULTIPLICITY>
+                  <UPPER-MULTIPLICITY>1</UPPER-MULTIPLICITY>
+                  <IMPLEMENTATION-CONFIG-CLASSES>
+                    <IMPLEMENTATION-CONFIG-CLASS>
+                      <CONFIG-CLASS>PRE-COMPILE</CONFIG-CLASS>
+                      <CONFIG-VARIANT>VARIANT-PRE-COMPILE</CONFIG-VARIANT>
+                    </IMPLEMENTATION-CONFIG-CLASS>
+                    <IMPLEMENTATION-CONFIG-CLASS>
+                      <CONFIG-CLASS>PRE-COMPILE</CONFIG-CLASS>
+                      <CONFIG-VARIANT>VARIANT-POST-BUILD</CONFIG-VARIANT>
+                    </IMPLEMENTATION-CONFIG-CLASS>
+                  </IMPLEMENTATION-CONFIG-CLASSES>
+                  <ORIGIN>Freescale</ORIGIN>
+                  <SYMBOLIC-NAME-VALUE>false</SYMBOLIC-NAME-VALUE>
+                  <DEFAULT-VALUE>false</DEFAULT-VALUE>
+                </BOOLEAN-PARAM-DEF>
+                <BOOLEAN-PARAM-DEF UUID="ECUC:fb9e8bce-c749-43b4-896f-a0315128678a">
+                  <SHORT-NAME>DioReadZeroForUndefinedPortPins</SHORT-NAME>
+                  <DESC>
+                    <L-2>
+                                                Defines whether the Dio_ReadPort() function includes the capability to
+                                                read the undefined port pins as 0.
+                                                True  - Enables the Dio_ReadPort() functionality to read the undefined port pins as 0
+                                                False - Disables the Dio_ReadPort() functionality to read the undefined port pins as 0
+                                                (Supports the normal functionality with Dio_ReadPort())
+                                            </L-2>
+                  </DESC>
+                  <LOWER-MULTIPLICITY>1</LOWER-MULTIPLICITY>
+                  <UPPER-MULTIPLICITY>1</UPPER-MULTIPLICITY>
+                  <IMPLEMENTATION-CONFIG-CLASSES>
+                    <IMPLEMENTATION-CONFIG-CLASS>
+                      <CONFIG-CLASS>PRE-COMPILE</CONFIG-CLASS>
+                      <CONFIG-VARIANT>VARIANT-PRE-COMPILE</CONFIG-VARIANT>
+                    </IMPLEMENTATION-CONFIG-CLASS>
+                    <IMPLEMENTATION-CONFIG-CLASS>
+                      <CONFIG-CLASS>PRE-COMPILE</CONFIG-CLASS>
+                      <CONFIG-VARIANT>VARIANT-POST-BUILD</CONFIG-VARIANT>
+                    </IMPLEMENTATION-CONFIG-CLASS>
+                  </IMPLEMENTATION-CONFIG-CLASSES>
+                  <ORIGIN>Freescale</ORIGIN>
+                  <SYMBOLIC-NAME-VALUE>false</SYMBOLIC-NAME-VALUE>
+                  <DEFAULT-VALUE>true</DEFAULT-VALUE>
+                </BOOLEAN-PARAM-DEF>
+              </PARAMETERS>
+            </PARAM-CONF-CONTAINER-DEF>
+            <PARAM-CONF-CONTAINER-DEF UUID="ECUC:fb7b0fe9-0bf0-4528-9324-ab23fe1450b5">
+              <SHORT-NAME>DioPort</SHORT-NAME>
+              <DESC>
+                <L-2>
+                                                Configuration of individual DIO ports, consisting of channels and possible channel groups.
+                                                The single DIO channel levels inside a DIO port represent a bit in the DIO port value. A channel group is a formal
+                                                logical combination of several adjoining DIO channels within a DIO port. The configuration process for Dio module
+                                                shall provide symbolic names for each configured DIO channel, port and group.
+                                            </L-2>
+              </DESC>
+              <LOWER-MULTIPLICITY>1</LOWER-MULTIPLICITY>
+              <UPPER-MULTIPLICITY>*</UPPER-MULTIPLICITY>
+              <MULTIPLE-CONFIGURATION-CONTAINER>false</MULTIPLE-CONFIGURATION-CONTAINER>
+              <PARAMETERS>
+                <INTEGER-PARAM-DEF UUID="ECUC:906edc6c-ae0d-4714-bc98-6d92b5214db4">
+                  <SHORT-NAME>DioPortId</SHORT-NAME>
+                  <DESC>
+                    <L-2>
+                                                    Numeric identifier of the DIO port. Symbolic names will be generated for each port pin id
+                                                    for the pins which being used for configuration.
+                                                    NOTE: Use the following values to configure different ports.
+                                                    
+                                                    PORT0=0 - pins from 0 to 15
+                                                    PORT1=1 - pins from 16 to 31
+                                                    PORT2=2 - pins from 32 to 47
+                                                    PORT3=3 - pins from 48 to 63
+                                                    PORT4=4 - pins from 64 to 79
+                                                    PORT5=5 - pins from 80 to 95
+                                                    PORT6=6 - pins from 96 to 111
+                                                    PORT7=7 - pins from 112 to 127
+                                                    PORT8=8 - pins from 128 to 143
+                                                    PORT9=9 - pins from 144 to 159
+                                                    PORT10=10 - pins from 160 to 175
+                                                    PORT11=11 - pins from 176 to 191
+                                                    PORT12=12 - pins from 192 to 207
+                                                    PORT13=13 - pins from 208 to 223
+                                                    PORT14=14 - pins from 224 to 239
+                                                 
+                                                    
+                                                    The formula for calculating PORT number for PINx (PCR[x]) is:
+                                                    PORTx=integer(PINx/16)     e.g. for PCR[100] = PORT100=integer(100/16)=6
+                                                    
+                                                </L-2>
+                  </DESC>
+                  <LOWER-MULTIPLICITY>1</LOWER-MULTIPLICITY>
+                  <UPPER-MULTIPLICITY>1</UPPER-MULTIPLICITY>
+                  <IMPLEMENTATION-CONFIG-CLASSES>
+                    <IMPLEMENTATION-CONFIG-CLASS>
+                      <CONFIG-CLASS>PRE-COMPILE</CONFIG-CLASS>
+                      <CONFIG-VARIANT>VARIANT-PRE-COMPILE</CONFIG-VARIANT>
+                    </IMPLEMENTATION-CONFIG-CLASS>
+                    <IMPLEMENTATION-CONFIG-CLASS>
+                      <CONFIG-CLASS>POST-BUILD</CONFIG-CLASS>
+                      <CONFIG-VARIANT>VARIANT-POST-BUILD</CONFIG-VARIANT>
+                    </IMPLEMENTATION-CONFIG-CLASS>
+                  </IMPLEMENTATION-CONFIG-CLASSES>
+                  <ORIGIN>AUTOSAR_ECUC</ORIGIN>
+                  <SYMBOLIC-NAME-VALUE>true</SYMBOLIC-NAME-VALUE>
+                  <DEFAULT-VALUE>0</DEFAULT-VALUE>
+                  <MAX>14</MAX>
+                  <MIN>0</MIN>
+                </INTEGER-PARAM-DEF>
+              </PARAMETERS>
+              <SUB-CONTAINERS>
+                <PARAM-CONF-CONTAINER-DEF UUID="ECUC:e4d43eaa-1362-4c0e-b7d5-7bc282ba179e">
+                  <SHORT-NAME>DioChannel</SHORT-NAME>
+                  <DESC>
+                    <L-2>
+                                                        Configuration of an individual DIO channel. Symbolic names will be generated for each channel.
+                                                        A general purpose digital IO pin represents a DIO channel, which will be having value either STD_HIGH or STD_LOW.
+                                                    </L-2>
+                  </DESC>
+                  <LOWER-MULTIPLICITY>0</LOWER-MULTIPLICITY>
+                  <UPPER-MULTIPLICITY>*</UPPER-MULTIPLICITY>
+                  <MULTIPLE-CONFIGURATION-CONTAINER>false</MULTIPLE-CONFIGURATION-CONTAINER>
+                  <PARAMETERS>
+                    <INTEGER-PARAM-DEF UUID="ECUC:50b9122f-35dd-447c-b74b-6f854bc91e13">
+                      <SHORT-NAME>DioChannelId</SHORT-NAME>
+                      <DESC>
+                        <L-2>
+                                                            Channel Id of the DIO channel. This value will be assigned to the symbolic names.
+                                                            There is 16 pin in each port, logical value of each pin is the bit value of port.
+                                                            Channel id should be given with port id. Eg, if port id is given as DioPort_0, then channel should be DioChannel_01.
+                                                            
+                                                            The formula for calculating channel number for PINx (PCR[x]) is:
+                                                            CHANNELx=PINx % 16        e.g. for PCR[100] = CHANNEL100= 100 % 16 = 4
+                                                            
+                                                        </L-2>
+                      </DESC>
+                      <LOWER-MULTIPLICITY>1</LOWER-MULTIPLICITY>
+                      <UPPER-MULTIPLICITY>1</UPPER-MULTIPLICITY>
+                      <IMPLEMENTATION-CONFIG-CLASSES>
+                        <IMPLEMENTATION-CONFIG-CLASS>
+                          <CONFIG-CLASS>PRE-COMPILE</CONFIG-CLASS>
+                          <CONFIG-VARIANT>VARIANT-PRE-COMPILE</CONFIG-VARIANT>
+                        </IMPLEMENTATION-CONFIG-CLASS>
+                        <IMPLEMENTATION-CONFIG-CLASS>
+                          <CONFIG-CLASS>POST-BUILD</CONFIG-CLASS>
+                          <CONFIG-VARIANT>VARIANT-POST-BUILD</CONFIG-VARIANT>
+                        </IMPLEMENTATION-CONFIG-CLASS>
+                      </IMPLEMENTATION-CONFIG-CLASSES>
+                      <ORIGIN>AUTOSAR_ECUC</ORIGIN>
+                      <SYMBOLIC-NAME-VALUE>true</SYMBOLIC-NAME-VALUE>
+                      <DEFAULT-VALUE>0</DEFAULT-VALUE>
+                      <MAX>15</MAX>
+                      <MIN>0</MIN>
+                    </INTEGER-PARAM-DEF>
+                  </PARAMETERS>
+                </PARAM-CONF-CONTAINER-DEF>
+                <PARAM-CONF-CONTAINER-DEF UUID="ECUC:92d8deb5-f0a3-4b5a-a0e1-8fa6605e08de">
+                  <SHORT-NAME>DioChannelGroup</SHORT-NAME>
+                  <DESC>
+                    <L-2>
+                                                        A channel group represents several adjoining DIO channels represented by a logical group.
+                                                        This container definition does not explicitly define a symbolic name parameter, but symbolic name will be generated for
+                                                        channel group. It provides a structure with parameters port, offset and mask.
+                                                    </L-2>
+                  </DESC>
+                  <LOWER-MULTIPLICITY>0</LOWER-MULTIPLICITY>
+                  <UPPER-MULTIPLICITY>*</UPPER-MULTIPLICITY>
+                  <MULTIPLE-CONFIGURATION-CONTAINER>false</MULTIPLE-CONFIGURATION-CONTAINER>
+                  <PARAMETERS>
+                    <STRING-PARAM-DEF UUID="ECUC:d8247a5a-d371-45b9-9614-ad123fdbad7a">
+                      <SHORT-NAME>DioChannelGroupIdentification</SHORT-NAME>
+                      <DESC>
+                        <L-2>
+                                                            The DIO channel group is identified in DIO API by a pointer to a data structure of type Dio_ChannelGroupType. This data structure
+                                                            contains the channel group information. This parameter contains the code fragment that has to be inserted in the API call of the calling module to get the address
+                                                            of the variable in memory which holds the channel group information, a string value should be given for this parameter. Symbolic name will be generated for
+                                                            DioChannelGroup, which will be assigned with address of this string inorder to point to the structure parameters. Example:OutputGroup
+                                                        </L-2>
+                      </DESC>
+                      <LOWER-MULTIPLICITY>1</LOWER-MULTIPLICITY>
+                      <UPPER-MULTIPLICITY>1</UPPER-MULTIPLICITY>
+                      <IMPLEMENTATION-CONFIG-CLASSES>
+                        <IMPLEMENTATION-CONFIG-CLASS>
+                          <CONFIG-CLASS>PRE-COMPILE</CONFIG-CLASS>
+                          <CONFIG-VARIANT>VARIANT-PRE-COMPILE</CONFIG-VARIANT>
+                        </IMPLEMENTATION-CONFIG-CLASS>
+                        <IMPLEMENTATION-CONFIG-CLASS>
+                          <CONFIG-CLASS>PRE-COMPILE</CONFIG-CLASS>
+                          <CONFIG-VARIANT>VARIANT-POST-BUILD</CONFIG-VARIANT>
+                        </IMPLEMENTATION-CONFIG-CLASS>
+                      </IMPLEMENTATION-CONFIG-CLASSES>
+                      <ORIGIN>AUTOSAR_ECUC</ORIGIN>
+                      <SYMBOLIC-NAME-VALUE>true</SYMBOLIC-NAME-VALUE>
+                      <DEFAULT-VALUE>DioChannelGroup</DEFAULT-VALUE>
+                    </STRING-PARAM-DEF>
+                    <INTEGER-PARAM-DEF UUID="ECUC:afd6c082-0873-4be4-bc3e-8f64c833df8a">
+                      <SHORT-NAME>DioPortMask</SHORT-NAME>
+                      <DESC>
+                        <L-2>
+                                                            This shall be the mask which defines the positions of the channel group.
+                                                            The data type depends on the port width.
+                                                        </L-2>
+                      </DESC>
+                      <LOWER-MULTIPLICITY>1</LOWER-MULTIPLICITY>
+                      <UPPER-MULTIPLICITY>1</UPPER-MULTIPLICITY>
+                      <IMPLEMENTATION-CONFIG-CLASSES>
+                        <IMPLEMENTATION-CONFIG-CLASS>
+                          <CONFIG-CLASS>PRE-COMPILE</CONFIG-CLASS>
+                          <CONFIG-VARIANT>VARIANT-PRE-COMPILE</CONFIG-VARIANT>
+                        </IMPLEMENTATION-CONFIG-CLASS>
+                        <IMPLEMENTATION-CONFIG-CLASS>
+                          <CONFIG-CLASS>POST-BUILD</CONFIG-CLASS>
+                          <CONFIG-VARIANT>VARIANT-POST-BUILD</CONFIG-VARIANT>
+                        </IMPLEMENTATION-CONFIG-CLASS>
+                      </IMPLEMENTATION-CONFIG-CLASSES>
+                      <ORIGIN>AUTOSAR_ECUC</ORIGIN>
+                      <SYMBOLIC-NAME-VALUE>false</SYMBOLIC-NAME-VALUE>
+                      <DEFAULT-VALUE>1</DEFAULT-VALUE>
+                      <MAX>65535</MAX>
+                      <MIN>1</MIN>
+                    </INTEGER-PARAM-DEF>
+                    <DERIVED-INTEGER-PARAM-DEF UUID="ECUC:f40ed2ac-5a25-41bd-a8b2-2aaa3760f927">
+                      <SHORT-NAME>DioPortOffset</SHORT-NAME>
+                      <DESC>
+                        <L-2>
+                                                            The position of the Channel Group on the port, counted from the LSB. This value can be derived from DioPortMask.
+                                                            calculationFormula = Position of the first bit of DioPortMask which is set to '1' counted from LSB
+                                                        </L-2>
+                      </DESC>
+                      <LOWER-MULTIPLICITY>1</LOWER-MULTIPLICITY>
+                      <UPPER-MULTIPLICITY>1</UPPER-MULTIPLICITY>
+                      <IMPLEMENTATION-CONFIG-CLASSES>
+                        <IMPLEMENTATION-CONFIG-CLASS>
+                          <CONFIG-CLASS>PRE-COMPILE</CONFIG-CLASS>
+                          <CONFIG-VARIANT>VARIANT-PRE-COMPILE</CONFIG-VARIANT>
+                        </IMPLEMENTATION-CONFIG-CLASS>
+                        <IMPLEMENTATION-CONFIG-CLASS>
+                          <CONFIG-CLASS>POST-BUILD</CONFIG-CLASS>
+                          <CONFIG-VARIANT>VARIANT-POST-BUILD</CONFIG-VARIANT>
+                        </IMPLEMENTATION-CONFIG-CLASS>
+                      </IMPLEMENTATION-CONFIG-CLASSES>
+                      <ORIGIN>AUTOSAR_ECUC</ORIGIN>
+                      <SYMBOLIC-NAME-VALUE>false</SYMBOLIC-NAME-VALUE>
+                      <DEFAULT-VALUE>0</DEFAULT-VALUE>
+                      <MAX>15</MAX>
+                      <MIN>0</MIN>
+                      <CALCULATION-FORMULA>position of the first bit of dioportmask which is set to '1' counted from lsb</CALCULATION-FORMULA>
+                      <CALCULATION-LANGUAGE>INFORMAL</CALCULATION-LANGUAGE>
+                    </DERIVED-INTEGER-PARAM-DEF>
+                  </PARAMETERS>
+                </PARAM-CONF-CONTAINER-DEF>
+              </SUB-CONTAINERS>
+            </PARAM-CONF-CONTAINER-DEF>
+          </CONTAINERS>
+        </MODULE-DEF>
+      </ELEMENTS>
+    </AR-PACKAGE>
+  </TOP-LEVEL-PACKAGES>
+</AUTOSAR>

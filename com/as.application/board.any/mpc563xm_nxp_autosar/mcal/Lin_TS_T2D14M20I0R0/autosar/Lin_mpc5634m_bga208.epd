@@ -1,0 +1,1123 @@
+<?xml version="1.0"?>
+<AUTOSAR xmlns="http://autosar.org/3.0.2" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://autosar.org/3.0.2 autosar.xsd">
+  <TOP-LEVEL-PACKAGES>
+    <AR-PACKAGE UUID="ECUC:AUTOSAR">
+      <SHORT-NAME>TS_T2D14M20I0R0</SHORT-NAME>
+      <ELEMENTS>
+        <ECU-PARAMETER-DEFINITION UUID="ECUC:489dd1da-c775-4973-98f9-973cc8eee31a">
+          <SHORT-NAME>Lin_AUTOSARParameterDefinition</SHORT-NAME>
+          <MODULE-REFS>
+            <MODULE-REF DEST="MODULE-DEF">/TS_T2D14M20I0R0/Lin</MODULE-REF>
+          </MODULE-REFS>
+        </ECU-PARAMETER-DEFINITION>
+        <MODULE-DEF UUID="ECUC:a63824e5-1995-4e8a-8f06-b7babc3f4028">
+          <SHORT-NAME>Lin</SHORT-NAME>
+          <DESC>
+            <L-2>Configuration of the Lin (LIN driver) module.</L-2>
+          </DESC>
+          <ADMIN-DATA>
+            <LANGUAGE>EN</LANGUAGE>
+            <DOC-REVISIONS>
+              <DOC-REVISION>
+                <REVISION-LABEL>revision2.0.0</REVISION-LABEL>
+                <ISSUED-BY>Freescale</ISSUED-BY>
+                <DATE>2011-12-02T17:00:00</DATE>
+              </DOC-REVISION>
+            </DOC-REVISIONS>
+          </ADMIN-DATA>
+          <LOWER-MULTIPLICITY>1</LOWER-MULTIPLICITY>
+          <UPPER-MULTIPLICITY>*</UPPER-MULTIPLICITY>
+          <REFINED-MODULE-DEF-REF DEST="MODULE-DEF">/AUTOSAR/Lin</REFINED-MODULE-DEF-REF>
+          <SUPPORTED-CONFIG-VARIANTS>
+            <SUPPORTED-CONFIG-VARIANT>VARIANT-PRE-COMPILE</SUPPORTED-CONFIG-VARIANT>
+            <SUPPORTED-CONFIG-VARIANT>VARIANT-POST-BUILD</SUPPORTED-CONFIG-VARIANT>
+          </SUPPORTED-CONFIG-VARIANTS>
+          <CONTAINERS>
+            <PARAM-CONF-CONTAINER-DEF UUID="ECUC:6ad41f62-43e8-4266-9916-7d0fe5caea2b">
+              <SHORT-NAME>CommonPublishedInformation</SHORT-NAME>
+              <DESC>
+                <L-2>
+                                            Common container, aggregated by all modules. It contains published information about vendor and versions.
+                                            </L-2>
+              </DESC>
+              <LOWER-MULTIPLICITY>1</LOWER-MULTIPLICITY>
+              <UPPER-MULTIPLICITY>1</UPPER-MULTIPLICITY>
+              <MULTIPLE-CONFIGURATION-CONTAINER>false</MULTIPLE-CONFIGURATION-CONTAINER>
+              <PARAMETERS>
+                <INTEGER-PARAM-DEF UUID="ECUC:5c53f404-9503-4a94-97d2-f331eb6521c4">
+                  <SHORT-NAME>ArMajorVersion</SHORT-NAME>
+                  <DESC>
+                    <L-2>
+                                                Major version number of AUTOSAR specification on which the appropriate implementation is based on.
+                                                </L-2>
+                  </DESC>
+                  <LOWER-MULTIPLICITY>1</LOWER-MULTIPLICITY>
+                  <UPPER-MULTIPLICITY>1</UPPER-MULTIPLICITY>
+                  <IMPLEMENTATION-CONFIG-CLASSES>
+                    <IMPLEMENTATION-CONFIG-CLASS>
+                      <CONFIG-CLASS>PUBLISHED-INFORMATION</CONFIG-CLASS>
+                      <CONFIG-VARIANT>VARIANT-PRE-COMPILE</CONFIG-VARIANT>
+                    </IMPLEMENTATION-CONFIG-CLASS>
+                  </IMPLEMENTATION-CONFIG-CLASSES>
+                  <ORIGIN>Freescale</ORIGIN>
+                  <SYMBOLIC-NAME-VALUE>false</SYMBOLIC-NAME-VALUE>
+                  <DEFAULT-VALUE>1</DEFAULT-VALUE>
+                  <MAX>1</MAX>
+                  <MIN>1</MIN>
+                </INTEGER-PARAM-DEF>
+                <INTEGER-PARAM-DEF UUID="ECUC:ef46d9fc-ed6e-4634-8782-f6d290120dfa">
+                  <SHORT-NAME>ArMinorVersion</SHORT-NAME>
+                  <DESC>
+                    <L-2>
+                                                Minor version number of AUTOSAR specification on which the appropriate implementation is based on.
+                                                </L-2>
+                  </DESC>
+                  <LOWER-MULTIPLICITY>1</LOWER-MULTIPLICITY>
+                  <UPPER-MULTIPLICITY>1</UPPER-MULTIPLICITY>
+                  <IMPLEMENTATION-CONFIG-CLASSES>
+                    <IMPLEMENTATION-CONFIG-CLASS>
+                      <CONFIG-CLASS>PUBLISHED-INFORMATION</CONFIG-CLASS>
+                      <CONFIG-VARIANT>VARIANT-PRE-COMPILE</CONFIG-VARIANT>
+                    </IMPLEMENTATION-CONFIG-CLASS>
+                  </IMPLEMENTATION-CONFIG-CLASSES>
+                  <ORIGIN>Freescale</ORIGIN>
+                  <SYMBOLIC-NAME-VALUE>false</SYMBOLIC-NAME-VALUE>
+                  <DEFAULT-VALUE>2</DEFAULT-VALUE>
+                  <MAX>2</MAX>
+                  <MIN>2</MIN>
+                </INTEGER-PARAM-DEF>
+                <INTEGER-PARAM-DEF UUID="ECUC:a9addc02-4d2b-49b9-9f5f-a94300183aba">
+                  <SHORT-NAME>ArPatchVersion</SHORT-NAME>
+                  <DESC>
+                    <L-2>
+                                                Patch level version number of AUTOSAR specification on which the appropriate implementation is based on.
+                                                </L-2>
+                  </DESC>
+                  <LOWER-MULTIPLICITY>1</LOWER-MULTIPLICITY>
+                  <UPPER-MULTIPLICITY>1</UPPER-MULTIPLICITY>
+                  <IMPLEMENTATION-CONFIG-CLASSES>
+                    <IMPLEMENTATION-CONFIG-CLASS>
+                      <CONFIG-CLASS>PUBLISHED-INFORMATION</CONFIG-CLASS>
+                      <CONFIG-VARIANT>VARIANT-PRE-COMPILE</CONFIG-VARIANT>
+                    </IMPLEMENTATION-CONFIG-CLASS>
+                  </IMPLEMENTATION-CONFIG-CLASSES>
+                  <ORIGIN>Freescale</ORIGIN>
+                  <SYMBOLIC-NAME-VALUE>false</SYMBOLIC-NAME-VALUE>
+                  <DEFAULT-VALUE>1</DEFAULT-VALUE>
+                  <MAX>1</MAX>
+                  <MIN>1</MIN>
+                </INTEGER-PARAM-DEF>
+                <INTEGER-PARAM-DEF UUID="ECUC:f9deb4fb-a33f-4789-a550-5322338e1467">
+                  <SHORT-NAME>ModuleId</SHORT-NAME>
+                  <DESC>
+                    <L-2>
+                                                Module ID of this module from Module List.
+                                                </L-2>
+                  </DESC>
+                  <LOWER-MULTIPLICITY>1</LOWER-MULTIPLICITY>
+                  <UPPER-MULTIPLICITY>1</UPPER-MULTIPLICITY>
+                  <IMPLEMENTATION-CONFIG-CLASSES>
+                    <IMPLEMENTATION-CONFIG-CLASS>
+                      <CONFIG-CLASS>PUBLISHED-INFORMATION</CONFIG-CLASS>
+                      <CONFIG-VARIANT>VARIANT-PRE-COMPILE</CONFIG-VARIANT>
+                    </IMPLEMENTATION-CONFIG-CLASS>
+                  </IMPLEMENTATION-CONFIG-CLASSES>
+                  <ORIGIN>Freescale</ORIGIN>
+                  <SYMBOLIC-NAME-VALUE>false</SYMBOLIC-NAME-VALUE>
+                  <DEFAULT-VALUE>82</DEFAULT-VALUE>
+                  <MAX>82</MAX>
+                  <MIN>82</MIN>
+                </INTEGER-PARAM-DEF>
+                <INTEGER-PARAM-DEF UUID="ECUC:6f595a00-cbef-479b-abe2-17adec39136c">
+                  <SHORT-NAME>SwMajorVersion</SHORT-NAME>
+                  <DESC>
+                    <L-2>
+                                                Major version number of the vendor specific implementation of the module. The numbering is vendor specific.
+                                                </L-2>
+                  </DESC>
+                  <LOWER-MULTIPLICITY>1</LOWER-MULTIPLICITY>
+                  <UPPER-MULTIPLICITY>1</UPPER-MULTIPLICITY>
+                  <IMPLEMENTATION-CONFIG-CLASSES>
+                    <IMPLEMENTATION-CONFIG-CLASS>
+                      <CONFIG-CLASS>PUBLISHED-INFORMATION</CONFIG-CLASS>
+                      <CONFIG-VARIANT>VARIANT-PRE-COMPILE</CONFIG-VARIANT>
+                    </IMPLEMENTATION-CONFIG-CLASS>
+                  </IMPLEMENTATION-CONFIG-CLASSES>
+                  <ORIGIN>Freescale</ORIGIN>
+                  <SYMBOLIC-NAME-VALUE>false</SYMBOLIC-NAME-VALUE>
+                  <DEFAULT-VALUE>2</DEFAULT-VALUE>
+                  <MAX>2</MAX>
+                  <MIN>2</MIN>
+                </INTEGER-PARAM-DEF>
+                <INTEGER-PARAM-DEF UUID="ECUC:b4e3e939-ee2e-454b-b63a-40a16a97f53e">
+                  <SHORT-NAME>SwMinorVersion</SHORT-NAME>
+                  <DESC>
+                    <L-2>
+                                                Minor version number of the vendor specific implementation of the module. The numbering is vendor specific.
+                                                </L-2>
+                  </DESC>
+                  <LOWER-MULTIPLICITY>1</LOWER-MULTIPLICITY>
+                  <UPPER-MULTIPLICITY>1</UPPER-MULTIPLICITY>
+                  <IMPLEMENTATION-CONFIG-CLASSES>
+                    <IMPLEMENTATION-CONFIG-CLASS>
+                      <CONFIG-CLASS>PUBLISHED-INFORMATION</CONFIG-CLASS>
+                      <CONFIG-VARIANT>VARIANT-PRE-COMPILE</CONFIG-VARIANT>
+                    </IMPLEMENTATION-CONFIG-CLASS>
+                  </IMPLEMENTATION-CONFIG-CLASSES>
+                  <ORIGIN>Freescale</ORIGIN>
+                  <SYMBOLIC-NAME-VALUE>false</SYMBOLIC-NAME-VALUE>
+                  <DEFAULT-VALUE>0</DEFAULT-VALUE>
+                  <MAX>0</MAX>
+                  <MIN>0</MIN>
+                </INTEGER-PARAM-DEF>
+                <INTEGER-PARAM-DEF UUID="ECUC:131c8465-a71a-4a6f-8261-aa67d06c30b3">
+                  <SHORT-NAME>SwPatchVersion</SHORT-NAME>
+                  <DESC>
+                    <L-2>
+                                                Patch level version number of the vendor specific implementation of the module. The numbering is vendor specific.
+                                                </L-2>
+                  </DESC>
+                  <LOWER-MULTIPLICITY>1</LOWER-MULTIPLICITY>
+                  <UPPER-MULTIPLICITY>1</UPPER-MULTIPLICITY>
+                  <IMPLEMENTATION-CONFIG-CLASSES>
+                    <IMPLEMENTATION-CONFIG-CLASS>
+                      <CONFIG-CLASS>PUBLISHED-INFORMATION</CONFIG-CLASS>
+                      <CONFIG-VARIANT>VARIANT-PRE-COMPILE</CONFIG-VARIANT>
+                    </IMPLEMENTATION-CONFIG-CLASS>
+                  </IMPLEMENTATION-CONFIG-CLASSES>
+                  <ORIGIN>Freescale</ORIGIN>
+                  <SYMBOLIC-NAME-VALUE>false</SYMBOLIC-NAME-VALUE>
+                  <DEFAULT-VALUE>0</DEFAULT-VALUE>
+                  <MAX>0</MAX>
+                  <MIN>0</MIN>
+                </INTEGER-PARAM-DEF>
+                <STRING-PARAM-DEF UUID="ECUC:13d61f3f-cc70-4467-81cf-7d1ad2e7a3aa">
+                  <SHORT-NAME>VendorApiInfix</SHORT-NAME>
+                  <DESC>
+                    <L-2>
+                                                In driver modules which can be instantiated several times on a single ECU, BSW00347 requires that the name of APIs is extended by the VendorId and a vendor specific name. 
+                                                This parameter is used to specify the vendor specific name. In total, the implementation specific name is generated as follows:
+                                                _VendorId_.
+
+                                                E.g.  assuming that the VendorId of the implementor is 123 and the implementer chose a VendorApiInfix of "v11r456" a api name Can_Write defined in the SWS will translate to Can_123_v11r456Write. 
+
+                                                This parameter is mandatory for all modules with upper multiplicity  1. It shall not be used for modules with upper multiplicity =1.
+                                                </L-2>
+                  </DESC>
+                  <LOWER-MULTIPLICITY>0</LOWER-MULTIPLICITY>
+                  <UPPER-MULTIPLICITY>1</UPPER-MULTIPLICITY>
+                  <IMPLEMENTATION-CONFIG-CLASSES>
+                    <IMPLEMENTATION-CONFIG-CLASS>
+                      <CONFIG-CLASS>PUBLISHED-INFORMATION</CONFIG-CLASS>
+                      <CONFIG-VARIANT>VARIANT-PRE-COMPILE</CONFIG-VARIANT>
+                    </IMPLEMENTATION-CONFIG-CLASS>
+                  </IMPLEMENTATION-CONFIG-CLASSES>
+                  <ORIGIN>Freescale</ORIGIN>
+                  <SYMBOLIC-NAME-VALUE>false</SYMBOLIC-NAME-VALUE>
+                  <DEFAULT-VALUE>
+                  </DEFAULT-VALUE>
+                </STRING-PARAM-DEF>
+                <INTEGER-PARAM-DEF UUID="ECUC:ea5486ae-61d0-4ab2-af39-ebf0c79e23c7">
+                  <SHORT-NAME>VendorId</SHORT-NAME>
+                  <DESC>
+                    <L-2>
+                                                Vendor ID of the dedicated implementation of this module according to the AUTOSAR vendor list.
+                                                </L-2>
+                  </DESC>
+                  <LOWER-MULTIPLICITY>1</LOWER-MULTIPLICITY>
+                  <UPPER-MULTIPLICITY>1</UPPER-MULTIPLICITY>
+                  <IMPLEMENTATION-CONFIG-CLASSES>
+                    <IMPLEMENTATION-CONFIG-CLASS>
+                      <CONFIG-CLASS>PUBLISHED-INFORMATION</CONFIG-CLASS>
+                      <CONFIG-VARIANT>VARIANT-PRE-COMPILE</CONFIG-VARIANT>
+                    </IMPLEMENTATION-CONFIG-CLASS>
+                  </IMPLEMENTATION-CONFIG-CLASSES>
+                  <ORIGIN>Freescale</ORIGIN>
+                  <SYMBOLIC-NAME-VALUE>false</SYMBOLIC-NAME-VALUE>
+                  <DEFAULT-VALUE>43</DEFAULT-VALUE>
+                  <MAX>43</MAX>
+                  <MIN>43</MIN>
+                </INTEGER-PARAM-DEF>
+              </PARAMETERS>
+            </PARAM-CONF-CONTAINER-DEF>
+            <PARAM-CONF-CONTAINER-DEF UUID="ECUC:4b627a22-cd86-4295-b1b0-b700261de4b0">
+              <SHORT-NAME>NonAutosar</SHORT-NAME>
+              <DESC>
+                <L-2>
+                                            NonAutosar
+                                            Autosar Requirements: 
+                                            This container contains the global configuration parameters of the Non-Autosar Lin driver. 
+                                               This container is a MultipleConfigurationContainer, i.e. this container and 
+                                               its sub-containers exist once per configuration set.
+                                            </L-2>
+              </DESC>
+              <LOWER-MULTIPLICITY>1</LOWER-MULTIPLICITY>
+              <UPPER-MULTIPLICITY>1</UPPER-MULTIPLICITY>
+              <MULTIPLE-CONFIGURATION-CONTAINER>false</MULTIPLE-CONFIGURATION-CONTAINER>
+              <PARAMETERS>
+                <BOOLEAN-PARAM-DEF UUID="ECUC:0399ff0e-3d86-4ab0-804c-6bbbd151154d">
+                  <SHORT-NAME>LinEnableDualClockMode</SHORT-NAME>
+                  <DESC>
+                    <L-2>
+                                                LinEnableDualClockMode
+                                                Autosar Requirements: 
+                                                Switches the Dual Clock Mode ON or OFF.
+                                                </L-2>
+                  </DESC>
+                  <LOWER-MULTIPLICITY>1</LOWER-MULTIPLICITY>
+                  <UPPER-MULTIPLICITY>1</UPPER-MULTIPLICITY>
+                  <IMPLEMENTATION-CONFIG-CLASSES>
+                    <IMPLEMENTATION-CONFIG-CLASS>
+                      <CONFIG-CLASS>PRE-COMPILE</CONFIG-CLASS>
+                      <CONFIG-VARIANT>VARIANT-PRE-COMPILE</CONFIG-VARIANT>
+                    </IMPLEMENTATION-CONFIG-CLASS>
+                    <IMPLEMENTATION-CONFIG-CLASS>
+                      <CONFIG-CLASS>POST-BUILD</CONFIG-CLASS>
+                      <CONFIG-VARIANT>VARIANT-POST-BUILD</CONFIG-VARIANT>
+                    </IMPLEMENTATION-CONFIG-CLASS>
+                  </IMPLEMENTATION-CONFIG-CLASSES>
+                  <ORIGIN>Freescale</ORIGIN>
+                  <SYMBOLIC-NAME-VALUE>false</SYMBOLIC-NAME-VALUE>
+                  <DEFAULT-VALUE>false</DEFAULT-VALUE>
+                </BOOLEAN-PARAM-DEF>
+              </PARAMETERS>
+            </PARAM-CONF-CONTAINER-DEF>
+            <PARAM-CONF-CONTAINER-DEF UUID="ECUC:f8d72580-13e3-499c-b2d4-9ccd9b8b6aed">
+              <SHORT-NAME>LinGeneral</SHORT-NAME>
+              <DESC>
+                <L-2>
+                                            LinGeneral
+                                            Autosar Requirements: LIN177
+                                            This container contains the global configuration parameter of the Lin driver. 
+                                               This container is a MultipleConfigurationContainer, i.e. this container and 
+                                               its sub-containers exit once per configuration set.
+                                            </L-2>
+              </DESC>
+              <LOWER-MULTIPLICITY>1</LOWER-MULTIPLICITY>
+              <UPPER-MULTIPLICITY>1</UPPER-MULTIPLICITY>
+              <MULTIPLE-CONFIGURATION-CONTAINER>false</MULTIPLE-CONFIGURATION-CONTAINER>
+              <PARAMETERS>
+                <BOOLEAN-PARAM-DEF UUID="ECUC:252dd890-3cb9-4b51-a07f-5fd4959d4287">
+                  <SHORT-NAME>LinDevErrorDetect</SHORT-NAME>
+                  <DESC>
+                    <L-2>
+                                                LinDevErrorDetect
+                                                Autosar Requirements: LIN066
+                                                Switches the Development Error Detection and Notification ON or OFF.
+                                                </L-2>
+                  </DESC>
+                  <LOWER-MULTIPLICITY>1</LOWER-MULTIPLICITY>
+                  <UPPER-MULTIPLICITY>1</UPPER-MULTIPLICITY>
+                  <IMPLEMENTATION-CONFIG-CLASSES>
+                    <IMPLEMENTATION-CONFIG-CLASS>
+                      <CONFIG-CLASS>PRE-COMPILE</CONFIG-CLASS>
+                      <CONFIG-VARIANT>VARIANT-PRE-COMPILE</CONFIG-VARIANT>
+                    </IMPLEMENTATION-CONFIG-CLASS>
+                    <IMPLEMENTATION-CONFIG-CLASS>
+                      <CONFIG-CLASS>POST-BUILD</CONFIG-CLASS>
+                      <CONFIG-VARIANT>VARIANT-POST-BUILD</CONFIG-VARIANT>
+                    </IMPLEMENTATION-CONFIG-CLASS>
+                  </IMPLEMENTATION-CONFIG-CLASSES>
+                  <ORIGIN>AUTOSAR_ECUC</ORIGIN>
+                  <SYMBOLIC-NAME-VALUE>false</SYMBOLIC-NAME-VALUE>
+                  <DEFAULT-VALUE>true</DEFAULT-VALUE>
+                </BOOLEAN-PARAM-DEF>
+                <INTEGER-PARAM-DEF UUID="ECUC:85683a9e-cae6-4e74-bd39-c3f20e1477dc">
+                  <SHORT-NAME>LinIndex</SHORT-NAME>
+                  <DESC>
+                    <L-2>
+                                                Specifies the InstanceId of this module instance. If only one instance is present it shall have the Id 0.
+                                                Note:This parameter is not used in the current implementation.
+                                                </L-2>
+                  </DESC>
+                  <LOWER-MULTIPLICITY>1</LOWER-MULTIPLICITY>
+                  <UPPER-MULTIPLICITY>1</UPPER-MULTIPLICITY>
+                  <IMPLEMENTATION-CONFIG-CLASSES>
+                    <IMPLEMENTATION-CONFIG-CLASS>
+                      <CONFIG-CLASS>PRE-COMPILE</CONFIG-CLASS>
+                      <CONFIG-VARIANT>VARIANT-PRE-COMPILE</CONFIG-VARIANT>
+                    </IMPLEMENTATION-CONFIG-CLASS>
+                    <IMPLEMENTATION-CONFIG-CLASS>
+                      <CONFIG-CLASS>POST-BUILD</CONFIG-CLASS>
+                      <CONFIG-VARIANT>VARIANT-POST-BUILD</CONFIG-VARIANT>
+                    </IMPLEMENTATION-CONFIG-CLASS>
+                  </IMPLEMENTATION-CONFIG-CLASSES>
+                  <ORIGIN>AUTOSAR_ECUC</ORIGIN>
+                  <SYMBOLIC-NAME-VALUE>false</SYMBOLIC-NAME-VALUE>
+                  <DEFAULT-VALUE>0</DEFAULT-VALUE>
+                  <MAX>255</MAX>
+                  <MIN>0</MIN>
+                </INTEGER-PARAM-DEF>
+                <INTEGER-PARAM-DEF UUID="ECUC:6af618e7-d12a-4f26-ac2e-7653eeeee7cb">
+                  <SHORT-NAME>LinTimeoutDuration</SHORT-NAME>
+                  <DESC>
+                    <L-2>
+                                                Specifies the maximum number of loops for blocking function until a timeout is raised in short term wait loops
+                                                </L-2>
+                  </DESC>
+                  <LOWER-MULTIPLICITY>1</LOWER-MULTIPLICITY>
+                  <UPPER-MULTIPLICITY>1</UPPER-MULTIPLICITY>
+                  <IMPLEMENTATION-CONFIG-CLASSES>
+                    <IMPLEMENTATION-CONFIG-CLASS>
+                      <CONFIG-CLASS>PRE-COMPILE</CONFIG-CLASS>
+                      <CONFIG-VARIANT>VARIANT-PRE-COMPILE</CONFIG-VARIANT>
+                    </IMPLEMENTATION-CONFIG-CLASS>
+                    <IMPLEMENTATION-CONFIG-CLASS>
+                      <CONFIG-CLASS>POST-BUILD</CONFIG-CLASS>
+                      <CONFIG-VARIANT>VARIANT-POST-BUILD</CONFIG-VARIANT>
+                    </IMPLEMENTATION-CONFIG-CLASS>
+                  </IMPLEMENTATION-CONFIG-CLASSES>
+                  <ORIGIN>AUTOSAR_ECUC</ORIGIN>
+                  <SYMBOLIC-NAME-VALUE>false</SYMBOLIC-NAME-VALUE>
+                  <DEFAULT-VALUE>1000</DEFAULT-VALUE>
+                  <MAX>2147483648</MAX>
+                  <MIN>1</MIN>
+                </INTEGER-PARAM-DEF>
+                <BOOLEAN-PARAM-DEF UUID="ECUC:875cab9d-2ffe-4ad6-981e-edc8b20f9f0a">
+                  <SHORT-NAME>LinVersionInfoApi</SHORT-NAME>
+                  <DESC>
+                    <L-2>
+                                                LinVersionInfoApi
+                                                Autosar Requirements: LIN067
+                                                Switches the Lin_GetVersionInfo function ON or OFF.
+                                                </L-2>
+                  </DESC>
+                  <LOWER-MULTIPLICITY>1</LOWER-MULTIPLICITY>
+                  <UPPER-MULTIPLICITY>1</UPPER-MULTIPLICITY>
+                  <IMPLEMENTATION-CONFIG-CLASSES>
+                    <IMPLEMENTATION-CONFIG-CLASS>
+                      <CONFIG-CLASS>PRE-COMPILE</CONFIG-CLASS>
+                      <CONFIG-VARIANT>VARIANT-PRE-COMPILE</CONFIG-VARIANT>
+                    </IMPLEMENTATION-CONFIG-CLASS>
+                    <IMPLEMENTATION-CONFIG-CLASS>
+                      <CONFIG-CLASS>POST-BUILD</CONFIG-CLASS>
+                      <CONFIG-VARIANT>VARIANT-POST-BUILD</CONFIG-VARIANT>
+                    </IMPLEMENTATION-CONFIG-CLASS>
+                  </IMPLEMENTATION-CONFIG-CLASSES>
+                  <ORIGIN>AUTOSAR_ECUC</ORIGIN>
+                  <SYMBOLIC-NAME-VALUE>false</SYMBOLIC-NAME-VALUE>
+                  <DEFAULT-VALUE>true</DEFAULT-VALUE>
+                </BOOLEAN-PARAM-DEF>
+              </PARAMETERS>
+            </PARAM-CONF-CONTAINER-DEF>
+            <PARAM-CONF-CONTAINER-DEF UUID="ECUC:e4e21303-91ff-4363-9fa0-96b529ac50e0">
+              <SHORT-NAME>LinGlobalConfig</SHORT-NAME>
+              <DESC>
+                <L-2>
+                                                This container contains the global configuration parameter of the Lin driver. This container is a MultipleConfigurationContainer, i.e. this container and its sub-containers exit once per configuration set.
+                                                </L-2>
+              </DESC>
+              <LOWER-MULTIPLICITY>1</LOWER-MULTIPLICITY>
+              <UPPER-MULTIPLICITY>1</UPPER-MULTIPLICITY>
+              <MULTIPLE-CONFIGURATION-CONTAINER>true</MULTIPLE-CONFIGURATION-CONTAINER>
+              <SUB-CONTAINERS>
+                <PARAM-CONF-CONTAINER-DEF UUID="ECUC:8cf00a79-fc6d-4c61-946c-d225972f618e">
+                  <SHORT-NAME>LinChannel</SHORT-NAME>
+                  <DESC>
+                    <L-2>
+                                                        Identifies the LIN channel. Replaces LIN_CHANNEL_INDEX_NAME from the LIN SWS.
+                                                        Note:"User should use unique names for naming the LIN channels across different LinGlobalConfig Sets."
+                                                        </L-2>
+                  </DESC>
+                  <LOWER-MULTIPLICITY>1</LOWER-MULTIPLICITY>
+                  <UPPER-MULTIPLICITY>*</UPPER-MULTIPLICITY>
+                  <MULTIPLE-CONFIGURATION-CONTAINER>false</MULTIPLE-CONFIGURATION-CONTAINER>
+                  <PARAMETERS>
+                    <INTEGER-PARAM-DEF UUID="ECUC:c3f8b2e6-3806-4d46-b198-57d23c603246">
+                      <SHORT-NAME>LinChannelId</SHORT-NAME>
+                      <DESC>
+                        <L-2>
+                                                            Identifies the LIN channel. Replaces LIN_CHANNEL_INDEX_NAME from the LIN SWS.
+                                                            </L-2>
+                      </DESC>
+                      <LOWER-MULTIPLICITY>1</LOWER-MULTIPLICITY>
+                      <UPPER-MULTIPLICITY>1</UPPER-MULTIPLICITY>
+                      <IMPLEMENTATION-CONFIG-CLASSES>
+                        <IMPLEMENTATION-CONFIG-CLASS>
+                          <CONFIG-CLASS>PRE-COMPILE</CONFIG-CLASS>
+                          <CONFIG-VARIANT>VARIANT-PRE-COMPILE</CONFIG-VARIANT>
+                        </IMPLEMENTATION-CONFIG-CLASS>
+                        <IMPLEMENTATION-CONFIG-CLASS>
+                          <CONFIG-CLASS>POST-BUILD</CONFIG-CLASS>
+                          <CONFIG-VARIANT>VARIANT-POST-BUILD</CONFIG-VARIANT>
+                        </IMPLEMENTATION-CONFIG-CLASS>
+                      </IMPLEMENTATION-CONFIG-CLASSES>
+                      <ORIGIN>AUTOSAR_ECUC</ORIGIN>
+                      <SYMBOLIC-NAME-VALUE>true</SYMBOLIC-NAME-VALUE>
+                      <DEFAULT-VALUE>0</DEFAULT-VALUE>
+                      <MAX>1</MAX>
+                      <MIN>0</MIN>
+                    </INTEGER-PARAM-DEF>
+                    <ENUMERATION-PARAM-DEF UUID="ECUC:08fd17a3-988a-421d-8a9f-348d65fcc24c">
+                      <SHORT-NAME>LinHwChannel</SHORT-NAME>
+                      <DESC>
+                        <L-2>
+                                                            Selects the physical LIN Channel.
+                                                            Note: 
+                                                            This Parameter is an Implementation Specific Parameter.
+                                                            </L-2>
+                      </DESC>
+                      <LOWER-MULTIPLICITY>1</LOWER-MULTIPLICITY>
+                      <UPPER-MULTIPLICITY>1</UPPER-MULTIPLICITY>
+                      <IMPLEMENTATION-CONFIG-CLASSES>
+                        <IMPLEMENTATION-CONFIG-CLASS>
+                          <CONFIG-CLASS>PRE-COMPILE</CONFIG-CLASS>
+                          <CONFIG-VARIANT>VARIANT-PRE-COMPILE</CONFIG-VARIANT>
+                        </IMPLEMENTATION-CONFIG-CLASS>
+                        <IMPLEMENTATION-CONFIG-CLASS>
+                          <CONFIG-CLASS>POST-BUILD</CONFIG-CLASS>
+                          <CONFIG-VARIANT>VARIANT-POST-BUILD</CONFIG-VARIANT>
+                        </IMPLEMENTATION-CONFIG-CLASS>
+                      </IMPLEMENTATION-CONFIG-CLASSES>
+                      <ORIGIN>Freescale</ORIGIN>
+                      <SYMBOLIC-NAME-VALUE>false</SYMBOLIC-NAME-VALUE>
+                      <DEFAULT-VALUE>eSCI_B</DEFAULT-VALUE>
+                      <LITERALS>
+                        <ENUMERATION-LITERAL-DEF UUID="4862ec96-36b8-4bea-a244-416018135efe">
+                          <SHORT-NAME>eSCI_A</SHORT-NAME>
+                        </ENUMERATION-LITERAL-DEF>
+                        <ENUMERATION-LITERAL-DEF UUID="5497fada-5560-44a7-a810-8205f85442b4">
+                          <SHORT-NAME>eSCI_B</SHORT-NAME>
+                        </ENUMERATION-LITERAL-DEF>
+                      </LITERALS>
+                    </ENUMERATION-PARAM-DEF>
+                    <INTEGER-PARAM-DEF UUID="ECUC:ef363ac4-45bd-48d1-bd9a-bcedc70594e5">
+                      <SHORT-NAME>LinChannelBaudRate</SHORT-NAME>
+                      <DESC>
+                        <L-2>
+                                                            LinChannelBaudRate
+                                                            Autosar Requirements: LIN180
+                                                            Specifies the baud rate of the LIN channel in 'bps'. Valid range: 1000..20000.
+                                                            </L-2>
+                      </DESC>
+                      <LOWER-MULTIPLICITY>1</LOWER-MULTIPLICITY>
+                      <UPPER-MULTIPLICITY>1</UPPER-MULTIPLICITY>
+                      <IMPLEMENTATION-CONFIG-CLASSES>
+                        <IMPLEMENTATION-CONFIG-CLASS>
+                          <CONFIG-CLASS>PRE-COMPILE</CONFIG-CLASS>
+                          <CONFIG-VARIANT>VARIANT-PRE-COMPILE</CONFIG-VARIANT>
+                        </IMPLEMENTATION-CONFIG-CLASS>
+                        <IMPLEMENTATION-CONFIG-CLASS>
+                          <CONFIG-CLASS>POST-BUILD</CONFIG-CLASS>
+                          <CONFIG-VARIANT>VARIANT-POST-BUILD</CONFIG-VARIANT>
+                        </IMPLEMENTATION-CONFIG-CLASS>
+                      </IMPLEMENTATION-CONFIG-CLASSES>
+                      <ORIGIN>AUTOSAR_ECUC</ORIGIN>
+                      <SYMBOLIC-NAME-VALUE>false</SYMBOLIC-NAME-VALUE>
+                      <DEFAULT-VALUE>9600</DEFAULT-VALUE>
+                      <MAX>20000</MAX>
+                      <MIN>1000</MIN>
+                    </INTEGER-PARAM-DEF>
+                    <BOOLEAN-PARAM-DEF UUID="ECUC:5e601a46-2e86-48f3-9cbb-f5055362e9a8">
+                      <SHORT-NAME>LinChannelWakeUpSupport</SHORT-NAME>
+                      <DESC>
+                        <L-2>
+                                                            LinChannelWakeUpSupport
+                                                            Autosar Requirements: LIN182
+                                                            Specifies if the LIN hardware channel supports wake up functionality.
+                                                            </L-2>
+                      </DESC>
+                      <LOWER-MULTIPLICITY>1</LOWER-MULTIPLICITY>
+                      <UPPER-MULTIPLICITY>1</UPPER-MULTIPLICITY>
+                      <IMPLEMENTATION-CONFIG-CLASSES>
+                        <IMPLEMENTATION-CONFIG-CLASS>
+                          <CONFIG-CLASS>PRE-COMPILE</CONFIG-CLASS>
+                          <CONFIG-VARIANT>VARIANT-PRE-COMPILE</CONFIG-VARIANT>
+                        </IMPLEMENTATION-CONFIG-CLASS>
+                        <IMPLEMENTATION-CONFIG-CLASS>
+                          <CONFIG-CLASS>POST-BUILD</CONFIG-CLASS>
+                          <CONFIG-VARIANT>VARIANT-POST-BUILD</CONFIG-VARIANT>
+                        </IMPLEMENTATION-CONFIG-CLASS>
+                      </IMPLEMENTATION-CONFIG-CLASSES>
+                      <ORIGIN>AUTOSAR_ECUC</ORIGIN>
+                      <SYMBOLIC-NAME-VALUE>false</SYMBOLIC-NAME-VALUE>
+                      <DEFAULT-VALUE>false</DEFAULT-VALUE>
+                    </BOOLEAN-PARAM-DEF>
+                    <BOOLEAN-PARAM-DEF UUID="ECUC:d3cd66f4-5072-402a-9e15-6db82e7be42c">
+                      <SHORT-NAME>LinChannelDmaActivation</SHORT-NAME>
+                      <DESC>
+                        <L-2>
+                                                            LinChannelDmaActivation
+                                                            Switches the DMA usage for this LIN channel ON or OFF.
+                                                            </L-2>
+                      </DESC>
+                      <LOWER-MULTIPLICITY>1</LOWER-MULTIPLICITY>
+                      <UPPER-MULTIPLICITY>1</UPPER-MULTIPLICITY>
+                      <IMPLEMENTATION-CONFIG-CLASSES>
+                        <IMPLEMENTATION-CONFIG-CLASS>
+                          <CONFIG-CLASS>PRE-COMPILE</CONFIG-CLASS>
+                          <CONFIG-VARIANT>VARIANT-PRE-COMPILE</CONFIG-VARIANT>
+                        </IMPLEMENTATION-CONFIG-CLASS>
+                        <IMPLEMENTATION-CONFIG-CLASS>
+                          <CONFIG-CLASS>POST-BUILD</CONFIG-CLASS>
+                          <CONFIG-VARIANT>VARIANT-POST-BUILD</CONFIG-VARIANT>
+                        </IMPLEMENTATION-CONFIG-CLASS>
+                      </IMPLEMENTATION-CONFIG-CLASSES>
+                      <ORIGIN>AUTOSAR_ECUC</ORIGIN>
+                      <SYMBOLIC-NAME-VALUE>false</SYMBOLIC-NAME-VALUE>
+                      <DEFAULT-VALUE>false</DEFAULT-VALUE>
+                    </BOOLEAN-PARAM-DEF>
+                    <BOOLEAN-PARAM-DEF UUID="ECUC:b1687ab9-b4d5-4265-ad51-ae1748413549">
+                      <SHORT-NAME>LinChannelMSCSupport</SHORT-NAME>
+                      <DESC>
+                        <L-2>
+                                                            LinChannelMSCSupport
+                                                            Autosar Requirements: 
+                                                            Specifies if the LIN hardware channel supports the MicroSecond Channel functionality.
+                                                            </L-2>
+                      </DESC>
+                      <LOWER-MULTIPLICITY>1</LOWER-MULTIPLICITY>
+                      <UPPER-MULTIPLICITY>1</UPPER-MULTIPLICITY>
+                      <IMPLEMENTATION-CONFIG-CLASSES>
+                        <IMPLEMENTATION-CONFIG-CLASS>
+                          <CONFIG-CLASS>PRE-COMPILE</CONFIG-CLASS>
+                          <CONFIG-VARIANT>VARIANT-PRE-COMPILE</CONFIG-VARIANT>
+                        </IMPLEMENTATION-CONFIG-CLASS>
+                        <IMPLEMENTATION-CONFIG-CLASS>
+                          <CONFIG-CLASS>POST-BUILD</CONFIG-CLASS>
+                          <CONFIG-VARIANT>VARIANT-POST-BUILD</CONFIG-VARIANT>
+                        </IMPLEMENTATION-CONFIG-CLASS>
+                      </IMPLEMENTATION-CONFIG-CLASSES>
+                      <ORIGIN>Freescale</ORIGIN>
+                      <SYMBOLIC-NAME-VALUE>false</SYMBOLIC-NAME-VALUE>
+                      <DEFAULT-VALUE>false</DEFAULT-VALUE>
+                    </BOOLEAN-PARAM-DEF>
+                    <BOOLEAN-PARAM-DEF UUID="ECUC:e0977ca1-b95e-485e-b8eb-d5de80b275b1">
+                      <SHORT-NAME>ReceiverFullInterruptEnable</SHORT-NAME>
+                      <DESC>
+                        <L-2>
+                                                            Receiver Full Interrupt Enable
+                                                            
+                                                            This option controls receiver full interrupt request generation. It controls RIE bit in SCI_CR1 register.
+                                                            </L-2>
+                      </DESC>
+                      <LOWER-MULTIPLICITY>1</LOWER-MULTIPLICITY>
+                      <UPPER-MULTIPLICITY>1</UPPER-MULTIPLICITY>
+                      <IMPLEMENTATION-CONFIG-CLASSES>
+                        <IMPLEMENTATION-CONFIG-CLASS>
+                          <CONFIG-CLASS>PRE-COMPILE</CONFIG-CLASS>
+                          <CONFIG-VARIANT>VARIANT-PRE-COMPILE</CONFIG-VARIANT>
+                        </IMPLEMENTATION-CONFIG-CLASS>
+                        <IMPLEMENTATION-CONFIG-CLASS>
+                          <CONFIG-CLASS>POST-BUILD</CONFIG-CLASS>
+                          <CONFIG-VARIANT>VARIANT-POST-BUILD</CONFIG-VARIANT>
+                        </IMPLEMENTATION-CONFIG-CLASS>
+                      </IMPLEMENTATION-CONFIG-CLASSES>
+                      <ORIGIN>STMicroelectronics</ORIGIN>
+                      <SYMBOLIC-NAME-VALUE>false</SYMBOLIC-NAME-VALUE>
+                      <DEFAULT-VALUE>false</DEFAULT-VALUE>
+                    </BOOLEAN-PARAM-DEF>
+                  </PARAMETERS>
+                  <REFERENCES>
+                    <REFERENCE-PARAM-DEF UUID="ECUC:e9b2720f-3155-42c1-b14b-3844552d2b9b">
+                      <SHORT-NAME>LinClockRef</SHORT-NAME>
+                      <DESC>
+                        <L-2>Reference to the LIN clock source configuration, which is set in the MCU driver configuration.</L-2>
+                      </DESC>
+                      <LOWER-MULTIPLICITY>1</LOWER-MULTIPLICITY>
+                      <UPPER-MULTIPLICITY>1</UPPER-MULTIPLICITY>
+                      <IMPLEMENTATION-CONFIG-CLASSES>
+                        <IMPLEMENTATION-CONFIG-CLASS>
+                          <CONFIG-CLASS>PRE-COMPILE</CONFIG-CLASS>
+                          <CONFIG-VARIANT>VARIANT-PRE-COMPILE</CONFIG-VARIANT>
+                        </IMPLEMENTATION-CONFIG-CLASS>
+                        <IMPLEMENTATION-CONFIG-CLASS>
+                          <CONFIG-CLASS>POST-BUILD</CONFIG-CLASS>
+                          <CONFIG-VARIANT>VARIANT-POST-BUILD</CONFIG-VARIANT>
+                        </IMPLEMENTATION-CONFIG-CLASS>
+                      </IMPLEMENTATION-CONFIG-CLASSES>
+                      <ORIGIN>AUTOSAR_ECUC</ORIGIN>
+                      <DESTINATION-REF DEST="PARAM-CONF-CONTAINER-DEF">/AUTOSAR/Mcu/McuModuleConfiguration/McuClockSettingConfig/McuClockReferencePoint</DESTINATION-REF>
+                    </REFERENCE-PARAM-DEF>
+                    <REFERENCE-PARAM-DEF UUID="ECUC:fe7a6fd7-e706-4803-b68e-82f325752b26">
+                      <SHORT-NAME>LinClockRef_Alternate</SHORT-NAME>
+                      <DESC>
+                        <L-2>Alternate reference to the LIN clock source configuration, which is set in the MCU driver configuration, used in Low Power Mode.</L-2>
+                      </DESC>
+                      <LOWER-MULTIPLICITY>1</LOWER-MULTIPLICITY>
+                      <UPPER-MULTIPLICITY>1</UPPER-MULTIPLICITY>
+                      <IMPLEMENTATION-CONFIG-CLASSES>
+                        <IMPLEMENTATION-CONFIG-CLASS>
+                          <CONFIG-CLASS>PRE-COMPILE</CONFIG-CLASS>
+                          <CONFIG-VARIANT>VARIANT-PRE-COMPILE</CONFIG-VARIANT>
+                        </IMPLEMENTATION-CONFIG-CLASS>
+                        <IMPLEMENTATION-CONFIG-CLASS>
+                          <CONFIG-CLASS>POST-BUILD</CONFIG-CLASS>
+                          <CONFIG-VARIANT>VARIANT-POST-BUILD</CONFIG-VARIANT>
+                        </IMPLEMENTATION-CONFIG-CLASS>
+                      </IMPLEMENTATION-CONFIG-CLASSES>
+                      <ORIGIN>Freescale</ORIGIN>
+                      <DESTINATION-REF DEST="PARAM-CONF-CONTAINER-DEF">/AUTOSAR/Mcu/McuModuleConfiguration/McuClockSettingConfig/McuClockReferencePoint</DESTINATION-REF>
+                    </REFERENCE-PARAM-DEF>
+                    <SYMBOLIC-NAME-REFERENCE-PARAM-DEF UUID="ECUC:6b347205-2bbc-4ea0-9d6c-db6b1ded7a2f">
+                      <SHORT-NAME>LinChannelEcuMWakeUpSource</SHORT-NAME>
+                      <DESC>
+                        <L-2>Reference to the Wakeup Source for this controller as defined in the ECU State Manager.</L-2>
+                      </DESC>
+                      <LOWER-MULTIPLICITY>1</LOWER-MULTIPLICITY>
+                      <UPPER-MULTIPLICITY>1</UPPER-MULTIPLICITY>
+                      <IMPLEMENTATION-CONFIG-CLASSES>
+                        <IMPLEMENTATION-CONFIG-CLASS>
+                          <CONFIG-CLASS>PRE-COMPILE</CONFIG-CLASS>
+                          <CONFIG-VARIANT>VARIANT-PRE-COMPILE</CONFIG-VARIANT>
+                        </IMPLEMENTATION-CONFIG-CLASS>
+                        <IMPLEMENTATION-CONFIG-CLASS>
+                          <CONFIG-CLASS>POST-BUILD</CONFIG-CLASS>
+                          <CONFIG-VARIANT>VARIANT-POST-BUILD</CONFIG-VARIANT>
+                        </IMPLEMENTATION-CONFIG-CLASS>
+                      </IMPLEMENTATION-CONFIG-CLASSES>
+                      <ORIGIN>AUTOSAR_ECUC</ORIGIN>
+                      <DESTINATION-REF DEST="PARAM-CONF-CONTAINER-DEF">/AUTOSAR/EcuM/EcuMConfiguration/EcuMWakeupSource</DESTINATION-REF>
+                    </SYMBOLIC-NAME-REFERENCE-PARAM-DEF>
+                  </REFERENCES>
+                  <SUB-CONTAINERS>
+                    <PARAM-CONF-CONTAINER-DEF UUID="ECUC:411ab6c4-d86f-485c-a839-78604e42df60">
+                      <SHORT-NAME>MicroSecondChannel</SHORT-NAME>
+                      <DESC>
+                        <L-2>
+                                                            MicroSecond Channel
+                                                            Autosar Requirements: 
+                                                            This container include the needed parameters to configure the eSCI hardware channel
+                                                               to work with MicroSecond Channel functionality.
+                                                               This container is a MultipleConfigurationContainer, i.e. this container and 
+                                                               its sub-containers exist once per configuration set.
+                                                            </L-2>
+                      </DESC>
+                      <LOWER-MULTIPLICITY>1</LOWER-MULTIPLICITY>
+                      <UPPER-MULTIPLICITY>1</UPPER-MULTIPLICITY>
+                      <MULTIPLE-CONFIGURATION-CONTAINER>false</MULTIPLE-CONFIGURATION-CONTAINER>
+                      <PARAMETERS>
+                        <FLOAT-PARAM-DEF UUID="ECUC:b3ede0b5-e3ba-40cf-bf36-ef1586e52a63">
+                          <SHORT-NAME>ClockFrequency</SHORT-NAME>
+                          <DESC>
+                            <L-2>
+                                                                ClockFrequency
+                                                                Autosar Requirements: 
+                                                                 This is the frequency for the specific instance of the upstream MSC. It shall be given in Hz.
+                                                                ClockFrequency has to be less than or equal to 40 MHz because max serial output clock frequency is 40MHz. 
+                                                                </L-2>
+                          </DESC>
+                          <LOWER-MULTIPLICITY>1</LOWER-MULTIPLICITY>
+                          <UPPER-MULTIPLICITY>1</UPPER-MULTIPLICITY>
+                          <IMPLEMENTATION-CONFIG-CLASSES>
+                            <IMPLEMENTATION-CONFIG-CLASS>
+                              <CONFIG-CLASS>PRE-COMPILE</CONFIG-CLASS>
+                              <CONFIG-VARIANT>VARIANT-PRE-COMPILE</CONFIG-VARIANT>
+                            </IMPLEMENTATION-CONFIG-CLASS>
+                            <IMPLEMENTATION-CONFIG-CLASS>
+                              <CONFIG-CLASS>POST-BUILD</CONFIG-CLASS>
+                              <CONFIG-VARIANT>VARIANT-POST-BUILD</CONFIG-VARIANT>
+                            </IMPLEMENTATION-CONFIG-CLASS>
+                          </IMPLEMENTATION-CONFIG-CLASSES>
+                          <ORIGIN>Freescale</ORIGIN>
+                          <SYMBOLIC-NAME-VALUE>false</SYMBOLIC-NAME-VALUE>
+                          <DEFAULT-VALUE>10000000</DEFAULT-VALUE>
+                          <MAX>4.0E7</MAX>
+                          <MIN>0</MIN>
+                        </FLOAT-PARAM-DEF>
+                        <BOOLEAN-PARAM-DEF UUID="ECUC:927cacee-9834-4f82-bbea-a8c3cd789095">
+                          <SHORT-NAME>PollingMode</SHORT-NAME>
+                          <DESC>
+                            <L-2>
+                                                                MSC PollingMode
+                                                                Autosar Requirements: 
+                                                                Specifies if the eSCI hardware channel supports the Polling mode for data reception.
+                                                                </L-2>
+                          </DESC>
+                          <LOWER-MULTIPLICITY>1</LOWER-MULTIPLICITY>
+                          <UPPER-MULTIPLICITY>1</UPPER-MULTIPLICITY>
+                          <IMPLEMENTATION-CONFIG-CLASSES>
+                            <IMPLEMENTATION-CONFIG-CLASS>
+                              <CONFIG-CLASS>PRE-COMPILE</CONFIG-CLASS>
+                              <CONFIG-VARIANT>VARIANT-PRE-COMPILE</CONFIG-VARIANT>
+                            </IMPLEMENTATION-CONFIG-CLASS>
+                            <IMPLEMENTATION-CONFIG-CLASS>
+                              <CONFIG-CLASS>POST-BUILD</CONFIG-CLASS>
+                              <CONFIG-VARIANT>VARIANT-POST-BUILD</CONFIG-VARIANT>
+                            </IMPLEMENTATION-CONFIG-CLASS>
+                          </IMPLEMENTATION-CONFIG-CLASSES>
+                          <ORIGIN>Freescale</ORIGIN>
+                          <SYMBOLIC-NAME-VALUE>false</SYMBOLIC-NAME-VALUE>
+                          <DEFAULT-VALUE>true</DEFAULT-VALUE>
+                        </BOOLEAN-PARAM-DEF>
+                        <ENUMERATION-PARAM-DEF UUID="ECUC:4adef9b9-041a-4f25-a21a-d24de8f0d138">
+                          <SHORT-NAME>Parity</SHORT-NAME>
+                          <DESC>
+                            <L-2>
+                                                                MSC frame parity
+                                                                Autosar Requirements: 
+                                                                Specifies the parity as Even or Odd.
+                                                                </L-2>
+                          </DESC>
+                          <LOWER-MULTIPLICITY>1</LOWER-MULTIPLICITY>
+                          <UPPER-MULTIPLICITY>1</UPPER-MULTIPLICITY>
+                          <IMPLEMENTATION-CONFIG-CLASSES>
+                            <IMPLEMENTATION-CONFIG-CLASS>
+                              <CONFIG-CLASS>PRE-COMPILE</CONFIG-CLASS>
+                              <CONFIG-VARIANT>VARIANT-PRE-COMPILE</CONFIG-VARIANT>
+                            </IMPLEMENTATION-CONFIG-CLASS>
+                            <IMPLEMENTATION-CONFIG-CLASS>
+                              <CONFIG-CLASS>POST-BUILD</CONFIG-CLASS>
+                              <CONFIG-VARIANT>VARIANT-POST-BUILD</CONFIG-VARIANT>
+                            </IMPLEMENTATION-CONFIG-CLASS>
+                          </IMPLEMENTATION-CONFIG-CLASSES>
+                          <ORIGIN>AUTOSAR_ECUC</ORIGIN>
+                          <SYMBOLIC-NAME-VALUE>false</SYMBOLIC-NAME-VALUE>
+                          <DEFAULT-VALUE>Even</DEFAULT-VALUE>
+                          <LITERALS>
+                            <ENUMERATION-LITERAL-DEF UUID="d752705d-fae7-4d6a-9b00-c01cfe190034">
+                              <SHORT-NAME>Even</SHORT-NAME>
+                            </ENUMERATION-LITERAL-DEF>
+                            <ENUMERATION-LITERAL-DEF UUID="8d851070-a1c3-4166-a394-1cb662cb6c8a">
+                              <SHORT-NAME>Odd</SHORT-NAME>
+                            </ENUMERATION-LITERAL-DEF>
+                          </LITERALS>
+                        </ENUMERATION-PARAM-DEF>
+                        <ENUMERATION-PARAM-DEF UUID="ECUC:de439e6f-11df-407a-96bc-1ede24d5cb75">
+                          <SHORT-NAME>ClockDivisor</SHORT-NAME>
+                          <DESC>
+                            <L-2>
+                                                                ClockDivisor
+                                                                Autosar Requirements: 
+                                                                Defines the divisor of the clock for MSC functionality.
+                                                                </L-2>
+                          </DESC>
+                          <LOWER-MULTIPLICITY>1</LOWER-MULTIPLICITY>
+                          <UPPER-MULTIPLICITY>1</UPPER-MULTIPLICITY>
+                          <IMPLEMENTATION-CONFIG-CLASSES>
+                            <IMPLEMENTATION-CONFIG-CLASS>
+                              <CONFIG-CLASS>PRE-COMPILE</CONFIG-CLASS>
+                              <CONFIG-VARIANT>VARIANT-PRE-COMPILE</CONFIG-VARIANT>
+                            </IMPLEMENTATION-CONFIG-CLASS>
+                            <IMPLEMENTATION-CONFIG-CLASS>
+                              <CONFIG-CLASS>POST-BUILD</CONFIG-CLASS>
+                              <CONFIG-VARIANT>VARIANT-POST-BUILD</CONFIG-VARIANT>
+                            </IMPLEMENTATION-CONFIG-CLASS>
+                          </IMPLEMENTATION-CONFIG-CLASSES>
+                          <ORIGIN>Freescale</ORIGIN>
+                          <SYMBOLIC-NAME-VALUE>false</SYMBOLIC-NAME-VALUE>
+                          <DEFAULT-VALUE>DIV_8</DEFAULT-VALUE>
+                          <LITERALS>
+                            <ENUMERATION-LITERAL-DEF UUID="4d4248e3-1576-4361-9a04-ef202e737448">
+                              <SHORT-NAME>DIV_8</SHORT-NAME>
+                            </ENUMERATION-LITERAL-DEF>
+                            <ENUMERATION-LITERAL-DEF UUID="3c764271-a1c0-4dc8-999d-1aa4845b89e1">
+                              <SHORT-NAME>DIV_16</SHORT-NAME>
+                            </ENUMERATION-LITERAL-DEF>
+                            <ENUMERATION-LITERAL-DEF UUID="a13cf05e-e00e-409b-98e3-d7f531dcc5ab">
+                              <SHORT-NAME>DIV_32</SHORT-NAME>
+                            </ENUMERATION-LITERAL-DEF>
+                            <ENUMERATION-LITERAL-DEF UUID="32a0f8be-cb44-4e7d-b043-6b2d51468d6d">
+                              <SHORT-NAME>DIV_64</SHORT-NAME>
+                            </ENUMERATION-LITERAL-DEF>
+                            <ENUMERATION-LITERAL-DEF UUID="fe21bb0c-72fc-43de-9c32-73437fd5ad2b">
+                              <SHORT-NAME>DIV_128</SHORT-NAME>
+                            </ENUMERATION-LITERAL-DEF>
+                            <ENUMERATION-LITERAL-DEF UUID="e3044e92-f5ee-4e2a-b163-de72ebe7accc">
+                              <SHORT-NAME>DIV_256</SHORT-NAME>
+                            </ENUMERATION-LITERAL-DEF>
+                            <ENUMERATION-LITERAL-DEF UUID="42d347a5-6262-4b8e-8bd6-5d70ee476533">
+                              <SHORT-NAME>DIV_512</SHORT-NAME>
+                            </ENUMERATION-LITERAL-DEF>
+                          </LITERALS>
+                        </ENUMERATION-PARAM-DEF>
+                        <ENUMERATION-PARAM-DEF UUID="ECUC:0e9b0427-f918-4c2e-bef1-840f75796af2">
+                          <SHORT-NAME>Polarity</SHORT-NAME>
+                          <DESC>
+                            <L-2>
+                                                                Polarity
+                                                                Autosar Requirements: 
+                                                                Defines the polarity of the MSC.
+                                                                </L-2>
+                          </DESC>
+                          <LOWER-MULTIPLICITY>1</LOWER-MULTIPLICITY>
+                          <UPPER-MULTIPLICITY>1</UPPER-MULTIPLICITY>
+                          <IMPLEMENTATION-CONFIG-CLASSES>
+                            <IMPLEMENTATION-CONFIG-CLASS>
+                              <CONFIG-CLASS>PRE-COMPILE</CONFIG-CLASS>
+                              <CONFIG-VARIANT>VARIANT-PRE-COMPILE</CONFIG-VARIANT>
+                            </IMPLEMENTATION-CONFIG-CLASS>
+                            <IMPLEMENTATION-CONFIG-CLASS>
+                              <CONFIG-CLASS>POST-BUILD</CONFIG-CLASS>
+                              <CONFIG-VARIANT>VARIANT-POST-BUILD</CONFIG-VARIANT>
+                            </IMPLEMENTATION-CONFIG-CLASS>
+                          </IMPLEMENTATION-CONFIG-CLASSES>
+                          <ORIGIN>Freescale</ORIGIN>
+                          <SYMBOLIC-NAME-VALUE>false</SYMBOLIC-NAME-VALUE>
+                          <DEFAULT-VALUE>Normal</DEFAULT-VALUE>
+                          <LITERALS>
+                            <ENUMERATION-LITERAL-DEF UUID="a08f2793-1108-4514-840f-3d6e61255405">
+                              <SHORT-NAME>Normal</SHORT-NAME>
+                            </ENUMERATION-LITERAL-DEF>
+                            <ENUMERATION-LITERAL-DEF UUID="b6bc049c-8227-4a34-89da-d6021fcc485c">
+                              <SHORT-NAME>Inverted</SHORT-NAME>
+                            </ENUMERATION-LITERAL-DEF>
+                          </LITERALS>
+                        </ENUMERATION-PARAM-DEF>
+                        <ENUMERATION-PARAM-DEF UUID="ECUC:cc9243b0-662d-4aeb-8d6b-6268a9a0a42c">
+                          <SHORT-NAME>FrameFormat</SHORT-NAME>
+                          <DESC>
+                            <L-2>
+                                                                FrameFormat
+                                                                Autosar Requirements: 
+                                                                Defines the frame format of the MSC.
+                                                                </L-2>
+                          </DESC>
+                          <LOWER-MULTIPLICITY>1</LOWER-MULTIPLICITY>
+                          <UPPER-MULTIPLICITY>1</UPPER-MULTIPLICITY>
+                          <IMPLEMENTATION-CONFIG-CLASSES>
+                            <IMPLEMENTATION-CONFIG-CLASS>
+                              <CONFIG-CLASS>PRE-COMPILE</CONFIG-CLASS>
+                              <CONFIG-VARIANT>VARIANT-PRE-COMPILE</CONFIG-VARIANT>
+                            </IMPLEMENTATION-CONFIG-CLASS>
+                            <IMPLEMENTATION-CONFIG-CLASS>
+                              <CONFIG-CLASS>POST-BUILD</CONFIG-CLASS>
+                              <CONFIG-VARIANT>VARIANT-POST-BUILD</CONFIG-VARIANT>
+                            </IMPLEMENTATION-CONFIG-CLASS>
+                          </IMPLEMENTATION-CONFIG-CLASSES>
+                          <ORIGIN>Freescale</ORIGIN>
+                          <SYMBOLIC-NAME-VALUE>false</SYMBOLIC-NAME-VALUE>
+                          <DEFAULT-VALUE>Format_16_bits</DEFAULT-VALUE>
+                          <LITERALS>
+                            <ENUMERATION-LITERAL-DEF UUID="16a067f5-58bd-4d8b-9e3b-75ab4ab10c0a">
+                              <SHORT-NAME>Format_12_bits</SHORT-NAME>
+                            </ENUMERATION-LITERAL-DEF>
+                            <ENUMERATION-LITERAL-DEF UUID="1b3faf18-e399-4bb3-8201-3bad01668f37">
+                              <SHORT-NAME>Format_16_bits</SHORT-NAME>
+                            </ENUMERATION-LITERAL-DEF>
+                          </LITERALS>
+                        </ENUMERATION-PARAM-DEF>
+                      </PARAMETERS>
+                    </PARAM-CONF-CONTAINER-DEF>
+                    <PARAM-CONF-CONTAINER-DEF UUID="ECUC:c1d7f188-2848-4e65-8b0a-5fc96dd1adf7">
+                      <SHORT-NAME>DMAsettings</SHORT-NAME>
+                      <DESC>
+                        <L-2>
+                                                            DMA Settings
+                                                            This container include the needed parameters to configure the DMA hardware channel
+                                                               to work with MicroSecond Channel functionality.
+                                                               This container is a MultipleConfigurationContainer, i.e. this container and 
+                                                               its sub-containers exist once per configuration set.
+                                                            </L-2>
+                      </DESC>
+                      <LOWER-MULTIPLICITY>1</LOWER-MULTIPLICITY>
+                      <UPPER-MULTIPLICITY>1</UPPER-MULTIPLICITY>
+                      <MULTIPLE-CONFIGURATION-CONTAINER>false</MULTIPLE-CONFIGURATION-CONTAINER>
+                      <PARAMETERS>
+                        <ENUMERATION-PARAM-DEF UUID="ECUC:2935eba4-5efe-4909-ac1e-e17e664ebd57">
+                          <SHORT-NAME>DMADataSize</SHORT-NAME>
+                          <DESC>
+                            <L-2>
+                                                                DMA data transfer size
+                                                                Defines the size of transfered data. (ssize, dsize bit of TCD register)
+                                                                note: for more detail about option 16-byte and 32-byte see datasheet   
+                                                                </L-2>
+                          </DESC>
+                          <LOWER-MULTIPLICITY>1</LOWER-MULTIPLICITY>
+                          <UPPER-MULTIPLICITY>1</UPPER-MULTIPLICITY>
+                          <IMPLEMENTATION-CONFIG-CLASSES>
+                            <IMPLEMENTATION-CONFIG-CLASS>
+                              <CONFIG-CLASS>PRE-COMPILE</CONFIG-CLASS>
+                              <CONFIG-VARIANT>VARIANT-PRE-COMPILE</CONFIG-VARIANT>
+                            </IMPLEMENTATION-CONFIG-CLASS>
+                            <IMPLEMENTATION-CONFIG-CLASS>
+                              <CONFIG-CLASS>POST-BUILD</CONFIG-CLASS>
+                              <CONFIG-VARIANT>VARIANT-POST-BUILD</CONFIG-VARIANT>
+                            </IMPLEMENTATION-CONFIG-CLASS>
+                          </IMPLEMENTATION-CONFIG-CLASSES>
+                          <ORIGIN>Freescale</ORIGIN>
+                          <SYMBOLIC-NAME-VALUE>false</SYMBOLIC-NAME-VALUE>
+                          <DEFAULT-VALUE>Size_8_bits</DEFAULT-VALUE>
+                          <LITERALS>
+                            <ENUMERATION-LITERAL-DEF UUID="fa4e64f1-7f08-408a-9653-d44d036b1143">
+                              <SHORT-NAME>Size_8_bits</SHORT-NAME>
+                            </ENUMERATION-LITERAL-DEF>
+                            <ENUMERATION-LITERAL-DEF UUID="652382d3-993c-4bf0-bc38-7b5ec3f389c3">
+                              <SHORT-NAME>Size_16_bits</SHORT-NAME>
+                            </ENUMERATION-LITERAL-DEF>
+                            <ENUMERATION-LITERAL-DEF UUID="0880420a-7652-4552-b572-c0bfdbd4ee90">
+                              <SHORT-NAME>Size_32_bits</SHORT-NAME>
+                            </ENUMERATION-LITERAL-DEF>
+                            <ENUMERATION-LITERAL-DEF UUID="1d0f2f9b-ee30-4106-a15e-1e3032ec745d">
+                              <SHORT-NAME>Size_64_bits</SHORT-NAME>
+                            </ENUMERATION-LITERAL-DEF>
+                            <ENUMERATION-LITERAL-DEF UUID="ba259c86-9a1f-40db-aade-45601aba9a87">
+                              <SHORT-NAME>Size_16_bytes</SHORT-NAME>
+                            </ENUMERATION-LITERAL-DEF>
+                            <ENUMERATION-LITERAL-DEF UUID="2d4327a9-02d3-4103-9bf0-2178895e24bf">
+                              <SHORT-NAME>Size_32_bytes</SHORT-NAME>
+                            </ENUMERATION-LITERAL-DEF>
+                          </LITERALS>
+                        </ENUMERATION-PARAM-DEF>
+                        <INTEGER-PARAM-DEF UUID="ECUC:ce27619a-0ce9-434b-a99f-6598f0a4a18a">
+                          <SHORT-NAME>nBytesToTransfer</SHORT-NAME>
+                          <DESC>
+                            <L-2>
+                                                                Number of bytes to be transferred
+                                                                Defines the Number of bytes to be transferred in each service request of the channel. (nbytes bit of TCD register)
+                                                                </L-2>
+                          </DESC>
+                          <LOWER-MULTIPLICITY>1</LOWER-MULTIPLICITY>
+                          <UPPER-MULTIPLICITY>1</UPPER-MULTIPLICITY>
+                          <IMPLEMENTATION-CONFIG-CLASSES>
+                            <IMPLEMENTATION-CONFIG-CLASS>
+                              <CONFIG-CLASS>PRE-COMPILE</CONFIG-CLASS>
+                              <CONFIG-VARIANT>VARIANT-PRE-COMPILE</CONFIG-VARIANT>
+                            </IMPLEMENTATION-CONFIG-CLASS>
+                            <IMPLEMENTATION-CONFIG-CLASS>
+                              <CONFIG-CLASS>POST-BUILD</CONFIG-CLASS>
+                              <CONFIG-VARIANT>VARIANT-POST-BUILD</CONFIG-VARIANT>
+                            </IMPLEMENTATION-CONFIG-CLASS>
+                          </IMPLEMENTATION-CONFIG-CLASSES>
+                          <ORIGIN>Freescale</ORIGIN>
+                          <SYMBOLIC-NAME-VALUE>false</SYMBOLIC-NAME-VALUE>
+                          <DEFAULT-VALUE>2</DEFAULT-VALUE>
+                          <MAX>65535</MAX>
+                          <MIN>0</MIN>
+                        </INTEGER-PARAM-DEF>
+                        <INTEGER-PARAM-DEF UUID="ECUC:9d235b15-9f92-4418-9bd4-de9ef4bffaef">
+                          <SHORT-NAME>iterationCount</SHORT-NAME>
+                          <DESC>
+                            <L-2>
+                                                                Current major iteration count
+                                                                This count represents the current loop count for the channel. It is decremented each time the minor loop is completed and updated in the transfer control descriptor memory.(citer, biter bit of TCD register)
+                                                                </L-2>
+                          </DESC>
+                          <LOWER-MULTIPLICITY>1</LOWER-MULTIPLICITY>
+                          <UPPER-MULTIPLICITY>1</UPPER-MULTIPLICITY>
+                          <IMPLEMENTATION-CONFIG-CLASSES>
+                            <IMPLEMENTATION-CONFIG-CLASS>
+                              <CONFIG-CLASS>PRE-COMPILE</CONFIG-CLASS>
+                              <CONFIG-VARIANT>VARIANT-PRE-COMPILE</CONFIG-VARIANT>
+                            </IMPLEMENTATION-CONFIG-CLASS>
+                            <IMPLEMENTATION-CONFIG-CLASS>
+                              <CONFIG-CLASS>POST-BUILD</CONFIG-CLASS>
+                              <CONFIG-VARIANT>VARIANT-POST-BUILD</CONFIG-VARIANT>
+                            </IMPLEMENTATION-CONFIG-CLASS>
+                          </IMPLEMENTATION-CONFIG-CLASSES>
+                          <ORIGIN>Freescale</ORIGIN>
+                          <SYMBOLIC-NAME-VALUE>false</SYMBOLIC-NAME-VALUE>
+                          <DEFAULT-VALUE>4</DEFAULT-VALUE>
+                          <MAX>65535</MAX>
+                          <MIN>0</MIN>
+                        </INTEGER-PARAM-DEF>
+                        <INTEGER-PARAM-DEF UUID="ECUC:9a03d3f5-cddf-44ff-9d02-74f0df1ca0df">
+                          <SHORT-NAME>destinationAddressOffset</SHORT-NAME>
+                          <DESC>
+                            <L-2>
+                                                                Destination address signed offset
+                                                                 Sign-extended offset applied to the current destination address to form the next-state value as each destination write is completed..(doff bit of TCD register)
+                                                                </L-2>
+                          </DESC>
+                          <LOWER-MULTIPLICITY>1</LOWER-MULTIPLICITY>
+                          <UPPER-MULTIPLICITY>1</UPPER-MULTIPLICITY>
+                          <IMPLEMENTATION-CONFIG-CLASSES>
+                            <IMPLEMENTATION-CONFIG-CLASS>
+                              <CONFIG-CLASS>PRE-COMPILE</CONFIG-CLASS>
+                              <CONFIG-VARIANT>VARIANT-PRE-COMPILE</CONFIG-VARIANT>
+                            </IMPLEMENTATION-CONFIG-CLASS>
+                            <IMPLEMENTATION-CONFIG-CLASS>
+                              <CONFIG-CLASS>POST-BUILD</CONFIG-CLASS>
+                              <CONFIG-VARIANT>VARIANT-POST-BUILD</CONFIG-VARIANT>
+                            </IMPLEMENTATION-CONFIG-CLASS>
+                          </IMPLEMENTATION-CONFIG-CLASSES>
+                          <ORIGIN>Freescale</ORIGIN>
+                          <SYMBOLIC-NAME-VALUE>false</SYMBOLIC-NAME-VALUE>
+                          <DEFAULT-VALUE>4</DEFAULT-VALUE>
+                          <MAX>65535</MAX>
+                          <MIN>0</MIN>
+                        </INTEGER-PARAM-DEF>
+                        <INTEGER-PARAM-DEF UUID="ECUC:cad7f54a-15a5-489c-9186-4502628f8063">
+                          <SHORT-NAME>lastDestinationAddress</SHORT-NAME>
+                          <DESC>
+                            <L-2>
+                                                                Last destination address adjustment
+                                                                Adjustment value added to the destination address at the completion of the outer major iteration count. (dlast bit of TCD register)
+                                                                </L-2>
+                          </DESC>
+                          <LOWER-MULTIPLICITY>1</LOWER-MULTIPLICITY>
+                          <UPPER-MULTIPLICITY>1</UPPER-MULTIPLICITY>
+                          <IMPLEMENTATION-CONFIG-CLASSES>
+                            <IMPLEMENTATION-CONFIG-CLASS>
+                              <CONFIG-CLASS>PRE-COMPILE</CONFIG-CLASS>
+                              <CONFIG-VARIANT>VARIANT-PRE-COMPILE</CONFIG-VARIANT>
+                            </IMPLEMENTATION-CONFIG-CLASS>
+                            <IMPLEMENTATION-CONFIG-CLASS>
+                              <CONFIG-CLASS>POST-BUILD</CONFIG-CLASS>
+                              <CONFIG-VARIANT>VARIANT-POST-BUILD</CONFIG-VARIANT>
+                            </IMPLEMENTATION-CONFIG-CLASS>
+                          </IMPLEMENTATION-CONFIG-CLASSES>
+                          <ORIGIN>Freescale</ORIGIN>
+                          <SYMBOLIC-NAME-VALUE>false</SYMBOLIC-NAME-VALUE>
+                          <DEFAULT-VALUE>2</DEFAULT-VALUE>
+                          <MAX>4000000000</MAX>
+                          <MIN>0</MIN>
+                        </INTEGER-PARAM-DEF>
+                        <BOOLEAN-PARAM-DEF UUID="ECUC:375fe452-7fa4-452e-9949-a78ec2a90931">
+                          <SHORT-NAME>TheHalfPointInterrupt</SHORT-NAME>
+                          <DESC>
+                            <L-2>
+                                                                The half-point interrupt
+                                                                Enable an interrupt when major counter is half complete.
+                                                                If this flag is set, the channel generates an interrupt 
+                                                                   request by setting the appropriate bit in the DMAINT 
+                                                                   register when the current major iteration count 
+                                                                   reaches the halfway point.The halfway complete interrupt is disabled when biter values are less than two. 
+                                                                </L-2>
+                          </DESC>
+                          <LOWER-MULTIPLICITY>1</LOWER-MULTIPLICITY>
+                          <UPPER-MULTIPLICITY>1</UPPER-MULTIPLICITY>
+                          <IMPLEMENTATION-CONFIG-CLASSES>
+                            <IMPLEMENTATION-CONFIG-CLASS>
+                              <CONFIG-CLASS>PRE-COMPILE</CONFIG-CLASS>
+                              <CONFIG-VARIANT>VARIANT-PRE-COMPILE</CONFIG-VARIANT>
+                            </IMPLEMENTATION-CONFIG-CLASS>
+                            <IMPLEMENTATION-CONFIG-CLASS>
+                              <CONFIG-CLASS>POST-BUILD</CONFIG-CLASS>
+                              <CONFIG-VARIANT>VARIANT-POST-BUILD</CONFIG-VARIANT>
+                            </IMPLEMENTATION-CONFIG-CLASS>
+                          </IMPLEMENTATION-CONFIG-CLASSES>
+                          <ORIGIN>Freescale</ORIGIN>
+                          <SYMBOLIC-NAME-VALUE>false</SYMBOLIC-NAME-VALUE>
+                          <DEFAULT-VALUE>false</DEFAULT-VALUE>
+                        </BOOLEAN-PARAM-DEF>
+                        <BOOLEAN-PARAM-DEF UUID="ECUC:f7cb9433-9fc5-478a-855d-461168a4464f">
+                          <SHORT-NAME>TheEndOfMajorLoopInterrupt</SHORT-NAME>
+                          <DESC>
+                            <L-2>
+                                                                The end-of-major loop interrupt
+                                                                Enable an interrupt when major iteration count completes.
+                                                                If this flag is set, the channel generates an interrupt 
+                                                                   request by setting the appropriate bit in the DMAINT 
+                                                                   register when the current major iteration count 
+                                                                   reaches zero. 
+                                                                </L-2>
+                          </DESC>
+                          <LOWER-MULTIPLICITY>1</LOWER-MULTIPLICITY>
+                          <UPPER-MULTIPLICITY>1</UPPER-MULTIPLICITY>
+                          <IMPLEMENTATION-CONFIG-CLASSES>
+                            <IMPLEMENTATION-CONFIG-CLASS>
+                              <CONFIG-CLASS>PRE-COMPILE</CONFIG-CLASS>
+                              <CONFIG-VARIANT>VARIANT-PRE-COMPILE</CONFIG-VARIANT>
+                            </IMPLEMENTATION-CONFIG-CLASS>
+                            <IMPLEMENTATION-CONFIG-CLASS>
+                              <CONFIG-CLASS>POST-BUILD</CONFIG-CLASS>
+                              <CONFIG-VARIANT>VARIANT-POST-BUILD</CONFIG-VARIANT>
+                            </IMPLEMENTATION-CONFIG-CLASS>
+                          </IMPLEMENTATION-CONFIG-CLASSES>
+                          <ORIGIN>Freescale</ORIGIN>
+                          <SYMBOLIC-NAME-VALUE>false</SYMBOLIC-NAME-VALUE>
+                          <DEFAULT-VALUE>false</DEFAULT-VALUE>
+                        </BOOLEAN-PARAM-DEF>
+                      </PARAMETERS>
+                    </PARAM-CONF-CONTAINER-DEF>
+                  </SUB-CONTAINERS>
+                </PARAM-CONF-CONTAINER-DEF>
+              </SUB-CONTAINERS>
+            </PARAM-CONF-CONTAINER-DEF>
+          </CONTAINERS>
+        </MODULE-DEF>
+      </ELEMENTS>
+    </AR-PACKAGE>
+  </TOP-LEVEL-PACKAGES>
+</AUTOSAR>

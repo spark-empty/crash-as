@@ -1,0 +1,973 @@
+/******************************************************************************
+*
+*       Freescale(TM) and the Freescale logo are trademarks of Freescale Semiconductor, Inc.
+*       All other product or service names are the property of their respective owners.
+*       (C) Freescale Semiconductor, Inc. 2008-2010
+*
+*       THIS SOURCE CODE IS CONFIDENTIAL AND PROPRIETARY AND MAY NOT
+*       BE USED OR DISTRIBUTED WITHOUT THE WRITTEN PERMISSION OF
+*       Freescale Semiconductor, Inc.
+*
+* Filename:     $Source: /u/OSEK/src/autosar/src/osmpc56xxAMv3/ssc/bin/generator/os_mpc56xxAM.oin,v $
+* Author:       $Author: b08630 $
+* Revision:     $Revision: 1.14 $
+*
+* Functions:     
+*
+* History:      Use the CVS command rlog to display revision history
+*               information.
+*
+* Description:    AUTOSAR OS/MPC56xxAM OIL Implementation    
+*
+* Notes:        
+*
+******************************************************************************/
+IMPLEMENTATION AUTOSAR_MPC56xxAM
+{
+//@description="Specifies the OS name";    
+    OS
+    {
+        BOOLEAN FastTerminate = FALSE : "Specifies whether the fast versions of Terminate/ChainTask is used in BCC1 class";
+    
+        ENUM [STANDARD, EXTENDED] STATUS : "This standard attribute specifies OS debug status";
+        BOOLEAN STARTUPHOOK : "Defines whether or not StartupHook is called at the start of OS";
+        BOOLEAN ERRORHOOK : "Defines whether or not ErrorHook is called when an error is detected";
+        BOOLEAN SHUTDOWNHOOK : "Defines whether or not ShutdownHook is called when OS is shut down";
+        BOOLEAN PRETASKHOOK : "Defines whether or not PreTaskHook is called before running a task";
+        BOOLEAN POSTTASKHOOK : "Defines whether or not PostTaskHook is called after finishing a task";
+        BOOLEAN IsrHooks = FALSE : "Defines whether or not IsrHook is called before and after ISR";
+        BOOLEAN USEGETSERVICEID : "Defines whether or not  macro to get service ID is provided for ErrorHook";
+        BOOLEAN USEPARAMETERACCESS : "Defines whether or not macros to get the first parameter of the service is provided for ErrorHook";
+        BOOLEAN USERESSCHEDULER = TRUE : "Defines whether or not the RES_SCHEDULER is used in OS";
+        BOOLEAN PROTECTIONHOOK = FALSE : "Defines whether or not ProtectionHook is called on protection error";
+        ENUM WITH_AUTO [SC1,SC2,SC3,SC4] SCALABILITYCLASS = AUTO : "Defines the scalability class of OS";
+        ENUM WITH_AUTO [BCC1,ECC1] CC = AUTO : "Defines the conformance class of OS";
+        UINT32 [0,1,2,3,4] DEBUG_LEVEL = 0 : "Specifies the ORTI support in OS";
+        
+        UINT32 WITH_AUTO [0x40..0xffffffff] IsrStackSize = AUTO : "Specifies the ISR stack size in bytes";
+        BOOLEAN  [
+            TRUE {
+                UINT32 [ 0x0 .. 0xFFFFFFFF ] Pattern = 0x55555555 : "Specifies a 8-bit pattern to fill stack; Freescale AUTOSAR OS specific attribute";
+                ENUM [ 1,2,4 ] PatternSize = 1 : "PatternSize defines the size of area to be checked, in bytes for OS/S12X(E) and 32 in bit words for OS/MPC. Freescale AUTOSAR OS specific attribute";
+            }, 
+            FALSE]  STACKMONITORING : "Defines whether or not OS monitors stack";
+        ENUM [	
+            MPC5634M {
+            
+                BOOLEAN  [
+                    TRUE { 
+                        UINT32 Address = 0x0 : "Section address"; 
+                        UINT32 Size = 0x180000   : "Section size";},
+                    FALSE] InternalROM = FALSE;
+                BOOLEAN  [
+                    TRUE { 
+                        UINT32 Address = 0x40000000: "Section address"; 
+                        UINT32 Size = 0x17800   : "Section size";},
+                    FALSE] InternalRAM = FALSE;
+                UINT32 [1000..100000] ClockFrequency = 8000 : "Specifies MCU frequency source in kHz for calculating prescaler value and timer modulo value";
+                UINT32 [0x1..0xffffffff] ClockDivider = 1 : "Specifies hardware independent clock frequency divider for calculating input timer frequency";
+                UINT32 [0x1..0xffffffff] ClockMultiplier = 1 : "Specifies hardware independent clock frequency multiplier for calculating input timer frequency";
+                BOOLEAN [  
+                    TRUE {
+                        UINT32 WITH_AUTO Period = AUTO : "Specifies period of a tick of the Timing Protection counter (in nanoseconds)";
+                        ENUM [ 
+                            STM {
+                                ENUM [
+                                    OS {UINT32 WITH_AUTO [0..255] Value = AUTO : "Specifies OS initial prescaler value";
+                                       }
+                                ] Prescaler = NO_DEFAULT : "Specifies either USER or OS prescaler shall be initialized during OS startup";
+                            BOOLEAN Freeze = FALSE : "Specifies timer freeze bit value";
+                        }
+                        ] TimerHardware : "Specifies hardware interrupt source for the counter";
+                        
+                        },
+                    FALSE ] TPTimer = FALSE : "Specifies whether Timing Protection shall be initialized during OS startup";
+                
+                ENUM [
+                    HWCOUNTER {
+                        COUNTER_TYPE COUNTER : "Specifies the counter which shall be attached to the System timer";
+                        UINT32 [1..15] ISRPRIORITY = NO_DEFAULT : "Specifies priority of the timer interrupt handler";
+                        UINT32 WITH_AUTO Period = AUTO : "Specifies period of a tick of the counter (in nanoseconds)";
+                        ENUM [
+                            STM {
+                                UINT32 [0..3] Channel = NO_DEFAULT : "Specifies which channel is used";
+                                ENUM [
+                                    USER {UINT32 [0..255] Value = NO_DEFAULT : "Specifies user initial prescaler value";
+                                        },
+                                    OS {UINT32 WITH_AUTO [0..255] Value = AUTO : "Specifies OS initial prescaler value";
+                                    }
+                                ] Prescaler = NO_DEFAULT : "Specifies either USER or OS prescaler shall be initialized during OS startup";
+                                BOOLEAN Freeze = FALSE : "Specifies timer freeze bit value";
+                             },
+                            eMIOS {
+                                UINT32 [0, 8, 9, 10, 12, 14, 15, 23] Channel = NO_DEFAULT : "Specifies which compare channel is used";
+                                ENUM [
+                                    USER {UINT32 [0..3] Value = NO_DEFAULT : "Specifies user initial prescaler value";
+                                        },
+                                    OS {UINT32 WITH_AUTO [0..3] Value = AUTO : "Specifies OS initial prescaler value";
+                                    }
+                                ] Prescaler = NO_DEFAULT : "Specifies either USER or OS prescaler shall be initialized during OS startup";
+                                ENUM [
+                                    USER {UINT32 [0..255] Value = NO_DEFAULT : "Specifies user initial prescaler value";
+                                        },
+                                    OS {UINT32 WITH_AUTO [0..255] Value = AUTO : "Specifies OS initial prescaler value";
+                                    }
+                                ] GlobalMIOSPrescaler = NO_DEFAULT : "Specifies either USER or OS Global prescaler shall be initialized during OS startup";
+                                BOOLEAN Freeze = FALSE : "Specifies timer freeze bit value";
+                             }
+                        ] TimerHardware = NO_DEFAULT : "Specifies hardware interrupt source for the counter";
+                    },
+                    SWCOUNTER {
+                        COUNTER_TYPE COUNTER : "Specifies the counter which shall be attached to the System timer";
+                        UINT32 [1..15] ISRPRIORITY = NO_DEFAULT : "Specifies priority of the timer interrupt handler";
+                        UINT32 WITH_AUTO Period = AUTO : "Specifies period of a tick of the counter (in nanoseconds)";
+                        ENUM [
+                            FIT {
+                                UINT32 WITH_AUTO [0..63] TimerModuloValue = AUTO : "Specifies timer hardware modulo value";
+                            },
+                            DEC {
+                                UINT32 WITH_AUTO [100..0xFFFFFFFF] TimerModuloValue = AUTO : "Specifies timer hardware modulo value";
+                            },
+                            PIT {
+                    
+                                UINT32 [0 .. 3] Channel = NO_DEFAULT : "Specifies which PIT channel is used";
+                                UINT32 WITH_AUTO [1..0xFFFFFFFF] TimerModuloValue = AUTO : "Specifies timer hardware modulo value";
+                                BOOLEAN Freeze = FALSE : "Specifies timer freeze bit value";
+                            },
+                            PIT_RTI {
+                                UINT32 WITH_AUTO [1..0xFFFFFFFF] TimerModuloValue = AUTO : "Specifies timer hardware modulo value";
+                                BOOLEAN Freeze = FALSE : "Specifies timer freeze bit value";
+                            },
+                            STM {
+                                UINT32 [0..3] Channel = NO_DEFAULT : "Specifies which channel is used";
+                                UINT32 WITH_AUTO [1..0xffffff] TimerModuloValue = AUTO : "Specifies timer hardware modulo value";
+                                ENUM [
+                                    USER {UINT32 [0..255] Value = NO_DEFAULT : "Specifies user initial prescaler value";
+                                        },
+                                    OS {UINT32 WITH_AUTO [0..255] Value = AUTO : "Specifies OS initial prescaler value";
+                                    }
+                                ] Prescaler = NO_DEFAULT : "Specifies either USER or OS prescaler shall be initialized during OS startup";
+                                BOOLEAN Freeze = FALSE : "Specifies timer freeze bit value";
+                             },
+                            eMIOS {
+                                UINT32 [0, 8, 9, 10, 12, 14, 15, 23] Channel = NO_DEFAULT : "Specifies which compare channel is used";
+                                UINT32 WITH_AUTO [0..0xffffff] TimerModuloValue = AUTO : "Specifies timer hardware modulo value";
+                                ENUM [
+                                    USER {UINT32 [0..3] Value = NO_DEFAULT : "Specifies user initial prescaler value";
+                                        },
+                                    OS {UINT32 WITH_AUTO [0..3] Value = AUTO : "Specifies OS initial prescaler value";
+                                    }
+                                ] Prescaler = NO_DEFAULT : "Specifies either USER or OS prescaler shall be initialized during OS startup";
+                                ENUM [
+                                    USER {UINT32 [0..255] Value = NO_DEFAULT : "Specifies user initial prescaler value";
+                                        },
+                                    OS {UINT32 WITH_AUTO [0..255] Value = AUTO : "Specifies OS initial prescaler value";
+                                    }
+                                ] GlobalMIOSPrescaler = NO_DEFAULT : "Specifies either USER or OS Global prescaler shall be initialized during OS startup";
+                                BOOLEAN Freeze = FALSE : "Specifies timer freeze bit value";
+                             }
+                        ] TimerHardware = NO_DEFAULT : "Specifies hardware interrupt source for the counter";
+                    },
+                    NONE
+                ] SysTimer = NONE : "Defines whether the internal OS System timer is used or not";
+                ENUM [
+                    HWCOUNTER {
+                        COUNTER_TYPE COUNTER : "Specifies the counter which shall be attached to the Second timer";
+                        UINT32 [1..15] ISRPRIORITY = NO_DEFAULT : "Specifies priority of the timer interrupt handler";
+                        UINT32 WITH_AUTO Period = AUTO : "Specifies period of a tick of the counter (in nanoseconds)";
+                        ENUM [
+                            STM {
+                                UINT32 [0..3] Channel = NO_DEFAULT : "Specifies which channel is used";
+                                ENUM [
+                                    USER {UINT32 [0..255] Value = NO_DEFAULT : "Specifies user initial prescaler value";
+                                        },
+                                    OS {UINT32 WITH_AUTO [0..255] Value = AUTO : "Specifies OS initial prescaler value";
+                                    }
+                                ] Prescaler = NO_DEFAULT : "Specifies either USER or OS prescaler shall be initialized during OS startup";
+                                BOOLEAN Freeze = AUTO : "Specifies timer freeze bit value";
+                             },
+                            eMIOS {
+                                UINT32 [0, 8, 9, 10, 12, 14, 15, 23] Channel = NO_DEFAULT : "Specifies which compare channel is used";
+                                ENUM [
+                                    USER {UINT32 [0..3] Value = NO_DEFAULT : "Specifies user initial prescaler value";
+                                    },
+                                    OS {UINT32 WITH_AUTO [0..3] Value = AUTO : "Specifies OS initial prescaler value";
+                                    }
+                                ] Prescaler = NO_DEFAULT : "Specifies either USER or OS prescaler shall be initialized during OS startup";
+                                BOOLEAN Freeze = AUTO : "Specifies timer freeze bit value";
+                                ENUM [
+                                    USER {UINT32 [0..255] Value = NO_DEFAULT : "Specifies user initial prescaler value";
+                                        },
+                                    OS {UINT32 WITH_AUTO [0..255] Value = AUTO : "Specifies OS initial prescaler value";
+                                    }
+                                ] GlobalMIOSPrescaler = AUTO : "Specifies either USER or OS Global prescaler shall be initialized during OS startup";
+                             }
+                        ] TimerHardware = NO_DEFAULT : "Specifies hardware interrupt source for the counter";
+                    },
+                    SWCOUNTER {
+                        COUNTER_TYPE COUNTER : "Specifies the counter which shall be attached to the Second timer";
+                        UINT32 [1..15] ISRPRIORITY = NO_DEFAULT : "Specifies priority of the timer interrupt handler";
+                        UINT32 WITH_AUTO Period = AUTO : "Specifies period of a tick of the the counter (in nanoseconds)";
+                        ENUM [
+                            FIT {
+                                UINT32 WITH_AUTO [0..63] TimerModuloValue = AUTO : "Specifies timer hardware modulo value";
+                            },
+                            DEC {
+                                UINT32 WITH_AUTO [100..0xFFFFFFFF] TimerModuloValue = AUTO : "Specifies timer hardware modulo value";
+                            },
+                            PIT {
+                                UINT32 [0 .. 3] Channel = NO_DEFAULT : "Specifies which PIT channel is used";
+                                UINT32 WITH_AUTO [1..0xFFFFFFFF] TimerModuloValue = AUTO : "Specifies timer hardware modulo value";
+                                BOOLEAN Freeze = AUTO : "Specifies timer freeze bit value";
+                            },
+                            PIT_RTI {
+                                UINT32 WITH_AUTO [1..0xFFFFFFFF] TimerModuloValue = AUTO : "Specifies timer hardware modulo value";
+                                BOOLEAN Freeze = AUTO : "Specifies timer freeze bit value";
+                            },
+                            STM {
+                                UINT32 [0..3] Channel = NO_DEFAULT : "Specifies which channel is used";
+                                UINT32 WITH_AUTO [1..0xffffff] TimerModuloValue = AUTO : "Specifies timer hardware modulo value";
+                                ENUM [
+                                    USER {UINT32 [0..255] Value = NO_DEFAULT : "Specifies user initial prescaler value";
+                                        },
+                                    OS {UINT32 WITH_AUTO [0..255] Value = AUTO : "Specifies OS initial prescaler value";
+                                    }
+                                ] Prescaler = NO_DEFAULT : "Specifies either USER or OS prescaler shall be initialized during OS startup";
+                                BOOLEAN Freeze = AUTO : "Specifies timer freeze bit value";
+                             },
+                            eMIOS {
+                                UINT32 [0, 8, 9, 10, 12, 14, 15, 23] Channel = NO_DEFAULT : "Specifies which compare channel is used";
+                                
+                                UINT32 WITH_AUTO [0..0xffffff] TimerModuloValue = AUTO : "Specifies timer hardware modulo value";
+                                ENUM [
+                                    USER {UINT32 [0..3] Value = NO_DEFAULT : "Specifies user initial prescaler value";
+                                    },
+                                    OS {UINT32 WITH_AUTO [0..3] Value = AUTO : "Specifies OS initial prescaler value";
+                                    }
+                                ] Prescaler = NO_DEFAULT : "Specifies either USER or OS prescaler shall be initialized during OS startup";
+                                BOOLEAN Freeze = AUTO : "Specifies timer freeze bit value";
+                                ENUM [
+                                    USER {UINT32 [0..255] Value = NO_DEFAULT : "Specifies user initial prescaler value";
+                                        },
+                                    OS {UINT32 WITH_AUTO [0..255] Value = AUTO : "Specifies OS initial prescaler value";
+                                    }
+                                ] GlobalMIOSPrescaler = AUTO : "Specifies either USER or OS Global prescaler shall be initialized during OS startup";
+                             }
+                        ] TimerHardware = NO_DEFAULT : "Specifies hardware interrupt source for the counter";
+                    },
+                    NONE
+                ] SecondTimer = NONE : "Defines whether the internal OS Second timer is used or not";
+            },
+            MPC5644A {
+            
+                BOOLEAN  [
+                    TRUE { 
+                        UINT32 Address = 0x0 : "Section address"; 
+                        UINT32 Size = 0x00400000   : "Section size";},
+                    FALSE] InternalROM = FALSE;
+                BOOLEAN  [
+                    TRUE { 
+                        UINT32 Address = 0x40000000: "Section address"; 
+                        UINT32 Size = 0x30000  : "Section size";},
+                    FALSE] InternalRAM = FALSE;
+                UINT32 [1000..100000] ClockFrequency = 8000 : "Specifies MCU frequency source in kHz for calculating prescaler value and timer modulo value";
+                UINT32 [0x1..0xffffffff] ClockDivider = 1 : "Specifies hardware independent clock frequency divider for calculating input timer frequency";
+                UINT32 [0x1..0xffffffff] ClockMultiplier = 1 : "Specifies hardware independent clock frequency multiplier for calculating input timer frequency";
+                BOOLEAN [  
+                    TRUE {
+                        UINT32 WITH_AUTO Period = AUTO : "Specifies period of a tick of the Timing Protection counter (in nanoseconds)";
+                        ENUM [ 
+                            STM {
+                                ENUM [
+                                    OS {UINT32 WITH_AUTO [0..255] Value = AUTO : "Specifies OS initial prescaler value";
+                                       }
+                                ] Prescaler = NO_DEFAULT : "Specifies either USER or OS prescaler shall be initialized during OS startup";
+                            BOOLEAN Freeze = FALSE : "Specifies timer freeze bit value";
+                        }
+                        ] TimerHardware : "Specifies hardware interrupt source for the counter";
+                        
+                        },
+                    FALSE ] TPTimer = FALSE : "Specifies whether Timing Protection shall be initialized during OS startup";
+                
+                ENUM [
+                    HWCOUNTER {
+                        COUNTER_TYPE COUNTER : "Specifies the counter which shall be attached to the System timer";
+                        UINT32 [1..15] ISRPRIORITY = NO_DEFAULT : "Specifies priority of the timer interrupt handler";
+                        UINT32 WITH_AUTO Period = AUTO : "Specifies period of a tick of the counter (in nanoseconds)";
+                        ENUM [
+                            STM {
+                                UINT32 [0..3] Channel = NO_DEFAULT : "Specifies which channel is used";
+                                ENUM [
+                                    USER {UINT32 [0..255] Value = NO_DEFAULT : "Specifies user initial prescaler value";
+                                        },
+                                    OS {UINT32 WITH_AUTO [0..255] Value = AUTO : "Specifies OS initial prescaler value";
+                                    }
+                                ] Prescaler = NO_DEFAULT : "Specifies either USER or OS prescaler shall be initialized during OS startup";
+                                BOOLEAN Freeze = FALSE : "Specifies timer freeze bit value";
+                             },
+                            eMIOS {
+                                UINT32 [0, 7, 8, 9, 10, 12, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23] Channel = NO_DEFAULT : "Specifies which compare channel is used";
+                                ENUM [
+                                    USER {UINT32 [0..3] Value = NO_DEFAULT : "Specifies user initial prescaler value";
+                                        },
+                                    OS {UINT32 WITH_AUTO [0..3] Value = AUTO : "Specifies OS initial prescaler value";
+                                    }
+                                ] Prescaler = NO_DEFAULT : "Specifies either USER or OS prescaler shall be initialized during OS startup";
+                                ENUM [
+                                    USER {UINT32 [0..255] Value = NO_DEFAULT : "Specifies user initial prescaler value";
+                                        },
+                                    OS {UINT32 WITH_AUTO [0..255] Value = AUTO : "Specifies OS initial prescaler value";
+                                    }
+                                ] GlobalMIOSPrescaler = NO_DEFAULT : "Specifies either USER or OS Global prescaler shall be initialized during OS startup";
+                                BOOLEAN Freeze = FALSE : "Specifies timer freeze bit value";
+                             }
+                        ] TimerHardware = NO_DEFAULT : "Specifies hardware interrupt source for the counter";
+                    },
+                    SWCOUNTER {
+                        COUNTER_TYPE COUNTER : "Specifies the counter which shall be attached to the System timer";
+                        UINT32 [1..15] ISRPRIORITY = NO_DEFAULT : "Specifies priority of the timer interrupt handler";
+                        UINT32 WITH_AUTO Period = AUTO : "Specifies period of a tick of the counter (in nanoseconds)";
+                        ENUM [
+                            FIT {
+                                UINT32 WITH_AUTO [0..63] TimerModuloValue = AUTO : "Specifies timer hardware modulo value";
+                            },
+                            DEC {
+                                UINT32 WITH_AUTO [100..0xFFFFFFFF] TimerModuloValue = AUTO : "Specifies timer hardware modulo value";
+                            },
+                            PIT {
+                    
+                                UINT32 [0 .. 3] Channel = NO_DEFAULT : "Specifies which PIT channel is used";
+                                UINT32 WITH_AUTO [1..0xFFFFFFFF] TimerModuloValue = AUTO : "Specifies timer hardware modulo value";
+                                BOOLEAN Freeze = FALSE : "Specifies timer freeze bit value";
+                            },
+                            PIT_RTI {
+                                UINT32 WITH_AUTO [1..0xFFFFFFFF] TimerModuloValue = AUTO : "Specifies timer hardware modulo value";
+                                BOOLEAN Freeze = FALSE : "Specifies timer freeze bit value";
+                            },
+                            STM {
+                                UINT32 [0..3] Channel = NO_DEFAULT : "Specifies which channel is used";
+                                UINT32 WITH_AUTO [1..0xffffff] TimerModuloValue = AUTO : "Specifies timer hardware modulo value";
+                                ENUM [
+                                    USER {UINT32 [0..255] Value = NO_DEFAULT : "Specifies user initial prescaler value";
+                                        },
+                                    OS {UINT32 WITH_AUTO [0..255] Value = AUTO : "Specifies OS initial prescaler value";
+                                    }
+                                ] Prescaler = NO_DEFAULT : "Specifies either USER or OS prescaler shall be initialized during OS startup";
+                                BOOLEAN Freeze = FALSE : "Specifies timer freeze bit value";
+                             },
+                            eMIOS {
+                                UINT32 [0, 7, 8, 9, 10, 12, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23] Channel = NO_DEFAULT : "Specifies which compare channel is used";
+                                UINT32 WITH_AUTO [0..0xffffff] TimerModuloValue = AUTO : "Specifies timer hardware modulo value";
+                                ENUM [
+                                    USER {UINT32 [0..3] Value = NO_DEFAULT : "Specifies user initial prescaler value";
+                                        },
+                                    OS {UINT32 WITH_AUTO [0..3] Value = AUTO : "Specifies OS initial prescaler value";
+                                    }
+                                ] Prescaler = NO_DEFAULT : "Specifies either USER or OS prescaler shall be initialized during OS startup";
+                                ENUM [
+                                    USER {UINT32 [0..255] Value = NO_DEFAULT : "Specifies user initial prescaler value";
+                                        },
+                                    OS {UINT32 WITH_AUTO [0..255] Value = AUTO : "Specifies OS initial prescaler value";
+                                    }
+                                ] GlobalMIOSPrescaler = NO_DEFAULT : "Specifies either USER or OS Global prescaler shall be initialized during OS startup";
+                                BOOLEAN Freeze = FALSE : "Specifies timer freeze bit value";
+                             }
+                        ] TimerHardware = NO_DEFAULT : "Specifies hardware interrupt source for the counter";
+                    },
+                    NONE
+                ] SysTimer = NONE : "Defines whether the internal OS System timer is used or not";
+                ENUM [
+                    HWCOUNTER {
+                        COUNTER_TYPE COUNTER : "Specifies the counter which shall be attached to the Second timer";
+                        UINT32 [1..15] ISRPRIORITY = NO_DEFAULT : "Specifies priority of the timer interrupt handler";
+                        UINT32 WITH_AUTO Period = AUTO : "Specifies period of a tick of the counter (in nanoseconds)";
+                        ENUM [
+                            STM {
+                                UINT32 [0..3] Channel = NO_DEFAULT : "Specifies which channel is used";
+                                ENUM [
+                                    USER {UINT32 [0..255] Value = NO_DEFAULT : "Specifies user initial prescaler value";
+                                        },
+                                    OS {UINT32 WITH_AUTO [0..255] Value = AUTO : "Specifies OS initial prescaler value";
+                                    }
+                                ] Prescaler = NO_DEFAULT : "Specifies either USER or OS prescaler shall be initialized during OS startup";
+                                BOOLEAN Freeze = AUTO : "Specifies timer freeze bit value";
+                             },
+                            eMIOS {
+                                UINT32 [0, 7, 8, 9, 10, 12, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23] Channel = NO_DEFAULT : "Specifies which compare channel is used";
+                                ENUM [
+                                    USER {UINT32 [0..3] Value = NO_DEFAULT : "Specifies user initial prescaler value";
+                                    },
+                                    OS {UINT32 WITH_AUTO [0..3] Value = AUTO : "Specifies OS initial prescaler value";
+                                    }
+                                ] Prescaler = NO_DEFAULT : "Specifies either USER or OS prescaler shall be initialized during OS startup";
+                                BOOLEAN Freeze = AUTO : "Specifies timer freeze bit value";
+                                ENUM [
+                                    USER {UINT32 [0..255] Value = NO_DEFAULT : "Specifies user initial prescaler value";
+                                        },
+                                    OS {UINT32 WITH_AUTO [0..255] Value = AUTO : "Specifies OS initial prescaler value";
+                                    }
+                                ] GlobalMIOSPrescaler = AUTO : "Specifies either USER or OS Global prescaler shall be initialized during OS startup";
+                             }
+                        ] TimerHardware = NO_DEFAULT : "Specifies hardware interrupt source for the counter";
+                    },
+                    SWCOUNTER {
+                        COUNTER_TYPE COUNTER : "Specifies the counter which shall be attached to the Second timer";
+                        UINT32 [1..15] ISRPRIORITY = NO_DEFAULT : "Specifies priority of the timer interrupt handler";
+                        UINT32 WITH_AUTO Period = AUTO : "Specifies period of a tick of the the counter (in nanoseconds)";
+                        ENUM [
+                            FIT {
+                                UINT32 WITH_AUTO [0..63] TimerModuloValue = AUTO : "Specifies timer hardware modulo value";
+                            },
+                            DEC {
+                                UINT32 WITH_AUTO [100..0xFFFFFFFF] TimerModuloValue = AUTO : "Specifies timer hardware modulo value";
+                            },
+                            PIT {
+                                UINT32 [0 .. 3] Channel = NO_DEFAULT : "Specifies which PIT channel is used";
+                                UINT32 WITH_AUTO [1..0xFFFFFFFF] TimerModuloValue = AUTO : "Specifies timer hardware modulo value";
+                                BOOLEAN Freeze = AUTO : "Specifies timer freeze bit value";
+                            },
+                            PIT_RTI {
+                                UINT32 WITH_AUTO [1..0xFFFFFFFF] TimerModuloValue = AUTO : "Specifies timer hardware modulo value";
+                                BOOLEAN Freeze = AUTO : "Specifies timer freeze bit value";
+                            },
+                            STM {
+                                UINT32 [0..3] Channel = NO_DEFAULT : "Specifies which channel is used";
+                                UINT32 WITH_AUTO [1..0xffffff] TimerModuloValue = AUTO : "Specifies timer hardware modulo value";
+                                ENUM [
+                                    USER {UINT32 [0..255] Value = NO_DEFAULT : "Specifies user initial prescaler value";
+                                        },
+                                    OS {UINT32 WITH_AUTO [0..255] Value = AUTO : "Specifies OS initial prescaler value";
+                                    }
+                                ] Prescaler = NO_DEFAULT : "Specifies either USER or OS prescaler shall be initialized during OS startup";
+                                BOOLEAN Freeze = AUTO : "Specifies timer freeze bit value";
+                             },
+                            eMIOS {
+                                UINT32 [0, 7, 8, 9, 10, 12, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23] Channel = NO_DEFAULT : "Specifies which compare channel is used";
+                                
+                                UINT32 WITH_AUTO [0..0xffffff] TimerModuloValue = AUTO : "Specifies timer hardware modulo value";
+                                ENUM [
+                                    USER {UINT32 [0..3] Value = NO_DEFAULT : "Specifies user initial prescaler value";
+                                    },
+                                    OS {UINT32 WITH_AUTO [0..3] Value = AUTO : "Specifies OS initial prescaler value";
+                                    }
+                                ] Prescaler = NO_DEFAULT : "Specifies either USER or OS prescaler shall be initialized during OS startup";
+                                BOOLEAN Freeze = AUTO : "Specifies timer freeze bit value";
+                                ENUM [
+                                    USER {UINT32 [0..255] Value = NO_DEFAULT : "Specifies user initial prescaler value";
+                                        },
+                                    OS {UINT32 WITH_AUTO [0..255] Value = AUTO : "Specifies OS initial prescaler value";
+                                    }
+                                ] GlobalMIOSPrescaler = AUTO : "Specifies either USER or OS Global prescaler shall be initialized during OS startup";
+                             }
+                        ] TimerHardware = NO_DEFAULT : "Specifies hardware interrupt source for the counter";
+                    },
+                    NONE
+                ] SecondTimer = NONE : "Defines whether the internal OS Second timer is used or not";
+            },
+            MPC5674F {
+            
+                BOOLEAN  [
+                    TRUE { 
+                        UINT32 Address = 0x0 : "Section address"; 
+                        UINT32 Size = 0x400000   : "Section size";},
+                    FALSE] InternalROM = FALSE;
+                BOOLEAN  [
+                    TRUE { 
+                        UINT32 Address = 0x40000000: "Section address"; 
+                        UINT32 Size = 0x40000   : "Section size";},
+                    FALSE] InternalRAM = FALSE;
+                UINT32 [1000..100000] ClockFrequency = 8000 : "Specifies MCU frequency source in kHz for calculating prescaler value and timer modulo value";
+                UINT32 [0x1..0xffffffff] ClockDivider = 1 : "Specifies hardware independent clock frequency divider for calculating input timer frequency";
+                UINT32 [0x1..0xffffffff] ClockMultiplier = 1 : "Specifies hardware independent clock frequency multiplier for calculating input timer frequency";
+                BOOLEAN [  
+                    TRUE {
+                        UINT32 WITH_AUTO Period = AUTO : "Specifies period of a tick of the Timing Protection counter (in nanoseconds)";
+                        ENUM [ 
+                            STM {
+                                ENUM [
+                                    OS {UINT32 WITH_AUTO [0..255] Value = AUTO : "Specifies OS initial prescaler value";
+                                       }
+                                ] Prescaler = NO_DEFAULT : "Specifies either USER or OS prescaler shall be initialized during OS startup";
+                            BOOLEAN Freeze = FALSE : "Specifies timer freeze bit value";
+                        }
+                        ] TimerHardware : "Specifies hardware interrupt source for the counter";
+                        
+                        },
+                    FALSE ] TPTimer = FALSE : "Specifies whether Timing Protection shall be initialized during OS startup";
+                
+                ENUM [
+                    HWCOUNTER {
+                        COUNTER_TYPE COUNTER : "Specifies the counter which shall be attached to the System timer";
+                        UINT32 [1..15] ISRPRIORITY = NO_DEFAULT : "Specifies priority of the timer interrupt handler";
+                        UINT32 WITH_AUTO Period = AUTO : "Specifies period of a tick of the counter (in nanoseconds)";
+                        ENUM [
+                            STM {
+                                UINT32 [0..1] Channel = NO_DEFAULT : "Specifies which compare channel is used";
+                                UINT32 [1..2] PeripheralClockDivider = 1 : "Specifies peripheral clock divider for periph. frequency calculating";
+                                ENUM [
+                                    USER {UINT32 [0..255] Value = NO_DEFAULT : "Specifies user initial prescaler value";
+                                        },
+                                    OS {UINT32 WITH_AUTO [0..255] Value = AUTO : "Specifies OS initial prescaler value";
+                                    }
+                                ] Prescaler = NO_DEFAULT : "Specifies either USER or OS prescaler shall be initialized during OS startup";
+                                BOOLEAN Freeze = FALSE : "Specifies timer freeze bit value";
+                             },
+                            eMIOS {
+                                UINT32 [0..31] Channel = NO_DEFAULT : "Specifies which compare channel is used";
+                                UINT32 [1..2] PeripheralClockDivider = 1 : "Specifies peripheral clock divider for periph. frequency calculating";
+                                ENUM [
+                                    USER {UINT32 [0..3] Value = NO_DEFAULT : "Specifies user initial prescaler value";
+                                        },
+                                    OS {UINT32 WITH_AUTO [0..3] Value = AUTO : "Specifies OS initial prescaler value";
+                                    }
+                                ] Prescaler = NO_DEFAULT : "Specifies either USER or OS prescaler shall be initialized during OS startup";
+                                ENUM [
+                                    USER {UINT32 [0..255] Value = NO_DEFAULT : "Specifies user initial prescaler value";
+                                        },
+                                    OS {UINT32 WITH_AUTO [0..255] Value = AUTO : "Specifies OS initial prescaler value";
+                                    }
+                                ] GlobalMIOSPrescaler = NO_DEFAULT : "Specifies either USER or OS Global prescaler shall be initialized during OS startup";
+                                BOOLEAN Freeze = FALSE : "Specifies timer freeze bit value";
+                             }
+                        ] TimerHardware = NO_DEFAULT : "Specifies hardware interrupt source for the counter";
+                    },
+                    SWCOUNTER {
+                        COUNTER_TYPE COUNTER : "Specifies the counter which shall be attached to the System timer";
+                        UINT32 [1..15] ISRPRIORITY = NO_DEFAULT : "Specifies priority of the timer interrupt handler";
+                        UINT32 WITH_AUTO Period = AUTO : "Specifies period of a tick of the counter (in nanoseconds)";
+                        ENUM [
+                            FIT {
+                                UINT32 WITH_AUTO [0..63] TimerModuloValue = AUTO : "Specifies timer hardware modulo value";
+                            },
+                            DEC {
+                                UINT32 WITH_AUTO [100..0xFFFFFFFF] TimerModuloValue = AUTO : "Specifies timer hardware modulo value";
+                            },
+                            PIT {
+                                UINT32 [0 .. 3] Channel = NO_DEFAULT : "Specifies which PIT channel is used";
+                                UINT32 [1..2] PeripheralClockDivider = 1 : "Specifies peripheral clock divider for periph. frequency calculating";
+                                UINT32 WITH_AUTO [1..0xFFFFFFFF] TimerModuloValue = AUTO : "Specifies timer hardware modulo value";
+                                BOOLEAN Freeze = FALSE : "Specifies timer freeze bit value";
+                            },
+                            PIT_RTI {
+                                UINT32 WITH_AUTO [1..0xFFFFFFFF] TimerModuloValue = AUTO : "Specifies timer hardware modulo value";
+                                BOOLEAN Freeze = FALSE : "Specifies timer freeze bit value";
+                                UINT32 [1..2] PeripheralClockDivider = 1 : "Specifies peripheral clock divider for periph. frequency calculating";
+                            },
+                            STM {
+                                UINT32 [0..1] Channel = NO_DEFAULT : "Specifies which compare channel is used";
+                                UINT32 [1..2] PeripheralClockDivider = 1 : "Specifies peripheral clock divider for periph. frequency calculating";
+                                UINT32 WITH_AUTO [1..0xffffff] TimerModuloValue = AUTO : "Specifies timer hardware modulo value";
+                                ENUM [
+                                    USER {UINT32 [0..255] Value = NO_DEFAULT : "Specifies user initial prescaler value";
+                                        },
+                                    OS {UINT32 WITH_AUTO [0..255] Value = AUTO : "Specifies OS initial prescaler value";
+                                    }
+                                ] Prescaler = NO_DEFAULT : "Specifies either USER or OS prescaler shall be initialized during OS startup";
+                                BOOLEAN Freeze = FALSE : "Specifies timer freeze bit value";
+                             },
+                            eMIOS {
+                                UINT32 [0..31] Channel = NO_DEFAULT : "Specifies which compare channel is used";
+                                UINT32 [1..2] PeripheralClockDivider = 1 : "Specifies peripheral clock divider for periph. frequency calculating";
+                                UINT32 WITH_AUTO [0..0xffffff] TimerModuloValue = AUTO : "Specifies timer hardware modulo value";
+                                ENUM [
+                                    USER {UINT32 [0..3] Value = NO_DEFAULT : "Specifies user initial prescaler value";
+                                        },
+                                    OS {UINT32 WITH_AUTO [0..3] Value = AUTO : "Specifies OS initial prescaler value";
+                                    }
+                                ] Prescaler = NO_DEFAULT : "Specifies either USER or OS prescaler shall be initialized during OS startup";
+                                ENUM [
+                                    USER {UINT32 [0..255] Value = NO_DEFAULT : "Specifies user initial prescaler value";
+                                        },
+                                    OS {UINT32 WITH_AUTO [0..255] Value = AUTO : "Specifies OS initial prescaler value";
+                                    }
+                                ] GlobalMIOSPrescaler = NO_DEFAULT : "Specifies either USER or OS Global prescaler shall be initialized during OS startup";
+                                BOOLEAN Freeze = FALSE : "Specifies timer freeze bit value";
+                             }
+                        ] TimerHardware = NO_DEFAULT : "Specifies hardware interrupt source for the counter";
+                    },
+                    NONE
+                ] SysTimer = NONE : "Defines whether the internal OS System timer is used or not";
+                ENUM [
+                    HWCOUNTER {
+                        COUNTER_TYPE COUNTER : "Specifies the counter which shall be attached to the Second timer";
+                        UINT32 [1..15] ISRPRIORITY = NO_DEFAULT : "Specifies priority of the timer interrupt handler";
+                        UINT32 WITH_AUTO Period = AUTO : "Specifies period of a tick of the counter (in nanoseconds)";
+                        ENUM [
+                            STM {
+                                UINT32 [0..1] Channel = NO_DEFAULT : "Specifies which compare channel is used";
+                                UINT32 [1..2] PeripheralClockDivider = 1 : "Specifies peripheral clock divider for periph. frequency calculating";
+                                ENUM [
+                                    USER {UINT32 [0..255] Value = NO_DEFAULT : "Specifies user initial prescaler value";
+                                        },
+                                    OS {UINT32 WITH_AUTO [0..255] Value = AUTO : "Specifies OS initial prescaler value";
+                                    }
+                                ] Prescaler = NO_DEFAULT : "Specifies either USER or OS prescaler shall be initialized during OS startup";
+                                BOOLEAN Freeze = AUTO : "Specifies timer freeze bit value";
+                             },
+                            eMIOS {
+                                UINT32 [0..31] Channel = NO_DEFAULT : "Specifies which compare channel is used";
+                                UINT32 [1..2] PeripheralClockDivider = 1 : "Specifies peripheral clock divider for periph. frequency calculating";
+                                ENUM [
+                                    USER {UINT32 [0..3] Value = NO_DEFAULT : "Specifies user initial prescaler value";
+                                    },
+                                    OS {UINT32 WITH_AUTO [0..3] Value = AUTO : "Specifies OS initial prescaler value";
+                                    }
+                                ] Prescaler = NO_DEFAULT : "Specifies either USER or OS prescaler shall be initialized during OS startup";
+                                BOOLEAN Freeze = AUTO : "Specifies timer freeze bit value";
+                                ENUM [
+                                    USER {UINT32 [0..255] Value = NO_DEFAULT : "Specifies user initial prescaler value";
+                                        },
+                                    OS {UINT32 WITH_AUTO [0..255] Value = AUTO : "Specifies OS initial prescaler value";
+                                    }
+                                ] GlobalMIOSPrescaler = AUTO : "Specifies either USER or OS Global prescaler shall be initialized during OS startup";
+                             }
+                        ] TimerHardware = NO_DEFAULT : "Specifies hardware interrupt source for the counter";
+                    },
+                    SWCOUNTER {
+                        COUNTER_TYPE COUNTER : "Specifies the counter which shall be attached to the Second timer";
+                        UINT32 [1..15] ISRPRIORITY = NO_DEFAULT : "Specifies priority of the timer interrupt handler";
+                        UINT32 WITH_AUTO Period = AUTO : "Specifies period of a tick of the the counter (in nanoseconds)";
+                        ENUM [
+                            FIT {
+                                UINT32 WITH_AUTO [0..63] TimerModuloValue = AUTO : "Specifies timer hardware modulo value";
+                            },
+                            DEC {
+                                UINT32 WITH_AUTO [100..0xFFFFFFFF] TimerModuloValue = AUTO : "Specifies timer hardware modulo value";
+                            },
+                            PIT {
+                                UINT32 [0 .. 3] Channel = NO_DEFAULT : "Specifies which PIT channel is used";
+                                UINT32 [1..2] PeripheralClockDivider = 1 : "Specifies peripheral clock divider for periph. frequency calculating";
+                                UINT32 WITH_AUTO [1..0xFFFFFFFF] TimerModuloValue = AUTO : "Specifies timer hardware modulo value";
+                                BOOLEAN Freeze = AUTO : "Specifies timer freeze bit value";
+                            },
+                            PIT_RTI {
+                                UINT32 WITH_AUTO [1..0xFFFFFFFF] TimerModuloValue = AUTO : "Specifies timer hardware modulo value";
+                                BOOLEAN Freeze = AUTO : "Specifies timer freeze bit value";
+                                UINT32 [1..2] PeripheralClockDivider = 1 : "Specifies peripheral clock divider for periph. frequency calculating";
+                            },
+                            STM {
+                                UINT32 [0..1] Channel = NO_DEFAULT : "Specifies which compare channel is used";
+                                UINT32 [1..2] PeripheralClockDivider = 1 : "Specifies peripheral clock divider for periph. frequency calculating";
+                                UINT32 WITH_AUTO [1..0xffffff] TimerModuloValue = AUTO : "Specifies timer hardware modulo value";
+                                ENUM [
+                                    USER {UINT32 [0..255] Value = NO_DEFAULT : "Specifies user initial prescaler value";
+                                        },
+                                    OS {UINT32 WITH_AUTO [0..255] Value = AUTO : "Specifies OS initial prescaler value";
+                                    }
+                                ] Prescaler = NO_DEFAULT : "Specifies either USER or OS prescaler shall be initialized during OS startup";
+                                BOOLEAN Freeze = AUTO : "Specifies timer freeze bit value";
+                             },
+                            eMIOS {
+                                UINT32 [0..31] Channel = NO_DEFAULT : "Specifies which compare channel is used";
+                                UINT32 [1..2] PeripheralClockDivider = 1 : "Specifies peripheral clock divider for periph. frequency calculating";
+                                
+                                UINT32 WITH_AUTO [0..0xffffff] TimerModuloValue = AUTO : "Specifies timer hardware modulo value";
+                                ENUM [
+                                    USER {UINT32 [0..3] Value = NO_DEFAULT : "Specifies user initial prescaler value";
+                                    },
+                                    OS {UINT32 WITH_AUTO [0..3] Value = AUTO : "Specifies OS initial prescaler value";
+                                    }
+                                ] Prescaler = NO_DEFAULT : "Specifies either USER or OS prescaler shall be initialized during OS startup";
+                                BOOLEAN Freeze = AUTO : "Specifies timer freeze bit value";
+                                ENUM [
+                                    USER {UINT32 [0..255] Value = NO_DEFAULT : "Specifies user initial prescaler value";
+                                        },
+                                    OS {UINT32 WITH_AUTO [0..255] Value = AUTO : "Specifies OS initial prescaler value";
+                                    }
+                                ] GlobalMIOSPrescaler = AUTO : "Specifies either USER or OS Global prescaler shall be initialized during OS startup";
+                             }
+                        ] TimerHardware = NO_DEFAULT : "Specifies hardware interrupt source for the counter";
+                    },
+                    NONE
+                ] SecondTimer = NONE : "Defines whether the internal OS Second timer is used or not";
+            }
+        ] TargetMCU = NO_DEFAULT : "Specifies MCU platform";
+    };
+//@description="Defines an application mode in which the task is auto-started";    
+    APPMODE
+    {
+    };
+//@description="Specifies the APPLICATION name"        
+    APPLICATION
+    {
+        BOOLEAN MemData0 = TRUE : "Use memory region #0 for application data";
+        BOOLEAN MemData1 = FALSE : "Use memory region #1 for application data";
+        BOOLEAN MemData2 = FALSE : "Use memory region #2 for application data";
+        BOOLEAN [ 
+            TRUE 
+            { 
+                BOOLEAN [ 
+                    TRUE { STRING NAME : "Name of the trusted function";}, 
+                    FALSE 
+                ] TRUSTED_FUNCTION[] : "List of trusted functions with their attributes (like NAME)"; 
+            }, 
+            FALSE
+            ] TRUSTED = FALSE : "Parameter to specify if the OS-Application is trusted or not";
+        
+        BOOLEAN STARTUPHOOK : "Defines whether or not StartupHook is called at the start of OS";
+        BOOLEAN SHUTDOWNHOOK : "Defines whether or not ShutdownHook is called when OS is shut down";
+        BOOLEAN ERRORHOOK : "Defines whether or not ErrorHook is called when an error is detected";
+        BOOLEAN [
+            TRUE {TASK_TYPE RESTARTTASK : "Defines the task to be started on the OS-Application restart";},
+            FALSE
+        ] HAS_RESTARTTASK : "Selects if the OS-Application(s) have a restart task or not";
+        TASK_TYPE TASK[] : "Task(s) owned by the application";
+        ISR_TYPE ISR[] : "ISR(s) owned by the application";
+        ALARM_TYPE ALARM[] : "Alarm(s) owned by the application";
+        SCHEDULETABLE_TYPE SCHEDULETABLE[] : "Schedule table(s) owned by the application"; 
+        COUNTER_TYPE COUNTER[] : "Counter(s) owned by the application";
+        RESOURCE_TYPE RESOURCE[] : "Resource(s) owned by the application";
+        MESSAGE_TYPE MESSAGE[] : "Message(s) owned by the application";
+    };
+//@description="Specifies the TASK name";
+    TASK
+    {
+        UINT32 WITH_AUTO [0x40..0xffffffff] STACKSIZE = AUTO : "Defines the size of the task's stack in bytes; Freescale AUTOSAR OS specific attribute";
+       
+        BOOLEAN [
+            TRUE {
+                APPMODE_TYPE APPMODE[] : "Defines an application mode in which the task is auto-started";
+            },
+            FALSE
+        ] AUTOSTART : "Parameter specifies if the schedule table is started on startup of the OS with a given relative offset";
+        UINT32 PRIORITY : "Defines the priority of the task";
+        UINT32 [1] ACTIVATION : "Specifies the maximum number of queued activation requests for the task";
+        ENUM [NON, FULL] SCHEDULE : "Defines the run-time behavior of the task";
+        EVENT_TYPE EVENT[] : "Event(s) owned by the task. There can be several event references";
+        RESOURCE_TYPE RESOURCE[] : "Resource(s) accessed by the task. There can be several resource references";
+        MESSAGE_TYPE MESSAGE[] : "Specifies the message(s) to be sent or received by the task";
+        BOOLEAN [
+            TRUE {
+                UINT64 EXECUTIONBUDGET : "Contains the worst case execution time in nanoseconds for the task";
+                UINT64 TIMEFRAME : "These parameters contain the allowed execution time of the task. The time is specified as a time budget (EXECUTIONBUDGET) in a define time frame (TIMEFRAME)";
+                UINT64 MAXOSINTERRUPTLOCKTIME : "Contains the worst time (in nanoseconds) the task locks out ISR category 2"; 
+                UINT64 MAXALLINTERRUPTLOCKTIME : "Contains the worst time (in nanoseconds) the task locks out ISR"; 
+                ENUM [
+                    RESOURCELOCK {
+                        RESOURCE_TYPE RESOURCE : "Resource accessed by the task";
+                        UINT64 MAXRESOURCELOCKTIME : "Contains the worst case time between getting and releasing a given resource"; 
+                    }
+                ] LOCKINGTIME[] : "Contains a list of times in nanoseconds) the task locks out interrupts or uses resources";
+            },
+            FALSE
+        ] TIMING_PROTECTION = FALSE: "Defines if timing protection is enabled for the task";
+    
+        APPLICATION_TYPE ACCESSING_APPLICATION[] : "List of OS-Applications which have access to the task";
+    };
+//@description="Specifies the ISR name";    
+    ISR
+    {
+                ENUM [1, 2] CATEGORY : "Specifies the category of the ISR";
+                UINT32 WITH_AUTO [0x40..0xffffffff] STACKSIZE = AUTO : "Defines the size of the ISR's stack in bytes; Freescale AUTOSAR OS specific attribute";
+        UINT32 [ 1 .. 15 ] PRIORITY : "Defines the priority of the ISR";
+                ENUM [
+                     DEC, FIT,
+                     EXTERNAL {
+                          UINT32 [0..500] IrqNumber = NO_DEFAULT : "Interrupt source number";
+                     }           
+                ] IrqChannel = NO_DEFAULT : "Specifies which interrupt channel is used";
+        STRING IsrFunction = AUTO;
+        RESOURCE_TYPE RESOURCE[] : "Resource(s) accessed by the ISR";
+        MESSAGE_TYPE MESSAGE[]  : "Specifies the message(s) to be sent or received by the ISR";
+        BOOLEAN [ 
+            TRUE { 
+                UINT64 EXECUTIONTIME : "Contains the worst case execution time in nanoseconds for the ISR"; 
+                UINT64 TIMEFRAME : "These parameters contain the number of interrupts (COUNTLIMIT) which are allowed in a specific time frame (TIMEFRAME)";
+                UINT64 MAXOSINTERRUPTLOCKTIME : "Contains the worst time (in nanoseconds) the task locks out ISR category 2"; 
+                UINT64 MAXALLINTERRUPTLOCKTIME : "Contains the worst time (in nanoseconds) the task locks out ISR"; 
+                
+                ENUM [ 
+                    RESOURCELOCK { 
+                        RESOURCE_TYPE RESOURCE : "Resource accessed by the ISR"; 
+                        UINT64 MAXRESOURCELOCKTIME : "Contains the worst case time between getting and releasing a given resource"; 
+                    }
+                ] LOCKINGTIME[] : "Contains a list of times (in nanoseconds) the ISR locks out interrupts or uses resources"; 
+            }, 
+            FALSE 
+        ] TIMING_PROTECTION = FALSE: "Defines if timing protection is enabled for the ISR";
+        
+    };
+//@description="Specifies the COUNTER name";        
+    COUNTER 
+    { 
+        UINT32 MINCYCLE : "Specifies the minimum allowed number of counter ticks for a cyclic alarm linked to the counter";
+        UINT32 MAXALLOWEDVALUE : "Defines the maximum allowed counter value";
+        UINT32 TICKSPERBASE : "Specifies the number of ticks required to reach a counter-specific value";
+        ENUM [ 
+            SOFTWARE, 
+            HARDWARE  
+                { 
+                    ENUM [ 
+                        OSINTERNAL, 
+                        GPT 
+                        { 
+                            UINT64 NS_PER_HW_TICK; 
+                            STRING GPTCHANNELNAME; 
+                         } 
+                    ] DRIVER=OSINTERNAL: "Define the driver of the counter";
+                    ENUM [ 
+                        TIMECONSTANT 
+                        { 
+                            UINT64 NS; 
+                            STRING CONSTNAME; 
+                        } 
+                    ] TIMECONSTANTS [] : "Define constants which can be e.g. used to compare time values with timer tick values"; 
+                 } 
+        ] TYPE : "Defines the type of the counter";
+        APPLICATION_TYPE ACCESSING_APPLICATION[] : "List of OS-Applications which have access to the counter";
+    };
+    
+//@description="Specifies the ALARM name";            
+    ALARM
+    {
+        COUNTER_TYPE COUNTER : "Specifies the assigned counter";
+        ENUM [
+            ACTIVATETASK {
+                TASK_TYPE TASK : "Specifies the task being notified through activation when the alarm expires";
+            },
+            SETEVENT {
+                TASK_TYPE TASK : "Specifies the task being notified through event setting when the alarm expires";
+                EVENT_TYPE EVENT : "Specifies the event mask to be set when the alarm expires. It shall be defined if ACTION is SETEVENT only";
+            },
+            ALARMCALLBACK {
+                STRING ALARMCALLBACKNAME : "Specifies the name of the callback routine called when the alarm expires";
+            },
+            INCREMENTCOUNTER {
+                COUNTER_TYPE COUNTER : "Specifies the counter increment";
+            }
+        ] ACTION : "Defines the method of notification used when the alarm expires";
+        BOOLEAN [
+            TRUE {
+                UINT32 ALARMTIME : "Defines the time when the alarm shall expire first";
+                UINT32 CYCLETIME : "Defines the cycle time of a cyclic alarm";
+                APPMODE_TYPE APPMODE[] : "Defines an application mode in which the alarm will be started automatically at system start-up";
+                ENUM [ ABSOLUTE, RELATIVE ] TYPE : "This specifies the type of autostart for the alarm"; 
+            },
+            FALSE
+        ] AUTOSTART : "Defines whether an alarm is started automatically at system start-up depending on the application mode";
+        APPLICATION_TYPE ACCESSING_APPLICATION[] : "List of OS-Applications which have access to the alarm";
+    };
+//@description="Specifies the EVENT name";                    
+    EVENT
+    {
+        UINT64 WITH_AUTO MASK = AUTO : "Bit mask for the event";
+    };
+//@description="Specifies the RESOURCE name";                
+    RESOURCE
+    {
+        ENUM [
+            STANDARD,
+            LINKED {
+                RESOURCE_TYPE LINKEDRESOURCE : "Specifies the resource to which the linking shall be performed";
+            },
+            INTERNAL
+        ] RESOURCEPROPERTY : "Specifies a property of the resource(s)";
+        APPLICATION_TYPE ACCESSING_APPLICATION[] : "List of OS-Applications which have access to the alarm";
+    };
+//@description="Specifies the MESSAGE name";                
+    MESSAGE
+    {
+        ENUM [
+            SEND_STATIC_INTERNAL {
+                STRING CDATATYPE : "Defines the data type of a message item";
+            },
+            RECEIVE_UNQUEUED_INTERNAL {
+                MESSAGE_TYPE SENDINGMESSAGE : " Specifies which message transfers data to this one";
+                UINT64 INITIALVALUE = 0 : "Initial value of the message item";
+            },
+            RECEIVE_QUEUED_INTERNAL {
+                MESSAGE_TYPE SENDINGMESSAGE : "Specifies which message transfers data to this one";
+                UINT32[1..255] QUEUESIZE : "Specifies number of elements in message queue";
+            }
+        ] MESSAGEPROPERTY : "Specifies the type of the message(s)";
+        ENUM [
+            NONE,
+            ACTIVATETASK {
+                TASK_TYPE TASK : "Specifies task which shall be notified after the message transmission has been performed";
+            },
+            SETEVENT {
+                TASK_TYPE TASK : "Specifies task which shall be notified after the message transmission has been performed";
+                EVENT_TYPE EVENT : "Specifies event which shall be set after the message transmission has been performed";
+            },
+            COMCALLBACK {
+                STRING CALLBACKROUTINENAME : "Defines the name of a function to call as an action when the message has been sent";
+                MESSAGE_TYPE MESSAGE[];
+            },
+            FLAG {
+                STRING FLAGNAME : "Specifies flag which shall be set after the message transmission has been performed";
+            }
+        ] NOTIFICATION = NONE : "Defines which type of task notification is used after the message transmission has been performed";
+        APPLICATION_TYPE ACCESSING_APPLICATION[] : "List of OS-Applications which have access to the message";
+    };
+//@description="Specifies the COM name";                    
+    COM
+    {
+        BOOLEAN COMERRORHOOK = FALSE : "Specifies if the COM ErrorHook mechanism is used";
+        BOOLEAN COMUSEGETSERVICEID = FALSE : "Defines whether the macro to get service ID is provided for COMErrorHook";
+        BOOLEAN COMUSEPARAMETERACCESS = FALSE : "Defines whether macros to get the first parameter of the service is provided for COMErrorHook";
+        BOOLEAN COMSTARTCOMEXTENSION = FALSE : "Specifies if the COM startup extention mechanism is used";
+        STRING COMAPPMODE[] : "Specifies the COM mode names";
+        ENUM [
+            COMSTANDARD,
+            COMEXTENDED
+        ] COMSTATUS = COMSTANDARD : "Specifies the COM error checking status";
+    };
+//@description="Specifies the NM name";                    
+    NM
+    {
+    };
+//@description="Specifies the SCHEDULETABLE name";                
+    SCHEDULETABLE 
+    { 
+        COUNTER_TYPE COUNTER : "OsScheduleTableCounterRef"; 
+        BOOLEAN [ 
+                TRUE { 
+                    
+                    ENUM [ ABSOLUTE {
+                              UINT64 ABSVALUE : "OsScheduleTableAbsValue";
+                           }, 
+                           RELATIVE {
+                              UINT64 RELOFFSET : "OsScheduleTableRelOffset";
+                           }, 
+                           SYNCHRON 
+                    ] TYPE : "OsScheduleTableAutostartType";
+                    APPMODE_TYPE APPMODE[] : "OsScheduleTableAppModeRef"; 
+                }, 
+                FALSE 
+            ] AUTOSTART : "OsScheduleTableAutostart"; 
+        BOOLEAN [ 
+                TRUE { 
+                    ENUM [ EXPLICIT {
+                              UINT64 EXPLICITPRECISION : "OsScheduleTblExplicitPrecision ";
+                          }, 
+                          IMPLICIT 
+                    ] SYNCSTRATEGY : "OsScheduleTblSyncStrategy"; 
+                }, 
+                FALSE 
+            ] SYNC = FALSE : "OsScheduleTableSync";
+        BOOLEAN REPEATING : "OsScheduleTableRepeating"; 
+        UINT64 DURATION : "OsScheduleTableDuration";
+        ENUM [ 
+             EXPIRYPOINT {
+                UINT64 OFFSET : "OsScheduleTblExpPointOffset";                  
+                ENUM [
+                    TASKACTIVATION { 
+                        TASK_TYPE TASK : "OsScheduleTableActivateTaskRef"; 
+                    }, //  "OsScheduleTableTaskActivation"
+                    EVENTSETTING {
+                        EVENT_TYPE EVENT : "OsScheduleTableSetEventRef"; 
+                        TASK_TYPE TASK : "OsScheduleTableSetEventTaskRef"; 
+                     }// : "OsScheduleTableSetEvent"; 
+                ] ACTION [];
+             BOOLEAN [ 
+                TRUE { 
+                      UINT64 MAXADVANCE : "OsScheduleTableMaxAdvance";
+                      UINT64 MAXRETARD  : "OsScheduleTableMaxRetard";
+                    },
+                FALSE 
+             ] ADJUSTABLEEXPPOINT = FALSE : "OsScheduleTblAdjustableExpPoint";
+            }
+        ] EXPIRYPOINTS[] : "OsScheduleTableExpiryPoint"; 
+        APPLICATION_TYPE ACCESSING_APPLICATION[] : "OsSchTblAccessingApplication"; 
+    };
+};

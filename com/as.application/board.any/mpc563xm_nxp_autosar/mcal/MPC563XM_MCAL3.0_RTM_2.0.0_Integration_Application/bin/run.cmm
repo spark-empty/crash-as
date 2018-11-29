@@ -1,0 +1,289 @@
+;===================================================================================================
+;
+;    @file        run.cmm
+;    @version     2.0.0
+;
+;    @brief       AUTOSAR - Sample_app - Script for programming internal flash and executing
+;    @details     LTB script used for loading the elf into flash.
+;
+;    Project      : AUTOSAR 3.0 MCAL
+;    Patform      : PA
+;    Peripheral   : 
+;    Dependencies : Base Det Dem Port Dio Mcu SchM Wdg WdgIf CanIf LinIf EcuM
+;
+;    Autosar Version       : 1.9.0
+;    Autosar Revision      : ASR_REL_1_9_REV_0003
+;    Autosar Conf. Variant :
+;    Software Version      : 2.0.0
+;    Build Version         : MPC563xMxM_MCAL_2_0_0_RTM_ASR_REL_1_9_REV_0003_20110214
+;
+;    (c) Copyright 2006-2011 Freescale Semiconductor Inc. & STMicroelectronics
+;    All Rights Reserved.
+;
+;    You can use this example for any purpose on any computer system with the following restrictions:
+;    1. This example is provided "as is", without warranty.
+;    2. You do not remove this copyright notice from this example or any direct derivation thereof.
+;
+;
+;===================================================================================================
+;;===================================================================================================
+;
+;
+; Example script for programming of MPC5634M internal flash.
+;
+; Internal Flash Memory 1.5 MByte:
+;   Low address range   256 kByte (16, 48, 48, 16, 64, 64 kByte)
+;                       0x00000000--0x0003ffff
+;   Mid address range   256 kByte (2 * 128 kByte)
+;                       0x00040000--0x0007ffff
+;   High address range  1.0 MByte (8 * 128 kByte)
+;                       0x00080000--0x0017ffff
+;   Shadow row          32 kByte
+;                       0x00ff8000--0x00ffffff
+; 
+; Internal SRAM         48 kByte
+;                       0x40000000--0x4000bfff 
+;
+; Flash register base address is 0xc3f88000
+;
+; NOTES:
+; 
+;   Flash register base address has to be 0xc3f88000, because target
+;   program does currently not support another base address.
+;
+; wrd - 22.02.2008
+;
+; Include processing of Errors/Warnings etc. from common part
+; in case of manual mode adding menu
+
+
+&flashbase=0x00000000
+&shadowbase=0x00ffc000
+&rambase=0x40000000
+&flashsize=0x000180000
+&rammax=0x400177FF
+
+
+&flashdriver="c90fl5674.bin"
+
+; Optimize flash programming time by switching on PLL
+&optimize=0
+
+;========================================================================
+; CPU setup
+;========================================================================
+; CPU setup
+
+SYStem.RESet
+SYStem.BdmClock 4.0MHz
+SYStem.CPU MPC55XX
+SYStem.DETECT CPU
+SYStem.Option.WATCHDOG OFF
+SYStem.Up
+;check processor revision
+&NPC_DID=data.long(DBG:0x80)
+if (&NPC_DID&0x0FFFF000)==0x08200000
+(
+	print "Processor revision 0 detected, calling jpc563xm_rev0.cmm..."
+	; Internal Flash Memory 1.0 MByte:
+	;   Low address range   256 kByte (16, 48, 48, 16, 64, 64 kByte)
+	;                       0x00000000--0x0003ffff
+	;   Mid address range   256 kByte (2 * 128 kByte)
+	;                       0x00040000--0x0007ffff
+	;   High address range  512 kByte (2 * 256 kByte)
+	;                       0x00080000--0x000fffff
+	;   Shadow row          32 kByte
+	;                       0x00ff8000--0x00ffffff
+	; 
+	; Internal SRAM         48 kByte
+	;                       0x40000000--0x4000bfff 
+	;
+	; Flash register base address is 0xc3f88000
+
+	&flashsize=0x000100000
+	&rammax=0x4000bfff
+	
+	; initialize internal SRAM
+  Data.Set EA:0x40000000--0x4000bfff %quad 0
+    
+	; setup MMU for flash, RAM and register access
+	MMU.TLB1.SET 0x1 0xC0000500 0xFFF0000A 0xFFF0003F
+	MMU.TLB1.SET 0x2 0xC0000700 0x20000000 0x2000003F
+	MMU.TLB1.SET 0x3 0xC0000400 0x40000008 0x4000003F
+	MMU.TLB1.SET 0x4 0xC0000500 0xC3F00008 0xC3F0003F
+	MMU.TLB1.SET 0x5 0xC0000700 0x00000000 0x0000003F
+	
+	;========================================================================
+	; Flash declaration
+	
+	FLASH.RESet
+	
+	FLASH.Create 1. (&flashbase+0x00000000)++0x03fff TARGET Quad 0. ; L0
+	FLASH.Create 1. (&flashbase+0x00004000)++0x0bfff TARGET Quad 1. ; L1 
+	FLASH.Create 1. (&flashbase+0x00010000)++0x0bfff TARGET Quad 2. ; L2 
+	FLASH.Create 1. (&flashbase+0x0001c000)++0x03fff TARGET Quad 3. ; L3
+	FLASH.Create 1. (&flashbase+0x00020000)++0x0ffff TARGET Quad 4. ; L4
+	FLASH.Create 1. (&flashbase+0x00030000)++0x0ffff TARGET Quad 5. ; L5
+	FLASH.Create 2. (&flashbase+0x00040000)++0x1ffff TARGET Quad 0. ; M0
+	FLASH.Create 2. (&flashbase+0x00060000)++0x1ffff TARGET Quad 1. ; M1
+	&flashaddr=&flashbase+0x00080000
+	&Hx=0.
+	while &flashaddr<(&flashbase+&flashsize)
+	(
+	  FLASH.Create 3. &flashaddr++0x3ffff TARGET Quad &Hx ; H0..H3
+	  &flashaddr=&flashaddr+0x40000
+	  &Hx=&Hx+1.
+	)
+	; Shadow row
+	FLASH.Create 4. (&shadowbase+0x00000000)++0x3fff NOP Quad
+	
+	FLASH.TARGET E:&rambase E:&rambase+0x2000 0x1000 ~~/demo/powerpc/flash/quad/c90fl.bin /STACKSIZE 0x0200
+	
+)
+ELSE
+(
+  ; initialize internal SRAM
+  Data.Set EA:0x40000000--&rammax %quad 0
+	
+	; setup MMU for flash, RAM and register access
+	MMU.TLB1.SET 0x1 0xC0000500 0xFFF0000A 0xFFF0003F
+	MMU.TLB1.SET 0x2 0xC0000700 0x20000000 0x2000003F
+	MMU.TLB1.SET 0x3 0xC0000400 0x40000008 0x4000003F
+	MMU.TLB1.SET 0x4 0xC0000500 0xC3F00008 0xC3F0003F
+	MMU.TLB1.SET 0x5 0xC0000700 0x00000000 0x0000003F
+	
+	;enable SPE
+	Register.Set SPE 1
+	
+	;========================================================================
+	; Flash declaration
+	
+	FLASH.RESet
+	
+	FLASH.Create 1. (&flashbase+0x00000000)++0x03fff TARGET Quad 0. ; L0
+	FLASH.Create 1. (&flashbase+0x00004000)++0x03fff TARGET Quad 1. ; L1a 
+	FLASH.Create 1. (&flashbase+0x00008000)++0x07fff TARGET Quad 2. ; L1b 
+	FLASH.Create 1. (&flashbase+0x00010000)++0x07fff TARGET Quad 3. ; L2a 
+	FLASH.Create 1. (&flashbase+0x00018000)++0x03fff TARGET Quad 4. ; L2b 
+	FLASH.Create 1. (&flashbase+0x0001c000)++0x03fff TARGET Quad 5. ; L3
+	FLASH.Create 1. (&flashbase+0x00020000)++0x0ffff TARGET Quad 6. ; L4
+	FLASH.Create 1. (&flashbase+0x00030000)++0x0ffff TARGET Quad 7. ; L5
+	
+	if (CPU()=="MPC5633M")||(CPU()=="MPC5634M")||(CPU()=="SPC563M60")||(CPU()=="SPC563M64")
+	(
+	  FLASH.Create 2. (&flashbase+0x00040000)++0x1ffff TARGET Quad 0. ; M0
+	  FLASH.Create 2. (&flashbase+0x00060000)++0x1ffff TARGET Quad 1. ; M1
+	)
+	
+	&flashaddr=&flashbase+0x00080000
+	&Hx=0.
+	while &flashaddr<(&flashbase+0x100000)
+	(
+	  FLASH.Create 3. &flashaddr++0x1ffff TARGET Quad &Hx ; H0..H3
+	  &flashaddr=&flashaddr+0x20000
+	  &Hx=&Hx+1.
+	)
+	
+	if (CPU()=="MPC5634M")||(CPU()=="SPC563M64")
+	(
+	  &Hx=0.
+	  while &flashaddr<(&flashbase+0x180000)
+	  (
+	    FLASH.Create 4. &flashaddr++0x1ffff TARGET Quad &Hx ; H0..H3
+	    &flashaddr=&flashaddr+0x20000
+	    &Hx=&Hx+1.
+	  )
+	)
+	
+	; Shadow row
+	FLASH.Create 5. (&shadowbase+0x00000000)++0x3fff NOP Quad
+	
+	FLASH.TARGET E:&rambase E:&rambase+0x2000 0x1000 ~~/demo/powerpc/flash/quad/c90fl563xm.bin /STACKSIZE 0x0200
+)
+
+;========================================================================
+; Flash programming example
+;
+; Flash programming speed is about three times faster when memory class E:
+; is used for data buffer (DUALPORT memory access). For DUALPORT access it
+; is required to setup MemAccess NEXUS for both, NEXUS and JTAG debugger.
+
+
+  FLASH.UNLOCK ALL
+  FLASH.ReProgram ALL /Erase
+  Data.Load.Elf sample_app_mcal.elf E:0x00--0x0017ffff /Quad /verify
+  FLASH.ReProgram OFF
+  FLASH.LOCK ALL
+
+;========================================================================
+;Batch Job for debugging in internal FLASH on the MPC5604B demo board
+
+;clear the TRACE32 screen
+WinCLEAR
+
+; reset
+SYStem.RESet
+
+;select CPU type
+SYStem.DETECT CPU
+
+;inform debugger about FLASH memory address range
+Map.BOnchip 0x0--0x017FFFF
+
+;set JTAG clock back to default
+SYStem.BdmClock 4MHz
+
+;restart the CPU with debug mode enable
+SYSTem.Up
+; setup MMU for flash, RAM and register access
+MMU.TLB1.SET 0x1 0xC0000500 0xFFF0000A 0xFFF0003F
+MMU.TLB1.SET 0x2 0xC0000700 0x00000020 0x0000003F
+MMU.TLB1.SET 0x3 0xC0000700 0x20000020 0x2000003F
+MMU.TLB1.SET 0x4 0xC0000400 0x40000028 0x4000003F
+MMU.TLB1.SET 0x5 0xC0000500 0xC3F00008 0xC3F0003F
+
+;DisableWatchdog:
+d.s 0xfff38010 %long 0xc520
+d.s 0xfff38010 %long 0xd928
+d.s 0xfff38000 %long 0x8000010A
+
+;load program (if FLASH selected than load only debug symbols)
+
+;Data.Load.Elf sample_app_mcal.elf  /GLOBTYPES /GT /MW /BUGFIX /NOCODE
+Data.Load.Elf sample_app_mcal.elf  /GLOBTYPES /GHS /NOCODE
+
+;display source
+Data.List
+
+; Include test execution, timeout and dump processing
+
+
+;clear all breakpoints
+Break.delete /ALL
+
+print "[BEART]: Setting PC to _start"
+R.S IP _start
+
+
+
+
+;set breakpoint at main
+
+Break.SET main
+;Go
+
+;Executing test application with timeout " 60 " s"
+;wait for timeout or until the emulation is stopped
+;wait !run() 60.s
+
+;stop the emulation if it is runnning
+IF run()
+	(
+	Break
+	)
+
+;quit
+
+
+
+

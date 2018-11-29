@@ -1,0 +1,147 @@
+/**************************************************************************************
+* 
+*   Freescale(TM) and the Freescale logo are trademarks of Freescale Semiconductor, Inc. 
+*   All other product or service names are the property of their respective owners. 
+*   (C) Freescale Semiconductor, Inc. 2007-2010
+* 
+*   You can use this example for any purpose on any computer system with the
+*   following restrictions:
+*
+*   1. This example is provided "as is", without warranty.
+*
+*   2. You don't remove this copyright notice from this example or any direct derivation 
+*      thereof.
+*
+*  Description:  DIAB linker command file for AUTOSAR OS/MPC56xxAMv3 sample 
+*                application.
+*
+**************************************************************************************/
+MEMORY
+{
+    vectors      : org = 0x40000000, len = 0x00001000             
+    internal_ram : org = 0x40001000, len = 0x0000D000             
+    heap :         org = 0x4000E000, len = 0x00001000 /* Heap start location */
+    stack :        org = 0x4000F000, len = 0x00001000 /* Stack end location */    
+}
+
+SECTIONS
+{
+    /* Code and constant group */
+    GROUP : {
+        /* Code and constant area (all code and constant sections shall be placed between .osbegincode and .osendcode sections) */
+        _f_osbegincode = .;
+        .osbegincode : {}
+
+        .text_vle (TEXT) : { *(.text_vle) *(.rdata) *(.rodata) *(.init) *(.fini) }
+        .text (TEXT) : { *(.text) }
+
+        /*  OS code and constant data */
+        _f_ostext = .;
+        .ostext (TEXT) : {
+            *(.ostext)
+            *(.ostext_vle)
+         }
+        _e_ostext = .;
+
+        .oshook (TEXT) : {
+            *(.oshook)
+            *(.oshook_vle)
+        }
+
+        .appcode (TEXT) : {
+            *(.appcode)
+            *(.appcode_vle)
+        }        
+
+        /* Constructor and destructor function ptrs */
+        .ctors : {}
+        .dtors : {}
+
+        .rodata : {}
+        .osrodata : {}
+
+        /* Short constants */
+        .sdata2 : {}
+        .ossrodata : {}
+        .sbss2 : {}
+        .sapp_c32 : {}          /* small constant sections for all trusted applications */
+        .sapp_c16 : {}
+        .sapp_cU : {}
+        .sapp_c8 : {}
+        
+        .osendcode : {}   
+
+    } > internal_ram
+
+    /* Interrupt vectors group */
+    GROUP : {
+        _f_vects = .;
+        .vects (TEXT) : {
+          *(.vects)
+          *(.vects_vle)
+        }       
+
+    } > vectors
+    
+    /* Data/BSS group */
+    GROUP : {
+        _f_osstack = .;
+        .osstack   ALIGN(32): {}
+        _e_osstack = .;
+
+        __DATA_ROM = .;
+        __DATA_RAM = .;
+        .data  : {}
+        .osdata : {}
+
+        /* Small data sections */
+        .sdata : {}             /* default sdata threshold is 0, then sdata/sbss section are empty always. */
+        .ossdata: {}
+        .sapp_v32_data : {}     /* small data sections for all trusted applications */
+        .sapp_v16_data : {}
+        .sapp_vU_data : {}
+        .sapp_v8_data : {}
+        
+        __DATA_END = .;
+
+        __BSS_START = .;
+
+        /* Short bss sections */
+        .sbss : {}
+        .ossbss : {}
+        .sapp_v32_bss : {}      /* small bss sections for all trusted applications */
+        .sapp_v16_bss : {}
+        .sapp_vU_bss : {}
+        .sapp_v8_bss : {}
+        
+        /* bss sections */
+        .osbss : {}
+        .bss   : {}
+
+        __BSS_END = .;
+
+    } > internal_ram
+}
+
+__HEAP_START = ADDR(heap);
+__HEAP_END   = ADDR(heap)+SIZEOF(heap);
+__SP_INIT    = ADDR(stack)+SIZEOF(stack);
+__SP_END     = ADDR(stack);
+
+
+/* Some targets use an extra underscore in front of identifiers */
+
+___HEAP_START = __HEAP_START;
+___HEAP_END   = __HEAP_END;
+___SP_INIT    = __SP_INIT;
+___SP_END     = __SP_END;
+___DATA_ROM   = __DATA_ROM;
+___DATA_RAM   = __DATA_RAM;
+___DATA_END   = __DATA_END;
+___BSS_START  = __BSS_START;
+___BSS_END    = __BSS_END;
+
+/* 2 symbols for ORTI support */
+_OsOrtiStart      = __SP_INIT;
+_OsOrtiStackStart = __SP_END;
+

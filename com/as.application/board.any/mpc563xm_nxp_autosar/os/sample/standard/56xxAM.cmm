@@ -1,0 +1,107 @@
+;**************************************************************************************
+; 
+;   Freescale(TM) and the Freescale logo are trademarks of Freescale Semiconductor, Inc. 
+;   All other product or service names are the property of their respective owners. 
+;   (C) Freescale Semiconductor, Inc. 2006-2010
+; 
+;   You can use this example for any purpose on any computer system with the
+;   following restrictions:
+;
+;   1. This example is provided "as is", without warranty.
+;
+;   2. You don't remove this copyright notice from this example or any direct derivation 
+;      thereof.
+;
+;  Description:  Example lauterbach script for initialization of MPC5634M, MPC5644A, MPC5674F.
+;
+;**************************************************************************************
+
+local &mcu
+entry &mcu
+
+
+SYStem.RESet
+
+if (&mcu!="5634M") 
+(
+if (&mcu!="5644A")
+(
+if (&mcu!="5674F")
+(
+  PRINT %error "wrong mcu parameter value: &mcu, expected one of following: 5634M, 5644A, or 5674F"
+  END
+)
+)
+) 
+    
+if (&mcu=="5634M")
+(
+    SYStem.CPU MPC5634M
+)
+
+if (&mcu=="5644A")
+(
+    SYStem.CPU MPC5644A
+)
+
+if (&mcu=="5674F")
+(
+    SYStem.CPU MPC5674
+)
+
+    SYStem.BdmClock 4.MHz
+    SYStem.option DUALPORT ON    
+    SYStem.UP
+
+; Set up MMU TLBs as BAM do:
+
+; Invalidate MMU0
+MMU.TLB1.SET 0. 0x00000000 0x00000000 0x00000000
+
+; Setup MMU for Periph bridge B and BAM
+; Base address = 0xFFF0_0000
+; TLB1, 1 MByte Memory Space, Guarded, Cachable, All Access
+MMU.TLB1.SET 0. 0xC0000500 0xFFF0000A 0xFFF0003F
+ 
+; Set up MMU for Internal Flash
+; Base address = 0x0000_0000
+; TLB1, 16 MByte Memory Space, Not Guarded, Cachable, All Access
+MMU.TLB1.SET 1. 0xC0000700 0x00000020 0x0000003F 
+
+; Setup MMU for Calibration EBI
+; Base address = 0x2000_0000
+; TLB1, 16 MByte Memory Space, Not Guarded, Don't Cache, All Access
+MMU.TLB1.SET 2. 0xC0000700 0x20000020 0x0000003F 
+
+; Set up MMU for Internal SRAM
+; Base address = 0x4000_0000
+; TLB1, 256 KByte Memory Space, Not Guarded, Cachable, All Access
+MMU.TLB1.SET 3. 0xC0000400 0x40000020 0x4000003F
+
+; Set up MMU for Periph bridge A
+; Base address = 0xC3F0_0000
+; TLB4, 1 MByte Memory Space, Guarded, Cachable, All Access
+MMU.TLB1.SET 4. 0xC0000500 0xC3F0000A 0xC3F0003F 
+
+if (&mcu=="5634M")
+(
+    data.set a:0x40000000--0x400177FF %quad 0xaaaa555588887777 ; 94K    
+    
+    ;disable SWT
+    data.set  a:0xC3F909A4 %long 0x10000000            ; stop request in SIU
+    data.set sd:0xFFF38000 %BE %LONG 0xff00000a
+)
+
+if (&mcu=="5644A")
+(
+    data.set a:0x40000000--0x4002FFFF %quad 0xaaaa555588887777 ; 192K
+    
+    data.set sd:0xc3fbc006 %be 0x80
+)
+
+if (&mcu=="5674F")
+(
+    data.set EA:0x40000000--0x4003FFFF %quad 0xdeadbeefdeadbeef ; 256K
+)
+
+ENDDO

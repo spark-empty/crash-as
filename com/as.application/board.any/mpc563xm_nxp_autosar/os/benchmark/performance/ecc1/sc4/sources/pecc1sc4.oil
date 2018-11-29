@@ -1,0 +1,409 @@
+/**************************************************************************************
+* 
+*  Freescale(TM) and the Freescale logo are trademarks of Freescale Semiconductor, Inc. 
+*  All other product or service names are the property of their respective owners. 
+*  (C) Freescale Semiconductor, Inc. 2008 - 2009
+* 
+*  You can use this example for any purpose on any computer system with the
+*  following restrictions:
+*
+*  1. This example is provided "as is", without warranty.
+*
+*  2. You don't remove this copyright notice from this example or any direct derivation 
+*     thereof.
+*
+*  Description:  AUTOSAR OS/MPC56xxAM performance benchmark for ECC1/SC4
+*
+**************************************************************************************/
+
+OIL_VERSION = "3.0";
+
+#include "os_mpc56xxAM.oin"
+
+CPU Cpu1 {
+    APPMODE Mode1;
+    
+    OS Os1 {
+#include "..\..\..\common\target.oin" 
+#include "..\..\..\..\common\tptimer.oin" 
+			InternalRAM = TRUE;
+			InternalROM = TRUE;
+        };       
+#include "..\..\..\..\common\options.oin"                       
+        STATUS = EXTENDED;              
+    };
+
+#include "..\..\..\common\performance.oin"
+
+    TASK TASK_BGND {
+        STACKSIZE = 512;
+    };    
+
+    ISR OneTaskISR {
+        STACKSIZE = 384;
+        TIMING_PROTECTION = TRUE {
+            EXECUTIONTIME = 30000000;
+            MAXOSINTERRUPTLOCKTIME=0;
+            MAXALLINTERRUPTLOCKTIME=0;
+            TIMEFRAME = 0;
+        };  
+
+    };    
+    ISR OneEventISR {
+        CATEGORY = 2;
+        PRIORITY = 1;
+        STACKSIZE = 384;
+        TIMING_PROTECTION = TRUE {
+            EXECUTIONTIME = 30000000;
+            MAXOSINTERRUPTLOCKTIME=0;
+            MAXALLINTERRUPTLOCKTIME=0;
+            TIMEFRAME = 0;
+        };  
+        IrqChannel = EXTERNAL {
+           IrqNumber = 209; // eMIOS channel 23
+        };
+    };
+    
+    TASK TASK_1 {
+        STACKSIZE = 384;
+        TIMING_PROTECTION = TRUE {
+            EXECUTIONBUDGET = 30000000;
+            TIMEFRAME = 0;
+            MAXOSINTERRUPTLOCKTIME=0;
+            MAXALLINTERRUPTLOCKTIME=0;
+        }; 
+    };
+    TASK TASK_2 {
+        STACKSIZE = 384;
+        TIMING_PROTECTION = TRUE {
+            EXECUTIONBUDGET = 30000000;
+            TIMEFRAME = 0;
+            MAXOSINTERRUPTLOCKTIME=0;
+            MAXALLINTERRUPTLOCKTIME=0;
+        }; 
+    };
+    TASK TASK_3_EVT {        
+        AUTOSTART = TRUE;
+        PRIORITY = 24;
+        SCHEDULE = FULL;
+        ACTIVATION = 1;		
+        EVENT = EVT3;
+        STACKSIZE = 384;
+        TIMING_PROTECTION = TRUE {
+            EXECUTIONBUDGET = 30000000;
+            TIMEFRAME = 0;
+            MAXOSINTERRUPTLOCKTIME=0;
+            MAXALLINTERRUPTLOCKTIME=0;
+        }; 
+    };
+    TASK TASK_4_EVT {
+        AUTOSTART = TRUE;
+        PRIORITY = 25;
+        SCHEDULE = FULL;
+        ACTIVATION = 1;        		
+        EVENT = EVT4;
+        STACKSIZE = 384;
+        TIMING_PROTECTION = TRUE {
+            EXECUTIONBUDGET = 30000000;
+            TIMEFRAME = 0;
+            MAXOSINTERRUPTLOCKTIME=0;
+            MAXALLINTERRUPTLOCKTIME=0;
+        }; 
+    };
+    
+    ISR SecondTimerISR {
+        STACKSIZE = 384;
+    };    
+
+    ALARM ALARM_TWO {
+        COUNTER = Counter2;
+        ACTION = SETEVENT {
+            TASK = TASK_ALM_EVT;
+            EVENT = EVT_ALM;
+        };
+		AUTOSTART = FALSE;
+    };
+    
+    TASK TASK_ALM {
+        STACKSIZE = 384;
+        TIMING_PROTECTION = TRUE {
+            EXECUTIONBUDGET = 30000000;
+            TIMEFRAME = 0;
+            MAXOSINTERRUPTLOCKTIME=0;
+            MAXALLINTERRUPTLOCKTIME=0;
+        }; 
+    };    
+    TASK TASK_ALM_EVT {
+        AUTOSTART = TRUE;
+        PRIORITY = 26;
+        SCHEDULE = FULL;        
+        ACTIVATION = 1;
+	STACKSIZE   = 384;
+        EVENT = EVT_ALM;
+        TIMING_PROTECTION = TRUE {
+            EXECUTIONBUDGET = 30000000;
+            TIMEFRAME = 0;
+            MAXOSINTERRUPTLOCKTIME=0;
+            MAXALLINTERRUPTLOCKTIME=0;
+        }; 
+    };    
+    
+    ALARM ALARM_1 {
+        ACTION = SETEVENT {
+            TASK = TASK_h1;
+            EVENT = EVT1h;
+        };
+    };
+    ALARM ALARM_2 {
+        ACTION = SETEVENT {
+            TASK = TASK_h2;
+            EVENT = EVT2h;
+        };
+    };
+    ALARM ALARM_3 {
+        ACTION = SETEVENT {
+            TASK = TASK_h3;
+            EVENT = EVT3h;
+        };
+    };
+    ALARM ALARM_4 {
+        ACTION = SETEVENT {
+            TASK = TASK_h4;
+            EVENT = EVT4h;
+        };
+    };
+    ALARM ALARM_5 {
+        ACTION = ACTIVATETASK {
+            TASK = TASK_h5;
+        };        
+    };
+    ALARM ALARM_6 {
+        ACTION = ACTIVATETASK {
+            TASK = TASK_h6;
+        };        
+    };
+    ALARM ALARM_7 {
+        ACTION = ACTIVATETASK {
+            TASK = TASK_h7;
+        };        
+    };
+    ALARM ALARM_8 {
+        ACTION = ACTIVATETASK {
+            TASK = TASK_h8;
+        };        
+    };    
+
+    TASK TASK_h1 {
+        STACKSIZE = 384;
+        AUTOSTART = TRUE;
+        EVENT = EVT1h;
+        TIMING_PROTECTION = TRUE {
+            EXECUTIONBUDGET = 30000000;
+            TIMEFRAME = 0;
+            MAXOSINTERRUPTLOCKTIME=0;
+            MAXALLINTERRUPTLOCKTIME=0;
+        }; 
+    };
+    TASK TASK_h2 {
+        STACKSIZE = 384;
+        AUTOSTART = TRUE;
+        EVENT = EVT2h;
+        TIMING_PROTECTION = TRUE {
+            EXECUTIONBUDGET = 30000000;
+            TIMEFRAME = 0;
+            MAXOSINTERRUPTLOCKTIME=0;
+            MAXALLINTERRUPTLOCKTIME=0;
+        }; 
+    };
+    TASK TASK_h3 {
+        STACKSIZE = 384;
+        AUTOSTART = TRUE;
+        EVENT = EVT3h;
+        TIMING_PROTECTION = TRUE {
+            EXECUTIONBUDGET = 30000000;
+            TIMEFRAME = 0;
+            MAXOSINTERRUPTLOCKTIME=0;
+            MAXALLINTERRUPTLOCKTIME=0;
+        }; 
+    };
+    TASK TASK_h4 {
+        STACKSIZE = 384;
+        AUTOSTART = TRUE;
+        EVENT = EVT4h;
+        TIMING_PROTECTION = TRUE {
+            EXECUTIONBUDGET = 30000000;
+            TIMEFRAME = 0;
+            MAXOSINTERRUPTLOCKTIME=0;
+            MAXALLINTERRUPTLOCKTIME=0;
+        }; 
+    };
+    TASK TASK_h5 {
+        STACKSIZE = 384;
+        TIMING_PROTECTION = TRUE {
+            EXECUTIONBUDGET = 30000000;
+            TIMEFRAME = 0;
+            MAXOSINTERRUPTLOCKTIME=0;
+            MAXALLINTERRUPTLOCKTIME=0;
+        }; 
+    };
+    TASK TASK_h6 {
+        STACKSIZE = 384;
+        TIMING_PROTECTION = TRUE {
+            EXECUTIONBUDGET = 30000000;
+            TIMEFRAME = 0;
+            MAXOSINTERRUPTLOCKTIME=0;
+            MAXALLINTERRUPTLOCKTIME=0;
+        }; 
+    };
+    TASK TASK_h7 {
+        STACKSIZE = 384;
+        TIMING_PROTECTION = TRUE {
+            EXECUTIONBUDGET = 30000000;
+            TIMEFRAME = 0;
+            MAXOSINTERRUPTLOCKTIME=0;
+            MAXALLINTERRUPTLOCKTIME=0;
+        }; 
+    };
+    TASK TASK_h8 {
+        STACKSIZE = 384;
+        TIMING_PROTECTION = TRUE {
+            EXECUTIONBUDGET = 30000000;
+            TIMEFRAME = 0;
+            MAXOSINTERRUPTLOCKTIME=0;
+            MAXALLINTERRUPTLOCKTIME=0;
+        }; 
+    };
+    
+    TASK TASK_t1 {
+        STACKSIZE = 384;
+        TIMING_PROTECTION = TRUE {
+            EXECUTIONBUDGET = 30000000;
+            TIMEFRAME = 0;
+            MAXOSINTERRUPTLOCKTIME=0;
+            MAXALLINTERRUPTLOCKTIME=0;
+        }; 
+    };    
+    TASK TASK_t2 {
+        STACKSIZE = 384;
+        TIMING_PROTECTION = TRUE {
+            EXECUTIONBUDGET = 30000000;
+            TIMEFRAME = 0;
+            MAXOSINTERRUPTLOCKTIME=0;
+            MAXALLINTERRUPTLOCKTIME=0;
+        }; 
+    };
+    TASK TASK_t3 {
+        STACKSIZE = 384;
+        TIMING_PROTECTION = TRUE {
+            EXECUTIONBUDGET = 30000000;
+            TIMEFRAME = 0;
+            MAXOSINTERRUPTLOCKTIME=0;
+            MAXALLINTERRUPTLOCKTIME=0;
+        }; 
+    };
+    TASK TASK_t4 {
+        STACKSIZE = 384;
+        TIMING_PROTECTION = TRUE {
+            EXECUTIONBUDGET = 30000000;
+            TIMEFRAME = 0;
+            MAXOSINTERRUPTLOCKTIME=0;
+            MAXALLINTERRUPTLOCKTIME=0;
+        }; 
+    };
+    TASK TASK_t5 {
+        STACKSIZE = 384;
+        TIMING_PROTECTION = TRUE {
+            EXECUTIONBUDGET = 30000000;
+            TIMEFRAME = 0;
+            MAXOSINTERRUPTLOCKTIME=0;
+            MAXALLINTERRUPTLOCKTIME=0;
+        }; 
+    };
+    TASK TASK_t6 {
+        STACKSIZE = 384;
+        TIMING_PROTECTION = TRUE {
+            EXECUTIONBUDGET = 30000000;
+            TIMEFRAME = 0;
+            MAXOSINTERRUPTLOCKTIME=0;
+            MAXALLINTERRUPTLOCKTIME=0;
+        }; 
+    };
+    TASK TASK_t7 {
+        STACKSIZE = 384;
+        TIMING_PROTECTION = TRUE {
+            EXECUTIONBUDGET = 30000000;
+            TIMEFRAME = 0;
+            MAXOSINTERRUPTLOCKTIME=0;
+            MAXALLINTERRUPTLOCKTIME=0;
+        }; 
+    };
+    
+    EVENT EVT3 {
+        MASK = 16;
+    };
+    EVENT EVT4 {
+        MASK = 32;
+    };
+    EVENT EVT_ALM {
+        MASK = 64;
+    };
+
+    EVENT EVT1h {
+        MASK = 1;
+    };
+    EVENT EVT2h {
+        MASK = 2;
+    };
+    EVENT EVT3h {
+        MASK = 4;
+    };
+    EVENT EVT4h {
+        MASK = 8;
+    };    
+    
+APPLICATION TrustedApplication {
+        TRUSTED = TRUE;
+        STARTUPHOOK = FALSE;
+        SHUTDOWNHOOK = FALSE;
+        ERRORHOOK = FALSE;
+        HAS_RESTARTTASK = FALSE;
+        COUNTER = Counter1;
+        COUNTER = Counter2;        
+        TASK = TASK_BGND; 
+        TASK = TASK_1;   
+        TASK = TASK_2;
+        TASK = TASK_ALM;
+        TASK = TASK_ALM_EVT;
+        TASK = TASK_h1;
+        TASK = TASK_h2;
+        TASK = TASK_h3;
+        TASK = TASK_h4;
+        TASK = TASK_h5;
+        TASK = TASK_h6;
+        TASK = TASK_h7;
+        TASK = TASK_h8;
+        TASK = TASK_t1;
+        TASK = TASK_t2;
+        TASK = TASK_t3;
+        TASK = TASK_t4;
+        TASK = TASK_t5;
+        TASK = TASK_t6;
+        TASK = TASK_t7;
+        TASK = TASK_3_EVT;
+        TASK = TASK_4_EVT;
+        ISR = OneTaskISR;
+        ISR = OneEventISR;
+        ISR = SecondTimerISR;
+        ALARM = ALARM_ONE;
+        ALARM = ALARM_TWO;
+        ALARM = ALARM_1;
+        ALARM = ALARM_2;
+        ALARM = ALARM_3;
+        ALARM = ALARM_4;
+        ALARM = ALARM_5;
+        ALARM = ALARM_6;
+        ALARM = ALARM_7;
+        ALARM = ALARM_8;
+        SCHEDULETABLE = ScheduleTable1;
+    };    
+};

@@ -1,0 +1,545 @@
+<?xml version='1.0'?>
+<AUTOSAR xmlns="http://autosar.org/3.0.2" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://autosar.org/3.0.2 autosar.xsd">
+  <TOP-LEVEL-PACKAGES>
+    <AR-PACKAGE>
+      <SHORT-NAME>Mcu</SHORT-NAME>
+      <ELEMENTS>
+        <MODULE-CONFIGURATION>
+          <SHORT-NAME>Mcu</SHORT-NAME>
+          <DEFINITION-REF DEST="MODULE-DEF">/TS_T2D14M20I0R0/Mcu</DEFINITION-REF>
+          <IMPLEMENTATION-CONFIG-VARIANT>VARIANT-PRE-COMPILE</IMPLEMENTATION-CONFIG-VARIANT>
+          <CONTAINERS>
+            <CONTAINER>
+              <SHORT-NAME>McuGeneralConfiguration</SHORT-NAME>
+              <DEFINITION-REF DEST="PARAM-CONF-CONTAINER-DEF">/TS_T2D14M20I0R0/Mcu/McuGeneralConfiguration</DEFINITION-REF>
+              <PARAMETER-VALUES>
+                <BOOLEAN-VALUE>
+                  <DEFINITION-REF DEST="BOOLEAN-PARAM-DEF">/TS_T2D14M20I0R0/Mcu/McuGeneralConfiguration/McuDevErrorDetect</DEFINITION-REF>
+                  <VALUE>false</VALUE>
+                </BOOLEAN-VALUE>
+                <BOOLEAN-VALUE>
+                  <DEFINITION-REF DEST="BOOLEAN-PARAM-DEF">/TS_T2D14M20I0R0/Mcu/McuGeneralConfiguration/McuPerformResetApi</DEFINITION-REF>
+                  <VALUE>true</VALUE>
+                </BOOLEAN-VALUE>
+                <BOOLEAN-VALUE>
+                  <DEFINITION-REF DEST="BOOLEAN-PARAM-DEF">/TS_T2D14M20I0R0/Mcu/McuGeneralConfiguration/McuCalloutBeforePerformReset</DEFINITION-REF>
+                  <VALUE>false</VALUE>
+                </BOOLEAN-VALUE>
+                <BOOLEAN-VALUE>
+                  <DEFINITION-REF DEST="BOOLEAN-PARAM-DEF">/TS_T2D14M20I0R0/Mcu/McuGeneralConfiguration/McuVersionInfoApi</DEFINITION-REF>
+                  <VALUE>false</VALUE>
+                </BOOLEAN-VALUE>
+                <BOOLEAN-VALUE>
+                  <DEFINITION-REF DEST="BOOLEAN-PARAM-DEF">/TS_T2D14M20I0R0/Mcu/McuGeneralConfiguration/McuConfigureFlash</DEFINITION-REF>
+                  <VALUE>true</VALUE>
+                </BOOLEAN-VALUE>
+                <BOOLEAN-VALUE>
+                  <DEFINITION-REF DEST="BOOLEAN-PARAM-DEF">/TS_T2D14M20I0R0/Mcu/McuGeneralConfiguration/McuEnterLowPowerMode</DEFINITION-REF>
+                  <VALUE>true</VALUE>
+                </BOOLEAN-VALUE>
+              </PARAMETER-VALUES>
+            </CONTAINER>
+            <CONTAINER>
+              <SHORT-NAME>CommonPublishedInformation</SHORT-NAME>
+              <DEFINITION-REF DEST="PARAM-CONF-CONTAINER-DEF">/TS_T2D14M20I0R0/Mcu/CommonPublishedInformation</DEFINITION-REF>
+              <PARAMETER-VALUES>
+                <INTEGER-VALUE>
+                  <DEFINITION-REF DEST="INTEGER-PARAM-DEF">/TS_T2D14M20I0R0/Mcu/CommonPublishedInformation/ArMajorVersion</DEFINITION-REF>
+                  <VALUE>2</VALUE>
+                </INTEGER-VALUE>
+                <INTEGER-VALUE>
+                  <DEFINITION-REF DEST="INTEGER-PARAM-DEF">/TS_T2D14M20I0R0/Mcu/CommonPublishedInformation/ArMinorVersion</DEFINITION-REF>
+                  <VALUE>2</VALUE>
+                </INTEGER-VALUE>
+                <INTEGER-VALUE>
+                  <DEFINITION-REF DEST="INTEGER-PARAM-DEF">/TS_T2D14M20I0R0/Mcu/CommonPublishedInformation/ArPatchVersion</DEFINITION-REF>
+                  <VALUE>2</VALUE>
+                </INTEGER-VALUE>
+                <INTEGER-VALUE>
+                  <DEFINITION-REF DEST="INTEGER-PARAM-DEF">/TS_T2D14M20I0R0/Mcu/CommonPublishedInformation/ModuleId</DEFINITION-REF>
+                  <VALUE>101</VALUE>
+                </INTEGER-VALUE>
+                <INTEGER-VALUE>
+                  <DEFINITION-REF DEST="INTEGER-PARAM-DEF">/TS_T2D14M20I0R0/Mcu/CommonPublishedInformation/SwMajorVersion</DEFINITION-REF>
+                  <VALUE>2</VALUE>
+                </INTEGER-VALUE>
+                <INTEGER-VALUE>
+                  <DEFINITION-REF DEST="INTEGER-PARAM-DEF">/TS_T2D14M20I0R0/Mcu/CommonPublishedInformation/SwMinorVersion</DEFINITION-REF>
+                  <VALUE>0</VALUE>
+                </INTEGER-VALUE>
+                <INTEGER-VALUE>
+                  <DEFINITION-REF DEST="INTEGER-PARAM-DEF">/TS_T2D14M20I0R0/Mcu/CommonPublishedInformation/SwPatchVersion</DEFINITION-REF>
+                  <VALUE>0</VALUE>
+                </INTEGER-VALUE>
+                <INTEGER-VALUE>
+                  <DEFINITION-REF DEST="INTEGER-PARAM-DEF">/TS_T2D14M20I0R0/Mcu/CommonPublishedInformation/VendorId</DEFINITION-REF>
+                  <VALUE>43</VALUE>
+                </INTEGER-VALUE>
+              </PARAMETER-VALUES>
+            </CONTAINER>
+            <CONTAINER>
+              <SHORT-NAME>McuModuleConfiguration_0</SHORT-NAME>
+              <DEFINITION-REF DEST="PARAM-CONF-CONTAINER-DEF">/TS_T2D14M20I0R0/Mcu/McuModuleConfiguration</DEFINITION-REF>
+              <PARAMETER-VALUES>
+                <ENUMERATION-VALUE>
+                  <DEFINITION-REF DEST="ENUMERATION-PARAM-DEF">/TS_T2D14M20I0R0/Mcu/McuModuleConfiguration/McuClockSrcFailureNotification</DEFINITION-REF>
+                  <VALUE>ENABLED</VALUE>
+                </ENUMERATION-VALUE>
+                <INTEGER-VALUE>
+                  <DEFINITION-REF DEST="INTEGER-PARAM-DEF">/TS_T2D14M20I0R0/Mcu/McuModuleConfiguration/McuNumberOfMcuModes</DEFINITION-REF>
+                  <VALUE>1</VALUE>
+                </INTEGER-VALUE>
+                <INTEGER-VALUE>
+                  <DEFINITION-REF DEST="INTEGER-PARAM-DEF">/TS_T2D14M20I0R0/Mcu/McuModuleConfiguration/McuRamSectors</DEFINITION-REF>
+                  <VALUE>0</VALUE>
+                </INTEGER-VALUE>
+              </PARAMETER-VALUES>
+              <SUB-CONTAINERS>
+                <CONTAINER>
+                  <SHORT-NAME>McuClockSettingConfig</SHORT-NAME>
+                  <DEFINITION-REF DEST="PARAM-CONF-CONTAINER-DEF">/TS_T2D14M20I0R0/Mcu/McuModuleConfiguration/McuClockSettingConfig</DEFINITION-REF>
+                  <PARAMETER-VALUES>
+                    <FLOAT-VALUE>
+                      <DEFINITION-REF DEST="FLOAT-PARAM-DEF">/TS_T2D14M20I0R0/Mcu/McuModuleConfiguration/McuClockSettingConfig/CrystalFrequencyHz</DEFINITION-REF>
+                      <VALUE>8000000.0</VALUE>
+                    </FLOAT-VALUE>
+                    <INTEGER-VALUE>
+                      <DEFINITION-REF DEST="INTEGER-PARAM-DEF">/TS_T2D14M20I0R0/Mcu/McuModuleConfiguration/McuClockSettingConfig/McuTimeout</DEFINITION-REF>
+                      <VALUE>10000</VALUE>
+                    </INTEGER-VALUE>
+                  </PARAMETER-VALUES>
+                  <SUB-CONTAINERS>
+                    <CONTAINER>
+                      <SHORT-NAME>McuClockReferencePoint_0</SHORT-NAME>
+                      <DEFINITION-REF DEST="PARAM-CONF-CONTAINER-DEF">/TS_T2D14M20I0R0/Mcu/McuModuleConfiguration/McuClockSettingConfig/McuClockReferencePoint</DEFINITION-REF>
+                      <PARAMETER-VALUES>
+                        <FLOAT-VALUE>
+                          <DEFINITION-REF DEST="FLOAT-PARAM-DEF">/TS_T2D14M20I0R0/Mcu/McuModuleConfiguration/McuClockSettingConfig/McuClockReferencePoint/McuClockReferencePointFrequency</DEFINITION-REF>
+                          <VALUE>6.4E7</VALUE>
+                        </FLOAT-VALUE>
+                      </PARAMETER-VALUES>
+                      <SUB-CONTAINERS>
+                        <CONTAINER>
+                          <SHORT-NAME>GeneralClockSettings</SHORT-NAME>
+                          <DEFINITION-REF DEST="PARAM-CONF-CONTAINER-DEF">/TS_T2D14M20I0R0/Mcu/McuModuleConfiguration/McuClockSettingConfig/McuClockReferencePoint/GeneralClockSettings</DEFINITION-REF>
+                          <PARAMETER-VALUES>
+                            <ENUMERATION-VALUE>
+                              <DEFINITION-REF DEST="ENUMERATION-PARAM-DEF">/TS_T2D14M20I0R0/Mcu/McuModuleConfiguration/McuClockSettingConfig/McuClockReferencePoint/GeneralClockSettings/McuOperatingMode</DEFINITION-REF>
+                              <VALUE>Enhanced</VALUE>
+                            </ENUMERATION-VALUE>
+                            <BOOLEAN-VALUE>
+                              <DEFINITION-REF DEST="BOOLEAN-PARAM-DEF">/TS_T2D14M20I0R0/Mcu/McuModuleConfiguration/McuClockSettingConfig/McuClockReferencePoint/GeneralClockSettings/McuBypassDivider</DEFINITION-REF>
+                              <VALUE>true</VALUE>
+                            </BOOLEAN-VALUE>
+                            <INTEGER-VALUE>
+                              <DEFINITION-REF DEST="INTEGER-PARAM-DEF">/TS_T2D14M20I0R0/Mcu/McuModuleConfiguration/McuClockSettingConfig/McuClockReferencePoint/GeneralClockSettings/McuSystemClockDivider</DEFINITION-REF>
+                              <VALUE>2</VALUE>
+                            </INTEGER-VALUE>
+                          </PARAMETER-VALUES>
+                        </CONTAINER>
+                        <CONTAINER>
+                          <SHORT-NAME>McuExternalClock</SHORT-NAME>
+                          <DEFINITION-REF DEST="PARAM-CONF-CONTAINER-DEF">/TS_T2D14M20I0R0/Mcu/McuModuleConfiguration/McuClockSettingConfig/McuClockReferencePoint/McuExternalClock</DEFINITION-REF>
+                          <PARAMETER-VALUES>
+                            <BOOLEAN-VALUE>
+                              <DEFINITION-REF DEST="BOOLEAN-PARAM-DEF">/TS_T2D14M20I0R0/Mcu/McuModuleConfiguration/McuClockSettingConfig/McuClockReferencePoint/McuExternalClock/McuExternalBusTapSelect</DEFINITION-REF>
+                              <VALUE>false</VALUE>
+                            </BOOLEAN-VALUE>
+                            <INTEGER-VALUE>
+                              <DEFINITION-REF DEST="INTEGER-PARAM-DEF">/TS_T2D14M20I0R0/Mcu/McuModuleConfiguration/McuClockSettingConfig/McuClockReferencePoint/McuExternalClock/McuExternalBusDivisonFactor</DEFINITION-REF>
+                              <VALUE>1</VALUE>
+                            </INTEGER-VALUE>
+                          </PARAMETER-VALUES>
+                        </CONTAINER>
+                        <CONTAINER>
+                          <SHORT-NAME>McuPll</SHORT-NAME>
+                          <DEFINITION-REF DEST="PARAM-CONF-CONTAINER-DEF">/TS_T2D14M20I0R0/Mcu/McuModuleConfiguration/McuClockSettingConfig/McuClockReferencePoint/McuPll</DEFINITION-REF>
+                          <PARAMETER-VALUES>
+                            <FLOAT-VALUE>
+                              <DEFINITION-REF DEST="FLOAT-PARAM-DEF">/TS_T2D14M20I0R0/Mcu/McuModuleConfiguration/McuClockSettingConfig/McuClockReferencePoint/McuPll/McuPllClockFrequency</DEFINITION-REF>
+                              <VALUE>6.4E7</VALUE>
+                            </FLOAT-VALUE>
+                            <ENUMERATION-VALUE>
+                              <DEFINITION-REF DEST="ENUMERATION-PARAM-DEF">/TS_T2D14M20I0R0/Mcu/McuModuleConfiguration/McuClockSettingConfig/McuClockReferencePoint/McuPll/McuPllMode</DEFINITION-REF>
+                              <VALUE>PllClockMode</VALUE>
+                            </ENUMERATION-VALUE>
+                            <ENUMERATION-VALUE>
+                              <DEFINITION-REF DEST="ENUMERATION-PARAM-DEF">/TS_T2D14M20I0R0/Mcu/McuModuleConfiguration/McuClockSettingConfig/McuClockReferencePoint/McuPll/McuPllClockReference</DEFINITION-REF>
+                              <VALUE>External</VALUE>
+                            </ENUMERATION-VALUE>
+                          </PARAMETER-VALUES>
+                          <SUB-CONTAINERS>
+                            <CONTAINER>
+                              <SHORT-NAME>McuPllParameter</SHORT-NAME>
+                              <DEFINITION-REF DEST="PARAM-CONF-CONTAINER-DEF">/TS_T2D14M20I0R0/Mcu/McuModuleConfiguration/McuClockSettingConfig/McuClockReferencePoint/McuPll/McuPllParameter</DEFINITION-REF>
+                              <PARAMETER-VALUES>
+                                <INTEGER-VALUE>
+                                  <DEFINITION-REF DEST="INTEGER-PARAM-DEF">/TS_T2D14M20I0R0/Mcu/McuModuleConfiguration/McuClockSettingConfig/McuClockReferencePoint/McuPll/McuPllParameter/McuInputDivideRatio</DEFINITION-REF>
+                                  <VALUE>1</VALUE>
+                                </INTEGER-VALUE>
+                                <INTEGER-VALUE>
+                                  <DEFINITION-REF DEST="INTEGER-PARAM-DEF">/TS_T2D14M20I0R0/Mcu/McuModuleConfiguration/McuClockSettingConfig/McuClockReferencePoint/McuPll/McuPllParameter/McuFeedbackDivideRatio</DEFINITION-REF>
+                                  <VALUE>32</VALUE>
+                                </INTEGER-VALUE>
+                                <INTEGER-VALUE>
+                                  <DEFINITION-REF DEST="INTEGER-PARAM-DEF">/TS_T2D14M20I0R0/Mcu/McuModuleConfiguration/McuClockSettingConfig/McuClockReferencePoint/McuPll/McuPllParameter/McuOutputDivideRatio</DEFINITION-REF>
+                                  <VALUE>1</VALUE>
+                                </INTEGER-VALUE>
+                                <BOOLEAN-VALUE>
+                                  <DEFINITION-REF DEST="BOOLEAN-PARAM-DEF">/TS_T2D14M20I0R0/Mcu/McuModuleConfiguration/McuClockSettingConfig/McuClockReferencePoint/McuPll/McuPllParameter/MODEN</DEFINITION-REF>
+                                  <VALUE>false</VALUE>
+                                </BOOLEAN-VALUE>
+                                <BOOLEAN-VALUE>
+                                  <DEFINITION-REF DEST="BOOLEAN-PARAM-DEF">/TS_T2D14M20I0R0/Mcu/McuModuleConfiguration/McuClockSettingConfig/McuClockReferencePoint/McuPll/McuPllParameter/MODSEL</DEFINITION-REF>
+                                  <VALUE>false</VALUE>
+                                </BOOLEAN-VALUE>
+                                <INTEGER-VALUE>
+                                  <DEFINITION-REF DEST="INTEGER-PARAM-DEF">/TS_T2D14M20I0R0/Mcu/McuModuleConfiguration/McuClockSettingConfig/McuClockReferencePoint/McuPll/McuPllParameter/McuModulationRate</DEFINITION-REF>
+                                  <VALUE>10000</VALUE>
+                                </INTEGER-VALUE>
+                                <INTEGER-VALUE>
+                                  <DEFINITION-REF DEST="INTEGER-PARAM-DEF">/TS_T2D14M20I0R0/Mcu/McuModuleConfiguration/McuClockSettingConfig/McuClockReferencePoint/McuPll/McuPllParameter/McuPeaktoPeakModulationDepth</DEFINITION-REF>
+                                  <VALUE>0</VALUE>
+                                </INTEGER-VALUE>
+                                <BOOLEAN-VALUE>
+                                  <DEFINITION-REF DEST="BOOLEAN-PARAM-DEF">/TS_T2D14M20I0R0/Mcu/McuModuleConfiguration/McuClockSettingConfig/McuClockReferencePoint/McuPll/McuPllParameter/McuLossOfClockEnable</DEFINITION-REF>
+                                  <VALUE>false</VALUE>
+                                </BOOLEAN-VALUE>
+                                <BOOLEAN-VALUE>
+                                  <DEFINITION-REF DEST="BOOLEAN-PARAM-DEF">/TS_T2D14M20I0R0/Mcu/McuModuleConfiguration/McuClockSettingConfig/McuClockReferencePoint/McuPll/McuPllParameter/McuLossOfLockResetEnable</DEFINITION-REF>
+                                  <VALUE>false</VALUE>
+                                </BOOLEAN-VALUE>
+                                <BOOLEAN-VALUE>
+                                  <DEFINITION-REF DEST="BOOLEAN-PARAM-DEF">/TS_T2D14M20I0R0/Mcu/McuModuleConfiguration/McuClockSettingConfig/McuClockReferencePoint/McuPll/McuPllParameter/McuLossOfClockResetEnable</DEFINITION-REF>
+                                  <VALUE>false</VALUE>
+                                </BOOLEAN-VALUE>
+                                <BOOLEAN-VALUE>
+                                  <DEFINITION-REF DEST="BOOLEAN-PARAM-DEF">/TS_T2D14M20I0R0/Mcu/McuModuleConfiguration/McuClockSettingConfig/McuClockReferencePoint/McuPll/McuPllParameter/McuLossOfLockInterruptRequest</DEFINITION-REF>
+                                  <VALUE>false</VALUE>
+                                </BOOLEAN-VALUE>
+                                <BOOLEAN-VALUE>
+                                  <DEFINITION-REF DEST="BOOLEAN-PARAM-DEF">/TS_T2D14M20I0R0/Mcu/McuModuleConfiguration/McuClockSettingConfig/McuClockReferencePoint/McuPll/McuPllParameter/McuLossOfClockInterruptRequest</DEFINITION-REF>
+                                  <VALUE>false</VALUE>
+                                </BOOLEAN-VALUE>
+                              </PARAMETER-VALUES>
+                            </CONTAINER>
+                          </SUB-CONTAINERS>
+                        </CONTAINER>
+                        <CONTAINER>
+                          <SHORT-NAME>McuEMIOSSettings</SHORT-NAME>
+                          <DEFINITION-REF DEST="PARAM-CONF-CONTAINER-DEF">/TS_T2D14M20I0R0/Mcu/McuModuleConfiguration/McuClockSettingConfig/McuClockReferencePoint/McuEMIOSSettings</DEFINITION-REF>
+                          <PARAMETER-VALUES>
+                            <INTEGER-VALUE>
+                              <DEFINITION-REF DEST="INTEGER-PARAM-DEF">/TS_T2D14M20I0R0/Mcu/McuModuleConfiguration/McuClockSettingConfig/McuClockReferencePoint/McuEMIOSSettings/GlobalPrescaler</DEFINITION-REF>
+                              <VALUE>0</VALUE>
+                            </INTEGER-VALUE>
+                            <INTEGER-VALUE>
+                              <DEFINITION-REF DEST="INTEGER-PARAM-DEF">/TS_T2D14M20I0R0/Mcu/McuModuleConfiguration/McuClockSettingConfig/McuClockReferencePoint/McuEMIOSSettings/ServerTimeSlot</DEFINITION-REF>
+                              <VALUE>0</VALUE>
+                            </INTEGER-VALUE>
+                            <BOOLEAN-VALUE>
+                              <DEFINITION-REF DEST="BOOLEAN-PARAM-DEF">/TS_T2D14M20I0R0/Mcu/McuModuleConfiguration/McuClockSettingConfig/McuClockReferencePoint/McuEMIOSSettings/ExternalTimeBase</DEFINITION-REF>
+                              <VALUE>false</VALUE>
+                            </BOOLEAN-VALUE>
+                            <BOOLEAN-VALUE>
+                              <DEFINITION-REF DEST="BOOLEAN-PARAM-DEF">/TS_T2D14M20I0R0/Mcu/McuModuleConfiguration/McuClockSettingConfig/McuClockReferencePoint/McuEMIOSSettings/MdisBit</DEFINITION-REF>
+                              <VALUE>false</VALUE>
+                            </BOOLEAN-VALUE>
+                            <BOOLEAN-VALUE>
+                              <DEFINITION-REF DEST="BOOLEAN-PARAM-DEF">/TS_T2D14M20I0R0/Mcu/McuModuleConfiguration/McuClockSettingConfig/McuClockReferencePoint/McuEMIOSSettings/GlobalTimeBaseEnable</DEFINITION-REF>
+                              <VALUE>true</VALUE>
+                            </BOOLEAN-VALUE>
+                            <BOOLEAN-VALUE>
+                              <DEFINITION-REF DEST="BOOLEAN-PARAM-DEF">/TS_T2D14M20I0R0/Mcu/McuModuleConfiguration/McuClockSettingConfig/McuClockReferencePoint/McuEMIOSSettings/FreezeBit</DEFINITION-REF>
+                              <VALUE>false</VALUE>
+                            </BOOLEAN-VALUE>
+                            <BOOLEAN-VALUE>
+                              <DEFINITION-REF DEST="BOOLEAN-PARAM-DEF">/TS_T2D14M20I0R0/Mcu/McuModuleConfiguration/McuClockSettingConfig/McuClockReferencePoint/McuEMIOSSettings/GlobalPrescalerEnable</DEFINITION-REF>
+                              <VALUE>true</VALUE>
+                            </BOOLEAN-VALUE>
+                          </PARAMETER-VALUES>
+                        </CONTAINER>
+                        <CONTAINER>
+                          <SHORT-NAME>McuFlashBIUCR0</SHORT-NAME>
+                          <DEFINITION-REF DEST="PARAM-CONF-CONTAINER-DEF">/TS_T2D14M20I0R0/Mcu/McuModuleConfiguration/McuClockSettingConfig/McuClockReferencePoint/McuFlashBIUCR0</DEFINITION-REF>
+                          <PARAMETER-VALUES>
+                            <INTEGER-VALUE>
+                              <DEFINITION-REF DEST="INTEGER-PARAM-DEF">/TS_T2D14M20I0R0/Mcu/McuModuleConfiguration/McuClockSettingConfig/McuClockReferencePoint/McuFlashBIUCR0/AddressPipeliningControl</DEFINITION-REF>
+                              <VALUE>7</VALUE>
+                            </INTEGER-VALUE>
+                            <INTEGER-VALUE>
+                              <DEFINITION-REF DEST="INTEGER-PARAM-DEF">/TS_T2D14M20I0R0/Mcu/McuModuleConfiguration/McuClockSettingConfig/McuClockReferencePoint/McuFlashBIUCR0/WriteWaitStateControl</DEFINITION-REF>
+                              <VALUE>1</VALUE>
+                            </INTEGER-VALUE>
+                            <INTEGER-VALUE>
+                              <DEFINITION-REF DEST="INTEGER-PARAM-DEF">/TS_T2D14M20I0R0/Mcu/McuModuleConfiguration/McuClockSettingConfig/McuClockReferencePoint/McuFlashBIUCR0/ReadWaitStateControl</DEFINITION-REF>
+                              <VALUE>7</VALUE>
+                            </INTEGER-VALUE>
+                          </PARAMETER-VALUES>
+                        </CONTAINER>
+                      </SUB-CONTAINERS>
+                    </CONTAINER>
+                  </SUB-CONTAINERS>
+                </CONTAINER>
+                <CONTAINER>
+                  <SHORT-NAME>McuInterrupt</SHORT-NAME>
+                  <DEFINITION-REF DEST="PARAM-CONF-CONTAINER-DEF">/TS_T2D14M20I0R0/Mcu/McuModuleConfiguration/McuInterrupt</DEFINITION-REF>
+                  <PARAMETER-VALUES>
+                    <BOOLEAN-VALUE>
+                      <DEFINITION-REF DEST="BOOLEAN-PARAM-DEF">/TS_T2D14M20I0R0/Mcu/McuModuleConfiguration/McuInterrupt/McuClockLoss</DEFINITION-REF>
+                      <VALUE>false</VALUE>
+                    </BOOLEAN-VALUE>
+                    <BOOLEAN-VALUE>
+                      <DEFINITION-REF DEST="BOOLEAN-PARAM-DEF">/TS_T2D14M20I0R0/Mcu/McuModuleConfiguration/McuInterrupt/McuLockLoss</DEFINITION-REF>
+                      <VALUE>false</VALUE>
+                    </BOOLEAN-VALUE>
+                  </PARAMETER-VALUES>
+                </CONTAINER>
+                <CONTAINER>
+                  <SHORT-NAME>McuEDMA_A_Config</SHORT-NAME>
+                  <DEFINITION-REF DEST="PARAM-CONF-CONTAINER-DEF">/TS_T2D14M20I0R0/Mcu/McuModuleConfiguration/McuEDMA_A_Config</DEFINITION-REF>
+                  <PARAMETER-VALUES>
+                    <INTEGER-VALUE>
+                      <DEFINITION-REF DEST="INTEGER-PARAM-DEF">/TS_T2D14M20I0R0/Mcu/McuModuleConfiguration/McuEDMA_A_Config/eDMAChannelPriority0</DEFINITION-REF>
+                      <VALUE>66051</VALUE>
+                    </INTEGER-VALUE>
+                    <INTEGER-VALUE>
+                      <DEFINITION-REF DEST="INTEGER-PARAM-DEF">/TS_T2D14M20I0R0/Mcu/McuModuleConfiguration/McuEDMA_A_Config/eDMAChannelPriority4</DEFINITION-REF>
+                      <VALUE>67438087</VALUE>
+                    </INTEGER-VALUE>
+                    <INTEGER-VALUE>
+                      <DEFINITION-REF DEST="INTEGER-PARAM-DEF">/TS_T2D14M20I0R0/Mcu/McuModuleConfiguration/McuEDMA_A_Config/eDMAChannelPriority8</DEFINITION-REF>
+                      <VALUE>134810123</VALUE>
+                    </INTEGER-VALUE>
+                    <INTEGER-VALUE>
+                      <DEFINITION-REF DEST="INTEGER-PARAM-DEF">/TS_T2D14M20I0R0/Mcu/McuModuleConfiguration/McuEDMA_A_Config/eDMAChannelPriority12</DEFINITION-REF>
+                      <VALUE>202182159</VALUE>
+                    </INTEGER-VALUE>
+                    <INTEGER-VALUE>
+                      <DEFINITION-REF DEST="INTEGER-PARAM-DEF">/TS_T2D14M20I0R0/Mcu/McuModuleConfiguration/McuEDMA_A_Config/eDMAChannelPriority16</DEFINITION-REF>
+                      <VALUE>66051</VALUE>
+                    </INTEGER-VALUE>
+                    <INTEGER-VALUE>
+                      <DEFINITION-REF DEST="INTEGER-PARAM-DEF">/TS_T2D14M20I0R0/Mcu/McuModuleConfiguration/McuEDMA_A_Config/eDMAChannelPriority20</DEFINITION-REF>
+                      <VALUE>67438087</VALUE>
+                    </INTEGER-VALUE>
+                    <INTEGER-VALUE>
+                      <DEFINITION-REF DEST="INTEGER-PARAM-DEF">/TS_T2D14M20I0R0/Mcu/McuModuleConfiguration/McuEDMA_A_Config/eDMAChannelPriority24</DEFINITION-REF>
+                      <VALUE>134810123</VALUE>
+                    </INTEGER-VALUE>
+                    <INTEGER-VALUE>
+                      <DEFINITION-REF DEST="INTEGER-PARAM-DEF">/TS_T2D14M20I0R0/Mcu/McuModuleConfiguration/McuEDMA_A_Config/eDMAChannelPriority28</DEFINITION-REF>
+                      <VALUE>202182159</VALUE>
+                    </INTEGER-VALUE>
+                    <BOOLEAN-VALUE>
+                      <DEFINITION-REF DEST="BOOLEAN-PARAM-DEF">/TS_T2D14M20I0R0/Mcu/McuModuleConfiguration/McuEDMA_A_Config/ERGA</DEFINITION-REF>
+                      <VALUE>false</VALUE>
+                    </BOOLEAN-VALUE>
+                    <BOOLEAN-VALUE>
+                      <DEFINITION-REF DEST="BOOLEAN-PARAM-DEF">/TS_T2D14M20I0R0/Mcu/McuModuleConfiguration/McuEDMA_A_Config/ERCA</DEFINITION-REF>
+                      <VALUE>false</VALUE>
+                    </BOOLEAN-VALUE>
+                    <BOOLEAN-VALUE>
+                      <DEFINITION-REF DEST="BOOLEAN-PARAM-DEF">/TS_T2D14M20I0R0/Mcu/McuModuleConfiguration/McuEDMA_A_Config/EDBG</DEFINITION-REF>
+                      <VALUE>false</VALUE>
+                    </BOOLEAN-VALUE>
+                    <BOOLEAN-VALUE>
+                      <DEFINITION-REF DEST="BOOLEAN-PARAM-DEF">/TS_T2D14M20I0R0/Mcu/McuModuleConfiguration/McuEDMA_A_Config/EBW</DEFINITION-REF>
+                      <VALUE>false</VALUE>
+                    </BOOLEAN-VALUE>
+                    <INTEGER-VALUE>
+                      <DEFINITION-REF DEST="INTEGER-PARAM-DEF">/TS_T2D14M20I0R0/Mcu/McuModuleConfiguration/McuEDMA_A_Config/GRP0PRI</DEFINITION-REF>
+                      <VALUE>0</VALUE>
+                    </INTEGER-VALUE>
+                    <INTEGER-VALUE>
+                      <DEFINITION-REF DEST="INTEGER-PARAM-DEF">/TS_T2D14M20I0R0/Mcu/McuModuleConfiguration/McuEDMA_A_Config/GRP1PRI</DEFINITION-REF>
+                      <VALUE>1</VALUE>
+                    </INTEGER-VALUE>
+                    <INTEGER-VALUE>
+                      <DEFINITION-REF DEST="INTEGER-PARAM-DEF">/TS_T2D14M20I0R0/Mcu/McuModuleConfiguration/McuEDMA_A_Config/GRP2PRI</DEFINITION-REF>
+                      <VALUE>2</VALUE>
+                    </INTEGER-VALUE>
+                    <INTEGER-VALUE>
+                      <DEFINITION-REF DEST="INTEGER-PARAM-DEF">/TS_T2D14M20I0R0/Mcu/McuModuleConfiguration/McuEDMA_A_Config/GRP3PRI</DEFINITION-REF>
+                      <VALUE>3</VALUE>
+                    </INTEGER-VALUE>
+                    <INTEGER-VALUE>
+                      <DEFINITION-REF DEST="INTEGER-PARAM-DEF">/TS_T2D14M20I0R0/Mcu/McuModuleConfiguration/McuEDMA_A_Config/DmaTimeOut</DEFINITION-REF>
+                      <VALUE>100</VALUE>
+                    </INTEGER-VALUE>
+                  </PARAMETER-VALUES>
+                </CONTAINER>
+                <CONTAINER>
+                  <SHORT-NAME>McuFlashBIUCR</SHORT-NAME>
+                  <DEFINITION-REF DEST="PARAM-CONF-CONTAINER-DEF">/TS_T2D14M20I0R0/Mcu/McuModuleConfiguration/McuFlashBIUCR</DEFINITION-REF>
+                  <PARAMETER-VALUES>
+                    <BOOLEAN-VALUE>
+                      <DEFINITION-REF DEST="BOOLEAN-PARAM-DEF">/TS_T2D14M20I0R0/Mcu/McuModuleConfiguration/McuFlashBIUCR/Master0PrefetchEnable</DEFINITION-REF>
+                      <VALUE>false</VALUE>
+                    </BOOLEAN-VALUE>
+                    <BOOLEAN-VALUE>
+                      <DEFINITION-REF DEST="BOOLEAN-PARAM-DEF">/TS_T2D14M20I0R0/Mcu/McuModuleConfiguration/McuFlashBIUCR/Master1PrefetchEnable</DEFINITION-REF>
+                      <VALUE>false</VALUE>
+                    </BOOLEAN-VALUE>
+                    <BOOLEAN-VALUE>
+                      <DEFINITION-REF DEST="BOOLEAN-PARAM-DEF">/TS_T2D14M20I0R0/Mcu/McuModuleConfiguration/McuFlashBIUCR/Master2PrefetchEnable</DEFINITION-REF>
+                      <VALUE>false</VALUE>
+                    </BOOLEAN-VALUE>
+                    <BOOLEAN-VALUE>
+                      <DEFINITION-REF DEST="BOOLEAN-PARAM-DEF">/TS_T2D14M20I0R0/Mcu/McuModuleConfiguration/McuFlashBIUCR/Master3PrefetchEnable</DEFINITION-REF>
+                      <VALUE>false</VALUE>
+                    </BOOLEAN-VALUE>
+                    <BOOLEAN-VALUE>
+                      <DEFINITION-REF DEST="BOOLEAN-PARAM-DEF">/TS_T2D14M20I0R0/Mcu/McuModuleConfiguration/McuFlashBIUCR/McuDataPrefetchEnable</DEFINITION-REF>
+                      <VALUE>false</VALUE>
+                    </BOOLEAN-VALUE>
+                    <BOOLEAN-VALUE>
+                      <DEFINITION-REF DEST="BOOLEAN-PARAM-DEF">/TS_T2D14M20I0R0/Mcu/McuModuleConfiguration/McuFlashBIUCR/McuInstructionPrefetchEnable</DEFINITION-REF>
+                      <VALUE>false</VALUE>
+                    </BOOLEAN-VALUE>
+                    <INTEGER-VALUE>
+                      <DEFINITION-REF DEST="INTEGER-PARAM-DEF">/TS_T2D14M20I0R0/Mcu/McuModuleConfiguration/McuFlashBIUCR/McuPFLASHPrefetchLimit</DEFINITION-REF>
+                      <VALUE>0</VALUE>
+                    </INTEGER-VALUE>
+                    <BOOLEAN-VALUE>
+                      <DEFINITION-REF DEST="BOOLEAN-PARAM-DEF">/TS_T2D14M20I0R0/Mcu/McuModuleConfiguration/McuFlashBIUCR/McuPFLASHLineReadBuffersEnable</DEFINITION-REF>
+                      <VALUE>false</VALUE>
+                    </BOOLEAN-VALUE>
+                    <BOOLEAN-VALUE>
+                      <DEFINITION-REF DEST="BOOLEAN-PARAM-DEF">/TS_T2D14M20I0R0/Mcu/McuModuleConfiguration/McuFlashBIUCR/GlobalConfigurationEnable</DEFINITION-REF>
+                      <VALUE>false</VALUE>
+                    </BOOLEAN-VALUE>
+                  </PARAMETER-VALUES>
+                </CONTAINER>
+                <CONTAINER>
+                  <SHORT-NAME>McuFlashBIUAPR</SHORT-NAME>
+                  <DEFINITION-REF DEST="PARAM-CONF-CONTAINER-DEF">/TS_T2D14M20I0R0/Mcu/McuModuleConfiguration/McuFlashBIUAPR</DEFINITION-REF>
+                  <PARAMETER-VALUES>
+                    <INTEGER-VALUE>
+                      <DEFINITION-REF DEST="INTEGER-PARAM-DEF">/TS_T2D14M20I0R0/Mcu/McuModuleConfiguration/McuFlashBIUAPR/Master0AccessProtection</DEFINITION-REF>
+                      <VALUE>3</VALUE>
+                    </INTEGER-VALUE>
+                    <INTEGER-VALUE>
+                      <DEFINITION-REF DEST="INTEGER-PARAM-DEF">/TS_T2D14M20I0R0/Mcu/McuModuleConfiguration/McuFlashBIUAPR/Master1AccessProtection</DEFINITION-REF>
+                      <VALUE>3</VALUE>
+                    </INTEGER-VALUE>
+                    <INTEGER-VALUE>
+                      <DEFINITION-REF DEST="INTEGER-PARAM-DEF">/TS_T2D14M20I0R0/Mcu/McuModuleConfiguration/McuFlashBIUAPR/Master2AccessProtection</DEFINITION-REF>
+                      <VALUE>3</VALUE>
+                    </INTEGER-VALUE>
+                    <INTEGER-VALUE>
+                      <DEFINITION-REF DEST="INTEGER-PARAM-DEF">/TS_T2D14M20I0R0/Mcu/McuModuleConfiguration/McuFlashBIUAPR/Master3AccessProtection</DEFINITION-REF>
+                      <VALUE>3</VALUE>
+                    </INTEGER-VALUE>
+                  </PARAMETER-VALUES>
+                </CONTAINER>
+                <CONTAINER>
+                  <SHORT-NAME>McuFlashBIUCR2</SHORT-NAME>
+                  <DEFINITION-REF DEST="PARAM-CONF-CONTAINER-DEF">/TS_T2D14M20I0R0/Mcu/McuModuleConfiguration/McuFlashBIUCR2</DEFINITION-REF>
+                  <PARAMETER-VALUES>
+                    <INTEGER-VALUE>
+                      <DEFINITION-REF DEST="INTEGER-PARAM-DEF">/TS_T2D14M20I0R0/Mcu/McuModuleConfiguration/McuFlashBIUCR2/McuLineBufferConfiguration</DEFINITION-REF>
+                      <VALUE>3</VALUE>
+                    </INTEGER-VALUE>
+                  </PARAMETER-VALUES>
+                </CONTAINER>
+                <CONTAINER>
+                  <SHORT-NAME>McuResetSource</SHORT-NAME>
+                  <DEFINITION-REF DEST="PARAM-CONF-CONTAINER-DEF">/TS_T2D14M20I0R0/Mcu/McuModuleConfiguration/McuResetSource</DEFINITION-REF>
+                  <PARAMETER-VALUES>
+                    <ENUMERATION-VALUE>
+                      <DEFINITION-REF DEST="ENUMERATION-PARAM-DEF">/TS_T2D14M20I0R0/Mcu/McuModuleConfiguration/McuResetSource/McuResetType</DEFINITION-REF>
+                      <VALUE>SoftwareSystemReset</VALUE>
+                    </ENUMERATION-VALUE>
+                  </PARAMETER-VALUES>
+                </CONTAINER>
+                <CONTAINER>
+                  <SHORT-NAME>McuModeSettingConf_0</SHORT-NAME>
+                  <DEFINITION-REF DEST="PARAM-CONF-CONTAINER-DEF">/TS_T2D14M20I0R0/Mcu/McuModuleConfiguration/McuModeSettingConf</DEFINITION-REF>
+                  <PARAMETER-VALUES>
+                    <INTEGER-VALUE>
+                      <DEFINITION-REF DEST="INTEGER-PARAM-DEF">/TS_T2D14M20I0R0/Mcu/McuModuleConfiguration/McuModeSettingConf/McuMode</DEFINITION-REF>
+                      <VALUE>0</VALUE>
+                    </INTEGER-VALUE>
+                  </PARAMETER-VALUES>
+                  <SUB-CONTAINERS>
+                    <CONTAINER>
+                      <SHORT-NAME>HaltRegister</SHORT-NAME>
+                      <DEFINITION-REF DEST="PARAM-CONF-CONTAINER-DEF">/TS_T2D14M20I0R0/Mcu/McuModuleConfiguration/McuModeSettingConf/HaltRegister</DEFINITION-REF>
+                      <PARAMETER-VALUES>
+                        <INTEGER-VALUE>
+                          <DEFINITION-REF DEST="INTEGER-PARAM-DEF">/TS_T2D14M20I0R0/Mcu/McuModuleConfiguration/McuModeSettingConf/HaltRegister/SIU_HLTACKTimeOut</DEFINITION-REF>
+                          <VALUE>3000</VALUE>
+                        </INTEGER-VALUE>
+                        <BOOLEAN-VALUE>
+                          <DEFINITION-REF DEST="BOOLEAN-PARAM-DEF">/TS_T2D14M20I0R0/Mcu/McuModuleConfiguration/McuModeSettingConf/HaltRegister/HaltCPU</DEFINITION-REF>
+                          <VALUE>false</VALUE>
+                        </BOOLEAN-VALUE>
+                        <BOOLEAN-VALUE>
+                          <DEFINITION-REF DEST="BOOLEAN-PARAM-DEF">/TS_T2D14M20I0R0/Mcu/McuModuleConfiguration/McuModeSettingConf/HaltRegister/HaltNDEDI</DEFINITION-REF>
+                          <VALUE>false</VALUE>
+                        </BOOLEAN-VALUE>
+                        <BOOLEAN-VALUE>
+                          <DEFINITION-REF DEST="BOOLEAN-PARAM-DEF">/TS_T2D14M20I0R0/Mcu/McuModuleConfiguration/McuModeSettingConf/HaltRegister/HalteTPU</DEFINITION-REF>
+                          <VALUE>false</VALUE>
+                        </BOOLEAN-VALUE>
+                        <BOOLEAN-VALUE>
+                          <DEFINITION-REF DEST="BOOLEAN-PARAM-DEF">/TS_T2D14M20I0R0/Mcu/McuModuleConfiguration/McuModeSettingConf/HaltRegister/HaltNPC</DEFINITION-REF>
+                          <VALUE>false</VALUE>
+                        </BOOLEAN-VALUE>
+                        <BOOLEAN-VALUE>
+                          <DEFINITION-REF DEST="BOOLEAN-PARAM-DEF">/TS_T2D14M20I0R0/Mcu/McuModuleConfiguration/McuModeSettingConf/HaltRegister/HaltEBI</DEFINITION-REF>
+                          <VALUE>false</VALUE>
+                        </BOOLEAN-VALUE>
+                        <BOOLEAN-VALUE>
+                          <DEFINITION-REF DEST="BOOLEAN-PARAM-DEF">/TS_T2D14M20I0R0/Mcu/McuModuleConfiguration/McuModeSettingConf/HaltRegister/HaltADC</DEFINITION-REF>
+                          <VALUE>false</VALUE>
+                        </BOOLEAN-VALUE>
+                        <BOOLEAN-VALUE>
+                          <DEFINITION-REF DEST="BOOLEAN-PARAM-DEF">/TS_T2D14M20I0R0/Mcu/McuModuleConfiguration/McuModeSettingConf/HaltRegister/HalteMIOS</DEFINITION-REF>
+                          <VALUE>false</VALUE>
+                        </BOOLEAN-VALUE>
+                        <BOOLEAN-VALUE>
+                          <DEFINITION-REF DEST="BOOLEAN-PARAM-DEF">/TS_T2D14M20I0R0/Mcu/McuModuleConfiguration/McuModeSettingConf/HaltRegister/HaltDFILT</DEFINITION-REF>
+                          <VALUE>false</VALUE>
+                        </BOOLEAN-VALUE>
+                        <BOOLEAN-VALUE>
+                          <DEFINITION-REF DEST="BOOLEAN-PARAM-DEF">/TS_T2D14M20I0R0/Mcu/McuModuleConfiguration/McuModeSettingConf/HaltRegister/HaltPIT</DEFINITION-REF>
+                          <VALUE>false</VALUE>
+                        </BOOLEAN-VALUE>
+                        <BOOLEAN-VALUE>
+                          <DEFINITION-REF DEST="BOOLEAN-PARAM-DEF">/TS_T2D14M20I0R0/Mcu/McuModuleConfiguration/McuModeSettingConf/HaltRegister/HaltFlexCAN_C</DEFINITION-REF>
+                          <VALUE>false</VALUE>
+                        </BOOLEAN-VALUE>
+                        <BOOLEAN-VALUE>
+                          <DEFINITION-REF DEST="BOOLEAN-PARAM-DEF">/TS_T2D14M20I0R0/Mcu/McuModuleConfiguration/McuModeSettingConf/HaltRegister/HaltFlexCAN_A</DEFINITION-REF>
+                          <VALUE>false</VALUE>
+                        </BOOLEAN-VALUE>
+                        <BOOLEAN-VALUE>
+                          <DEFINITION-REF DEST="BOOLEAN-PARAM-DEF">/TS_T2D14M20I0R0/Mcu/McuModuleConfiguration/McuModeSettingConf/HaltRegister/HaltDSPI_C</DEFINITION-REF>
+                          <VALUE>false</VALUE>
+                        </BOOLEAN-VALUE>
+                        <BOOLEAN-VALUE>
+                          <DEFINITION-REF DEST="BOOLEAN-PARAM-DEF">/TS_T2D14M20I0R0/Mcu/McuModuleConfiguration/McuModeSettingConf/HaltRegister/HaltDSPI_B</DEFINITION-REF>
+                          <VALUE>false</VALUE>
+                        </BOOLEAN-VALUE>
+                        <BOOLEAN-VALUE>
+                          <DEFINITION-REF DEST="BOOLEAN-PARAM-DEF">/TS_T2D14M20I0R0/Mcu/McuModuleConfiguration/McuModeSettingConf/HaltRegister/HalteSCI_B</DEFINITION-REF>
+                          <VALUE>false</VALUE>
+                        </BOOLEAN-VALUE>
+                        <BOOLEAN-VALUE>
+                          <DEFINITION-REF DEST="BOOLEAN-PARAM-DEF">/TS_T2D14M20I0R0/Mcu/McuModuleConfiguration/McuModeSettingConf/HaltRegister/HalteSCI_A</DEFINITION-REF>
+                          <VALUE>false</VALUE>
+                        </BOOLEAN-VALUE>
+                      </PARAMETER-VALUES>
+                    </CONTAINER>
+                  </SUB-CONTAINERS>
+                </CONTAINER>
+              </SUB-CONTAINERS>
+            </CONTAINER>
+          </CONTAINERS>
+        </MODULE-CONFIGURATION>
+      </ELEMENTS>
+    </AR-PACKAGE>
+  </TOP-LEVEL-PACKAGES>
+</AUTOSAR>

@@ -1,0 +1,29 @@
+
+Name: generate_PB/src/Dio_PBcfg.c
+SignatureKeyID: Freescale
+Signature: 11313377422277467037373516162857761996259782538392379764814
+ 3055790365924298760465778872073070417375534120942274
+SignatureKeyProviderID: plugin.launcher2.licenseFileKeyProvider
+SignatureAlgorithmID: DSA
+
+Name: config/Dio.xdm
+SignatureKeyID: Freescale
+Signature: 11313377422961066733536027327903941916042809878616917063560
+ 2491464958421186060535140431444619897999385869019538
+SignatureKeyProviderID: plugin.launcher2.licenseFileKeyProvider
+SignatureAlgorithmID: DSA
+
+Name: generate_PC/include/Dio_Cfg.h
+SignatureKeyID: Freescale
+Signature: 11313377424788199638732418639961711488503303160100820541023
+ 0545670078052199009108127505541583694754811903574000
+SignatureKeyProviderID: plugin.launcher2.licenseFileKeyProvider
+SignatureAlgorithmID: DSA
+
+Name: generate_PC/src/Dio_Cfg.c
+SignatureKeyID: Freescale
+Signature: 11313377425200431380546112103095679011936661222365481527649
+ 1041661542955075790099189945806888832947963498943208
+SignatureKeyProviderID: plugin.launcher2.licenseFileKeyProvider
+SignatureAlgorithmID: DSA
+

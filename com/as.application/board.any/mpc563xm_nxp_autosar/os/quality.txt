@@ -1,0 +1,52 @@
+                    FREESCALE SEMICONDUCTOR, INC.
+                 ST. PETERSBURG SOFTWARE DEVELOPMENT
+                       SOFTWARE QUALITY STATUS
+
+I. RTM Release Description
+This software has status of RTM (Ready To Manufacture) release. 
+
+RTM software releases have the following characteristics:
+        1. Software has complete functionality
+        2. All formal testing has been carried out 
+        3. Software has the Freescale copyright
+        4. Software is intended for Production
+
+II. Purpose of this RTM Release
+This is a planned release which provides the customer with
+a complete product.
+
+III. Current Software Status
+Product Name            Freescale AUTOSAR OS/MPC56xxAM v.3.0 RTM
+Build number            3.0.35
+Date                    31 Mar 2010
+
+The product is developed according to the documents:
+- AUTOSAR Specification of Module Operating System v.3.0.1 R.3.0 rev.0003
+- OSEK/VDX Operating System, Version 2.2.2, 05 July 2004
+- OSEK/VDX System Generation, OIL: OSEK Implementation
+  Language, Version 2.5, 1 July 2004
+
+The product implements Local Communication class CCCB (message exchange)
+according to the documents:
+- OSEK/VDX Communication, Version 3.0.3, 20 July 2004
+
+The product implements OSEK Run Time Interface (ORTI)
+according to the documents:
+- OSEK/VDX OSEK Run Time Interface (ORTI) Part A: 
+  Language Specification Version: 2.1.1, 4 Mar 2002
+- OSEK/VDX OSEK Run Time Interface (ORTI) Part B: 
+  OSEK Objects and Attributes Version 2.1, 17 April 2002 
+
+This build includes direct support of the following derivative:
+- MPC5634M 
+- MPC5644A
+- MPC5674F
+
+The following tools were used for code development and testing:
+- Green Hills MULTI for PowerPC v.5.1.6c 
+- Wind River Compiler for PowerPC version 5.7.0.0
+- CodeWarrior Development Studio for Freescale MPC5xxx version 2.5
+
+OS source code, generator are protected by FLEXlm.
+To get the license file please contact Customer Support (see sections 1 and 2 of 
+readme.txt for details). 

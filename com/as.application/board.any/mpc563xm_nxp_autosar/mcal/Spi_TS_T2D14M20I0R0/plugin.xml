@@ -1,0 +1,137 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?eclipse version="3.2"?>
+
+<!--
+*   @file    plugin.xml
+*   @version 2.0.0
+*
+*   @brief   AUTOSAR Spi_TS_T2D14M20I0R0 - Tresos Studio plugin configuration file.
+*   @details This file contains the configuration for and Spi Tresos Studio plugin.
+-->
+<!--
+====================================================================================================
+*   Project              : AUTOSAR 3.0 MCAL
+*   Platform             : PA
+*   Peripheral           : DSPI
+*   Dependencies         : 
+*
+*   Autosar Version      : 3.0.0
+*   Autosar Revision     : ASR_REL_3_0_REV_0003
+*   Autosar Conf.Variant :
+*   SW Version           : 2.0.0
+*   Build Version        : XPC563xM_MCAL_2_0_0_RTM_ASR_REL_3_0_REV_0003_20111223
+*
+*   (c) Copyright 2006-2011 Freescale Semiconductor Inc and STMicroelectronics
+*   All rights exclusively reserved for Freescale Semiconductor Inc and STMicroelectronics, 
+*   unless expressly agreed to otherwise.
+====================================================================================================
+====================================================================================================
+====================================================================================================
+-->
+
+<plugin>
+  <extension point="dreisoft.tresos.launcher2.plugin.module"
+             id="Spi_TS_T2D14M20I0R0_ModuleId"
+             name="Spi_TS_T2D14M20I0R0 Module">
+
+    <module id="Spi_TS_T2D14M20I0R0"
+            label="Spi"
+            mandatory="false"
+            allowMultiple="false"
+            description="Spi BSW module"
+            copyright="(c) 2006-2011 Freescale Semiconductor Inc and STMicroelectronics"
+            swVersionMajor="2"
+            swVersionMinor="0"
+            swVersionPatch="0"
+            swVersionSuffix="RTM"
+            specVersionMajor="2"
+            specVersionMinor="2"
+            specVersionPatch="1"
+            specVersionSuffix="Rev_0001"
+            relVersionPrefix="AUTOSAR"
+            relVersionMajor="3"
+            relVersionMinor="0"
+            relVersionPatch="0"
+            relVersionSuffix="0003"
+            categoryType="Spi"
+            categoryLayer="MCAL"
+            categoryCategory="ECU Firmware"
+            categoryComponent="ECUC">
+      <ecuType target="PA" derivate="XPC563XM"/>
+    </module>
+    </extension>
+	
+  <extension point="dreisoft.tresos.launcher2.plugin.configuration"
+             id="Spi_TS_T2D14M20I0R0_ConfigId"
+             name="Spi_TS_T2D14M20I0R0 Configuration">
+    <configuration moduleId="Spi_TS_T2D14M20I0R0">
+      <schema>
+        <manager class="dreisoft.tresos.autosar2.resourcehandling.AutosarSchemaManager"/>
+          <!-- register the main xdm configuration schema for Spi -->
+          <resource value="config/Spi.xdm" type="xdm"/>
+
+
+
+
+      </schema>
+
+      <data>
+        <manager class="dreisoft.tresos.autosar2.resourcehandling.AutosarConfigManager"/>
+        <schemaNode path="ASPath:/TS_T2D14M20I0R0/Spi"/>
+      </data>
+
+      <editor id="Spi_TS_T2D14M20I0R0_EditorId"
+              label="Default"
+              tooltip="Spi BSW module">
+        <class class="dreisoft.tresos.launcher2.editor.GenericConfigEditor">
+          <parameter name="schema" value="ASPath:/TS_T2D14M20I0R0/Spi"/>
+          <parameter name="title" value="Spi"/>
+          <parameter name="noTabs" value="false"/>
+          <parameter name="noLinks" value="true"/>
+          <parameter name="groupLinks" value="false"/>
+          <parameter name="groupContainers" value="false"/>
+          <parameter name="groupTables" value="true"/>
+          <parameter name="optionalGeneralTab" value="true"/>
+        </class>
+      </editor>
+    </configuration>
+  </extension>
+
+ <extension point="dreisoft.tresos.launcher2.plugin.generator"
+             id="EPCGenerator"
+             name="EPC Generator">
+  <generator moduleId="Spi_TS_T2D14M20I0R0"
+               id="Spi_TS_T2D14M20I0R0"
+               class="dreisoft.tresos.autosar2.generator.EPCFileGenerator">
+  <parameter name="cfgFilePath" value="output"/>
+  <parameter name="generateAllModules" value="false"/>
+  <parameter name="generateIntoOneFile" value="false"/>
+  <parameter name="contentType" value="asc:3.0"/>
+  </generator>
+ </extension>
+
+  <extension point="dreisoft.tresos.launcher2.plugin.generator"
+              id="Spi_TS_T2D14M20I0R0_GeneratorId"
+              name="Spi_TS_T2D14M20I0R0 Generator">
+    <generator moduleId="Spi_TS_T2D14M20I0R0"
+               class="dreisoft.tresos.launcher2.generator.TemplateBasedCodeGenerator">
+
+      <!-- common template path parameters -->
+      <parameter name="templates" mode="generate,verify" value="generate,generate_PC,generate_PB,generate_LT"/>
+      <!-- custom generators -->
+      <parameter name="templates" mode="generate_PC" value="generate_PC"/>
+      <parameter name="templates" mode="generate_PB" value="generate_PB"/>
+      <parameter name="templates" mode="generate_LT" value="generate_LT"/>
+      <!-- custom template paths -->
+      <parameter name="mode_type" mode="generate_PC" value="generate"/>
+      <parameter name="mode_type" mode="generate_PB" value="generate"/>
+      <parameter name="mode_type" mode="generate_LT" value="generate"/>
+    </generator>
+  </extension>
+ 
+  <extension point="org.eclipse.help.toc">
+    <toc file="anchors.xml" primary="true"/>
+    <toc file="$nl$/Spi/toc.xml" primary="false"/>
+    <!-- toc file="$nl$/ReleaseNotes/toc.xml" primary="false"/ !-->
+  </extension>
+</plugin>

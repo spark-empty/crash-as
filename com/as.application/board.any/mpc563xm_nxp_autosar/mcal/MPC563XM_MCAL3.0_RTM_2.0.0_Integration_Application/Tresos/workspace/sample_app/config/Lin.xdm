@@ -1,0 +1,160 @@
+<?xml version='1.0'?>
+<datamodel version="3.0" 
+           xmlns="http://www.tresos.de/_projects/DataModel2/08/root.xsd" 
+           xmlns:a="http://www.tresos.de/_projects/DataModel2/08/attribute.xsd" 
+           xmlns:v="http://www.tresos.de/_projects/DataModel2/06/schema.xsd" 
+           xmlns:d="http://www.tresos.de/_projects/DataModel2/06/data.xsd">
+
+  <d:ctr type="AUTOSAR" factory="autosar"  
+         xmlns:ad="http://www.tresos.de/_projects/DataModel2/08/admindata.xsd" 
+         xmlns:icc="http://www.tresos.de/_projects/DataModel2/08/implconfigclass.xsd">
+    <d:lst type="TOP-LEVEL-PACKAGES">
+      <d:ctr name="Lin" type="AR-PACKAGE">
+        <d:lst type="ELEMENTS">
+          <d:chc name="Lin" type="AR-ELEMENT" value="MODULE-CONFIGURATION">
+            <d:ctr type="MODULE-CONFIGURATION">
+              <a:a name="DEF" value="ASPath:/TS_T2D14M20I0R0/Lin"/>
+              <a:a name="IMPORTER_INFO" value="Lin"/>
+              <d:var name="IMPLEMENTATION_CONFIG_VARIANT" type="ENUMERATION" 
+                     value="VariantPostBuild">
+                <a:a name="IMPORTER_INFO" value="Lin"/>
+              </d:var>
+              <d:ctr name="CommonPublishedInformation" type="IDENTIFIABLE">
+                <a:a name="IMPORTER_INFO" value="Lin"/>
+                <d:var name="ArMajorVersion" type="INTEGER" value="1">
+                  <a:a name="IMPORTER_INFO" value="Lin"/>
+                </d:var>
+                <d:var name="ArMinorVersion" type="INTEGER" value="2">
+                  <a:a name="IMPORTER_INFO" value="Lin"/>
+                </d:var>
+                <d:var name="ArPatchVersion" type="INTEGER" value="1">
+                  <a:a name="IMPORTER_INFO" value="Lin"/>
+                </d:var>
+                <d:var name="ModuleId" type="INTEGER" value="82">
+                  <a:a name="IMPORTER_INFO" value="Lin"/>
+                </d:var>
+                <d:var name="SwMajorVersion" type="INTEGER" value="2"/>
+                <d:var name="SwMinorVersion" type="INTEGER" value="0"/>
+                <d:var name="SwPatchVersion" type="INTEGER" value="0">
+                  <a:a name="IMPORTER_INFO" value="Lin"/>
+                </d:var>
+                <d:var name="VendorApiInfix" type="STRING" value=""/>
+                <d:var name="VendorId" type="INTEGER" value="43"/>
+              </d:ctr>
+              <d:ctr name="LinGeneral" type="IDENTIFIABLE">
+                <a:a name="IMPORTER_INFO" value="Lin"/>
+                <d:var name="LinDevErrorDetect" type="BOOLEAN" value="true">
+                  <a:a name="IMPORTER_INFO" value="Lin"/>
+                </d:var>
+                <d:var name="LinIndex" type="INTEGER" value="0">
+                  <a:a name="IMPORTER_INFO" value="@DEF"/>
+                </d:var>
+                <d:var name="LinTimeoutDuration" type="INTEGER" value="20000"/>
+                <d:var name="LinVersionInfoApi" type="BOOLEAN" value="true">
+                  <a:a name="IMPORTER_INFO" value="Lin"/>
+                </d:var>
+              </d:ctr>
+              <d:lst name="LinGlobalConfig" type="MAP">
+                <a:a name="IMPORTER_INFO" value="Lin"/>
+                <d:ctr name="LinGlobalConfig_0" type="IDENTIFIABLE">
+                  <a:a name="IMPORTER_INFO" value="Lin"/>
+                  <d:lst name="LinChannel" type="MAP">
+                    <d:ctr name="LinChannel_1" type="IDENTIFIABLE">
+                      <d:var name="LinChannelId" type="INTEGER" value="0"/>
+                      <d:var name="LinHwChannel" type="ENUMERATION" 
+                             value="eSCI_B"/>
+                      <d:var name="LinChannelBaudRate" type="INTEGER" 
+                             value="9600">
+                        <a:a name="IMPORTER_INFO" value="Lin"/>
+                      </d:var>
+                      <d:var name="LinChannelWakeUpSupport" type="BOOLEAN" 
+                             value="false"/>
+                      <d:var name="LinChannelDmaActivation" type="BOOLEAN" 
+                             value="false">
+                        <a:a name="IMPORTER_INFO" value="Lin"/>
+                      </d:var>
+                      <d:ref name="LinClockRef" type="REFERENCE" 
+                             value="ASPath:/Mcu/Mcu/McuConfigPB_0/McuClockSettingConfig/McuClockReferencePoin_0"/>
+                      <d:ref name="LinChannelEcuMWakeUpSource" type="REFERENCE" 
+                             value="ASPath:/EcuM/EcuM/EcuMConfiguration_0/EcuMWakeupSource_0">
+                        <a:a name="IMPORTER_INFO" value="Lin"/>
+                      </d:ref>
+                      <d:ref name="LinClockRef_Alternate" type="REFERENCE" >
+                        <a:a name="IMPORTER_INFO" value="@DEF"/>
+                      </d:ref>
+                      <d:var name="LinChannelMSCSupport" type="BOOLEAN" 
+                             value="false">
+                        <a:a name="IMPORTER_INFO" value="@DEF"/>
+                      </d:var>
+                      <d:var name="ReceiverFullInterruptEnable" type="BOOLEAN" 
+                             value="false">
+                        <a:a name="IMPORTER_INFO" value="@DEF"/>
+                      </d:var>
+                      <d:ctr name="MicroSecondChannel" type="IDENTIFIABLE">
+                        <d:var name="ClockFrequency" type="FLOAT" value="1.0E7">
+                          <a:a name="IMPORTER_INFO" value="@DEF"/>
+                        </d:var>
+                        <d:var name="PollingMode" type="BOOLEAN" value="true">
+                          <a:a name="IMPORTER_INFO" value="@DEF"/>
+                        </d:var>
+                        <d:var name="Parity" type="ENUMERATION" value="Even">
+                          <a:a name="IMPORTER_INFO" value="@DEF"/>
+                        </d:var>
+                        <d:var name="ClockDivisor" type="ENUMERATION" 
+                               value="DIV_8">
+                          <a:a name="IMPORTER_INFO" value="@DEF"/>
+                        </d:var>
+                        <d:var name="Polarity" type="ENUMERATION" value="Normal">
+                          <a:a name="IMPORTER_INFO" value="@DEF"/>
+                        </d:var>
+                        <d:var name="FrameFormat" type="ENUMERATION" 
+                               value="Format_16_bits">
+                          <a:a name="IMPORTER_INFO" value="@DEF"/>
+                        </d:var>
+                      </d:ctr>
+                      <d:ctr name="DMAsettings" type="IDENTIFIABLE">
+                        <d:var name="DMADataSize" type="ENUMERATION" 
+                               value="Size_8_bits">
+                          <a:a name="IMPORTER_INFO" value="@DEF"/>
+                        </d:var>
+                        <d:var name="nBytesToTransfer" type="INTEGER" value="2">
+                          <a:a name="IMPORTER_INFO" value="@DEF"/>
+                        </d:var>
+                        <d:var name="iterationCount" type="INTEGER" value="4">
+                          <a:a name="IMPORTER_INFO" value="@DEF"/>
+                        </d:var>
+                        <d:var name="destinationAddressOffset" type="INTEGER" 
+                               value="4">
+                          <a:a name="IMPORTER_INFO" value="@DEF"/>
+                        </d:var>
+                        <d:var name="lastDestinationAddress" type="INTEGER" 
+                               value="2">
+                          <a:a name="IMPORTER_INFO" value="@DEF"/>
+                        </d:var>
+                        <d:var name="TheHalfPointInterrupt" type="BOOLEAN" 
+                               value="false">
+                          <a:a name="IMPORTER_INFO" value="@DEF"/>
+                        </d:var>
+                        <d:var name="TheEndOfMajorLoopInterrupt" type="BOOLEAN" 
+                               value="false">
+                          <a:a name="IMPORTER_INFO" value="@DEF"/>
+                        </d:var>
+                      </d:ctr>
+                    </d:ctr>
+                  </d:lst>
+                </d:ctr>
+              </d:lst>
+              <d:ctr name="NonAutosar" type="IDENTIFIABLE">
+                <d:var name="LinEnableDualClockMode" type="BOOLEAN" 
+                       value="false">
+                  <a:a name="IMPORTER_INFO" value="@DEF"/>
+                </d:var>
+              </d:ctr>
+            </d:ctr>
+          </d:chc>
+        </d:lst>
+      </d:ctr>
+    </d:lst>
+  </d:ctr>
+
+</datamodel>

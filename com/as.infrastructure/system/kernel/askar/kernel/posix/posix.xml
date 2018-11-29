@@ -1,0 +1,35 @@
+<?xml version='1.0' encoding='utf-8'?>
+<AS>
+	<Os>
+		<Task Name="TaskPosix"  
+				Activation="1" 
+				Autostart="True" 
+				Priority="1"
+				Schedule="FULL" 
+				StackSize="2048"
+				Application="OsDefaultApp"
+				Comment="*" >
+			<ApplicationModeList Max="32">
+				<ApplicationMode 
+					Name="OSDEFAULTAPPMODE" 
+					Comment="start if mode is OSDEFAULTAPPMODE"
+				/>
+			</ApplicationModeList>
+			<EventList>
+				<Event Name="EVENT_SIGALRM" Mask="0x00000001" />
+			</EventList>
+		</Task>
+
+		<Alarm Name="Alarm_SIGALRM" 
+			Autostart="False" 
+			Period="5" 
+			StartTime="5"
+			Counter="OsClock"
+			Action="SetEvent"	
+			Task="TaskPosix"				
+			Event="EVENT_SIGALRM"  
+			Callback="TBD" 
+			Application="OsDefaultApp"
+			Comment="*" />
+	</Os>
+</AS>

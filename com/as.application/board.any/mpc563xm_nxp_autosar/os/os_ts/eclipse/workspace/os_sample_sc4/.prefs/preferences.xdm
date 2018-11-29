@@ -1,0 +1,75 @@
+<?xml version='1.0'?>
+<datamodel version="3.0" 
+           xmlns="http://www.tresos.de/_projects/DataModel2/08/root.xsd" 
+           xmlns:a="http://www.tresos.de/_projects/DataModel2/08/attribute.xsd" 
+           xmlns:v="http://www.tresos.de/_projects/DataModel2/06/schema.xsd" 
+           xmlns:d="http://www.tresos.de/_projects/DataModel2/06/data.xsd">
+
+  <d:ctr name="ImporterExporterAdditions">
+    <a:a name="DEF" value="XPath:/PreferencesSchema/ImporterExporterAdditions"/>
+    <d:var name="Version_SystemDescriptionImporter" value="3">
+      <a:a name="IMPORTER_INFO" value="@DEF"/>
+    </d:var>
+    <d:lst name="SystemDescriptionImporters" type="MAP"/>
+    <d:lst name="ComImportersExporters" type="MAP"/>
+    <d:lst name="OilImportersExporters" type="MAP"/>
+    <d:var name="Version_AutosarImporter" value="2">
+      <a:a name="IMPORTER_INFO" value="@DEF"/>
+    </d:var>
+    <d:lst name="AutosarImportersExporters" type="MAP">
+      <d:ctr name="Unknown">
+        <d:var name="FileName" 
+               value="D:\OSEK\src\autosar\src\osmpc56xxAMv3\sample\standard\sc4\src\sample4.epc"/>
+        <d:var name="ContentType" value="asc:3.0"/>
+        <d:var name="Validation" value="TRUE"/>
+      </d:ctr>
+    </d:lst>
+  </d:ctr>
+  <d:ctr name="General">
+    <a:a name="DEF" value="XPath:/PreferencesSchema/General"/>
+    <d:var name="ModelExtenderCompatibility" value="FALSE">
+      <a:a name="IMPORTER_INFO" value="@DEF"/>
+    </d:var>
+    <d:lst name="ModelExtender" type="MAP">
+      <d:ctr name="ModelEcuConfiguration"/>
+    </d:lst>
+    <d:lst name="ModuleConfigurations" type="MAP">
+      <d:ctr name="OS">
+        <d:var name="ModuleId" value="Os_TS_T2D18M3I0R0"/>
+        <d:var name="Enabled" value="TRUE"/>
+        <d:var name="Generate" value="TRUE"/>
+        <d:var name="SoftwareVersion" value="3.0.0 35"/>
+        <d:var name="ConfigurationFileURL" value="config/OS.xdm"/>
+        <d:var name="ConfigurationFormat" value="xdm"/>
+        <d:var name="PreConfig" >
+          <a:a name="IMPORTER_INFO" value="@DEF"/>
+        </d:var>
+        <d:var name="RecConfig" >
+          <a:a name="IMPORTER_INFO" value="@DEF"/>
+        </d:var>
+      </d:ctr>
+    </d:lst>
+    <d:lst name="AutoconfigureTriggers" type="MAP"/>
+    <d:lst name="ImportersExporters" type="MAP">
+      <d:ctr name="Unknown">
+        <d:var name="Id" value="AutosarImporterExporter"/>
+        <d:var name="Mode" value="import"/>
+      </d:ctr>
+    </d:lst>
+  </d:ctr>
+  <d:ctr name="ECUCNature">
+    <a:a name="DEF" value="XPath:/PreferencesSchema/ECUCNature"/>
+    <d:var name="ReleaseVersion" value="3.0"/>
+    <d:var name="ECUId" value="os_sample_sc4"/>
+    <d:var name="ConfigurationPath" value="config"/>
+    <d:var name="GenerationPath" value="output"/>
+    <d:var name="UnixLF" value="FALSE"/>
+    <d:var name="UnixLFConfigData" value="FALSE"/>
+    <d:var name="DisableMinListChildCreation" value="FALSE"/>
+    <d:var name="ProjectSpecificSettings" value="FALSE"/>
+    <d:var name="ProjectSpecificSettingsConfigurationProject" value="FALSE"/>
+    <d:var name="Target" value="PA"/>
+    <d:var name="Derivate" value="XPC564XA"/>
+  </d:ctr>
+
+</datamodel>

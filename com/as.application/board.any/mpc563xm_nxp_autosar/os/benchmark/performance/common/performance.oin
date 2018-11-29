@@ -1,0 +1,251 @@
+/**************************************************************************************
+* 
+*  Freescale(TM) and the Freescale logo are trademarks of Freescale Semiconductor, Inc. 
+*  All other product or service names are the property of their respective owners. 
+*  (C) Freescale Semiconductor, Inc. 2008 - 2009
+* 
+*  You can use this example for any purpose on any computer system with the
+*  following restrictions:
+*
+*  1. This example is provided "as is", without warranty.
+*
+*  2. You don't remove this copyright notice from this example or any direct derivation 
+*     thereof.
+*
+*  Description:  Common part of OIL file for each performance benchmark
+*
+**************************************************************************************/
+
+    COUNTER Counter1 {
+        TYPE = HARDWARE {
+           DRIVER = OSINTERNAL;
+        };        
+        MAXALLOWEDVALUE = 0xFFFFFF;
+        TICKSPERBASE = 1;
+        MINCYCLE = 0;
+    };
+    COUNTER Counter2 {
+        TYPE = SOFTWARE;
+        MAXALLOWEDVALUE = 0xFFFF;
+        TICKSPERBASE = 1;
+        MINCYCLE = 0;
+    };
+
+    /* Background task */
+    TASK TASK_BGND {
+        AUTOSTART = TRUE;
+        PRIORITY = 0;
+        SCHEDULE = FULL;        
+        ACTIVATION = 1;
+    };    
+
+    ISR OneTaskISR {
+        CATEGORY = 2;
+        PRIORITY = 2;
+        IrqChannel = EXTERNAL {
+            IrqNumber = 202; // eMIOS Channel 16
+        };
+    };    
+    
+    /* TASK_s activated from OneTaskISR */
+    TASK TASK_1 {
+        AUTOSTART = FALSE;
+        PRIORITY = 21;
+        SCHEDULE = FULL;        
+        ACTIVATION = 1;
+    };
+    TASK TASK_2 {
+        AUTOSTART = FALSE;
+        PRIORITY = 22;
+        SCHEDULE = FULL;        
+        ACTIVATION = 1;
+    };
+    
+    /* replacement for OS system ISR */
+    ISR SecondTimerISR {
+        CATEGORY = 2;
+        PRIORITY = 1;
+        IrqChannel = EXTERNAL {
+            IrqNumber = 301; // PIT Channel 0
+        };
+    };    
+    /* one-shot alarm */
+    ALARM ALARM_ONE {
+        COUNTER = Counter2;
+        AUTOSTART = FALSE;
+        ACTION = ACTIVATETASK {
+            TASK = TASK_ALM;
+        };        
+    };
+    
+    TASK TASK_ALM {
+        AUTOSTART = FALSE;
+        PRIORITY = 23;
+        SCHEDULE = FULL;        
+        ACTIVATION = 1;
+    };      
+    
+    /* 8 harmonic alarms */
+    ALARM ALARM_1 {
+        COUNTER = Counter2;
+        AUTOSTART = FALSE;
+    };
+    ALARM ALARM_2 {
+        COUNTER = Counter2;
+        AUTOSTART = FALSE;
+    };
+    ALARM ALARM_3 {
+        COUNTER = Counter2;
+        AUTOSTART = FALSE;
+    };
+    ALARM ALARM_4 {
+        COUNTER = Counter2;
+        AUTOSTART = FALSE;
+    };
+    ALARM ALARM_5 {
+        COUNTER = Counter2;
+        AUTOSTART = FALSE;
+    };
+    ALARM ALARM_6 {
+        COUNTER = Counter2;
+        AUTOSTART = FALSE;
+    };
+    ALARM ALARM_7 {
+        COUNTER = Counter2;
+        AUTOSTART = FALSE;
+    };
+    ALARM ALARM_8 {
+        COUNTER = Counter2;
+        AUTOSTART = FALSE;
+    };    
+
+    /* "Harmonic" tasks */
+    TASK TASK_h1 {
+        PRIORITY = 8;
+        SCHEDULE = FULL;        
+        ACTIVATION = 1;
+    };
+    TASK TASK_h2 {
+        PRIORITY = 7;
+        SCHEDULE = FULL;        
+        ACTIVATION = 1;
+    };
+    TASK TASK_h3 {
+        PRIORITY = 6;
+        SCHEDULE = FULL;        
+        ACTIVATION = 1;
+    };
+    TASK TASK_h4 {
+        PRIORITY = 5;
+        SCHEDULE = FULL;        
+        ACTIVATION = 1;
+    };
+    TASK TASK_h5 {
+        AUTOSTART = FALSE;
+        PRIORITY = 4;
+        SCHEDULE = FULL;        
+        ACTIVATION = 1;
+    };
+    TASK TASK_h6 {
+        AUTOSTART = FALSE;
+        PRIORITY = 3;
+        SCHEDULE = FULL;        
+        ACTIVATION = 1;
+    };
+    TASK TASK_h7 {
+        AUTOSTART = FALSE;
+        PRIORITY = 2;
+        SCHEDULE = FULL;        
+        ACTIVATION = 1;
+    };
+    TASK TASK_h8 {
+        AUTOSTART = FALSE;
+        PRIORITY = 1;
+        SCHEDULE = FULL;        
+        ACTIVATION = 1;
+    };
+    
+    SCHEDULETABLE ScheduleTable1 {
+        COUNTER = Counter1;
+        AUTOSTART = FALSE;
+        REPEATING = TRUE;
+        DURATION = 65536;
+
+        EXPIRYPOINTS = EXPIRYPOINT {
+            OFFSET = 0;   
+            ACTION = TASKACTIVATION {            
+                TASK = TASK_t1;
+            };
+        };
+        EXPIRYPOINTS = EXPIRYPOINT {
+            OFFSET = 16384;
+            ACTION = TASKACTIVATION {            
+                TASK = TASK_t2;
+            };
+        };        
+        EXPIRYPOINTS = EXPIRYPOINT {
+            OFFSET = 32768;
+            ACTION = TASKACTIVATION {            
+                TASK = TASK_t3;
+            };
+        };        
+        EXPIRYPOINTS = EXPIRYPOINT {
+            OFFSET = 49152;
+            ACTION = TASKACTIVATION {            
+                TASK = TASK_t4;
+            };
+            ACTION = TASKACTIVATION {            
+                TASK = TASK_t5;
+            };
+            ACTION = TASKACTIVATION {            
+                TASK = TASK_t6;
+            };
+            ACTION = TASKACTIVATION {            
+                TASK = TASK_t7;
+        	};        
+    	};
+    };
+
+    /* Tasks activated from ScheduleTable1 */
+    TASK TASK_t1 {
+        AUTOSTART = FALSE;
+        PRIORITY = 11;
+        SCHEDULE = FULL;        
+        ACTIVATION = 1;
+    };    
+    TASK TASK_t2 {
+        AUTOSTART = FALSE;
+        PRIORITY = 12;
+        SCHEDULE = FULL;        
+        ACTIVATION = 1;
+    };
+    TASK TASK_t3 {
+        AUTOSTART = FALSE;
+        PRIORITY = 13;
+        SCHEDULE = FULL;        
+        ACTIVATION = 1;
+    };
+    TASK TASK_t4 {
+        AUTOSTART = FALSE;
+        PRIORITY = 14;
+        SCHEDULE = FULL;        
+        ACTIVATION = 1;
+    };
+    TASK TASK_t5 {
+        AUTOSTART = FALSE;
+        PRIORITY = 15;
+        SCHEDULE = FULL;        
+        ACTIVATION = 1;
+    };
+    TASK TASK_t6 {
+        AUTOSTART = FALSE;
+        PRIORITY = 16;
+        SCHEDULE = FULL;        
+        ACTIVATION = 1;
+    };
+    TASK TASK_t7 {
+        AUTOSTART = FALSE;
+        PRIORITY = 17;
+        SCHEDULE = FULL;        
+        ACTIVATION = 1;
+    };

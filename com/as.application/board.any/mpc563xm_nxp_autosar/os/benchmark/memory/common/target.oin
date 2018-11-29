@@ -1,0 +1,38 @@
+/**************************************************************************************
+* 
+*  Freescale(TM) and the Freescale logo are trademarks of Freescale Semiconductor, Inc. 
+*  All other product or service names are the property of their respective owners. 
+*  (C) Freescale Semiconductor, Inc. 2008 - 2010
+* 
+*  You can use this example for any purpose on any computer system with the
+*  following restrictions:
+*
+*  1. This example is provided "as is", without warranty.
+*
+*  2. You don't remove this copyright notice from this example or any direct derivation 
+*     thereof.
+*
+*  Description:  OS definition for memory benchmarks
+*
+**************************************************************************************/
+          
+        TargetMCU = MPC5644A {
+            ClockFrequency = 64000; // System Clock
+            ClockMultiplier = 1;
+            ClockDivider = 1;
+            
+            SysTimer = SWCOUNTER {
+                COUNTER = COUNTER1;
+                ISRPRIORITY = 2;
+                TimerHardware = eMIOS {
+                    Channel = 8;
+                    Prescaler = OS {
+                        Value = 0;
+                    };
+                    GlobalMIOSPrescaler = OS { 
+                        Value = 0; 
+                    };
+                    TimerModuloValue = 0xffff;
+                    Freeze = TRUE;
+                };
+            };

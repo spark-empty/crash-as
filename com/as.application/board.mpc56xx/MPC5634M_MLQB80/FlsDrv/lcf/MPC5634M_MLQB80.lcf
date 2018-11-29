@@ -1,0 +1,38 @@
+/* lcf file for MPC5634M processor                                          */
+/*                                                                          */
+/*                                                                          */
+
+/*              1.5 MB Flash, 94KB SRAM                                      */
+
+MEMORY
+{
+    flsram  :                org = 0x40014000,   len = 0x00001000 
+
+}
+
+SECTIONS
+{
+
+    GROUP  : {
+      .rodata (CONST) : {
+         *(.rdata)
+         *(.rodata)
+       }
+      .text : {} 
+      .text_vle (VLECODE) ALIGN(0x08): {
+         *(.text)
+         *(.text_vle)
+       }
+       .sdata  : {}
+       .sbss   : {}
+       .sdata2 : {}
+       .init  : {}
+      .init_vle (VLECODE) : {
+        *(.init)
+        *(.init_vle)
+      }
+    } > flsram
+}
+
+/* Freescale CodeWarrior compiler address designations */
+

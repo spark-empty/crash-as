@@ -1,0 +1,151 @@
+#===================================================================================================
+#
+#    @file        makefile_os
+#    @version     2.0.0
+#
+#    @brief       AUTOSAR - Release Check Sample Application Makefile.
+#    @details     File used to build the Release Check Sample Application.
+#
+#    Project      : AUTOSAR 3.0 MCAL
+#    Patform      : PA
+#    Peripheral   : 
+#    Dependencies : Base Det Dem Port Dio Mcu SchM Wdg WdgIf CanIf LinIf EcuM
+#
+#    Autosar Version       : 1.9.0
+#    Autosar Revision      : ASR_REL_1_9_REV_0003
+#    Autosar Conf. Variant :
+#    Software Version      : 2.0.0
+#    Build Version         : MPC563xMxM_MCAL_2_0_0_RTM_ASR_REL_1_9_REV_0003_20110214
+#
+#    (c) Copyright 2006-2011 Freescale Semiconductor Inc. & STMicroelectronics
+#    All Rights Reserved.
+#
+#===================================================================================================
+##===================================================================================================
+
+
+# running on windows command prompt
+COMMAND_SEPARATOR = &&
+COMMAND_INTERPRETER = cmd
+
+################################################################################
+# Load and check the configuration
+################################################################################
+
+SAMPLE_APP_NAME:= sample_app_mcal
+
+CFG_MAK_FILE := make/config.mak
+
+#
+# Including local configuration file
+#
+-include $(CFG_MAK_FILE)
+
+GENERATE_DIR    = $(DEV_DIR)/cfg
+PLUGINS_DIR		:= $(TRESOS_DIR)/plugins
+winpath = $(patsubst /cygdrive/$(word 2,$(subst /, , $(1)))%,$(word 2,$(subst /, ,$(1))):%,$(1))
+cmdpath = $(subst /,\,$(1))
+
+
+# select platform (only mpc5600)
+platform = mpc5600
+
+# Config source file
+#ifeq ($(cfg),)
+cfg=epc
+#endif
+
+# Project name
+projname = $(SAMPLE_APP_NAME)
+
+# Explicitly set Scalability Class (variable is used in common.mak file)
+sc = 1
+
+#################################################################
+# define the list of modules to be integrated
+# define the directory where the module is located in the
+# next section (bsw_dir) and the configuration (if available)
+# bsw_cfg_dir. bsw_cfg_dir must be placed in bsw_dir.
+
+modulelist      = os
+os_dir          =
+#os_dir          = os_freescale_mpc5600
+
+# Include the sample specification make file
+-include $(DEV_DIR)/make/files.mak
+
+#################################################################
+# PROJECT_ROOT - path to the project root given by the project makefile
+# SSC_ROOT     - path to the ssc root given by the base_makefile
+# XDM_SAMPLE_PATH - path to the xdm sample
+
+#SSC_ROOT        = C:\Freescale\AUTOSAR
+PROJECT_ROOT   := .
+XDM_SAMPLE_PATH  = $(PROJECT_ROOT)\Tresos\workspace\sample_app_bolero\config
+os_cfg_dir      =  $(PROJECT_ROOT)\cfg
+#################################################################
+# Output paths (relative to PROJECT_ROOT)
+
+OUTPUT_PATH = $(PROJECT_ROOT)\bin
+OUT_DIR			= $(BUILD_DIR)
+OBJ_OUTPUT_PATH = $(PROJECT_ROOT)\bin
+BIN_OUTPUT_PATH = $(PROJECT_ROOT)\bin
+
+
+#################################################################
+# Specific (need in freescale_os_rules.mak)
+
+HWSPEC          = $(SSC_ROOT)\ssc\hwspec
+PROJECT_SRC     = $(PROJECT_ROOT)\src
+ifeq ($(cfg),oil)
+OS_OIL_NAME     = $(PROJECT_SRC)\project.oil
+endif
+ifeq ($(cfg),epc)
+OS_OIL_NAME     = $(PROJECT_SRC)\project.epc
+endif
+ifeq ($(cfg),xdm)
+OS_OIL_NAME     = $(XDM_SAMPLE_PATH)\OS.xdm
+endif
+
+LINKER_CMD_NAME = $(PROJECT_ROOT)\toolchains\autosar_os
+LINKER_CMD_OUTNAME = $(LINKER_CMD_NAME)
+
+
+#CC_INCLUDE_PATH += $(PROJECT_SRC) $(OBJ_OUTPUT_PATH)
+
+# Files to build
+
+# List of all source file names (.c files in SRC_DIRS directories and SRC_FILES)
+ALL_SRC_FILES := $(foreach DIR,$(SRC_DIRS), $(wildcard $(call winpath, $(DIR))/*.c)) $(foreach FILE, $(SRC_FILES), $(call winpath, $(FILE)))
+# Append directories of the SRC_FILES
+SRC_DIRS += $(dir $(SRC_FILES))
+
+# OS configuration
+CC_FILES_TO_BUILD += \
+	$(HWSPEC)\vector.c \
+	$(os_cfg_dir)\src\os\os_cfg.c
+
+#	$(HWSPEC)\flashrchw.c \
+
+# Startup assembler file for DIAB
+ASM_STARTUP_FOR_DIAB =
+#	$(HWSPEC)\crts.s
+
+# User application
+#CC_FILES_TO_BUILD += $(ALL_SRC_FILES)
+#	$(PROJECT_SRC)\samplets1.c \
+#	$(PROJECT_SRC)\samplerv1.c
+
+
+#PREPROCESSOR_DEFINES += apptypesh oscfgname ospropname
+#PREPROCESSOR_DEFINES += oscfgname ospropname
+apptypesh_KEY         =APPTYPESH
+apptypesh_VALUE       ="<sample.h>"
+oscfgname_KEY         =OSCFGH
+oscfgname_VALUE       ="<os_cfg.h>"
+ospropname_KEY        =OSPROPH
+ospropname_VALUE      ="\"$(call remove_slashes,$(OS_PROPHEADER))\""
+
+#################################################################
+
+include make/common.mak  # base makefile

@@ -1,0 +1,879 @@
+Wind River DLD V5.7.0.0-1_wind00175250		Thu Mar 25 10:35:53 2010
+
+Command line:
+D:\WindRiver\diab\5.7.0.0\win32\bin\dld.exe -tPPCE200Z4VEN:simple -lc
+-li -m6 -Xelf obj/mecc1sc2_cfg.o obj/vector.o obj/mecc1.o obj/fmpll.o
+obj/os.o obj/osset.o obj/ossch.o obj/ossct.o obj/ostsk.o obj/osalm.o
+obj/osctr.o obj/osres.o obj/osevt.o obj/osisr.o obj/osmem.o obj/ostp.o
+obj/osmsg.o obj/ostrg.o obj/crts.o
+../../../../benchmark/memory/common/memory.dld -o bin\mecc1sc2_db.elf
+
+Output file name   : bin\mecc1sc2_db.elf
+Output file format : ELF
+Target machine type: PPC
+
+		Link Editor Memory Map
+
+
+output		input		virtual
+section		section		address		size	 file
+
+.vects          		40000000	00000124
+		.vects          40000000	00000124 obj/vector.o
+			 VTABLE 40000000	00000000
+
+
+.osbegincode    		40000140	00000000
+
+.text           		40000140	000002b4
+		.text_vle       40000140	00000000 obj/mecc1sc2_cfg.o
+
+		.text_vle       40000140	00000000 obj/vector.o
+
+		.text_vle       40000140	00000018 obj/mecc1.o
+		   GetUsedBytes 40000140	00000018
+
+		.text_vle       40000158	00000000 obj/fmpll.o
+
+		.text_vle       40000158	00000000 obj/os.o
+
+		.text_vle       40000158	00000000 obj/osset.o
+
+		.text_vle       40000158	00000000 obj/ossch.o
+
+		.text_vle       40000158	00000000 obj/ossct.o
+
+		.text_vle       40000158	00000000 obj/ostsk.o
+
+		.text_vle       40000158	00000000 obj/osalm.o
+
+		.text_vle       40000158	00000000 obj/osctr.o
+
+		.text_vle       40000158	00000000 obj/osres.o
+
+		.text_vle       40000158	00000000 obj/osevt.o
+
+		.text_vle       40000158	00000000 obj/osisr.o
+
+		.text_vle       40000158	00000000 obj/osmem.o
+
+		.text_vle       40000158	00000000 obj/ostp.o
+
+		.text_vle       40000158	00000000 obj/osmsg.o
+
+		.text_vle       40000158	00000000 obj/ostrg.o
+
+		.text_vle       40000158	00000024 obj/crts.o
+			 _start 4000015a	00000000
+
+		.text_vle       4000017c	000000b0 D:\WINDRI~1\diab\570~1.0\PPCVLEE\libiold.a[init.o]
+		 init_main_guts 4000017c	0000008c
+		    __init_main 40000208	00000024
+
+		.text_vle       4000022c	00000006 D:\WINDRI~1\diab\570~1.0\PPCVLEE\libiold.a[memfile.o]
+
+		.text_vle       40000234	00000086 D:\WINDRI~1\diab\570~1.0\PPCVLEE\libiold.a[memcpy.o]
+			 memcpy 40000234	00000086
+
+		.text_vle       400002bc	00000076 D:\WINDRI~1\diab\570~1.0\PPCVLEE\libiold.a[memset.o]
+			 memset 400002bc	00000076
+
+		.text_vle       40000332	00000000 D:\WINDRI~1\diab\570~1.0\PPCVLEE\libimpl.a[crtlibso.o]
+
+		.text_vle       40000334	00000076 D:\WINDRI~1\diab\570~1.0\PPCVLEE\libimpl.a[ctordtor.o]
+		   __exec_ctors 40000334	0000003a
+		   __exec_dtors 40000370	0000003a
+
+		.init$00        400003ac	00000018 D:\WINDRI~1\diab\570~1.0\PPCVLEE\libimpl.a[crtlibso.o]
+			 __init 400003ac	00000000
+
+		.init$99        400003c4	0000000c D:\WINDRI~1\diab\570~1.0\PPCVLEE\libimpl.a[crtlibso.o]
+
+		.fini$00        400003d0	00000018 D:\WINDRI~1\diab\570~1.0\PPCVLEE\libimpl.a[crtlibso.o]
+			 __fini 400003d0	00000000
+
+		.fini$99        400003e8	0000000c D:\WINDRI~1\diab\570~1.0\PPCVLEE\libimpl.a[crtlibso.o]
+
+
+.ostext         		400003f4	000019f4
+		.ostext         400003f4	000001f6 obj/osset.o
+			StartOS 400003f4	0000015e
+		   OSShutdownOS 40000554	00000084
+		  OS_ShutdownOS 400005d8	00000012
+
+		.ostext         400005ec	00000344 obj/ossch.o
+	      OSTPTimerRemained 400005ec	0000002e
+	   OSTPResumeTaskBudget 4000061c	0000009a
+	     OSTPStopTaskBudget 400006b8	00000086
+	    OSTPResetTaskBudget 40000740	0000002c
+	 OSTaskInternalDispatch 4000076c	000000a0
+	    OSTaskForceDispatch 4000080c	00000058
+	OSTaskTerminateDispatch 40000864	00000072
+		    OS_Schedule 400008d8	00000058
+
+		.ostext         40000930	00000358 obj/ostsk.o
+	    OSTPResetTaskBudget 40000930	0000002c
+	     OSTPResetReadyTask 4000095c	0000000a
+		OS_ActivateTask 40000968	000000ac
+	       OS_TerminateTask 40000a14	00000024
+		   OS_ChainTask 40000a38	00000096
+		   OS_GetTaskID 40000ad0	00000012
+		OS_GetTaskState 40000ae4	0000007e
+	      OSKillRunningTask 40000b64	0000006e
+		     OSKillTask 40000bd4	000000b4
+
+		.ostext         40000c88	000003c6 obj/osalm.o
+		 OSAbsTickValue 40000c88	00000030
+		    OSKillAlarm 40000cb8	00000016
+	    OSNotifyAlarmAction 40000cd0	00000050
+		  OSCheckAlarms 40000d20	00000086
+		  OSInsertAlarm 40000da8	00000044
+		OS_GetAlarmBase 40000dec	0000002c
+		    OS_GetAlarm 40000e18	0000007c
+		     OSSetAlarm 40000e94	0000004c
+		 OS_SetRelAlarm 40000ee0	00000076
+		 OS_SetAbsAlarm 40000f58	00000064
+		 OS_CancelAlarm 40000fbc	00000092
+
+		.ostext         40001050	0000027e obj/osctr.o
+		  OSSysTimSetHW 40001050	0000005c
+	       OSSysTimerCancel 400010ac	0000001e
+	       OSISRSystemTimer 400010cc	0000007a
+	  OSShutdownSystemTimer 40001148	00000020
+	OSInitializeSystemTimer 40001168	0000002e
+		 OS_InitCounter 40001198	00000014
+	     OS_GetCounterValue 400011ac	00000016
+      OS_GetElapsedCounterValue 400011c4	00000042
+	    OS_IncrementCounter 40001208	000000a0
+	      OS_GetCounterInfo 400012a8	00000026
+
+		.ostext         400012d0	00000274 obj/osevt.o
+	  OSTPRestartTaskBudget 400012d0	0000009c
+		     OSSetEvent 4000136c	00000052
+		    OS_SetEvent 400013c0	00000092
+		  OS_ClearEvent 40001454	00000040
+		   OS_WaitEvent 40001494	00000092
+		    OS_GetEvent 40001528	0000001c
+
+		.ostext         40001544	00000680 obj/osisr.o
+		     OSGetMsrDI 40001544	0000002a
+	   OSTPResumeTaskBudget 40001570	0000009a
+		 OSISRException 4000160c	00000016
+		OSInitializeISR 40001624	000001a2
+		     OSLeaveISR 400017c8	0000006e
+		   OSTPLeaveISR 40001838	0000006a
+	 OSInterruptDispatcher1 400018a4	00000110
+	OS_SuspendAllInterrupts 400019b4	00000034
+	 OS_ResumeAllInterrupts 400019e8	0000003c
+	 OS_SuspendOSInterrupts 40001a24	0000004c
+	  OS_ResumeOSInterrupts 40001a70	00000048
+		    OS_GetISRID 40001ab8	00000034
+      OS_DisableInterruptSource 40001aec	00000066
+       OS_EnableInterruptSource 40001b54	00000070
+
+		.ostext         40001bc4	00000022 obj/osmem.o
+	       OSExceptionError 40001bc4	00000022
+
+		.ostext         40001be8	00000178 obj/ostp.o
+	      OSTPTimerRemained 40001be8	0000002e
+		 OSInitializeTP 40001c18	0000009a
+	     OSISRTPTimerBudget 40001cb4	00000020
+		  OSISRTPForced 40001cd4	00000032
+		 OSTPStopBudget 40001d08	00000058
+
+		.ostext         40001d60	00000086 obj/ostrg.o
+	  OSInterruptDispatcher 40001d60	00000000
+		       OSSetJmp 40001d86	00000000
+		      OSLongJmp 40001d9e	00000000
+	    OSCriticalException 40001db4	00000000
+	 OSCriticalExceptionEnd 40001dc0	00000000
+	OSMachineCheckException 40001dc2	00000000
+     OSMachineCheckExceptionEnd 40001dce	00000000
+	 OSNonCriticalException 40001dd0	00000000
+      OSNonCriticalExceptionEnd 40001ddc	00000000
+	       OSDebugException 40001dde	00000000
+	    OSDebugExceptionEnd 40001de4	00000000
+
+
+.oshook         		40001de8	00000000
+
+.appcode        		40001de8	00000660
+		.appcode        40001de8	000005be obj/mecc1.o
+			   main 40001de8	00000228
+		 EndMeasurement 40002010	00000004
+			  Count 40002014	00000036
+		   FuncTASKBGND 4000204c	0000021c
+		      FuncTASK1 40002268	0000001e
+		      FuncTASK2 40002288	0000001e
+		      FuncTASK3 400022a8	0000001e
+		      FuncTASK4 400022c8	0000001e
+		      FuncTASK5 400022e8	0000001e
+		      FuncTASK6 40002308	0000001e
+		      FuncTASK7 40002328	0000001e
+		      FuncTASK8 40002348	0000001e
+		      FuncTASK9 40002368	0000001e
+		     FuncTASK10 40002388	0000001e
+
+		.appcode        400023a8	000000a0 obj/fmpll.o
+			 SetPLL 400023a8	000000a0
+
+
+.rodata         		40002448	00000000
+
+.osrodata       		40002448	000004c8
+		.osrodata       40002448	000004c8 obj/mecc1sc2_cfg.o
+		  OsCountersCfg 40002448	00000008
+		    OsAlarmsCfg 40002450	00000028
+		 OsTaskCfgTable 40002478	000000b0
+			  OsIsr 40002528	000003b8
+		       OsIsrCfg 400028e0	00000030
+
+
+.sdata2         		40002910	00000000
+
+.ossrodata      		40002910	00000000
+
+.ctors          		40002910	00000008
+		.ctors          40002910	00000004 D:\WINDRI~1\diab\570~1.0\PPCVLEE\libimpl.a[ctordtor.o]
+		  __CTOR_LIST__ 40002910	00000004
+
+		.ctors.65536    40002914	00000004 D:\WINDRI~1\diab\570~1.0\PPCVLEE\libimpl.a[ctordtor.o]
+		   __CTOR_END__ 40002914	00000004
+
+
+.dtors          		40002918	00000008
+		.dtors          40002918	00000004 D:\WINDRI~1\diab\570~1.0\PPCVLEE\libimpl.a[ctordtor.o]
+		  __DTOR_LIST__ 40002918	00000004
+
+		.dtors.65536    4000291c	00000004 D:\WINDRI~1\diab\570~1.0\PPCVLEE\libimpl.a[ctordtor.o]
+		   __DTOR_END__ 4000291c	00000004
+
+
+.osendcode      		40002920	00000000
+
+.osstack        		40002920	00001790
+		.osstack        40002920	00001790 obj/os.o
+		       OsStacks 40002920	00001600
+		     OsISRStack 40003f20	00000190
+
+
+.data           		400040b0	0000001c
+		.data           400040b0	0000001c D:\WINDRI~1\diab\570~1.0\PPCVLEE\libiold.a[memfile.o]
+			__fname 400040b0	0000001c
+
+
+.osdata         		400040cc	00000000
+
+.app0_vU        		400040cc	00000040
+		.app0_vU        400040cc	00000040 obj/mecc1.o
+		     stackUsage 400040cc	00000034
+			  tmpSP 40004100	00000004
+			 tmpPtr 40004104	00000004
+		       iterator 40004108	00000004
+
+
+.sdata          		4000410c	00000018
+		.sdata          4000410c	00000004 D:\WINDRI~1\diab\570~1.0\PPCVLEE\libiold.a[init.o]
+			environ 4000410c	00000004
+
+		.sdata          40004110	0000000c D:\WINDRI~1\diab\570~1.0\PPCVLEE\libiold.a[memfile.o]
+			 __argv 40004110	00000008
+			  __env 40004118	00000004
+
+		.sdata          4000411c	00000008 D:\WINDRI~1\diab\570~1.0\PPCVLEE\libimpl.a[ctordtor.o]
+	      __exec_xtor_table 4000411c	00000008
+
+
+.sapp_vU_data   		40004124	00000000
+
+.sbss           		40004124	00000000
+
+.ossbss         		40004124	0000002c
+		.ossbss         40004124	0000002c obj/os.o
+		      OsKilled_ 40004124	00000001
+		OsSuspendLevel_ 40004125	00000001
+		      OsOldMsr_ 40004128	00000004
+	    OsOldInterruptMask_ 4000412c	00000004
+	     OsSuspendLevelAll_ 40004130	00000001
+	       OsOldIntMaskAll_ 40004134	00000004
+		    OsIsrLevel_ 40004138	00000004
+		  OsInitialMSR_ 4000413c	00000004
+	    OsSchedulerVector1_ 40004140	00000004
+		     OsRunning_ 40004144	00000004
+	      OsTPBudgetObject_ 40004148	00000002
+	       OsTPForceReason_ 4000414a	00000001
+		    OsTPTimVal_ 4000414c	00000004
+
+
+.bss            		40004150	00000000
+
+.osbss          		40004150	00000700
+		.osbss          40004150	00000700 obj/os.o
+		    OsTaskTable 40004150	00000540
+		     OsIsrTable 40004690	00000040
+		      OsISRbufs 400046d0	000000a8
+		     OsIsrArray 40004778	00000008
+		     OsCounters 40004780	00000008
+		       OsAlarms 40004788	000000c8
+
+
+.sapp_vU_bss    		40004850	0000000a
+		.sapp_vU_bss    40004850	0000000a obj/mecc1.o
+			 sysCnt 40004850	00000004
+			  nosys 40004854	00000004
+			procent 40004858	00000002
+
+
+.debug_sfnames  		00000000	000002a3
+		.debug_sfnames  00000000	00000000 obj/mecc1sc2_cfg.o
+
+		.debug_sfnames  00000000	00000000 obj/vector.o
+
+		.debug_sfnames  00000000	00000033 obj/mecc1.o
+
+		.debug_sfnames  00000033	0000002b obj/fmpll.o
+
+		.debug_sfnames  0000005e	00000000 obj/os.o
+
+		.debug_sfnames  0000005e	00000024 obj/osset.o
+
+		.debug_sfnames  00000082	00000044 obj/ossch.o
+
+		.debug_sfnames  000000c6	00000000 obj/ossct.o
+
+		.debug_sfnames  000000c6	00000044 obj/ostsk.o
+
+		.debug_sfnames  0000010a	00000045 obj/osalm.o
+
+		.debug_sfnames  0000014f	00000044 obj/osctr.o
+
+		.debug_sfnames  00000193	00000000 obj/osres.o
+
+		.debug_sfnames  00000193	00000044 obj/osevt.o
+
+		.debug_sfnames  000001d7	00000065 obj/osisr.o
+
+		.debug_sfnames  0000023c	00000024 obj/osmem.o
+
+		.debug_sfnames  00000260	00000043 obj/ostp.o
+
+		.debug_sfnames  000002a3	00000000 obj/osmsg.o
+
+		.debug_sfnames  000002a3	00000000 obj/ostrg.o
+
+
+.debug          		00000000	00018683
+		.debug          00000000	0000144c obj/mecc1sc2_cfg.o
+
+		.debug          0000144c	000012b6 obj/vector.o
+
+		.debug          00002702	00001485 obj/mecc1.o
+
+		.debug          00003b87	000004ec obj/mecc1.o
+
+		.debug          00004073	000012bb obj/fmpll.o
+
+		.debug          0000532e	0000018b obj/fmpll.o
+
+		.debug          000054b9	0000174c obj/os.o
+
+		.debug          00006c05	000012cc obj/osset.o
+
+		.debug          00007ed1	00000262 obj/osset.o
+
+		.debug          00008133	000012b3 obj/ossch.o
+
+		.debug          000093e6	00000378 obj/ossch.o
+
+		.debug          0000975e	000012b3 obj/ossct.o
+
+		.debug          0000aa11	000012b3 obj/ostsk.o
+
+		.debug          0000bcc4	00000453 obj/ostsk.o
+
+		.debug          0000c117	000012b3 obj/osalm.o
+
+		.debug          0000d3ca	0000087f obj/osalm.o
+
+		.debug          0000dc49	000012b3 obj/osctr.o
+
+		.debug          0000eefc	00000511 obj/osctr.o
+
+		.debug          0000f40d	000012b3 obj/osres.o
+
+		.debug          000106c0	000012b3 obj/osevt.o
+
+		.debug          00011973	000003e8 obj/osevt.o
+
+		.debug          00011d5b	000012b3 obj/osisr.o
+
+		.debug          0001300e	000006f5 obj/osisr.o
+
+		.debug          00013703	000012b3 obj/osmem.o
+
+		.debug          000149b6	0000019e obj/osmem.o
+
+		.debug          00014b54	000012cb obj/ostp.o
+
+		.debug          00015e1f	000002fe obj/ostp.o
+
+		.debug          0001611d	000012b3 obj/osmsg.o
+
+		.debug          000173d0	000012b3 obj/ostrg.o
+
+
+.line           		00000000	00001e84
+		.line           00000000	00000012 obj/mecc1sc2_cfg.o
+
+		.line           00000012	00000012 obj/vector.o
+
+		.line           00000024	00000062 obj/mecc1.o
+
+		.line           00000086	000004d6 obj/mecc1.o
+
+		.line           0000055c	00000012 obj/fmpll.o
+
+		.line           0000056e	000000ee obj/fmpll.o
+
+		.line           0000065c	00000012 obj/os.o
+
+		.line           0000066e	00000012 obj/osset.o
+
+		.line           00000680	00000238 obj/osset.o
+
+		.line           000008b8	00000012 obj/ossch.o
+
+		.line           000008ca	00000288 obj/ossch.o
+
+		.line           00000b52	00000012 obj/ossct.o
+
+		.line           00000b64	00000012 obj/ostsk.o
+
+		.line           00000b76	0000030a obj/ostsk.o
+
+		.line           00000e80	00000012 obj/osalm.o
+
+		.line           00000e92	00000454 obj/osalm.o
+
+		.line           000012e6	00000012 obj/osctr.o
+
+		.line           000012f8	0000024c obj/osctr.o
+
+		.line           00001544	00000012 obj/osres.o
+
+		.line           00001556	00000012 obj/osevt.o
+
+		.line           00001568	000001d4 obj/osevt.o
+
+		.line           0000173c	00000012 obj/osisr.o
+
+		.line           0000174e	00000544 obj/osisr.o
+
+		.line           00001c92	00000012 obj/osmem.o
+
+		.line           00001ca4	00000044 obj/osmem.o
+
+		.line           00001ce8	00000012 obj/ostp.o
+
+		.line           00001cfa	00000166 obj/ostp.o
+
+		.line           00001e60	00000012 obj/osmsg.o
+
+		.line           00001e72	00000012 obj/ostrg.o
+
+
+.debug_srcinfo  		00000000	00000358
+		.debug_srcinfo  00000000	00000018 obj/mecc1sc2_cfg.o
+
+		.debug_srcinfo  00000018	00000018 obj/vector.o
+
+		.debug_srcinfo  00000030	00000020 obj/mecc1.o
+
+		.debug_srcinfo  00000050	00000020 obj/mecc1.o
+
+		.debug_srcinfo  00000070	00000018 obj/fmpll.o
+
+		.debug_srcinfo  00000088	00000020 obj/fmpll.o
+
+		.debug_srcinfo  000000a8	00000018 obj/os.o
+
+		.debug_srcinfo  000000c0	00000018 obj/osset.o
+
+		.debug_srcinfo  000000d8	00000020 obj/osset.o
+
+		.debug_srcinfo  000000f8	00000018 obj/ossch.o
+
+		.debug_srcinfo  00000110	00000028 obj/ossch.o
+
+		.debug_srcinfo  00000138	00000018 obj/ossct.o
+
+		.debug_srcinfo  00000150	00000018 obj/ostsk.o
+
+		.debug_srcinfo  00000168	00000028 obj/ostsk.o
+
+		.debug_srcinfo  00000190	00000018 obj/osalm.o
+
+		.debug_srcinfo  000001a8	00000028 obj/osalm.o
+
+		.debug_srcinfo  000001d0	00000018 obj/osctr.o
+
+		.debug_srcinfo  000001e8	00000028 obj/osctr.o
+
+		.debug_srcinfo  00000210	00000018 obj/osres.o
+
+		.debug_srcinfo  00000228	00000018 obj/osevt.o
+
+		.debug_srcinfo  00000240	00000028 obj/osevt.o
+
+		.debug_srcinfo  00000268	00000018 obj/osisr.o
+
+		.debug_srcinfo  00000280	00000030 obj/osisr.o
+
+		.debug_srcinfo  000002b0	00000018 obj/osmem.o
+
+		.debug_srcinfo  000002c8	00000020 obj/osmem.o
+
+		.debug_srcinfo  000002e8	00000018 obj/ostp.o
+
+		.debug_srcinfo  00000300	00000028 obj/ostp.o
+
+		.debug_srcinfo  00000328	00000018 obj/osmsg.o
+
+		.debug_srcinfo  00000340	00000018 obj/ostrg.o
+
+
+.debug_line     		00000000	0000005d
+		.debug_line     00000000	0000005d obj/crts.o
+
+
+.debug_info     		00000000	00000089
+		.debug_info     00000000	00000089 obj/crts.o
+
+
+.debug_abbrev   		00000000	00000012
+		.debug_abbrev   00000000	00000012 obj/crts.o
+
+
+.PPC.EMB.apuinfo		00000000	00000018
+		.PPC.EMB.apuinfo 00000000	00000018 ../../../../benchmark/memory/common/memory.dld
+
+
+Link editor command file symbols
+                       __SP_END 4000bc00
+                      __SP_INIT 4000c000
+                     _SDA_BASE_ 4000c0fc
+                    _SDA2_BASE_ 4000a900
+                     __DATA_ROM 400040b0
+                     __DATA_RAM 400040b0
+                     __DATA_END 40004124
+                    __BSS_START 40004124
+                      __BSS_END 4000485a
+                     ___SP_INIT 4000c000
+                      ___SP_END 4000bc00
+                    ___DATA_RAM 400040b0
+                    ___DATA_END 40004124
+                   ___BSS_START 40004124
+                     ___BSS_END 4000485a
+                      _f_ostext 400003f4
+                      _e_ostext 40001de8
+                       _f_vects 40000000
+                       _e_vects 40000124
+                     _f_osstack 40002920
+                     _e_osstack 400040b0
+                 _f_osbegincode 40000140
+                   _e_osendcode 40002920
+
+                                Cross Reference Table
+
+Symbol                          Output          Input           Referenced
+                                Section         Section         (* - Defined)
+
+Count                           .appcode	.appcode	* obj/mecc1.o
+EndMeasurement                  .appcode	.appcode	* obj/mecc1.o
+FuncTASK1                       .appcode	.appcode	* obj/mecc1.o
+                                                                  obj/mecc1sc2_cfg.o
+FuncTASK10                      .appcode	.appcode	* obj/mecc1.o
+                                                                  obj/mecc1sc2_cfg.o
+FuncTASK2                       .appcode	.appcode	* obj/mecc1.o
+                                                                  obj/mecc1sc2_cfg.o
+FuncTASK3                       .appcode	.appcode	* obj/mecc1.o
+                                                                  obj/mecc1sc2_cfg.o
+FuncTASK4                       .appcode	.appcode	* obj/mecc1.o
+                                                                  obj/mecc1sc2_cfg.o
+FuncTASK5                       .appcode	.appcode	* obj/mecc1.o
+                                                                  obj/mecc1sc2_cfg.o
+FuncTASK6                       .appcode	.appcode	* obj/mecc1.o
+                                                                  obj/mecc1sc2_cfg.o
+FuncTASK7                       .appcode	.appcode	* obj/mecc1.o
+                                                                  obj/mecc1sc2_cfg.o
+FuncTASK8                       .appcode	.appcode	* obj/mecc1.o
+                                                                  obj/mecc1sc2_cfg.o
+FuncTASK9                       .appcode	.appcode	* obj/mecc1.o
+                                                                  obj/mecc1sc2_cfg.o
+FuncTASKBGND                    .appcode	.appcode	* obj/mecc1.o
+                                                                  obj/mecc1sc2_cfg.o
+GetUsedBytes                    .text   	.text_vle	* obj/mecc1.o
+OSCheckAlarms                   .ostext 	.ostext 	  obj/osctr.o
+                                                                * obj/osalm.o
+OSCriticalException             .ostext 	.ostext 	* obj/ostrg.o
+                                                                  obj/vector.o
+OSDebugException                .ostext 	.ostext 	* obj/ostrg.o
+                                                                  obj/vector.o
+OSExceptionError                .ostext 	.ostext 	  obj/ostrg.o
+                                                                * obj/osmem.o
+OSISRException                  .ostext 	.ostext 	* obj/osisr.o
+                                                                  obj/mecc1sc2_cfg.o
+OSISRSystemTimer                .ostext 	.ostext 	* obj/osctr.o
+                                                                  obj/mecc1sc2_cfg.o
+OSISRTPForced                   .ostext 	.ostext 	* obj/ostp.o
+                                                                  obj/mecc1sc2_cfg.o
+OSISRTPTimerBudget              .ostext 	.ostext 	* obj/ostp.o
+                                                                  obj/mecc1sc2_cfg.o
+OSInitializeISR                 .ostext 	.ostext 	* obj/osisr.o
+                                                                  obj/osset.o
+OSInitializeSystemTimer         .ostext 	.ostext 	* obj/osctr.o
+                                                                  obj/osset.o
+OSInitializeTP                  .ostext 	.ostext 	* obj/ostp.o
+                                                                  obj/osset.o
+OSInsertAlarm                   .ostext 	.ostext 	* obj/osalm.o
+OSInterruptDispatcher           .ostext 	.ostext 	* obj/ostrg.o
+                                                                  obj/vector.o
+OSInterruptDispatcher1          .ostext 	.ostext 	  obj/ostrg.o
+                                                                * obj/osisr.o
+OSKillAlarm                     .ostext 	.ostext 	* obj/osalm.o
+OSKillRunningTask               .ostext 	.ostext 	* obj/ostsk.o
+                                                                  obj/ossch.o
+OSKillTask                      .ostext 	.ostext 	* obj/ostsk.o
+OSLeaveISR                      .ostext 	.ostext 	* obj/osisr.o
+OSLongJmp                       .ostext 	.ostext 	* obj/ostrg.o
+                                                                  obj/ossch.o
+OSMachineCheckException         .ostext 	.ostext 	* obj/ostrg.o
+                                                                  obj/vector.o
+OSNonCriticalException          .ostext 	.ostext 	* obj/ostrg.o
+                                                                  obj/vector.o
+OSNotifyAlarmAction             .ostext 	.ostext 	* obj/osalm.o
+OSSetAlarm                      .ostext 	.ostext 	* obj/osalm.o
+OSSetEvent                      .ostext 	.ostext 	* obj/osevt.o
+OSSetJmp                        .ostext 	.ostext 	* obj/ostrg.o
+                                                                  obj/osisr.o
+                                                                  obj/ossch.o
+OSShutdownOS                    .ostext 	.ostext 	  obj/ostrg.o
+                                                                  obj/ostp.o
+                                                                  obj/osmem.o
+                                                                  obj/osisr.o
+                                                                * obj/osset.o
+OSShutdownSystemTimer           .ostext 	.ostext 	* obj/osctr.o
+                                                                  obj/osset.o
+OSSysTimerCancel                .ostext 	.ostext 	* obj/osctr.o
+OSTPLeaveISR                    .ostext 	.ostext 	* obj/osisr.o
+OSTPStopBudget                  .ostext 	.ostext 	* obj/ostp.o
+                                                                  obj/osctr.o
+OSTaskForceDispatch             .ostext 	.ostext 	  obj/osevt.o
+                                                                  obj/osctr.o
+                                                                  obj/osalm.o
+                                                                  obj/ostsk.o
+                                                                * obj/ossch.o
+                                                                  obj/osset.o
+OSTaskInternalDispatch          .ostext 	.ostext 	  obj/osisr.o
+                                                                * obj/ossch.o
+OSTaskTerminateDispatch         .ostext 	.ostext 	  obj/ostsk.o
+                                                                * obj/ossch.o
+OS_ActivateTask                 .ostext 	.ostext 	* obj/ostsk.o
+OS_CancelAlarm                  .ostext 	.ostext 	* obj/osalm.o
+OS_ChainTask                    .ostext 	.ostext 	* obj/ostsk.o
+OS_ClearEvent                   .ostext 	.ostext 	* obj/osevt.o
+                                                                  obj/mecc1.o
+OS_DisableInterruptSource       .ostext 	.ostext 	* obj/osisr.o
+OS_EnableInterruptSource        .ostext 	.ostext 	* obj/osisr.o
+OS_GetAlarm                     .ostext 	.ostext 	* obj/osalm.o
+OS_GetAlarmBase                 .ostext 	.ostext 	* obj/osalm.o
+OS_GetCounterInfo               .ostext 	.ostext 	* obj/osctr.o
+OS_GetCounterValue              .ostext 	.ostext 	* obj/osctr.o
+OS_GetElapsedCounterValue       .ostext 	.ostext 	* obj/osctr.o
+OS_GetEvent                     .ostext 	.ostext 	* obj/osevt.o
+OS_GetISRID                     .ostext 	.ostext 	* obj/osisr.o
+OS_GetTaskID                    .ostext 	.ostext 	* obj/ostsk.o
+OS_GetTaskState                 .ostext 	.ostext 	* obj/ostsk.o
+OS_IncrementCounter             .ostext 	.ostext 	* obj/osctr.o
+OS_InitCounter                  .ostext 	.ostext 	* obj/osctr.o
+OS_ResumeAllInterrupts          .ostext 	.ostext 	* obj/osisr.o
+OS_ResumeOSInterrupts           .ostext 	.ostext 	* obj/osisr.o
+OS_Schedule                     .ostext 	.ostext 	* obj/ossch.o
+OS_SetAbsAlarm                  .ostext 	.ostext 	* obj/osalm.o
+                                                                  obj/mecc1.o
+OS_SetEvent                     .ostext 	.ostext 	* obj/osevt.o
+OS_SetRelAlarm                  .ostext 	.ostext 	* obj/osalm.o
+OS_ShutdownOS                   .ostext 	.ostext 	* obj/osset.o
+OS_SuspendAllInterrupts         .ostext 	.ostext 	* obj/osisr.o
+OS_SuspendOSInterrupts          .ostext 	.ostext 	* obj/osisr.o
+OS_TerminateTask                .ostext 	.ostext 	* obj/ostsk.o
+OS_WaitEvent                    .ostext 	.ostext 	* obj/osevt.o
+                                                                  obj/mecc1.o
+OsAlarms                        .osbss  	.osbss  	  obj/osalm.o
+                                                                  obj/osset.o
+                                                                * obj/os.o
+OsAlarmsCfg                     .osrodata	.osrodata	  obj/osset.o
+                                                                * obj/mecc1sc2_cfg.o
+OsCounters                      .osbss  	.osbss  	  obj/osctr.o
+                                                                  obj/osalm.o
+                                                                  obj/osset.o
+                                                                * obj/os.o
+OsCountersCfg                   .osrodata	.osrodata	  obj/osctr.o
+                                                                  obj/osalm.o
+                                                                * obj/mecc1sc2_cfg.o
+OsISRStack                      .osstack	.osstack	  obj/osisr.o
+                                                                * obj/os.o
+                                                                  obj/mecc1.o
+OsISRbufs                       .osbss  	.osbss  	  obj/osisr.o
+                                                                * obj/os.o
+OsInitialMSR_                   .ossbss 	.ossbss 	  obj/osisr.o
+                                                                  obj/ostsk.o
+                                                                  obj/osset.o
+                                                                * obj/os.o
+OsIsr                           .osrodata	.osrodata	  obj/osisr.o
+                                                                * obj/mecc1sc2_cfg.o
+OsIsrArray                      .osbss  	.osbss  	  obj/osisr.o
+                                                                * obj/os.o
+OsIsrCfg                        .osrodata	.osrodata	  obj/osisr.o
+                                                                * obj/mecc1sc2_cfg.o
+OsIsrLevel_                     .ossbss 	.ossbss 	  obj/osisr.o
+                                                                  obj/osevt.o
+                                                                  obj/osctr.o
+                                                                  obj/osalm.o
+                                                                  obj/ostsk.o
+                                                                * obj/os.o
+OsIsrTable                      .osbss  	.osbss  	  obj/osisr.o
+                                                                * obj/os.o
+OsKilled_                       .ossbss 	.ossbss 	  obj/osisr.o
+                                                                  obj/ostsk.o
+                                                                  obj/osset.o
+                                                                * obj/os.o
+OsOldIntMaskAll_                .ossbss 	.ossbss 	  obj/osisr.o
+                                                                * obj/os.o
+OsOldInterruptMask_             .ossbss 	.ossbss 	  obj/osisr.o
+                                                                * obj/os.o
+OsOldMsr_                       .ossbss 	.ossbss 	* obj/os.o
+OsRunning_                      .ossbss 	.ossbss 	  obj/ostp.o
+                                                                  obj/osisr.o
+                                                                  obj/osevt.o
+                                                                  obj/osctr.o
+                                                                  obj/osalm.o
+                                                                  obj/ostsk.o
+                                                                  obj/ossch.o
+                                                                  obj/osset.o
+                                                                * obj/os.o
+OsSchedulerVector1_             .ossbss 	.ossbss 	  obj/osisr.o
+                                                                  obj/osevt.o
+                                                                  obj/osctr.o
+                                                                  obj/osalm.o
+                                                                  obj/ostsk.o
+                                                                  obj/ossch.o
+                                                                  obj/osset.o
+                                                                * obj/os.o
+OsStacks                        .osstack	.osstack	* obj/os.o
+                                                                  obj/mecc1sc2_cfg.o
+OsSuspendLevelAll_              .ossbss 	.ossbss 	  obj/osisr.o
+                                                                  obj/ostsk.o
+                                                                  obj/osset.o
+                                                                * obj/os.o
+OsSuspendLevel_                 .ossbss 	.ossbss 	  obj/osisr.o
+                                                                  obj/ostsk.o
+                                                                * obj/os.o
+OsTPBudgetObject_               .ossbss 	.ossbss 	  obj/ostp.o
+                                                                  obj/osisr.o
+                                                                  obj/osevt.o
+                                                                  obj/ostsk.o
+                                                                  obj/ossch.o
+                                                                * obj/os.o
+OsTPForceReason_                .ossbss 	.ossbss 	  obj/ostp.o
+                                                                  obj/osisr.o
+                                                                  obj/osevt.o
+                                                                  obj/ossch.o
+                                                                * obj/os.o
+OsTPTimVal_                     .ossbss 	.ossbss 	  obj/ostp.o
+                                                                  obj/osisr.o
+                                                                  obj/osevt.o
+                                                                  obj/ossch.o
+                                                                * obj/os.o
+OsTaskCfgTable                  .osrodata	.osrodata	  obj/ostp.o
+                                                                  obj/osset.o
+                                                                  obj/mecc1.o
+                                                                * obj/mecc1sc2_cfg.o
+OsTaskTable                     .osbss  	.osbss  	  obj/ostp.o
+                                                                  obj/osisr.o
+                                                                  obj/osevt.o
+                                                                  obj/osctr.o
+                                                                  obj/osalm.o
+                                                                  obj/ostsk.o
+                                                                  obj/ossch.o
+                                                                  obj/osset.o
+                                                                * obj/os.o
+SetPLL                          .appcode	.appcode	* obj/fmpll.o
+                                                                  obj/mecc1.o
+StartOS                         .ostext 	.ostext 	* obj/osset.o
+                                                                  obj/mecc1.o
+VTABLE                          .vects  	.vects  	  obj/osisr.o
+                                                                * obj/vector.o
+_SDA2_BASE_                     [absolute]	        	* ../../../../benchmark/memory/common/memory.dld
+                                                                  obj/crts.o
+_SDA_BASE_                      .sdata  	.sdata  	* ../../../../benchmark/memory/common/memory.dld
+                                                                  obj/crts.o
+__BSS_END                       [absolute]	        	  init.o(D:\WINDRI~1\diab\570~1.0\PPCVLEE\libiold.a)
+                                                                * ../../../../benchmark/memory/common/memory.dld
+__BSS_START                     [absolute]	        	  init.o(D:\WINDRI~1\diab\570~1.0\PPCVLEE\libiold.a)
+                                                                * ../../../../benchmark/memory/common/memory.dld
+__DATA_END                      [absolute]	        	  init.o(D:\WINDRI~1\diab\570~1.0\PPCVLEE\libiold.a)
+                                                                * ../../../../benchmark/memory/common/memory.dld
+__DATA_RAM                      [absolute]	        	  init.o(D:\WINDRI~1\diab\570~1.0\PPCVLEE\libiold.a)
+                                                                * ../../../../benchmark/memory/common/memory.dld
+__DATA_ROM                      [absolute]	        	  init.o(D:\WINDRI~1\diab\570~1.0\PPCVLEE\libiold.a)
+                                                                * ../../../../benchmark/memory/common/memory.dld
+__SP_END                        [absolute]	        	* ../../../../benchmark/memory/common/memory.dld
+                                                                  obj/mecc1.o
+__SP_INIT                       [absolute]	        	* ../../../../benchmark/memory/common/memory.dld
+                                                                  obj/crts.o
+                                                                  obj/mecc1.o
+___BSS_END                      [absolute]	        	* ../../../../benchmark/memory/common/memory.dld
+___BSS_START                    [absolute]	        	* ../../../../benchmark/memory/common/memory.dld
+___DATA_END                     [absolute]	        	* ../../../../benchmark/memory/common/memory.dld
+___DATA_RAM                     [absolute]	        	* ../../../../benchmark/memory/common/memory.dld
+___SP_END                       [absolute]	        	* ../../../../benchmark/memory/common/memory.dld
+___SP_INIT                      [absolute]	        	* ../../../../benchmark/memory/common/memory.dld
+__argv                          .sdata  	.sdata  	* memfile.o(D:\WINDRI~1\diab\570~1.0\PPCVLEE\libiold.a)
+                                                                  init.o(D:\WINDRI~1\diab\570~1.0\PPCVLEE\libiold.a)
+__env                           .sdata  	.sdata  	* memfile.o(D:\WINDRI~1\diab\570~1.0\PPCVLEE\libiold.a)
+                                                                  init.o(D:\WINDRI~1\diab\570~1.0\PPCVLEE\libiold.a)
+__exec_ctors                    .text   	.text_vle	* ctordtor.o(D:\WINDRI~1\diab\570~1.0\PPCVLEE\libimpl.a)
+                                                                  crtlibso.o(D:\WINDRI~1\diab\570~1.0\PPCVLEE\libimpl.a)
+__exec_dtors                    .text   	.text_vle	* ctordtor.o(D:\WINDRI~1\diab\570~1.0\PPCVLEE\libimpl.a)
+                                                                  crtlibso.o(D:\WINDRI~1\diab\570~1.0\PPCVLEE\libimpl.a)
+__exec_xtor_table               .sdata  	.sdata  	* ctordtor.o(D:\WINDRI~1\diab\570~1.0\PPCVLEE\libimpl.a)
+__fini                          .text   	.fini   	* crtlibso.o(D:\WINDRI~1\diab\570~1.0\PPCVLEE\libimpl.a)
+__fname                         .data   	.data   	* memfile.o(D:\WINDRI~1\diab\570~1.0\PPCVLEE\libiold.a)
+__init                          .text   	.init   	* crtlibso.o(D:\WINDRI~1\diab\570~1.0\PPCVLEE\libimpl.a)
+                                                                  init.o(D:\WINDRI~1\diab\570~1.0\PPCVLEE\libiold.a)
+__init_main                     .text   	.text_vle	* init.o(D:\WINDRI~1\diab\570~1.0\PPCVLEE\libiold.a)
+                                                                  obj/crts.o
+_e_osendcode                    [absolute]	        	* ../../../../benchmark/memory/common/memory.dld
+_e_osstack                      [absolute]	        	* ../../../../benchmark/memory/common/memory.dld
+_e_ostext                       [absolute]	        	* ../../../../benchmark/memory/common/memory.dld
+_e_vects                        [absolute]	        	* ../../../../benchmark/memory/common/memory.dld
+_f_osbegincode                  [absolute]	        	* ../../../../benchmark/memory/common/memory.dld
+_f_osstack                      [absolute]	        	* ../../../../benchmark/memory/common/memory.dld
+_f_ostext                       [absolute]	        	* ../../../../benchmark/memory/common/memory.dld
+_f_vects                        [absolute]	        	* ../../../../benchmark/memory/common/memory.dld
+_start                          .text   	.text_vle	* obj/crts.o
+environ                         .sdata  	.sdata  	* init.o(D:\WINDRI~1\diab\570~1.0\PPCVLEE\libiold.a)
+iterator                        .app0_vU	.app0_vU	* obj/mecc1.o
+main                            .appcode	.appcode	  init.o(D:\WINDRI~1\diab\570~1.0\PPCVLEE\libiold.a)
+                                                                * obj/mecc1.o
+memcpy                          .text   	.text_vle	* memcpy.o(D:\WINDRI~1\diab\570~1.0\PPCVLEE\libiold.a)
+                                                                  init.o(D:\WINDRI~1\diab\570~1.0\PPCVLEE\libiold.a)
+memset                          .text   	.text_vle	* memset.o(D:\WINDRI~1\diab\570~1.0\PPCVLEE\libiold.a)
+                                                                  init.o(D:\WINDRI~1\diab\570~1.0\PPCVLEE\libiold.a)
+nosys                           .sapp_vU_bss	.sapp_vU_bss	* obj/mecc1.o
+procent                         .sapp_vU_bss	.sapp_vU_bss	* obj/mecc1.o
+stackUsage                      .app0_vU	.app0_vU	* obj/mecc1.o
+sysCnt                          .sapp_vU_bss	.sapp_vU_bss	* obj/mecc1.o
+tmpPtr                          .app0_vU	.app0_vU	* obj/mecc1.o
+tmpSP                           .app0_vU	.app0_vU	* obj/mecc1.o

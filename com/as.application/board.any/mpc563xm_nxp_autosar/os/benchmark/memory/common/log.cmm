@@ -1,0 +1,85 @@
+;**************************************************************************************
+; 
+;  Freescale(TM) and the Freescale logo are trademarks of Freescale Semiconductor, Inc. 
+;  All other product or service names are the property of their respective owners. 
+;  (C) Freescale Semiconductor, Inc. 2009
+; 
+;  You can use this example for any purpose on any computer system with the
+;  following restrictions:
+;
+;  1. This example is provided "as is", without warranty.
+;
+;  2. You don't remove this copyright notice from this example or any direct derivation 
+;     thereof.
+;
+;  Description: This Lauterbach script prints log of memory benchmark
+;
+;**************************************************************************************
+
+LOCAL &tname  &cname &suff
+ENTRY &tname &cname &suff
+
+OPEN #1 bin/m&tname&cname&suff.log /Create
+CLOSE #1
+APPEND bin/m&tname&cname&suff.log "==================="
+APPEND bin/m&tname&cname&suff.log "TEST : " &tname " for " &cname
+APPEND bin/m&tname&cname&suff.log "==================="
+APPEND bin/m&tname&cname&suff.log "sysCnt   =	" %DECIMAL DATA.LONG(sysCnt)
+APPEND bin/m&tname&cname&suff.log "nosys    =	" %DECIMAL DATA.LONG(nosys)
+APPEND bin/m&tname&cname&suff.log "Overhead =	" DATA.WORD(procent)/100.0 "%"
+APPEND bin/m&tname&cname&suff.log "-------------------"
+APPEND bin/m&tname&cname&suff.log "Main stack usage        =	" %DECIMAL DATA.LONG(stackUsage)
+IF (&tname=="ecc1")
+(
+ APPEND bin/m&tname&cname&suff.log "Task1 stack usage        =	" %DECIMAL DATA.LONG(stackUsage+04)
+ APPEND bin/m&tname&cname&suff.log "Task2 stack usage        =	" %DECIMAL DATA.LONG(stackUsage+08)
+ APPEND bin/m&tname&cname&suff.log "Task3 stack usage        =	" %DECIMAL DATA.LONG(stackUsage+0C)
+ APPEND bin/m&tname&cname&suff.log "Task4 stack usage        =	" %DECIMAL DATA.LONG(stackUsage+10)
+ APPEND bin/m&tname&cname&suff.log "Task5 stack usage        =	" %DECIMAL DATA.LONG(stackUsage+14)
+ APPEND bin/m&tname&cname&suff.log "Task6 stack usage        =	" %DECIMAL DATA.LONG(stackUsage+18)
+ APPEND bin/m&tname&cname&suff.log "Task7 stack usage        =	" %DECIMAL DATA.LONG(stackUsage+1C)
+ APPEND bin/m&tname&cname&suff.log "Task8 stack usage        =	" %DECIMAL DATA.LONG(stackUsage+20)
+ APPEND bin/m&tname&cname&suff.log "Task9 stack usage        =	" %DECIMAL DATA.LONG(stackUsage+24)
+ APPEND bin/m&tname&cname&suff.log "Task10 stack usage       =	" %DECIMAL DATA.LONG(stackUsage+28)
+ IF (&cname=="sc1")
+ (
+  APPEND bin/m&tname&cname&suff.log "ISR stack usage          =	" %DECIMAL DATA.LONG(stackUsage+2C)
+ )
+ ELSE
+ (
+   IF (&cname=="sc2")
+   (
+     APPEND bin/m&tname&cname&suff.log "ISR stack usage          =	" %DECIMAL DATA.LONG(stackUsage+2C)
+   )
+   ELSE
+   (
+     APPEND bin/m&tname&cname&suff.log "System Timer stack usage =	" %DECIMAL DATA.LONG(stackUsage+2C)
+   )
+ )
+ IF (&cname!="sc1")
+ (
+  APPEND bin/m&tname&cname&suff.log "TaskBGND stack usage     =	" %DECIMAL DATA.LONG(stackUsage+30)
+ )
+)
+ELSE
+(
+ IF (&cname!="sc1")
+ (
+  APPEND bin/m&tname&cname&suff.log "Task1 stack usage        =	" %DECIMAL DATA.LONG(stackUsage+04)
+  APPEND bin/m&tname&cname&suff.log "Task2 stack usage        =	" %DECIMAL DATA.LONG(stackUsage+08)
+  APPEND bin/m&tname&cname&suff.log "Task3 stack usage        =	" %DECIMAL DATA.LONG(stackUsage+0C)
+  APPEND bin/m&tname&cname&suff.log "Task4 stack usage        =	" %DECIMAL DATA.LONG(stackUsage+10)
+  APPEND bin/m&tname&cname&suff.log "Task5 stack usage        =	" %DECIMAL DATA.LONG(stackUsage+14)
+  APPEND bin/m&tname&cname&suff.log "Task6 stack usage        =	" %DECIMAL DATA.LONG(stackUsage+18)
+  APPEND bin/m&tname&cname&suff.log "Task7 stack usage        =	" %DECIMAL DATA.LONG(stackUsage+1C)
+  APPEND bin/m&tname&cname&suff.log "Task8 stack usage        =	" %DECIMAL DATA.LONG(stackUsage+20)
+  APPEND bin/m&tname&cname&suff.log "Task9 stack usage        =	" %DECIMAL DATA.LONG(stackUsage+24)
+  APPEND bin/m&tname&cname&suff.log "Task10 stack usage       =	" %DECIMAL DATA.LONG(stackUsage+28)
+  APPEND bin/m&tname&cname&suff.log "TaskBGND stack usage     =	" %DECIMAL DATA.LONG(stackUsage+2C)
+  APPEND bin/m&tname&cname&suff.log "System Timer stack usage =	" %DECIMAL DATA.LONG(stackUsage+30)
+ )
+)
+APPEND bin/m&tname&cname&suff.log "==================="
+
+TYPE bin/m&tname&cname&suff.log
+

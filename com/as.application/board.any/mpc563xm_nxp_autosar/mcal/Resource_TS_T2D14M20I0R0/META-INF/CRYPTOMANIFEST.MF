@@ -1,0 +1,43 @@
+
+Name: resource/PA_XPC563XM_mpc5634m_qfp144.properties
+SignatureKeyID: Freescale
+Signature: 11313377424709242321151569660265614994456160858301874181330
+ 3874599715963411363225878777405584454928010440331840
+SignatureKeyProviderID: plugin.launcher2.licenseFileKeyProvider
+SignatureAlgorithmID: DSA
+
+Name: resource/PA_XPC563XM_mpc5634m_bga208.properties
+SignatureKeyID: Freescale
+Signature: 28964594755210296545862214325000448607401307071213763885249
+ 782687647388603628849344771592569527159538446369944434
+SignatureKeyProviderID: plugin.launcher2.licenseFileKeyProvider
+SignatureAlgorithmID: DSA
+
+Name: resource/PA_XPC563XM_spc563xm64_qfp176.properties
+SignatureKeyID: Freescale
+Signature: 11313377425598990451900148363249574500103582162524475761121
+ 1969913485285876999224360508268709688143590292792469
+SignatureKeyProviderID: plugin.launcher2.licenseFileKeyProvider
+SignatureAlgorithmID: DSA
+
+Name: resource/PA_XPC563XM_mpc5634m_qfp176.properties
+SignatureKeyID: Freescale
+Signature: 11313377426954123069194640164563839521231863704680651446561
+ 7009167772780891493231444910590013933005005237278516
+SignatureKeyProviderID: plugin.launcher2.licenseFileKeyProvider
+SignatureAlgorithmID: DSA
+
+Name: config/Resource.xdm
+SignatureKeyID: Freescale
+Signature: 11313377426131213356116339021377487842295112052760406401271
+ 1376362055633712470159118196766118762436118811490674
+SignatureKeyProviderID: plugin.launcher2.licenseFileKeyProvider
+SignatureAlgorithmID: DSA
+
+Name: resource/PA_XPC563XM_spc563xm64_qfp144.properties
+SignatureKeyID: Freescale
+Signature: 11313377421213263338716205008653339014786464149477768254486
+ 2062044371341102929013978629477027548149814766775390
+SignatureKeyProviderID: plugin.launcher2.licenseFileKeyProvider
+SignatureAlgorithmID: DSA
+

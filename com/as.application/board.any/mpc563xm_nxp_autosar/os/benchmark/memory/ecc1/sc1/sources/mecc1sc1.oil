@@ -1,0 +1,107 @@
+/**************************************************************************************
+* 
+*  Freescale(TM) and the Freescale logo are trademarks of Freescale Semiconductor, Inc. 
+*  All other product or service names are the property of their respective owners. 
+*  (C) Freescale Semiconductor, Inc. 2008 - 2009
+* 
+*  You can use this example for any purpose on any computer system with the
+*  following restrictions:
+*
+*  1. This example is provided "as is", without warranty.
+*
+*  2. You don't remove this copyright notice from this example or any direct derivation 
+*     thereof.
+*
+*  Description:  AUTOSAR OS/MPC56xxAM memory benchmark for ECC1/SC1
+*
+**************************************************************************************/
+
+OIL_VERSION = "3.0";
+
+#include "os_mpc56xxAM.oin"
+
+CPU Cpu1 {
+    APPMODE Mode1;
+    
+    OS Os1 {
+
+#include "..\..\..\common\target.oin"
+        };                         
+#include "..\..\..\..\common\options.oin"        
+        STATUS = STANDARD;       
+    };
+
+#include "..\..\..\common\memory.oin"
+
+    TASK TASK1 {
+        STACKSIZE = 512;
+        EVENT = EVENT1;        
+    };
+    TASK TASK2 {
+        STACKSIZE = 512;
+        EVENT = EVENT2;        
+    };
+    TASK TASK3 {
+        STACKSIZE = 512;
+        EVENT = EVENT3;        
+    };
+    TASK TASK4 {
+        STACKSIZE = 512;
+        EVENT = EVENT4;        
+    };
+    TASK TASK5 {
+        STACKSIZE = 512;
+        EVENT = EVENT5;        
+    };
+    TASK TASK6 {
+        STACKSIZE = 512;
+        EVENT = EVENT6;        
+    };
+    TASK TASK7 {
+        STACKSIZE = 512;
+        EVENT = EVENT7;        
+    };
+    TASK TASK8 {
+        STACKSIZE = 512;
+        EVENT = EVENT8;        
+    };
+    TASK TASK9 {
+        STACKSIZE = 512;
+        EVENT = EVENT9;        
+    };
+    TASK TASK10 {
+        STACKSIZE = 512;
+        EVENT = EVENT10;        
+    };
+       
+    EVENT EVENT1 {
+        MASK = 1;
+    };
+    EVENT EVENT2 {
+        MASK = 2;
+    };
+    EVENT EVENT3 {
+        MASK = 4;
+    };
+    EVENT EVENT4 {
+        MASK = 8;
+    };
+    EVENT EVENT5 {
+        MASK = 16;
+    };
+    EVENT EVENT6 {
+        MASK = 32;
+    };
+    EVENT EVENT7 {
+        MASK = 64;
+    };
+    EVENT EVENT8 {
+        MASK = 128;
+    };
+    EVENT EVENT9 {
+        MASK = 1;
+    };
+    EVENT EVENT10 {
+        MASK = 2;
+    };    
+};

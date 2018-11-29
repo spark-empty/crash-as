@@ -1,0 +1,48 @@
+import os
+from building import *
+
+cwd = GetCurrentDir()
+
+Import('asenv')
+ASROOT = asenv['ASROOT']
+MODULES=asenv['MODULES']
+
+download = '%s/release/download'%(ASROOT)
+
+lvgl = Package('https://github.com/littlevgl/lvgl.git', version = 'v5.1.1')
+lvglex = Package('https://github.com/littlevgl/lv_examples.git')
+
+MKSymlink(lvgl,'%s/lvgl'%(cwd))
+MKSymlink(lvglex,'%s/lv_examples'%(cwd))
+MKSymlink('%s/lv_conf.h'%(cwd),'%s/lv_conf.h'%(download))
+MKSymlink('%s/lv_ex_conf.h'%(cwd),'%s/lv_ex_conf.h'%(download))
+
+objs = []
+
+objs += Glob('lvgl/lv_core/*.c')
+objs += Glob('lvgl/lv_draw/*.c')
+objs += Glob('lvgl/lv_hal/*.c')
+objs += Glob('lvgl/lv_misc/*.c')
+objs += Glob('lvgl/lv_misc/lv_fonts/*.c')
+objs += Glob('lvgl/lv_objx/*.c')
+objs += Glob('lvgl/lv_themes/*.c')
+
+if('LV_BENCHMARK' in MODULES):
+    objs += Glob('lv_examples/lv_apps/benchmark/*.c')
+
+if('LV_DEMO' in MODULES):
+    objs += Glob('lv_examples/lv_apps/demo/*.c')
+
+if('LV_SYSMON' in MODULES):
+    objs += Glob('lv_examples/lv_apps/sysmon/*.c')
+
+if('LV_TERMINAL' in MODULES):
+    objs += Glob('lv_examples/lv_apps/terminal/*.c')
+
+if('LV_TPCAL' in MODULES):
+    objs += Glob('lv_examples/lv_apps/tpcal/*.c')
+
+
+asenv.Append(CPPPATH = ['%s/lvgl'%(cwd),cwd])
+
+Return('objs')

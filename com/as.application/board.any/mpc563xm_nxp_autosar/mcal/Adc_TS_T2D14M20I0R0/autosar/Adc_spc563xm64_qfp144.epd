@@ -1,0 +1,1873 @@
+<?xml version="1.0"?>
+<AUTOSAR xmlns="http://autosar.org/3.0.2" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://autosar.org/3.0.2 autosar.xsd">
+  <TOP-LEVEL-PACKAGES>
+    <AR-PACKAGE UUID="ECUC:AUTOSAR">
+      <SHORT-NAME>TS_T2D14M20I0R0</SHORT-NAME>
+      <ELEMENTS>
+        <ECU-PARAMETER-DEFINITION UUID="ECUC:6663cfe9-4f97-4063-8e57-c2551e4c986a">
+          <SHORT-NAME>Adc_AUTOSARParameterDefinition</SHORT-NAME>
+          <MODULE-REFS>
+            <MODULE-REF DEST="MODULE-DEF">/TS_T2D14M20I0R0/Adc</MODULE-REF>
+          </MODULE-REFS>
+        </ECU-PARAMETER-DEFINITION>
+        <MODULE-DEF UUID="ECUC:4e8b15ae-8223-4d32-9b37-2dfcb757ccf4">
+          <SHORT-NAME>Adc</SHORT-NAME>
+          <DESC>
+            <L-2>Configuration of the Adc (Analog Digital Conversion) module.</L-2>
+          </DESC>
+          <ADMIN-DATA>
+            <LANGUAGE>EN</LANGUAGE>
+            <DOC-REVISIONS>
+              <DOC-REVISION>
+                <REVISION-LABEL>1.0</REVISION-LABEL>
+                <ISSUED-BY>Freescale</ISSUED-BY>
+                <DATE>2010-09-15T10:30:00</DATE>
+                <MODIFICATIONS>
+                  <MODIFICATION>
+                    <CHANGE>
+                      <L-2 L="EN">steng00000258</L-2>
+                    </CHANGE>
+                    <REASON>
+                      <L-2 L="EN">Updated Admin tag.</L-2>
+                    </REASON>
+                  </MODIFICATION>
+                </MODIFICATIONS>
+              </DOC-REVISION>
+            </DOC-REVISIONS>
+          </ADMIN-DATA>
+          <LOWER-MULTIPLICITY>1</LOWER-MULTIPLICITY>
+          <UPPER-MULTIPLICITY>1</UPPER-MULTIPLICITY>
+          <REFINED-MODULE-DEF-REF DEST="MODULE-DEF">/AUTOSAR/Adc</REFINED-MODULE-DEF-REF>
+          <SUPPORTED-CONFIG-VARIANTS>
+            <SUPPORTED-CONFIG-VARIANT>VARIANT-PRE-COMPILE</SUPPORTED-CONFIG-VARIANT>
+            <SUPPORTED-CONFIG-VARIANT>VARIANT-POST-BUILD</SUPPORTED-CONFIG-VARIANT>
+          </SUPPORTED-CONFIG-VARIANTS>
+          <CONTAINERS>
+            <PARAM-CONF-CONTAINER-DEF UUID="ECUC:e645403c-fce4-414f-8ccd-7a9ed02fc4eb">
+              <SHORT-NAME>AdcConfigSet</SHORT-NAME>
+              <DESC>
+                <L-2>This is the base container that contains the post-build selectable configuration parameters</L-2>
+              </DESC>
+              <LOWER-MULTIPLICITY>1</LOWER-MULTIPLICITY>
+              <UPPER-MULTIPLICITY>1</UPPER-MULTIPLICITY>
+              <MULTIPLE-CONFIGURATION-CONTAINER>true</MULTIPLE-CONFIGURATION-CONTAINER>
+              <PARAMETERS>
+                <INTEGER-PARAM-DEF UUID="ECUC:d928b91a-2a75-4db6-8cca-e7877f79ef35">
+                  <SHORT-NAME>AdcDigitalFilterLength</SHORT-NAME>
+                  <DESC>
+                    <L-2>
+    Digital Filter Length (DFL bits in EQADC_ETDFR register).
+    Specifies the minimum number of system clocks that must the digital filter counter count
+    to recognize a logic state change on EQADC trigger input.
+
+      DFL  --------- Minimum number of system clocks
+      0    ---------      2;
+      1    ---------      3;
+      2    ---------      5;
+      3    ---------      9;
+      4    ---------     17;
+      5    ---------     33;
+      6    ---------     65;
+      7    ---------    129;
+      8    ---------    257;
+      9    ---------    513;
+      10   ---------    1025;
+      11   ---------    2049;
+      12   ---------    4097;
+      13   ---------    8193;
+      14   ---------   16385;
+      15   ---------   32769.
+      Note: This is an Implementation Specific Parameter.
+    </L-2>
+                  </DESC>
+                  <LOWER-MULTIPLICITY>1</LOWER-MULTIPLICITY>
+                  <UPPER-MULTIPLICITY>1</UPPER-MULTIPLICITY>
+                  <ORIGIN>Freescale</ORIGIN>
+                  <SYMBOLIC-NAME-VALUE>false</SYMBOLIC-NAME-VALUE>
+                  <DEFAULT-VALUE>5</DEFAULT-VALUE>
+                  <MAX>15</MAX>
+                  <MIN>0</MIN>
+                </INTEGER-PARAM-DEF>
+              </PARAMETERS>
+              <SUB-CONTAINERS>
+                <PARAM-CONF-CONTAINER-DEF UUID="ECUC:bbeb2c6a-08bc-413b-a8e9-4d575f495eb1">
+                  <SHORT-NAME>AdcHwUnit</SHORT-NAME>
+                  <DESC>
+                    <L-2>This container contains configuration of the hw unit.</L-2>
+                  </DESC>
+                  <LOWER-MULTIPLICITY>1</LOWER-MULTIPLICITY>
+                  <UPPER-MULTIPLICITY>*</UPPER-MULTIPLICITY>
+                  <MULTIPLE-CONFIGURATION-CONTAINER>false</MULTIPLE-CONFIGURATION-CONTAINER>
+                  <PARAMETERS>
+                    <INTEGER-PARAM-DEF UUID="ECUC:07750f42-6687-4406-9499-70673f405923">
+                      <SHORT-NAME>AdcClockSource</SHORT-NAME>
+                      <DESC>
+                        <L-2>This parameter is used to select the system clock signal or
+      the prescaler output clock signal.
+              0 = Prescaler output clock is selected.
+              1 = System clock is selected - maximum frequency.</L-2>
+                      </DESC>
+                      <LOWER-MULTIPLICITY>0</LOWER-MULTIPLICITY>
+                      <UPPER-MULTIPLICITY>1</UPPER-MULTIPLICITY>
+                      <IMPLEMENTATION-CONFIG-CLASSES>
+                        <IMPLEMENTATION-CONFIG-CLASS>
+                          <CONFIG-CLASS>PRE-COMPILE</CONFIG-CLASS>
+                          <CONFIG-VARIANT>VARIANT-PRE-COMPILE</CONFIG-VARIANT>
+                        </IMPLEMENTATION-CONFIG-CLASS>
+                        <IMPLEMENTATION-CONFIG-CLASS>
+                          <CONFIG-CLASS>POST-BUILD</CONFIG-CLASS>
+                          <CONFIG-VARIANT>VARIANT-POST-BUILD</CONFIG-VARIANT>
+                        </IMPLEMENTATION-CONFIG-CLASS>
+                      </IMPLEMENTATION-CONFIG-CLASSES>
+                      <ORIGIN>AUTOSAR_ECUC</ORIGIN>
+                      <SYMBOLIC-NAME-VALUE>false</SYMBOLIC-NAME-VALUE>
+                      <DEFAULT-VALUE>0</DEFAULT-VALUE>
+                      <MAX>1</MAX>
+                      <MIN>0</MIN>
+                    </INTEGER-PARAM-DEF>
+                    <INTEGER-PARAM-DEF UUID="ECUC:7bd42b23-d22e-44bc-9d1c-f13a114406ef">
+                      <SHORT-NAME>AdcHwUnitId</SHORT-NAME>
+                      <DESC>
+                        <L-2>Specifies the used ADC Hardware Unit.
+                        eQADC (AdcHwUnitId is equals to 0 or 1, 0 means unit0 and 1 means unit1)</L-2>
+                      </DESC>
+                      <LOWER-MULTIPLICITY>1</LOWER-MULTIPLICITY>
+                      <UPPER-MULTIPLICITY>1</UPPER-MULTIPLICITY>
+                      <IMPLEMENTATION-CONFIG-CLASSES>
+                        <IMPLEMENTATION-CONFIG-CLASS>
+                          <CONFIG-CLASS>PRE-COMPILE</CONFIG-CLASS>
+                          <CONFIG-VARIANT>VARIANT-PRE-COMPILE</CONFIG-VARIANT>
+                        </IMPLEMENTATION-CONFIG-CLASS>
+                        <IMPLEMENTATION-CONFIG-CLASS>
+                          <CONFIG-CLASS>POST-BUILD</CONFIG-CLASS>
+                          <CONFIG-VARIANT>VARIANT-POST-BUILD</CONFIG-VARIANT>
+                        </IMPLEMENTATION-CONFIG-CLASS>
+                      </IMPLEMENTATION-CONFIG-CLASSES>
+                      <ORIGIN>AUTOSAR_ECUC</ORIGIN>
+                      <SYMBOLIC-NAME-VALUE>true</SYMBOLIC-NAME-VALUE>
+                      <DEFAULT-VALUE>0</DEFAULT-VALUE>
+                      <MAX>1</MAX>
+                      <MIN>0</MIN>
+                    </INTEGER-PARAM-DEF>
+                    <INTEGER-PARAM-DEF UUID="ECUC:d5f09bc0-68c8-48be-b53b-8665a02f6d09">
+                      <SHORT-NAME>AdcPrescale</SHORT-NAME>
+                      <DESC>
+                        <L-2>ADCn Clock Prescaler (ADCn_CLK_PS bits in ADCn_CR register).
+      The ADCn_CLK_PS field controls the system clock divide factor for the ADCn clock as in the following table:
+
+      ADCn_CLK_PS           System Clock Divide Factor
+      0 ----- 2;
+      1 ----- 4;
+      2 ----- 6;
+      ...;
+      30 ----- 62;
+      31 ----- 64;
+
+      Note: This parameter value is applicable only when the Prescaler output clock is selected in AdcClockSource parameter</L-2>
+                      </DESC>
+                      <LOWER-MULTIPLICITY>0</LOWER-MULTIPLICITY>
+                      <UPPER-MULTIPLICITY>1</UPPER-MULTIPLICITY>
+                      <IMPLEMENTATION-CONFIG-CLASSES>
+                        <IMPLEMENTATION-CONFIG-CLASS>
+                          <CONFIG-CLASS>PRE-COMPILE</CONFIG-CLASS>
+                          <CONFIG-VARIANT>VARIANT-PRE-COMPILE</CONFIG-VARIANT>
+                        </IMPLEMENTATION-CONFIG-CLASS>
+                        <IMPLEMENTATION-CONFIG-CLASS>
+                          <CONFIG-CLASS>POST-BUILD</CONFIG-CLASS>
+                          <CONFIG-VARIANT>VARIANT-POST-BUILD</CONFIG-VARIANT>
+                        </IMPLEMENTATION-CONFIG-CLASS>
+                      </IMPLEMENTATION-CONFIG-CLASSES>
+                      <ORIGIN>AUTOSAR_ECUC</ORIGIN>
+                      <SYMBOLIC-NAME-VALUE>false</SYMBOLIC-NAME-VALUE>
+                      <DEFAULT-VALUE>31</DEFAULT-VALUE>
+                      <MAX>31</MAX>
+                      <MIN>0</MIN>
+                    </INTEGER-PARAM-DEF>
+                    <BOOLEAN-PARAM-DEF UUID="ECUC:2a94bce0-9dd1-419b-beb4-60831f88cf0f">
+                      <SHORT-NAME>AdcCalibration</SHORT-NAME>
+                      <DESC>
+                        <L-2>
+      Enables/disables the calibration on this hw unit.
+      Besides this configuration parameter it is also needed to enable "AdcCalibrationApi" parameter
+      and "AdcChannelCalibration" for the channel which should be calibrated.
+      Note: This is an Implementation Specific Parameter.
+      </L-2>
+                      </DESC>
+                      <LOWER-MULTIPLICITY>1</LOWER-MULTIPLICITY>
+                      <UPPER-MULTIPLICITY>1</UPPER-MULTIPLICITY>
+                      <ORIGIN>Freescale</ORIGIN>
+                      <SYMBOLIC-NAME-VALUE>false</SYMBOLIC-NAME-VALUE>
+                      <DEFAULT-VALUE>true</DEFAULT-VALUE>
+                    </BOOLEAN-PARAM-DEF>
+                    <BOOLEAN-PARAM-DEF UUID="ECUC:03348c72-1811-4ae9-941d-56cebc4d5ab8">
+                      <SHORT-NAME>AdcExternalMultiplexing</SHORT-NAME>
+                      <DESC>
+                        <L-2>Enables external multiplexing (ADCn_EMUX bit in ADCn_CR register).
+                        This parameter can not be enabled for both the hardware of eQADC_A or eQADC_B at the same time.
+            Note: This is an Implementation Specific Parameter.</L-2>
+                      </DESC>
+                      <LOWER-MULTIPLICITY>1</LOWER-MULTIPLICITY>
+                      <UPPER-MULTIPLICITY>1</UPPER-MULTIPLICITY>
+                      <ORIGIN>Freescale</ORIGIN>
+                      <SYMBOLIC-NAME-VALUE>false</SYMBOLIC-NAME-VALUE>
+                      <DEFAULT-VALUE>false</DEFAULT-VALUE>
+                    </BOOLEAN-PARAM-DEF>
+                  </PARAMETERS>
+                  <SUB-CONTAINERS>
+                    <PARAM-CONF-CONTAINER-DEF UUID="ECUC:dde2d775-5d52-4f3c-9ad0-94fe154c00b5">
+                      <SHORT-NAME>AdcChannel</SHORT-NAME>
+                      <DESC>
+                        <L-2>This container contains the channel configuration parameters.</L-2>
+                      </DESC>
+                      <LOWER-MULTIPLICITY>1</LOWER-MULTIPLICITY>
+                      <UPPER-MULTIPLICITY>*</UPPER-MULTIPLICITY>
+                      <MULTIPLE-CONFIGURATION-CONTAINER>false</MULTIPLE-CONFIGURATION-CONTAINER>
+                      <PARAMETERS>
+                        <INTEGER-PARAM-DEF UUID="ECUC:6190c951-d3bb-4754-a520-dbe3d395aecd">
+                          <SHORT-NAME>AdcChannelConvTime</SHORT-NAME>
+                          <DESC>
+                            <L-2>This parameter is not used by the current implementation.</L-2>
+                          </DESC>
+                          <LOWER-MULTIPLICITY>0</LOWER-MULTIPLICITY>
+                          <UPPER-MULTIPLICITY>1</UPPER-MULTIPLICITY>
+                          <IMPLEMENTATION-CONFIG-CLASSES>
+                            <IMPLEMENTATION-CONFIG-CLASS>
+                              <CONFIG-CLASS>PRE-COMPILE</CONFIG-CLASS>
+                              <CONFIG-VARIANT>VARIANT-PRE-COMPILE</CONFIG-VARIANT>
+                            </IMPLEMENTATION-CONFIG-CLASS>
+                            <IMPLEMENTATION-CONFIG-CLASS>
+                              <CONFIG-CLASS>POST-BUILD</CONFIG-CLASS>
+                              <CONFIG-VARIANT>VARIANT-POST-BUILD</CONFIG-VARIANT>
+                            </IMPLEMENTATION-CONFIG-CLASS>
+                          </IMPLEMENTATION-CONFIG-CLASSES>
+                          <ORIGIN>AUTOSAR_ECUC</ORIGIN>
+                          <SYMBOLIC-NAME-VALUE>false</SYMBOLIC-NAME-VALUE>
+                          <DEFAULT-VALUE>0</DEFAULT-VALUE>
+                          <MAX>0</MAX>
+                          <MIN>0</MIN>
+                        </INTEGER-PARAM-DEF>
+                        <INTEGER-PARAM-DEF UUID="ECUC:ea3bbd1b-4ebc-4144-b45b-8848545ce98f">
+                          <SHORT-NAME>AdcChannelId</SHORT-NAME>
+                          <DESC>
+                            <L-2>Channel Id of the ADC channel. This value will be assigned to the symbolic name derived of the AdcChannel container short name.</L-2>
+                          </DESC>
+                          <LOWER-MULTIPLICITY>1</LOWER-MULTIPLICITY>
+                          <UPPER-MULTIPLICITY>1</UPPER-MULTIPLICITY>
+                          <IMPLEMENTATION-CONFIG-CLASSES>
+                            <IMPLEMENTATION-CONFIG-CLASS>
+                              <CONFIG-CLASS>PRE-COMPILE</CONFIG-CLASS>
+                              <CONFIG-VARIANT>VARIANT-PRE-COMPILE</CONFIG-VARIANT>
+                            </IMPLEMENTATION-CONFIG-CLASS>
+                            <IMPLEMENTATION-CONFIG-CLASS>
+                              <CONFIG-CLASS>POST-BUILD</CONFIG-CLASS>
+                              <CONFIG-VARIANT>VARIANT-POST-BUILD</CONFIG-VARIANT>
+                            </IMPLEMENTATION-CONFIG-CLASS>
+                          </IMPLEMENTATION-CONFIG-CLASSES>
+                          <ORIGIN>AUTOSAR_ECUC</ORIGIN>
+                          <SYMBOLIC-NAME-VALUE>true</SYMBOLIC-NAME-VALUE>
+                          <DEFAULT-VALUE>0</DEFAULT-VALUE>
+                          <MAX>120</MAX>
+                          <MIN>0</MIN>
+                        </INTEGER-PARAM-DEF>
+                        <ENUMERATION-PARAM-DEF UUID="ECUC:44892e51-cac1-47b8-9c14-2559825ce34d">
+                          <SHORT-NAME>AdcHwChannel</SHORT-NAME>
+                          <DESC>
+                            <L-2>Selects the physical Hardware Adc Channel.
+                            AN0_AN39 are dedicated physical channels for the eQADC
+                            ANW_64 to ANW_71, ANX_72 to ANX_79, ANY_80 to ANY_87, ANZ_88 to ANZ_95, ANR_224 to ANR_231, ANS_232 to ANS_239, ANT_240 to ANT_247 can be configured only when the
+                            AdcExternalMultiplexing parameter is true.
+              Note: This is an Implementation Specific Parameter.</L-2>
+                          </DESC>
+                          <LOWER-MULTIPLICITY>1</LOWER-MULTIPLICITY>
+                          <UPPER-MULTIPLICITY>1</UPPER-MULTIPLICITY>
+                          <ORIGIN>Freescale</ORIGIN>
+                          <SYMBOLIC-NAME-VALUE>false</SYMBOLIC-NAME-VALUE>
+                          <DEFAULT-VALUE>AN_0</DEFAULT-VALUE>
+                          <LITERALS>
+                            <ENUMERATION-LITERAL-DEF UUID="ffe94eeb-1cfe-40fb-a9f2-65fddc4b273c">
+                              <SHORT-NAME>AN_0</SHORT-NAME>
+                            </ENUMERATION-LITERAL-DEF>
+                            <ENUMERATION-LITERAL-DEF UUID="6968f0b4-01ba-405e-8d70-b6c032a290ad">
+                              <SHORT-NAME>AN_1</SHORT-NAME>
+                            </ENUMERATION-LITERAL-DEF>
+                            <ENUMERATION-LITERAL-DEF UUID="a64e73b1-4a00-4728-9791-97482889bdb9">
+                              <SHORT-NAME>AN_2</SHORT-NAME>
+                            </ENUMERATION-LITERAL-DEF>
+                            <ENUMERATION-LITERAL-DEF UUID="a26e21c7-b3ba-4787-83c3-552d1e182c90">
+                              <SHORT-NAME>AN_3</SHORT-NAME>
+                            </ENUMERATION-LITERAL-DEF>
+                            <ENUMERATION-LITERAL-DEF UUID="5ef3b80e-3d2c-40e4-b5bc-4798c7ba31fe">
+                              <SHORT-NAME>AN_4</SHORT-NAME>
+                            </ENUMERATION-LITERAL-DEF>
+                            <ENUMERATION-LITERAL-DEF UUID="e538ab5b-a7e4-4b3f-a7ba-70f37a9c3a52">
+                              <SHORT-NAME>AN_5</SHORT-NAME>
+                            </ENUMERATION-LITERAL-DEF>
+                            <ENUMERATION-LITERAL-DEF UUID="d6a4bb9d-95ee-4b10-9c75-e137b12700fe">
+                              <SHORT-NAME>AN_6</SHORT-NAME>
+                            </ENUMERATION-LITERAL-DEF>
+                            <ENUMERATION-LITERAL-DEF UUID="0281ac68-7750-4d97-a91d-b432e2906fcf">
+                              <SHORT-NAME>AN_7</SHORT-NAME>
+                            </ENUMERATION-LITERAL-DEF>
+                            <ENUMERATION-LITERAL-DEF UUID="b3f33b9f-abf2-4ff2-a68c-3a151832e023">
+                              <SHORT-NAME>AN_8</SHORT-NAME>
+                            </ENUMERATION-LITERAL-DEF>
+                            <ENUMERATION-LITERAL-DEF UUID="326b4635-e6db-457a-967f-e03041b862a8">
+                              <SHORT-NAME>AN_9</SHORT-NAME>
+                            </ENUMERATION-LITERAL-DEF>
+                            <ENUMERATION-LITERAL-DEF UUID="90c3e11a-0c6e-46ba-ba04-aed3c012d558">
+                              <SHORT-NAME>AN_10</SHORT-NAME>
+                            </ENUMERATION-LITERAL-DEF>
+                            <ENUMERATION-LITERAL-DEF UUID="a5bc6839-13e8-4a06-9a46-96935a7e2ee1">
+                              <SHORT-NAME>AN_11</SHORT-NAME>
+                            </ENUMERATION-LITERAL-DEF>
+                            <ENUMERATION-LITERAL-DEF UUID="b061ac45-7011-4bd4-9314-236b1161b49d">
+                              <SHORT-NAME>AN_12</SHORT-NAME>
+                            </ENUMERATION-LITERAL-DEF>
+                            <ENUMERATION-LITERAL-DEF UUID="29e8c7fb-8ee6-41c7-b469-3485b35e2a8d">
+                              <SHORT-NAME>AN_13</SHORT-NAME>
+                            </ENUMERATION-LITERAL-DEF>
+                            <ENUMERATION-LITERAL-DEF UUID="e387308b-9816-4f8f-a09b-a16198fc03fa">
+                              <SHORT-NAME>AN_14</SHORT-NAME>
+                            </ENUMERATION-LITERAL-DEF>
+                            <ENUMERATION-LITERAL-DEF UUID="3e20de27-6463-48b8-bdea-f1865121eb53">
+                              <SHORT-NAME>AN_15</SHORT-NAME>
+                            </ENUMERATION-LITERAL-DEF>
+                            <ENUMERATION-LITERAL-DEF UUID="da1d4724-c67b-427f-b694-b9b5780d8b5a">
+                              <SHORT-NAME>AN_16</SHORT-NAME>
+                            </ENUMERATION-LITERAL-DEF>
+                            <ENUMERATION-LITERAL-DEF UUID="1e24a935-ec96-4ceb-8700-2864d3e8e1fa">
+                              <SHORT-NAME>AN_17</SHORT-NAME>
+                            </ENUMERATION-LITERAL-DEF>
+                            <ENUMERATION-LITERAL-DEF UUID="af606e52-6ad0-473f-b9a7-8552358468b2">
+                              <SHORT-NAME>AN_18</SHORT-NAME>
+                            </ENUMERATION-LITERAL-DEF>
+                            <ENUMERATION-LITERAL-DEF UUID="cd06cc01-ae57-4fbb-ad5a-1374de7750c3">
+                              <SHORT-NAME>AN_21</SHORT-NAME>
+                            </ENUMERATION-LITERAL-DEF>
+                            <ENUMERATION-LITERAL-DEF UUID="b0f33c04-4757-4f21-8809-fc0660a1bba3">
+                              <SHORT-NAME>AN_22</SHORT-NAME>
+                            </ENUMERATION-LITERAL-DEF>
+                            <ENUMERATION-LITERAL-DEF UUID="61e60160-3a50-4521-b518-16c29a1872ec">
+                              <SHORT-NAME>AN_23</SHORT-NAME>
+                            </ENUMERATION-LITERAL-DEF>
+                            <ENUMERATION-LITERAL-DEF UUID="d737b4b6-afe3-4086-9691-808e04a439a9">
+                              <SHORT-NAME>AN_24</SHORT-NAME>
+                            </ENUMERATION-LITERAL-DEF>
+                            <ENUMERATION-LITERAL-DEF UUID="b224423e-4b01-40f8-98a9-be86cdd1c4a3">
+                              <SHORT-NAME>AN_25</SHORT-NAME>
+                            </ENUMERATION-LITERAL-DEF>
+                            <ENUMERATION-LITERAL-DEF UUID="66be0007-1c87-48e0-bd2d-050741802750">
+                              <SHORT-NAME>AN_27</SHORT-NAME>
+                            </ENUMERATION-LITERAL-DEF>
+                            <ENUMERATION-LITERAL-DEF UUID="2edaa7ea-e4ce-4d23-af0e-8b93cf5c887e">
+                              <SHORT-NAME>AN_28</SHORT-NAME>
+                            </ENUMERATION-LITERAL-DEF>
+                            <ENUMERATION-LITERAL-DEF UUID="785985de-7634-4af6-b7e0-0de778a912e1">
+                              <SHORT-NAME>AN_30</SHORT-NAME>
+                            </ENUMERATION-LITERAL-DEF>
+                            <ENUMERATION-LITERAL-DEF UUID="10f7f855-dbd9-4d98-9783-40e68929f1c0">
+                              <SHORT-NAME>AN_31</SHORT-NAME>
+                            </ENUMERATION-LITERAL-DEF>
+                            <ENUMERATION-LITERAL-DEF UUID="a12c9b5c-7fe7-4244-add0-9389f4885bbc">
+                              <SHORT-NAME>AN_32</SHORT-NAME>
+                            </ENUMERATION-LITERAL-DEF>
+                            <ENUMERATION-LITERAL-DEF UUID="abc4d3ed-81b3-4e4d-a626-c9de6c2a48de">
+                              <SHORT-NAME>AN_33</SHORT-NAME>
+                            </ENUMERATION-LITERAL-DEF>
+                            <ENUMERATION-LITERAL-DEF UUID="61cceef2-6124-439b-985d-388e541da63f">
+                              <SHORT-NAME>AN_34</SHORT-NAME>
+                            </ENUMERATION-LITERAL-DEF>
+                            <ENUMERATION-LITERAL-DEF UUID="4fbc34c8-6c8e-4e6a-a4e2-0f21e3b34c1e">
+                              <SHORT-NAME>AN_35</SHORT-NAME>
+                            </ENUMERATION-LITERAL-DEF>
+                            <ENUMERATION-LITERAL-DEF UUID="54395e9e-7ceb-4d41-8008-4216b492cd15">
+                              <SHORT-NAME>AN_38</SHORT-NAME>
+                            </ENUMERATION-LITERAL-DEF>
+                            <ENUMERATION-LITERAL-DEF UUID="ae2fa62a-75cc-433e-8b17-db35ea9a7172">
+                              <SHORT-NAME>AN_39</SHORT-NAME>
+                            </ENUMERATION-LITERAL-DEF>
+                            <ENUMERATION-LITERAL-DEF UUID="3eb49561-136b-41df-b101-98a441fc9d59">
+                              <SHORT-NAME>VRH_40</SHORT-NAME>
+                            </ENUMERATION-LITERAL-DEF>
+                            <ENUMERATION-LITERAL-DEF UUID="0e7bf509-5e07-4413-af3e-75a67e4441db">
+                              <SHORT-NAME>VRL_41</SHORT-NAME>
+                            </ENUMERATION-LITERAL-DEF>
+                            <ENUMERATION-LITERAL-DEF UUID="3db48c17-a6f7-43e1-9200-db5500ac9745">
+                              <SHORT-NAME>VRH_MINUS_VRL_BY_2_42</SHORT-NAME>
+                            </ENUMERATION-LITERAL-DEF>
+                            <ENUMERATION-LITERAL-DEF UUID="4378ba7e-dc04-4b48-b4ef-c97df4b4c23e">
+                              <SHORT-NAME>VRH_MINUS_VRL_75PE_43</SHORT-NAME>
+                            </ENUMERATION-LITERAL-DEF>
+                            <ENUMERATION-LITERAL-DEF UUID="f3330042-65be-4cfb-a6d5-0e3819aaec84">
+                              <SHORT-NAME>VRH_MINUS_VRL_25PE_44</SHORT-NAME>
+                            </ENUMERATION-LITERAL-DEF>
+                            <ENUMERATION-LITERAL-DEF UUID="649cc765-b281-42ef-9bf6-6dff4260b906">
+                              <SHORT-NAME>INA_ADC01_0_45</SHORT-NAME>
+                            </ENUMERATION-LITERAL-DEF>
+                            <ENUMERATION-LITERAL-DEF UUID="13cfd1eb-2253-438f-867a-82b7702f539a">
+                              <SHORT-NAME>ANW_64</SHORT-NAME>
+                            </ENUMERATION-LITERAL-DEF>
+                            <ENUMERATION-LITERAL-DEF UUID="0d77039c-a8e5-42af-a9bd-5ec99299df46">
+                              <SHORT-NAME>ANW_65</SHORT-NAME>
+                            </ENUMERATION-LITERAL-DEF>
+                            <ENUMERATION-LITERAL-DEF UUID="b7152cc2-7e0b-4c40-ad8b-1b9ec8a8a217">
+                              <SHORT-NAME>ANW_66</SHORT-NAME>
+                            </ENUMERATION-LITERAL-DEF>
+                            <ENUMERATION-LITERAL-DEF UUID="c97e5250-7adb-4231-bae0-cebce736d23b">
+                              <SHORT-NAME>ANW_67</SHORT-NAME>
+                            </ENUMERATION-LITERAL-DEF>
+                            <ENUMERATION-LITERAL-DEF UUID="c26113c5-9568-4552-a98c-ba40eac40a0e">
+                              <SHORT-NAME>ANW_68</SHORT-NAME>
+                            </ENUMERATION-LITERAL-DEF>
+                            <ENUMERATION-LITERAL-DEF UUID="4b343759-7588-4886-be50-60cb1ac4bf9d">
+                              <SHORT-NAME>ANW_69</SHORT-NAME>
+                            </ENUMERATION-LITERAL-DEF>
+                            <ENUMERATION-LITERAL-DEF UUID="f4336621-7af5-45d1-ab58-23368811f201">
+                              <SHORT-NAME>ANW_70</SHORT-NAME>
+                            </ENUMERATION-LITERAL-DEF>
+                            <ENUMERATION-LITERAL-DEF UUID="ffb79ba1-6e33-4d47-8c94-5a75c08bc536">
+                              <SHORT-NAME>ANW_71</SHORT-NAME>
+                            </ENUMERATION-LITERAL-DEF>
+                            <ENUMERATION-LITERAL-DEF UUID="fa7987a1-fa7f-424d-9e9a-32ef3902e6ac">
+                              <SHORT-NAME>ANX_72</SHORT-NAME>
+                            </ENUMERATION-LITERAL-DEF>
+                            <ENUMERATION-LITERAL-DEF UUID="83387ce7-81bc-4b2b-8d79-863be17ad061">
+                              <SHORT-NAME>ANX_73</SHORT-NAME>
+                            </ENUMERATION-LITERAL-DEF>
+                            <ENUMERATION-LITERAL-DEF UUID="67b65cc8-2dde-43a5-ab7b-ea6c4013c0d6">
+                              <SHORT-NAME>ANX_74</SHORT-NAME>
+                            </ENUMERATION-LITERAL-DEF>
+                            <ENUMERATION-LITERAL-DEF UUID="57c7d32d-23ed-4f55-92d4-d2521ec6e4de">
+                              <SHORT-NAME>ANX_75</SHORT-NAME>
+                            </ENUMERATION-LITERAL-DEF>
+                            <ENUMERATION-LITERAL-DEF UUID="f14d5f62-715b-47dd-9e4c-02086565b6e4">
+                              <SHORT-NAME>ANX_76</SHORT-NAME>
+                            </ENUMERATION-LITERAL-DEF>
+                            <ENUMERATION-LITERAL-DEF UUID="50bd9e28-67a4-4c32-a0bf-ce1daf15f796">
+                              <SHORT-NAME>ANX_77</SHORT-NAME>
+                            </ENUMERATION-LITERAL-DEF>
+                            <ENUMERATION-LITERAL-DEF UUID="377ef769-2ee5-442d-89cd-45ffebeb3a0e">
+                              <SHORT-NAME>ANX_78</SHORT-NAME>
+                            </ENUMERATION-LITERAL-DEF>
+                            <ENUMERATION-LITERAL-DEF UUID="a7893eb5-0a14-419c-9c9a-c2c3e21a6254">
+                              <SHORT-NAME>ANX_79</SHORT-NAME>
+                            </ENUMERATION-LITERAL-DEF>
+                            <ENUMERATION-LITERAL-DEF UUID="247ec192-1244-4643-9246-bf0dc4e1606e">
+                              <SHORT-NAME>ANY_80</SHORT-NAME>
+                            </ENUMERATION-LITERAL-DEF>
+                            <ENUMERATION-LITERAL-DEF UUID="83278673-1fd6-43c6-9bc4-c5233ca4c289">
+                              <SHORT-NAME>ANY_81</SHORT-NAME>
+                            </ENUMERATION-LITERAL-DEF>
+                            <ENUMERATION-LITERAL-DEF UUID="fb4487ed-6498-4727-ad54-636d06a52e1a">
+                              <SHORT-NAME>ANY_82</SHORT-NAME>
+                            </ENUMERATION-LITERAL-DEF>
+                            <ENUMERATION-LITERAL-DEF UUID="b44153a0-afa0-45f1-a1af-e5ebd1dc389e">
+                              <SHORT-NAME>ANY_83</SHORT-NAME>
+                            </ENUMERATION-LITERAL-DEF>
+                            <ENUMERATION-LITERAL-DEF UUID="cfa69024-ec32-488b-acc4-79dcc376121f">
+                              <SHORT-NAME>ANY_84</SHORT-NAME>
+                            </ENUMERATION-LITERAL-DEF>
+                            <ENUMERATION-LITERAL-DEF UUID="a8fc3f41-b6ed-43da-b361-dbb760d7c8e2">
+                              <SHORT-NAME>ANY_85</SHORT-NAME>
+                            </ENUMERATION-LITERAL-DEF>
+                            <ENUMERATION-LITERAL-DEF UUID="e6885cb2-43ee-4fae-b664-a738ff1f1bb8">
+                              <SHORT-NAME>ANY_86</SHORT-NAME>
+                            </ENUMERATION-LITERAL-DEF>
+                            <ENUMERATION-LITERAL-DEF UUID="4abca726-39a5-4499-83d1-0589bab30e9a">
+                              <SHORT-NAME>ANY_87</SHORT-NAME>
+                            </ENUMERATION-LITERAL-DEF>
+                            <ENUMERATION-LITERAL-DEF UUID="b7ee420a-8ed8-4a86-a7d1-403852756c16">
+                              <SHORT-NAME>ANZ_88</SHORT-NAME>
+                            </ENUMERATION-LITERAL-DEF>
+                            <ENUMERATION-LITERAL-DEF UUID="053b2db6-387b-4715-a14f-1ff0cb59e11a">
+                              <SHORT-NAME>ANZ_89</SHORT-NAME>
+                            </ENUMERATION-LITERAL-DEF>
+                            <ENUMERATION-LITERAL-DEF UUID="b2e5842c-efb8-48aa-9c93-c9c2e113a5bf">
+                              <SHORT-NAME>ANZ_90</SHORT-NAME>
+                            </ENUMERATION-LITERAL-DEF>
+                            <ENUMERATION-LITERAL-DEF UUID="8c98b782-1199-4ada-bae0-d828e0a42cff">
+                              <SHORT-NAME>ANZ_91</SHORT-NAME>
+                            </ENUMERATION-LITERAL-DEF>
+                            <ENUMERATION-LITERAL-DEF UUID="7a4c4877-3af3-45aa-a3fc-f8f8e8d53255">
+                              <SHORT-NAME>ANZ_92</SHORT-NAME>
+                            </ENUMERATION-LITERAL-DEF>
+                            <ENUMERATION-LITERAL-DEF UUID="793519d4-6c76-4a45-934f-4a78128c9462">
+                              <SHORT-NAME>ANZ_93</SHORT-NAME>
+                            </ENUMERATION-LITERAL-DEF>
+                            <ENUMERATION-LITERAL-DEF UUID="47b3f277-2f73-4e19-9fcd-1633aec4f178">
+                              <SHORT-NAME>ANZ_94</SHORT-NAME>
+                            </ENUMERATION-LITERAL-DEF>
+                            <ENUMERATION-LITERAL-DEF UUID="68440fe4-b1b5-42be-8256-8b52aa569346">
+                              <SHORT-NAME>ANZ_95</SHORT-NAME>
+                            </ENUMERATION-LITERAL-DEF>
+                            <ENUMERATION-LITERAL-DEF UUID="c7df384b-8773-46c2-8514-2451ce4afc95">
+                              <SHORT-NAME>DAN0PL_DAN0MI_96</SHORT-NAME>
+                            </ENUMERATION-LITERAL-DEF>
+                            <ENUMERATION-LITERAL-DEF UUID="1abc37cb-704f-4260-b0be-e60d3109d5d5">
+                              <SHORT-NAME>DAN1PL_DAN1MI_97</SHORT-NAME>
+                            </ENUMERATION-LITERAL-DEF>
+                            <ENUMERATION-LITERAL-DEF UUID="9f517be2-4af2-435f-b306-a09d250975f7">
+                              <SHORT-NAME>DAN2PL_DAN2MI_98</SHORT-NAME>
+                            </ENUMERATION-LITERAL-DEF>
+                            <ENUMERATION-LITERAL-DEF UUID="2494b7f7-1095-4143-ab32-fcabb5aad1c1">
+                              <SHORT-NAME>DAN3PL_DAN3MI_99</SHORT-NAME>
+                            </ENUMERATION-LITERAL-DEF>
+                            <ENUMERATION-LITERAL-DEF UUID="a688b887-fd07-409f-8dac-b29fc45d748c">
+                              <SHORT-NAME>INA_ADC01_1_128</SHORT-NAME>
+                            </ENUMERATION-LITERAL-DEF>
+                            <ENUMERATION-LITERAL-DEF UUID="afcfc11f-80f1-4dfc-b27b-30221b152436">
+                              <SHORT-NAME>INA_ADC01_2_129</SHORT-NAME>
+                            </ENUMERATION-LITERAL-DEF>
+                            <ENUMERATION-LITERAL-DEF UUID="f8676d9a-43f0-4db8-942e-5b60c02a4f4b">
+                              <SHORT-NAME>INA_ADC0_3_162</SHORT-NAME>
+                            </ENUMERATION-LITERAL-DEF>
+                            <ENUMERATION-LITERAL-DEF UUID="2678e4b4-a6a2-451c-a17b-2906762f164a">
+                              <SHORT-NAME>INA_ADC0_4_163</SHORT-NAME>
+                            </ENUMERATION-LITERAL-DEF>
+                            <ENUMERATION-LITERAL-DEF UUID="8cea4e43-29e6-4566-baa9-8528ea6e3c85">
+                              <SHORT-NAME>INA_ADC0_5_164</SHORT-NAME>
+                            </ENUMERATION-LITERAL-DEF>
+                            <ENUMERATION-LITERAL-DEF UUID="c3f7d0f4-0573-4de6-8244-021b838b4d75">
+                              <SHORT-NAME>INA_ADC0_6_165</SHORT-NAME>
+                            </ENUMERATION-LITERAL-DEF>
+                            <ENUMERATION-LITERAL-DEF UUID="b543a794-e9ab-40c9-a187-e8c0a4e63445">
+                              <SHORT-NAME>INA_ADC0_7_166</SHORT-NAME>
+                            </ENUMERATION-LITERAL-DEF>
+                            <ENUMERATION-LITERAL-DEF UUID="d54b0a02-6db6-4a8a-903b-f43fcf151b0e">
+                              <SHORT-NAME>INA_ADC0_8_167</SHORT-NAME>
+                            </ENUMERATION-LITERAL-DEF>
+                            <ENUMERATION-LITERAL-DEF UUID="a6310f14-43c0-4a58-abb1-036ea8e08656">
+                              <SHORT-NAME>INA_ADC1_3_194</SHORT-NAME>
+                            </ENUMERATION-LITERAL-DEF>
+                            <ENUMERATION-LITERAL-DEF UUID="7cccf907-e4dd-4baa-ac2b-88a2e7e859cd">
+                              <SHORT-NAME>INA_ADC1_4_195</SHORT-NAME>
+                            </ENUMERATION-LITERAL-DEF>
+                            <ENUMERATION-LITERAL-DEF UUID="bf0ad9c7-ab51-4864-878d-9ce7f0233915">
+                              <SHORT-NAME>INA_ADC1_5_196</SHORT-NAME>
+                            </ENUMERATION-LITERAL-DEF>
+                            <ENUMERATION-LITERAL-DEF UUID="8cdcb6c7-92cd-4d07-ac74-088f85b0550e">
+                              <SHORT-NAME>INA_ADC1_6_197</SHORT-NAME>
+                            </ENUMERATION-LITERAL-DEF>
+                            <ENUMERATION-LITERAL-DEF UUID="66a8d7d8-db75-4aba-9617-360faf276ebc">
+                              <SHORT-NAME>INA_ADC1_7_198</SHORT-NAME>
+                            </ENUMERATION-LITERAL-DEF>
+                            <ENUMERATION-LITERAL-DEF UUID="77fbae88-0185-43aa-9b6a-b5bdf7877fed">
+                              <SHORT-NAME>INA_ADC1_8_199</SHORT-NAME>
+                            </ENUMERATION-LITERAL-DEF>
+                            <ENUMERATION-LITERAL-DEF UUID="4a47c413-fa8b-4fc5-a659-276c0e5d3ce2">
+                              <SHORT-NAME>ANR_224</SHORT-NAME>
+                            </ENUMERATION-LITERAL-DEF>
+                            <ENUMERATION-LITERAL-DEF UUID="f602e731-1cd0-4913-8945-07ed1dbc357f">
+                              <SHORT-NAME>ANR_225</SHORT-NAME>
+                            </ENUMERATION-LITERAL-DEF>
+                            <ENUMERATION-LITERAL-DEF UUID="a75072bf-b626-4275-98fa-d3d6ae0d2108">
+                              <SHORT-NAME>ANR_226</SHORT-NAME>
+                            </ENUMERATION-LITERAL-DEF>
+                            <ENUMERATION-LITERAL-DEF UUID="40681a83-b5fc-45b0-9a03-ad8e46fb2d9f">
+                              <SHORT-NAME>ANR_227</SHORT-NAME>
+                            </ENUMERATION-LITERAL-DEF>
+                            <ENUMERATION-LITERAL-DEF UUID="7b2c8937-a272-46cd-96e8-0e006acb06ca">
+                              <SHORT-NAME>ANR_228</SHORT-NAME>
+                            </ENUMERATION-LITERAL-DEF>
+                            <ENUMERATION-LITERAL-DEF UUID="d3f89439-0900-46f8-b0b9-53f5bf1eb12e">
+                              <SHORT-NAME>ANR_229</SHORT-NAME>
+                            </ENUMERATION-LITERAL-DEF>
+                            <ENUMERATION-LITERAL-DEF UUID="88ad5481-9fb3-4127-b07d-12892f87f661">
+                              <SHORT-NAME>ANR_230</SHORT-NAME>
+                            </ENUMERATION-LITERAL-DEF>
+                            <ENUMERATION-LITERAL-DEF UUID="231e139f-03b8-44d2-88ea-09ec733b3865">
+                              <SHORT-NAME>ANR_231</SHORT-NAME>
+                            </ENUMERATION-LITERAL-DEF>
+                            <ENUMERATION-LITERAL-DEF UUID="4190c988-1d8e-4d29-a647-47df30c3d882">
+                              <SHORT-NAME>ANS_232</SHORT-NAME>
+                            </ENUMERATION-LITERAL-DEF>
+                            <ENUMERATION-LITERAL-DEF UUID="fe6b9bd0-11b7-4166-b000-4028c1427009">
+                              <SHORT-NAME>ANS_233</SHORT-NAME>
+                            </ENUMERATION-LITERAL-DEF>
+                            <ENUMERATION-LITERAL-DEF UUID="67f8e215-76a9-468a-9926-c866fbeb3dda">
+                              <SHORT-NAME>ANS_234</SHORT-NAME>
+                            </ENUMERATION-LITERAL-DEF>
+                            <ENUMERATION-LITERAL-DEF UUID="3dff1394-4030-4808-a2b2-d4c2ac6c8218">
+                              <SHORT-NAME>ANS_235</SHORT-NAME>
+                            </ENUMERATION-LITERAL-DEF>
+                            <ENUMERATION-LITERAL-DEF UUID="ba357777-2462-41e0-bbbf-2364dd5badf8">
+                              <SHORT-NAME>ANS_236</SHORT-NAME>
+                            </ENUMERATION-LITERAL-DEF>
+                            <ENUMERATION-LITERAL-DEF UUID="df6a22b3-c29d-4e5e-95a8-24ea299eadb1">
+                              <SHORT-NAME>ANS_237</SHORT-NAME>
+                            </ENUMERATION-LITERAL-DEF>
+                            <ENUMERATION-LITERAL-DEF UUID="9ec8db92-05af-41f0-9e67-903d85dea605">
+                              <SHORT-NAME>ANS_238</SHORT-NAME>
+                            </ENUMERATION-LITERAL-DEF>
+                            <ENUMERATION-LITERAL-DEF UUID="2792b2db-5542-4582-9328-09b82f304857">
+                              <SHORT-NAME>ANS_239</SHORT-NAME>
+                            </ENUMERATION-LITERAL-DEF>
+                            <ENUMERATION-LITERAL-DEF UUID="a0bcf825-38db-4943-b02b-5e0ab07affc7">
+                              <SHORT-NAME>ANT_240</SHORT-NAME>
+                            </ENUMERATION-LITERAL-DEF>
+                            <ENUMERATION-LITERAL-DEF UUID="1b9f817d-169f-4334-bd1c-f63e323ae47e">
+                              <SHORT-NAME>ANT_241</SHORT-NAME>
+                            </ENUMERATION-LITERAL-DEF>
+                            <ENUMERATION-LITERAL-DEF UUID="f0710e8b-0715-48a8-80fa-86ddef48fb5a">
+                              <SHORT-NAME>ANT_242</SHORT-NAME>
+                            </ENUMERATION-LITERAL-DEF>
+                            <ENUMERATION-LITERAL-DEF UUID="3974a859-4abc-40eb-a6ac-1b41b6c1fc0e">
+                              <SHORT-NAME>ANT_243</SHORT-NAME>
+                            </ENUMERATION-LITERAL-DEF>
+                            <ENUMERATION-LITERAL-DEF UUID="3a7a1414-d44b-4eb1-b4d5-888bbf47956e">
+                              <SHORT-NAME>ANT_244</SHORT-NAME>
+                            </ENUMERATION-LITERAL-DEF>
+                            <ENUMERATION-LITERAL-DEF UUID="c68e218f-3a18-4f94-908b-a67b7eee25bd">
+                              <SHORT-NAME>ANT_245</SHORT-NAME>
+                            </ENUMERATION-LITERAL-DEF>
+                            <ENUMERATION-LITERAL-DEF UUID="51e4fb54-4da4-4e24-96a7-fcc1d8119a20">
+                              <SHORT-NAME>ANT_246</SHORT-NAME>
+                            </ENUMERATION-LITERAL-DEF>
+                            <ENUMERATION-LITERAL-DEF UUID="a6644587-6e22-4a92-b611-14b71a8604f0">
+                              <SHORT-NAME>ANT_247</SHORT-NAME>
+                            </ENUMERATION-LITERAL-DEF>
+                          </LITERALS>
+                        </ENUMERATION-PARAM-DEF>
+                        <INTEGER-PARAM-DEF UUID="ECUC:969de075-79c8-410a-83d2-f721c74c016e">
+                          <SHORT-NAME>AdcChannelRefVoltsrcHigh</SHORT-NAME>
+                          <DESC>
+                            <L-2>Upper reference voltage source for each channel (optional).</L-2>
+                          </DESC>
+                          <LOWER-MULTIPLICITY>0</LOWER-MULTIPLICITY>
+                          <UPPER-MULTIPLICITY>1</UPPER-MULTIPLICITY>
+                          <IMPLEMENTATION-CONFIG-CLASSES>
+                            <IMPLEMENTATION-CONFIG-CLASS>
+                              <CONFIG-CLASS>PRE-COMPILE</CONFIG-CLASS>
+                              <CONFIG-VARIANT>VARIANT-PRE-COMPILE</CONFIG-VARIANT>
+                            </IMPLEMENTATION-CONFIG-CLASS>
+                            <IMPLEMENTATION-CONFIG-CLASS>
+                              <CONFIG-CLASS>POST-BUILD</CONFIG-CLASS>
+                              <CONFIG-VARIANT>VARIANT-POST-BUILD</CONFIG-VARIANT>
+                            </IMPLEMENTATION-CONFIG-CLASS>
+                          </IMPLEMENTATION-CONFIG-CLASSES>
+                          <ORIGIN>AUTOSAR_ECUC</ORIGIN>
+                          <SYMBOLIC-NAME-VALUE>false</SYMBOLIC-NAME-VALUE>
+                          <DEFAULT-VALUE>0</DEFAULT-VALUE>
+                          <MAX>0</MAX>
+                          <MIN>0</MIN>
+                        </INTEGER-PARAM-DEF>
+                        <INTEGER-PARAM-DEF UUID="ECUC:fb24b4a1-1725-4bd0-bbdd-cf4587e1e50f">
+                          <SHORT-NAME>AdcChannelRefVoltsrcLow</SHORT-NAME>
+                          <DESC>
+                            <L-2>Lower reference voltage source for each channel (optional).</L-2>
+                          </DESC>
+                          <LOWER-MULTIPLICITY>0</LOWER-MULTIPLICITY>
+                          <UPPER-MULTIPLICITY>1</UPPER-MULTIPLICITY>
+                          <IMPLEMENTATION-CONFIG-CLASSES>
+                            <IMPLEMENTATION-CONFIG-CLASS>
+                              <CONFIG-CLASS>PRE-COMPILE</CONFIG-CLASS>
+                              <CONFIG-VARIANT>VARIANT-PRE-COMPILE</CONFIG-VARIANT>
+                            </IMPLEMENTATION-CONFIG-CLASS>
+                            <IMPLEMENTATION-CONFIG-CLASS>
+                              <CONFIG-CLASS>POST-BUILD</CONFIG-CLASS>
+                              <CONFIG-VARIANT>VARIANT-POST-BUILD</CONFIG-VARIANT>
+                            </IMPLEMENTATION-CONFIG-CLASS>
+                          </IMPLEMENTATION-CONFIG-CLASSES>
+                          <ORIGIN>AUTOSAR_ECUC</ORIGIN>
+                          <SYMBOLIC-NAME-VALUE>false</SYMBOLIC-NAME-VALUE>
+                          <DEFAULT-VALUE>0</DEFAULT-VALUE>
+                          <MAX>0</MAX>
+                          <MIN>0</MIN>
+                        </INTEGER-PARAM-DEF>
+                        <INTEGER-PARAM-DEF UUID="ECUC:21c365d7-048b-4ff7-bcc0-9bec34d0a8bf">
+                          <SHORT-NAME>AdcChannelResolution</SHORT-NAME>
+                          <DESC>
+                            <L-2>Resolution of converted value. Valid resolution is 8, 10 or 12Bits.</L-2>
+                          </DESC>
+                          <LOWER-MULTIPLICITY>0</LOWER-MULTIPLICITY>
+                          <UPPER-MULTIPLICITY>1</UPPER-MULTIPLICITY>
+                          <IMPLEMENTATION-CONFIG-CLASSES>
+                            <IMPLEMENTATION-CONFIG-CLASS>
+                              <CONFIG-CLASS>PRE-COMPILE</CONFIG-CLASS>
+                              <CONFIG-VARIANT>VARIANT-PRE-COMPILE</CONFIG-VARIANT>
+                            </IMPLEMENTATION-CONFIG-CLASS>
+                            <IMPLEMENTATION-CONFIG-CLASS>
+                              <CONFIG-CLASS>POST-BUILD</CONFIG-CLASS>
+                              <CONFIG-VARIANT>VARIANT-POST-BUILD</CONFIG-VARIANT>
+                            </IMPLEMENTATION-CONFIG-CLASS>
+                          </IMPLEMENTATION-CONFIG-CLASSES>
+                          <ORIGIN>AUTOSAR_ECUC</ORIGIN>
+                          <SYMBOLIC-NAME-VALUE>false</SYMBOLIC-NAME-VALUE>
+                          <DEFAULT-VALUE>12</DEFAULT-VALUE>
+                          <MAX>12</MAX>
+                          <MIN>8</MIN>
+                        </INTEGER-PARAM-DEF>
+                        <BOOLEAN-PARAM-DEF UUID="ECUC:390fe811-a01e-4011-90e8-3f1cac0b5899">
+                          <SHORT-NAME>AdcChannelCalibration</SHORT-NAME>
+                          <DESC>
+                            <L-2>
+          Indicates if the returning channel conversion result is calibrated (CAL bit
+          in conversion command message).
+          Note that besides this configuration item it is also needed to globally enable
+          calibration by "AdcCalibrationApi" and to enable calibration
+          on hw unit by "AdcCalibration" parameter.
+          Note: This is an Implementation Specific Parameter.</L-2>
+                          </DESC>
+                          <LOWER-MULTIPLICITY>1</LOWER-MULTIPLICITY>
+                          <UPPER-MULTIPLICITY>1</UPPER-MULTIPLICITY>
+                          <ORIGIN>Freescale</ORIGIN>
+                          <SYMBOLIC-NAME-VALUE>false</SYMBOLIC-NAME-VALUE>
+                          <DEFAULT-VALUE>true</DEFAULT-VALUE>
+                        </BOOLEAN-PARAM-DEF>
+                        <INTEGER-PARAM-DEF UUID="ECUC:195694d9-e525-48a2-8723-510d60454851">
+                          <SHORT-NAME>AdcChannelSampTime</SHORT-NAME>
+                          <DESC>
+                            <L-2>Select the Sampling time in ADC clock cycles
+      When AdcExternalMultiplexing parameter is enabled in this case ADC_64_CLOCK_CYCLES or
+      ADC_128_CLOCK_CYCLES sampling cycles is recommended
+      Note: This is an Implementation Specific Parameter.</L-2>
+                          </DESC>
+                          <LOWER-MULTIPLICITY>0</LOWER-MULTIPLICITY>
+                          <UPPER-MULTIPLICITY>1</UPPER-MULTIPLICITY>
+                          <IMPLEMENTATION-CONFIG-CLASSES>
+                            <IMPLEMENTATION-CONFIG-CLASS>
+                              <CONFIG-CLASS>PRE-COMPILE</CONFIG-CLASS>
+                              <CONFIG-VARIANT>VARIANT-PRE-COMPILE</CONFIG-VARIANT>
+                            </IMPLEMENTATION-CONFIG-CLASS>
+                            <IMPLEMENTATION-CONFIG-CLASS>
+                              <CONFIG-CLASS>POST-BUILD</CONFIG-CLASS>
+                              <CONFIG-VARIANT>VARIANT-POST-BUILD</CONFIG-VARIANT>
+                            </IMPLEMENTATION-CONFIG-CLASS>
+                          </IMPLEMENTATION-CONFIG-CLASSES>
+                          <ORIGIN>AUTOSAR_ECUC</ORIGIN>
+                          <SYMBOLIC-NAME-VALUE>false</SYMBOLIC-NAME-VALUE>
+                          <DEFAULT-VALUE>3</DEFAULT-VALUE>
+                          <MAX>3</MAX>
+                          <MIN>0</MIN>
+                        </INTEGER-PARAM-DEF>
+                      </PARAMETERS>
+                    </PARAM-CONF-CONTAINER-DEF>
+                    <PARAM-CONF-CONTAINER-DEF UUID="ECUC:e7fd0ef4-816b-40ab-bd42-1ffbba663482">
+                      <SHORT-NAME>AdcGroup</SHORT-NAME>
+                      <DESC>
+                        <L-2>This container contains the Group configuration parameters.</L-2>
+                      </DESC>
+                      <LOWER-MULTIPLICITY>1</LOWER-MULTIPLICITY>
+                      <UPPER-MULTIPLICITY>*</UPPER-MULTIPLICITY>
+                      <MULTIPLE-CONFIGURATION-CONTAINER>false</MULTIPLE-CONFIGURATION-CONTAINER>
+                      <PARAMETERS>
+                        <ENUMERATION-PARAM-DEF UUID="ECUC:4dd48806-014b-46ed-a646-2af193066602">
+                          <SHORT-NAME>AdcGroupAccessMode</SHORT-NAME>
+                          <DESC>
+                            <L-2>Type of access mode to group conversion results.</L-2>
+                          </DESC>
+                          <LOWER-MULTIPLICITY>1</LOWER-MULTIPLICITY>
+                          <UPPER-MULTIPLICITY>1</UPPER-MULTIPLICITY>
+                          <IMPLEMENTATION-CONFIG-CLASSES>
+                            <IMPLEMENTATION-CONFIG-CLASS>
+                              <CONFIG-CLASS>PRE-COMPILE</CONFIG-CLASS>
+                              <CONFIG-VARIANT>VARIANT-PRE-COMPILE</CONFIG-VARIANT>
+                            </IMPLEMENTATION-CONFIG-CLASS>
+                            <IMPLEMENTATION-CONFIG-CLASS>
+                              <CONFIG-CLASS>POST-BUILD</CONFIG-CLASS>
+                              <CONFIG-VARIANT>VARIANT-POST-BUILD</CONFIG-VARIANT>
+                            </IMPLEMENTATION-CONFIG-CLASS>
+                          </IMPLEMENTATION-CONFIG-CLASSES>
+                          <ORIGIN>AUTOSAR_ECUC</ORIGIN>
+                          <SYMBOLIC-NAME-VALUE>false</SYMBOLIC-NAME-VALUE>
+                          <DEFAULT-VALUE>ADC_ACCESS_MODE_SINGLE</DEFAULT-VALUE>
+                          <LITERALS>
+                            <ENUMERATION-LITERAL-DEF UUID="7ff77131-e5c3-46c4-9d4c-46e933ce541c">
+                              <SHORT-NAME>ADC_ACCESS_MODE_SINGLE</SHORT-NAME>
+                            </ENUMERATION-LITERAL-DEF>
+                            <ENUMERATION-LITERAL-DEF UUID="c763b4c3-2082-47a7-a479-519c8148c56b">
+                              <SHORT-NAME>ADC_ACCESS_MODE_STREAMING</SHORT-NAME>
+                            </ENUMERATION-LITERAL-DEF>
+                          </LITERALS>
+                        </ENUMERATION-PARAM-DEF>
+                        <ENUMERATION-PARAM-DEF UUID="ECUC:012e9a68-541c-4066-ae92-2d3c5ec90e09">
+                          <SHORT-NAME>AdcGroupConversionMode</SHORT-NAME>
+                          <DESC>
+                            <L-2>Conversion mode of the channel group.</L-2>
+                          </DESC>
+                          <LOWER-MULTIPLICITY>1</LOWER-MULTIPLICITY>
+                          <UPPER-MULTIPLICITY>1</UPPER-MULTIPLICITY>
+                          <IMPLEMENTATION-CONFIG-CLASSES>
+                            <IMPLEMENTATION-CONFIG-CLASS>
+                              <CONFIG-CLASS>PRE-COMPILE</CONFIG-CLASS>
+                              <CONFIG-VARIANT>VARIANT-PRE-COMPILE</CONFIG-VARIANT>
+                            </IMPLEMENTATION-CONFIG-CLASS>
+                            <IMPLEMENTATION-CONFIG-CLASS>
+                              <CONFIG-CLASS>POST-BUILD</CONFIG-CLASS>
+                              <CONFIG-VARIANT>VARIANT-POST-BUILD</CONFIG-VARIANT>
+                            </IMPLEMENTATION-CONFIG-CLASS>
+                          </IMPLEMENTATION-CONFIG-CLASSES>
+                          <ORIGIN>AUTOSAR_ECUC</ORIGIN>
+                          <SYMBOLIC-NAME-VALUE>false</SYMBOLIC-NAME-VALUE>
+                          <DEFAULT-VALUE>ADC_CONV_MODE_ONESHOT</DEFAULT-VALUE>
+                          <LITERALS>
+                            <ENUMERATION-LITERAL-DEF UUID="034b867c-1c9c-48e7-b7dd-160194751562">
+                              <SHORT-NAME>ADC_CONV_MODE_ONESHOT</SHORT-NAME>
+                            </ENUMERATION-LITERAL-DEF>
+                            <ENUMERATION-LITERAL-DEF UUID="c3b0725a-e757-4ce3-86c3-d46ae4c7ae42">
+                              <SHORT-NAME>ADC_CONV_MODE_CONTINUOUS</SHORT-NAME>
+                            </ENUMERATION-LITERAL-DEF>
+                          </LITERALS>
+                        </ENUMERATION-PARAM-DEF>
+                        <INTEGER-PARAM-DEF UUID="ECUC:ccb6ca56-2e56-4ebf-bede-e458ceceb3aa">
+                          <SHORT-NAME>AdcGroupId</SHORT-NAME>
+                          <DESC>
+                            <L-2>Group Id of the ADC group.</L-2>
+                          </DESC>
+                          <LOWER-MULTIPLICITY>1</LOWER-MULTIPLICITY>
+                          <UPPER-MULTIPLICITY>1</UPPER-MULTIPLICITY>
+                          <IMPLEMENTATION-CONFIG-CLASSES>
+                            <IMPLEMENTATION-CONFIG-CLASS>
+                              <CONFIG-CLASS>PRE-COMPILE</CONFIG-CLASS>
+                              <CONFIG-VARIANT>VARIANT-PRE-COMPILE</CONFIG-VARIANT>
+                            </IMPLEMENTATION-CONFIG-CLASS>
+                            <IMPLEMENTATION-CONFIG-CLASS>
+                              <CONFIG-CLASS>POST-BUILD</CONFIG-CLASS>
+                              <CONFIG-VARIANT>VARIANT-POST-BUILD</CONFIG-VARIANT>
+                            </IMPLEMENTATION-CONFIG-CLASS>
+                          </IMPLEMENTATION-CONFIG-CLASSES>
+                          <ORIGIN>AUTOSAR_ECUC</ORIGIN>
+                          <SYMBOLIC-NAME-VALUE>true</SYMBOLIC-NAME-VALUE>
+                          <DEFAULT-VALUE>0</DEFAULT-VALUE>
+                          <MAX>255</MAX>
+                          <MIN>0</MIN>
+                        </INTEGER-PARAM-DEF>
+                        <INTEGER-PARAM-DEF UUID="ECUC:211a9f46-ebc5-4383-a2da-efa7397f6f73">
+                          <SHORT-NAME>AdcGroupPriority</SHORT-NAME>
+                          <DESC>
+                            <L-2>Priority level of the group. This item is ignored if Adc/AdcGeneral/AdcPriorityImplementation is defined to ADC_PRIORITY_NONE</L-2>
+                          </DESC>
+                          <LOWER-MULTIPLICITY>1</LOWER-MULTIPLICITY>
+                          <UPPER-MULTIPLICITY>1</UPPER-MULTIPLICITY>
+                          <IMPLEMENTATION-CONFIG-CLASSES>
+                            <IMPLEMENTATION-CONFIG-CLASS>
+                              <CONFIG-CLASS>PRE-COMPILE</CONFIG-CLASS>
+                              <CONFIG-VARIANT>VARIANT-PRE-COMPILE</CONFIG-VARIANT>
+                            </IMPLEMENTATION-CONFIG-CLASS>
+                            <IMPLEMENTATION-CONFIG-CLASS>
+                              <CONFIG-CLASS>POST-BUILD</CONFIG-CLASS>
+                              <CONFIG-VARIANT>VARIANT-POST-BUILD</CONFIG-VARIANT>
+                            </IMPLEMENTATION-CONFIG-CLASS>
+                          </IMPLEMENTATION-CONFIG-CLASSES>
+                          <ORIGIN>AUTOSAR_ECUC</ORIGIN>
+                          <SYMBOLIC-NAME-VALUE>false</SYMBOLIC-NAME-VALUE>
+                          <DEFAULT-VALUE>0</DEFAULT-VALUE>
+                          <MAX>255</MAX>
+                          <MIN>0</MIN>
+                        </INTEGER-PARAM-DEF>
+                        <ENUMERATION-PARAM-DEF UUID="ECUC:d60e08eb-2efa-41ef-aef6-ce1428373bb5">
+                          <SHORT-NAME>AdcGroupReplacement</SHORT-NAME>
+                          <DESC>
+                            <L-2>Replacement mechanism used on ADC group level. It's fixed to Abort/Restart</L-2>
+                          </DESC>
+                          <LOWER-MULTIPLICITY>1</LOWER-MULTIPLICITY>
+                          <UPPER-MULTIPLICITY>1</UPPER-MULTIPLICITY>
+                          <IMPLEMENTATION-CONFIG-CLASSES>
+                            <IMPLEMENTATION-CONFIG-CLASS>
+                              <CONFIG-CLASS>PRE-COMPILE</CONFIG-CLASS>
+                              <CONFIG-VARIANT>VARIANT-PRE-COMPILE</CONFIG-VARIANT>
+                            </IMPLEMENTATION-CONFIG-CLASS>
+                            <IMPLEMENTATION-CONFIG-CLASS>
+                              <CONFIG-CLASS>POST-BUILD</CONFIG-CLASS>
+                              <CONFIG-VARIANT>VARIANT-POST-BUILD</CONFIG-VARIANT>
+                            </IMPLEMENTATION-CONFIG-CLASS>
+                          </IMPLEMENTATION-CONFIG-CLASSES>
+                          <ORIGIN>AUTOSAR_ECUC</ORIGIN>
+                          <SYMBOLIC-NAME-VALUE>false</SYMBOLIC-NAME-VALUE>
+                          <DEFAULT-VALUE>ADC_GROUP_REPL_ABORT_RESTART</DEFAULT-VALUE>
+                          <LITERALS>
+                            <ENUMERATION-LITERAL-DEF UUID="175816d2-d59e-4e93-86fb-8513cd3eb6ca">
+                              <SHORT-NAME>ADC_GROUP_REPL_ABORT_RESTART</SHORT-NAME>
+                            </ENUMERATION-LITERAL-DEF>
+                            <ENUMERATION-LITERAL-DEF UUID="077259bf-7dd7-48a7-a271-3975fb1583f0">
+                              <SHORT-NAME>ADC_GROUP_REPL_SUSPENDE_RESUME</SHORT-NAME>
+                            </ENUMERATION-LITERAL-DEF>
+                          </LITERALS>
+                        </ENUMERATION-PARAM-DEF>
+                        <ENUMERATION-PARAM-DEF UUID="ECUC:7645bf4b-2950-44fd-8133-5695bddf9b7d">
+                          <SHORT-NAME>AdcGroupTriggSrc</SHORT-NAME>
+                          <DESC>
+                            <L-2>Select the Trigger Source for ADC Unit. It's possible select Hw or Sw trigger.</L-2>
+                          </DESC>
+                          <LOWER-MULTIPLICITY>1</LOWER-MULTIPLICITY>
+                          <UPPER-MULTIPLICITY>1</UPPER-MULTIPLICITY>
+                          <IMPLEMENTATION-CONFIG-CLASSES>
+                            <IMPLEMENTATION-CONFIG-CLASS>
+                              <CONFIG-CLASS>PRE-COMPILE</CONFIG-CLASS>
+                              <CONFIG-VARIANT>VARIANT-PRE-COMPILE</CONFIG-VARIANT>
+                            </IMPLEMENTATION-CONFIG-CLASS>
+                            <IMPLEMENTATION-CONFIG-CLASS>
+                              <CONFIG-CLASS>POST-BUILD</CONFIG-CLASS>
+                              <CONFIG-VARIANT>VARIANT-POST-BUILD</CONFIG-VARIANT>
+                            </IMPLEMENTATION-CONFIG-CLASS>
+                          </IMPLEMENTATION-CONFIG-CLASSES>
+                          <ORIGIN>AUTOSAR_ECUC</ORIGIN>
+                          <SYMBOLIC-NAME-VALUE>false</SYMBOLIC-NAME-VALUE>
+                          <DEFAULT-VALUE>ADC_TRIGG_SRC_SW</DEFAULT-VALUE>
+                          <LITERALS>
+                            <ENUMERATION-LITERAL-DEF UUID="0335f2ca-4769-4135-9077-69c9a3c98f26">
+                              <SHORT-NAME>ADC_TRIGG_SRC_HW</SHORT-NAME>
+                            </ENUMERATION-LITERAL-DEF>
+                            <ENUMERATION-LITERAL-DEF UUID="ae929c4e-316b-4a5d-839a-9852e87754e5">
+                              <SHORT-NAME>ADC_TRIGG_SRC_SW</SHORT-NAME>
+                            </ENUMERATION-LITERAL-DEF>
+                          </LITERALS>
+                        </ENUMERATION-PARAM-DEF>
+                        <ENUMERATION-PARAM-DEF UUID="ECUC:0d77f8f4-9b8e-446b-af41-033b83e2cc36">
+                          <SHORT-NAME>AdcHwTrigSignal</SHORT-NAME>
+                          <DESC>
+                            <L-2>Configures on which edge of the hardware trigger signal the driver should reach.</L-2>
+                          </DESC>
+                          <LOWER-MULTIPLICITY>1</LOWER-MULTIPLICITY>
+                          <UPPER-MULTIPLICITY>1</UPPER-MULTIPLICITY>
+                          <IMPLEMENTATION-CONFIG-CLASSES>
+                            <IMPLEMENTATION-CONFIG-CLASS>
+                              <CONFIG-CLASS>PRE-COMPILE</CONFIG-CLASS>
+                              <CONFIG-VARIANT>VARIANT-PRE-COMPILE</CONFIG-VARIANT>
+                            </IMPLEMENTATION-CONFIG-CLASS>
+                            <IMPLEMENTATION-CONFIG-CLASS>
+                              <CONFIG-CLASS>POST-BUILD</CONFIG-CLASS>
+                              <CONFIG-VARIANT>VARIANT-POST-BUILD</CONFIG-VARIANT>
+                            </IMPLEMENTATION-CONFIG-CLASS>
+                          </IMPLEMENTATION-CONFIG-CLASSES>
+                          <ORIGIN>AUTOSAR_ECUC</ORIGIN>
+                          <SYMBOLIC-NAME-VALUE>false</SYMBOLIC-NAME-VALUE>
+                          <DEFAULT-VALUE>ADC_HW_TRIG_RISING_EDGE</DEFAULT-VALUE>
+                          <LITERALS>
+                            <ENUMERATION-LITERAL-DEF UUID="4cee3782-f8e4-4beb-956f-3caf2fed7779">
+                              <SHORT-NAME>ADC_HW_TRIG_FALLING_EDGE</SHORT-NAME>
+                            </ENUMERATION-LITERAL-DEF>
+                            <ENUMERATION-LITERAL-DEF UUID="419abd97-a907-4eec-b2f1-584f4c40471a">
+                              <SHORT-NAME>ADC_HW_TRIG_RISING_EDGE</SHORT-NAME>
+                            </ENUMERATION-LITERAL-DEF>
+                          </LITERALS>
+                        </ENUMERATION-PARAM-DEF>
+                        <INTEGER-PARAM-DEF UUID="ECUC:2f202d54-3861-4af8-b386-f2379b0fb019">
+                          <SHORT-NAME>AdcHwTrigTimer</SHORT-NAME>
+                          <DESC>
+                            <L-2>Isn't used on this version.</L-2>
+                          </DESC>
+                          <LOWER-MULTIPLICITY>0</LOWER-MULTIPLICITY>
+                          <UPPER-MULTIPLICITY>1</UPPER-MULTIPLICITY>
+                          <IMPLEMENTATION-CONFIG-CLASSES>
+                            <IMPLEMENTATION-CONFIG-CLASS>
+                              <CONFIG-CLASS>PRE-COMPILE</CONFIG-CLASS>
+                              <CONFIG-VARIANT>VARIANT-PRE-COMPILE</CONFIG-VARIANT>
+                            </IMPLEMENTATION-CONFIG-CLASS>
+                            <IMPLEMENTATION-CONFIG-CLASS>
+                              <CONFIG-CLASS>POST-BUILD</CONFIG-CLASS>
+                              <CONFIG-VARIANT>VARIANT-POST-BUILD</CONFIG-VARIANT>
+                            </IMPLEMENTATION-CONFIG-CLASS>
+                          </IMPLEMENTATION-CONFIG-CLASSES>
+                          <ORIGIN>AUTOSAR_ECUC</ORIGIN>
+                          <SYMBOLIC-NAME-VALUE>false</SYMBOLIC-NAME-VALUE>
+                          <DEFAULT-VALUE>0</DEFAULT-VALUE>
+                          <MAX>0</MAX>
+                          <MIN>0</MIN>
+                        </INTEGER-PARAM-DEF>
+                        <FUNCTION-NAME-DEF UUID="ECUC:bdc53f72-5b21-4002-bc77-7d9ae3d363a4">
+                          <SHORT-NAME>AdcNotification</SHORT-NAME>
+                          <DESC>
+                            <L-2>This function pointer is called everytime when the conversion of this group is completed.</L-2>
+                          </DESC>
+                          <LOWER-MULTIPLICITY>1</LOWER-MULTIPLICITY>
+                          <UPPER-MULTIPLICITY>1</UPPER-MULTIPLICITY>
+                          <IMPLEMENTATION-CONFIG-CLASSES>
+                            <IMPLEMENTATION-CONFIG-CLASS>
+                              <CONFIG-CLASS>PRE-COMPILE</CONFIG-CLASS>
+                              <CONFIG-VARIANT>VARIANT-PRE-COMPILE</CONFIG-VARIANT>
+                            </IMPLEMENTATION-CONFIG-CLASS>
+                            <IMPLEMENTATION-CONFIG-CLASS>
+                              <CONFIG-CLASS>POST-BUILD</CONFIG-CLASS>
+                              <CONFIG-VARIANT>VARIANT-POST-BUILD</CONFIG-VARIANT>
+                            </IMPLEMENTATION-CONFIG-CLASS>
+                          </IMPLEMENTATION-CONFIG-CLASSES>
+                          <ORIGIN>AUTOSAR_ECUC</ORIGIN>
+                          <SYMBOLIC-NAME-VALUE>false</SYMBOLIC-NAME-VALUE>
+                          <DEFAULT-VALUE>NULL_PTR</DEFAULT-VALUE>
+                        </FUNCTION-NAME-DEF>
+                        <ENUMERATION-PARAM-DEF UUID="ECUC:c2716919-be39-470d-a398-18e9efa99389">
+                          <SHORT-NAME>AdcStreamingBufferMode</SHORT-NAME>
+                          <DESC>
+                            <L-2>Select the Streaming mode.If the buffer is linear, when it is full the conversion is stopped.</L-2>
+                          </DESC>
+                          <LOWER-MULTIPLICITY>1</LOWER-MULTIPLICITY>
+                          <UPPER-MULTIPLICITY>1</UPPER-MULTIPLICITY>
+                          <IMPLEMENTATION-CONFIG-CLASSES>
+                            <IMPLEMENTATION-CONFIG-CLASS>
+                              <CONFIG-CLASS>PRE-COMPILE</CONFIG-CLASS>
+                              <CONFIG-VARIANT>VARIANT-PRE-COMPILE</CONFIG-VARIANT>
+                            </IMPLEMENTATION-CONFIG-CLASS>
+                            <IMPLEMENTATION-CONFIG-CLASS>
+                              <CONFIG-CLASS>POST-BUILD</CONFIG-CLASS>
+                              <CONFIG-VARIANT>VARIANT-POST-BUILD</CONFIG-VARIANT>
+                            </IMPLEMENTATION-CONFIG-CLASS>
+                          </IMPLEMENTATION-CONFIG-CLASSES>
+                          <ORIGIN>AUTOSAR_ECUC</ORIGIN>
+                          <SYMBOLIC-NAME-VALUE>false</SYMBOLIC-NAME-VALUE>
+                          <DEFAULT-VALUE>ADC_STREAM_BUFFER_LINEAR</DEFAULT-VALUE>
+                          <LITERALS>
+                            <ENUMERATION-LITERAL-DEF UUID="b80265e6-6fae-414f-97a7-bac216830267">
+                              <SHORT-NAME>ADC_STREAM_BUFFER_CIRCULAR</SHORT-NAME>
+                            </ENUMERATION-LITERAL-DEF>
+                            <ENUMERATION-LITERAL-DEF UUID="a2eac041-80cf-4387-ba25-d450d01c0a57">
+                              <SHORT-NAME>ADC_STREAM_BUFFER_LINEAR</SHORT-NAME>
+                            </ENUMERATION-LITERAL-DEF>
+                          </LITERALS>
+                        </ENUMERATION-PARAM-DEF>
+                        <LINKER-SYMBOL-DEF UUID="ECUC:62d4443b-5ed4-4cb7-8739-24a3fa1b3157">
+                          <SHORT-NAME>AdcResultBufferPointer</SHORT-NAME>
+                          <DESC>
+                            <L-2>Pointer to the Data Buffer (destination for conversion results).</L-2>
+                          </DESC>
+                          <LOWER-MULTIPLICITY>1</LOWER-MULTIPLICITY>
+                          <UPPER-MULTIPLICITY>1</UPPER-MULTIPLICITY>
+                          <IMPLEMENTATION-CONFIG-CLASSES>
+                            <IMPLEMENTATION-CONFIG-CLASS>
+                              <CONFIG-CLASS>PRE-COMPILE</CONFIG-CLASS>
+                              <CONFIG-VARIANT>VARIANT-PRE-COMPILE</CONFIG-VARIANT>
+                            </IMPLEMENTATION-CONFIG-CLASS>
+                            <IMPLEMENTATION-CONFIG-CLASS>
+                              <CONFIG-CLASS>POST-BUILD</CONFIG-CLASS>
+                              <CONFIG-VARIANT>VARIANT-POST-BUILD</CONFIG-VARIANT>
+                            </IMPLEMENTATION-CONFIG-CLASS>
+                          </IMPLEMENTATION-CONFIG-CLASSES>
+                          <ORIGIN>AUTOSAR_ECUC</ORIGIN>
+                          <SYMBOLIC-NAME-VALUE>false</SYMBOLIC-NAME-VALUE>
+                          <DEFAULT-VALUE>AdcResultBufferPointer</DEFAULT-VALUE>
+                        </LINKER-SYMBOL-DEF>
+                        <INTEGER-PARAM-DEF UUID="ECUC:1d393f80-5c42-4a8d-a018-0efd11f5a4f3">
+                          <SHORT-NAME>AdcStreamingNumSamples</SHORT-NAME>
+                          <DESC>
+                            <L-2>Number of samples to be acquired per channel.</L-2>
+                          </DESC>
+                          <LOWER-MULTIPLICITY>1</LOWER-MULTIPLICITY>
+                          <UPPER-MULTIPLICITY>1</UPPER-MULTIPLICITY>
+                          <IMPLEMENTATION-CONFIG-CLASSES>
+                            <IMPLEMENTATION-CONFIG-CLASS>
+                              <CONFIG-CLASS>PRE-COMPILE</CONFIG-CLASS>
+                              <CONFIG-VARIANT>VARIANT-PRE-COMPILE</CONFIG-VARIANT>
+                            </IMPLEMENTATION-CONFIG-CLASS>
+                            <IMPLEMENTATION-CONFIG-CLASS>
+                              <CONFIG-CLASS>POST-BUILD</CONFIG-CLASS>
+                              <CONFIG-VARIANT>VARIANT-POST-BUILD</CONFIG-VARIANT>
+                            </IMPLEMENTATION-CONFIG-CLASS>
+                          </IMPLEMENTATION-CONFIG-CLASSES>
+                          <ORIGIN>AUTOSAR_ECUC</ORIGIN>
+                          <SYMBOLIC-NAME-VALUE>false</SYMBOLIC-NAME-VALUE>
+                          <DEFAULT-VALUE>1</DEFAULT-VALUE>
+                          <MAX>65535</MAX>
+                          <MIN>1</MIN>
+                        </INTEGER-PARAM-DEF>
+                        <ENUMERATION-PARAM-DEF UUID="ECUC:3ed1fecd-daf2-42dc-8172-02369ed19787">
+                          <SHORT-NAME>AdcHwTrigSrc</SHORT-NAME>
+                          <DESC>
+                            <L-2>
+              Selects the source for the eQADC trigger inputs (bits eTSEL0..5 in SIU_ISEL3 register).
+              Supported Trigger Sources are:
+              ETRIG0,ETRIG1,RTI,PIT0,PIT1,PIT2,PIT3,ETRIG2,ETRIG3,eTPU30_PIT0,eTPU30_PIT1,eTPU31_PIT0,
+              eTPU31_PIT1,eTPU28,eTPU29,eTPU30,eTPU31,eMIOS10_PIT2,eMIOS10_PIT3,eMIOS11_PIT2,
+              eMIOS11_PIT3,eMIOS23. ETRIG0, ETRIG3 triggers support CFIFO0, CFIFO2 and CFIFO4,
+              ETRIG1, ETRIG2 triggers support CFIFO1, CFIFO3 and CFIFO5.
+              Note: This is an Implementation Specific Parameter.
+              </L-2>
+                          </DESC>
+                          <LOWER-MULTIPLICITY>1</LOWER-MULTIPLICITY>
+                          <UPPER-MULTIPLICITY>1</UPPER-MULTIPLICITY>
+                          <IMPLEMENTATION-CONFIG-CLASSES>
+                            <IMPLEMENTATION-CONFIG-CLASS>
+                              <CONFIG-CLASS>PRE-COMPILE</CONFIG-CLASS>
+                              <CONFIG-VARIANT>VARIANT-PRE-COMPILE</CONFIG-VARIANT>
+                            </IMPLEMENTATION-CONFIG-CLASS>
+                            <IMPLEMENTATION-CONFIG-CLASS>
+                              <CONFIG-CLASS>POST-BUILD</CONFIG-CLASS>
+                              <CONFIG-VARIANT>VARIANT-POST-BUILD</CONFIG-VARIANT>
+                            </IMPLEMENTATION-CONFIG-CLASS>
+                          </IMPLEMENTATION-CONFIG-CLASSES>
+                          <ORIGIN>Freescale</ORIGIN>
+                          <SYMBOLIC-NAME-VALUE>false</SYMBOLIC-NAME-VALUE>
+                          <DEFAULT-VALUE>PIT0</DEFAULT-VALUE>
+                          <LITERALS>
+                            <ENUMERATION-LITERAL-DEF UUID="ac8cc559-52fc-4045-81ad-299e07afb4fa">
+                              <SHORT-NAME>ETRIG0</SHORT-NAME>
+                            </ENUMERATION-LITERAL-DEF>
+                            <ENUMERATION-LITERAL-DEF UUID="f560d553-96b7-4bb6-b02e-5a8d73487a7b">
+                              <SHORT-NAME>ETRIG1</SHORT-NAME>
+                            </ENUMERATION-LITERAL-DEF>
+                            <ENUMERATION-LITERAL-DEF UUID="589d1898-c555-46a4-af13-c08c7f1799e0">
+                              <SHORT-NAME>RTI</SHORT-NAME>
+                            </ENUMERATION-LITERAL-DEF>
+                            <ENUMERATION-LITERAL-DEF UUID="f2e7244e-97ba-4cbc-abbf-4bc64e800340">
+                              <SHORT-NAME>PIT0</SHORT-NAME>
+                            </ENUMERATION-LITERAL-DEF>
+                            <ENUMERATION-LITERAL-DEF UUID="c85e0f5b-840b-4fc5-89ef-57d5bc329e71">
+                              <SHORT-NAME>PIT1</SHORT-NAME>
+                            </ENUMERATION-LITERAL-DEF>
+                            <ENUMERATION-LITERAL-DEF UUID="71d3625c-d814-4e4e-b04e-38098a227918">
+                              <SHORT-NAME>PIT2</SHORT-NAME>
+                            </ENUMERATION-LITERAL-DEF>
+                            <ENUMERATION-LITERAL-DEF UUID="66f0c3f6-d1dc-47bd-971a-21cdf7b23770">
+                              <SHORT-NAME>PIT3</SHORT-NAME>
+                            </ENUMERATION-LITERAL-DEF>
+                            <ENUMERATION-LITERAL-DEF UUID="ec7077ec-d8ec-41af-822c-4ae815dab6f8">
+                              <SHORT-NAME>ETRIG2</SHORT-NAME>
+                            </ENUMERATION-LITERAL-DEF>
+                            <ENUMERATION-LITERAL-DEF UUID="9f16cce8-4e9d-419b-8de9-636a82ba2136">
+                              <SHORT-NAME>ETRIG3</SHORT-NAME>
+                            </ENUMERATION-LITERAL-DEF>
+                            <ENUMERATION-LITERAL-DEF UUID="b9857013-bcf8-4a41-8c80-307ccf54b4e9">
+                              <SHORT-NAME>eTPU30_PIT0</SHORT-NAME>
+                            </ENUMERATION-LITERAL-DEF>
+                            <ENUMERATION-LITERAL-DEF UUID="be65b18e-6ca3-4647-8ef0-7a57838f79a3">
+                              <SHORT-NAME>eTPU30_PIT1</SHORT-NAME>
+                            </ENUMERATION-LITERAL-DEF>
+                            <ENUMERATION-LITERAL-DEF UUID="607287a9-ff78-47bf-a0d7-cd21be1b8df8">
+                              <SHORT-NAME>eTPU31_PIT0</SHORT-NAME>
+                            </ENUMERATION-LITERAL-DEF>
+                            <ENUMERATION-LITERAL-DEF UUID="90f4d8dd-d202-4a5f-81bd-d01266a47cc7">
+                              <SHORT-NAME>eTPU31_PIT1</SHORT-NAME>
+                            </ENUMERATION-LITERAL-DEF>
+                            <ENUMERATION-LITERAL-DEF UUID="bd631d85-6e00-4f2a-a028-b59e38a67618">
+                              <SHORT-NAME>eTPU28</SHORT-NAME>
+                            </ENUMERATION-LITERAL-DEF>
+                            <ENUMERATION-LITERAL-DEF UUID="bdf63982-0cf6-4b0a-aa8a-ff1d682c416d">
+                              <SHORT-NAME>eTPU29</SHORT-NAME>
+                            </ENUMERATION-LITERAL-DEF>
+                            <ENUMERATION-LITERAL-DEF UUID="da7481e1-f860-4ef6-85fb-89e90a103ad4">
+                              <SHORT-NAME>eTPU30</SHORT-NAME>
+                            </ENUMERATION-LITERAL-DEF>
+                            <ENUMERATION-LITERAL-DEF UUID="3adfb432-16ca-4517-aa12-d6df42af544f">
+                              <SHORT-NAME>eTPU31</SHORT-NAME>
+                            </ENUMERATION-LITERAL-DEF>
+                            <ENUMERATION-LITERAL-DEF UUID="5525792f-419b-40b6-ad90-5bade9b0b21b">
+                              <SHORT-NAME>eMIOS10_PIT2</SHORT-NAME>
+                            </ENUMERATION-LITERAL-DEF>
+                            <ENUMERATION-LITERAL-DEF UUID="1bea8a1d-c990-4f92-bc46-9d061f4330e7">
+                              <SHORT-NAME>eMIOS10_PIT3</SHORT-NAME>
+                            </ENUMERATION-LITERAL-DEF>
+                            <ENUMERATION-LITERAL-DEF UUID="985f98aa-8e3c-492a-b132-ad63ec66dbab">
+                              <SHORT-NAME>eMIOS11_PIT2</SHORT-NAME>
+                            </ENUMERATION-LITERAL-DEF>
+                            <ENUMERATION-LITERAL-DEF UUID="96691ba6-5296-4b87-b295-f9414f484e5c">
+                              <SHORT-NAME>eMIOS11_PIT3</SHORT-NAME>
+                            </ENUMERATION-LITERAL-DEF>
+                            <ENUMERATION-LITERAL-DEF UUID="7fe0d407-99cb-4d7f-91e6-14ddda72202b">
+                              <SHORT-NAME>eMIOS23</SHORT-NAME>
+                            </ENUMERATION-LITERAL-DEF>
+                          </LITERALS>
+                        </ENUMERATION-PARAM-DEF>
+                        <ENUMERATION-PARAM-DEF UUID="ECUC:385a5ea4-a3d5-4c90-b482-4c1a573e4569">
+                          <SHORT-NAME>AdcGroupFifo</SHORT-NAME>
+                          <DESC>
+                            <L-2>Selects the FIFO on which the channels belongs to the group converted.
+                              ADC_FIFO_0 to ADC_FIFO_2 is used for unit0 while ADC_FIFO_3 to ADC_FIFO_5 is used for unit1
+                              by eQADC
+                Note: This is an Implementation Specific Parameter.</L-2>
+                          </DESC>
+                          <LOWER-MULTIPLICITY>1</LOWER-MULTIPLICITY>
+                          <UPPER-MULTIPLICITY>1</UPPER-MULTIPLICITY>
+                          <ORIGIN>Freescale</ORIGIN>
+                          <SYMBOLIC-NAME-VALUE>false</SYMBOLIC-NAME-VALUE>
+                          <DEFAULT-VALUE>ADC_FIFO_0</DEFAULT-VALUE>
+                          <LITERALS>
+                            <ENUMERATION-LITERAL-DEF UUID="945eea5b-98b3-429c-88a0-bf8d0291855e">
+                              <SHORT-NAME>ADC_FIFO_0</SHORT-NAME>
+                            </ENUMERATION-LITERAL-DEF>
+                            <ENUMERATION-LITERAL-DEF UUID="b58bfde7-11bd-49f3-9f82-b5d0bcd88714">
+                              <SHORT-NAME>ADC_FIFO_1</SHORT-NAME>
+                            </ENUMERATION-LITERAL-DEF>
+                            <ENUMERATION-LITERAL-DEF UUID="60d3d5c8-e330-48fe-940b-f33e159c3e26">
+                              <SHORT-NAME>ADC_FIFO_2</SHORT-NAME>
+                            </ENUMERATION-LITERAL-DEF>
+                            <ENUMERATION-LITERAL-DEF UUID="d6ad6c1e-4737-41fb-a9be-a9af4a6bc21f">
+                              <SHORT-NAME>ADC_FIFO_3</SHORT-NAME>
+                            </ENUMERATION-LITERAL-DEF>
+                            <ENUMERATION-LITERAL-DEF UUID="9fec10f2-6106-43ba-8fb7-2554cbbb85ae">
+                              <SHORT-NAME>ADC_FIFO_4</SHORT-NAME>
+                            </ENUMERATION-LITERAL-DEF>
+                            <ENUMERATION-LITERAL-DEF UUID="57d47575-4e1b-4f39-a963-a25479eb12e5">
+                              <SHORT-NAME>ADC_FIFO_5</SHORT-NAME>
+                            </ENUMERATION-LITERAL-DEF>
+                          </LITERALS>
+                        </ENUMERATION-PARAM-DEF>
+                        <BOOLEAN-PARAM-DEF UUID="ECUC:9c8443de-5cbf-4ce0-99c0-7890893e6b1d">
+                          <SHORT-NAME>AdcGroupISRAlignSamples</SHORT-NAME>
+                          <DESC>
+                            <L-2>Enable/Disable right alignment of each sample inside ISR.</L-2>
+                          </DESC>
+                          <LOWER-MULTIPLICITY>1</LOWER-MULTIPLICITY>
+                          <UPPER-MULTIPLICITY>1</UPPER-MULTIPLICITY>
+                          <IMPLEMENTATION-CONFIG-CLASSES>
+                            <IMPLEMENTATION-CONFIG-CLASS>
+                              <CONFIG-CLASS>PRE-COMPILE</CONFIG-CLASS>
+                              <CONFIG-VARIANT>VARIANT-PRE-COMPILE</CONFIG-VARIANT>
+                            </IMPLEMENTATION-CONFIG-CLASS>
+                            <IMPLEMENTATION-CONFIG-CLASS>
+                              <CONFIG-CLASS>POST-BUILD</CONFIG-CLASS>
+                              <CONFIG-VARIANT>VARIANT-POST-BUILD</CONFIG-VARIANT>
+                            </IMPLEMENTATION-CONFIG-CLASS>
+                          </IMPLEMENTATION-CONFIG-CLASSES>
+                          <ORIGIN>AUTOSAR_ECUC</ORIGIN>
+                          <SYMBOLIC-NAME-VALUE>false</SYMBOLIC-NAME-VALUE>
+                          <DEFAULT-VALUE>true</DEFAULT-VALUE>
+                        </BOOLEAN-PARAM-DEF>
+                      </PARAMETERS>
+                      <REFERENCES>
+                        <REFERENCE-PARAM-DEF UUID="ECUC:678134e8-5e4b-44a0-bf66-846e0662cf1d">
+                          <SHORT-NAME>AdcGroupDefinition</SHORT-NAME>
+                          <DESC>
+                            <L-2>Assignment of channels to a channel group. For each AdcChannel that should belong to the group, a reference needs to be defined.</L-2>
+                          </DESC>
+                          <LOWER-MULTIPLICITY>1</LOWER-MULTIPLICITY>
+                          <UPPER-MULTIPLICITY>*</UPPER-MULTIPLICITY>
+                          <IMPLEMENTATION-CONFIG-CLASSES>
+                            <IMPLEMENTATION-CONFIG-CLASS>
+                              <CONFIG-CLASS>PRE-COMPILE</CONFIG-CLASS>
+                              <CONFIG-VARIANT>VARIANT-PRE-COMPILE</CONFIG-VARIANT>
+                            </IMPLEMENTATION-CONFIG-CLASS>
+                            <IMPLEMENTATION-CONFIG-CLASS>
+                              <CONFIG-CLASS>POST-BUILD</CONFIG-CLASS>
+                              <CONFIG-VARIANT>VARIANT-POST-BUILD</CONFIG-VARIANT>
+                            </IMPLEMENTATION-CONFIG-CLASS>
+                          </IMPLEMENTATION-CONFIG-CLASSES>
+                          <ORIGIN>AUTOSAR_ECUC</ORIGIN>
+                          <DESTINATION-REF DEST="PARAM-CONF-CONTAINER-DEF">/AUTOSAR/Adc/AdcConfigSet/AdcHwUnit/AdcChannel</DESTINATION-REF>
+                        </REFERENCE-PARAM-DEF>
+                      </REFERENCES>
+                    </PARAM-CONF-CONTAINER-DEF>
+                  </SUB-CONTAINERS>
+                </PARAM-CONF-CONTAINER-DEF>
+                <PARAM-CONF-CONTAINER-DEF UUID="ECUC:0c9ccb5e-c7ab-4d9a-b1cc-d26dc8461647">
+                  <SHORT-NAME>AdcGeneric</SHORT-NAME>
+                  <DESC>
+                    <L-2>General configuration parameters for the current configuration of the ADC Driver software module.</L-2>
+                  </DESC>
+                  <LOWER-MULTIPLICITY>1</LOWER-MULTIPLICITY>
+                  <UPPER-MULTIPLICITY>1</UPPER-MULTIPLICITY>
+                  <MULTIPLE-CONFIGURATION-CONTAINER>false</MULTIPLE-CONFIGURATION-CONTAINER>
+                  <PARAMETERS>
+                    <INTEGER-PARAM-DEF UUID="ECUC:4c1a15c1-b0d5-4913-a5c4-8c4813a170ef">
+                      <SHORT-NAME>AdcPriorityQueueMaxDepth</SHORT-NAME>
+                      <DESC>
+                        <L-2>Maximum depth of queue used for queuing of incoming conversion requests when hardware unit is busy.
+                      Note: This is an Implementation Specific Parameter.</L-2>
+                      </DESC>
+                      <LOWER-MULTIPLICITY>1</LOWER-MULTIPLICITY>
+                      <UPPER-MULTIPLICITY>1</UPPER-MULTIPLICITY>
+                      <ORIGIN>Freescale</ORIGIN>
+                      <SYMBOLIC-NAME-VALUE>false</SYMBOLIC-NAME-VALUE>
+                      <DEFAULT-VALUE>1</DEFAULT-VALUE>
+                      <MAX>255</MAX>
+                      <MIN>1</MIN>
+                    </INTEGER-PARAM-DEF>
+                    <INTEGER-PARAM-DEF UUID="ECUC:3662543c-2160-4e81-aef2-f5b42b4dc77c">
+                      <SHORT-NAME>AdcMaxGroupChannels</SHORT-NAME>
+                      <DESC>
+                        <L-2>Maximum number of ADC HW channels configurable and allowed for a group: it's the maximum number of channels available for that package.</L-2>
+                      </DESC>
+                      <LOWER-MULTIPLICITY>1</LOWER-MULTIPLICITY>
+                      <UPPER-MULTIPLICITY>1</UPPER-MULTIPLICITY>
+                      <ORIGIN>Freescale</ORIGIN>
+                      <SYMBOLIC-NAME-VALUE>false</SYMBOLIC-NAME-VALUE>
+                      <DEFAULT-VALUE>114</DEFAULT-VALUE>
+                      <MAX>4294967295</MAX>
+                      <MIN>0</MIN>
+                    </INTEGER-PARAM-DEF>
+                    <ENUMERATION-PARAM-DEF UUID="ECUC:c79eec96-cbc0-4439-b07a-c8198aeccc65">
+                      <SHORT-NAME>AdcTransferType</SHORT-NAME>
+                      <DESC>
+                        <L-2>Select the Interrupt or Dma transfer Type.
+                      Note: This is an Implementation Specific Parameter.</L-2>
+                      </DESC>
+                      <LOWER-MULTIPLICITY>1</LOWER-MULTIPLICITY>
+                      <UPPER-MULTIPLICITY>1</UPPER-MULTIPLICITY>
+                      <ORIGIN>Freescale</ORIGIN>
+                      <SYMBOLIC-NAME-VALUE>false</SYMBOLIC-NAME-VALUE>
+                      <DEFAULT-VALUE>ADC_INTERRUPT</DEFAULT-VALUE>
+                      <LITERALS>
+                        <ENUMERATION-LITERAL-DEF UUID="7753aa05-e680-45af-9fb9-9f3430e24a6b">
+                          <SHORT-NAME>ADC_DMA</SHORT-NAME>
+                        </ENUMERATION-LITERAL-DEF>
+                        <ENUMERATION-LITERAL-DEF UUID="600707c1-2686-4577-b715-4c8243596dbd">
+                          <SHORT-NAME>ADC_INTERRUPT</SHORT-NAME>
+                        </ENUMERATION-LITERAL-DEF>
+                      </LITERALS>
+                    </ENUMERATION-PARAM-DEF>
+                  </PARAMETERS>
+                </PARAM-CONF-CONTAINER-DEF>
+              </SUB-CONTAINERS>
+            </PARAM-CONF-CONTAINER-DEF>
+            <PARAM-CONF-CONTAINER-DEF UUID="ECUC:09da7bbd-819f-446f-a411-a84815ebda44">
+              <SHORT-NAME>AdcGeneral</SHORT-NAME>
+              <DESC>
+                <L-2>General configuration (parameters) of the ADC Driver software module.</L-2>
+              </DESC>
+              <LOWER-MULTIPLICITY>1</LOWER-MULTIPLICITY>
+              <UPPER-MULTIPLICITY>1</UPPER-MULTIPLICITY>
+              <MULTIPLE-CONFIGURATION-CONTAINER>false</MULTIPLE-CONFIGURATION-CONTAINER>
+              <PARAMETERS>
+                <BOOLEAN-PARAM-DEF UUID="ECUC:2ac063e8-8e72-455a-b4e3-6deec88b4374">
+                  <SHORT-NAME>AdcDeInitApi</SHORT-NAME>
+                  <DESC>
+                    <L-2>Adds/removes the service Adc_DeInit() from the code.</L-2>
+                  </DESC>
+                  <LOWER-MULTIPLICITY>1</LOWER-MULTIPLICITY>
+                  <UPPER-MULTIPLICITY>1</UPPER-MULTIPLICITY>
+                  <IMPLEMENTATION-CONFIG-CLASSES>
+                    <IMPLEMENTATION-CONFIG-CLASS>
+                      <CONFIG-CLASS>PRE-COMPILE</CONFIG-CLASS>
+                      <CONFIG-VARIANT>VARIANT-PRE-COMPILE</CONFIG-VARIANT>
+                    </IMPLEMENTATION-CONFIG-CLASS>
+                    <IMPLEMENTATION-CONFIG-CLASS>
+                      <CONFIG-CLASS>POST-BUILD</CONFIG-CLASS>
+                      <CONFIG-VARIANT>VARIANT-POST-BUILD</CONFIG-VARIANT>
+                    </IMPLEMENTATION-CONFIG-CLASS>
+                  </IMPLEMENTATION-CONFIG-CLASSES>
+                  <ORIGIN>AUTOSAR_ECUC</ORIGIN>
+                  <SYMBOLIC-NAME-VALUE>false</SYMBOLIC-NAME-VALUE>
+                  <DEFAULT-VALUE>true</DEFAULT-VALUE>
+                </BOOLEAN-PARAM-DEF>
+                <BOOLEAN-PARAM-DEF UUID="ECUC:48991a7b-4f67-4325-913c-a63bed0b0ab3">
+                  <SHORT-NAME>AdcDevErrorDetect</SHORT-NAME>
+                  <DESC>
+                    <L-2>Enable/Disable Development Error Detection</L-2>
+                  </DESC>
+                  <LOWER-MULTIPLICITY>1</LOWER-MULTIPLICITY>
+                  <UPPER-MULTIPLICITY>1</UPPER-MULTIPLICITY>
+                  <IMPLEMENTATION-CONFIG-CLASSES>
+                    <IMPLEMENTATION-CONFIG-CLASS>
+                      <CONFIG-CLASS>PRE-COMPILE</CONFIG-CLASS>
+                      <CONFIG-VARIANT>VARIANT-PRE-COMPILE</CONFIG-VARIANT>
+                    </IMPLEMENTATION-CONFIG-CLASS>
+                    <IMPLEMENTATION-CONFIG-CLASS>
+                      <CONFIG-CLASS>POST-BUILD</CONFIG-CLASS>
+                      <CONFIG-VARIANT>VARIANT-POST-BUILD</CONFIG-VARIANT>
+                    </IMPLEMENTATION-CONFIG-CLASS>
+                  </IMPLEMENTATION-CONFIG-CLASSES>
+                  <ORIGIN>AUTOSAR_ECUC</ORIGIN>
+                  <SYMBOLIC-NAME-VALUE>false</SYMBOLIC-NAME-VALUE>
+                  <DEFAULT-VALUE>true</DEFAULT-VALUE>
+                </BOOLEAN-PARAM-DEF>
+                <BOOLEAN-PARAM-DEF UUID="ECUC:f3047cb4-c5b5-40bd-8be2-bed1767c664b">
+                  <SHORT-NAME>AdcEnableStartStopGroupApi</SHORT-NAME>
+                  <DESC>
+                    <L-2>Enable/Disable the services Adc_StartGroupConversion() and Adc_StopGroupConversion from the code.</L-2>
+                  </DESC>
+                  <LOWER-MULTIPLICITY>1</LOWER-MULTIPLICITY>
+                  <UPPER-MULTIPLICITY>1</UPPER-MULTIPLICITY>
+                  <IMPLEMENTATION-CONFIG-CLASSES>
+                    <IMPLEMENTATION-CONFIG-CLASS>
+                      <CONFIG-CLASS>PRE-COMPILE</CONFIG-CLASS>
+                      <CONFIG-VARIANT>VARIANT-PRE-COMPILE</CONFIG-VARIANT>
+                    </IMPLEMENTATION-CONFIG-CLASS>
+                    <IMPLEMENTATION-CONFIG-CLASS>
+                      <CONFIG-CLASS>POST-BUILD</CONFIG-CLASS>
+                      <CONFIG-VARIANT>VARIANT-POST-BUILD</CONFIG-VARIANT>
+                    </IMPLEMENTATION-CONFIG-CLASS>
+                  </IMPLEMENTATION-CONFIG-CLASSES>
+                  <ORIGIN>AUTOSAR_ECUC</ORIGIN>
+                  <SYMBOLIC-NAME-VALUE>false</SYMBOLIC-NAME-VALUE>
+                  <DEFAULT-VALUE>true</DEFAULT-VALUE>
+                </BOOLEAN-PARAM-DEF>
+                <BOOLEAN-PARAM-DEF UUID="ECUC:d6ffcc27-dade-4f0c-952b-7505815b0933">
+                  <SHORT-NAME>AdcGrpNotifCapability</SHORT-NAME>
+                  <DESC>
+                    <L-2> Determines, if the group notification mechanism is available at runtime.</L-2>
+                  </DESC>
+                  <LOWER-MULTIPLICITY>1</LOWER-MULTIPLICITY>
+                  <UPPER-MULTIPLICITY>1</UPPER-MULTIPLICITY>
+                  <IMPLEMENTATION-CONFIG-CLASSES>
+                    <IMPLEMENTATION-CONFIG-CLASS>
+                      <CONFIG-CLASS>PRE-COMPILE</CONFIG-CLASS>
+                      <CONFIG-VARIANT>VARIANT-PRE-COMPILE</CONFIG-VARIANT>
+                    </IMPLEMENTATION-CONFIG-CLASS>
+                    <IMPLEMENTATION-CONFIG-CLASS>
+                      <CONFIG-CLASS>POST-BUILD</CONFIG-CLASS>
+                      <CONFIG-VARIANT>VARIANT-POST-BUILD</CONFIG-VARIANT>
+                    </IMPLEMENTATION-CONFIG-CLASS>
+                  </IMPLEMENTATION-CONFIG-CLASSES>
+                  <ORIGIN>AUTOSAR_ECUC</ORIGIN>
+                  <SYMBOLIC-NAME-VALUE>false</SYMBOLIC-NAME-VALUE>
+                  <DEFAULT-VALUE>true</DEFAULT-VALUE>
+                </BOOLEAN-PARAM-DEF>
+                <BOOLEAN-PARAM-DEF UUID="ECUC:3742bfe5-dfb0-4634-966e-44c00fdea98e">
+                  <SHORT-NAME>AdcHwTriggerApi</SHORT-NAME>
+                  <DESC>
+                    <L-2> Adds / removes the services Adc_EnableHardwareTrigger() and Adc_DisableHardwareTrigger() from the code.</L-2>
+                  </DESC>
+                  <LOWER-MULTIPLICITY>1</LOWER-MULTIPLICITY>
+                  <UPPER-MULTIPLICITY>1</UPPER-MULTIPLICITY>
+                  <IMPLEMENTATION-CONFIG-CLASSES>
+                    <IMPLEMENTATION-CONFIG-CLASS>
+                      <CONFIG-CLASS>PRE-COMPILE</CONFIG-CLASS>
+                      <CONFIG-VARIANT>VARIANT-PRE-COMPILE</CONFIG-VARIANT>
+                    </IMPLEMENTATION-CONFIG-CLASS>
+                    <IMPLEMENTATION-CONFIG-CLASS>
+                      <CONFIG-CLASS>POST-BUILD</CONFIG-CLASS>
+                      <CONFIG-VARIANT>VARIANT-POST-BUILD</CONFIG-VARIANT>
+                    </IMPLEMENTATION-CONFIG-CLASS>
+                  </IMPLEMENTATION-CONFIG-CLASSES>
+                  <ORIGIN>AUTOSAR_ECUC</ORIGIN>
+                  <SYMBOLIC-NAME-VALUE>false</SYMBOLIC-NAME-VALUE>
+                  <DEFAULT-VALUE>false</DEFAULT-VALUE>
+                </BOOLEAN-PARAM-DEF>
+                <BOOLEAN-PARAM-DEF UUID="ECUC:b96d1f6c-03ab-4884-a2b1-b4791c7d5001">
+                  <SHORT-NAME>AdcVersionInfoApi</SHORT-NAME>
+                  <DESC>
+                    <L-2> Adds / removes the service Adc_GetVersionInfo() from the code.</L-2>
+                  </DESC>
+                  <LOWER-MULTIPLICITY>1</LOWER-MULTIPLICITY>
+                  <UPPER-MULTIPLICITY>1</UPPER-MULTIPLICITY>
+                  <IMPLEMENTATION-CONFIG-CLASSES>
+                    <IMPLEMENTATION-CONFIG-CLASS>
+                      <CONFIG-CLASS>PRE-COMPILE</CONFIG-CLASS>
+                      <CONFIG-VARIANT>VARIANT-PRE-COMPILE</CONFIG-VARIANT>
+                    </IMPLEMENTATION-CONFIG-CLASS>
+                    <IMPLEMENTATION-CONFIG-CLASS>
+                      <CONFIG-CLASS>POST-BUILD</CONFIG-CLASS>
+                      <CONFIG-VARIANT>VARIANT-POST-BUILD</CONFIG-VARIANT>
+                    </IMPLEMENTATION-CONFIG-CLASS>
+                  </IMPLEMENTATION-CONFIG-CLASSES>
+                  <ORIGIN>AUTOSAR_ECUC</ORIGIN>
+                  <SYMBOLIC-NAME-VALUE>false</SYMBOLIC-NAME-VALUE>
+                  <DEFAULT-VALUE>true</DEFAULT-VALUE>
+                </BOOLEAN-PARAM-DEF>
+                <BOOLEAN-PARAM-DEF UUID="ECUC:9820a4a7-40c1-43e2-bbe6-0fa32c72a550">
+                  <SHORT-NAME>AdcReadGroupApi</SHORT-NAME>
+                  <DESC>
+                    <L-2> Adds / removes the service Adc_ReadGroup() from the code.</L-2>
+                  </DESC>
+                  <LOWER-MULTIPLICITY>1</LOWER-MULTIPLICITY>
+                  <UPPER-MULTIPLICITY>1</UPPER-MULTIPLICITY>
+                  <IMPLEMENTATION-CONFIG-CLASSES>
+                    <IMPLEMENTATION-CONFIG-CLASS>
+                      <CONFIG-CLASS>PRE-COMPILE</CONFIG-CLASS>
+                      <CONFIG-VARIANT>VARIANT-PRE-COMPILE</CONFIG-VARIANT>
+                    </IMPLEMENTATION-CONFIG-CLASS>
+                    <IMPLEMENTATION-CONFIG-CLASS>
+                      <CONFIG-CLASS>POST-BUILD</CONFIG-CLASS>
+                      <CONFIG-VARIANT>VARIANT-POST-BUILD</CONFIG-VARIANT>
+                    </IMPLEMENTATION-CONFIG-CLASS>
+                  </IMPLEMENTATION-CONFIG-CLASSES>
+                  <ORIGIN>AUTOSAR_ECUC</ORIGIN>
+                  <SYMBOLIC-NAME-VALUE>false</SYMBOLIC-NAME-VALUE>
+                  <DEFAULT-VALUE>true</DEFAULT-VALUE>
+                </BOOLEAN-PARAM-DEF>
+                <ENUMERATION-PARAM-DEF UUID="ECUC:89cb278b-1118-4b28-86ac-f35b49d19b32">
+                  <SHORT-NAME>AdcPriorityImplementation</SHORT-NAME>
+                  <DESC>
+                    <L-2> Select the Priority mechanism.</L-2>
+                  </DESC>
+                  <LOWER-MULTIPLICITY>1</LOWER-MULTIPLICITY>
+                  <UPPER-MULTIPLICITY>1</UPPER-MULTIPLICITY>
+                  <IMPLEMENTATION-CONFIG-CLASSES>
+                    <IMPLEMENTATION-CONFIG-CLASS>
+                      <CONFIG-CLASS>PRE-COMPILE</CONFIG-CLASS>
+                      <CONFIG-VARIANT>VARIANT-PRE-COMPILE</CONFIG-VARIANT>
+                    </IMPLEMENTATION-CONFIG-CLASS>
+                    <IMPLEMENTATION-CONFIG-CLASS>
+                      <CONFIG-CLASS>POST-BUILD</CONFIG-CLASS>
+                      <CONFIG-VARIANT>VARIANT-POST-BUILD</CONFIG-VARIANT>
+                    </IMPLEMENTATION-CONFIG-CLASS>
+                  </IMPLEMENTATION-CONFIG-CLASSES>
+                  <ORIGIN>AUTOSAR_ECUC</ORIGIN>
+                  <SYMBOLIC-NAME-VALUE>false</SYMBOLIC-NAME-VALUE>
+                  <DEFAULT-VALUE>ADC_PRIORITY_NONE</DEFAULT-VALUE>
+                  <LITERALS>
+                    <ENUMERATION-LITERAL-DEF UUID="cc5cd7df-d73d-45ab-a098-564440d77890">
+                      <SHORT-NAME>ADC_PRIORITY_HW</SHORT-NAME>
+                    </ENUMERATION-LITERAL-DEF>
+                    <ENUMERATION-LITERAL-DEF UUID="8c697e4b-8481-4e50-93fb-fe04707d12c1">
+                      <SHORT-NAME>ADC_PRIORITY_HW_SW</SHORT-NAME>
+                    </ENUMERATION-LITERAL-DEF>
+                    <ENUMERATION-LITERAL-DEF UUID="0bb1647b-01e1-4e3c-8661-077beb825a5a">
+                      <SHORT-NAME>ADC_PRIORITY_NONE</SHORT-NAME>
+                    </ENUMERATION-LITERAL-DEF>
+                  </LITERALS>
+                </ENUMERATION-PARAM-DEF>
+                <BOOLEAN-PARAM-DEF UUID="ECUC:8ac34851-3eda-4d14-9017-4ff597c3b77b">
+                  <SHORT-NAME>AdcEnableQueuing</SHORT-NAME>
+                  <DESC>
+                    <L-2>Enable/Disable the Queue. Note that if AdcPriorityImplementation=ADC_PRIORITY_HW_SW this field is always enabled.</L-2>
+                  </DESC>
+                  <LOWER-MULTIPLICITY>1</LOWER-MULTIPLICITY>
+                  <UPPER-MULTIPLICITY>1</UPPER-MULTIPLICITY>
+                  <IMPLEMENTATION-CONFIG-CLASSES>
+                    <IMPLEMENTATION-CONFIG-CLASS>
+                      <CONFIG-CLASS>PRE-COMPILE</CONFIG-CLASS>
+                      <CONFIG-VARIANT>VARIANT-PRE-COMPILE</CONFIG-VARIANT>
+                    </IMPLEMENTATION-CONFIG-CLASS>
+                    <IMPLEMENTATION-CONFIG-CLASS>
+                      <CONFIG-CLASS>POST-BUILD</CONFIG-CLASS>
+                      <CONFIG-VARIANT>VARIANT-POST-BUILD</CONFIG-VARIANT>
+                    </IMPLEMENTATION-CONFIG-CLASS>
+                  </IMPLEMENTATION-CONFIG-CLASSES>
+                  <ORIGIN>AUTOSAR_ECUC</ORIGIN>
+                  <SYMBOLIC-NAME-VALUE>false</SYMBOLIC-NAME-VALUE>
+                  <DEFAULT-VALUE>true</DEFAULT-VALUE>
+                </BOOLEAN-PARAM-DEF>
+                <BOOLEAN-PARAM-DEF UUID="ECUC:56b8f6d1-c8db-439f-bbec-b4fbcd841dd1">
+                  <SHORT-NAME>AdcCalibrationApi</SHORT-NAME>
+                  <DESC>
+                    <L-2>Adds/removes (STD_ON/STD_OFF) the calibration code from the driver.
+      Note that besides this configuration item you also need to enable calibration
+      on Hw unit (Adc/AdcConfigSet/AdcHwUnit/AdcCalibration) and on each channel
+      that should be calibrated (Adc/AdcConfigSet/AdcHwUnit/AdcChannel/AdcChannelCalibration).
+      Note: This is an Implementation Specific Parameter.
+      </L-2>
+                  </DESC>
+                  <LOWER-MULTIPLICITY>1</LOWER-MULTIPLICITY>
+                  <UPPER-MULTIPLICITY>1</UPPER-MULTIPLICITY>
+                  <ORIGIN>Freescale</ORIGIN>
+                  <SYMBOLIC-NAME-VALUE>false</SYMBOLIC-NAME-VALUE>
+                  <DEFAULT-VALUE>true</DEFAULT-VALUE>
+                </BOOLEAN-PARAM-DEF>
+                <INTEGER-PARAM-DEF UUID="ECUC:2d1ec24f-fa3d-490c-8de8-474d70867e58">
+                  <SHORT-NAME>AdcTimeout</SHORT-NAME>
+                  <DESC>
+                    <L-2>This timeout is used to wait until the FIFO status is updated when EOQ flag is set
+                        or Result fifo is cleared or fifo is disabled.
+                        If the Status is not updated then after this timeout the ADC_E_TIMEOUT
+                        production error will be reported and the rest of the functionality will be skipped.</L-2>
+                  </DESC>
+                  <LOWER-MULTIPLICITY>1</LOWER-MULTIPLICITY>
+                  <UPPER-MULTIPLICITY>1</UPPER-MULTIPLICITY>
+                  <ORIGIN>Freescale</ORIGIN>
+                  <SYMBOLIC-NAME-VALUE>false</SYMBOLIC-NAME-VALUE>
+                  <DEFAULT-VALUE>65535</DEFAULT-VALUE>
+                  <MAX>4294967295</MAX>
+                  <MIN>1000</MIN>
+                </INTEGER-PARAM-DEF>
+              </PARAMETERS>
+            </PARAM-CONF-CONTAINER-DEF>
+            <PARAM-CONF-CONTAINER-DEF UUID="ECUC:f13292bd-240c-4b97-9caf-0883d7a16731">
+              <SHORT-NAME>AdcPublishedInformation</SHORT-NAME>
+              <DESC>
+                <L-2>Additional published parameters not covered by CommonPublishedInformation container.
+                    Note that these parameters do not have any configuration class setting, since they are published information.</L-2>
+              </DESC>
+              <LOWER-MULTIPLICITY>1</LOWER-MULTIPLICITY>
+              <UPPER-MULTIPLICITY>1</UPPER-MULTIPLICITY>
+              <MULTIPLE-CONFIGURATION-CONTAINER>false</MULTIPLE-CONFIGURATION-CONTAINER>
+              <PARAMETERS>
+                <BOOLEAN-PARAM-DEF UUID="ECUC:bd92a6ce-4627-4cb4-91f6-757c2fe0047d">
+                  <SHORT-NAME>AdcChannelValueSigned</SHORT-NAME>
+                  <DESC>
+                    <L-2>Information whether the result value of the ADC driver has sign information (true) or not (false).</L-2>
+                  </DESC>
+                  <LOWER-MULTIPLICITY>1</LOWER-MULTIPLICITY>
+                  <UPPER-MULTIPLICITY>1</UPPER-MULTIPLICITY>
+                  <IMPLEMENTATION-CONFIG-CLASSES>
+                    <IMPLEMENTATION-CONFIG-CLASS>
+                      <CONFIG-CLASS>PRE-COMPILE</CONFIG-CLASS>
+                      <CONFIG-VARIANT>VARIANT-PRE-COMPILE</CONFIG-VARIANT>
+                    </IMPLEMENTATION-CONFIG-CLASS>
+                    <IMPLEMENTATION-CONFIG-CLASS>
+                      <CONFIG-CLASS>POST-BUILD</CONFIG-CLASS>
+                      <CONFIG-VARIANT>VARIANT-POST-BUILD</CONFIG-VARIANT>
+                    </IMPLEMENTATION-CONFIG-CLASS>
+                  </IMPLEMENTATION-CONFIG-CLASSES>
+                  <ORIGIN>AUTOSAR_ECUC</ORIGIN>
+                  <SYMBOLIC-NAME-VALUE>false</SYMBOLIC-NAME-VALUE>
+                  <DEFAULT-VALUE>false</DEFAULT-VALUE>
+                </BOOLEAN-PARAM-DEF>
+                <BOOLEAN-PARAM-DEF UUID="ECUC:231b42d5-ab79-49bb-9090-fc6e5ec7e7d8">
+                  <SHORT-NAME>AdcGroupFirstChannelFixed</SHORT-NAME>
+                  <DESC>
+                    <L-2> Information whether the first channel of an ADC Channel group can be configured (false) or is fixed (true) to a value determined by the ADC HW Unit.</L-2>
+                  </DESC>
+                  <LOWER-MULTIPLICITY>1</LOWER-MULTIPLICITY>
+                  <UPPER-MULTIPLICITY>1</UPPER-MULTIPLICITY>
+                  <IMPLEMENTATION-CONFIG-CLASSES>
+                    <IMPLEMENTATION-CONFIG-CLASS>
+                      <CONFIG-CLASS>PRE-COMPILE</CONFIG-CLASS>
+                      <CONFIG-VARIANT>VARIANT-PRE-COMPILE</CONFIG-VARIANT>
+                    </IMPLEMENTATION-CONFIG-CLASS>
+                    <IMPLEMENTATION-CONFIG-CLASS>
+                      <CONFIG-CLASS>POST-BUILD</CONFIG-CLASS>
+                      <CONFIG-VARIANT>VARIANT-POST-BUILD</CONFIG-VARIANT>
+                    </IMPLEMENTATION-CONFIG-CLASS>
+                  </IMPLEMENTATION-CONFIG-CLASSES>
+                  <ORIGIN>AUTOSAR_ECUC</ORIGIN>
+                  <SYMBOLIC-NAME-VALUE>false</SYMBOLIC-NAME-VALUE>
+                  <DEFAULT-VALUE>false</DEFAULT-VALUE>
+                </BOOLEAN-PARAM-DEF>
+                <INTEGER-PARAM-DEF UUID="ECUC:6d25ed57-5f69-4781-8297-bc5397b18024">
+                  <SHORT-NAME>AdcMaxChannelResolution</SHORT-NAME>
+                  <DESC>
+                    <L-2> Maximum Channel resolution in bits (does not specify accuracy)</L-2>
+                  </DESC>
+                  <LOWER-MULTIPLICITY>1</LOWER-MULTIPLICITY>
+                  <UPPER-MULTIPLICITY>1</UPPER-MULTIPLICITY>
+                  <IMPLEMENTATION-CONFIG-CLASSES>
+                    <IMPLEMENTATION-CONFIG-CLASS>
+                      <CONFIG-CLASS>PRE-COMPILE</CONFIG-CLASS>
+                      <CONFIG-VARIANT>VARIANT-PRE-COMPILE</CONFIG-VARIANT>
+                    </IMPLEMENTATION-CONFIG-CLASS>
+                    <IMPLEMENTATION-CONFIG-CLASS>
+                      <CONFIG-CLASS>POST-BUILD</CONFIG-CLASS>
+                      <CONFIG-VARIANT>VARIANT-POST-BUILD</CONFIG-VARIANT>
+                    </IMPLEMENTATION-CONFIG-CLASS>
+                  </IMPLEMENTATION-CONFIG-CLASSES>
+                  <ORIGIN>AUTOSAR_ECUC</ORIGIN>
+                  <SYMBOLIC-NAME-VALUE>false</SYMBOLIC-NAME-VALUE>
+                  <DEFAULT-VALUE>12</DEFAULT-VALUE>
+                  <MAX>255</MAX>
+                  <MIN>0</MIN>
+                </INTEGER-PARAM-DEF>
+              </PARAMETERS>
+            </PARAM-CONF-CONTAINER-DEF>
+            <PARAM-CONF-CONTAINER-DEF UUID="ECUC:b70c82b2-9174-41eb-aee3-027edc45e25c">
+              <SHORT-NAME>CommonPublishedInformation</SHORT-NAME>
+              <DESC>
+                <L-2> Common container, aggregated by all modules. It contains published information about vendor and versions.</L-2>
+              </DESC>
+              <LOWER-MULTIPLICITY>1</LOWER-MULTIPLICITY>
+              <UPPER-MULTIPLICITY>1</UPPER-MULTIPLICITY>
+              <MULTIPLE-CONFIGURATION-CONTAINER>false</MULTIPLE-CONFIGURATION-CONTAINER>
+              <PARAMETERS>
+                <INTEGER-PARAM-DEF UUID="ECUC:3dfd0094-82ca-4fea-bcbe-21e6cd31d915">
+                  <SHORT-NAME>ArMajorVersion</SHORT-NAME>
+                  <DESC>
+                    <L-2> Major version number of AUTOSAR specification on which the appropriate implementation is based on.</L-2>
+                  </DESC>
+                  <LOWER-MULTIPLICITY>1</LOWER-MULTIPLICITY>
+                  <UPPER-MULTIPLICITY>1</UPPER-MULTIPLICITY>
+                  <IMPLEMENTATION-CONFIG-CLASSES>
+                    <IMPLEMENTATION-CONFIG-CLASS>
+                      <CONFIG-CLASS>PUBLISHED-INFORMATION</CONFIG-CLASS>
+                      <CONFIG-VARIANT>VARIANT-PRE-COMPILE</CONFIG-VARIANT>
+                    </IMPLEMENTATION-CONFIG-CLASS>
+                  </IMPLEMENTATION-CONFIG-CLASSES>
+                  <ORIGIN>Freescale</ORIGIN>
+                  <SYMBOLIC-NAME-VALUE>false</SYMBOLIC-NAME-VALUE>
+                  <DEFAULT-VALUE>3</DEFAULT-VALUE>
+                  <MAX>3</MAX>
+                  <MIN>3</MIN>
+                </INTEGER-PARAM-DEF>
+                <INTEGER-PARAM-DEF UUID="ECUC:106c6aba-bdc7-412a-91f1-9919826cb309">
+                  <SHORT-NAME>ArMinorVersion</SHORT-NAME>
+                  <DESC>
+                    <L-2> Minor version number of AUTOSAR specification on which the appropriate implementation is based on.</L-2>
+                  </DESC>
+                  <LOWER-MULTIPLICITY>1</LOWER-MULTIPLICITY>
+                  <UPPER-MULTIPLICITY>1</UPPER-MULTIPLICITY>
+                  <IMPLEMENTATION-CONFIG-CLASSES>
+                    <IMPLEMENTATION-CONFIG-CLASS>
+                      <CONFIG-CLASS>PUBLISHED-INFORMATION</CONFIG-CLASS>
+                      <CONFIG-VARIANT>VARIANT-PRE-COMPILE</CONFIG-VARIANT>
+                    </IMPLEMENTATION-CONFIG-CLASS>
+                  </IMPLEMENTATION-CONFIG-CLASSES>
+                  <ORIGIN>Freescale</ORIGIN>
+                  <SYMBOLIC-NAME-VALUE>false</SYMBOLIC-NAME-VALUE>
+                  <DEFAULT-VALUE>0</DEFAULT-VALUE>
+                  <MAX>0</MAX>
+                  <MIN>0</MIN>
+                </INTEGER-PARAM-DEF>
+                <INTEGER-PARAM-DEF UUID="ECUC:85d06157-2815-445c-af05-ebd804d97c23">
+                  <SHORT-NAME>ArPatchVersion</SHORT-NAME>
+                  <DESC>
+                    <L-2> Patch level version number of AUTOSAR specification on which the appropriate implementation is based on.</L-2>
+                  </DESC>
+                  <LOWER-MULTIPLICITY>1</LOWER-MULTIPLICITY>
+                  <UPPER-MULTIPLICITY>1</UPPER-MULTIPLICITY>
+                  <IMPLEMENTATION-CONFIG-CLASSES>
+                    <IMPLEMENTATION-CONFIG-CLASS>
+                      <CONFIG-CLASS>PUBLISHED-INFORMATION</CONFIG-CLASS>
+                      <CONFIG-VARIANT>VARIANT-PRE-COMPILE</CONFIG-VARIANT>
+                    </IMPLEMENTATION-CONFIG-CLASS>
+                  </IMPLEMENTATION-CONFIG-CLASSES>
+                  <ORIGIN>Freescale</ORIGIN>
+                  <SYMBOLIC-NAME-VALUE>false</SYMBOLIC-NAME-VALUE>
+                  <DEFAULT-VALUE>2</DEFAULT-VALUE>
+                  <MAX>2</MAX>
+                  <MIN>2</MIN>
+                </INTEGER-PARAM-DEF>
+                <INTEGER-PARAM-DEF UUID="ECUC:9791244d-cb34-4ef4-a987-bd3a376e48ec">
+                  <SHORT-NAME>ModuleId</SHORT-NAME>
+                  <DESC>
+                    <L-2> Module ID of this module from Module List.</L-2>
+                  </DESC>
+                  <LOWER-MULTIPLICITY>1</LOWER-MULTIPLICITY>
+                  <UPPER-MULTIPLICITY>1</UPPER-MULTIPLICITY>
+                  <IMPLEMENTATION-CONFIG-CLASSES>
+                    <IMPLEMENTATION-CONFIG-CLASS>
+                      <CONFIG-CLASS>PUBLISHED-INFORMATION</CONFIG-CLASS>
+                      <CONFIG-VARIANT>VARIANT-PRE-COMPILE</CONFIG-VARIANT>
+                    </IMPLEMENTATION-CONFIG-CLASS>
+                  </IMPLEMENTATION-CONFIG-CLASSES>
+                  <ORIGIN>Freescale</ORIGIN>
+                  <SYMBOLIC-NAME-VALUE>false</SYMBOLIC-NAME-VALUE>
+                  <DEFAULT-VALUE>123</DEFAULT-VALUE>
+                  <MAX>123</MAX>
+                  <MIN>123</MIN>
+                </INTEGER-PARAM-DEF>
+                <INTEGER-PARAM-DEF UUID="ECUC:f24e3bd3-ab72-41c2-9354-3f3e8011f415">
+                  <SHORT-NAME>SwMajorVersion</SHORT-NAME>
+                  <DESC>
+                    <L-2>Major version number of the vendor specific implementation of the module. The numbering is vendor specific.</L-2>
+                  </DESC>
+                  <LOWER-MULTIPLICITY>1</LOWER-MULTIPLICITY>
+                  <UPPER-MULTIPLICITY>1</UPPER-MULTIPLICITY>
+                  <IMPLEMENTATION-CONFIG-CLASSES>
+                    <IMPLEMENTATION-CONFIG-CLASS>
+                      <CONFIG-CLASS>PUBLISHED-INFORMATION</CONFIG-CLASS>
+                      <CONFIG-VARIANT>VARIANT-PRE-COMPILE</CONFIG-VARIANT>
+                    </IMPLEMENTATION-CONFIG-CLASS>
+                  </IMPLEMENTATION-CONFIG-CLASSES>
+                  <ORIGIN>Freescale</ORIGIN>
+                  <SYMBOLIC-NAME-VALUE>false</SYMBOLIC-NAME-VALUE>
+                  <DEFAULT-VALUE>2</DEFAULT-VALUE>
+                  <MAX>2</MAX>
+                  <MIN>2</MIN>
+                </INTEGER-PARAM-DEF>
+                <INTEGER-PARAM-DEF UUID="ECUC:0c69b249-d192-4dd2-ba7b-734848e4bc08">
+                  <SHORT-NAME>SwMinorVersion</SHORT-NAME>
+                  <DESC>
+                    <L-2>Minor version number of the vendor specific implementation of the module. The numbering is vendor specific.</L-2>
+                  </DESC>
+                  <LOWER-MULTIPLICITY>1</LOWER-MULTIPLICITY>
+                  <UPPER-MULTIPLICITY>1</UPPER-MULTIPLICITY>
+                  <IMPLEMENTATION-CONFIG-CLASSES>
+                    <IMPLEMENTATION-CONFIG-CLASS>
+                      <CONFIG-CLASS>PUBLISHED-INFORMATION</CONFIG-CLASS>
+                      <CONFIG-VARIANT>VARIANT-PRE-COMPILE</CONFIG-VARIANT>
+                    </IMPLEMENTATION-CONFIG-CLASS>
+                  </IMPLEMENTATION-CONFIG-CLASSES>
+                  <ORIGIN>Freescale</ORIGIN>
+                  <SYMBOLIC-NAME-VALUE>false</SYMBOLIC-NAME-VALUE>
+                  <DEFAULT-VALUE>0</DEFAULT-VALUE>
+                  <MAX>0</MAX>
+                  <MIN>0</MIN>
+                </INTEGER-PARAM-DEF>
+                <INTEGER-PARAM-DEF UUID="ECUC:a30d4812-e778-46e2-8b86-c3e370c85f3d">
+                  <SHORT-NAME>SwPatchVersion</SHORT-NAME>
+                  <DESC>
+                    <L-2>Patch level version number of the vendor specific implementation of the module. The numbering is vendor specific.</L-2>
+                  </DESC>
+                  <LOWER-MULTIPLICITY>1</LOWER-MULTIPLICITY>
+                  <UPPER-MULTIPLICITY>1</UPPER-MULTIPLICITY>
+                  <IMPLEMENTATION-CONFIG-CLASSES>
+                    <IMPLEMENTATION-CONFIG-CLASS>
+                      <CONFIG-CLASS>PUBLISHED-INFORMATION</CONFIG-CLASS>
+                      <CONFIG-VARIANT>VARIANT-PRE-COMPILE</CONFIG-VARIANT>
+                    </IMPLEMENTATION-CONFIG-CLASS>
+                  </IMPLEMENTATION-CONFIG-CLASSES>
+                  <ORIGIN>Freescale</ORIGIN>
+                  <SYMBOLIC-NAME-VALUE>false</SYMBOLIC-NAME-VALUE>
+                  <DEFAULT-VALUE>0</DEFAULT-VALUE>
+                  <MAX>0</MAX>
+                  <MIN>0</MIN>
+                </INTEGER-PARAM-DEF>
+                <STRING-PARAM-DEF UUID="ECUC:8b31cd02-9792-47ed-85c9-b89d2c7863c2">
+                  <SHORT-NAME>VendorApiInfix</SHORT-NAME>
+                  <DESC>
+                    <L-2>
+EN: In driver modules which can be instantiated several times on a single ECU, BSW00347 requires that the name of APIs is extended by the VendorId and a vendor specific name.
+This parameter is used to specify the vendor specific name. In total, the implementation specific name is generated as follows:
+_VendorId_.
+
+E.g.  assuming that the VendorId of the implementor is 123 and the implementer chose a VendorApiInfix of "v11r456" a api name Can_Write defined in the SWS will translate to Can_123_v11r456Write.
+
+This parameter is mandatory for all modules with upper multiplicity  1. It shall not be used for modules with upper multiplicity =1.
+                      </L-2>
+                  </DESC>
+                  <LOWER-MULTIPLICITY>0</LOWER-MULTIPLICITY>
+                  <UPPER-MULTIPLICITY>1</UPPER-MULTIPLICITY>
+                  <IMPLEMENTATION-CONFIG-CLASSES>
+                    <IMPLEMENTATION-CONFIG-CLASS>
+                      <CONFIG-CLASS>PUBLISHED-INFORMATION</CONFIG-CLASS>
+                      <CONFIG-VARIANT>VARIANT-PRE-COMPILE</CONFIG-VARIANT>
+                    </IMPLEMENTATION-CONFIG-CLASS>
+                  </IMPLEMENTATION-CONFIG-CLASSES>
+                  <ORIGIN>AUTOSAR_ECUC V1.0.0</ORIGIN>
+                  <SYMBOLIC-NAME-VALUE>false</SYMBOLIC-NAME-VALUE>
+                </STRING-PARAM-DEF>
+                <INTEGER-PARAM-DEF UUID="ECUC:8530d465-03bb-4f32-ad02-9e7af68ccc44">
+                  <SHORT-NAME>VendorId</SHORT-NAME>
+                  <DESC>
+                    <L-2>Vendor ID of the dedicated implementation of this module according to the AUTOSAR vendor list</L-2>
+                  </DESC>
+                  <LOWER-MULTIPLICITY>1</LOWER-MULTIPLICITY>
+                  <UPPER-MULTIPLICITY>1</UPPER-MULTIPLICITY>
+                  <IMPLEMENTATION-CONFIG-CLASSES>
+                    <IMPLEMENTATION-CONFIG-CLASS>
+                      <CONFIG-CLASS>PUBLISHED-INFORMATION</CONFIG-CLASS>
+                      <CONFIG-VARIANT>VARIANT-PRE-COMPILE</CONFIG-VARIANT>
+                    </IMPLEMENTATION-CONFIG-CLASS>
+                  </IMPLEMENTATION-CONFIG-CLASSES>
+                  <ORIGIN>Freescale</ORIGIN>
+                  <SYMBOLIC-NAME-VALUE>false</SYMBOLIC-NAME-VALUE>
+                  <DEFAULT-VALUE>43</DEFAULT-VALUE>
+                  <MAX>43</MAX>
+                  <MIN>43</MIN>
+                </INTEGER-PARAM-DEF>
+              </PARAMETERS>
+            </PARAM-CONF-CONTAINER-DEF>
+            <PARAM-CONF-CONTAINER-DEF UUID="ECUC:6d654f0b-843e-4faa-aec9-de8b3ddd5222">
+              <SHORT-NAME>NonAutosar</SHORT-NAME>
+              <DESC>
+                <L-2>General configuration (parameters) for Non-Autosar.</L-2>
+              </DESC>
+              <LOWER-MULTIPLICITY>1</LOWER-MULTIPLICITY>
+              <UPPER-MULTIPLICITY>1</UPPER-MULTIPLICITY>
+              <MULTIPLE-CONFIGURATION-CONTAINER>false</MULTIPLE-CONFIGURATION-CONTAINER>
+              <PARAMETERS>
+                <BOOLEAN-PARAM-DEF UUID="ECUC:9d962930-1aac-4d7e-be45-b0e5d4dd7d16">
+                  <SHORT-NAME>AdcChIndexSymNames</SHORT-NAME>
+                  <DESC>
+                    <L-2>This is used to generate ADC symbolic names, that depend also on the ADC group
+                        to which each ADC channel is mapped. The generated symbolic name will be something
+                        like:
+                        #define "ADC_GroupName"_"ADC_ChannelName"  "Channel index value",
+                        where "Channel index value" is the channel index in the current group.
+                        Channel indexes in each group are generated to allow result buffer access by symbolic names.</L-2>
+                  </DESC>
+                  <LOWER-MULTIPLICITY>1</LOWER-MULTIPLICITY>
+                  <UPPER-MULTIPLICITY>1</UPPER-MULTIPLICITY>
+                  <IMPLEMENTATION-CONFIG-CLASSES>
+                    <IMPLEMENTATION-CONFIG-CLASS>
+                      <CONFIG-CLASS>PRE-COMPILE</CONFIG-CLASS>
+                      <CONFIG-VARIANT>VARIANT-PRE-COMPILE</CONFIG-VARIANT>
+                    </IMPLEMENTATION-CONFIG-CLASS>
+                    <IMPLEMENTATION-CONFIG-CLASS>
+                      <CONFIG-CLASS>POST-BUILD</CONFIG-CLASS>
+                      <CONFIG-VARIANT>VARIANT-POST-BUILD</CONFIG-VARIANT>
+                    </IMPLEMENTATION-CONFIG-CLASS>
+                  </IMPLEMENTATION-CONFIG-CLASSES>
+                  <ORIGIN>Freescale</ORIGIN>
+                  <SYMBOLIC-NAME-VALUE>false</SYMBOLIC-NAME-VALUE>
+                  <DEFAULT-VALUE>false</DEFAULT-VALUE>
+                </BOOLEAN-PARAM-DEF>
+                <BOOLEAN-PARAM-DEF UUID="ECUC:a097211f-aeac-4d9e-be44-b5e5d5dd7ccc">
+                  <SHORT-NAME>AdcReadGroupOptimization</SHORT-NAME>
+                  <DESC>
+                    <L-2>Enable/Disable the Adc_ReadGroup() API optimization.
+                         It means enable\disable the conversion values copy loop, inside the Adc_ReadGroup() API,
+                         on all the channel inside a group. The group MUST have a stream depth limited to 1. Moreover the Adc_SetupResultBuffer()
+                         and Adc_ReadGroup() MUST be called using the "same" buffer pointer.</L-2>
+                  </DESC>
+                  <LOWER-MULTIPLICITY>1</LOWER-MULTIPLICITY>
+                  <UPPER-MULTIPLICITY>1</UPPER-MULTIPLICITY>
+                  <IMPLEMENTATION-CONFIG-CLASSES>
+                    <IMPLEMENTATION-CONFIG-CLASS>
+                      <CONFIG-CLASS>PRE-COMPILE</CONFIG-CLASS>
+                      <CONFIG-VARIANT>VARIANT-PRE-COMPILE</CONFIG-VARIANT>
+                    </IMPLEMENTATION-CONFIG-CLASS>
+                    <IMPLEMENTATION-CONFIG-CLASS>
+                      <CONFIG-CLASS>POST-BUILD</CONFIG-CLASS>
+                      <CONFIG-VARIANT>VARIANT-POST-BUILD</CONFIG-VARIANT>
+                    </IMPLEMENTATION-CONFIG-CLASS>
+                  </IMPLEMENTATION-CONFIG-CLASSES>
+                  <ORIGIN>Freescale</ORIGIN>
+                  <SYMBOLIC-NAME-VALUE>false</SYMBOLIC-NAME-VALUE>
+                  <DEFAULT-VALUE>false</DEFAULT-VALUE>
+                </BOOLEAN-PARAM-DEF>
+              </PARAMETERS>
+            </PARAM-CONF-CONTAINER-DEF>
+          </CONTAINERS>
+        </MODULE-DEF>
+      </ELEMENTS>
+    </AR-PACKAGE>
+  </TOP-LEVEL-PACKAGES>
+</AUTOSAR>

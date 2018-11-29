@@ -1,0 +1,189 @@
+<?xml version='1.0'?>
+<datamodel version="3.0" 
+           xmlns="http://www.tresos.de/_projects/DataModel2/08/root.xsd" 
+           xmlns:a="http://www.tresos.de/_projects/DataModel2/08/attribute.xsd" 
+           xmlns:v="http://www.tresos.de/_projects/DataModel2/06/schema.xsd" 
+           xmlns:d="http://www.tresos.de/_projects/DataModel2/06/data.xsd">
+
+  <d:ctr type="AUTOSAR" factory="autosar"  
+         xmlns:ad="http://www.tresos.de/_projects/DataModel2/08/admindata.xsd" 
+         xmlns:icc="http://www.tresos.de/_projects/DataModel2/08/implconfigclass.xsd">
+    <d:lst type="TOP-LEVEL-PACKAGES">
+      <d:ctr name="Pwm" type="AR-PACKAGE">
+        <d:lst type="ELEMENTS">
+          <d:chc name="Pwm" type="AR-ELEMENT" value="MODULE-CONFIGURATION">
+            <d:ctr type="MODULE-CONFIGURATION">
+              <a:a name="DEF" value="ASPath:/TS_T2D14M20I0R0/Pwm"/>
+              <a:a name="IMPORTER_INFO" value="Pwm"/>
+              <d:var name="IMPLEMENTATION_CONFIG_VARIANT" type="ENUMERATION" 
+                     value="VariantPostBuild">
+                <a:a name="IMPORTER_INFO" value="Pwm"/>
+              </d:var>
+              <d:lst name="PwmChannelConfigSet" type="MAP">
+                <a:a name="IMPORTER_INFO" value="Pwm"/>
+                <d:ctr name="PwmChannelConfigSet_0" type="IDENTIFIABLE">
+                  <a:a name="IMPORTER_INFO" value="Pwm"/>
+                  <d:lst name="PwmChannel" type="MAP">
+                    <d:ctr name="Pwm_Led1" type="IDENTIFIABLE">
+                      <a:a name="IMPORTER_INFO" value="Pwm"/>
+                      <d:var name="PwmChannelClass" type="ENUMERATION" 
+                             value="PWM_FIXED_PERIOD">
+                        <a:a name="IMPORTER_INFO" value="Pwm"/>
+                      </d:var>
+                      <d:var name="PwmChannelId" type="INTEGER" value="0"/>
+                      <d:var name="PwmHwChannel" type="ENUMERATION" 
+                             value="EMIOS_0_CH_9"/>
+                      <d:var name="PwmPolarity" type="ENUMERATION" 
+                             value="PWM_HIGH">
+                        <a:a name="IMPORTER_INFO" value="Pwm"/>
+                      </d:var>
+                      <d:var name="PwmPeriodDefaultUnits" type="ENUMERATION" 
+                             value="Period_in_seconds">
+                        <a:a name="IMPORTER_INFO" value="Pwm"/>
+                      </d:var>
+                      <d:var name="PwmPeriodDefault" type="FLOAT" value="0.02">
+                        <a:a name="IMPORTER_INFO" value="Pwm"/>
+                      </d:var>
+                      <d:var name="PwmDutycycleDefault" type="INTEGER" 
+                             value="16384">
+                        <a:a name="IMPORTER_INFO" value="Pwm"/>
+                      </d:var>
+                      <d:var name="PwmIdleState" type="ENUMERATION" 
+                             value="PWM_LOW">
+                        <a:a name="IMPORTER_INFO" value="Pwm"/>
+                      </d:var>
+                      <d:var name="PwmNotification" type="FUNCTION-NAME" 
+                             value="Pwm_Led1Notification">
+                        <a:a name="IMPORTER_INFO" value="Pwm"/>
+                      </d:var>
+                      <d:var name="PwmModeSelect" type="ENUMERATION" 
+                             value="PWM_MODE_OPWFMB">
+                        <a:a name="IMPORTER_INFO" value="Pwm"/>
+                      </d:var>
+                      <d:var name="EmiosUnifiedChannelBusSelect" 
+                             type="ENUMERATION" value="PWM_BUS_INTERNAL_COUNTER">
+                        <a:a name="IMPORTER_INFO" value="Pwm"/>
+                      </d:var>
+                      <d:var name="PwmPrescaler" type="ENUMERATION" 
+                             value="PwmPrescalerDiv4">
+                        <a:a name="IMPORTER_INFO" value="Pwm"/>
+                      </d:var>
+                      <d:var name="PwmOffset" type="INTEGER" value="0">
+                        <a:a name="IMPORTER_INFO" value="Pwm"/>
+                      </d:var>
+                      <d:var name="PwmFreezeEnable" type="BOOLEAN" value="true"/>
+                      <d:var name="PwmPrescaler_Alternate" type="ENUMERATION" 
+                             value="PwmPrescalerDiv1">
+                        <a:a name="IMPORTER_INFO" value="@DEF"/>
+                      </d:var>
+                      <d:var name="PwmTriggerDelay" type="INTEGER" value="0">
+                        <a:a name="IMPORTER_INFO" value="@DEF"/>
+                      </d:var>
+                    </d:ctr>
+                  </d:lst>
+                </d:ctr>
+              </d:lst>
+              <d:ctr name="PwmConfigurationOfOptApiServices" 
+                     type="IDENTIFIABLE">
+                <a:a name="IMPORTER_INFO" value="Pwm"/>
+                <d:var name="PwmDeInitApi" type="BOOLEAN" value="true">
+                  <a:a name="IMPORTER_INFO" value="Pwm"/>
+                </d:var>
+                <d:var name="PwmGetOutputState" type="BOOLEAN" value="true">
+                  <a:a name="IMPORTER_INFO" value="Pwm"/>
+                </d:var>
+                <d:var name="PwmSetDutyCycle" type="BOOLEAN" value="true">
+                  <a:a name="IMPORTER_INFO" value="Pwm"/>
+                </d:var>
+                <d:var name="PwmSetOutputToIdle" type="BOOLEAN" value="true">
+                  <a:a name="IMPORTER_INFO" value="Pwm"/>
+                </d:var>
+                <d:var name="PwmSetPeriodAndDuty" type="BOOLEAN" value="true">
+                  <a:a name="IMPORTER_INFO" value="Pwm"/>
+                </d:var>
+                <d:var name="PwmVersionInfoApi" type="BOOLEAN" value="true">
+                  <a:a name="IMPORTER_INFO" value="Pwm"/>
+                </d:var>
+              </d:ctr>
+              <d:ctr name="PwmGeneral" type="IDENTIFIABLE">
+                <a:a name="IMPORTER_INFO" value="Pwm"/>
+                <d:var name="PwmDevErorDetect" type="BOOLEAN" value="true">
+                  <a:a name="IMPORTER_INFO" value="Pwm"/>
+                </d:var>
+                <d:var name="PwmDutycycleUpdatedEndperiod" type="BOOLEAN" 
+                       value="true">
+                  <a:a name="IMPORTER_INFO" value="Pwm"/>
+                </d:var>
+                <d:var name="PwmNotificationSupported" type="BOOLEAN" 
+                       value="true">
+                  <a:a name="IMPORTER_INFO" value="Pwm"/>
+                </d:var>
+                <d:var name="PwmPeriodUpdatedEndperiod" type="BOOLEAN" 
+                       value="true">
+                  <a:a name="IMPORTER_INFO" value="Pwm"/>
+                </d:var>
+                <d:var name="PwmIndex" type="INTEGER" value="0">
+                  <a:a name="IMPORTER_INFO" value="Pwm"/>
+                </d:var>
+                <d:var name="PwmGenerateClockTreeDebugInfo" type="BOOLEAN" 
+                       value="true">
+                  <a:a name="IMPORTER_INFO" value="Pwm"/>
+                </d:var>
+                <d:var name="PwmClockFromMCU" type="BOOLEAN" value="true">
+                  <a:a name="IMPORTER_INFO" value="@DEF"/>
+                </d:var>
+                <d:var name="PwmChangeRegisterA" type="BOOLEAN" value="false">
+                  <a:a name="IMPORTER_INFO" value="Pwm"/>
+                </d:var>
+                <d:var name="PwmEmiosClockValue" type="INTEGER" value="1000000">
+                  <a:a name="IMPORTER_INFO" value="@DEF"/>
+                </d:var>
+                <d:ref name="PwmCpuClockRef" type="REFERENCE" 
+                       value="ASPath:/Mcu/Mcu/McuConfigPB_0/McuClockSettingConfig/McuClockReferencePoin_0"/>
+              </d:ctr>
+              <d:ctr name="CommonPublishedInformation" type="IDENTIFIABLE">
+                <a:a name="IMPORTER_INFO" value="Pwm"/>
+                <d:var name="ArMajorVersion" type="INTEGER" value="2">
+                  <a:a name="IMPORTER_INFO" value="Pwm"/>
+                </d:var>
+                <d:var name="ArMinorVersion" type="INTEGER" value="2">
+                  <a:a name="IMPORTER_INFO" value="Pwm"/>
+                </d:var>
+                <d:var name="ArPatchVersion" type="INTEGER" value="1">
+                  <a:a name="IMPORTER_INFO" value="Pwm"/>
+                </d:var>
+                <d:var name="ModuleId" type="INTEGER" value="121">
+                  <a:a name="IMPORTER_INFO" value="Pwm"/>
+                </d:var>
+                <d:var name="SwMajorVersion" type="INTEGER" value="2"/>
+                <d:var name="SwMinorVersion" type="INTEGER" value="0"/>
+                <d:var name="SwPatchVersion" type="INTEGER" value="0">
+                  <a:a name="IMPORTER_INFO" value="Pwm"/>
+                </d:var>
+                <d:var name="VendorApiInfix" type="STRING" value="">
+                  <a:a name="ENABLE" value="true"/>
+                  <a:a name="IMPORTER_INFO" value="Pwm"/>
+                </d:var>
+                <d:var name="VendorId" type="INTEGER" value="43"/>
+              </d:ctr>
+              <d:ctr name="PwmNonAUTOSAR" type="IDENTIFIABLE">
+                <d:var name="PwmSetCounterBusApi" type="BOOLEAN" value="false">
+                  <a:a name="IMPORTER_INFO" value="@DEF"/>
+                </d:var>
+                <d:var name="PwmSetChannelOutputApi" type="BOOLEAN" 
+                       value="false">
+                  <a:a name="IMPORTER_INFO" value="@DEF"/>
+                </d:var>
+                <d:var name="PwmEnableDualClockMode" type="BOOLEAN" 
+                       value="false">
+                  <a:a name="IMPORTER_INFO" value="@DEF"/>
+                </d:var>
+              </d:ctr>
+            </d:ctr>
+          </d:chc>
+        </d:lst>
+      </d:ctr>
+    </d:lst>
+  </d:ctr>
+
+</datamodel>

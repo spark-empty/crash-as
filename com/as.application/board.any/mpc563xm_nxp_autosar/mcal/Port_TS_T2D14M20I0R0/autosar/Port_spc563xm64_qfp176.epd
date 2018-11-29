@@ -1,0 +1,1299 @@
+<?xml version="1.0"?>
+<AUTOSAR xmlns="http://autosar.org/3.0.2" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://autosar.org/3.0.2 autosar.xsd">
+  <TOP-LEVEL-PACKAGES>
+    <AR-PACKAGE UUID="ECUC:AUTOSAR">
+      <SHORT-NAME>TS_T2D14M20I0R0</SHORT-NAME>
+      <ELEMENTS>
+        <ECU-PARAMETER-DEFINITION UUID="ECUC:03615e35-731f-4998-84b0-c8aa12405a94">
+          <SHORT-NAME>Port_AUTOSARParameterDefinition</SHORT-NAME>
+          <MODULE-REFS>
+            <MODULE-REF DEST="MODULE-DEF">/TS_T2D14M20I0R0/Port</MODULE-REF>
+          </MODULE-REFS>
+        </ECU-PARAMETER-DEFINITION>
+        <MODULE-DEF UUID="ECUC:24ab29b0-225a-4a86-bf37-8d27653f95b2">
+          <SHORT-NAME>Port</SHORT-NAME>
+          <DESC>
+            <L-2>
+                                               
+                                                 Configuration of the Port module.
+                                               
+                                    </L-2>
+          </DESC>
+          <ADMIN-DATA>
+            <LANGUAGE>EN</LANGUAGE>
+            <DOC-REVISIONS>
+              <DOC-REVISION>
+                <REVISION-LABEL>2.0.0</REVISION-LABEL>
+                <ISSUED-BY>Freescale</ISSUED-BY>
+                <DATE>2009-05-14T17:00:00</DATE>
+                <MODIFICATIONS>
+                  <MODIFICATION>
+                    <CHANGE>
+                      <L-2 L="EN">Release 2.0.0</L-2>
+                    </CHANGE>
+                    <REASON>
+                      <L-2 L="EN">Release 2.0.0</L-2>
+                    </REASON>
+                  </MODIFICATION>
+                </MODIFICATIONS>
+              </DOC-REVISION>
+            </DOC-REVISIONS>
+          </ADMIN-DATA>
+          <LOWER-MULTIPLICITY>1</LOWER-MULTIPLICITY>
+          <UPPER-MULTIPLICITY>1</UPPER-MULTIPLICITY>
+          <REFINED-MODULE-DEF-REF DEST="MODULE-DEF">/AUTOSAR/Port</REFINED-MODULE-DEF-REF>
+          <SUPPORTED-CONFIG-VARIANTS>
+            <SUPPORTED-CONFIG-VARIANT>VARIANT-PRE-COMPILE</SUPPORTED-CONFIG-VARIANT>
+            <SUPPORTED-CONFIG-VARIANT>VARIANT-POST-BUILD</SUPPORTED-CONFIG-VARIANT>
+          </SUPPORTED-CONFIG-VARIANTS>
+          <CONTAINERS>
+            <PARAM-CONF-CONTAINER-DEF UUID="ECUC:45efa91a-c21f-4ae3-9e64-7e285364b9cf">
+              <SHORT-NAME>CommonPublishedInformation</SHORT-NAME>
+              <DESC>
+                <L-2>
+                                       
+                                         Common container, aggregated by all modules. It contains published information about vendor and versions.
+                                       
+                                        </L-2>
+              </DESC>
+              <LOWER-MULTIPLICITY>1</LOWER-MULTIPLICITY>
+              <UPPER-MULTIPLICITY>1</UPPER-MULTIPLICITY>
+              <MULTIPLE-CONFIGURATION-CONTAINER>false</MULTIPLE-CONFIGURATION-CONTAINER>
+              <PARAMETERS>
+                <INTEGER-PARAM-DEF UUID="ECUC:903ecbcb-c6f9-4a3a-8a97-dc58062d45d0">
+                  <SHORT-NAME>ArMajorVersion</SHORT-NAME>
+                  <DESC>
+                    <L-2>
+                                             
+                                               Major version number of AUTOSAR specification on which the appropriate implementation is based on.
+                                             
+                                            </L-2>
+                  </DESC>
+                  <LOWER-MULTIPLICITY>1</LOWER-MULTIPLICITY>
+                  <UPPER-MULTIPLICITY>1</UPPER-MULTIPLICITY>
+                  <IMPLEMENTATION-CONFIG-CLASSES>
+                    <IMPLEMENTATION-CONFIG-CLASS>
+                      <CONFIG-CLASS>PUBLISHED-INFORMATION</CONFIG-CLASS>
+                      <CONFIG-VARIANT>VARIANT-PRE-COMPILE</CONFIG-VARIANT>
+                    </IMPLEMENTATION-CONFIG-CLASS>
+                  </IMPLEMENTATION-CONFIG-CLASSES>
+                  <ORIGIN>Freescale</ORIGIN>
+                  <SYMBOLIC-NAME-VALUE>false</SYMBOLIC-NAME-VALUE>
+                  <DEFAULT-VALUE>3</DEFAULT-VALUE>
+                  <MAX>3</MAX>
+                  <MIN>3</MIN>
+                </INTEGER-PARAM-DEF>
+                <INTEGER-PARAM-DEF UUID="ECUC:1e11c8db-b012-4e05-b783-d737d68376bf">
+                  <SHORT-NAME>ArMinorVersion</SHORT-NAME>
+                  <DESC>
+                    <L-2>
+                                              
+                                                Minor version number of AUTOSAR specification on which the appropriate implementation is based on.
+                                              
+                                            </L-2>
+                  </DESC>
+                  <LOWER-MULTIPLICITY>1</LOWER-MULTIPLICITY>
+                  <UPPER-MULTIPLICITY>1</UPPER-MULTIPLICITY>
+                  <IMPLEMENTATION-CONFIG-CLASSES>
+                    <IMPLEMENTATION-CONFIG-CLASS>
+                      <CONFIG-CLASS>PUBLISHED-INFORMATION</CONFIG-CLASS>
+                      <CONFIG-VARIANT>VARIANT-PRE-COMPILE</CONFIG-VARIANT>
+                    </IMPLEMENTATION-CONFIG-CLASS>
+                  </IMPLEMENTATION-CONFIG-CLASSES>
+                  <ORIGIN>Freescale</ORIGIN>
+                  <SYMBOLIC-NAME-VALUE>false</SYMBOLIC-NAME-VALUE>
+                  <DEFAULT-VALUE>0</DEFAULT-VALUE>
+                  <MAX>0</MAX>
+                  <MIN>0</MIN>
+                </INTEGER-PARAM-DEF>
+                <INTEGER-PARAM-DEF UUID="ECUC:41532c59-108a-483e-a26d-87b3e5743f1e">
+                  <SHORT-NAME>ArPatchVersion</SHORT-NAME>
+                  <DESC>
+                    <L-2>
+                                            
+                                                Patch version number of AUTOSAR specification on which the appropriate implementation is based on.
+                                            
+                                            </L-2>
+                  </DESC>
+                  <LOWER-MULTIPLICITY>1</LOWER-MULTIPLICITY>
+                  <UPPER-MULTIPLICITY>1</UPPER-MULTIPLICITY>
+                  <IMPLEMENTATION-CONFIG-CLASSES>
+                    <IMPLEMENTATION-CONFIG-CLASS>
+                      <CONFIG-CLASS>PUBLISHED-INFORMATION</CONFIG-CLASS>
+                      <CONFIG-VARIANT>VARIANT-PRE-COMPILE</CONFIG-VARIANT>
+                    </IMPLEMENTATION-CONFIG-CLASS>
+                  </IMPLEMENTATION-CONFIG-CLASSES>
+                  <ORIGIN>Freescale</ORIGIN>
+                  <SYMBOLIC-NAME-VALUE>false</SYMBOLIC-NAME-VALUE>
+                  <DEFAULT-VALUE>2</DEFAULT-VALUE>
+                  <MAX>2</MAX>
+                  <MIN>2</MIN>
+                </INTEGER-PARAM-DEF>
+                <INTEGER-PARAM-DEF UUID="ECUC:21c7c678-56ea-4d56-91e9-c996528a0168">
+                  <SHORT-NAME>ModuleId</SHORT-NAME>
+                  <DESC>
+                    <L-2>
+                                          
+                                            Module ID of this module from Module List.
+                                          
+                                            </L-2>
+                  </DESC>
+                  <LOWER-MULTIPLICITY>1</LOWER-MULTIPLICITY>
+                  <UPPER-MULTIPLICITY>1</UPPER-MULTIPLICITY>
+                  <IMPLEMENTATION-CONFIG-CLASSES>
+                    <IMPLEMENTATION-CONFIG-CLASS>
+                      <CONFIG-CLASS>PUBLISHED-INFORMATION</CONFIG-CLASS>
+                      <CONFIG-VARIANT>VARIANT-PRE-COMPILE</CONFIG-VARIANT>
+                    </IMPLEMENTATION-CONFIG-CLASS>
+                  </IMPLEMENTATION-CONFIG-CLASSES>
+                  <ORIGIN>Freescale</ORIGIN>
+                  <SYMBOLIC-NAME-VALUE>false</SYMBOLIC-NAME-VALUE>
+                  <DEFAULT-VALUE>124</DEFAULT-VALUE>
+                  <MAX>124</MAX>
+                  <MIN>124</MIN>
+                </INTEGER-PARAM-DEF>
+                <INTEGER-PARAM-DEF UUID="ECUC:78af8101-1402-4195-ae70-5f341fcb1cde">
+                  <SHORT-NAME>SwMajorVersion</SHORT-NAME>
+                  <DESC>
+                    <L-2>
+                                              
+                                            Major version number of the vendor specific implementation of the module.
+                                              
+                                            </L-2>
+                  </DESC>
+                  <LOWER-MULTIPLICITY>1</LOWER-MULTIPLICITY>
+                  <UPPER-MULTIPLICITY>1</UPPER-MULTIPLICITY>
+                  <IMPLEMENTATION-CONFIG-CLASSES>
+                    <IMPLEMENTATION-CONFIG-CLASS>
+                      <CONFIG-CLASS>PUBLISHED-INFORMATION</CONFIG-CLASS>
+                      <CONFIG-VARIANT>VARIANT-PRE-COMPILE</CONFIG-VARIANT>
+                    </IMPLEMENTATION-CONFIG-CLASS>
+                  </IMPLEMENTATION-CONFIG-CLASSES>
+                  <ORIGIN>Freescale</ORIGIN>
+                  <SYMBOLIC-NAME-VALUE>false</SYMBOLIC-NAME-VALUE>
+                  <DEFAULT-VALUE>2</DEFAULT-VALUE>
+                  <MAX>2</MAX>
+                  <MIN>2</MIN>
+                </INTEGER-PARAM-DEF>
+                <INTEGER-PARAM-DEF UUID="ECUC:02693b3d-5d4e-4ab3-9a9c-87e58f608ee5">
+                  <SHORT-NAME>SwMinorVersion</SHORT-NAME>
+                  <DESC>
+                    <L-2>
+                                              
+                                             Minor version number of the vendor specific implementation of the module.
+                                              
+                                             </L-2>
+                  </DESC>
+                  <LOWER-MULTIPLICITY>1</LOWER-MULTIPLICITY>
+                  <UPPER-MULTIPLICITY>1</UPPER-MULTIPLICITY>
+                  <IMPLEMENTATION-CONFIG-CLASSES>
+                    <IMPLEMENTATION-CONFIG-CLASS>
+                      <CONFIG-CLASS>PUBLISHED-INFORMATION</CONFIG-CLASS>
+                      <CONFIG-VARIANT>VARIANT-PRE-COMPILE</CONFIG-VARIANT>
+                    </IMPLEMENTATION-CONFIG-CLASS>
+                  </IMPLEMENTATION-CONFIG-CLASSES>
+                  <ORIGIN>Freescale</ORIGIN>
+                  <SYMBOLIC-NAME-VALUE>false</SYMBOLIC-NAME-VALUE>
+                  <DEFAULT-VALUE>0</DEFAULT-VALUE>
+                  <MAX>0</MAX>
+                  <MIN>0</MIN>
+                </INTEGER-PARAM-DEF>
+                <INTEGER-PARAM-DEF UUID="ECUC:07d6d3d4-cfcb-47bf-87a2-05d534358c18">
+                  <SHORT-NAME>SwPatchVersion</SHORT-NAME>
+                  <DESC>
+                    <L-2>
+                                              
+                                            Patch version number of the vendor specific implementation of the module.
+                                              
+                                            </L-2>
+                  </DESC>
+                  <LOWER-MULTIPLICITY>1</LOWER-MULTIPLICITY>
+                  <UPPER-MULTIPLICITY>1</UPPER-MULTIPLICITY>
+                  <IMPLEMENTATION-CONFIG-CLASSES>
+                    <IMPLEMENTATION-CONFIG-CLASS>
+                      <CONFIG-CLASS>PUBLISHED-INFORMATION</CONFIG-CLASS>
+                      <CONFIG-VARIANT>VARIANT-PRE-COMPILE</CONFIG-VARIANT>
+                    </IMPLEMENTATION-CONFIG-CLASS>
+                  </IMPLEMENTATION-CONFIG-CLASSES>
+                  <ORIGIN>Freescale</ORIGIN>
+                  <SYMBOLIC-NAME-VALUE>false</SYMBOLIC-NAME-VALUE>
+                  <DEFAULT-VALUE>0</DEFAULT-VALUE>
+                  <MAX>0</MAX>
+                  <MIN>0</MIN>
+                </INTEGER-PARAM-DEF>
+                <STRING-PARAM-DEF UUID="ECUC:ee3cc9a7-14e1-4a37-b878-6ef342b11f17">
+                  <SHORT-NAME>VendorApiInfix</SHORT-NAME>
+                  <DESC>
+                    <L-2>
+                                          
+                                            In driver modules which can be instantiated several times on a single ECU, BSW00347 requires that the name of APIs is extended by the VendorId and a vendor specific name.
+                                             This parameter is used to specify the vendor specific name. In total, the implementation specific name is generated as follows:
+                                              _VendorId_.
+                                             E.g.  assuming that the VendorId of the implementor is 123 and the implementer chose a VendorApiInfix of "v11r456" a api name Can_Write defined in the SWS will translate to Can_123_v11r456Write.
+
+                                             This parameter is mandatory for all modules with upper multiplicity  1.
+                                             It shall not be used for modules with upper multiplicity =1.
+                                          
+                                            </L-2>
+                  </DESC>
+                  <LOWER-MULTIPLICITY>0</LOWER-MULTIPLICITY>
+                  <UPPER-MULTIPLICITY>1</UPPER-MULTIPLICITY>
+                  <IMPLEMENTATION-CONFIG-CLASSES>
+                    <IMPLEMENTATION-CONFIG-CLASS>
+                      <CONFIG-CLASS>PUBLISHED-INFORMATION</CONFIG-CLASS>
+                      <CONFIG-VARIANT>VARIANT-PRE-COMPILE</CONFIG-VARIANT>
+                    </IMPLEMENTATION-CONFIG-CLASS>
+                  </IMPLEMENTATION-CONFIG-CLASSES>
+                  <ORIGIN>AUTOSAR_ECUC V1.0.0</ORIGIN>
+                  <SYMBOLIC-NAME-VALUE>false</SYMBOLIC-NAME-VALUE>
+                  <DEFAULT-VALUE>
+                  </DEFAULT-VALUE>
+                </STRING-PARAM-DEF>
+                <INTEGER-PARAM-DEF UUID="ECUC:6d188a09-e009-418c-8efe-e7254563b663">
+                  <SHORT-NAME>VendorId</SHORT-NAME>
+                  <DESC>
+                    <L-2>
+                                                  
+                                             Vendor ID of the dedicated implementation of this module.
+                                                  
+                                            </L-2>
+                  </DESC>
+                  <LOWER-MULTIPLICITY>1</LOWER-MULTIPLICITY>
+                  <UPPER-MULTIPLICITY>1</UPPER-MULTIPLICITY>
+                  <IMPLEMENTATION-CONFIG-CLASSES>
+                    <IMPLEMENTATION-CONFIG-CLASS>
+                      <CONFIG-CLASS>PUBLISHED-INFORMATION</CONFIG-CLASS>
+                      <CONFIG-VARIANT>VARIANT-PRE-COMPILE</CONFIG-VARIANT>
+                    </IMPLEMENTATION-CONFIG-CLASS>
+                  </IMPLEMENTATION-CONFIG-CLASSES>
+                  <ORIGIN>Freescale</ORIGIN>
+                  <SYMBOLIC-NAME-VALUE>false</SYMBOLIC-NAME-VALUE>
+                  <DEFAULT-VALUE>43</DEFAULT-VALUE>
+                  <MAX>43</MAX>
+                  <MIN>43</MIN>
+                </INTEGER-PARAM-DEF>
+              </PARAMETERS>
+            </PARAM-CONF-CONTAINER-DEF>
+            <PARAM-CONF-CONTAINER-DEF UUID="ECUC:5dc11d31-a9f8-4986-8a31-7d44a384d325">
+              <SHORT-NAME>PortGeneral</SHORT-NAME>
+              <DESC>
+                <L-2>
+                                   
+                                     Module wide configuration parameters of the PORT driver.
+                                   
+                                         </L-2>
+              </DESC>
+              <LOWER-MULTIPLICITY>1</LOWER-MULTIPLICITY>
+              <UPPER-MULTIPLICITY>1</UPPER-MULTIPLICITY>
+              <MULTIPLE-CONFIGURATION-CONTAINER>false</MULTIPLE-CONFIGURATION-CONTAINER>
+              <PARAMETERS>
+                <BOOLEAN-PARAM-DEF UUID="ECUC:baa7847f-1ee9-4159-971d-924d9eb1b2c5">
+                  <SHORT-NAME>PortDevErrorDetect</SHORT-NAME>
+                  <DESC>
+                    <L-2>
+                                              
+                                            Switches the Development Error Detection and Notification ON or OFF.
+                                              
+                                            </L-2>
+                  </DESC>
+                  <LOWER-MULTIPLICITY>1</LOWER-MULTIPLICITY>
+                  <UPPER-MULTIPLICITY>1</UPPER-MULTIPLICITY>
+                  <IMPLEMENTATION-CONFIG-CLASSES>
+                    <IMPLEMENTATION-CONFIG-CLASS>
+                      <CONFIG-CLASS>PRE-COMPILE</CONFIG-CLASS>
+                      <CONFIG-VARIANT>VARIANT-PRE-COMPILE</CONFIG-VARIANT>
+                    </IMPLEMENTATION-CONFIG-CLASS>
+                    <IMPLEMENTATION-CONFIG-CLASS>
+                      <CONFIG-CLASS>POST-BUILD</CONFIG-CLASS>
+                      <CONFIG-VARIANT>VARIANT-POST-BUILD</CONFIG-VARIANT>
+                    </IMPLEMENTATION-CONFIG-CLASS>
+                  </IMPLEMENTATION-CONFIG-CLASSES>
+                  <ORIGIN>AUTOSAR_ECUC</ORIGIN>
+                  <SYMBOLIC-NAME-VALUE>false</SYMBOLIC-NAME-VALUE>
+                  <DEFAULT-VALUE>true</DEFAULT-VALUE>
+                </BOOLEAN-PARAM-DEF>
+                <BOOLEAN-PARAM-DEF UUID="ECUC:0c46da89-271e-46b8-924d-2219b32509c2">
+                  <SHORT-NAME>PortSetPinDirectionApi</SHORT-NAME>
+                  <DESC>
+                    <L-2>
+                                          
+                                            Pre-processor switch to enable/disable the use of the function Port_SetPinDirection().
+                                          
+                                            </L-2>
+                  </DESC>
+                  <LOWER-MULTIPLICITY>1</LOWER-MULTIPLICITY>
+                  <UPPER-MULTIPLICITY>1</UPPER-MULTIPLICITY>
+                  <IMPLEMENTATION-CONFIG-CLASSES>
+                    <IMPLEMENTATION-CONFIG-CLASS>
+                      <CONFIG-CLASS>PRE-COMPILE</CONFIG-CLASS>
+                      <CONFIG-VARIANT>VARIANT-PRE-COMPILE</CONFIG-VARIANT>
+                    </IMPLEMENTATION-CONFIG-CLASS>
+                    <IMPLEMENTATION-CONFIG-CLASS>
+                      <CONFIG-CLASS>POST-BUILD</CONFIG-CLASS>
+                      <CONFIG-VARIANT>VARIANT-POST-BUILD</CONFIG-VARIANT>
+                    </IMPLEMENTATION-CONFIG-CLASS>
+                  </IMPLEMENTATION-CONFIG-CLASSES>
+                  <ORIGIN>AUTOSAR_ECUC</ORIGIN>
+                  <SYMBOLIC-NAME-VALUE>false</SYMBOLIC-NAME-VALUE>
+                  <DEFAULT-VALUE>true</DEFAULT-VALUE>
+                </BOOLEAN-PARAM-DEF>
+                <BOOLEAN-PARAM-DEF UUID="ECUC:3b38bea8-b62c-4557-b7c6-90c7fe1f63cd">
+                  <SHORT-NAME>PortSetPinModeApi</SHORT-NAME>
+                  <DESC>
+                    <L-2>
+                                          
+                                             Pre-processor switch to enable/disable the use of the function Port_SetPinMode().
+                                          
+                                            </L-2>
+                  </DESC>
+                  <LOWER-MULTIPLICITY>1</LOWER-MULTIPLICITY>
+                  <UPPER-MULTIPLICITY>1</UPPER-MULTIPLICITY>
+                  <IMPLEMENTATION-CONFIG-CLASSES>
+                    <IMPLEMENTATION-CONFIG-CLASS>
+                      <CONFIG-CLASS>PRE-COMPILE</CONFIG-CLASS>
+                      <CONFIG-VARIANT>VARIANT-PRE-COMPILE</CONFIG-VARIANT>
+                    </IMPLEMENTATION-CONFIG-CLASS>
+                    <IMPLEMENTATION-CONFIG-CLASS>
+                      <CONFIG-CLASS>POST-BUILD</CONFIG-CLASS>
+                      <CONFIG-VARIANT>VARIANT-POST-BUILD</CONFIG-VARIANT>
+                    </IMPLEMENTATION-CONFIG-CLASS>
+                  </IMPLEMENTATION-CONFIG-CLASSES>
+                  <ORIGIN>AUTOSAR_ECUC</ORIGIN>
+                  <SYMBOLIC-NAME-VALUE>false</SYMBOLIC-NAME-VALUE>
+                  <DEFAULT-VALUE>true</DEFAULT-VALUE>
+                </BOOLEAN-PARAM-DEF>
+                <BOOLEAN-PARAM-DEF UUID="ECUC:4d9e4b7c-9b97-42e8-97ff-f0fdd430c798">
+                  <SHORT-NAME>PortVersionInfoApi</SHORT-NAME>
+                  <DESC>
+                    <L-2>
+                                              
+                                            Pre-processor switch to enable/disable the API to read out the modules version information.
+                                              
+                                            </L-2>
+                  </DESC>
+                  <LOWER-MULTIPLICITY>1</LOWER-MULTIPLICITY>
+                  <UPPER-MULTIPLICITY>1</UPPER-MULTIPLICITY>
+                  <IMPLEMENTATION-CONFIG-CLASSES>
+                    <IMPLEMENTATION-CONFIG-CLASS>
+                      <CONFIG-CLASS>PRE-COMPILE</CONFIG-CLASS>
+                      <CONFIG-VARIANT>VARIANT-PRE-COMPILE</CONFIG-VARIANT>
+                    </IMPLEMENTATION-CONFIG-CLASS>
+                    <IMPLEMENTATION-CONFIG-CLASS>
+                      <CONFIG-CLASS>POST-BUILD</CONFIG-CLASS>
+                      <CONFIG-VARIANT>VARIANT-POST-BUILD</CONFIG-VARIANT>
+                    </IMPLEMENTATION-CONFIG-CLASS>
+                  </IMPLEMENTATION-CONFIG-CLASSES>
+                  <ORIGIN>AUTOSAR_ECUC</ORIGIN>
+                  <SYMBOLIC-NAME-VALUE>false</SYMBOLIC-NAME-VALUE>
+                  <DEFAULT-VALUE>true</DEFAULT-VALUE>
+                </BOOLEAN-PARAM-DEF>
+              </PARAMETERS>
+            </PARAM-CONF-CONTAINER-DEF>
+            <PARAM-CONF-CONTAINER-DEF UUID="ECUC:6e94042d-1581-499c-bfec-408d7ecf8ca9">
+              <SHORT-NAME>PortConfigSet</SHORT-NAME>
+              <DESC>
+                <L-2>
+                                          
+                                            This container contains a configuration of the PORT driver / SIUL module.
+                                                 This container is a MultipleConfigurationContainer, i.e. this container and its
+                                                 sub-containers exit once per configuration set.
+                                            NOTE:"User should configure only ONE instance of PortConfigSet container and not MULTIPLE."
+                                          
+                                            </L-2>
+              </DESC>
+              <LOWER-MULTIPLICITY>1</LOWER-MULTIPLICITY>
+              <UPPER-MULTIPLICITY>1</UPPER-MULTIPLICITY>
+              <MULTIPLE-CONFIGURATION-CONTAINER>true</MULTIPLE-CONFIGURATION-CONTAINER>
+              <SUB-CONTAINERS>
+                <PARAM-CONF-CONTAINER-DEF UUID="ECUC:663f115e-c7bb-4800-8f5c-545db24d74cf">
+                  <SHORT-NAME>PortContainer</SHORT-NAME>
+                  <DESC>
+                    <L-2>
+                                                  
+                                                    Container collecting the PortPins.
+                                                  
+                                                    </L-2>
+                  </DESC>
+                  <LOWER-MULTIPLICITY>1</LOWER-MULTIPLICITY>
+                  <UPPER-MULTIPLICITY>*</UPPER-MULTIPLICITY>
+                  <MULTIPLE-CONFIGURATION-CONTAINER>false</MULTIPLE-CONFIGURATION-CONTAINER>
+                  <PARAMETERS>
+                    <INTEGER-PARAM-DEF UUID="ECUC:38c7dd93-9d2f-479d-bdcf-406cc8295d0a3">
+                      <SHORT-NAME>PortNumberOfPortPins</SHORT-NAME>
+                      <DESC>
+                        <L-2>
+                                                      
+                                                        The number of specified PortPins in this PortContainer.
+                                                      
+                                                        </L-2>
+                      </DESC>
+                      <LOWER-MULTIPLICITY>1</LOWER-MULTIPLICITY>
+                      <UPPER-MULTIPLICITY>1</UPPER-MULTIPLICITY>
+                      <IMPLEMENTATION-CONFIG-CLASSES>
+                        <IMPLEMENTATION-CONFIG-CLASS>
+                          <CONFIG-CLASS>PRE-COMPILE</CONFIG-CLASS>
+                          <CONFIG-VARIANT>VARIANT-PRE-COMPILE</CONFIG-VARIANT>
+                        </IMPLEMENTATION-CONFIG-CLASS>
+                        <IMPLEMENTATION-CONFIG-CLASS>
+                          <CONFIG-CLASS>PRE-COMPILE</CONFIG-CLASS>
+                          <CONFIG-VARIANT>VARIANT-POST-BUILD</CONFIG-VARIANT>
+                        </IMPLEMENTATION-CONFIG-CLASS>
+                      </IMPLEMENTATION-CONFIG-CLASSES>
+                      <ORIGIN>AUTOSAR_ECUC</ORIGIN>
+                      <SYMBOLIC-NAME-VALUE>false</SYMBOLIC-NAME-VALUE>
+                      <DEFAULT-VALUE>3</DEFAULT-VALUE>
+                      <MAX>500</MAX>
+                      <MIN>1</MIN>
+                    </INTEGER-PARAM-DEF>
+                  </PARAMETERS>
+                  <SUB-CONTAINERS>
+                    <PARAM-CONF-CONTAINER-DEF UUID="ECUC:1f6a9046-8e9e-4c4b-a291-76fa905e5d1c">
+                      <SHORT-NAME>PortPin</SHORT-NAME>
+                      <DESC>
+                        <L-2>
+                                                          
+                                                            Configuration of the individual port pins.
+                                                          
+                                                            </L-2>
+                      </DESC>
+                      <LOWER-MULTIPLICITY>1</LOWER-MULTIPLICITY>
+                      <UPPER-MULTIPLICITY>*</UPPER-MULTIPLICITY>
+                      <MULTIPLE-CONFIGURATION-CONTAINER>false</MULTIPLE-CONFIGURATION-CONTAINER>
+                      <PARAMETERS>
+                        <BOOLEAN-PARAM-DEF UUID="ECUC:226e7751-325d-474e-b350-90441b3a0925">
+                          <SHORT-NAME>PortPinWpe</SHORT-NAME>
+                          <DESC>
+                            <L-2>
+                                                              
+                                                                Enable Weak Pull Up/Down for the configured Pin.
+                                                                Checked box means any of the Weak Pull Up or Weak Pull Down configurations is enabled for the pin.
+                                                                This is an implementation specific parameter.
+                                                              
+                                                                </L-2>
+                          </DESC>
+                          <LOWER-MULTIPLICITY>1</LOWER-MULTIPLICITY>
+                          <UPPER-MULTIPLICITY>1</UPPER-MULTIPLICITY>
+                          <ORIGIN>Freescale</ORIGIN>
+                          <SYMBOLIC-NAME-VALUE>false</SYMBOLIC-NAME-VALUE>
+                          <DEFAULT-VALUE>false</DEFAULT-VALUE>
+                        </BOOLEAN-PARAM-DEF>
+                        <BOOLEAN-PARAM-DEF UUID="ECUC:92ff7e23-d521-42c4-a380-0bb2b0757b1a">
+                          <SHORT-NAME>PortPinWps</SHORT-NAME>
+                          <DESC>
+                            <L-2>
+                                                              
+                                                                Select Weak Pull Up/Down for the configured Pin.
+                                                                Checked box means the Weak Pull Up configuration is set. Unchecked box means the Weak Pull Down configuration is set.
+                                                                This is an implementation specific parameter.
+                                                              
+                                                                </L-2>
+                          </DESC>
+                          <LOWER-MULTIPLICITY>1</LOWER-MULTIPLICITY>
+                          <UPPER-MULTIPLICITY>1</UPPER-MULTIPLICITY>
+                          <ORIGIN>Freescale</ORIGIN>
+                          <SYMBOLIC-NAME-VALUE>false</SYMBOLIC-NAME-VALUE>
+                          <DEFAULT-VALUE>false</DEFAULT-VALUE>
+                        </BOOLEAN-PARAM-DEF>
+                        <BOOLEAN-PARAM-DEF UUID="ECUC:966251cf-7da9-4e8f-99d1-5955b4c38950">
+                          <SHORT-NAME>PortPinOde</SHORT-NAME>
+                          <DESC>
+                            <L-2>
+                                                              
+                                                                Enable Open Drain Output for the configured Pin.
+                                                                Checked box means the Open Drain configuration is set.
+                                                                This is an implementation specific parameter.
+                                                              
+                                                                </L-2>
+                          </DESC>
+                          <LOWER-MULTIPLICITY>1</LOWER-MULTIPLICITY>
+                          <UPPER-MULTIPLICITY>1</UPPER-MULTIPLICITY>
+                          <ORIGIN>Freescale</ORIGIN>
+                          <SYMBOLIC-NAME-VALUE>false</SYMBOLIC-NAME-VALUE>
+                          <DEFAULT-VALUE>false</DEFAULT-VALUE>
+                        </BOOLEAN-PARAM-DEF>
+                        <BOOLEAN-PARAM-DEF UUID="ECUC:2e99f2b2-f8a2-4b0b-a7e2-439904bda2aa">
+                          <SHORT-NAME>PortPinHysteresis</SHORT-NAME>
+                          <DESC>
+                            <L-2>
+                                                                
+                                                                    Enable/Disable Input Hysteresis for the configured Pin. This is an implementation specific parameter.
+                                                                
+                                                                </L-2>
+                          </DESC>
+                          <LOWER-MULTIPLICITY>1</LOWER-MULTIPLICITY>
+                          <UPPER-MULTIPLICITY>1</UPPER-MULTIPLICITY>
+                          <ORIGIN>Freescale</ORIGIN>
+                          <SYMBOLIC-NAME-VALUE>false</SYMBOLIC-NAME-VALUE>
+                          <DEFAULT-VALUE>false</DEFAULT-VALUE>
+                        </BOOLEAN-PARAM-DEF>
+                        <BOOLEAN-PARAM-DEF UUID="ECUC:0571e595-3e2c-4309-a267-5515271b4c2b">
+                          <SHORT-NAME>PortPinDirectionChangeable</SHORT-NAME>
+                          <DESC>
+                            <L-2>
+                                                              
+                                                                Enable/Disable the changeability for the configured Pin.
+                                                                Checked box means the Direction Changeability is enabled.
+                                                                This is an implementation specific parameter.
+                                                              
+                                                                </L-2>
+                          </DESC>
+                          <LOWER-MULTIPLICITY>1</LOWER-MULTIPLICITY>
+                          <UPPER-MULTIPLICITY>1</UPPER-MULTIPLICITY>
+                          <IMPLEMENTATION-CONFIG-CLASSES>
+                            <IMPLEMENTATION-CONFIG-CLASS>
+                              <CONFIG-CLASS>PRE-COMPILE</CONFIG-CLASS>
+                              <CONFIG-VARIANT>VARIANT-PRE-COMPILE</CONFIG-VARIANT>
+                            </IMPLEMENTATION-CONFIG-CLASS>
+                            <IMPLEMENTATION-CONFIG-CLASS>
+                              <CONFIG-CLASS>POST-BUILD</CONFIG-CLASS>
+                              <CONFIG-VARIANT>VARIANT-POST-BUILD</CONFIG-VARIANT>
+                            </IMPLEMENTATION-CONFIG-CLASS>
+                          </IMPLEMENTATION-CONFIG-CLASSES>
+                          <ORIGIN>AUTOSAR_ECUC</ORIGIN>
+                          <SYMBOLIC-NAME-VALUE>false</SYMBOLIC-NAME-VALUE>
+                          <DEFAULT-VALUE>false</DEFAULT-VALUE>
+                        </BOOLEAN-PARAM-DEF>
+                        <INTEGER-PARAM-DEF UUID="ECUC:7585d1b7-9c01-4cc0-9e79-cf3a0f6ee3b7">
+                          <SHORT-NAME>PortPinId</SHORT-NAME>
+                          <DESC>
+                            <L-2>
+                                                              
+                                                            Pin Id of the port pin.
+                                                            This value will be assigned to the symbolic name.
+                                                              
+                                                            </L-2>
+                          </DESC>
+                          <LOWER-MULTIPLICITY>1</LOWER-MULTIPLICITY>
+                          <UPPER-MULTIPLICITY>1</UPPER-MULTIPLICITY>
+                          <IMPLEMENTATION-CONFIG-CLASSES>
+                            <IMPLEMENTATION-CONFIG-CLASS>
+                              <CONFIG-CLASS>PRE-COMPILE</CONFIG-CLASS>
+                              <CONFIG-VARIANT>VARIANT-PRE-COMPILE</CONFIG-VARIANT>
+                            </IMPLEMENTATION-CONFIG-CLASS>
+                            <IMPLEMENTATION-CONFIG-CLASS>
+                              <CONFIG-CLASS>POST-BUILD</CONFIG-CLASS>
+                              <CONFIG-VARIANT>VARIANT-POST-BUILD</CONFIG-VARIANT>
+                            </IMPLEMENTATION-CONFIG-CLASS>
+                          </IMPLEMENTATION-CONFIG-CLASSES>
+                          <ORIGIN>AUTOSAR_ECUC</ORIGIN>
+                          <SYMBOLIC-NAME-VALUE>true</SYMBOLIC-NAME-VALUE>
+                          <DEFAULT-VALUE>0</DEFAULT-VALUE>
+                          <MAX>65535</MAX>
+                          <MIN>0</MIN>
+                        </INTEGER-PARAM-DEF>
+                        <INTEGER-PARAM-DEF UUID="ECUC:ed35935d-8c5e-437e-8142-571f225a6250">
+                          <SHORT-NAME>PortPinPcr</SHORT-NAME>
+                          <DESC>
+                            <L-2>
+                                                              
+                                                                Pin Id of the port pin.This value will be assigned to the symbolic name derived from the port pin container short name.
+                                                              
+                                                                </L-2>
+                          </DESC>
+                          <LOWER-MULTIPLICITY>1</LOWER-MULTIPLICITY>
+                          <UPPER-MULTIPLICITY>1</UPPER-MULTIPLICITY>
+                          <ORIGIN>Freescale</ORIGIN>
+                          <SYMBOLIC-NAME-VALUE>false</SYMBOLIC-NAME-VALUE>
+                          <DEFAULT-VALUE>83</DEFAULT-VALUE>
+                          <MAX>65535</MAX>
+                          <MIN>0</MIN>
+                        </INTEGER-PARAM-DEF>
+                        <ENUMERATION-PARAM-DEF UUID="ECUC:9db372a4-b58f-4fd5-8250-ca0ffec5f417">
+                          <SHORT-NAME>PortPinMode</SHORT-NAME>
+                          <DESC>
+                            <L-2>
+                                                              
+                                                                Selects the PORT pin mode from the modes list.
+                                                                By default more than one mode are allowed. That way it is e.g. possible to combine DIO with another mode such as ICU.
+                                                                For the Alternative Function modes (not a GPIO mode) the OUT direction is hw selected for that pin. If the IN direction is needed too, it can be set at runtime.
+                                                                NOTE: To set the IN direction take care, please, that all the possible module inputs, possible as Alternative Functions for the pad mode,
+                                                                are hw connected together, if IN direction is enabled, to the pad.
+                                                              
+                                                                </L-2>
+                          </DESC>
+                          <LOWER-MULTIPLICITY>1</LOWER-MULTIPLICITY>
+                          <UPPER-MULTIPLICITY>1</UPPER-MULTIPLICITY>
+                          <IMPLEMENTATION-CONFIG-CLASSES>
+                            <IMPLEMENTATION-CONFIG-CLASS>
+                              <CONFIG-CLASS>PRE-COMPILE</CONFIG-CLASS>
+                              <CONFIG-VARIANT>VARIANT-PRE-COMPILE</CONFIG-VARIANT>
+                            </IMPLEMENTATION-CONFIG-CLASS>
+                            <IMPLEMENTATION-CONFIG-CLASS>
+                              <CONFIG-CLASS>POST-BUILD</CONFIG-CLASS>
+                              <CONFIG-VARIANT>VARIANT-POST-BUILD</CONFIG-VARIANT>
+                            </IMPLEMENTATION-CONFIG-CLASS>
+                          </IMPLEMENTATION-CONFIG-CLASSES>
+                          <ORIGIN>AUTOSAR_ECUC</ORIGIN>
+                          <SYMBOLIC-NAME-VALUE>false</SYMBOLIC-NAME-VALUE>
+                          <DEFAULT-VALUE>GPIO</DEFAULT-VALUE>
+                          <LITERALS>
+                            <ENUMERATION-LITERAL-DEF UUID="ddbadefa-1565-4ebe-a994-7d3ecf63c41a">
+                              <SHORT-NAME>GPIO</SHORT-NAME>
+                            </ENUMERATION-LITERAL-DEF>
+                            <ENUMERATION-LITERAL-DEF UUID="cb3ffc30-316a-4b05-9156-5854499d7496">
+                              <SHORT-NAME>AN_12</SHORT-NAME>
+                            </ENUMERATION-LITERAL-DEF>
+                            <ENUMERATION-LITERAL-DEF UUID="b83d46b1-83f7-4d8e-8d51-d25541983688">
+                              <SHORT-NAME>AN_13</SHORT-NAME>
+                            </ENUMERATION-LITERAL-DEF>
+                            <ENUMERATION-LITERAL-DEF UUID="23b1d49a-9692-40d2-8999-40cc0f1a847f">
+                              <SHORT-NAME>AN_14</SHORT-NAME>
+                            </ENUMERATION-LITERAL-DEF>
+                            <ENUMERATION-LITERAL-DEF UUID="d476f284-545c-4530-a0fe-6a482dfc53fa">
+                              <SHORT-NAME>AN_15</SHORT-NAME>
+                            </ENUMERATION-LITERAL-DEF>
+                            <ENUMERATION-LITERAL-DEF UUID="63fdd865-d015-480d-9c2b-4d4941c37b6c">
+                              <SHORT-NAME>BOOTCFG1</SHORT-NAME>
+                            </ENUMERATION-LITERAL-DEF>
+                            <ENUMERATION-LITERAL-DEF UUID="84ea504d-bc94-4e85-a511-c5c1ba460788">
+                              <SHORT-NAME>CAN_A_RX</SHORT-NAME>
+                            </ENUMERATION-LITERAL-DEF>
+                            <ENUMERATION-LITERAL-DEF UUID="c1eeb2d8-b995-43ea-a730-a1e4ce80fa10">
+                              <SHORT-NAME>CAN_A_TX</SHORT-NAME>
+                            </ENUMERATION-LITERAL-DEF>
+                            <ENUMERATION-LITERAL-DEF UUID="b491d160-d34e-4a2f-9242-8eaab004d9ef">
+                              <SHORT-NAME>CAN_C_RX</SHORT-NAME>
+                            </ENUMERATION-LITERAL-DEF>
+                            <ENUMERATION-LITERAL-DEF UUID="3252b6e0-1dd9-4e9d-9e6b-665f26504cac">
+                              <SHORT-NAME>CAN_C_TX</SHORT-NAME>
+                            </ENUMERATION-LITERAL-DEF>
+                            <ENUMERATION-LITERAL-DEF UUID="b37aaafc-dced-47ce-ae5e-a5b69d577528">
+                              <SHORT-NAME>DSPI_B_PCS_0</SHORT-NAME>
+                            </ENUMERATION-LITERAL-DEF>
+                            <ENUMERATION-LITERAL-DEF UUID="4407ae76-3005-41f9-acf3-e6269377d1c2">
+                              <SHORT-NAME>DSPI_B_PCS_1</SHORT-NAME>
+                            </ENUMERATION-LITERAL-DEF>
+                            <ENUMERATION-LITERAL-DEF UUID="2485bfbf-4006-41dc-9f5b-181e9959cc65">
+                              <SHORT-NAME>DSPI_B_PCS_2</SHORT-NAME>
+                            </ENUMERATION-LITERAL-DEF>
+                            <ENUMERATION-LITERAL-DEF UUID="b0047d53-7e66-499b-a70f-195913f3b65e">
+                              <SHORT-NAME>DSPI_B_PCS_3</SHORT-NAME>
+                            </ENUMERATION-LITERAL-DEF>
+                            <ENUMERATION-LITERAL-DEF UUID="34032180-3656-448a-b721-070287b2581c">
+                              <SHORT-NAME>DSPI_B_PCS_4</SHORT-NAME>
+                            </ENUMERATION-LITERAL-DEF>
+                            <ENUMERATION-LITERAL-DEF UUID="2f2b01ac-a7a1-47d0-adda-44f18f353481">
+                              <SHORT-NAME>DSPI_B_PCS_5</SHORT-NAME>
+                            </ENUMERATION-LITERAL-DEF>
+                            <ENUMERATION-LITERAL-DEF UUID="a1e311a1-59b8-49d3-8ffd-c5824c68b6b1">
+                              <SHORT-NAME>DSPI_B_SCK</SHORT-NAME>
+                            </ENUMERATION-LITERAL-DEF>
+                            <ENUMERATION-LITERAL-DEF UUID="73fd5bbf-eecf-42fe-9f60-8aa2f6fc44f6">
+                              <SHORT-NAME>DSPI_B_SCK_LVDC_MINUS</SHORT-NAME>
+                            </ENUMERATION-LITERAL-DEF>
+                            <ENUMERATION-LITERAL-DEF UUID="97af42eb-45a3-4864-a3c8-3b5a8f97696f">
+                              <SHORT-NAME>DSPI_B_SCK_LVDS_PLUS</SHORT-NAME>
+                            </ENUMERATION-LITERAL-DEF>
+                            <ENUMERATION-LITERAL-DEF UUID="c594f619-1835-4d3b-8b8e-50bbbe330d48">
+                              <SHORT-NAME>DSPI_B_SIN</SHORT-NAME>
+                            </ENUMERATION-LITERAL-DEF>
+                            <ENUMERATION-LITERAL-DEF UUID="39a6aff1-d302-4ad0-bcab-62586832f285">
+                              <SHORT-NAME>DSPI_B_SOUT</SHORT-NAME>
+                            </ENUMERATION-LITERAL-DEF>
+                            <ENUMERATION-LITERAL-DEF UUID="e1d9bdf9-5bcf-4386-9200-86c077f30b00">
+                              <SHORT-NAME>DSPI_B_SOUT_LVDS_MINUS</SHORT-NAME>
+                            </ENUMERATION-LITERAL-DEF>
+                            <ENUMERATION-LITERAL-DEF UUID="90e9a101-5b40-4c84-93b3-d7fc6551c6f8">
+                              <SHORT-NAME>DSPI_B_SOUT_LVDS_PLUS</SHORT-NAME>
+                            </ENUMERATION-LITERAL-DEF>
+                            <ENUMERATION-LITERAL-DEF UUID="c5c5de6b-4e01-4cab-861c-8307182c2b18">
+                              <SHORT-NAME>DSPI_C_PCS_0</SHORT-NAME>
+                            </ENUMERATION-LITERAL-DEF>
+                            <ENUMERATION-LITERAL-DEF UUID="7ccf4dfa-df5f-4ceb-91e4-e0870a7ff733">
+                              <SHORT-NAME>DSPI_C_PCS_1</SHORT-NAME>
+                            </ENUMERATION-LITERAL-DEF>
+                            <ENUMERATION-LITERAL-DEF UUID="8b5f4a98-26e6-4742-89a0-a964d482c98b">
+                              <SHORT-NAME>DSPI_C_PCS_2</SHORT-NAME>
+                            </ENUMERATION-LITERAL-DEF>
+                            <ENUMERATION-LITERAL-DEF UUID="b377e6a6-834c-4923-8280-5021c3bd17d9">
+                              <SHORT-NAME>DSPI_C_PCS_3</SHORT-NAME>
+                            </ENUMERATION-LITERAL-DEF>
+                            <ENUMERATION-LITERAL-DEF UUID="8c9ff420-3d3d-48b5-957f-a459299db211">
+                              <SHORT-NAME>DSPI_C_PCS_4</SHORT-NAME>
+                            </ENUMERATION-LITERAL-DEF>
+                            <ENUMERATION-LITERAL-DEF UUID="93056bdd-df19-4ce3-aa89-1bf2bcaf8b4a">
+                              <SHORT-NAME>DSPI_C_PCS_5</SHORT-NAME>
+                            </ENUMERATION-LITERAL-DEF>
+                            <ENUMERATION-LITERAL-DEF UUID="4bd37d64-43a9-49c0-98d5-2e4263e81b14">
+                              <SHORT-NAME>DSPI_C_SCK</SHORT-NAME>
+                            </ENUMERATION-LITERAL-DEF>
+                            <ENUMERATION-LITERAL-DEF UUID="5e971291-6302-41a0-9449-b5162dcc6049">
+                              <SHORT-NAME>DSPI_C_SCK_LVDS_MINUS</SHORT-NAME>
+                            </ENUMERATION-LITERAL-DEF>
+                            <ENUMERATION-LITERAL-DEF UUID="3947bcc3-848a-44d3-9355-5e68c8fcdc5a">
+                              <SHORT-NAME>DSPI_C_SCK_LVDS_PLUS</SHORT-NAME>
+                            </ENUMERATION-LITERAL-DEF>
+                            <ENUMERATION-LITERAL-DEF UUID="e78bf0f6-1ee8-44ab-802c-a63f6bce2752">
+                              <SHORT-NAME>DSPI_C_SIN</SHORT-NAME>
+                            </ENUMERATION-LITERAL-DEF>
+                            <ENUMERATION-LITERAL-DEF UUID="30422652-03ad-4181-99be-164d4afbcff7">
+                              <SHORT-NAME>DSPI_C_SOUT</SHORT-NAME>
+                            </ENUMERATION-LITERAL-DEF>
+                            <ENUMERATION-LITERAL-DEF UUID="c9f74cb4-94a2-4b27-80de-4d17ca07b69a">
+                              <SHORT-NAME>DSPI_C_SOUT_LVDS_MINUS</SHORT-NAME>
+                            </ENUMERATION-LITERAL-DEF>
+                            <ENUMERATION-LITERAL-DEF UUID="46a8f2f3-0e96-4084-9953-aee1b487bc34">
+                              <SHORT-NAME>DSPI_C_SOUT_LVDS_PLUS</SHORT-NAME>
+                            </ENUMERATION-LITERAL-DEF>
+                            <ENUMERATION-LITERAL-DEF UUID="69df5c19-d269-44a8-823d-6d9291613179">
+                              <SHORT-NAME>eMIOS_0</SHORT-NAME>
+                            </ENUMERATION-LITERAL-DEF>
+                            <ENUMERATION-LITERAL-DEF UUID="9447f9e2-1992-40a7-b1ee-5f27ee850dbe">
+                              <SHORT-NAME>eMIOS_0_VIO</SHORT-NAME>
+                            </ENUMERATION-LITERAL-DEF>
+                            <ENUMERATION-LITERAL-DEF UUID="1fa5b459-d8fd-46be-b635-251bab69557c">
+                              <SHORT-NAME>eMIOS_10</SHORT-NAME>
+                            </ENUMERATION-LITERAL-DEF>
+                            <ENUMERATION-LITERAL-DEF UUID="f4a038e1-6d7c-4f49-b49b-35d14f907c36">
+                              <SHORT-NAME>eMIOS_10_VIO</SHORT-NAME>
+                            </ENUMERATION-LITERAL-DEF>
+                            <ENUMERATION-LITERAL-DEF UUID="ce0056fd-fb1d-4949-8521-3b4e53b6bebe">
+                              <SHORT-NAME>eMIOS_11</SHORT-NAME>
+                            </ENUMERATION-LITERAL-DEF>
+                            <ENUMERATION-LITERAL-DEF UUID="912af01f-0ec9-48de-bd7a-9eb9430b8c64">
+                              <SHORT-NAME>eMIOS_11_VIO</SHORT-NAME>
+                            </ENUMERATION-LITERAL-DEF>
+                            <ENUMERATION-LITERAL-DEF UUID="e95425e4-023a-4621-8d80-8c9a4bbdb471">
+                              <SHORT-NAME>eMIOS_12</SHORT-NAME>
+                            </ENUMERATION-LITERAL-DEF>
+                            <ENUMERATION-LITERAL-DEF UUID="e1b76293-638d-48f5-88ff-eada4c5c0996">
+                              <SHORT-NAME>eMIOS_12_VIO</SHORT-NAME>
+                            </ENUMERATION-LITERAL-DEF>
+                            <ENUMERATION-LITERAL-DEF UUID="835cff46-5003-47e5-9c68-21278a33722c">
+                              <SHORT-NAME>eMIOS_13</SHORT-NAME>
+                            </ENUMERATION-LITERAL-DEF>
+                            <ENUMERATION-LITERAL-DEF UUID="928e53b4-da33-4318-b7d5-1699f7dd6c24">
+                              <SHORT-NAME>eMIOS_13_VIO</SHORT-NAME>
+                            </ENUMERATION-LITERAL-DEF>
+                            <ENUMERATION-LITERAL-DEF UUID="9408e5bd-f8f4-4ee7-af84-4abc489fd1be">
+                              <SHORT-NAME>eMIOS_14</SHORT-NAME>
+                            </ENUMERATION-LITERAL-DEF>
+                            <ENUMERATION-LITERAL-DEF UUID="fe374874-2b2b-4626-bd36-4a41648198da">
+                              <SHORT-NAME>eMIOS_14_VIO</SHORT-NAME>
+                            </ENUMERATION-LITERAL-DEF>
+                            <ENUMERATION-LITERAL-DEF UUID="f005abf2-0ac5-4a47-85b2-e07a0ef016cb">
+                              <SHORT-NAME>eMIOS_15</SHORT-NAME>
+                            </ENUMERATION-LITERAL-DEF>
+                            <ENUMERATION-LITERAL-DEF UUID="0ad032b0-0e40-45a4-8ead-5b124e181cf0">
+                              <SHORT-NAME>eMIOS_15_VIO</SHORT-NAME>
+                            </ENUMERATION-LITERAL-DEF>
+                            <ENUMERATION-LITERAL-DEF UUID="28905bcb-93c9-492b-b8b1-9adf4a0bd7b8">
+                              <SHORT-NAME>eMIOS_1</SHORT-NAME>
+                            </ENUMERATION-LITERAL-DEF>
+                            <ENUMERATION-LITERAL-DEF UUID="5d243e04-aa31-43da-87d6-840239cc6ebb">
+                              <SHORT-NAME>eMIOS_1_VIO</SHORT-NAME>
+                            </ENUMERATION-LITERAL-DEF>
+                            <ENUMERATION-LITERAL-DEF UUID="1d29194b-475e-4183-8914-ade6e57b2f6f">
+                              <SHORT-NAME>eMIOS_23</SHORT-NAME>
+                            </ENUMERATION-LITERAL-DEF>
+                            <ENUMERATION-LITERAL-DEF UUID="90f60f7b-f44d-439a-8450-51249cc2f26b">
+                              <SHORT-NAME>eMIOS_23_VIO</SHORT-NAME>
+                            </ENUMERATION-LITERAL-DEF>
+                            <ENUMERATION-LITERAL-DEF UUID="54431686-3bd2-4833-894c-f00fd1f7a048">
+                              <SHORT-NAME>eMIOS_2</SHORT-NAME>
+                            </ENUMERATION-LITERAL-DEF>
+                            <ENUMERATION-LITERAL-DEF UUID="9790fd75-18bf-402b-a990-004fcb4b0c69">
+                              <SHORT-NAME>eMIOS_2_VIO</SHORT-NAME>
+                            </ENUMERATION-LITERAL-DEF>
+                            <ENUMERATION-LITERAL-DEF UUID="67f03a67-f6bd-4b67-b227-c636e64d4ddc">
+                              <SHORT-NAME>eMIOS_3_VIO</SHORT-NAME>
+                            </ENUMERATION-LITERAL-DEF>
+                            <ENUMERATION-LITERAL-DEF UUID="e8d5a456-3d53-41c5-be18-ab28da7d5e99">
+                              <SHORT-NAME>eMIOS_4</SHORT-NAME>
+                            </ENUMERATION-LITERAL-DEF>
+                            <ENUMERATION-LITERAL-DEF UUID="69e2a9c2-5cca-4e1d-85d6-c6da80e05186">
+                              <SHORT-NAME>eMIOS_4_VIO</SHORT-NAME>
+                            </ENUMERATION-LITERAL-DEF>
+                            <ENUMERATION-LITERAL-DEF UUID="af419d28-2e59-4ca0-9eb3-2635bae191c1">
+                              <SHORT-NAME>eMIOS_5</SHORT-NAME>
+                            </ENUMERATION-LITERAL-DEF>
+                            <ENUMERATION-LITERAL-DEF UUID="59f32d5e-4f73-43cd-a99c-c10edb437ad1">
+                              <SHORT-NAME>eMIOS_5_VIO</SHORT-NAME>
+                            </ENUMERATION-LITERAL-DEF>
+                            <ENUMERATION-LITERAL-DEF UUID="d4b360cb-bc3e-4e87-bbe6-f36cc254d4e5">
+                              <SHORT-NAME>eMIOS_6_VIO</SHORT-NAME>
+                            </ENUMERATION-LITERAL-DEF>
+                            <ENUMERATION-LITERAL-DEF UUID="8f8304ed-cf32-4b8c-a6f1-d464e3660620">
+                              <SHORT-NAME>eMIOS_8</SHORT-NAME>
+                            </ENUMERATION-LITERAL-DEF>
+                            <ENUMERATION-LITERAL-DEF UUID="4db417ad-938b-423c-8441-1ab289dbcc91">
+                              <SHORT-NAME>eMIOS_8_VIO</SHORT-NAME>
+                            </ENUMERATION-LITERAL-DEF>
+                            <ENUMERATION-LITERAL-DEF UUID="15f0940c-d342-47f5-af1d-d0d9bbaa30c6">
+                              <SHORT-NAME>eMIOS_9</SHORT-NAME>
+                            </ENUMERATION-LITERAL-DEF>
+                            <ENUMERATION-LITERAL-DEF UUID="b1b2eb1d-c940-44e9-af75-63978d38b5e8">
+                              <SHORT-NAME>eMIOS_9_VIO</SHORT-NAME>
+                            </ENUMERATION-LITERAL-DEF>
+                            <ENUMERATION-LITERAL-DEF UUID="59e720d5-02af-4dda-ab28-457a5d430bab">
+                              <SHORT-NAME>eMIOS_A_6</SHORT-NAME>
+                            </ENUMERATION-LITERAL-DEF>
+                            <ENUMERATION-LITERAL-DEF UUID="1dd024f8-77ab-4ef8-90bf-334d54db00cd">
+                              <SHORT-NAME>eSCI_A_RX</SHORT-NAME>
+                            </ENUMERATION-LITERAL-DEF>
+                            <ENUMERATION-LITERAL-DEF UUID="10d42439-808c-4faf-9f18-a52507232540">
+                              <SHORT-NAME>eSCI_A_TX</SHORT-NAME>
+                            </ENUMERATION-LITERAL-DEF>
+                            <ENUMERATION-LITERAL-DEF UUID="21d3780c-64b1-46f0-a7a8-89d3a3fbe0a2">
+                              <SHORT-NAME>eSCI_B_RX</SHORT-NAME>
+                            </ENUMERATION-LITERAL-DEF>
+                            <ENUMERATION-LITERAL-DEF UUID="00256816-b968-4274-86b2-c4a2cd8158f7">
+                              <SHORT-NAME>eSCI_B_TX</SHORT-NAME>
+                            </ENUMERATION-LITERAL-DEF>
+                            <ENUMERATION-LITERAL-DEF UUID="ccd35006-bb0a-437d-a5c2-a6a01d4e2317">
+                              <SHORT-NAME>eTPU_A13</SHORT-NAME>
+                            </ENUMERATION-LITERAL-DEF>
+                            <ENUMERATION-LITERAL-DEF UUID="aeeab3e0-27bc-4118-88b3-207a16bd822d">
+                              <SHORT-NAME>eTPU_A_0</SHORT-NAME>
+                            </ENUMERATION-LITERAL-DEF>
+                            <ENUMERATION-LITERAL-DEF UUID="8741b1f3-03fd-4b6d-8e4c-9dd8396f6529">
+                              <SHORT-NAME>eTPU_A_0_VIO</SHORT-NAME>
+                            </ENUMERATION-LITERAL-DEF>
+                            <ENUMERATION-LITERAL-DEF UUID="87eea05c-5c43-4cfc-b133-452f580f8815">
+                              <SHORT-NAME>eTPU_A_10</SHORT-NAME>
+                            </ENUMERATION-LITERAL-DEF>
+                            <ENUMERATION-LITERAL-DEF UUID="09f7f1d1-7f00-4a87-86a8-cacc67d0ca5f">
+                              <SHORT-NAME>eTPU_A_10_VIO</SHORT-NAME>
+                            </ENUMERATION-LITERAL-DEF>
+                            <ENUMERATION-LITERAL-DEF UUID="a4d33cbc-81a4-4b9e-9a31-82d96895a91b">
+                              <SHORT-NAME>eTPU_A_11</SHORT-NAME>
+                            </ENUMERATION-LITERAL-DEF>
+                            <ENUMERATION-LITERAL-DEF UUID="985cee4a-4fd5-47b4-9143-3cee4edcfe51">
+                              <SHORT-NAME>eTPU_A_11_VIO</SHORT-NAME>
+                            </ENUMERATION-LITERAL-DEF>
+                            <ENUMERATION-LITERAL-DEF UUID="cce49303-1aee-41d9-b738-19b37b9e1fac">
+                              <SHORT-NAME>eTPU_A_12</SHORT-NAME>
+                            </ENUMERATION-LITERAL-DEF>
+                            <ENUMERATION-LITERAL-DEF UUID="eecb8e6b-9b14-4271-8f2a-094c82755110">
+                              <SHORT-NAME>eTPU_A_12_VIO</SHORT-NAME>
+                            </ENUMERATION-LITERAL-DEF>
+                            <ENUMERATION-LITERAL-DEF UUID="2ca1f23a-201c-4940-a0ae-02ea4cc28bb7">
+                              <SHORT-NAME>eTPU_A_13</SHORT-NAME>
+                            </ENUMERATION-LITERAL-DEF>
+                            <ENUMERATION-LITERAL-DEF UUID="b233df8f-1ffb-46d9-a52f-3a3c860f9be4">
+                              <SHORT-NAME>eTPU_A_13_VIO</SHORT-NAME>
+                            </ENUMERATION-LITERAL-DEF>
+                            <ENUMERATION-LITERAL-DEF UUID="1accefb1-e376-48d2-93d3-029f4575b800">
+                              <SHORT-NAME>eTPU_A_14</SHORT-NAME>
+                            </ENUMERATION-LITERAL-DEF>
+                            <ENUMERATION-LITERAL-DEF UUID="002b454b-bd40-4bf5-b2db-5d08eae73f92">
+                              <SHORT-NAME>eTPU_A_14_VIO</SHORT-NAME>
+                            </ENUMERATION-LITERAL-DEF>
+                            <ENUMERATION-LITERAL-DEF UUID="099badf4-aa22-4c8d-8259-bf7c3aa223b5">
+                              <SHORT-NAME>eTPU_A_15</SHORT-NAME>
+                            </ENUMERATION-LITERAL-DEF>
+                            <ENUMERATION-LITERAL-DEF UUID="327fd839-69ed-4a81-82b5-4149fb99f08e">
+                              <SHORT-NAME>eTPU_A_15_VIO</SHORT-NAME>
+                            </ENUMERATION-LITERAL-DEF>
+                            <ENUMERATION-LITERAL-DEF UUID="e191af10-b871-4f98-97ff-0a09d5511bb2">
+                              <SHORT-NAME>eTPU_A_16</SHORT-NAME>
+                            </ENUMERATION-LITERAL-DEF>
+                            <ENUMERATION-LITERAL-DEF UUID="f958829f-4175-4c1b-bfbc-397a12ad2eef">
+                              <SHORT-NAME>eTPU_A_16_VIO</SHORT-NAME>
+                            </ENUMERATION-LITERAL-DEF>
+                            <ENUMERATION-LITERAL-DEF UUID="3627fd37-e64e-44a4-bc95-107046598aa6">
+                              <SHORT-NAME>eTPU_A_17</SHORT-NAME>
+                            </ENUMERATION-LITERAL-DEF>
+                            <ENUMERATION-LITERAL-DEF UUID="16a4522f-6efb-4289-98c2-a4f538d94cfd">
+                              <SHORT-NAME>eTPU_A_17_VIO</SHORT-NAME>
+                            </ENUMERATION-LITERAL-DEF>
+                            <ENUMERATION-LITERAL-DEF UUID="96184405-c806-489a-9c95-4bb04b1c412f">
+                              <SHORT-NAME>eTPU_A_18</SHORT-NAME>
+                            </ENUMERATION-LITERAL-DEF>
+                            <ENUMERATION-LITERAL-DEF UUID="e9ac282a-bf44-4003-8315-409559657d4d">
+                              <SHORT-NAME>eTPU_A_18_VIO</SHORT-NAME>
+                            </ENUMERATION-LITERAL-DEF>
+                            <ENUMERATION-LITERAL-DEF UUID="7ed5b8fd-eee1-4c46-ad7d-293af4512f8e">
+                              <SHORT-NAME>eTPU_A_19</SHORT-NAME>
+                            </ENUMERATION-LITERAL-DEF>
+                            <ENUMERATION-LITERAL-DEF UUID="7b610606-3f05-44ab-afdc-64a95d2f06d1">
+                              <SHORT-NAME>eTPU_A_19_VIO</SHORT-NAME>
+                            </ENUMERATION-LITERAL-DEF>
+                            <ENUMERATION-LITERAL-DEF UUID="24e83578-8a3e-476b-9b53-0e609e33b161">
+                              <SHORT-NAME>eTPU_A_1</SHORT-NAME>
+                            </ENUMERATION-LITERAL-DEF>
+                            <ENUMERATION-LITERAL-DEF UUID="db7c3d77-7447-4c87-a53b-6b08c614bc9e">
+                              <SHORT-NAME>eTPU_A_1_VIO</SHORT-NAME>
+                            </ENUMERATION-LITERAL-DEF>
+                            <ENUMERATION-LITERAL-DEF UUID="99b47693-3fb2-4c5e-aac6-2ac0a5696b02">
+                              <SHORT-NAME>eTPU_A_20</SHORT-NAME>
+                            </ENUMERATION-LITERAL-DEF>
+                            <ENUMERATION-LITERAL-DEF UUID="2afc165f-5606-4acb-86ed-9923e713e2e9">
+                              <SHORT-NAME>eTPU_A_20_VIO</SHORT-NAME>
+                            </ENUMERATION-LITERAL-DEF>
+                            <ENUMERATION-LITERAL-DEF UUID="6c1dc451-b3bc-4a3e-b491-0bb9717c7f6c">
+                              <SHORT-NAME>eTPU_A_21</SHORT-NAME>
+                            </ENUMERATION-LITERAL-DEF>
+                            <ENUMERATION-LITERAL-DEF UUID="da152d81-5450-4f59-9198-532e598109e7">
+                              <SHORT-NAME>eTPU_A_21_VIO</SHORT-NAME>
+                            </ENUMERATION-LITERAL-DEF>
+                            <ENUMERATION-LITERAL-DEF UUID="6c0a9f39-2d8e-466f-a8fe-c07e19da6739">
+                              <SHORT-NAME>eTPU_A_22</SHORT-NAME>
+                            </ENUMERATION-LITERAL-DEF>
+                            <ENUMERATION-LITERAL-DEF UUID="bca37fef-d04a-4e39-a539-07e0c7618aa6">
+                              <SHORT-NAME>eTPU_A_22_VIO</SHORT-NAME>
+                            </ENUMERATION-LITERAL-DEF>
+                            <ENUMERATION-LITERAL-DEF UUID="6d216512-31f9-4953-80a0-60bdd1705fb6">
+                              <SHORT-NAME>eTPU_A_23</SHORT-NAME>
+                            </ENUMERATION-LITERAL-DEF>
+                            <ENUMERATION-LITERAL-DEF UUID="a395944a-89c0-439f-8e1e-c28230a01d2a">
+                              <SHORT-NAME>eTPU_A_23_VIO</SHORT-NAME>
+                            </ENUMERATION-LITERAL-DEF>
+                            <ENUMERATION-LITERAL-DEF UUID="c91f839a-3d0d-401f-8f32-96510f426451">
+                              <SHORT-NAME>eTPU_A_24</SHORT-NAME>
+                            </ENUMERATION-LITERAL-DEF>
+                            <ENUMERATION-LITERAL-DEF UUID="17eca9ec-a19c-4422-ab41-4332b8e334f8">
+                              <SHORT-NAME>eTPU_A_24_VIO</SHORT-NAME>
+                            </ENUMERATION-LITERAL-DEF>
+                            <ENUMERATION-LITERAL-DEF UUID="625b0fa7-4639-43e3-829d-e69fe16fbe04">
+                              <SHORT-NAME>eTPU_A_25</SHORT-NAME>
+                            </ENUMERATION-LITERAL-DEF>
+                            <ENUMERATION-LITERAL-DEF UUID="d17d30de-90d7-4b5a-8600-50835e864c48">
+                              <SHORT-NAME>eTPU_A_25_VIO</SHORT-NAME>
+                            </ENUMERATION-LITERAL-DEF>
+                            <ENUMERATION-LITERAL-DEF UUID="e80c3659-0b0d-4e70-bb39-5b2d713f1d5b">
+                              <SHORT-NAME>eTPU_A_26</SHORT-NAME>
+                            </ENUMERATION-LITERAL-DEF>
+                            <ENUMERATION-LITERAL-DEF UUID="8a3c9aa7-9d5e-4851-8fa5-6726e9b0b68b">
+                              <SHORT-NAME>eTPU_A_26_VIO</SHORT-NAME>
+                            </ENUMERATION-LITERAL-DEF>
+                            <ENUMERATION-LITERAL-DEF UUID="b8b005ab-a0ae-4df9-8673-9575d34dd4e7">
+                              <SHORT-NAME>eTPU_A_27</SHORT-NAME>
+                            </ENUMERATION-LITERAL-DEF>
+                            <ENUMERATION-LITERAL-DEF UUID="92e92067-f2c1-4f80-ac59-bff67e6aeced">
+                              <SHORT-NAME>eTPU_A_27_VIO</SHORT-NAME>
+                            </ENUMERATION-LITERAL-DEF>
+                            <ENUMERATION-LITERAL-DEF UUID="8ffa1788-17b4-4a06-a13d-d3cb8767778a">
+                              <SHORT-NAME>eTPU_A_28</SHORT-NAME>
+                            </ENUMERATION-LITERAL-DEF>
+                            <ENUMERATION-LITERAL-DEF UUID="331577fb-32f1-4856-abcd-b3b885ec5c6f">
+                              <SHORT-NAME>eTPU_A_28_VIO</SHORT-NAME>
+                            </ENUMERATION-LITERAL-DEF>
+                            <ENUMERATION-LITERAL-DEF UUID="fa235ecc-6dc9-4b60-98ed-a1bfff5ab303">
+                              <SHORT-NAME>eTPU_A_29</SHORT-NAME>
+                            </ENUMERATION-LITERAL-DEF>
+                            <ENUMERATION-LITERAL-DEF UUID="dd9d5742-990e-43fa-b2ad-92c6aec56a60">
+                              <SHORT-NAME>eTPU_A_29_VIO</SHORT-NAME>
+                            </ENUMERATION-LITERAL-DEF>
+                            <ENUMERATION-LITERAL-DEF UUID="3bf2fe51-9726-4a9c-932e-5bb9e0a1cb8d">
+                              <SHORT-NAME>eTPU_A_2</SHORT-NAME>
+                            </ENUMERATION-LITERAL-DEF>
+                            <ENUMERATION-LITERAL-DEF UUID="efc222c1-d667-4347-b080-1803d5b69704">
+                              <SHORT-NAME>eTPU_A_2_VIO</SHORT-NAME>
+                            </ENUMERATION-LITERAL-DEF>
+                            <ENUMERATION-LITERAL-DEF UUID="a5d9598b-6105-43af-9330-fc187eb597c2">
+                              <SHORT-NAME>eTPU_A_30</SHORT-NAME>
+                            </ENUMERATION-LITERAL-DEF>
+                            <ENUMERATION-LITERAL-DEF UUID="af56e297-9f67-4b04-bda3-1601b4db92b0">
+                              <SHORT-NAME>eTPU_A_30_VIO</SHORT-NAME>
+                            </ENUMERATION-LITERAL-DEF>
+                            <ENUMERATION-LITERAL-DEF UUID="4a87bb48-1e48-4b7c-9821-2270512694dd">
+                              <SHORT-NAME>eTPU_A_31</SHORT-NAME>
+                            </ENUMERATION-LITERAL-DEF>
+                            <ENUMERATION-LITERAL-DEF UUID="31e20922-f831-45a2-b0ab-3b77b6709fa3">
+                              <SHORT-NAME>eTPU_A_31_VIO</SHORT-NAME>
+                            </ENUMERATION-LITERAL-DEF>
+                            <ENUMERATION-LITERAL-DEF UUID="2ba9644d-7c81-4780-8ab7-44982257a9b6">
+                              <SHORT-NAME>eTPU_A_3</SHORT-NAME>
+                            </ENUMERATION-LITERAL-DEF>
+                            <ENUMERATION-LITERAL-DEF UUID="380193c3-9442-44f8-8f4e-4b0b8165ad3d">
+                              <SHORT-NAME>eTPU_A_3_VIO</SHORT-NAME>
+                            </ENUMERATION-LITERAL-DEF>
+                            <ENUMERATION-LITERAL-DEF UUID="5ff747ba-005b-4204-8547-509e25776d74">
+                              <SHORT-NAME>eTPU_A_4</SHORT-NAME>
+                            </ENUMERATION-LITERAL-DEF>
+                            <ENUMERATION-LITERAL-DEF UUID="282c21a0-e808-498a-a120-bea4c896b216">
+                              <SHORT-NAME>eTPU_A_4_VIO</SHORT-NAME>
+                            </ENUMERATION-LITERAL-DEF>
+                            <ENUMERATION-LITERAL-DEF UUID="882bea0d-cf88-4f22-9806-a0990e3c50db">
+                              <SHORT-NAME>eTPU_A_5</SHORT-NAME>
+                            </ENUMERATION-LITERAL-DEF>
+                            <ENUMERATION-LITERAL-DEF UUID="e799e91b-aa0e-4bd3-934e-67bbca3b0fc6">
+                              <SHORT-NAME>eTPU_A_5_VIO</SHORT-NAME>
+                            </ENUMERATION-LITERAL-DEF>
+                            <ENUMERATION-LITERAL-DEF UUID="e0641a27-c199-4914-a0c0-cdc1371b4bae">
+                              <SHORT-NAME>eTPU_A_6</SHORT-NAME>
+                            </ENUMERATION-LITERAL-DEF>
+                            <ENUMERATION-LITERAL-DEF UUID="04fb37ff-3ba6-43e9-b77a-dd8b83bce394">
+                              <SHORT-NAME>eTPU_A_6_VIO</SHORT-NAME>
+                            </ENUMERATION-LITERAL-DEF>
+                            <ENUMERATION-LITERAL-DEF UUID="3ff73fc1-b554-4263-b779-e8e444a3dd5d">
+                              <SHORT-NAME>eTPU_A_7</SHORT-NAME>
+                            </ENUMERATION-LITERAL-DEF>
+                            <ENUMERATION-LITERAL-DEF UUID="8d7aae33-3857-4d1e-9c77-64b894e8a03b">
+                              <SHORT-NAME>eTPU_A_7_VIO</SHORT-NAME>
+                            </ENUMERATION-LITERAL-DEF>
+                            <ENUMERATION-LITERAL-DEF UUID="ab0459fc-09de-4f33-8f6d-f801f7f904ac">
+                              <SHORT-NAME>eTPU_A_8</SHORT-NAME>
+                            </ENUMERATION-LITERAL-DEF>
+                            <ENUMERATION-LITERAL-DEF UUID="9c2cfa66-f8f7-490f-9a5f-5c751b824156">
+                              <SHORT-NAME>eTPU_A_8_VIO</SHORT-NAME>
+                            </ENUMERATION-LITERAL-DEF>
+                            <ENUMERATION-LITERAL-DEF UUID="9ba65f1e-6213-41da-bb49-869c078ea050">
+                              <SHORT-NAME>eTPU_A_9</SHORT-NAME>
+                            </ENUMERATION-LITERAL-DEF>
+                            <ENUMERATION-LITERAL-DEF UUID="5af62461-e138-4a87-b4b3-4fe7ef2e1992">
+                              <SHORT-NAME>eTPU_A_9_VIO</SHORT-NAME>
+                            </ENUMERATION-LITERAL-DEF>
+                            <ENUMERATION-LITERAL-DEF UUID="5d3ec40b-e784-4dcd-aef6-8c9e5ba5a4b9">
+                              <SHORT-NAME>ETRIG_2</SHORT-NAME>
+                            </ENUMERATION-LITERAL-DEF>
+                            <ENUMERATION-LITERAL-DEF UUID="7b7db0da-8d27-4135-9f9c-2c8b757fcd3a">
+                              <SHORT-NAME>ETRIG_3</SHORT-NAME>
+                            </ENUMERATION-LITERAL-DEF>
+                            <ENUMERATION-LITERAL-DEF UUID="12a073fc-1b1f-4df6-9304-83fd97a79227">
+                              <SHORT-NAME>FCK</SHORT-NAME>
+                            </ENUMERATION-LITERAL-DEF>
+                            <ENUMERATION-LITERAL-DEF UUID="2be3e45d-cbf8-46ae-a8d8-b6336bd8f9ea">
+                              <SHORT-NAME>IRQ_0</SHORT-NAME>
+                            </ENUMERATION-LITERAL-DEF>
+                            <ENUMERATION-LITERAL-DEF UUID="72d62c3b-9e3b-4992-913c-d17cf643c0da">
+                              <SHORT-NAME>IRQ_10</SHORT-NAME>
+                            </ENUMERATION-LITERAL-DEF>
+                            <ENUMERATION-LITERAL-DEF UUID="ff2c82a3-f5c5-431f-8429-ca56324eb87c">
+                              <SHORT-NAME>IRQ_11</SHORT-NAME>
+                            </ENUMERATION-LITERAL-DEF>
+                            <ENUMERATION-LITERAL-DEF UUID="d5cf1090-835a-4ce7-a177-c8e7a55ac008">
+                              <SHORT-NAME>IRQ_12</SHORT-NAME>
+                            </ENUMERATION-LITERAL-DEF>
+                            <ENUMERATION-LITERAL-DEF UUID="b9d1e786-ff2b-4a8a-8600-6ef3bd6c41ad">
+                              <SHORT-NAME>IRQ_13</SHORT-NAME>
+                            </ENUMERATION-LITERAL-DEF>
+                            <ENUMERATION-LITERAL-DEF UUID="f7d3749e-5f65-426c-810f-1c6172753999">
+                              <SHORT-NAME>IRQ_14</SHORT-NAME>
+                            </ENUMERATION-LITERAL-DEF>
+                            <ENUMERATION-LITERAL-DEF UUID="3a31da4e-de64-433c-bf4c-fef932991434">
+                              <SHORT-NAME>IRQ_15</SHORT-NAME>
+                            </ENUMERATION-LITERAL-DEF>
+                            <ENUMERATION-LITERAL-DEF UUID="7bc273a0-32b1-4bee-9d48-9d8e4a7bdf1b">
+                              <SHORT-NAME>IRQ_1</SHORT-NAME>
+                            </ENUMERATION-LITERAL-DEF>
+                            <ENUMERATION-LITERAL-DEF UUID="7ed39a12-5b87-4d16-86b7-b1d689ca41d9">
+                              <SHORT-NAME>IRQ_3</SHORT-NAME>
+                            </ENUMERATION-LITERAL-DEF>
+                            <ENUMERATION-LITERAL-DEF UUID="6aba57a9-0e0d-4e56-8bc3-0c9a73ee3cfa">
+                              <SHORT-NAME>IRQ_4</SHORT-NAME>
+                            </ENUMERATION-LITERAL-DEF>
+                            <ENUMERATION-LITERAL-DEF UUID="7bcd418e-5676-4a91-9d28-4865c126ec4d">
+                              <SHORT-NAME>IRQ_8</SHORT-NAME>
+                            </ENUMERATION-LITERAL-DEF>
+                            <ENUMERATION-LITERAL-DEF UUID="bb870e44-9872-4631-bfa2-3e8b8b7cc94a">
+                              <SHORT-NAME>IRQ_9</SHORT-NAME>
+                            </ENUMERATION-LITERAL-DEF>
+                            <ENUMERATION-LITERAL-DEF UUID="a9f14ea2-c432-4f12-a2a1-c5deec84dc17">
+                              <SHORT-NAME>JTAG_TDI</SHORT-NAME>
+                            </ENUMERATION-LITERAL-DEF>
+                            <ENUMERATION-LITERAL-DEF UUID="148d5e0d-64f6-4a41-abc6-c19f1a0efb42">
+                              <SHORT-NAME>MA_0</SHORT-NAME>
+                            </ENUMERATION-LITERAL-DEF>
+                            <ENUMERATION-LITERAL-DEF UUID="0ebe2a47-38ea-459b-8cee-ed814bcb577a">
+                              <SHORT-NAME>MA_1</SHORT-NAME>
+                            </ENUMERATION-LITERAL-DEF>
+                            <ENUMERATION-LITERAL-DEF UUID="adb991a0-6f2e-485b-9d8a-ea8bc9ff5c5c">
+                              <SHORT-NAME>MA_2</SHORT-NAME>
+                            </ENUMERATION-LITERAL-DEF>
+                            <ENUMERATION-LITERAL-DEF UUID="e8997eef-7ad9-4a70-ac93-98e2be0e47a1">
+                              <SHORT-NAME>NEXUS_EVTI</SHORT-NAME>
+                            </ENUMERATION-LITERAL-DEF>
+                            <ENUMERATION-LITERAL-DEF UUID="2f904574-f05f-499e-be2e-51c46a0efe5a">
+                              <SHORT-NAME>NEXUS_MDO</SHORT-NAME>
+                            </ENUMERATION-LITERAL-DEF>
+                            <ENUMERATION-LITERAL-DEF UUID="01a8e6e6-0b0a-4330-9fe6-c125ffa955cf">
+                              <SHORT-NAME>NMI</SHORT-NAME>
+                            </ENUMERATION-LITERAL-DEF>
+                            <ENUMERATION-LITERAL-DEF UUID="72914cae-6771-46a2-94b2-69c6d29363e4">
+                              <SHORT-NAME>PLLREF</SHORT-NAME>
+                            </ENUMERATION-LITERAL-DEF>
+                            <ENUMERATION-LITERAL-DEF UUID="6ff10bd6-c580-433c-8e3f-9c135a16c3ba">
+                              <SHORT-NAME>SDI</SHORT-NAME>
+                            </ENUMERATION-LITERAL-DEF>
+                            <ENUMERATION-LITERAL-DEF UUID="d559d9f8-d39d-4386-bc15-259b338094f6">
+                              <SHORT-NAME>SDO</SHORT-NAME>
+                            </ENUMERATION-LITERAL-DEF>
+                            <ENUMERATION-LITERAL-DEF UUID="35301dd1-00b0-4760-9011-af49f67644eb">
+                              <SHORT-NAME>SDS</SHORT-NAME>
+                            </ENUMERATION-LITERAL-DEF>
+                            <ENUMERATION-LITERAL-DEF UUID="b3434d11-e0fc-48ab-9303-791f1a8f0db7">
+                              <SHORT-NAME>WKPCFG</SHORT-NAME>
+                            </ENUMERATION-LITERAL-DEF>
+                          </LITERALS>
+                        </ENUMERATION-PARAM-DEF>
+                        <ENUMERATION-PARAM-DEF UUID="ECUC:10f36f02-6f66-42c8-b806-3e811c900f7a">
+                          <SHORT-NAME>PortPinInitialMode</SHORT-NAME>
+                          <DESC>
+                            <L-2>
+                                                              
+                                                            Port pin mode from mode list for use with Port_Init() function.
+                                                            NOTE: This parameter is not used in the current implementation and is retained as per std AUTOSAR_EcucParamDef.arxml file.
+                                                              
+                                                            </L-2>
+                          </DESC>
+                          <LOWER-MULTIPLICITY>1</LOWER-MULTIPLICITY>
+                          <UPPER-MULTIPLICITY>1</UPPER-MULTIPLICITY>
+                          <IMPLEMENTATION-CONFIG-CLASSES>
+                            <IMPLEMENTATION-CONFIG-CLASS>
+                              <CONFIG-CLASS>PRE-COMPILE</CONFIG-CLASS>
+                              <CONFIG-VARIANT>VARIANT-PRE-COMPILE</CONFIG-VARIANT>
+                            </IMPLEMENTATION-CONFIG-CLASS>
+                            <IMPLEMENTATION-CONFIG-CLASS>
+                              <CONFIG-CLASS>POST-BUILD</CONFIG-CLASS>
+                              <CONFIG-VARIANT>VARIANT-POST-BUILD</CONFIG-VARIANT>
+                            </IMPLEMENTATION-CONFIG-CLASS>
+                          </IMPLEMENTATION-CONFIG-CLASSES>
+                          <ORIGIN>AUTOSAR_ECUC</ORIGIN>
+                          <SYMBOLIC-NAME-VALUE>false</SYMBOLIC-NAME-VALUE>
+                          <DEFAULT-VALUE>PORT_GPIO_MODE</DEFAULT-VALUE>
+                          <LITERALS>
+                            <ENUMERATION-LITERAL-DEF UUID="99e3b5f4-3afd-4356-85aa-5ab5cbbfb257">
+                              <SHORT-NAME>PORT_GPIO_MODE</SHORT-NAME>
+                            </ENUMERATION-LITERAL-DEF>
+                            <ENUMERATION-LITERAL-DEF UUID="6ec76041-0c15-4043-bc87-0e10e05f9cca">
+                              <SHORT-NAME>PORT_PRIMARY_FUNC_MODE</SHORT-NAME>
+                            </ENUMERATION-LITERAL-DEF>
+                            <ENUMERATION-LITERAL-DEF UUID="395bbf31-6d19-4287-8063-808fcd0d5316">
+                              <SHORT-NAME>PORT_ANALOG_INPUT_MODE</SHORT-NAME>
+                            </ENUMERATION-LITERAL-DEF>
+                            <ENUMERATION-LITERAL-DEF UUID="9266b5a6-90b6-4402-8b43-a054efcbd4e7">
+                              <SHORT-NAME>PORT_ALT1_FUNC_MODE</SHORT-NAME>
+                            </ENUMERATION-LITERAL-DEF>
+                            <ENUMERATION-LITERAL-DEF UUID="0eb429ad-8475-4237-aaa4-569dda877791">
+                              <SHORT-NAME>PORT_ALT2_FUNC_MODE</SHORT-NAME>
+                            </ENUMERATION-LITERAL-DEF>
+                            <ENUMERATION-LITERAL-DEF UUID="5339e225-dc09-4558-9a35-937b96a67b79">
+                              <SHORT-NAME>PORT_ALT3_FUNC_MODE</SHORT-NAME>
+                            </ENUMERATION-LITERAL-DEF>
+                          </LITERALS>
+                        </ENUMERATION-PARAM-DEF>
+                        <ENUMERATION-PARAM-DEF UUID="ECUC:504102ed-c2aa-4482-a13e-f066f347422b">
+                          <SHORT-NAME>PortPinDirection</SHORT-NAME>
+                          <DESC>
+                            <L-2>
+                                                              
+                                                                Selects the initial direction of the pin (IN or OUT). If the direction is not changeable, the value configured here is fixed.
+                                                                The pin direction can be set only for the GPIO pins. For the Alternative Function modes the OUT pin direction is hw selected.
+                                                                If the IN direction is needed too, it can be set at runtime.
+                                                                NOTE: To set the IN direction take care, please, that all the possible module inputs, possible as Alternative Functions for the pad mode,
+                                                                are hw connected together, if IN direction is enabled, to the pad.
+                                                              
+                                                                </L-2>
+                          </DESC>
+                          <LOWER-MULTIPLICITY>1</LOWER-MULTIPLICITY>
+                          <UPPER-MULTIPLICITY>1</UPPER-MULTIPLICITY>
+                          <IMPLEMENTATION-CONFIG-CLASSES>
+                            <IMPLEMENTATION-CONFIG-CLASS>
+                              <CONFIG-CLASS>PRE-COMPILE</CONFIG-CLASS>
+                              <CONFIG-VARIANT>VARIANT-PRE-COMPILE</CONFIG-VARIANT>
+                            </IMPLEMENTATION-CONFIG-CLASS>
+                            <IMPLEMENTATION-CONFIG-CLASS>
+                              <CONFIG-CLASS>POST-BUILD</CONFIG-CLASS>
+                              <CONFIG-VARIANT>VARIANT-POST-BUILD</CONFIG-VARIANT>
+                            </IMPLEMENTATION-CONFIG-CLASS>
+                          </IMPLEMENTATION-CONFIG-CLASSES>
+                          <ORIGIN>AUTOSAR_ECUC</ORIGIN>
+                          <SYMBOLIC-NAME-VALUE>false</SYMBOLIC-NAME-VALUE>
+                          <DEFAULT-VALUE>PortPinDirectionIn</DEFAULT-VALUE>
+                          <LITERALS>
+                            <ENUMERATION-LITERAL-DEF UUID="3f2843e2-161b-4aa7-a182-40be86d5e4d1">
+                              <SHORT-NAME>PortPinDirectionIn</SHORT-NAME>
+                            </ENUMERATION-LITERAL-DEF>
+                            <ENUMERATION-LITERAL-DEF UUID="a3c25456-4d6a-4436-a15d-89efdaa80fa4">
+                              <SHORT-NAME>PortPinDirectionOut</SHORT-NAME>
+                            </ENUMERATION-LITERAL-DEF>
+                          </LITERALS>
+                        </ENUMERATION-PARAM-DEF>
+                        <ENUMERATION-PARAM-DEF UUID="ECUC:79358de2-eae0-406c-9346-8f196b9c5513">
+                          <SHORT-NAME>PortPinLevelValue</SHORT-NAME>
+                          <DESC>
+                            <L-2>
+                                                              
+                                                                Port Pin Level value from Port pin list.
+                                                              
+                                                                </L-2>
+                          </DESC>
+                          <LOWER-MULTIPLICITY>1</LOWER-MULTIPLICITY>
+                          <UPPER-MULTIPLICITY>1</UPPER-MULTIPLICITY>
+                          <IMPLEMENTATION-CONFIG-CLASSES>
+                            <IMPLEMENTATION-CONFIG-CLASS>
+                              <CONFIG-CLASS>PRE-COMPILE</CONFIG-CLASS>
+                              <CONFIG-VARIANT>VARIANT-PRE-COMPILE</CONFIG-VARIANT>
+                            </IMPLEMENTATION-CONFIG-CLASS>
+                            <IMPLEMENTATION-CONFIG-CLASS>
+                              <CONFIG-CLASS>POST-BUILD</CONFIG-CLASS>
+                              <CONFIG-VARIANT>VARIANT-POST-BUILD</CONFIG-VARIANT>
+                            </IMPLEMENTATION-CONFIG-CLASS>
+                          </IMPLEMENTATION-CONFIG-CLASSES>
+                          <ORIGIN>AUTOSAR_ECUC</ORIGIN>
+                          <SYMBOLIC-NAME-VALUE>false</SYMBOLIC-NAME-VALUE>
+                          <DEFAULT-VALUE>PortPinLevelLow</DEFAULT-VALUE>
+                          <LITERALS>
+                            <ENUMERATION-LITERAL-DEF UUID="4386e7d5-daf3-4fe4-b66d-e6c7e4a4aa33">
+                              <SHORT-NAME>PortPinLevelHigh</SHORT-NAME>
+                            </ENUMERATION-LITERAL-DEF>
+                            <ENUMERATION-LITERAL-DEF UUID="bf2984c8-c042-4028-b823-75871e006b3d">
+                              <SHORT-NAME>PortPinLevelLow</SHORT-NAME>
+                            </ENUMERATION-LITERAL-DEF>
+                          </LITERALS>
+                        </ENUMERATION-PARAM-DEF>
+                        <ENUMERATION-PARAM-DEF UUID="ECUC:cee8f83c-c629-4012-b153-9e9853586cb2">
+                          <SHORT-NAME>PortPinSlewRate</SHORT-NAME>
+                          <DESC>
+                            <L-2>
+                                                                Enable/Disable Slew Rate for the configured Pin. This is an implementation specific parameter.
+                                                                </L-2>
+                          </DESC>
+                          <LOWER-MULTIPLICITY>1</LOWER-MULTIPLICITY>
+                          <UPPER-MULTIPLICITY>1</UPPER-MULTIPLICITY>
+                          <ORIGIN>Freescale</ORIGIN>
+                          <SYMBOLIC-NAME-VALUE>false</SYMBOLIC-NAME-VALUE>
+                          <DEFAULT-VALUE>MaximumValue</DEFAULT-VALUE>
+                          <LITERALS>
+                            <ENUMERATION-LITERAL-DEF UUID="02c5d87d-9e2d-4032-a927-c7a3f190e26f">
+                              <SHORT-NAME>MaximumValue</SHORT-NAME>
+                            </ENUMERATION-LITERAL-DEF>
+                            <ENUMERATION-LITERAL-DEF UUID="a25d3a2f-1f65-42e8-a0fd-cad953d1d41c">
+                              <SHORT-NAME>MediumValue</SHORT-NAME>
+                            </ENUMERATION-LITERAL-DEF>
+                            <ENUMERATION-LITERAL-DEF UUID="af5a9b08-4908-4ae1-8645-063f4c5c74ea">
+                              <SHORT-NAME>MinimumValue</SHORT-NAME>
+                            </ENUMERATION-LITERAL-DEF>
+                          </LITERALS>
+                        </ENUMERATION-PARAM-DEF>
+                        <ENUMERATION-PARAM-DEF UUID="ECUC:65a392dc-23ce-4cd5-b91e-9e7353de6f3b">
+                          <SHORT-NAME>PortPinDriveStrength</SHORT-NAME>
+                          <DESC>
+                            <L-2>
+                                                                Select the pad drive strength. Drive strength control pertains to pins with the fast I/O pad type.
+                                                                </L-2>
+                          </DESC>
+                          <LOWER-MULTIPLICITY>1</LOWER-MULTIPLICITY>
+                          <UPPER-MULTIPLICITY>1</UPPER-MULTIPLICITY>
+                          <ORIGIN>Freescale</ORIGIN>
+                          <SYMBOLIC-NAME-VALUE>false</SYMBOLIC-NAME-VALUE>
+                          <DEFAULT-VALUE>DriveStrength_10pF</DEFAULT-VALUE>
+                          <LITERALS>
+                            <ENUMERATION-LITERAL-DEF UUID="0ee2cfa2-070e-4d78-93f4-504ddaa6634f">
+                              <SHORT-NAME>DriveStrength_10pF</SHORT-NAME>
+                            </ENUMERATION-LITERAL-DEF>
+                            <ENUMERATION-LITERAL-DEF UUID="6b8dccb4-9a3e-4511-90a8-f54690b6db2a">
+                              <SHORT-NAME>DriveStrength_20pF</SHORT-NAME>
+                            </ENUMERATION-LITERAL-DEF>
+                            <ENUMERATION-LITERAL-DEF UUID="9921b3e9-47be-438d-b9cf-37e21ceb1237">
+                              <SHORT-NAME>DriveStrength_30pF</SHORT-NAME>
+                            </ENUMERATION-LITERAL-DEF>
+                            <ENUMERATION-LITERAL-DEF UUID="d84b28a0-09eb-4f31-9fdc-7cd543690ec9">
+                              <SHORT-NAME>DriveStrength_50pF</SHORT-NAME>
+                            </ENUMERATION-LITERAL-DEF>
+                          </LITERALS>
+                        </ENUMERATION-PARAM-DEF>
+                      </PARAMETERS>
+                    </PARAM-CONF-CONTAINER-DEF>
+                  </SUB-CONTAINERS>
+                </PARAM-CONF-CONTAINER-DEF>
+              </SUB-CONTAINERS>
+            </PARAM-CONF-CONTAINER-DEF>
+          </CONTAINERS>
+        </MODULE-DEF>
+      </ELEMENTS>
+    </AR-PACKAGE>
+  </TOP-LEVEL-PACKAGES>
+</AUTOSAR>

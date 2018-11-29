@@ -1,0 +1,162 @@
+/**************************************************************************************
+* 
+*  Freescale(TM) and the Freescale logo are trademarks of Freescale Semiconductor, Inc. 
+*  All other product or service names are the property of their respective owners. 
+*  (C) Freescale Semiconductor, Inc. 2009
+* 
+*  You can use this example for any purpose on any computer system with the
+*  following restrictions:
+*
+*  1. This example is provided "as is", without warranty.
+*
+*  2. You don't remove this copyright notice from this example or any direct derivation 
+*     thereof.
+*
+*  Description:  Common part of OIL file for each memory benchmark
+*
+**************************************************************************************/
+
+    COUNTER COUNTER1 {
+        TYPE = SOFTWARE;
+        MAXALLOWEDVALUE = 0xFFFF;
+        TICKSPERBASE = 1;
+        MINCYCLE = 0;
+    };
+
+    TASK TASKBGND {
+        AUTOSTART = TRUE;
+        PRIORITY = 0;
+        SCHEDULE = FULL;        
+        ACTIVATION = 1;
+    };
+    TASK TASK1 {
+        AUTOSTART = FALSE;
+        PRIORITY = 1;
+        SCHEDULE = FULL;        
+        ACTIVATION = 1;
+    };
+    TASK TASK2 {
+        AUTOSTART = FALSE;
+        PRIORITY = 2;
+        SCHEDULE = FULL;        
+        ACTIVATION = 1;
+    };
+    TASK TASK3 {
+        AUTOSTART = FALSE;
+        PRIORITY = 3;
+        SCHEDULE = FULL;        
+        ACTIVATION = 1;
+    };
+    TASK TASK4 {
+        AUTOSTART = FALSE;
+        PRIORITY = 4;
+        SCHEDULE = FULL;        
+        ACTIVATION = 1;
+    };
+    TASK TASK5 {
+        AUTOSTART = FALSE;
+        PRIORITY = 5;
+        SCHEDULE = FULL;        
+        ACTIVATION = 1;
+    };
+    TASK TASK6 {
+        AUTOSTART = FALSE;
+        PRIORITY = 6;
+        SCHEDULE = FULL;        
+        ACTIVATION = 1;
+    };
+    TASK TASK7 {
+        AUTOSTART = FALSE;
+        PRIORITY = 7;
+        SCHEDULE = FULL;        
+        ACTIVATION = 1;
+    };
+    TASK TASK8 {
+        AUTOSTART = FALSE;
+        PRIORITY = 8;
+        SCHEDULE = FULL;        
+        ACTIVATION = 1;
+    };
+    TASK TASK9 {
+        AUTOSTART = FALSE;
+        PRIORITY = 9;
+        SCHEDULE = FULL;        
+        ACTIVATION = 1;
+    };
+    TASK TASK10 {
+        AUTOSTART = FALSE;
+        PRIORITY = 10;
+        SCHEDULE = FULL;        
+        ACTIVATION = 1;
+    };
+    
+    ALARM ALARM1 {
+        COUNTER = COUNTER1;
+        AUTOSTART = FALSE;
+        ACTION = ACTIVATETASK {
+            TASK = TASK1;
+        };        
+    };
+    ALARM ALARM2 {
+        COUNTER = COUNTER1;
+        AUTOSTART = FALSE;
+        ACTION = ACTIVATETASK {
+            TASK = TASK2;
+        };        
+    };
+    ALARM ALARM3 {
+        COUNTER = COUNTER1;
+        AUTOSTART = FALSE;
+        ACTION = ACTIVATETASK {
+            TASK = TASK3;
+        };        
+    };
+    ALARM ALARM4 {
+        COUNTER = COUNTER1;
+        AUTOSTART = FALSE;
+        ACTION = ACTIVATETASK {
+            TASK = TASK4;
+        };        
+    };
+    ALARM ALARM5 {
+        COUNTER = COUNTER1;
+        AUTOSTART = FALSE;
+        ACTION = ACTIVATETASK {
+            TASK = TASK5;
+        };        
+    };
+    ALARM ALARM6 {
+        COUNTER = COUNTER1;
+        AUTOSTART = FALSE;
+        ACTION = ACTIVATETASK {
+            TASK = TASK6;
+        };        
+    };
+    ALARM ALARM7 {
+        COUNTER = COUNTER1;
+        AUTOSTART = FALSE;
+        ACTION = ACTIVATETASK {
+            TASK = TASK7;
+        };        
+    };
+    ALARM ALARM8 {
+        COUNTER = COUNTER1;
+        AUTOSTART = FALSE;
+        ACTION = ACTIVATETASK {
+            TASK = TASK8;
+        };        
+    };
+    ALARM ALARM9 {
+        COUNTER = COUNTER1;
+        AUTOSTART = FALSE;
+        ACTION = ACTIVATETASK {
+            TASK = TASK9;
+        };        
+    };
+    ALARM ALARM10 {
+        COUNTER = COUNTER1;
+        AUTOSTART = FALSE;
+        ACTION = ACTIVATETASK {
+            TASK = TASK10;
+        };        
+    };    

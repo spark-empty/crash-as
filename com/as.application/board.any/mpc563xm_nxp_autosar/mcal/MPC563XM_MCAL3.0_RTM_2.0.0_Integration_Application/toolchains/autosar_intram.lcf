@@ -1,0 +1,206 @@
+/*==================================================================================================
+
+   @file        autosar_flash.ld
+   @version     2.0.0
+
+   @brief       CW Linker Command File for Internal RAM for XPC564XA
+   @details     CW Linker Command File for Internal RAM for XPC564XA
+
+   Project      : AUTOSAR 3.0 MCAL
+   Patform      : PA
+   Peripheral   : 
+   Dependencies : Base Det Dem Port Dio Mcu SchM Wdg WdgIf CanIf LinIf EcuM
+
+   Autosar Version       : 1.9.0
+   Autosar Revision      : ASR_REL_1_9_REV_0003
+   Autosar Conf. Variant :
+   Software Version      : 2.0.0
+   Build Version         : MPC563xMxM_MCAL_2_0_0_RTM_ASR_REL_1_9_REV_0003_20110214
+
+   (c) Copyright 2006-2011 Freescale Semiconductor Inc. & STMicroelectronics
+   All Rights Reserved.
+
+===================================================================================================
+
+Note: This linker command file to be used with XPC564XA devices only.
+==================================================================================================*/
+
+MEMORY {
+
+    /* XPC563XM - Flash 1.5 MB - 0x00 - 0x17FFFF */
+
+    flash_rsvd1     : origin = 0x00000000,  length = 8
+    flash_memory    : origin = 0x00000008,  length = 0xEFFF8
+    flash_vec       : origin = 0x000F0000,  length = 0x90000
+
+
+    /* XPC563XM - SRAM 94 KB : 0x40000000 - 0x400177FF */
+
+    ram_rsvd1    :     org = 0x20000000, len = 0
+    int_sram     :     org = 0x40000000, len = 0x16360
+    res_ram      :     org = 0x40016360, len = 0x60
+    iram_stack   :     org = 0x400163C0, len = 0x1000
+    int_timers   :     org = 0x400173C0, len = 0x0340
+    int_results  :     org = 0x40017700, len = 0x0100
+    ram_rsvd2    :     org = 0x40017800, len = 0
+}
+
+/*
+ Program layout for starting in ROM, copying data to RAM,
+ and continuing to execute out of ROM.
+*/
+
+SECTIONS
+{
+/* Place BINDED entries first, then place other entries    */
+/* in order of desired relative placement.                 */
+
+/*----------------*/
+/* SECTIONS       */
+/*----------------*/
+      GROUP : {
+
+       .isrvectbl_cw (VLECODE) ALIGN(0x0010000) : {
+                            *(.isrvectbl_cw)
+                        }
+        .isrvectbl_cw_core (VLECODE) : {
+                                    *(.isrvectbl_cw_core)
+                                }
+        .rcw (TEXT)  : {}
+        .init (TEXT)  : {}
+        .init_cw (VLECODE) : { *(.init_cw) }
+        .text_vle (VLECODE) : {
+                        *(.text)
+                        *(.text_vle)
+                    }
+        .text : {}
+        .rodata (CONST) : {
+            *(.rdata)
+            *(.rodata)
+        }
+        .sdata2 : {}
+        .ctors : {}
+        .dtors : {}
+        .extab : {}
+        .extabindex :{}
+        extab : {}
+        extabindex :{}
+        .ramcode (VLECODE) ALIGN(0x10): { *(.ramcode)}
+        .data   : {}
+        .sdata  : {}
+        .sbss   : {}
+        .bss    : {}
+        .sdata0 : {}
+        .sdabase  : {}
+        .sbss0 : {}
+    }>int_sram
+
+    /* The second section will allocate space for the initialized data
+         * (.data/.sdata) and the unititialized data (.bss/.sbss) in the "ram" section.
+         */
+
+    GROUP : {
+        .pbadc_cfg(DATA) : {}
+    }> int_sram
+
+    GROUP : {
+        .pbcan_cfg(DATA) : {}
+    }> int_sram
+
+    GROUP : {
+        .pbdio_cfg(DATA) : {}
+    }> int_sram
+
+    GROUP : {
+        .pbfls_cfg(DATA) : {}
+    }> int_sram
+
+
+    GROUP : {
+        .pbfr_cfg(DATA) : {}
+    }> int_sram
+
+    GROUP : {
+        .pbgpt_cfg(DATA) : {}
+    }> int_sram
+
+    GROUP : {
+        .pbicu_cfg(DATA) : {}
+    }> int_sram
+
+    GROUP : {
+        .pblin_cfg(DATA) : {}
+    }> int_sram
+
+    GROUP : {
+        .pbmcu_cfg(DATA) : {}
+    }> int_sram
+
+    GROUP : {
+        .pbport_cfg(DATA) : {}
+    }> int_sram
+
+    GROUP : {
+        .pbpwm_cfg(DATA) : {}
+    }> int_sram
+
+    GROUP : {
+        .pbspi_cfg(DATA) : {}
+    }> int_sram
+
+    GROUP : {
+        .pbwdg_cfg(DATA) : {}
+    }> int_sram
+
+
+    /* CW linker file put isrvectbl_cw at 0x40000000 */
+    __IV_ADDR       = 0x40000000;
+
+    PB_ADC_CFG1     = ADDR(.pbadc_cfg);
+    PB_CAN_CFG1     = ADDR(.pbcan_cfg);
+    PB_DIO_CFG1     = ADDR(.pbdio_cfg);
+    PB_FLS_CFG1     = ADDR(.pbfls_cfg);
+    PB_FR_CFG1      = ADDR(.pbfr_cfg);
+    PB_GPT_CFG1     = ADDR(.pbgpt_cfg);
+    PB_ICU_CFG1     = ADDR(.pbicu_cfg);
+    PB_LIN_CFG1     = ADDR(.pblin_cfg);
+    PB_MCU_CFG1     = ADDR(.pbmcu_cfg);
+    PB_PORT_CFG1    = ADDR(.pbport_cfg);
+    PB_PWM_CFG1     = ADDR(.pbpwm_cfg);
+    PB_SPI_CFG1     = ADDR(.pbspi_cfg);
+    PB_WDG_CFG1     = ADDR(.pbwdg_cfg);
+
+    INT_SRAM_START  = ADDR(int_sram);
+    INT_SRAM_SIZE   = (SIZEOF(iram_stack)+SIZEOF(int_timers)+SIZEOF(int_results))/4;       // Init 4 bytes at a time
+    SBSS_SRAM_START = ADDR(.sbss);
+    SBSS_SRAM_SIZE  = (SIZEOF(.sbss)+3)/4;
+    BSS_SRAM_START  = ADDR(.bss);
+    BSS_SRAM_SIZE   = (SIZEOF(.bss)+3)/4;
+    SDATA_RW_START  = ADDR(.sdata);
+    SDATA_RO_START  = ADDR(.sdata2);
+
+    RC_RAMCODE_SRC =  0;
+    RC_RAMCODE_DEST = 0;
+    RC_RAMCODE_SIZE = 0;
+
+
+    RC_PPC_SDATA2_SRC =  _f_sdata0_rom;
+    RC_PPC_SDATA2_DEST = _f_sdata0;
+    RC_PPC_SDATA2_SIZE = (SIZEOF(.sdata0)+3) / 4;
+    RC_SDATA_SRC       = _f_sdata_rom;
+    RC_SDATA_DEST      = _f_sdata;
+    RC_SDATA_SIZE      = (SIZEOF(.sdata)+3) / 4;
+    RC_DATA_SRC        = _f_data_rom;
+    RC_DATA_DEST       = _f_data;
+    RC_DATA_SIZE       = (SIZEOF(.data)+3) / 4;
+
+    __SP_INIT      = ADDR(iram_stack) + SIZEOF(iram_stack);
+    __SP_END       = ADDR(iram_stack);
+    __STACK_SIZE   = SIZEOF(iram_stack);
+
+    _ERASE_FUNC_ADDRESS_            = ADDR(res_ram);
+    _WRITE_FUNC_ADDRESS_            = ADDR(res_ram);
+
+}
+
+FORCEFILES { CW_Startup_vle.o }

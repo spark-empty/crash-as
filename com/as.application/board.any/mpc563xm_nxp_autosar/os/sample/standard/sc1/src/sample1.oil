@@ -1,0 +1,253 @@
+/**************************************************************************************
+* 
+*   Freescale(TM) and the Freescale logo are trademarks of Freescale Semiconductor, Inc. 
+*   All other product or service names are the property of their respective owners. 
+*   (C) Freescale Semiconductor, Inc. 2006-2010
+* 
+*   You can use this example for any purpose on any computer system with the
+*   following restrictions:
+*
+*   1. This example is provided "as is", without warranty.
+*
+*   2. You don't remove this copyright notice from this example or any direct derivation 
+*      thereof.
+*
+*  Description:    AUTOSAR OS/MPC56xxAMv3 sample application definitions
+*
+*  Notes:    1. This file should be processed by AUTOSAR system generator    
+*
+**************************************************************************************/
+
+OIL_VERSION = "3.0";
+
+#include "os_mpc56xxAM.oin"
+
+CPU cpu1 {
+    APPMODE Mode01{};
+
+    OS os1 {
+        TargetMCU = MPC5634M {
+            SysTimer = HWCOUNTER {
+                COUNTER = SYSTEMTIMER;
+                ISRPRIORITY = 2;   
+                TimerHardware = eMIOS{
+                    Freeze = TRUE;
+                    Channel = 0;             
+                    GlobalMIOSPrescaler = OS{
+                        Value = 2;
+                    };    
+                    Prescaler = OS{
+                        Value = 0;
+                    };    
+                };
+            };
+
+            SecondTimer = SWCOUNTER {
+                COUNTER = SECONDTIMER;
+                ISRPRIORITY = 4;
+                TimerHardware = PIT {
+                    Channel = 0;
+                    Freeze = TRUE;
+                    TimerModuloValue = 30000;
+                 };
+            };
+        };            
+
+        DEBUG_LEVEL = 2;
+        STATUS = EXTENDED;
+        SCALABILITYCLASS = SC1; 
+        STARTUPHOOK = FALSE;
+        SHUTDOWNHOOK = FALSE;
+        PRETASKHOOK = TRUE;
+        POSTTASKHOOK = TRUE;
+        ERRORHOOK = TRUE;
+        IsrStackSize = 800;
+
+        USEGETSERVICEID = FALSE;
+        USEPARAMETERACCESS = FALSE;
+
+        STACKMONITORING = TRUE {
+            PatternSize = 4;
+            Pattern = 0xDEAD55AA;
+        };
+    };
+
+    SCHEDULETABLE SCHEDTAB {
+        COUNTER = SYSTEMTIMER;
+        AUTOSTART = FALSE;
+        REPEATING = TRUE;
+        DURATION = 30000;
+        
+        EXPIRYPOINTS = EXPIRYPOINT {
+            OFFSET = 0;
+            ACTION = TASKACTIVATION {
+                 TASK = TASKSND1;
+            };
+        };
+        
+        EXPIRYPOINTS = EXPIRYPOINT {
+            OFFSET = 15000;
+            ACTION = TASKACTIVATION {
+                 TASK = TASKSND2;
+            };
+        };
+
+        EXPIRYPOINTS = EXPIRYPOINT {
+            OFFSET = 22500;
+            ACTION = TASKACTIVATION {
+                 TASK = TASKCNT;
+            };
+        };
+    };
+
+    TASK TASKSND1 {
+        PRIORITY = 3;
+        SCHEDULE = FULL;
+        AUTOSTART = FALSE;
+        ACTIVATION = 1;
+        RESOURCE = MSGAACCESS;
+        MESSAGE = MsgA; 
+        TIMING_PROTECTION = FALSE;
+    };
+    TASK TASKSND2 {
+        PRIORITY = 2;
+        SCHEDULE = FULL;
+        AUTOSTART = FALSE;
+        ACTIVATION = 1;
+        RESOURCE = MSGBACCESS;
+        MESSAGE = MsgB; 
+        TIMING_PROTECTION = FALSE;
+    };
+    TASK TASKCNT {
+        PRIORITY = 1;
+        SCHEDULE = NON;
+        AUTOSTART = FALSE;
+        ACTIVATION = 1;
+        TIMING_PROTECTION = FALSE;
+    };
+    TASK TASKRCV1 {
+        PRIORITY = 5;
+        SCHEDULE = FULL;
+        AUTOSTART = TRUE { 
+            APPMODE = Mode01; 
+        };
+        ACTIVATION = 1;
+        RESOURCE = MSGAACCESS;
+        MESSAGE = MsgAReceived; 
+        EVENT = MSGAEVENT;
+        EVENT = TIMLIMITEVENT;
+        STACKSIZE = 400;
+        TIMING_PROTECTION = FALSE;
+    };
+    TASK TASKRCV2 {
+        PRIORITY = 4;
+        SCHEDULE = FULL;
+        AUTOSTART = FALSE;
+        ACTIVATION = 1;
+        RESOURCE = MSGBACCESS;
+        MESSAGE = MsgBReceived; 
+        TIMING_PROTECTION = FALSE;
+    };
+    TASK TASKSTOP {
+        PRIORITY = 0;
+        SCHEDULE = NON;
+        AUTOSTART = FALSE;
+        ACTIVATION = 1;
+        TIMING_PROTECTION = FALSE;
+    };
+    RESOURCE MSGAACCESS { 
+        RESOURCEPROPERTY = STANDARD;
+    };
+    RESOURCE MSGBACCESS { 
+        RESOURCEPROPERTY = STANDARD;
+    };
+
+    EVENT MSGAEVENT { MASK = AUTO; };
+    EVENT TIMLIMITEVENT   { MASK = AUTO; };
+
+    COUNTER SYSTEMTIMER {
+        MAXALLOWEDVALUE = 0xFFFFFF;
+        TICKSPERBASE = 10;
+        MINCYCLE = 0;
+        TYPE = HARDWARE
+        {
+           DRIVER = OSINTERNAL;
+        };
+    };
+
+    COUNTER SECONDTIMER {
+        MAXALLOWEDVALUE = 30000;
+        TICKSPERBASE = 10;
+        MINCYCLE = 0;
+        TYPE=SOFTWARE;
+    };
+
+    COUNTER STCOUNTER {
+        MAXALLOWEDVALUE = 20;
+        TICKSPERBASE = 1;
+        MINCYCLE = 0;
+        TYPE=SOFTWARE;
+    };
+
+    ALARM STOPALARM {
+        COUNTER = STCOUNTER;
+        AUTOSTART = FALSE;
+        ACTION = ACTIVATETASK {
+            TASK = TASKSTOP;
+        };
+    };
+    ALARM TIMLIMITALARM {
+        COUNTER = SECONDTIMER;
+        AUTOSTART = FALSE;
+        ACTION = SETEVENT {
+            TASK = TASKRCV1;
+            EVENT = TIMLIMITEVENT;
+        };
+    };
+
+    COM COM1 {
+        COMERRORHOOK = FALSE;
+        COMUSEGETSERVICEID = FALSE;
+        COMUSEPARAMETERACCESS = FALSE;
+        COMSTARTCOMEXTENSION = FALSE;
+        COMAPPMODE = "ComAppMode";
+        COMSTATUS = COMEXTENDED;
+    };
+
+    MESSAGE MsgA {
+        MESSAGEPROPERTY = SEND_STATIC_INTERNAL{
+            CDATATYPE = "MSGATYPE";
+        };
+    };
+    MESSAGE MsgB {
+        MESSAGEPROPERTY = SEND_STATIC_INTERNAL{
+            CDATATYPE = "MSGBTYPE";
+        };
+    };
+
+    MESSAGE MsgAReceived {
+        MESSAGEPROPERTY = RECEIVE_UNQUEUED_INTERNAL{
+        SENDINGMESSAGE = MsgA;
+        };
+        NOTIFICATION = SETEVENT {
+            TASK = TASKRCV1;
+            EVENT = MSGAEVENT;
+        };
+    };
+    MESSAGE MsgBReceived {
+        MESSAGEPROPERTY = RECEIVE_UNQUEUED_INTERNAL{
+        SENDINGMESSAGE = MsgB;
+        };
+        NOTIFICATION = ACTIVATETASK{
+            TASK = TASKRCV2;
+        };
+    };
+    ISR ISR1
+    { 
+        PRIORITY = 5;
+        CATEGORY = 2;           
+        IrqChannel = EXTERNAL {
+            IrqNumber = 2;
+        };
+    };
+};

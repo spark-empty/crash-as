@@ -1,0 +1,78 @@
+
+Name: generate_PC/Can_NotifyCheck_Src.m
+SignatureKeyID: Freescale
+Signature: 11313377421386116802430865570593766696613407866780005208937
+ 5788951278168776545835339117393801630770205700670775
+SignatureKeyProviderID: plugin.launcher2.licenseFileKeyProvider
+SignatureAlgorithmID: DSA
+
+Name: generate_PB/Can_VersionCheck_Src_PB.m
+SignatureKeyID: Freescale
+Signature: 11313377425224886465266783961560528329736400807279595640897
+ 3047461512105763464747765218093001283569278866185031
+SignatureKeyProviderID: plugin.launcher2.licenseFileKeyProvider
+SignatureAlgorithmID: DSA
+
+Name: generate_PC/Can_SourceClock.m
+SignatureKeyID: Freescale
+Signature: 11313377423445845588635898869026399171685608915177850121622
+ 9753836267211161809451574193235061468831616392905979
+SignatureKeyProviderID: plugin.launcher2.licenseFileKeyProvider
+SignatureAlgorithmID: DSA
+
+Name: generate_PC/Can_VersionCheck_Src.m
+SignatureKeyID: Freescale
+Signature: 11313377424567244716487842444078920424627111568738421018817
+ 2292700496875756210788052200022861276612910898371693
+SignatureKeyProviderID: plugin.launcher2.licenseFileKeyProvider
+SignatureAlgorithmID: DSA
+
+Name: generate_PC/include/Can_Cfg.h
+SignatureKeyID: Freescale
+Signature: 11313377426605791868469376129039324061699672532716151118584
+ 0439126638697821565903613669047371211981817277796093
+SignatureKeyProviderID: plugin.launcher2.licenseFileKeyProvider
+SignatureAlgorithmID: DSA
+
+Name: config/Can.xdm
+SignatureKeyID: Freescale
+Signature: 11313377421004260072407289239385258836614383019707769383343
+ 0467044825259127951585340219017568211111328753309620
+SignatureKeyProviderID: plugin.launcher2.licenseFileKeyProvider
+SignatureAlgorithmID: DSA
+
+Name: generate_PC/Can_VersionCheck_Inc.m
+SignatureKeyID: Freescale
+Signature: 11313377424545561918831292021137667392904973426366500495074
+ 1915819027873814969188177732708376958962387210030195
+SignatureKeyProviderID: plugin.launcher2.licenseFileKeyProvider
+SignatureAlgorithmID: DSA
+
+Name: generate_PB/src/Can_PBcfg.c
+SignatureKeyID: Freescale
+Signature: 11313377424061347416168116737375701357662096494204602340574
+ 7929156850509901735078592288233724899951804623376030
+SignatureKeyProviderID: plugin.launcher2.licenseFileKeyProvider
+SignatureAlgorithmID: DSA
+
+Name: generate_PB/Can_SourceClock.m
+SignatureKeyID: Freescale
+Signature: 11313377423509984629060541034942901200457730531820199308031
+ 6094487509072383365617815102717262918939355084530196
+SignatureKeyProviderID: plugin.launcher2.licenseFileKeyProvider
+SignatureAlgorithmID: DSA
+
+Name: generate_PC/src/Can_Cfg.c
+SignatureKeyID: Freescale
+Signature: 11313377421127833738160017643975669690423180045569570155248
+ 6975825120255802779541684652402139169073383295906339
+SignatureKeyProviderID: plugin.launcher2.licenseFileKeyProvider
+SignatureAlgorithmID: DSA
+
+Name: generate_PB/Can_NotifyCheck_Src_PB.m
+SignatureKeyID: Freescale
+Signature: 28964594752107891085486785849879138745481821783343331887389
+ 537673678935408805222184747170206577405413792853486319
+SignatureKeyProviderID: plugin.launcher2.licenseFileKeyProvider
+SignatureAlgorithmID: DSA
+

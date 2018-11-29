@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?NLS TYPE="org.eclipse.help.toc"?>
+
+<!--
+*   @file    anchors.xml
+*   @version 2.0.0
+*
+*   @brief   AUTOSAR CanIf_TS_T2D14M20I0R0 - Tresos Studio plugin documentation configuration file.
+*   @details This file contains the links to the plugin documents for CanIf Tresos Studio plugin.
+-->
+<!--
+====================================================================================================
+*   Project              : AUTOSAR 3.0 MCAL
+*   Platform             : PA
+*   Peripheral           : generic
+*   Dependencies         : 
+*
+*   Autosar Version      : 3.0.0
+*   Autosar Revision     : ASR_REL_3_0_REV_0003
+*   Autosar Conf.Variant :
+*   SW Version           : 2.0.0
+*   Build Version        : XPC563xM_MCAL_2_0_0_RTM_ASR_REL_3_0_REV_0003_20111223
+
+*   (c) Copyright 2006-2011 Freescale Semiconductor Inc and STMicroelectronics
+*   All rights exclusively reserved for Freescale Semiconductor Inc and STMicroelectronics, 
+*   unless expressly agreed to otherwise.
+====================================================================================================
+====================================================================================================
+====================================================================================================
+-->
+
+
+<toc label="CanIf PA/XPC563XM">
+</toc>

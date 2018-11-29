@@ -1,0 +1,17 @@
+#MPC563xM Autosar 3.0 Operating System - SW563XM-OS302-RTMC-1.0.0 b3.0.35 for
+#? ? Software Account
+# License for ANY
+INCREMENT AUTOSAROS_ORTI metrowks 2.0 22-jun-2022 uncounted \
+	5218B4C384EB VENDOR_STRING="SW563XM-OS302-RTMC-1.0.0 b3.0.35" \
+	HOSTID=ANY ISSUER="Freescale Semiconductor" ISSUED=02-jul-2018 \
+	ck=145 SN="FSL - 23846337"
+# License for ANY
+INCREMENT AUTOSAROS_SG_MPC56xxAM metrowks 3.0 22-jun-2022 uncounted \
+	25F3A47F3218 VENDOR_STRING="SW563XM-OS302-RTMC-1.0.0 b3.0.35" \
+	HOSTID=ANY ISSUER="Freescale Semiconductor" ISSUED=02-jul-2018 \
+	ck=174 SN="FSL - 23846337"
+# License for ANY
+INCREMENT AUTOSAROS_SOURCES_3_0_35 metrowks 3.0 22-jun-2022 uncounted \
+	D99F677A449F VENDOR_STRING="SW563XM-OS302-RTMC-1.0.0 b3.0.35" \
+	HOSTID=ANY ISSUER="Freescale Semiconductor" ISSUED=02-jul-2018 \
+	ck=124 SN="FSL - 23846337"

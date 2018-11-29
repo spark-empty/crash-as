@@ -1,0 +1,439 @@
+<?xml version='1.0'?>
+<datamodel version="3.0" 
+           xmlns="http://www.tresos.de/_projects/DataModel2/08/root.xsd" 
+           xmlns:a="http://www.tresos.de/_projects/DataModel2/08/attribute.xsd" 
+           xmlns:v="http://www.tresos.de/_projects/DataModel2/06/schema.xsd" 
+           xmlns:d="http://www.tresos.de/_projects/DataModel2/06/data.xsd">
+
+  <d:ctr type="AUTOSAR" factory="autosar"  
+         xmlns:ad="http://www.tresos.de/_projects/DataModel2/08/admindata.xsd" 
+         xmlns:icc="http://www.tresos.de/_projects/DataModel2/08/implconfigclass.xsd">
+    <d:lst type="TOP-LEVEL-PACKAGES">
+      <d:ctr name="FrIf" type="AR-PACKAGE">
+        <d:lst type="ELEMENTS">
+          <d:chc name="FrIf" type="AR-ELEMENT" value="MODULE-CONFIGURATION">
+            <d:ctr type="MODULE-CONFIGURATION">
+              <a:a name="DEF" value="ASPath:/TS_T2D19M0I9R0/FrIf"/>
+              <a:a name="IMPORTER_INFO" value="Frif"/>
+              <d:var name="IMPLEMENTATION_CONFIG_VARIANT" type="ENUMERATION" 
+                     value="VariantPostBuild"/>
+              <d:ctr name="CommonPublishedInformation" type="IDENTIFIABLE">
+                <a:a name="IMPORTER_INFO" value="Frif"/>
+                <d:var name="ArMajorVersion" type="INTEGER" value="3">
+                  <a:a name="IMPORTER_INFO" value="Frif"/>
+                </d:var>
+                <d:var name="ArMinorVersion" type="INTEGER" value="0">
+                  <a:a name="IMPORTER_INFO" value="Frif"/>
+                </d:var>
+                <d:var name="ArPatchVersion" type="INTEGER" value="0">
+                  <a:a name="IMPORTER_INFO" value="Frif"/>
+                </d:var>
+                <d:var name="SwMajorVersion" type="INTEGER" value="0">
+                  <a:a name="IMPORTER_INFO" value="Frif"/>
+                </d:var>
+                <d:var name="SwMinorVersion" type="INTEGER" value="9">
+                  <a:a name="IMPORTER_INFO" value="Frif"/>
+                </d:var>
+                <d:var name="SwPatchVersion" type="INTEGER" value="0">
+                  <a:a name="IMPORTER_INFO" value="Frif"/>
+                </d:var>
+                <d:var name="ModuleId" type="INTEGER" value="61">
+                  <a:a name="IMPORTER_INFO" value="Frif"/>
+                </d:var>
+                <d:var name="VendorId" type="INTEGER" value="43">
+                  <a:a name="IMPORTER_INFO" value="Frif"/>
+                </d:var>
+                <d:var name="VendorApiInfix" type="STRING" value="0">
+                  <a:a name="IMPORTER_INFO" value="@DEF"/>
+                </d:var>
+              </d:ctr>
+              <d:lst name="FrIfConfig" type="MAP">
+                <a:a name="IMPORTER_INFO" value="Frif"/>
+                <d:ctr name="FrIfConfig_0" type="IDENTIFIABLE">
+                  <a:a name="IMPORTER_INFO" value="Frif"/>
+                  <d:lst name="FrIfCluster" type="MAP">
+                    <a:a name="IMPORTER_INFO" value="Frif"/>
+                    <d:ctr name="FrIfCluster_0" type="IDENTIFIABLE">
+                      <a:a name="IMPORTER_INFO" value="Frif"/>
+                      <d:var name="FrIfClstIdx" type="INTEGER" value="0">
+                        <a:a name="IMPORTER_INFO" value="Frif"/>
+                      </d:var>
+                      <d:var name="FrIfMainFunctionPeriod" type="FLOAT" 
+                             value="0.0050">
+                        <a:a name="IMPORTER_INFO" value="Frif"/>
+                      </d:var>
+                      <d:var name="FrIfMaxIsrDelay" type="INTEGER" value="100">
+                        <a:a name="IMPORTER_INFO" value="Frif"/>
+                      </d:var>
+                      <d:var name="GAssumedPreciscion" type="INTEGER" 
+                             value="1890">
+                        <a:a name="IMPORTER_INFO" value="Frif"/>
+                      </d:var>
+                      <d:var name="GChannels" type="ENUMERATION" 
+                             value="FR_CHANNEL_AB">
+                        <a:a name="IMPORTER_INFO" value="Frif"/>
+                      </d:var>
+                      <d:var name="GClusterDriftDamping" type="INTEGER" 
+                             value="1">
+                        <a:a name="IMPORTER_INFO" value="Frif"/>
+                      </d:var>
+                      <d:var name="GColdStartAttempts" type="INTEGER" value="10">
+                        <a:a name="IMPORTER_INFO" value="Frif"/>
+                      </d:var>
+                      <d:var name="GListenNoise" type="INTEGER" value="2">
+                        <a:a name="IMPORTER_INFO" value="Frif"/>
+                      </d:var>
+                      <d:var name="GMacroPerCycle" type="INTEGER" value="5000">
+                        <a:a name="IMPORTER_INFO" value="Frif"/>
+                      </d:var>
+                      <d:var name="GMaxWithoutClockCorrectFatal" type="INTEGER" 
+                             value="14">
+                        <a:a name="IMPORTER_INFO" value="Frif"/>
+                      </d:var>
+                      <d:var name="GMaxWithoutClockCorrectPassive" 
+                             type="INTEGER" value="10">
+                        <a:a name="IMPORTER_INFO" value="Frif"/>
+                      </d:var>
+                      <d:var name="GNetworkManagementVectLength" type="INTEGER" 
+                             value="2">
+                        <a:a name="IMPORTER_INFO" value="Frif"/>
+                      </d:var>
+                      <d:var name="GNumberOfMinislots" type="INTEGER" 
+                             value="163">
+                        <a:a name="IMPORTER_INFO" value="Frif"/>
+                      </d:var>
+                      <d:var name="GNumberOfStaticSlots" type="INTEGER" 
+                             value="60">
+                        <a:a name="IMPORTER_INFO" value="Frif"/>
+                      </d:var>
+                      <d:var name="GOffsetCorrectionMax" type="FLOAT" 
+                             value="3.0E-6">
+                        <a:a name="IMPORTER_INFO" value="Frif"/>
+                      </d:var>
+                      <d:var name="GOffsetCorrectionStart" type="INTEGER" 
+                             value="4920">
+                        <a:a name="IMPORTER_INFO" value="Frif"/>
+                      </d:var>
+                      <d:var name="GPayloadLengthStatic" type="INTEGER" 
+                             value="16">
+                        <a:a name="IMPORTER_INFO" value="Frif"/>
+                      </d:var>
+                      <d:var name="GSyncNodeMax" type="INTEGER" value="5">
+                        <a:a name="IMPORTER_INFO" value="Frif"/>
+                      </d:var>
+                      <d:var name="GdActionPointOffset" type="INTEGER" value="6">
+                        <a:a name="IMPORTER_INFO" value="Frif"/>
+                      </d:var>
+                      <d:var name="GdBit" type="FLOAT" value="1.0E-7">
+                        <a:a name="IMPORTER_INFO" value="Frif"/>
+                      </d:var>
+                      <d:var name="GdBitMax" type="FLOAT" value="1.0015E-7">
+                        <a:a name="IMPORTER_INFO" value="Frif"/>
+                      </d:var>
+                      <d:var name="GdBitMin" type="FLOAT" value="9.985E-8">
+                        <a:a name="IMPORTER_INFO" value="Frif"/>
+                      </d:var>
+                      <d:var name="GdCasRxLowMax" type="INTEGER" value="91">
+                        <a:a name="IMPORTER_INFO" value="Frif"/>
+                      </d:var>
+                      <d:var name="GdCycle" type="FLOAT" value="0.0050">
+                        <a:a name="IMPORTER_INFO" value="Frif"/>
+                      </d:var>
+                      <d:var name="GdDynamicSlotIdlePhase" type="INTEGER" 
+                             value="1">
+                        <a:a name="IMPORTER_INFO" value="Frif"/>
+                      </d:var>
+                      <d:var name="GdMacrotick" type="FLOAT" value="1.0E-6">
+                        <a:a name="IMPORTER_INFO" value="Frif"/>
+                      </d:var>
+                      <d:var name="GdMaxInitializationError" type="FLOAT" 
+                             value="4.90075E-7">
+                        <a:a name="IMPORTER_INFO" value="Frif"/>
+                      </d:var>
+                      <d:var name="GdMaxMicrotick" type="ENUMERATION" 
+                             value="T25NS">
+                        <a:a name="IMPORTER_INFO" value="Frif"/>
+                      </d:var>
+                      <d:var name="GdMaxPropagationDelay" type="FLOAT" 
+                             value="2.7E-7">
+                        <a:a name="IMPORTER_INFO" value="Frif"/>
+                      </d:var>
+                      <d:var name="GdMinPropagationDelay" type="FLOAT" 
+                             value="0.0">
+                        <a:a name="IMPORTER_INFO" value="Frif"/>
+                      </d:var>
+                      <d:var name="GdMiniSlotActionPointOffset" type="INTEGER" 
+                             value="3">
+                        <a:a name="IMPORTER_INFO" value="Frif"/>
+                      </d:var>
+                      <d:var name="GdMinislot" type="INTEGER" value="6">
+                        <a:a name="IMPORTER_INFO" value="Frif"/>
+                      </d:var>
+                      <d:var name="GdNit" type="INTEGER" value="100">
+                        <a:a name="IMPORTER_INFO" value="Frif"/>
+                      </d:var>
+                      <d:var name="GdSampleClockPeriod" type="ENUMERATION" 
+                             value="T12_5NS">
+                        <a:a name="IMPORTER_INFO" value="Frif"/>
+                      </d:var>
+                      <d:var name="GdStaticSlot" type="INTEGER" value="65">
+                        <a:a name="IMPORTER_INFO" value="Frif"/>
+                      </d:var>
+                      <d:var name="GdSymbolWindow" type="INTEGER" value="19">
+                        <a:a name="IMPORTER_INFO" value="Frif"/>
+                      </d:var>
+                      <d:var name="GdTssTransmitter" type="INTEGER" value="11">
+                        <a:a name="IMPORTER_INFO" value="Frif"/>
+                      </d:var>
+                      <d:var name="GdWakeupSymbolRxIdle" type="INTEGER" 
+                             value="59">
+                        <a:a name="IMPORTER_INFO" value="Frif"/>
+                      </d:var>
+                      <d:var name="GdWakeupSymbolRxLow" type="INTEGER" 
+                             value="55">
+                        <a:a name="IMPORTER_INFO" value="Frif"/>
+                      </d:var>
+                      <d:var name="GdWakeupSymbolRxWindow" type="INTEGER" 
+                             value="301">
+                        <a:a name="IMPORTER_INFO" value="Frif"/>
+                      </d:var>
+                      <d:var name="GdWakeupSymbolTxIdle" type="INTEGER" 
+                             value="180">
+                        <a:a name="IMPORTER_INFO" value="Frif"/>
+                      </d:var>
+                      <d:var name="GdWakeupSymbolTxLow" type="INTEGER" 
+                             value="60">
+                        <a:a name="IMPORTER_INFO" value="Frif"/>
+                      </d:var>
+                      <d:lst name="FrIfController" type="MAP">
+                        <a:a name="IMPORTER_INFO" value="Frif"/>
+                        <d:ctr name="FrIfController_0" type="IDENTIFIABLE">
+                          <a:a name="IMPORTER_INFO" value="Frif"/>
+                          <d:var name="FrIfCtrlIdx" type="INTEGER" value="0">
+                            <a:a name="IMPORTER_INFO" value="Frif"/>
+                          </d:var>
+                          <d:ref name="FrIfFrCtrlRef" type="REFERENCE" 
+                                 value="ASPath:/Fr/Fr/FrMultipleConfiguration_0/FrController_0">
+                            <a:a name="IMPORTER_INFO" value="Frif"/>
+                          </d:ref>
+                          <d:lst name="FrIfAbsTimer" type="MAP">
+                            <a:a name="IMPORTER_INFO" value="Frif"/>
+                            <d:ctr name="FrIfAbsTimer_0" type="IDENTIFIABLE">
+                              <a:a name="IMPORTER_INFO" value="Frif"/>
+                              <d:var name="FrIfAbsTimerIdx" type="INTEGER" 
+                                     value="0">
+                                <a:a name="IMPORTER_INFO" value="Frif"/>
+                              </d:var>
+                              <d:ref name="FrIfFrAbsTimerRef" type="REFERENCE" 
+                                     value="ASPath:/Fr/Fr/FrMultipleConfiguration_0/FrController_0/FrAbsoluteTimer_0">
+                                <a:a name="IMPORTER_INFO" value="Frif"/>
+                              </d:ref>
+                            </d:ctr>
+                          </d:lst>
+                          <d:lst name="FrIfFrameTriggering" type="MAP">
+                            <a:a name="IMPORTER_INFO" value="Frif"/>
+                            <d:ctr name="FrIfFrameTriggering_0" 
+                                   type="IDENTIFIABLE">
+                              <a:a name="IMPORTER_INFO" value="Frif"/>
+                              <d:var name="FrIfAllowDynamicLSduLength" 
+                                     type="BOOLEAN" value="false">
+                                <a:a name="IMPORTER_INFO" value="Frif"/>
+                              </d:var>
+                              <d:var name="FrIfAlwaysTransmit" type="BOOLEAN" 
+                                     value="false">
+                                <a:a name="IMPORTER_INFO" value="Frif"/>
+                              </d:var>
+                              <d:var name="FrIfBaseCycle" type="INTEGER" 
+                                     value="0">
+                                <a:a name="IMPORTER_INFO" value="Frif"/>
+                              </d:var>
+                              <d:var name="FrIfChannel" type="ENUMERATION" 
+                                     value="FRIF_CHANNEL_A">
+                                <a:a name="IMPORTER_INFO" value="Frif"/>
+                              </d:var>
+                              <d:var name="FrIfCycleRepetition" type="INTEGER" 
+                                     value="1">
+                                <a:a name="IMPORTER_INFO" value="Frif"/>
+                              </d:var>
+                              <d:var name="FrIfLSduLength" type="INTEGER" 
+                                     value="8">
+                                <a:a name="IMPORTER_INFO" value="Frif"/>
+                              </d:var>
+                              <d:var name="FrIfNoneMode" type="BOOLEAN" 
+                                     value="false">
+                                <a:a name="IMPORTER_INFO" value="@DEF"/>
+                              </d:var>
+                              <d:var name="FrIfPayloadPreamble" type="BOOLEAN" 
+                                     value="false">
+                                <a:a name="IMPORTER_INFO" value="Frif"/>
+                              </d:var>
+                              <d:var name="FrIfSlotId" type="INTEGER" value="2">
+                                <a:a name="IMPORTER_INFO" value="Frif"/>
+                              </d:var>
+                              <d:ref name="FrIfFrameStructureRef" 
+                                     type="REFERENCE" 
+                                     value="ASPath:/FrIf/FrIf/FrIfConfig_0/FrIfFrameStructure_0">
+                                <a:a name="IMPORTER_INFO" value="Frif"/>
+                              </d:ref>
+                            </d:ctr>
+                          </d:lst>
+                          <d:lst name="FrIfLPdu" type="MAP">
+                            <a:a name="IMPORTER_INFO" value="Frif"/>
+                            <d:ctr name="FrIfLPdu_0" type="IDENTIFIABLE">
+                              <a:a name="IMPORTER_INFO" value="Frif"/>
+                              <d:var name="FrIfLPduIdx" type="INTEGER" value="0">
+                                <a:a name="IMPORTER_INFO" value="Frif"/>
+                              </d:var>
+                              <d:ref name="FrIfVBTriggeringRef" 
+                                     type="REFERENCE" 
+                                     value="ASPath:/FrIf/FrIf/FrIfConfig_0/FrIfCluster_0/FrIfController_0/FrIfFrameTriggering_0">
+                                <a:a name="IMPORTER_INFO" value="Frif"/>
+                              </d:ref>
+                            </d:ctr>
+                          </d:lst>
+                          <d:lst name="FrIfRelTimer" type="MAP"/>
+                          <d:lst name="FrIfTransceiver" type="MAP"/>
+                        </d:ctr>
+                      </d:lst>
+                      <d:ctr name="FrIfJobList" type="IDENTIFIABLE">
+                        <a:a name="IMPORTER_INFO" value="Frif"/>
+                        <d:ref name="FrIfAbsTimerRef" type="REFERENCE" 
+                               value="ASPath:/FrIf/FrIf/FrIfConfig_0/FrIfCluster_0/FrIfController_0/FrIfAbsTimer_0">
+                          <a:a name="IMPORTER_INFO" value="Frif"/>
+                        </d:ref>
+                        <d:lst name="FrIfJob" type="MAP">
+                          <a:a name="IMPORTER_INFO" value="Frif"/>
+                          <d:ctr name="FrIfJob_0" type="IDENTIFIABLE">
+                            <a:a name="IMPORTER_INFO" value="Frif"/>
+                            <d:var name="FrIfCycle" type="INTEGER" value="0">
+                              <a:a name="IMPORTER_INFO" value="Frif"/>
+                            </d:var>
+                            <d:var name="FrIfMacrotick" type="INTEGER" 
+                                   value="100">
+                              <a:a name="IMPORTER_INFO" value="Frif"/>
+                            </d:var>
+                            <d:lst name="FrIfCommunicationOperation" type="MAP">
+                              <a:a name="IMPORTER_INFO" value="Frif"/>
+                              <d:ctr name="FrIfCommunicationOperation_0" 
+                                     type="IDENTIFIABLE">
+                                <d:var name="FrIfCommunicationAction" 
+                                       type="ENUMERATION" 
+                                       value="DECOUPLED_TRANSMISSION">
+                                  <a:a name="IMPORTER_INFO" value="@DEF"/>
+                                </d:var>
+                                <d:var name="FrIfCommunicationOperationIdx" 
+                                       type="INTEGER" value="0">
+                                  <a:a name="IMPORTER_INFO" value="@DEF"/>
+                                </d:var>
+                                <d:ref name="FrIfLPduIdxRef" type="REFERENCE" 
+                                       value="ASPath:/FrIf/FrIf/FrIfConfig_0/FrIfCluster_0/FrIfController_0/FrIfLPdu_0"/>
+                              </d:ctr>
+                              <d:ctr name="FrIfCommunicationOper_0" 
+                                     type="IDENTIFIABLE">
+                                <a:a name="IMPORTER_INFO" value="Frif"/>
+                                <d:var name="FrIfCommunicationAction" 
+                                       type="ENUMERATION" 
+                                       value="RECEIVE_AND_STORE">
+                                  <a:a name="IMPORTER_INFO" value="Frif"/>
+                                </d:var>
+                                <d:var name="FrIfCommunicationOperationIdx" 
+                                       type="INTEGER" value="0">
+                                  <a:a name="IMPORTER_INFO" value="Frif"/>
+                                </d:var>
+                                <d:ref name="FrIfLPduIdxRef" type="REFERENCE" 
+                                       value="ASPath:/FrIf/FrIf/FrIfConfig_0/FrIfCluster_0/FrIfController_0/FrIfLPdu_0">
+                                  <a:a name="IMPORTER_INFO" value="Frif"/>
+                                </d:ref>
+                              </d:ctr>
+                            </d:lst>
+                          </d:ctr>
+                        </d:lst>
+                      </d:ctr>
+                    </d:ctr>
+                  </d:lst>
+                  <d:lst name="FrIfFrameStructure" type="MAP">
+                    <a:a name="IMPORTER_INFO" value="Frif"/>
+                    <d:ctr name="FrIfFrameStructure_0" type="IDENTIFIABLE">
+                      <a:a name="IMPORTER_INFO" value="Frif"/>
+                      <d:lst name="FrIfPdusInFrame" type="MAP">
+                        <a:a name="IMPORTER_INFO" value="Frif"/>
+                        <d:ctr name="FrIfPdusInFrame_0" type="IDENTIFIABLE">
+                          <a:a name="IMPORTER_INFO" value="Frif"/>
+                          <d:var name="FrIfPduOffset" type="INTEGER" value="0">
+                            <a:a name="IMPORTER_INFO" value="Frif"/>
+                          </d:var>
+                          <d:var name="FrIfPduUpdateBitOffset" type="INTEGER" 
+                                 value="0">
+                            <a:a name="ENABLE" value="true"/>
+                            <a:a name="IMPORTER_INFO" value="Frif"/>
+                          </d:var>
+                          <d:ref name="FrFrIfPduRef" type="REFERENCE" 
+                                 value="ASPath:/FrIf/FrIf/FrIfConfig_0/FrIfPdu_0">
+                            <a:a name="IMPORTER_INFO" value="Frif"/>
+                          </d:ref>
+                        </d:ctr>
+                      </d:lst>
+                    </d:ctr>
+                  </d:lst>
+                  <d:lst name="FrIfPdu" type="MAP">
+                    <a:a name="IMPORTER_INFO" value="Frif"/>
+                    <d:ctr name="FrIfPdu_0" type="IDENTIFIABLE">
+                      <a:a name="IMPORTER_INFO" value="Frif"/>
+                      <d:chc name="FrIfPduDirection" type="IDENTIFIABLE" 
+                             value="FrIfRxPdu">
+                        <a:a name="IMPORTER_INFO" value="Frif"/>
+                        <d:ctr name="FrIfRxPdu" type="IDENTIFIABLE">
+                          <a:a name="IMPORTER_INFO" value="Frif"/>
+                          <a:a name="SHORT-NAME" type="NodeName" 
+                               value="FrIfPduDirection"/>
+                          <d:ref name="FrIfPduRef" type="REFERENCE" >
+                            <a:a name="IMPORTER_INFO" value="Frif"/>
+                          </d:ref>
+                        </d:ctr>
+                        <d:ctr name="FrIfTxPdu" type="IDENTIFIABLE">
+                          <d:var name="FrIfConfirm" type="BOOLEAN" value="false">
+                            <a:a name="IMPORTER_INFO" value="@DEF"/>
+                          </d:var>
+                          <d:var name="FrIfCounterLimit" type="INTEGER" 
+                                 value="1">
+                            <a:a name="IMPORTER_INFO" value="@DEF"/>
+                          </d:var>
+                          <d:var name="FrIfImmediate" type="BOOLEAN" 
+                                 value="false">
+                            <a:a name="IMPORTER_INFO" value="@DEF"/>
+                          </d:var>
+                          <d:var name="FrIfTxPduId" type="INTEGER" value="0">
+                            <a:a name="IMPORTER_INFO" value="@DEF"/>
+                          </d:var>
+                          <d:ref name="FrIfPduRef" type="REFERENCE" >
+                            <a:a name="IMPORTER_INFO" value="@DEF"/>
+                          </d:ref>
+                        </d:ctr>
+                      </d:chc>
+                    </d:ctr>
+                  </d:lst>
+                </d:ctr>
+              </d:lst>
+              <d:ctr name="FrIfGeneral" type="IDENTIFIABLE">
+                <a:a name="IMPORTER_INFO" value="Frif"/>
+                <d:var name="FrIfDevErrorDetect" type="BOOLEAN" value="true">
+                  <a:a name="IMPORTER_INFO" value="Frif"/>
+                </d:var>
+                <d:var name="FrIfNumClstSupported" type="INTEGER" value="1">
+                  <a:a name="IMPORTER_INFO" value="Frif"/>
+                </d:var>
+                <d:var name="FrIfNumCtrlSupported" type="INTEGER" value="1">
+                  <a:a name="IMPORTER_INFO" value="Frif"/>
+                </d:var>
+                <d:var name="FrIfVersionInfoApi" type="BOOLEAN" value="true">
+                  <a:a name="IMPORTER_INFO" value="Frif"/>
+                </d:var>
+              </d:ctr>
+            </d:ctr>
+          </d:chc>
+        </d:lst>
+      </d:ctr>
+    </d:lst>
+  </d:ctr>
+
+</datamodel>

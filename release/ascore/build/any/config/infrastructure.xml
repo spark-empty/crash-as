@@ -1,0 +1,92 @@
+<?xml version='1.0' encoding='utf-8'?>
+<AS>
+	<Os>
+	    <!-- OsRef: toppers_osek freertos -->
+	    <OsRef name='askar'/>
+	    
+	    <!-- format, check easySAR.arxml -->
+	    <General ErrorHook="ErrorHook" 
+	    		PostTaskHook="PostTaskHook" 
+	    		PreTaskHook="PreTaskHook"
+	    		ProtectionHook="NULL" 
+	    		ShutdownHook="ShutdownHook" 
+	    		StartupHook="StartupHook" 
+	    		Conformance="ECC1"
+	    		Status="EXTENDED"
+	    		PTHREAD="32"
+	    		PTHREAD_PRIORITY="32"
+	    		Comment="Not Used" />
+		
+		<ApplicationMode Name="OSDEFAULTAPPMODE" Comment="*" />
+		
+		<Resource Name="RES_SCHEDULER" Priority="Highest" Comment="*" />
+		
+		<Application Name="OsDefaultApp"
+			Trusted="True"
+			UseRestartTask="True"
+			RestartTask="SchM_Startup"
+			Comment="*"
+			/>
+		
+		<!-- ApplicationModeList only valid if Autostart is True -->
+	    <Task Name="SchM_Startup"  
+	    		Activation="1" 
+				Autostart="True" 
+				Priority="7" 
+				Schedule="FULL" 
+				StackSize="2048"
+				Application="OsDefaultApp"
+	     		Comment="*" >
+			<ApplicationModeList Max="32">
+				<ApplicationMode 
+					Name="OSDEFAULTAPPMODE" 
+					Comment="start if mode is OSDEFAULTAPPMODE"
+				/>
+			</ApplicationModeList>
+		</Task>
+		<!-- SchM_BswService Activation must be one if use LWIP_POSIX_ARCH -->
+		<Task Name="SchM_BswService"  
+	    		Activation="1" 
+				Autostart="False" 
+				Priority="8" 
+				Schedule="FULL" 
+				StackSize="2048"
+				Application="OsDefaultApp"
+	     		Comment="*" />
+				
+		<Task Name="TaskIdle"  
+	    		Activation="1" 
+				Autostart="True" 
+				Priority="0" 
+				Schedule="FULL" 
+				StackSize="2048"
+				Application="OsDefaultApp"
+	     		Comment="*" >
+			<ApplicationModeList Max="32">
+				<ApplicationMode 
+					Name="OSDEFAULTAPPMODE" 
+					Comment="should start in all the modes"
+				/>
+			</ApplicationModeList>
+		</Task>
+				
+		<Counter Name="OsClock" 
+					MaxAllowed="0xFFFF" 
+					MinCycle="1"  
+					TicksPerBase="1" 
+					Application="OsDefaultApp"
+					Comment="*" />	
+	    
+		<Alarm Name="Alarm_BswService" 
+				Autostart="False" 
+				Period="5" 
+				StartTime="5"
+				Counter="OsClock"
+				Action="ActivateTask"	
+				Task="SchM_BswService"				
+				Event="TBD"  
+				Callback="TBD" 
+				Application="OsDefaultApp"
+				Comment="*" />
+ 	</Os>
+</AS>

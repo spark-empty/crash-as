@@ -1,0 +1,3 @@
+target = AS
+sources = sipAScmodule.cpp sipASasdev.cpp sipAScan.cpp
+headers = sipAPIAS.h

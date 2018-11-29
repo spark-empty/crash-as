@@ -1,0 +1,552 @@
+; ************************************************************
+; Freescale AUTOSAR OS/MPC56xxAM v.3.0 RTM
+; Build 3.0.35
+; filelist.txt
+; Freescale(TM) and the Freescale logo are trademarks of Freescale Semiconductor, Inc. 
+; All other product or service names are the property of their respective owners. 
+; (C) Freescale Semiconductor, Inc. 2010
+; ************************************************************
+
+; AUTOSAR OS user's file list
+
+.\filelist.txt              ; List of Freescale AUTOSAR OS files (this file)
+.\readme.txt                ; Readme
+.\quality.txt               ; Quality statement
+.\license.txt               ; License statement
+
+.\ssc                           ; Operating system source files
+.\ssc\inc                       ; Headers for the operating system 
+.\ssc\inc\os.h                  ; Main header for operating system
+.\ssc\inc\osalmapi.h                ; Alarms API
+.\ssc\inc\osbasapi.h                ; Base API
+.\ssc\inc\osctrapi.h                ; Counters API
+.\ssc\inc\osdata.h                  ; OS data file     
+.\ssc\inc\oserrapi.h                ; Error handling API 
+.\ssc\inc\osevtapi.h                ; Event control API
+.\ssc\inc\osisrapi.h                ; Interrupt management API
+.\ssc\inc\osmemapi.h                ; Memory protection API
+.\ssc\inc\osmsgapi.h                ; Messages exchange API
+.\ssc\inc\osresapi.h                ; Resources API
+.\ssc\inc\osschapi.h                ; Scheduler API
+.\ssc\inc\ossections.h              ; Memory mapping 
+.\ssc\inc\ossetapi.h                ; Start-up procedure API
+.\ssc\inc\ossrvlist.h               ; AUTOSAR services API
+.\ssc\inc\ostarget.h                ; Target-specific definitions
+.\ssc\inc\ostimer.h                 ; Timer support
+.\ssc\inc\ostpapi.h                 ; Time protection API
+.\ssc\inc\ostskapi.h                ; Task management API   
+.\ssc\inc\osversion.h               ; Current OS version
+
+.\ssc\src                       ; Source code of the operating system       
+.\ssc\src\os.c                      ; Main part of the operating system code
+.\ssc\src\osalm.c                   ; Alarms                                
+.\ssc\src\osctr.c                   ; Counters                              
+.\ssc\src\osevt.c                   ; Event control                         
+.\ssc\src\osisr.c                   ; Interrupt management                  
+.\ssc\src\osmem.c                   ; Memory protection
+.\ssc\src\osmsg.c                   ; Messages exchange                     
+.\ssc\src\osres.c                   ; Resources                             
+.\ssc\src\ossch.c                   ; Start-up procedure
+.\ssc\src\ossct.c                   ; Schedule tables
+.\ssc\src\osset.c                   ; Scheduler                             
+.\ssc\src\ostp.c                    ; Timing protection               
+.\ssc\src\ostrg.c                   ; Target-specific functions    
+.\ssc\src\ostsk.c                   ; Task management                       
+
+.\ssc\doc                           ; Documentation
+.\ssc\doc\AUTOSAR_OSMPC56xxAM_tr.pdf ;AUTOSAR OS Technical reference
+.\ssc\doc\AUTOSAR_OSMPC56xxAM_um.pdf ; AUTOSAR OS User Manual
+.\ssc\doc\OSkeywords.txt            ; AUTOSAR OS keywords file
+
+.\ssc\mak                           ; Integration makefiles
+.\ssc\mak\os_defs.mak               ; AUTOSAR OS defines makefile
+.\ssc\mak\os_rules.mak              ; AUTOSAR OS rules makefile
+
+.\ssc\hwspec                        ; Hardware-specific and compiler-specific files 
+.\ssc\hwspec\crts.s                 ; DIAB Runtime Initialization
+.\ssc\hwspec\flashrchw.c            ; RCHW data for BAM boot
+.\ssc\hwspec\vector.c               ; Vector table               
+.\ssc\hwspec\__ppc_eabi_init.c      ; CW Memory Initialization
+.\ssc\hwspec\__start.c              ; CW Runtime Initialization
+
+.\ssc\bin                           ; System tools
+.\ssc\bin\generator                          ; OS Configuration files
+.\ssc\bin\generator\license.dat              ; OS license file
+.\ssc\bin\generator\license.dll              ; License DLL  
+.\ssc\bin\generator\lmgr8c.dll               ; FLEXlm license manager
+.\ssc\bin\generator\os_mpc56xxAM.jar         ; System Generator (SG) Java package
+.\ssc\bin\generator\os_mpc56xxAM.oin         ; OS implementation file
+.\ssc\bin\generator\os_mpc56xxAM.x2o         ; XML to OIL conversion table
+.\ssc\bin\generator\sg.exe                   ; SG executable
+.\ssc\bin\generator\model.jar                ; SG model management
+.\ssc\bin\generator\model.properties         ; SG properties and settings
+.\ssc\bin\generator\AUTOSAR.xsd              ; AUTOSAR Schema Definition
+
+.\ssc\gce_input                              ; OS Configuration files
+.\ssc\gce_input\os_mpc56xxAM.epd             ; OS Parameters Definition file
+
+.\redist
+.\redist\make.exe                       ; gnu make 3.8
+
+.\sample                              ; Samples
+
+.\sample\standard                       ; Samples with makefiles
+.\sample\standard\56xxAM.cmm            ; Lauterbach command file for initial board settings
+                                        ; and work with flash memory
+.\sample\standard\common.mak            ; GNU makefile with common definitions and rules
+.\sample\standard\readme.txt            ; readme file
+
+.\sample\standard\hwspec                ; Hardware-specific and compiler-specific files 
+.\sample\standard\hwspec\crts.s         ; DIAB Runtime Initialization
+.\sample\standard\hwspec\flashrchw.c    ; RCHW data for BAM boot
+.\sample\standard\hwspec\vector.c       ; Vector table                             
+.\sample\standard\hwspec\__ppc_eabi_init.c      ; CW Memory Initialization
+.\sample\standard\hwspec\__start.c              ; CW Runtime Initialization
+
+.\sample\standard\sc1                 ; sample for SC1
+.\sample\standard\sc1\makefile          ; GNU makefile for building SC1 sample
+.\sample\standard\sc1\flash.cmm         ; Lauterbach script for burning sample into flash
+.\sample\standard\sc1\lcf               ; SC1 sample linker command files
+.\sample\standard\sc1\lcf\sample1.dld   ; DIAB linker command file
+.\sample\standard\sc1\lcf\sample1.lcf   ; CW linker command file
+.\sample\standard\sc1\lcf\sample1.ld    ; GreenHills linker command file
+.\sample\standard\sc1\src               ; SC1 sample source code files
+.\sample\standard\sc1\src\memmap.h      ; SC1 sample memory mapping
+.\sample\standard\sc1\src\sample.h      ; SC1 sample data types
+.\sample\standard\sc1\src\sample1.epc   ; SC1 sample AUTOSAR XML OS configuration file
+.\sample\standard\sc1\src\sample1.oil   ; SC1 sample AUTOSAR OS configuration file
+.\sample\standard\sc1\src\samplerv1.c   ; SC1 sample source code
+.\sample\standard\sc1\src\samplets1.c   ; SC1 sample source code
+
+.\sample\standard\sc2                 ; sample for SC2
+.\sample\standard\sc2\makefile          ; GNU makefile for building SC2 sample
+.\sample\standard\sc2\lcf               ; SC2 sample linker command files
+.\sample\standard\sc2\lcf\sample2.dld   ; DIAB linker command file
+.\sample\standard\sc2\lcf\sample2.lcf   ; CW linker command file
+.\sample\standard\sc2\lcf\sample2.ld    ; GreenHills linker command file
+.\sample\standard\sc2\src               ; SC2 sample source code files
+.\sample\standard\sc2\src\memmap.h      ; SC2 sample memory mapping
+.\sample\standard\sc2\src\sample.h      ; SC2 sample data types
+.\sample\standard\sc2\src\sample2.epc   ; SC2 sample AUTOSAR XML OS configuration file
+.\sample\standard\sc2\src\sample2.oil   ; SC2 sample AUTOSAR OS configuration file
+.\sample\standard\sc2\src\samplerv2.c   ; SC2 sample source code
+.\sample\standard\sc2\src\samplets2.c   ; SC2 sample source code
+
+.\sample\standard\sc3                 ; sample for SC3
+.\sample\standard\sc3\makefile          ; GNU makefile for building SC3 sample
+.\sample\standard\sc3\lcf               ; SC3 sample linker command files
+.\sample\standard\sc3\lcf\sample3.dld   ; DIAB linker command file
+.\sample\standard\sc3\lcf\sample3.lcf   ; CW linker command file
+.\sample\standard\sc3\lcf\sample3.ld    ; GreenHills linker command file
+.\sample\standard\sc3\src               ; SC3 sample source code files
+.\sample\standard\sc3\src\memmap.h      ; SC3 sample memory mapping
+.\sample\standard\sc3\src\sample.h      ; SC3 sample data types
+.\sample\standard\sc3\src\sample3.epc   ; SC3 sample AUTOSAR XML OS configuration file
+.\sample\standard\sc3\src\sample3.oil   ; SC3 sample AUTOSAR OS configuration file
+.\sample\standard\sc3\src\samplerv3.c   ; SC3 sample source code
+.\sample\standard\sc3\src\samplets3.c   ; SC3 sample source code
+
+.\sample\standard\sc4                 ; sample for SC4
+.\sample\standard\sc4\makefile          ; GNU makefile for building SC4 sample
+.\sample\standard\sc4\lcf               ; SC4 sample linker command files
+.\sample\standard\sc4\lcf\sample4.dld   ; DIAB linker command file
+.\sample\standard\sc4\lcf\sample4.lcf   ; CW linker command file
+.\sample\standard\sc4\lcf\sample4.ld    ; GreenHills linker command file
+.\sample\standard\sc4\src               ; SC4 sample source code files
+.\sample\standard\sc4\src\memmap.h      ; SC4 sample memory mapping
+.\sample\standard\sc4\src\sample.h      ; SC4 sample data types
+.\sample\standard\sc4\src\sample4.epc   ; SC4 sample AUTOSAR XML OS configuration file
+.\sample\standard\sc4\src\sample4.oil   ; SC4 sample AUTOSAR OS configuration file
+.\sample\standard\sc4\src\samplerv4.c   ; SC4 sample source code
+.\sample\standard\sc4\src\samplets4.c   ; SC4 sample source code
+
+.\benchmark                             ; Benchmarks
+
+.\benchmark\common.mak                  ; Benchmarks common makefile
+
+.\benchmark\man                              ; Benchmarks manual
+.\benchmark\man\man_benchMPC56xxAM.pdf              ; User's Manual
+
+.\benchmark\common                                  ; common benchmarks files
+.\benchmark\common\5644Avle.cmm                     ; Lauterbach command file for the board
+.\benchmark\common\fmpll.c                            ; PLL initialization code
+.\benchmark\common\options.oin                        ; OS options
+.\benchmark\common\tptimer.oin                        ; TP timer options
+
+.\benchmark\memory                                 ; memory benchmarks
+
+.\benchmark\memory\bcc1                            ; memory benchmarks for BCC1
+.\benchmark\memory\bcc1\sc1                         ; memory benchmark for BCC1, SC1
+.\benchmark\memory\bcc1\sc1\makefile                  ; Makefile for BCC1 SC1 benchmark         
+.\benchmark\memory\bcc1\sc1\mbcc1sc1.cmm              ; Lauterbach command file to run benchmark
+
+.\benchmark\memory\bcc1\sc1\sources                 ; OIL-files
+.\benchmark\memory\bcc1\sc1\sources\mbcc1sc1.oil      ; Test AUTOSAR OS configuration file
+
+.\benchmark\memory\bcc1\sc1\bin                    ; executable and MAP files
+.\benchmark\memory\bcc1\sc1\bin\mbcc1sc1_gh.map       ; MAP file for Green Hills compiler
+.\benchmark\memory\bcc1\sc1\bin\mbcc1sc1_db.map       ; MAP file for DIAB compiler
+.\benchmark\memory\bcc1\sc1\bin\mbcc1sc1_cw.map       ; MAP file for CW compiler
+.\benchmark\memory\bcc1\sc1\bin\mbcc1sc1_gh.elf       ; ELF file for Green Hills compiler
+.\benchmark\memory\bcc1\sc1\bin\mbcc1sc1_db.elf       ; ELF file for DIAB compiler
+.\benchmark\memory\bcc1\sc1\bin\mbcc1sc1_cw.elf       ; ELF file for CW compiler
+
+.\benchmark\memory\bcc1\sc2                         ; memory benchmark for BCC1, SC2
+.\benchmark\memory\bcc1\sc2\makefile                  ; Makefile for BCC1 SC2 benchmark         
+.\benchmark\memory\bcc1\sc2\mbcc1sc2.cmm              ; Lauterbach command file to run benchmark
+
+.\benchmark\memory\bcc1\sc2\sources                 ; OIL-files
+.\benchmark\memory\bcc1\sc2\sources\mbcc1sc2.oil      ; Test AUTOSAR OS configuration file
+
+.\benchmark\memory\bcc1\sc2\bin                    ; executable and MAP files
+.\benchmark\memory\bcc1\sc2\bin\mbcc1sc2_gh.map       ; MAP file for Green Hills compiler
+.\benchmark\memory\bcc1\sc2\bin\mbcc1sc2_db.map       ; MAP file for DIAB compiler
+.\benchmark\memory\bcc1\sc2\bin\mbcc1sc2_cw.map       ; MAP file for CW compiler
+.\benchmark\memory\bcc1\sc2\bin\mbcc1sc2_gh.elf       ; ELF file for Green Hills compiler
+.\benchmark\memory\bcc1\sc2\bin\mbcc1sc2_db.elf       ; ELF file for DIAB compiler
+.\benchmark\memory\bcc1\sc2\bin\mbcc1sc2_cw.elf       ; ELF file for CW compiler
+
+.\benchmark\memory\bcc1\sc3                         ; memory benchmark for BCC1, SC3
+.\benchmark\memory\bcc1\sc3\makefile                  ; Makefile for BCC1 SC3 benchmark         
+.\benchmark\memory\bcc1\sc3\mbcc1sc3.cmm              ; Lauterbach command file to run benchmark
+
+.\benchmark\memory\bcc1\sc3\sources                 ; OIL-files
+.\benchmark\memory\bcc1\sc3\sources\mbcc1sc3.oil      ; Test AUTOSAR OS configuration file
+
+.\benchmark\memory\bcc1\sc3\bin                    ; executable and MAP files
+.\benchmark\memory\bcc1\sc3\bin\mbcc1sc3_gh.map       ; MAP file for Green Hills compiler
+.\benchmark\memory\bcc1\sc3\bin\mbcc1sc3_db.map       ; MAP file for DIAB compiler
+.\benchmark\memory\bcc1\sc3\bin\mbcc1sc3_cw.map       ; MAP file for CW compiler
+.\benchmark\memory\bcc1\sc3\bin\mbcc1sc3_gh.elf       ; ELF file for Green Hills compiler
+.\benchmark\memory\bcc1\sc3\bin\mbcc1sc3_db.elf       ; ELF file for DIAB compiler
+.\benchmark\memory\bcc1\sc3\bin\mbcc1sc3_cw.elf       ; ELF file for CW compiler
+
+.\benchmark\memory\bcc1\sc4                         ; memory benchmark for BCC1, SC4
+.\benchmark\memory\bcc1\sc4\makefile                  ; Makefile for BCC1 SC4 benchmark         
+.\benchmark\memory\bcc1\sc4\mbcc1sc4.cmm              ; Lauterbach command file to run benchmark
+
+.\benchmark\memory\bcc1\sc4\sources                 ; OIL-files
+.\benchmark\memory\bcc1\sc4\sources\mbcc1sc4.oil      ; Test AUTOSAR OS configuration file
+
+.\benchmark\memory\bcc1\sc4\bin                    ; executable and MAP files
+.\benchmark\memory\bcc1\sc4\bin\mbcc1sc4_gh.map       ; MAP file for Green Hills compiler
+.\benchmark\memory\bcc1\sc4\bin\mbcc1sc4_db.map       ; MAP file for DIAB compiler
+.\benchmark\memory\bcc1\sc4\bin\mbcc1sc4_cw.map       ; MAP file for CW compiler
+.\benchmark\memory\bcc1\sc4\bin\mbcc1sc4_gh.elf       ; ELF file for Green Hills compiler
+.\benchmark\memory\bcc1\sc4\bin\mbcc1sc4_db.elf       ; ELF file for DIAB compiler
+.\benchmark\memory\bcc1\sc4\bin\mbcc1sc4_cw.elf       ; ELF file for CW compiler
+
+.\benchmark\memory\common                          ; common files for memory benchmarks
+.\benchmark\memory\common\log.cmm                     ; Lauterbach command file to display benchmark results
+.\benchmark\memory\common\mbcc1.c                     ; Source file for BCC1 benchmarks
+.\benchmark\memory\common\mecc1.c                     ; Source file for ECC1 benchmarks
+.\benchmark\memory\common\memmap.h                    ; Memory map file
+.\benchmark\memory\common\memory.h                    ; Header file
+.\benchmark\memory\common\memory.dld                  ; DIAB Linker command file (SC1, SC2)
+.\benchmark\memory\common\memory.lcf                  ; CW Linker command file  (SC1, SC2)
+.\benchmark\memory\common\memory.ld                   ; GreenHills Linker command file  (SC1, SC2)
+.\benchmark\memory\common\memoryp.dld                 ; DIAB Linker command file (SC3, SC4)
+.\benchmark\memory\common\memoryp.lcf                 ; CW Linker command file  (SC3, SC4)
+.\benchmark\memory\common\memoryp.ld                  ; GreenHills Linker command file  (SC3, SC4)
+.\benchmark\memory\common\memory.oin                  ; AUTOSAR OS configuration file
+.\benchmark\memory\common\target.oin                  ; AUTOSAR OS configuration file
+.\benchmark\memory\common\test.cmm                    ; Lauterbach command file to load benchmark
+
+.\benchmark\memory\ecc1                            ; memory benchmarks for ECC1
+.\benchmark\memory\ecc1\sc1                         ; memory benchmark for ECC1, SC1
+.\benchmark\memory\ecc1\sc1\makefile                  ; Makefile for ECC1 SC1 benchmark         
+.\benchmark\memory\ecc1\sc1\mecc1sc1.cmm              ; Lauterbach command file to run benchmark
+
+.\benchmark\memory\ecc1\sc1\sources                 ; OIL-files
+.\benchmark\memory\ecc1\sc1\sources\mecc1sc1.oil      ; Test AUTOSAR OS configuration file
+
+.\benchmark\memory\ecc1\sc1\bin                    ; executable and MAP files
+.\benchmark\memory\ecc1\sc1\bin\mecc1sc1_gh.map       ; MAP file for Green Hills compiler
+.\benchmark\memory\ecc1\sc1\bin\mecc1sc1_db.map       ; MAP file for DIAB compiler
+.\benchmark\memory\ecc1\sc1\bin\mecc1sc1_cw.map       ; MAP file for CW compiler
+.\benchmark\memory\ecc1\sc1\bin\mecc1sc1_gh.elf       ; ELF file for Green Hills compiler
+.\benchmark\memory\ecc1\sc1\bin\mecc1sc1_db.elf       ; ELF file for DIAB compiler
+.\benchmark\memory\ecc1\sc1\bin\mecc1sc1_cw.elf       ; ELF file for CW compiler
+
+.\benchmark\memory\ecc1\sc2                         ; memory benchmark for ECC1, SC2
+.\benchmark\memory\ecc1\sc2\makefile                  ; Makefile for ECC1 SC2 benchmark         
+.\benchmark\memory\ecc1\sc2\mecc1sc2.cmm              ; Lauterbach command file to run benchmark
+
+.\benchmark\memory\ecc1\sc2\sources                 ; OIL-files
+.\benchmark\memory\ecc1\sc2\sources\mecc1sc2.oil      ; Test AUTOSAR OS configuration file
+
+.\benchmark\memory\ecc1\sc2\bin                    ; executable and MAP files
+.\benchmark\memory\ecc1\sc2\bin\mecc1sc2_gh.map       ; MAP file for Green Hills compiler
+.\benchmark\memory\ecc1\sc2\bin\mecc1sc2_db.map       ; MAP file for DIAB compiler
+.\benchmark\memory\ecc1\sc2\bin\mecc1sc2_cw.map       ; MAP file for CW compiler
+.\benchmark\memory\ecc1\sc2\bin\mecc1sc2_gh.elf       ; ELF file for Green Hills compiler
+.\benchmark\memory\ecc1\sc2\bin\mecc1sc2_db.elf       ; ELF file for DIAB compiler
+.\benchmark\memory\ecc1\sc2\bin\mecc1sc2_cw.elf       ; ELF file for CW compiler
+
+.\benchmark\memory\ecc1\sc3                         ; memory benchmark for ECC1, SC3
+.\benchmark\memory\ecc1\sc3\makefile                  ; Makefile for ECC1 SC3 benchmark         
+.\benchmark\memory\ecc1\sc3\mecc1sc3.cmm              ; Lauterbach command file to run benchmark
+
+.\benchmark\memory\ecc1\sc3\sources                 ; OIL-files
+.\benchmark\memory\ecc1\sc3\sources\mecc1sc3.oil      ; Test AUTOSAR OS configuration file
+
+.\benchmark\memory\ecc1\sc3\bin                    ; executable and MAP files
+.\benchmark\memory\ecc1\sc3\bin\mecc1sc3_gh.map       ; MAP file for Green Hills compiler
+.\benchmark\memory\ecc1\sc3\bin\mecc1sc3_db.map       ; MAP file for DIAB compiler
+.\benchmark\memory\ecc1\sc3\bin\mecc1sc3_cw.map       ; MAP file for CW compiler
+.\benchmark\memory\ecc1\sc3\bin\mecc1sc3_gh.elf       ; ELF file for Green Hills compiler
+.\benchmark\memory\ecc1\sc3\bin\mecc1sc3_db.elf       ; ELF file for DIAB compiler
+.\benchmark\memory\ecc1\sc3\bin\mecc1sc3_cw.elf       ; ELF file for CW compiler
+
+.\benchmark\memory\ecc1\sc4                         ; memory benchmark for ECC1, SC4
+.\benchmark\memory\ecc1\sc4\makefile                  ; Makefile for ECC1 SC4 benchmark         
+.\benchmark\memory\ecc1\sc4\mecc1sc4.cmm              ; Lauterbach command file to run benchmark
+
+.\benchmark\memory\ecc1\sc4\sources                 ; OIL-files
+.\benchmark\memory\ecc1\sc4\sources\mecc1sc4.oil      ; Test AUTOSAR OS configuration file
+
+.\benchmark\memory\ecc1\sc4\bin                    ; executable and MAP files
+.\benchmark\memory\ecc1\sc4\bin\mecc1sc4_gh.map       ; MAP file for Green Hills compiler
+.\benchmark\memory\ecc1\sc4\bin\mecc1sc4_db.map       ; MAP file for DIAB compiler
+.\benchmark\memory\ecc1\sc4\bin\mecc1sc4_cw.map       ; MAP file for CW compiler
+.\benchmark\memory\ecc1\sc4\bin\mecc1sc4_gh.elf       ; ELF file for Green Hills compiler
+.\benchmark\memory\ecc1\sc4\bin\mecc1sc4_db.elf       ; ELF file for DIAB compiler
+.\benchmark\memory\ecc1\sc4\bin\mecc1sc4_cw.elf       ; ELF file for CW compiler
+
+.\benchmark\performance                            ; performance benchmarks
+.\benchmark\performance\bcc1                          ; Performance BCC1 tests
+.\benchmark\performance\bcc1\log.cmm                  ; Lauterbach command file to display benchmark results
+
+.\benchmark\performance\bcc1\sc1                  ; performance benchmark for BCC1, SC1         
+.\benchmark\performance\bcc1\sc1\makefile             ; Makefile for BCC1 SC1 benchmark         
+.\benchmark\performance\bcc1\sc1\pbcc1sc1.cmm         ; Lauterbach command file to run benchmark
+
+.\benchmark\performance\bcc1\sc1\sources              ; OIL-files
+.\benchmark\performance\bcc1\sc1\sources\pbcc1sc1.oil   ; Test AUTOSAR OS configuration file
+
+.\benchmark\performance\bcc1\sc1\bin                    ; executable and MAP files
+.\benchmark\performance\bcc1\sc1\bin\pbcc1sc1_gh.map       ; MAP file for Green Hills compiler
+.\benchmark\performance\bcc1\sc1\bin\pbcc1sc1_db.map       ; MAP file for DIAB compiler
+.\benchmark\performance\bcc1\sc1\bin\pbcc1sc1_cw.map       ; MAP file for CW compiler
+.\benchmark\performance\bcc1\sc1\bin\pbcc1sc1_gh.elf       ; ELF file for Green Hills compiler
+.\benchmark\performance\bcc1\sc1\bin\pbcc1sc1_db.elf       ; ELF file for DIAB compiler
+.\benchmark\performance\bcc1\sc1\bin\pbcc1sc1_cw.elf       ; ELF file for CW compiler
+
+.\benchmark\performance\bcc1\sc2                  ; performance benchmark for BCC1, SC2
+.\benchmark\performance\bcc1\sc2\makefile             ; Makefile for BCC1 SC2 benchmark         
+.\benchmark\performance\bcc1\sc2\pbcc1sc2.cmm         ; Lauterbach command file to run benchmark
+
+.\benchmark\performance\bcc1\sc2\sources              ; OIL-files
+.\benchmark\performance\bcc1\sc2\sources\pbcc1sc2.oil   ; Test AUTOSAR OS configuration file
+
+.\benchmark\performance\bcc1\sc2\bin                    ; executable and MAP files
+.\benchmark\performance\bcc1\sc2\bin\pbcc1sc2_gh.map       ; MAP file for Green Hills compiler
+.\benchmark\performance\bcc1\sc2\bin\pbcc1sc2_db.map       ; MAP file for DIAB compiler
+.\benchmark\performance\bcc1\sc2\bin\pbcc1sc2_cw.map       ; MAP file for CW compiler
+.\benchmark\performance\bcc1\sc2\bin\pbcc1sc2_gh.elf       ; ELF file for Green Hills compiler
+.\benchmark\performance\bcc1\sc2\bin\pbcc1sc2_db.elf       ; ELF file for DIAB compiler
+.\benchmark\performance\bcc1\sc2\bin\pbcc1sc2_cw.elf       ; ELF file for CW compiler
+
+.\benchmark\performance\bcc1\sc3                  ; performance benchmark for BCC1, SC3         
+.\benchmark\performance\bcc1\sc3\makefile             ; Makefile for BCC1 SC3 benchmark         
+.\benchmark\performance\bcc1\sc3\pbcc1sc3.cmm         ; Lauterbach command file to run benchmark
+
+.\benchmark\performance\bcc1\sc3\sources              ; OIL-files
+.\benchmark\performance\bcc1\sc3\sources\pbcc1sc3.oil   ; Test AUTOSAR OS configuration file
+                            
+.\benchmark\performance\bcc1\sc3\bin                    ; executable and MAP files
+.\benchmark\performance\bcc1\sc3\bin\pbcc1sc3_gh.map       ; MAP file for Green Hills compiler
+.\benchmark\performance\bcc1\sc3\bin\pbcc1sc3_db.map       ; MAP file for DIAB compiler
+.\benchmark\performance\bcc1\sc3\bin\pbcc1sc3_cw.map       ; MAP file for CW compiler
+.\benchmark\performance\bcc1\sc3\bin\pbcc1sc3_gh.elf       ; ELF file for Green Hills compiler
+.\benchmark\performance\bcc1\sc3\bin\pbcc1sc3_db.elf       ; ELF file for DIAB compiler
+.\benchmark\performance\bcc1\sc3\bin\pbcc1sc3_cw.elf       ; ELF file for CW compiler
+
+.\benchmark\performance\bcc1\sc4                  ; performance benchmark for BCC1, SC4
+.\benchmark\performance\bcc1\sc4\makefile             ; Makefile for BCC1 SC4 benchmark         
+.\benchmark\performance\bcc1\sc4\pbcc1sc4.cmm         ; Lauterbach command file to run benchmark
+
+.\benchmark\performance\bcc1\sc4\sources              ; OIL-files
+.\benchmark\performance\bcc1\sc4\sources\pbcc1sc4.oil   ; Test AUTOSAR OS configuration file
+
+.\benchmark\performance\bcc1\sc4\bin                    ; executable and MAP files
+.\benchmark\performance\bcc1\sc4\bin\pbcc1sc4_gh.map       ; MAP file for Green Hills compiler
+.\benchmark\performance\bcc1\sc4\bin\pbcc1sc4_db.map       ; MAP file for DIAB compiler
+.\benchmark\performance\bcc1\sc4\bin\pbcc1sc4_cw.map       ; MAP file for CW compiler
+.\benchmark\performance\bcc1\sc4\bin\pbcc1sc4_gh.elf       ; ELF file for Green Hills compiler
+.\benchmark\performance\bcc1\sc4\bin\pbcc1sc4_db.elf       ; ELF file for DIAB compiler
+.\benchmark\performance\bcc1\sc4\bin\pbcc1sc4_cw.elf       ; ELF file for CW compiler
+
+.\benchmark\performance\common                     ; common files for performance benchmarks
+.\benchmark\performance\common\memmap.h               ; Memory map file
+.\benchmark\performance\common\memory.dld             ; DIAB Linker command file (SC1, SC2)
+.\benchmark\performance\common\memory.lcf             ; CW Linker command file (SC1, SC2)
+.\benchmark\performance\common\memory.ld              ; GreenHills Linker command file (SC1, SC2)
+.\benchmark\performance\common\memoryp.ld             ; DIAB Linker command file (SC3, SC4)
+.\benchmark\performance\common\memoryp.lcf            ; CW Linker command file (SC3, SC4)
+.\benchmark\performance\common\memoryp.dld            ; DIAB Linker command file (SC3, SC4)
+.\benchmark\performance\common\pbcc1.c                ; Source file for BCC1 benchmarks
+.\benchmark\performance\common\pecc1.c                ; Source file for ECC1 benchmarks
+.\benchmark\performance\common\performance.h          ; Header file
+.\benchmark\performance\common\performance.oin        ; AUTOSAR OS configuration file
+.\benchmark\performance\common\target.oin             ; AUTOSAR OS configuration file
+.\benchmark\performance\common\test.cmm               ; Lauterbach command file to load benchmark
+
+.\benchmark\performance\ecc1                       ; Performance ECC1 tests
+.\benchmark\performance\ecc1\log.cmm                  ; Lauterbach command file to display benchmark results
+
+.\benchmark\performance\ecc1\sc1                  ; performance benchmark for ECC1, SC1         
+.\benchmark\performance\ecc1\sc1\makefile             ; Makefile for ECC1 SC1 benchmark         
+.\benchmark\performance\ecc1\sc1\pecc1sc1.cmm         ; Lauterbach command file to run benchmark
+
+.\benchmark\performance\ecc1\sc1\sources              ; OIL-files
+.\benchmark\performance\ecc1\sc1\sources\pecc1sc1.oil   ; Test AUTOSAR OS configuration file
+
+.\benchmark\performance\ecc1\sc1\bin                    ; executable and MAP files
+.\benchmark\performance\ecc1\sc1\bin\pecc1sc1_gh.map       ; MAP file for Green Hills compiler
+.\benchmark\performance\ecc1\sc1\bin\pecc1sc1_db.map       ; MAP file for DIAB compiler
+.\benchmark\performance\ecc1\sc1\bin\pecc1sc1_cw.map       ; MAP file for CW compiler
+.\benchmark\performance\ecc1\sc1\bin\pecc1sc1_gh.elf       ; ELF file for Green Hills compiler
+.\benchmark\performance\ecc1\sc1\bin\pecc1sc1_db.elf       ; ELF file for DIAB compiler
+.\benchmark\performance\ecc1\sc1\bin\pecc1sc1_cw.elf       ; ELF file for CW compiler
+
+.\benchmark\performance\ecc1\sc2                  ; performance benchmark for ECC1, SC2
+.\benchmark\performance\ecc1\sc2\makefile             ; Makefile for ECC1 SC2 benchmark         
+.\benchmark\performance\ecc1\sc2\pecc1sc2.cmm         ; Lauterbach command file to run benchmark
+
+.\benchmark\performance\ecc1\sc2\sources              ; OIL-files
+.\benchmark\performance\ecc1\sc2\sources\pecc1sc2.oil   ; Test AUTOSAR OS configuration file
+
+.\benchmark\performance\ecc1\sc2\bin                    ; executable and MAP files
+.\benchmark\performance\ecc1\sc2\bin\pecc1sc2_gh.map       ; MAP file for Green Hills compiler
+.\benchmark\performance\ecc1\sc2\bin\pecc1sc2_db.map       ; MAP file for DIAB compiler
+.\benchmark\performance\ecc1\sc2\bin\pecc1sc2_cw.map       ; MAP file for CW compiler
+.\benchmark\performance\ecc1\sc2\bin\pecc1sc2_gh.elf       ; ELF file for Green Hills compiler
+.\benchmark\performance\ecc1\sc2\bin\pecc1sc2_db.elf       ; ELF file for DIAB compiler
+.\benchmark\performance\ecc1\sc2\bin\pecc1sc2_cw.elf       ; ELF file for CW compiler
+
+.\benchmark\performance\ecc1\sc3                  ; performance benchmark for ECC1, SC3
+.\benchmark\performance\ecc1\sc3\makefile             ; Makefile for ECC1 SC3 benchmark         
+.\benchmark\performance\ecc1\sc3\pecc1sc3.cmm         ; Lauterbach command file to run benchmark
+
+.\benchmark\performance\ecc1\sc3\sources              ; OIL-files
+.\benchmark\performance\ecc1\sc3\sources\pecc1sc3.oil   ; Test AUTOSAR OS configuration file
+
+.\benchmark\performance\ecc1\sc3\bin                    ; executable and MAP files
+.\benchmark\performance\ecc1\sc3\bin\pecc1sc3_gh.map       ; MAP file for Green Hills compiler
+.\benchmark\performance\ecc1\sc3\bin\pecc1sc3_db.map       ; MAP file for DIAB compiler
+.\benchmark\performance\ecc1\sc3\bin\pecc1sc3_cw.map       ; MAP file for CW compiler
+.\benchmark\performance\ecc1\sc3\bin\pecc1sc3_gh.elf       ; ELF file for Green Hills compiler
+.\benchmark\performance\ecc1\sc3\bin\pecc1sc3_db.elf       ; ELF file for DIAB compiler
+.\benchmark\performance\ecc1\sc3\bin\pecc1sc3_cw.elf       ; ELF file for CW compiler
+
+.\benchmark\performance\ecc1\sc4                  ; performance benchmark for ECC1, SC4
+.\benchmark\performance\ecc1\sc4\makefile             ; Makefile for ECC1 SC4 benchmark         
+.\benchmark\performance\ecc1\sc4\pecc1sc4.cmm         ; Lauterbach command file to run benchmark
+
+.\benchmark\performance\ecc1\sc4\sources              ; OIL-files
+.\benchmark\performance\ecc1\sc4\sources\pecc1sc4.oil   ; Test AUTOSAR OS configuration file
+
+.\benchmark\performance\ecc1\sc4\bin                    ; executable and MAP files
+.\benchmark\performance\ecc1\sc4\bin\pecc1sc4_gh.map       ; MAP file for Green Hills compiler
+.\benchmark\performance\ecc1\sc4\bin\pecc1sc4_db.map       ; MAP file for DIAB compiler
+.\benchmark\performance\ecc1\sc4\bin\pecc1sc4_cw.map       ; MAP file for CW compiler
+.\benchmark\performance\ecc1\sc4\bin\pecc1sc4_gh.elf       ; ELF file for Green Hills compiler
+.\benchmark\performance\ecc1\sc4\bin\pecc1sc4_db.elf       ; ELF file for DIAB compiler
+.\benchmark\performance\ecc1\sc4\bin\pecc1sc4_cw.elf       ; ELF file for CW compiler
+
+; Tresos Studio 2009a  plugin
+.\os_ts                                                ; Tresos folder
+.\os_ts\eclipse                                           ; Eclipse folder
+.\os_ts\eclipse\plugins                                      ; Tresos plugins folder
+.\os_ts\eclipse\plugins\Os_TS_T2D14M3I0R0                    ; AUTOSAR OS/xpc563xm v.3.0 configuration plug-in folder
+.\os_ts\eclipse\plugins\Os_TS_T2D14M3I0R0\autosar             ; OS description in AUTOSAR XML format folder
+.\os_ts\eclipse\plugins\Os_TS_T2D14M3I0R0\autosar\Os.epd      ; OS description in AUTOSAR XML format 
+.\os_ts\eclipse\plugins\Os_TS_T2D14M3I0R0\config              ; OS description in Tresos XDM format folder
+.\os_ts\eclipse\plugins\Os_TS_T2D14M3I0R0\config\Os.xdm       ; OS description in Tresos XDM format folder
+.\os_ts\eclipse\plugins\Os_TS_T2D14M3I0R0\doc                 ; OS documentation  
+.\os_ts\eclipse\plugins\Os_TS_T2D14M3I0R0\doc\autosar_osmpc56xxAM_tr.pdf  ; Technical Reference  AUTOSAR OS MPC56xxAM
+.\os_ts\eclipse\plugins\Os_TS_T2D14M3I0R0\doc\autosar_osmpc56xxAM_um.pdf  ; Users Manual AUTOSAR OS MPC56xxAM
+.\os_ts\eclipse\plugins\Os_TS_T2D14M3I0R0\make               ; plugin make files folder
+.\os_ts\eclipse\plugins\Os_TS_T2D14M3I0R0\make\os_defs.mak       ; AUTOSAR OS defines makefile
+.\os_ts\eclipse\plugins\Os_TS_T2D14M3I0R0\make\os_rules.mak      ; AUTOSAR OS rules makefile
+.\os_ts\eclipse\plugins\Os_TS_T2D14M3I0R0\META-INF           ; Eclipse plugin manifest folder
+.\os_ts\eclipse\plugins\Os_TS_T2D14M3I0R0\META-INF\MANIFEST.MF   ; Eclipse plugin manifest
+.\os_ts\eclipse\plugins\Os_TS_T2D14M3I0R0\META-INF\cryptomanifest.mf     ; plugin cryptomanifest
+.\os_ts\eclipse\plugins\Os_TS_T2D14M3I0R0\meta-inf\cryptomanifestsig.mf ; Digital signatures
+.\os_ts\eclipse\plugins\Os_TS_T2D14M3I0R0\plugin.xml         ; Plugin definition file
+.\os_ts\eclipse\plugins\Os_TS_T2D14M3I0R0\anchors.xml         ; Plugin help definition file
+.\os_ts\eclipse\plugins\Os_TS_T2D14M3I0R0\readme.txt         ; Plugin readme file
+
+
+.\os_ts\eclipse\plugins\Os_TS_T2D18M3I0R0                     ; AUTOSAR OS/xpc564xa v.3.0 configuration plug-in folder
+.\os_ts\eclipse\plugins\Os_TS_T2D18M3I0R0\autosar             ; OS description in AUTOSAR XML format folder
+.\os_ts\eclipse\plugins\Os_TS_T2D18M3I0R0\autosar\Os.epd      ; OS description in AUTOSAR XML format 
+.\os_ts\eclipse\plugins\Os_TS_T2D18M3I0R0\config              ; OS description in Tresos XDM format folder
+.\os_ts\eclipse\plugins\Os_TS_T2D18M3I0R0\config\Os.xdm       ; OS description in Tresos XDM format folder
+.\os_ts\eclipse\plugins\Os_TS_T2D18M3I0R0\doc                 ; OS documentation  
+.\os_ts\eclipse\plugins\Os_TS_T2D18M3I0R0\doc\autosar_osmpc56xxAM_tr.pdf  ; Technical Reference  AUTOSAR OS MPC56xxAM
+.\os_ts\eclipse\plugins\Os_TS_T2D18M3I0R0\doc\autosar_osmpc56xxAM_um.pdf  ; Users Manual AUTOSAR OS MPC56xxAM
+.\os_ts\eclipse\plugins\Os_TS_T2D18M3I0R0\make               ; plugin make files folder
+.\os_ts\eclipse\plugins\Os_TS_T2D18M3I0R0\make\os_defs.mak       ; AUTOSAR OS defines makefile
+.\os_ts\eclipse\plugins\Os_TS_T2D18M3I0R0\make\os_rules.mak      ; AUTOSAR OS rules makefile
+.\os_ts\eclipse\plugins\Os_TS_T2D18M3I0R0\META-INF           ; Eclipse plugin manifest folder
+.\os_ts\eclipse\plugins\Os_TS_T2D18M3I0R0\META-INF\MANIFEST.MF   ; Eclipse plugin manifest
+.\os_ts\eclipse\plugins\Os_TS_T2D18M3I0R0\META-INF\cryptomanifest.mf     ; plugin cryptomanifest
+.\os_ts\eclipse\plugins\Os_TS_T2D18M3I0R0\meta-inf\cryptomanifestsig.mf ; Digital signatures
+.\os_ts\eclipse\plugins\Os_TS_T2D18M3I0R0\plugin.xml         ; Plugin definition file
+.\os_ts\eclipse\plugins\Os_TS_T2D18M3I0R0\anchors.xml         ; Plugin help definition file
+.\os_ts\eclipse\plugins\Os_TS_T2D18M3I0R0\readme.txt         ; Plugin readme file
+
+.\os_ts\eclipse\plugins\Os_TS_T2D19M3I0R0                     ; AUTOSAR OS/xpc567xf v.3.0 configuration plug-in folder
+.\os_ts\eclipse\plugins\Os_TS_T2D19M3I0R0\autosar             ; OS description in AUTOSAR XML format folder
+.\os_ts\eclipse\plugins\Os_TS_T2D19M3I0R0\autosar\Os.epd      ; OS description in AUTOSAR XML format 
+.\os_ts\eclipse\plugins\Os_TS_T2D19M3I0R0\config              ; OS description in Tresos XDM format folder
+.\os_ts\eclipse\plugins\Os_TS_T2D19M3I0R0\config\Os.xdm       ; OS description in Tresos XDM format folder
+.\os_ts\eclipse\plugins\Os_TS_T2D19M3I0R0\doc                 ; OS documentation  
+.\os_ts\eclipse\plugins\Os_TS_T2D19M3I0R0\doc\autosar_osmpc56xxAM_tr.pdf  ; Technical Reference  AUTOSAR OS MPC56xxAM
+.\os_ts\eclipse\plugins\Os_TS_T2D19M3I0R0\doc\autosar_osmpc56xxAM_um.pdf  ; Users Manual AUTOSAR OS MPC56xxAM
+.\os_ts\eclipse\plugins\Os_TS_T2D19M3I0R0\make               ; plugin make files folder
+.\os_ts\eclipse\plugins\Os_TS_T2D19M3I0R0\make\os_defs.mak       ; AUTOSAR OS defines makefile
+.\os_ts\eclipse\plugins\Os_TS_T2D19M3I0R0\make\os_rules.mak      ; AUTOSAR OS rules makefile
+.\os_ts\eclipse\plugins\Os_TS_T2D19M3I0R0\META-INF           ; Eclipse plugin manifest folder
+.\os_ts\eclipse\plugins\Os_TS_T2D19M3I0R0\META-INF\MANIFEST.MF   ; Eclipse plugin manifest
+.\os_ts\eclipse\plugins\Os_TS_T2D19M3I0R0\META-INF\cryptomanifest.mf     ; plugin cryptomanifest
+.\os_ts\eclipse\plugins\Os_TS_T2D19M3I0R0\meta-inf\cryptomanifestsig.mf ; Digital signatures
+.\os_ts\eclipse\plugins\Os_TS_T2D19M3I0R0\plugin.xml         ; Plugin definition file
+.\os_ts\eclipse\plugins\Os_TS_T2D19M3I0R0\anchors.xml         ; Plugin help definition file
+.\os_ts\eclipse\plugins\Os_TS_T2D19M3I0R0\readme.txt         ; Plugin readme file
+
+; Tresos Studio 2009a configuration project example for sample\standard\sc1
+.\os_ts\eclipse\workspace                               ; Tresos projects' folder
+.\os_ts\eclipse\workspace\os_sample_sc1                     ; OS sample sc1 project folder 
+.\os_ts\eclipse\workspace\os_sample_sc1\.project                ; Eclipse project information
+.\os_ts\eclipse\workspace\os_sample_sc1\readme.txt              ; Example readme file
+.\os_ts\eclipse\workspace\os_sample_sc1\.prefs                  ; Project preferences folder
+.\os_ts\eclipse\workspace\os_sample_sc1\.prefs\preferences.xdm      ; Project preferences 
+.\os_ts\eclipse\workspace\os_sample_sc1\config                  ; Project configuration folder
+.\os_ts\eclipse\workspace\os_sample_sc1\config\OS.xdm               ; OS module configuration
+
+.\os_ts\eclipse\workspace\os_sample_sc2                     ; OS sample sc2 project folder 
+.\os_ts\eclipse\workspace\os_sample_sc2\.project                ; Eclipse project information
+.\os_ts\eclipse\workspace\os_sample_sc2\readme.txt              ; Example readme file
+.\os_ts\eclipse\workspace\os_sample_sc2\.prefs                  ; Project preferences folder
+.\os_ts\eclipse\workspace\os_sample_sc2\.prefs\preferences.xdm      ; Project preferences 
+.\os_ts\eclipse\workspace\os_sample_sc2\config                  ; Project configuration folder
+.\os_ts\eclipse\workspace\os_sample_sc2\config\OS.xdm               ; OS module configuration
+
+.\os_ts\eclipse\workspace\os_sample_sc3                     ; OS sample sc3 project folder 
+.\os_ts\eclipse\workspace\os_sample_sc3\.project                ; Eclipse project information
+.\os_ts\eclipse\workspace\os_sample_sc3\readme.txt              ; Example readme file
+.\os_ts\eclipse\workspace\os_sample_sc3\.prefs                  ; Project preferences folder
+.\os_ts\eclipse\workspace\os_sample_sc3\.prefs\preferences.xdm      ; Project preferences 
+.\os_ts\eclipse\workspace\os_sample_sc3\config                  ; Project configuration folder
+.\os_ts\eclipse\workspace\os_sample_sc3\config\OS.xdm               ; OS module configuration
+
+.\os_ts\eclipse\workspace\os_sample_sc4                     ; OS sample sc4 project folder 
+.\os_ts\eclipse\workspace\os_sample_sc4\.project                ; Eclipse project information
+.\os_ts\eclipse\workspace\os_sample_sc4\readme.txt              ; Example readme file
+.\os_ts\eclipse\workspace\os_sample_sc4\.prefs                  ; Project preferences folder
+.\os_ts\eclipse\workspace\os_sample_sc4\.prefs\preferences.xdm      ; Project preferences 
+.\os_ts\eclipse\workspace\os_sample_sc4\config                  ; Project configuration folder
+.\os_ts\eclipse\workspace\os_sample_sc4\config\OS.xdm               ; OS module configuration

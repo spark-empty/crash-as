@@ -1,0 +1,90 @@
+/**************************************************************************************
+* 
+*  Freescale(TM) and the Freescale logo are trademarks of Freescale Semiconductor, Inc. 
+*  All other product or service names are the property of their respective owners. 
+*  (C) Freescale Semiconductor, Inc. 2008 - 2009
+* 
+*  You can use this example for any purpose on any computer system with the
+*  following restrictions:
+*
+*  1. This example is provided "as is", without warranty.
+*
+*  2. You don't remove this copyright notice from this example or any direct derivation 
+*     thereof.
+*
+*  Description:  AUTOSAR OS/MPC56xxAM performance benchmark for BCC1/SC1
+*
+******************************************************************************/
+
+OIL_VERSION = "3.0";
+
+#include "os_mpc56xxAM.oin"
+
+CPU Cpu1 {
+    APPMODE Mode1;
+    
+    OS Os1 {
+        FastTerminate = TRUE;
+#include "..\..\..\common\target.oin"
+        };    
+#include "..\..\..\..\common\options.oin"
+        STATUS = STANDARD;
+    };
+
+#include "..\..\..\common\performance.oin"
+
+    ALARM ALARM_1 {
+        ACTION = ACTIVATETASK {
+            TASK = TASK_h1;
+        };                
+    };
+    ALARM ALARM_2 {
+        ACTION = ACTIVATETASK {
+            TASK = TASK_h2;
+        };                
+    };
+    ALARM ALARM_3 {
+        ACTION = ACTIVATETASK {
+            TASK = TASK_h3;
+        };                
+    };
+    ALARM ALARM_4 {
+        ACTION = ACTIVATETASK {
+            TASK = TASK_h4;
+        };        
+    };
+    ALARM ALARM_5 {
+        ACTION = ACTIVATETASK {
+            TASK = TASK_h5;
+        };        
+    };
+    ALARM ALARM_6 {
+        ACTION = ACTIVATETASK {
+            TASK = TASK_h6;
+        };                
+    };
+    ALARM ALARM_7 {
+        ACTION = ACTIVATETASK {
+            TASK = TASK_h7;
+        };        
+    };
+    ALARM ALARM_8 {
+        ACTION = ACTIVATETASK {
+            TASK = TASK_h8;
+        };                
+    };    
+
+    // "Harmonic" tasks
+    TASK TASK_h1 {
+        AUTOSTART = FALSE;
+    };
+    TASK TASK_h2 {
+        AUTOSTART = FALSE;
+    };
+    TASK TASK_h3 {
+        AUTOSTART = FALSE;
+    };
+    TASK TASK_h4 {
+        AUTOSTART = FALSE;
+    };
+};

@@ -1,0 +1,497 @@
+****************************************************************************************************
+Release Notes for Freescale Semiconductor, Inc. AUTOSAR MPC563XM MCAL3.0 swv: 2.0.0 RTM
+
+Freescale(TM) and the Freescale logo are trademarks of Freescale Semiconductor.
+
+STMicroelectronics(TM) and the STMicroelectronics logo are trademarks of STMicroelectronics.
+
+All other product or service names are the property of their respective owners.
+Copyright (C) Freescale Semiconductor & STMicroelectronics, 2008-2011
+****************************************************************************************************
+
+****************************************************************************************************
+This package contains files for
+Freescale AUTOSAR MPC563XM MCAL3.0 swv: 2.0.0 RTM
+****************************************************************************************************
+"<mod>_TS_T2D14M20I0R0" directories - Tresos Plugins, 1 per module.
+"MPC563XM_MCAL3.0_RTM_2.0.0_Integration_Application" - Folder containing the MCAL Integration
+Application
+"MPC563XM_MCAL3.0_RTM_2.0.0_ChangesList.pdf" - File containing details about the changes included
+in this release.
+"MPC563XM_MCAL3.0_RTM_2.0.0_ReleaseNotes.txt" - This file.
+
+
+****************************************************************************************************
+Installation
+****************************************************************************************************
+If using the EB Tresos Configuration Tool, use the "<Tresos Install Path>\plugins" as the target
+directory for the installation. Alternatively you can install to the default location and copy all
+"<mod>_TS_T2D14M20I0R0" directories to the "<Tresos Install Path>\plugins" directory.
+
+
+====================================================================================================
+AUTOSAR MPC563XM MCAL3.0 swv: 2.0.0 RTM is R3.0 Rev0003 compliant. It is developed with respect to
+the following files & documents. The AUTOSAR Configuration ARXML specification takes precedence over
+AUTOSAR SWS PDF Specifications if there are discrepancies.
+====================================================================================================
+ - AUTOSAR_EcucParamDef.arxml                  V2.0.2,  13.04.2008
+ - AUTOSAR_SWS_BSW_Scheduler.pdf               V1.1.1,  14.02.2008
+ - AUTOSAR_SWS_ADC_Driver.pdf                  V3.0.2,  13.02.2008
+ - AUTOSAR_SWS_CAN_Driver.pdf                  V2.2.2,  13.02.2008
+ - AUTOSAR_SWS_CompilerAbstraction.pdf         V2.0.1,  14.02.2008
+ - AUTOSAR_SWS_ComStackTypes.pdf               V2.2.1,  14.02.2008
+ - AUTOSAR_SWS_DEM.pdf                         V2.1.2,  13.02.2008
+ - AUTOSAR_SWS_DET.pdf                         V2.2.1,  13.02.2008
+ - AUTOSAR_SWS_DIO_Driver.pdf                  V2.2.1,  13.02.2008
+ - AUTOSAR_SWS_ECU_StateManager.pdf            V1.2.1,  14.02.2008
+ - AUTOSAR_SWS_Flash_EEPROM_Emulation.pdf      V1.2.1,  15.02.2008
+ - AUTOSAR_SWS_FlashDriver.pdf                 V2.2.2,  13.02.2008
+ - AUTOSAR_SWS_GPT_Driver.pdf                  V2.2.1,  13.02.2008
+ - AUTOSAR_SWS_ICU_Driver.pdf                  V3.0.1,  13.02.2008
+ - AUTOSAR_SWS_LIN_Driver.pdf                  V1.2.1,  14.02.2008
+ - AUTOSAR_SWS_MCU_Driver.pdf                  V2.2.2,  23.01.2008
+ - AUTOSAR_SWS_MemoryMapping.pdf               V1.1.1,  14.02.2008
+ - AUTOSAR_SWS_Mem_AbstractionInterface.pdf    V1.2.1,  15.02.2008
+ - AUTOSAR_SWS_PlatformTypes.pdf               V2.2.1,  14.02.2008
+ - AUTOSAR_SWS_Port_Driver.pdf                 V3.0.2,  14.02.2008
+ - AUTOSAR_SWS_PWM_Driver.pdf                  V2.2.1,  14.02.2008
+ - AUTOSAR_SWS_SPI_HandlerDriver.pdf           V2.2.1,  14.02.2008
+ - AUTOSAR_SWS_StandardTypes.pdf               V1.2.1,  14.02.2008
+ - AUTOSAR_SWS_WatchdogDriver.pdf              V2.2.1,  18.02.2008
+ - AUTOSAR_SWS_WatchdogInterface.pdf           V2.2.1,  07.12.2007
+
+
+Release Location:
+=================
+This RTM 2.0.0 Release is stored on the Clear Case repository and accessible by the following
+Config Spec:
+
+      element * BLN_MCAL_3.0_MONACO_RTM_2.0.0_FSL
+      element * BLN_MCAL_3.0_MONACO_RTM_2.0.0
+
+
+Release Specifics:
+==================
+- This is the MCAL3.0 RTM 2.0.0 release for the Monaco platform.
+
+- This release has the RTM quality status in terms of testing and quality documentation.
+
+- The deviations from Autosar are described the User's Manual of each MCAL driver. (Chapter3.4
+Deviation from Requirements)
+
+- A folder named "<mod>_TS_TtDdMmIiRr" exists for each delivered module (<mod>). It is called a
+Tresos plugin for the module.  A plugin contains the AUTOSAR module definition file (epd), the
+Tresos Xpath Data Model (XDM) module definition file (xdm), the module integration manual, the
+module configuration generation template source files, and the module driver static source files.
+Additional necessary Tresos specific tooling files are also supplied.
+
+- Module configurations were developed and tested using Tresos Configuration Tool Tresos 2010a.sr4
+20100415-release2010a-sr4
+  Configuration definition files were developed according to AUTOSAR 3.0, AUTOSAR_EcucParamDef.arxml
+V2.0.2, 13.04.2008. See above.
+
+- This release was developed and tested with:
+    GHS 5.2.4
+    DIAB 5_8_0_02 wind00198363 20100511 123238
+    CW 2.7
+
+- This release was developed for the MPC563XM silicon version cut 2.1
+
+- This release was developed and tested using XPC56XX EVB and XPC563M 
+  144QFP MINI-MODULE and XPC563M 176QFP MINI-MODULE.
+
+- This release has been tested using VLE instruction set and has been executed from internal FLASH.
+
+- The functions contained in the Base, CanIf, Dem, Det, EcuM, LinIf, MemIf, SchM, WdgIf plugins are
+sample stub functions. These functions should be replaced by the user developed code during
+integration.
+
+- Compiler options recommended for this release are documented in the integration manual of each
+module
+  Compiler options are also listed here after, into the "Compiler Options" paragraph.
+
+- The Resource module is needed to select the MCU derivative. The derivatives supported can be found
+in the Resource module definition file, parameter 'ResourceSubderivative'.
+
+
+Used Documentation:
+===================
+   MPC5634M Microcontroller Reference Manual - MPC5634MRM  - Rev.6 - 4 October 2011
+
+Implemented Errata:
+===================
+   MPC563XM MCU Family Device Errata         - MPC563XM_1M35Y Rev - 12 OCT 2011
+
+
+Supported Derivatives:
+======================
+This release is classified as RTM for the following derivatives:
+ - mpc5634m_bga208,
+ - mpc5634m_qfp144, 
+ - mpc5634m_qfp176
+
+Tresos Plugin Encoding:
+=======================
+
+<mod>_TS_TtDdMmIiRr
+
+Important change related to the plugin notation (ENGR00158344):
+- "m" = coding major and minor version number, this can contain 1 or more digits
+- "i" = patch number.
+The Major version number will be left out, if it is "0", in this case “m” contains 1 digit only,
+otherwise it contains 2 digits
+
+For this release:
+
+t=2, PA (Power Architecture)
+d=14, MPC563XM (derivative)
+m=20,  Release minor version
+i=0,  Release patch version
+r=0,  Reserved
+
+
+Support and Driver Plugins Delivered:
+=====================================
+Adc_TS_T2D14M20I0R0       sw version 2.0.0   (Driver, Analog to Digital Conversion)
+Base_TS_T2D14M20I0R0      sw version 2.0.0   (Support Stub, General AUTOSAR & Hardware Specific register files)
+Can_TS_T2D14M20I0R0       sw version 2.0.0   (Driver, Controller Area Network)
+CanIf_TS_T2D14M20I0R0     sw version 2.0.0   (Support Stub, Controller Area Network Interface)
+Dem_TS_T2D14M20I0R0       sw version 2.0.0   (Support Stub, Diagnostic Event Manager)
+Det_TS_T2D14M20I0R0       sw version 2.0.0   (Support Stub, Development Error Tracer)
+Dio_TS_T2D14M20I0R0       sw version 2.0.0   (Driver, Digital Input Output)
+EcuM_TS_T2D14M20I0R0      sw version 2.0.0   (Support Stub, ECU State Manager)
+Fee_TS_T2D14M20I0R0       sw version 2.0.0   (Driver, Flash EEPROM Emulation)
+Fls_TS_T2D14M20I0R0       sw version 2.0.0   (Driver, Flash)
+Gpt_TS_T2D14M20I0R0       sw version 2.0.0   (Driver, General Purpose Timer)
+Icu_TS_T2D14M20I0R0       sw version 2.0.0   (Driver, Input Capture Unit)
+Lin_TS_T2D14M20I0R0       sw version 2.0.0   (Driver, Local Interconnect Network)
+LinIf_TS_T2D14M20I0R0     sw version 2.0.0   (Support Stub, Local Interconnect Network Interface)
+Mcu_TS_T2D14M20I0R0       sw version 2.0.0   (Driver, Micro Controller Unit)
+MemIf_TS_T2D14M20I0R0     sw version 2.0.0   (Support Stub, Memory Interface)
+Port_TS_T2D14M20I0R0      sw version 2.0.0   (Driver, Port)
+Pwm_TS_T2D14M20I0R0       sw version 2.0.0   (Driver, Pulse Width Modulation)
+Resource_TS_T2D14M20I0R0  sw version 2.0.0   (Resource Module, Required by all other modules to select MCU
+                                             derivative)
+SchM_TS_T2D14M20I0R0      sw version 2.0.0   (Support Stub, Schedule Manager)
+Spi_TS_T2D14M20I0R0       sw version 2.0.0   (Driver, Serial Peripheral Interface)
+Wdg_TS_T2D14M20I0R0       sw version 2.0.0   (Driver, Watchdog)
+WdgIf_TS_T2D14M20I0R0     sw version 2.0.0   (Support Stub, Watchdog Interface)
+
+
+
+Module Plugin Directory Structure:
+==================================
+<mod>_TS_TtDdMmIiRr\plugin.xml                      ; Tresos Configuration tooling data file
+<mod>_TS_TtDdMmIiRr\autosar\<mod>.epd               ; Module Parameter Definition in AUTOSAR format
+<mod>_TS_TtDdMmIiRr\config\<mod>.xdm                ; Module Parameter Definition in Tresos XDM
+                                                    ; format
+<mod>_TS_TtDdMmIiRr\doc\AUTOSAR_MCAL_<mod>_IM.pdf   ; Module integration manual
+<mod>_TS_TtDdMmIiRr\doc\AUTOSAR_MCAL_<mod>_UM.pdf   ; Module user's manual
+<mod>_TS_TtDdMmIiRr\generate_PB                     ; Post-build source files macros
+<mod>_TS_TtDdMmIiRr\generate_PB\src                 ; Post-build source file templates
+<mod>_TS_TtDdMmIiRr\generate_LT\src                 ; Link-time source file templates (only if
+                                                    ; applicable)
+<mod>_TS_TtDdMmIiRr\generate_PC\                    ; Pre-compile source files macros
+<mod>_TS_TtDdMmIiRr\generate_PC\src                 ; Pre-compile source files templates
+<mod>_TS_TtDdMmIiRr\include\                        ; Module driver header files
+<mod>_TS_TtDdMmIiRr\META-INF\MANIFEST.MF            ; Tresos Configuration tooling data file
+<mod>_TS_TtDdMmIiRr\src\                            ; Module driver source files
+
+Note:
+1.  The Support Stub Resource contains the "resource" folder instead of the "src" folder.
+
+
+MPC563XM_MCAL3.0_RTM_2.0.0_Integration_Application Folder Structure:
+==============================================
+|-MPC563XM_MCAL3.0_RTM_2.0.0_Integration_Application
+   |- bin folder - generated object files and linker output files are stored into this folder
+   |- cfg folder - contains configuration files generated by Tresos tool
+   |- include subfolder - contains files with pre-compile configurations
+   |- src subfolder - contains files with post-build and link-time configurations
+   |- doc folder - contains documentation
+   |- include folder - contains header files for MPC563XM device and types definition
+   |- make folder - makefiles used for building the application
+   |- src folder - contains main.c - the application source code file
+   |- toolchains folder - files needed to build with various toolchains (startup, linker command
+files)
+   |- makefile file - the MCAL sample application makefile
+   |- makefile_os file - MCAL-OS application makefile
+   |- Modules file - specifies which modules are compiled and linked
+   |- make.bat file - launches the make command
+   |- launch.bat file - contains path to the Tresos Studio installation and launches the make.bat
+file
+   |- Tresos  folder
+      |- workspace  - contains the Tresos project with the application configuration
+
+
+=================
+Compiler Options:
+=================
+The release was tested using the following compiler options:
+
+CW Compiler/Linker/Assembler Options:
+------------------------------------- 
+-proc Zen                   Generates and links object code for Zen processor. The compiler uses
+                            unsigned as the default parameter for the -char switch
+-lang c                     Expects source code to conform to the language specified by the ISO/IEC
+                            9899-1990 ("C90") standard
+-opt all                    This option is selected all optimization (the same as -opt
+                            speed,level=4,intrinsics,noframe)
+-common off                 Disables moving uninitialized data into a common section
+-sdatathreshold 0           Specifies the threshold size (in bytes) for an item considered by the
+                            linker to be small data. (The linker stores small data items in the
+                            Small Data address space. The compiler can generate faster code to
+                            access this data.)
+-sdata2threshold 0          Specifies the threshold size (in bytes) for an item considered by the
+                            linker to be small constant data. (The linker stores small constant data
+                            items in the Small Constant Data address space.)
+-vle                        Tells the compiler and linker to generate and lay out Variable Length
+                            Encoded (VLE) instructions, available on Zen variants of Power
+                            Architecture processors
+-use_lmw_stmw on            Enables the use of multiple load and store instructions for function
+                            prologues and epilogues
+-ppc_asm_to_vle             Converts regular Power Architecture assembler mnemonics to equivalent
+                            VLE (Variable Length Encoded) assembler mnemonics in the inline
+                            assembler
+-cpp_exceptions off         When on, generates executable code for C++ exceptions. When off,
+                            generates smaller, faster executable code
+-func_align 4               Specifies alignment of functions in executable code
+-sym dwarf-2,full           Generate DWARF-2-conforming debugging information (Debug With Arbitrary
+                            Record Format)
+-gdwarf-2                   Generate DWARF-2-conforming debugging information (Debug With Arbitrary
+                            Record Format). The linker ignores debugging information that is not in
+                            the Dwarf 1, Dwarf 2 format
+-w on                       Turns on most warning messages
+-r                          Compiler should expect function prototypes
+-w undefmacro               Issues warning messages on the use of undefined macros in #if and #elif
+                            conditionals
+-char unsigned              Controls the default sign of the char data type: char data items are
+                            unsigned
+-nosyspath                  Performs a search of both the user and system paths, treating #include
+                            statements of the form #include xyz the same as the form #include "xyz"
+-fp none                    No floating point code generation
+-DAUTOSAR_OS_NOT_USED       -D defines a preprocessor symbol and optionally can set it to a value.
+                            AUTOSAR_OS_NOT_USED: By default in the package, the drivers are compiled
+                            to be used without Autosar OS. If the drivers are used with Autosar OS,
+                            the compiler option '-DAUTOSAR_OS_NOT_USED' must be removed from project
+                            options
+-DUSE_SW_VECTOR_MODE        -D defines a preprocessor symbol and optionally can set it to a value.
+                            USE_SW_VECTOR_MODE: By default in the package, drivers are compiled to
+                            be used with interrupt controller configured to be in hardware vector
+                            mode. In case of AUTOSAR_OS_NOT_USED, the compiler option "-
+                            DUSE_SW_VECTOR_MODE" must be added to the list of compiler options to be
+                            used with interrupt controller configured to be in software vector mode.
+-DMWERKS                    -D defines a preprocessor symbol and optionally can set it to a value.
+                            This one defines the CWpreprocessor symbol.
+-proc Zen                   Generates and links object code for Zen processor. The compiler uses
+                            unsigned as the default parameter for the -char switch
+-vle                        Tells the compiler and linker to generate and lay out Variable Length
+                            Encoded (VLE) instructions, available on Zen variants of Power
+                            Architecture processors
+-sym dwarf-2,full           Generate DWARF-2-conforming debugging information (Debug With Arbitrary
+                            Record Format)
+-gdwarf-2                   Generate DWARF-2-conforming debugging information (Debug With Arbitrary
+                            Record Format). The linker ignores debugging information that is not in
+                            the Dwarf 1, Dwarf 2 format.
+-proc Zen                   Generates and links object code for Zen processor. The compiler uses
+                            unsigned as the default parameter for the -char switch
+-code_merging all           Removes duplicated functions to reduce object code size
+-far_near_addressing        Simplifies address computations to reduce object code size and improve
+                            performance
+-vle_enhance_merging        Removes duplicated functions that are called by functions that use VLE
+                            instructions to reduce object code size
+-listdwarf                  DWARF debugging information in the linker’s map file
+ile
+                            le
+-sym dwarf-2,full           Generate DWARF-2-conforming debugging information (Debug With Arbitrary
+                            Record Format)
+-char unsigned              Controls the default sign of the char data type: char data items are
+                            unsigned.
+
+DIAB Compiler/Linker/Assembler Options:
+---------------------------------------
+-tPPCE200Z3VEG:simple       Sets target processor to PPCE200Z3, generates ELF using EABI
+                            conventions, All Single Hardware Floating Point (Single precision uses
+                            hardware, double precision is mapped to single precision), selects
+                            simple environment settings for Startup Module and Libraries
+-Xdialect-ansi              Follow the ANSI C standard with some additions
+-XO                         Enables extra optimizations to produce highly optimized code
+-Xsize-opt                  Optimize for size rather than speed when there is a choice
+-Xsmall-data=0              Set Size Limit for “small data” Variables to zero.
+-Xno-common                 Disable use of the “COMMON” feature so that the compiler or
+assembler
+                            will allocate each uninitialized public variable in the .bss section for
+                            the module defining it, and the linker will require exactly one
+                            definition of each public variable
+-Xnested-interrupts         Allow nested interrupts
+-Xalign-functions=4         Align each function on an address boundary divisible by 4
+-g                          Generate symbolic debugger information. Do most target-independent
+                            optimizations. Also, disable most target-dependent optimizations: option
+                            -g2 also disables basic reordering and all peephole optimizations.
+-Xdebug-dwarf2              Generate symbolic debug information in dwarf2 format
+-Xdebug-local-all           Force generation of type information for all local variables
+-Xdebug-local-cie           Create common information entry per module
+-Xdebug-struct-all          Force generation of type information for all typedefs, struct, union and
+                            class types
+-Xforce-declarations        Generates warnings if a function is used without a previous declaration
+-ee1481                     Generate an error when the function was used before it has been declared
+-Xforce-prototypes          Generate warnings if a function is used without a previous prototype
+                            declaration
+-Xmacro-undefined-warn      Generates a warning when an undefined macro name occurs in a #if
+                            preprocessor directive
+-Xlink-time-lint            Enable the checking of object and function declarations across
+                            compilation units, as well as the consistency of compiler options used
+                            to compile source files
+-Xlint                      Generate warnings when suspicious and non-portable C code is
+                            encountered. Enables all warnings
+-ei1604                     Suppress the warning messages 1604.
+-W:as:,-l                   Pass the option “-l” (lower case letter L) to the assembler to get
+an
+                            assembler listing file
+-Wa,-Xisa-vle               Instruct the assembler to expect and assemble VLE (Variable Length
+                            Encoding) instructions rather than BookE instructions.
+-DAUTOSAR_OS_NOT_USED       -D defines a preprocessor symbol and optionally can set it to a value.
+                            AUTOSAR_OS_NOT_USED: By default in the package, the drivers are compiled
+                            to be used without Autosar OS. If the drivers are used with Autosar OS,
+                            the compiler option '-DAUTOSAR_OS_NOT_USED' must be removed from project
+                            options
+-DUSE_SW_VECTOR_MODE        -D defines a preprocessor symbol and optionally can set it to a value.
+                            USE_SW_VECTOR_MODE: By default in the package, drivers are compiled to
+                            be used with interrupt controller configured to be in hardware vector
+                            mode. In case of AUTOSAR_OS_NOT_USED, the compiler option "-
+                            DUSE_SW_VECTOR_MODE" must be added to the list of compiler options to be
+                            used with interrupt controller configured to be in software vector mode.
+-DDIAB                      -D defines a preprocessor symbol and optionally can set it to a value.
+                            This one defines the DIAB preprocessor symbol.
+-tPPCE200Z4VEN:simple       Selects target processor: PPCE200Z4, generates ELF using EABI
+                            conventions, NO floating point support, selects simple environment
+                            settings for Startup Module and Libraries.
+-g                          Dump the symbols in the global symbol table in each archive file.
+-Xisa-vle                   Expect and assemble VLE (Variable Length Encoding) instructions rather
+                            than Book E instructions. The default code section is named .text_vle
+                            instead of .text, and the default code section fill "character" is set
+                            to 0x44444444 instead of 0. The .text_vle code section will have ELF
+                            section header flags marking it as VLE code, not Book E code.
+-Xasm-debug-on              Generate debug line and file information
+-tPPCE200Z4VEN:simple       Selects target processor: PPCE200Z4, generates ELF using EABI
+                            conventions, NO floating point support, selects simple environment
+                            settings for Startup Module and Libraries.
+-Xelf                       Generates ELF object format for output file
+-m6                         Generates a detailed link map and cross reference table
+-lc                         Specifies to linker to search for libc.a
+-Xlink-time-lint            Enable the checking of object and function declarations across
+                            compilation units, as well as the consistency of compiler options used
+                            to compile source files.
+-Xlibc-old                  Enables usage of legacy (pre-release 5.6) libraries
+
+GHS Compiler/Linker/Assembler Options:
+--------------------------------------
+-cpu=ppc563xm               Selects target processor: ppc563xm
+-ansi                       Enforces strict ANSI mode (C89 standard)
+-noSPE                      Disables the use of SPE and vector floating point instructions by the
+                            compiler.
+-Ospace                     Optimize for size
+-Odebug						Optimize for Debuggability
+-sda=0                      Enables the Small Data Area optimization with a threshold of 0.
+--no_commons                Allocates uninitialized global variables to a section and initializes
+                            them to zero at program startup. This may improve optimizations by
+                            giving the compiler optimizer more information about the location of the
+                            variable.
+-vle                        Enables VLE code generation
+-dual_debug                 Enables the generation of DWARF, COFF, or BSD debugging information in
+                            the object file
+-G                          Generates source level debugging information and allows procedure call
+                            from debugger's command line.
+--no_exceptions             Disables support for exception handling
+-Wundef                     Generates warnings for undefined symbols in preprocessor expressions
+-Wimplicit-int              Issues a warning if the return type of a function is not declared before
+                            it is called
+-Wshadow                    Issues a warning if the declaration of a local variable shadows the
+                            declaration of a variable of the same name declared at the global scope,
+                            or at an outer scope
+-Wtrigraphs                  Issues a warning for any use of trigraphs
+--prototype_errors          Generates errors when functions referenced or called have no prototype
+--incorrect_pragma_warnings Valid #pragma directives with wrong syntax are treated as warnings
+-noslashcomment             C++ like comments will generate a compilation error
+-preprocess_assembly_files  Preprocesses assembly files
+-nostartfile                Do not use Start files
+-DAUTOSAR_OS_NOT_USED       -D defines a preprocessor symbol and optionally can set it to a value.
+                            AUTOSAR_OS_NOT_USED: By default in the package, the drivers are compiled
+                            to be used without Autosar OS. If the drivers are used with Autosar OS,
+                            the compiler option '-DAUTOSAR_OS_NOT_USED' must be removed from project
+                            options
+-DUSE_SW_VECTOR_MODE        -D defines a preprocessor symbol and optionally can set it to a value.
+                            USE_SW_VECTOR_MODE: By default in the package, drivers are compiled to
+                            be used with interrupt controller configured to be in hardware vector
+                            mode. In case of AUTOSAR_OS_NOT_USED, the compiler option "-
+                            DUSE_SW_VECTOR_MODE" must be added to the list of compiler options to be
+                            used with interrupt controller configured to be in software vector mode.
+-DGHS                       -D defines a preprocessor symbol and optionally can set it to a value.
+                            This one defines the GHS preprocessor symbol.
+-nostartfiles               Do not use Start files.
+-vle                        Enables VLE code generation
+-linker_warnings            Display linker warnings
+
+COSMIC 4.3.4 Compiler/Linker/Assembler Options:
+--------------------------------------
++debug
+-bs0
+-sl
+
+
+============
+Assumptions:
+============
+1. There are two versions of this distribution:
+        a. signed crypto-package, that requires <tresos_Partner_Freescale.lic> license to be
+           installed to Tresos Studio in order this package to be operational
+        b. standard package, that will operate with standard license provided for Tresos Studio
+
+
+=================================
+Known Issues and Planned Features
+=================================
+ENGR140404      [PORT] Unused I/O pin configuration - requirement PORT005
+ENGR162693      [SPI] Incorrect memory mapping
+ENGR162695      [PWM] Incorrect memory mapping
+ENGR162696      [ICU] Incorrect memory mapping
+ENGR162697      [GPT] Incorrect memory mapping
+ENGR170479      [FEE] FEE blocks might be lost after Fee_Init()
+ENGR170485      [FEE] Wrong FEE block state can be obtained;
+
+
+==============================
+What's Modified v2.0.0
+==============================
+Please refer to the file "MPC563XM_MCAL3.0_RTM_2.0.0_ChangesList.pdf" delivered with this release.
+
+=====================
+What's Modified v1.9.0
+=====================
+
+ENGR00132815  [Adc] Unterminated #ifdef in Adc_Cfg.c and Adc_PBcfg.c
+ENGR00138656  [ADC] Integratation ticket for Monaco 1.5M
+ENGR00138564  [DIO] Dio development for Monaco 1.5M - release 1.9.0
+ENGR00138571  [DIO] Dio Integration for Monaco 1.5M - release 1.9.0
+ENGR00138427  [PORT] Port Integration for Monaco 1.5M - release 1.9.0
+ENGR00138428  [PORT] Port development for Monaco 1.5M
+ENGR00138458  [PORT] - verify all doxygen tags in the PORT driver
+ENGR00138490  [PORT] Port mode setting to GPIO
+ENGR00138507  [PORT] PORT shall contain an empty string for VendorApiInfix
+ENGR00138508  [PORT] PortPinPcr contains an invalid value
+ENGR00138716  [FEE] Fee Development for Monaco 1,5M target
+ENGR00138719  [FLS] Fls Development for Monaco 1,5M target
+ENGR00138329  [MCU] - Mcu development on Monaco target
+ENGR00138607  [IPV_FLASH] - IPV_FLASH development for MCU driver on Monaco
+ENGR00138510  [LIN] LIN development on Monaco target
+ENGR00138796  [LIN] Integratation ticket for Monaco 1.5M
+ENGR00138156  [WDG] WDG development on Monaco target
+ENGR00138091  XPC563XM SAMCAL development
+ENGR00138093  XPC563XM SAMRELCHK development
+ENGR00138189  [CAN] Monaco integration CR
+ENGR00138267  [ICU] Monaco Integration CR
+ENGR00138202  [SPI] Monaco integration CR
+ENGR00138234  [PWM] Monaco integration CR
+ENGR00138056  [Resource] Port Resource module on Monaco
+ENGR00138137  [BASE] Port BASE module on Monaco
+ENGR00138233  [GPT] Monaco Integration CR

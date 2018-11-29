@@ -1,0 +1,351 @@
+/**************************************************************************************
+* 
+*   Freescale(TM) and the Freescale logo are trademarks of Freescale Semiconductor, Inc. 
+*   All other product or service names are the property of their respective owners. 
+*   (C) Freescale Semiconductor, Inc. 2006-2010
+* 
+*   You can use this example for any purpose on any computer system with the
+*   following restrictions:
+*
+*   1. This example is provided "as is", without warranty.
+*
+*   2. You don't remove this copyright notice from this example or any direct derivation 
+*      thereof.
+*
+*  Description:    AUTOSAR OS/MPC56xxAMv3 sample application definitions
+*
+*  Notes:    1. This file should be processed by AUTOSAR system generator    
+*
+**************************************************************************************/
+
+OIL_VERSION = "3.0";
+
+#include "os_mpc56xxAM.oin"
+
+CPU cpu1 {
+    APPMODE Mode01{};
+
+    OS os1 {
+        TargetMCU = MPC5644A {
+            SysTimer = HWCOUNTER {
+                COUNTER = SYSTEMTIMER;
+                ISRPRIORITY = 2;   
+                TimerHardware = eMIOS{
+                    Freeze = TRUE;
+                    Channel = 0;             
+                    GlobalMIOSPrescaler = OS{
+                        Value = 0;
+                    };    
+                    Prescaler = OS{
+                        Value = 0;
+                    };    
+                };
+            };
+
+            SecondTimer = SWCOUNTER {
+                COUNTER = SECONDTIMER;
+                ISRPRIORITY = 4;
+                TimerHardware = PIT {
+                    Channel = 0;
+                    Freeze = TRUE;
+                    TimerModuloValue = 30000;   
+                };                
+            };
+
+            InternalRAM = TRUE;
+            InternalROM = TRUE;
+
+        };
+
+        DEBUG_LEVEL = 2;
+        STATUS = EXTENDED;
+        SCALABILITYCLASS = SC3; 
+        STARTUPHOOK = FALSE;
+        SHUTDOWNHOOK = FALSE;
+        PRETASKHOOK = FALSE;
+        POSTTASKHOOK = FALSE;
+        PROTECTIONHOOK = TRUE;
+        ERRORHOOK = FALSE;
+
+        USEGETSERVICEID = FALSE;
+        USEPARAMETERACCESS = FALSE;
+
+        STACKMONITORING = FALSE;
+    };
+
+    COM COM1 {
+        COMERRORHOOK = FALSE;
+        COMUSEGETSERVICEID = FALSE;
+        COMUSEPARAMETERACCESS = FALSE;
+        COMSTARTCOMEXTENSION = FALSE;
+        COMAPPMODE = "ComAppMode";
+        COMSTATUS = COMEXTENDED;
+    };
+
+
+    /* ----------------- 'SND_APP' application (non-trusted) ---------------- */
+
+    APPLICATION SND_APP {
+        TRUSTED = FALSE;
+        HAS_RESTARTTASK = FALSE;
+        ERRORHOOK = FALSE;
+        STARTUPHOOK = FALSE;
+        SHUTDOWNHOOK = FALSE;
+        
+        TASK = TASKCNT;
+        TASK = TASKSND1;
+        TASK = TASKSND2;
+
+        MESSAGE = MsgA;
+        MESSAGE = MsgB;
+
+        COUNTER = SECONDTIMER;
+        COUNTER = SYSTEMTIMER;
+        COUNTER = STCOUNTER;
+        SCHEDULETABLE = SCHEDTAB;
+    };
+
+    MESSAGE MsgA {  /* The message belongs to 'SND_APP' application */
+        MESSAGEPROPERTY = SEND_STATIC_INTERNAL {
+            CDATATYPE = "MSGATYPE";
+        };
+    };
+
+    MESSAGE MsgB { /* The message belongs to 'SND_APP' application */
+        MESSAGEPROPERTY = SEND_STATIC_INTERNAL {
+            CDATATYPE = "MSGBTYPE";
+        };
+    };
+
+    COUNTER SYSTEMTIMER {
+        MAXALLOWEDVALUE = 0xFFFFFF;
+        TICKSPERBASE = 10;
+        MINCYCLE = 0;
+        TYPE = HARDWARE
+        {
+           DRIVER = OSINTERNAL;
+        };
+    };
+
+    COUNTER SECONDTIMER {   /* The counter belongs to 'SND_APP' application */
+        MAXALLOWEDVALUE = 30000;
+        TICKSPERBASE = 10;
+        MINCYCLE = 0;
+        TYPE=SOFTWARE;
+        ACCESSING_APPLICATION = RCV_APP; /* additional rigths for 'RCV_APP' application */
+    };
+
+    COUNTER STCOUNTER {   /* Counter belongs to 'SND_APP' application */
+        MAXALLOWEDVALUE = 20;
+        TICKSPERBASE = 1;
+        MINCYCLE = 0;
+        TYPE=SOFTWARE;
+        ACCESSING_APPLICATION = RCV_APP; /* additional rigths for 'RCV_APP' application */
+    };
+
+    SCHEDULETABLE SCHEDTAB {	/* Schedule table belongs to 'SND_APP' application */
+        COUNTER = SYSTEMTIMER;
+        AUTOSTART = FALSE;
+        REPEATING = TRUE;
+        DURATION = 30000;
+        
+        EXPIRYPOINTS = EXPIRYPOINT {
+            OFFSET = 0;
+            ACTION = TASKACTIVATION {
+                 TASK = TASKSND1;
+            };
+        };
+        
+        EXPIRYPOINTS = EXPIRYPOINT {
+            OFFSET = 15000;
+            ACTION = TASKACTIVATION {
+                 TASK = TASKSND2;
+            };
+        };
+
+        EXPIRYPOINTS = EXPIRYPOINT {
+            OFFSET = 22500;
+            ACTION = TASKACTIVATION {
+                 TASK = TASKCNT;
+            };
+        };
+
+        ACCESSING_APPLICATION = RCV_APP;  /* additional rigths for 'RCV_APP' application */
+        ACCESSING_APPLICATION = TRUSTED_APP; /* additional rigths for 'TRUSTED_APP' application */
+    };
+        
+    TASK TASKSND1 {  /* The task belongs to 'SND_APP' application */
+        PRIORITY = 4;
+        SCHEDULE = FULL;
+        AUTOSTART = FALSE;
+        ACTIVATION = 1;
+        RESOURCE = MSGAACCESS;
+        MESSAGE = MsgA; 
+        STACKSIZE = 512;
+        TIMING_PROTECTION = FALSE;
+    };
+
+    TASK TASKSND2 {  /* The task belongs to 'SND_APP' application */
+        PRIORITY = 3;
+        SCHEDULE = FULL;
+        AUTOSTART = FALSE;
+        ACTIVATION = 1;
+        RESOURCE = MSGBACCESS;
+        MESSAGE = MsgB; 
+        STACKSIZE = 512;
+        TIMING_PROTECTION = FALSE;
+    };
+
+    TASK TASKCNT { /* The task belongs to 'SND_APP' application */
+        PRIORITY = 2;
+        SCHEDULE = NON;
+        AUTOSTART = FALSE;
+        ACTIVATION = 1;
+        STACKSIZE = 512;
+        TIMING_PROTECTION = FALSE;
+    };
+
+
+
+    /* ----------------- 'RCV_APP' application (non-trusted) ---------------- */
+
+    APPLICATION RCV_APP {
+        TRUSTED = FALSE;
+        HAS_RESTARTTASK = TRUE{
+		RESTARTTASK = TASKRCV1;
+	};
+        ERRORHOOK = FALSE;
+        STARTUPHOOK = FALSE;
+        SHUTDOWNHOOK = FALSE;
+        
+        RESOURCE = MSGAACCESS;
+        RESOURCE = MSGBACCESS;
+
+        TASK = TASKRCV1;
+        TASK = TASKRCV2;
+        TASK = TASKDUMMY;
+
+        MESSAGE = MsgAReceived;
+        MESSAGE = MsgBReceived;
+
+        ALARM = TIMLIMITALARM;
+    };
+
+    RESOURCE MSGAACCESS {  /*  The resource belongs to 'RCV_APP' application */
+        RESOURCEPROPERTY = STANDARD;
+        ACCESSING_APPLICATION = SND_APP; /* additional rigths for 'SND_APP' application */
+    };
+
+    RESOURCE MSGBACCESS {  /*  The resource belongs to 'RCV_APP' application */
+        RESOURCEPROPERTY = STANDARD;
+        ACCESSING_APPLICATION = SND_APP; /* additional rigths for 'SND_APP' application */
+    };
+
+    TASK TASKRCV1 {  /* The task belongs to 'RCV_APP' application */
+        PRIORITY = 6;
+        SCHEDULE = FULL;
+        AUTOSTART = TRUE { 
+            APPMODE = Mode01; 
+        };
+        ACTIVATION = 1;
+        RESOURCE = MSGAACCESS;
+        MESSAGE = MsgAReceived; 
+        EVENT = MSGAEVENT;
+        EVENT = TIMLIMITEVENT;
+        STACKSIZE = 512;
+        TIMING_PROTECTION = FALSE;
+    };
+
+    TASK TASKRCV2 {  /* The task belongs to 'RCV_APP' application */
+        PRIORITY = 5;
+        SCHEDULE = FULL;
+        AUTOSTART = FALSE;
+        ACTIVATION = 1;
+        RESOURCE = MSGBACCESS;
+        MESSAGE = MsgBReceived; 
+        STACKSIZE = 512;
+        TIMING_PROTECTION = FALSE;
+    };
+
+    TASK TASKDUMMY {  /* The task belongs to 'RCV_APP' application */
+        PRIORITY = 7;
+        SCHEDULE = FULL;
+        AUTOSTART = FALSE;
+        ACTIVATION = 1;
+        STACKSIZE = 512;
+        TIMING_PROTECTION = FALSE;
+    };
+    MESSAGE MsgAReceived {  /* The message belongs to 'RCV_APP' application */
+        MESSAGEPROPERTY = RECEIVE_UNQUEUED_INTERNAL {
+            SENDINGMESSAGE = MsgA;
+        };
+        NOTIFICATION = SETEVENT {
+            TASK = TASKRCV1;
+            EVENT = MSGAEVENT;
+        };
+    };
+
+    MESSAGE MsgBReceived {  /* The message belongs to 'RCV_APP' application */
+        MESSAGEPROPERTY = RECEIVE_UNQUEUED_INTERNAL {
+            SENDINGMESSAGE = MsgB;
+        };
+        NOTIFICATION = ACTIVATETASK {
+            TASK = TASKRCV2;
+        };
+    };
+
+    ALARM TIMLIMITALARM {  /* The alarm belongs to 'RCV_APP' application */
+        COUNTER = SECONDTIMER;
+        AUTOSTART = FALSE;
+        ACTION = SETEVENT {
+            TASK = TASKRCV1;
+            EVENT = TIMLIMITEVENT;
+        };
+    };
+
+    EVENT MSGAEVENT { MASK = AUTO; };
+    EVENT TIMLIMITEVENT   { MASK = AUTO; };
+
+
+
+    /* ----------------- 'TRUSTED_APP' application (trusted) ---------------- */
+
+    APPLICATION TRUSTED_APP {
+        TRUSTED = TRUE;
+        HAS_RESTARTTASK = FALSE;
+        ERRORHOOK = FALSE;
+        STARTUPHOOK = FALSE;
+        SHUTDOWNHOOK = FALSE;
+        
+        TASK = TASKSTOP;
+        ALARM = STOPALARM;
+        ISR = ISR1;
+    };
+
+    TASK TASKSTOP {  /* The task belongs to 'TRUSTED_APP' application */
+        PRIORITY = 1; 
+        SCHEDULE = NON;
+        AUTOSTART = FALSE;
+        ACTIVATION = 1;
+        STACKSIZE = 512;
+        TIMING_PROTECTION = FALSE;
+    };
+
+    ALARM STOPALARM {  /* The alarm belongs to 'TRUSTED_APP' application */
+        COUNTER = STCOUNTER;
+        AUTOSTART = FALSE;
+        ACTION = ACTIVATETASK {
+            TASK = TASKSTOP;
+        };
+        ACCESSING_APPLICATION = RCV_APP; /* additional rigths for 'RCV_APP' application */
+    };
+    ISR ISR1
+    { 
+        STACKSIZE = 512;
+        PRIORITY = 5;
+        CATEGORY = 2;           
+        IrqChannel = EXTERNAL {
+            IrqNumber = 2;
+        };
+    };
+};

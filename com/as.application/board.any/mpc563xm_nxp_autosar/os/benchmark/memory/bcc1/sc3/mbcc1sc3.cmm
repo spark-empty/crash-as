@@ -1,0 +1,19 @@
+;**************************************************************************************
+; 
+;  Freescale(TM) and the Freescale logo are trademarks of Freescale Semiconductor, Inc. 
+;  All other product or service names are the property of their respective owners. 
+;  (C) Freescale Semiconductor, Inc. 2008 - 2009
+; 
+;  You can use this example for any purpose on any computer system with the
+;  following restrictions:
+;
+;  1. This example is provided "as is", without warranty.
+;
+;  2. You don't remove this copyright notice from this example or any direct derivation 
+;     thereof.
+;
+;  Description:  The Lauterbach script for BCC1/SC3 memory benchmark
+;
+;**************************************************************************************
+
+DO ..\..\common\test.cmm "bcc1" "sc3"

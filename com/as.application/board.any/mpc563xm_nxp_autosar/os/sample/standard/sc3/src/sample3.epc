@@ -1,0 +1,1129 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<AUTOSAR xmlns="http://autosar.org/3.0.2" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://autosar.org/3.0.2 autosar.xsd">
+   <TOP-LEVEL-PACKAGES>
+      <AR-PACKAGE>
+         <SHORT-NAME>OS</SHORT-NAME>
+         <ELEMENTS>
+            <MODULE-CONFIGURATION>
+               <SHORT-NAME>Os</SHORT-NAME>
+               <DEFINITION-REF DEST="MODULE-DEF">/TS_T2D18M3I0R0/Os</DEFINITION-REF>
+               <IMPLEMENTATION-CONFIG-VARIANT>VARIANT-PRE-COMPILE</IMPLEMENTATION-CONFIG-VARIANT>
+               <CONTAINERS>
+                  <CONTAINER>
+                     <SHORT-NAME>TIMLIMITALARM</SHORT-NAME>
+                     <DEFINITION-REF DEST="PARAM-CONF-CONTAINER-DEF">/TS_T2D18M3I0R0/Os/OsAlarm</DEFINITION-REF>
+                     <REFERENCE-VALUES>
+                        <REFERENCE-VALUE>
+                           <DEFINITION-REF DEST="REFERENCE-PARAM-DEF">/TS_T2D18M3I0R0/Os/OsAlarm/OsAlarmCounterRef</DEFINITION-REF>
+                           <VALUE-REF DEST="CONTAINER">/OS/Os/SECONDTIMER</VALUE-REF>
+                        </REFERENCE-VALUE>
+                     </REFERENCE-VALUES>
+                     <SUB-CONTAINERS>
+                        <CONTAINER>
+                           <SHORT-NAME>OsAlarmAction</SHORT-NAME>
+                           <DEFINITION-REF DEST="CHOICE-CONTAINER-DEF">/TS_T2D18M3I0R0/Os/OsAlarm/OsAlarmAction</DEFINITION-REF>
+                           <SUB-CONTAINERS>
+                              <CONTAINER>
+                                 <SHORT-NAME>OsAlarmSetEvent</SHORT-NAME>
+                                 <DEFINITION-REF DEST="PARAM-CONF-CONTAINER-DEF">/TS_T2D18M3I0R0/Os/OsAlarm/OsAlarmAction/OsAlarmSetEvent</DEFINITION-REF>
+                                 <REFERENCE-VALUES>
+                                    <REFERENCE-VALUE>
+                                       <DEFINITION-REF DEST="REFERENCE-PARAM-DEF">/TS_T2D18M3I0R0/Os/OsAlarm/OsAlarmAction/OsAlarmSetEvent/OsAlarmSetEventRef</DEFINITION-REF>
+                                       <VALUE-REF DEST="CONTAINER">/OS/Os/TIMLIMITEVENT</VALUE-REF>
+                                    </REFERENCE-VALUE>
+                                    <REFERENCE-VALUE>
+                                       <DEFINITION-REF DEST="REFERENCE-PARAM-DEF">/TS_T2D18M3I0R0/Os/OsAlarm/OsAlarmAction/OsAlarmSetEvent/OsAlarmSetEventTaskRef</DEFINITION-REF>
+                                       <VALUE-REF DEST="CONTAINER">/OS/Os/TASKRCV1</VALUE-REF>
+                                    </REFERENCE-VALUE>
+                                 </REFERENCE-VALUES>
+                              </CONTAINER>
+                           </SUB-CONTAINERS>
+                        </CONTAINER>
+                     </SUB-CONTAINERS>
+                  </CONTAINER>
+                  <CONTAINER>
+                     <SHORT-NAME>STOPALARM</SHORT-NAME>
+                     <DEFINITION-REF DEST="PARAM-CONF-CONTAINER-DEF">/TS_T2D18M3I0R0/Os/OsAlarm</DEFINITION-REF>
+                     <REFERENCE-VALUES>
+                        <REFERENCE-VALUE>
+                           <DEFINITION-REF DEST="REFERENCE-PARAM-DEF">/TS_T2D18M3I0R0/Os/OsAlarm/OsAlarmAccessingApplication</DEFINITION-REF>
+                           <VALUE-REF DEST="CONTAINER">/OS/Os/RCV_APP</VALUE-REF>
+                        </REFERENCE-VALUE>
+                        <REFERENCE-VALUE>
+                           <DEFINITION-REF DEST="REFERENCE-PARAM-DEF">/TS_T2D18M3I0R0/Os/OsAlarm/OsAlarmCounterRef</DEFINITION-REF>
+                           <VALUE-REF DEST="CONTAINER">/OS/Os/STCOUNTER</VALUE-REF>
+                        </REFERENCE-VALUE>
+                     </REFERENCE-VALUES>
+                     <SUB-CONTAINERS>
+                        <CONTAINER>
+                           <SHORT-NAME>OsAlarmAction</SHORT-NAME>
+                           <DEFINITION-REF DEST="CHOICE-CONTAINER-DEF">/TS_T2D18M3I0R0/Os/OsAlarm/OsAlarmAction</DEFINITION-REF>
+                           <SUB-CONTAINERS>
+                              <CONTAINER>
+                                 <SHORT-NAME>OsAlarmActivateTask</SHORT-NAME>
+                                 <DEFINITION-REF DEST="PARAM-CONF-CONTAINER-DEF">/TS_T2D18M3I0R0/Os/OsAlarm/OsAlarmAction/OsAlarmActivateTask</DEFINITION-REF>
+                                 <REFERENCE-VALUES>
+                                    <REFERENCE-VALUE>
+                                       <DEFINITION-REF DEST="REFERENCE-PARAM-DEF">/TS_T2D18M3I0R0/Os/OsAlarm/OsAlarmAction/OsAlarmActivateTask/OsAlarmActivateTaskRef</DEFINITION-REF>
+                                       <VALUE-REF DEST="CONTAINER">/OS/Os/TASKSTOP</VALUE-REF>
+                                    </REFERENCE-VALUE>
+                                 </REFERENCE-VALUES>
+                              </CONTAINER>
+                           </SUB-CONTAINERS>
+                        </CONTAINER>
+                     </SUB-CONTAINERS>
+                  </CONTAINER>
+                  <CONTAINER>
+                     <SHORT-NAME>Mode01</SHORT-NAME>
+                     <DEFINITION-REF DEST="PARAM-CONF-CONTAINER-DEF">/TS_T2D18M3I0R0/Os/OsAppMode</DEFINITION-REF>
+                     <PARAMETER-VALUES>
+                        <INTEGER-VALUE>
+                           <DEFINITION-REF DEST="INTEGER-PARAM-DEF">/TS_T2D18M3I0R0/Os/OsAppMode/OsAppModeId</DEFINITION-REF>
+                           <VALUE>1</VALUE>
+                        </INTEGER-VALUE>
+                     </PARAMETER-VALUES>
+                  </CONTAINER>
+                  <CONTAINER>
+                     <SHORT-NAME>SND_APP</SHORT-NAME>
+                     <DEFINITION-REF DEST="PARAM-CONF-CONTAINER-DEF">/TS_T2D18M3I0R0/Os/OsApplication</DEFINITION-REF>
+                     <PARAMETER-VALUES>
+                        <BOOLEAN-VALUE>
+                           <DEFINITION-REF DEST="BOOLEAN-PARAM-DEF">/TS_T2D18M3I0R0/Os/OsApplication/OsTrusted</DEFINITION-REF>
+                           <VALUE>false</VALUE>
+                        </BOOLEAN-VALUE>
+                     </PARAMETER-VALUES>
+                     <REFERENCE-VALUES>
+                        <REFERENCE-VALUE>
+                           <DEFINITION-REF DEST="REFERENCE-PARAM-DEF">/TS_T2D18M3I0R0/Os/OsApplication/OsAppCounterRef</DEFINITION-REF>
+                           <VALUE-REF DEST="CONTAINER">/OS/Os/SECONDTIMER</VALUE-REF>
+                        </REFERENCE-VALUE>
+                        <REFERENCE-VALUE>
+                           <DEFINITION-REF DEST="REFERENCE-PARAM-DEF">/TS_T2D18M3I0R0/Os/OsApplication/OsAppCounterRef</DEFINITION-REF>
+                           <VALUE-REF DEST="CONTAINER">/OS/Os/SYSTEMTIMER</VALUE-REF>
+                        </REFERENCE-VALUE>
+                        <REFERENCE-VALUE>
+                           <DEFINITION-REF DEST="REFERENCE-PARAM-DEF">/TS_T2D18M3I0R0/Os/OsApplication/OsAppCounterRef</DEFINITION-REF>
+                           <VALUE-REF DEST="CONTAINER">/OS/Os/STCOUNTER</VALUE-REF>
+                        </REFERENCE-VALUE>
+                        <REFERENCE-VALUE>
+                           <DEFINITION-REF DEST="REFERENCE-PARAM-DEF">/TS_T2D18M3I0R0/Os/OsApplication/OsAppScheduleTableRef</DEFINITION-REF>
+                           <VALUE-REF DEST="CONTAINER">/OS/Os/SCHEDTAB</VALUE-REF>
+                        </REFERENCE-VALUE>
+                        <REFERENCE-VALUE>
+                           <DEFINITION-REF DEST="REFERENCE-PARAM-DEF">/TS_T2D18M3I0R0/Os/OsApplication/OsAppTaskRef</DEFINITION-REF>
+                           <VALUE-REF DEST="CONTAINER">/OS/Os/TASKCNT</VALUE-REF>
+                        </REFERENCE-VALUE>
+                        <REFERENCE-VALUE>
+                           <DEFINITION-REF DEST="REFERENCE-PARAM-DEF">/TS_T2D18M3I0R0/Os/OsApplication/OsAppTaskRef</DEFINITION-REF>
+                           <VALUE-REF DEST="CONTAINER">/OS/Os/TASKSND1</VALUE-REF>
+                        </REFERENCE-VALUE>
+                        <REFERENCE-VALUE>
+                           <DEFINITION-REF DEST="REFERENCE-PARAM-DEF">/TS_T2D18M3I0R0/Os/OsApplication/OsAppTaskRef</DEFINITION-REF>
+                           <VALUE-REF DEST="CONTAINER">/OS/Os/TASKSND2</VALUE-REF>
+                        </REFERENCE-VALUE>
+                        <REFERENCE-VALUE>
+                           <DEFINITION-REF DEST="REFERENCE-PARAM-DEF">/TS_T2D18M3I0R0/Os/OsApplication/OsAppMessageRef</DEFINITION-REF>
+                           <VALUE-REF DEST="CONTAINER">/OS/Os/MsgA</VALUE-REF>
+                        </REFERENCE-VALUE>
+                        <REFERENCE-VALUE>
+                           <DEFINITION-REF DEST="REFERENCE-PARAM-DEF">/TS_T2D18M3I0R0/Os/OsApplication/OsAppMessageRef</DEFINITION-REF>
+                           <VALUE-REF DEST="CONTAINER">/OS/Os/MsgB</VALUE-REF>
+                        </REFERENCE-VALUE>
+                     </REFERENCE-VALUES>
+                     <SUB-CONTAINERS>
+                        <CONTAINER>
+                           <SHORT-NAME>OsApplicationHooks</SHORT-NAME>
+                           <DEFINITION-REF DEST="PARAM-CONF-CONTAINER-DEF">/TS_T2D18M3I0R0/Os/OsApplication/OsApplicationHooks</DEFINITION-REF>
+                           <PARAMETER-VALUES>
+                              <BOOLEAN-VALUE>
+                                 <DEFINITION-REF DEST="BOOLEAN-PARAM-DEF">/TS_T2D18M3I0R0/Os/OsApplication/OsApplicationHooks/OsAppErrorHook</DEFINITION-REF>
+                                 <VALUE>false</VALUE>
+                              </BOOLEAN-VALUE>
+                              <BOOLEAN-VALUE>
+                                 <DEFINITION-REF DEST="BOOLEAN-PARAM-DEF">/TS_T2D18M3I0R0/Os/OsApplication/OsApplicationHooks/OsAppShutdownHook</DEFINITION-REF>
+                                 <VALUE>false</VALUE>
+                              </BOOLEAN-VALUE>
+                              <BOOLEAN-VALUE>
+                                 <DEFINITION-REF DEST="BOOLEAN-PARAM-DEF">/TS_T2D18M3I0R0/Os/OsApplication/OsApplicationHooks/OsAppStartupHook</DEFINITION-REF>
+                                 <VALUE>false</VALUE>
+                              </BOOLEAN-VALUE>
+                           </PARAMETER-VALUES>
+                        </CONTAINER>
+                     </SUB-CONTAINERS>
+                  </CONTAINER>
+                  <CONTAINER>
+                     <SHORT-NAME>RCV_APP</SHORT-NAME>
+                     <DEFINITION-REF DEST="PARAM-CONF-CONTAINER-DEF">/TS_T2D18M3I0R0/Os/OsApplication</DEFINITION-REF>
+                     <PARAMETER-VALUES>
+                        <BOOLEAN-VALUE>
+                           <DEFINITION-REF DEST="BOOLEAN-PARAM-DEF">/TS_T2D18M3I0R0/Os/OsApplication/OsTrusted</DEFINITION-REF>
+                           <VALUE>false</VALUE>
+                        </BOOLEAN-VALUE>
+                     </PARAMETER-VALUES>
+                     <REFERENCE-VALUES>
+                        <REFERENCE-VALUE>
+                           <DEFINITION-REF DEST="REFERENCE-PARAM-DEF">/TS_T2D18M3I0R0/Os/OsApplication/OsAppAlarmRef</DEFINITION-REF>
+                           <VALUE-REF DEST="CONTAINER">/OS/Os/TIMLIMITALARM</VALUE-REF>
+                        </REFERENCE-VALUE>
+                        <REFERENCE-VALUE>
+                           <DEFINITION-REF DEST="REFERENCE-PARAM-DEF">/TS_T2D18M3I0R0/Os/OsApplication/OsAppResourceRef</DEFINITION-REF>
+                           <VALUE-REF DEST="CONTAINER">/OS/Os/MSGAACCESS</VALUE-REF>
+                        </REFERENCE-VALUE>
+                        <REFERENCE-VALUE>
+                           <DEFINITION-REF DEST="REFERENCE-PARAM-DEF">/TS_T2D18M3I0R0/Os/OsApplication/OsAppResourceRef</DEFINITION-REF>
+                           <VALUE-REF DEST="CONTAINER">/OS/Os/MSGBACCESS</VALUE-REF>
+                        </REFERENCE-VALUE>
+                        <REFERENCE-VALUE>
+                           <DEFINITION-REF DEST="REFERENCE-PARAM-DEF">/TS_T2D18M3I0R0/Os/OsApplication/OsAppTaskRef</DEFINITION-REF>
+                           <VALUE-REF DEST="CONTAINER">/OS/Os/TASKRCV1</VALUE-REF>
+                        </REFERENCE-VALUE>
+                        <REFERENCE-VALUE>
+                           <DEFINITION-REF DEST="REFERENCE-PARAM-DEF">/TS_T2D18M3I0R0/Os/OsApplication/OsAppTaskRef</DEFINITION-REF>
+                           <VALUE-REF DEST="CONTAINER">/OS/Os/TASKRCV2</VALUE-REF>
+                        </REFERENCE-VALUE>
+                        <REFERENCE-VALUE>
+                           <DEFINITION-REF DEST="REFERENCE-PARAM-DEF">/TS_T2D18M3I0R0/Os/OsApplication/OsAppTaskRef</DEFINITION-REF>
+                           <VALUE-REF DEST="CONTAINER">/OS/Os/TASKDUMMY</VALUE-REF>
+                        </REFERENCE-VALUE>
+                        <REFERENCE-VALUE>
+                           <DEFINITION-REF DEST="REFERENCE-PARAM-DEF">/TS_T2D18M3I0R0/Os/OsApplication/OsRestartTask</DEFINITION-REF>
+                           <VALUE-REF DEST="CONTAINER">/OS/Os/TASKRCV1</VALUE-REF>
+                        </REFERENCE-VALUE>
+                        <REFERENCE-VALUE>
+                           <DEFINITION-REF DEST="REFERENCE-PARAM-DEF">/TS_T2D18M3I0R0/Os/OsApplication/OsAppMessageRef</DEFINITION-REF>
+                           <VALUE-REF DEST="CONTAINER">/OS/Os/MsgAReceived</VALUE-REF>
+                        </REFERENCE-VALUE>
+                        <REFERENCE-VALUE>
+                           <DEFINITION-REF DEST="REFERENCE-PARAM-DEF">/TS_T2D18M3I0R0/Os/OsApplication/OsAppMessageRef</DEFINITION-REF>
+                           <VALUE-REF DEST="CONTAINER">/OS/Os/MsgBReceived</VALUE-REF>
+                        </REFERENCE-VALUE>
+                     </REFERENCE-VALUES>
+                     <SUB-CONTAINERS>
+                        <CONTAINER>
+                           <SHORT-NAME>OsApplicationHooks</SHORT-NAME>
+                           <DEFINITION-REF DEST="PARAM-CONF-CONTAINER-DEF">/TS_T2D18M3I0R0/Os/OsApplication/OsApplicationHooks</DEFINITION-REF>
+                           <PARAMETER-VALUES>
+                              <BOOLEAN-VALUE>
+                                 <DEFINITION-REF DEST="BOOLEAN-PARAM-DEF">/TS_T2D18M3I0R0/Os/OsApplication/OsApplicationHooks/OsAppErrorHook</DEFINITION-REF>
+                                 <VALUE>false</VALUE>
+                              </BOOLEAN-VALUE>
+                              <BOOLEAN-VALUE>
+                                 <DEFINITION-REF DEST="BOOLEAN-PARAM-DEF">/TS_T2D18M3I0R0/Os/OsApplication/OsApplicationHooks/OsAppShutdownHook</DEFINITION-REF>
+                                 <VALUE>false</VALUE>
+                              </BOOLEAN-VALUE>
+                              <BOOLEAN-VALUE>
+                                 <DEFINITION-REF DEST="BOOLEAN-PARAM-DEF">/TS_T2D18M3I0R0/Os/OsApplication/OsApplicationHooks/OsAppStartupHook</DEFINITION-REF>
+                                 <VALUE>false</VALUE>
+                              </BOOLEAN-VALUE>
+                           </PARAMETER-VALUES>
+                        </CONTAINER>
+                     </SUB-CONTAINERS>
+                  </CONTAINER>
+                  <CONTAINER>
+                     <SHORT-NAME>TRUSTED_APP</SHORT-NAME>
+                     <DEFINITION-REF DEST="PARAM-CONF-CONTAINER-DEF">/TS_T2D18M3I0R0/Os/OsApplication</DEFINITION-REF>
+                     <PARAMETER-VALUES>
+                        <BOOLEAN-VALUE>
+                           <DEFINITION-REF DEST="BOOLEAN-PARAM-DEF">/TS_T2D18M3I0R0/Os/OsApplication/OsTrusted</DEFINITION-REF>
+                           <VALUE>true</VALUE>
+                        </BOOLEAN-VALUE>
+                     </PARAMETER-VALUES>
+                     <REFERENCE-VALUES>
+                        <REFERENCE-VALUE>
+                           <DEFINITION-REF DEST="REFERENCE-PARAM-DEF">/TS_T2D18M3I0R0/Os/OsApplication/OsAppAlarmRef</DEFINITION-REF>
+                           <VALUE-REF DEST="CONTAINER">/OS/Os/STOPALARM</VALUE-REF>
+                        </REFERENCE-VALUE>
+                        <REFERENCE-VALUE>
+                           <DEFINITION-REF DEST="REFERENCE-PARAM-DEF">/TS_T2D18M3I0R0/Os/OsApplication/OsAppIsrRef</DEFINITION-REF>
+                           <VALUE-REF DEST="CONTAINER">/OS/Os/ISR1</VALUE-REF>
+                        </REFERENCE-VALUE>
+                        <REFERENCE-VALUE>
+                           <DEFINITION-REF DEST="REFERENCE-PARAM-DEF">/TS_T2D18M3I0R0/Os/OsApplication/OsAppTaskRef</DEFINITION-REF>
+                           <VALUE-REF DEST="CONTAINER">/OS/Os/TASKSTOP</VALUE-REF>
+                        </REFERENCE-VALUE>
+                     </REFERENCE-VALUES>
+                     <SUB-CONTAINERS>
+                        <CONTAINER>
+                           <SHORT-NAME>OsApplicationHooks</SHORT-NAME>
+                           <DEFINITION-REF DEST="PARAM-CONF-CONTAINER-DEF">/TS_T2D18M3I0R0/Os/OsApplication/OsApplicationHooks</DEFINITION-REF>
+                           <PARAMETER-VALUES>
+                              <BOOLEAN-VALUE>
+                                 <DEFINITION-REF DEST="BOOLEAN-PARAM-DEF">/TS_T2D18M3I0R0/Os/OsApplication/OsApplicationHooks/OsAppErrorHook</DEFINITION-REF>
+                                 <VALUE>false</VALUE>
+                              </BOOLEAN-VALUE>
+                              <BOOLEAN-VALUE>
+                                 <DEFINITION-REF DEST="BOOLEAN-PARAM-DEF">/TS_T2D18M3I0R0/Os/OsApplication/OsApplicationHooks/OsAppShutdownHook</DEFINITION-REF>
+                                 <VALUE>false</VALUE>
+                              </BOOLEAN-VALUE>
+                              <BOOLEAN-VALUE>
+                                 <DEFINITION-REF DEST="BOOLEAN-PARAM-DEF">/TS_T2D18M3I0R0/Os/OsApplication/OsApplicationHooks/OsAppStartupHook</DEFINITION-REF>
+                                 <VALUE>false</VALUE>
+                              </BOOLEAN-VALUE>
+                           </PARAMETER-VALUES>
+                        </CONTAINER>
+                     </SUB-CONTAINERS>
+                  </CONTAINER>
+                  <CONTAINER>
+                     <SHORT-NAME>SYSTEMTIMER</SHORT-NAME>
+                     <DEFINITION-REF DEST="PARAM-CONF-CONTAINER-DEF">/TS_T2D18M3I0R0/Os/OsCounter</DEFINITION-REF>
+                     <PARAMETER-VALUES>
+                        <INTEGER-VALUE>
+                           <DEFINITION-REF DEST="INTEGER-PARAM-DEF">/TS_T2D18M3I0R0/Os/OsCounter/OsCounterMaxAllowedValue</DEFINITION-REF>
+                           <VALUE>16777215</VALUE>
+                        </INTEGER-VALUE>
+                        <INTEGER-VALUE>
+                           <DEFINITION-REF DEST="INTEGER-PARAM-DEF">/TS_T2D18M3I0R0/Os/OsCounter/OsCounterMinCycle</DEFINITION-REF>
+                           <VALUE>0</VALUE>
+                        </INTEGER-VALUE>
+                        <INTEGER-VALUE>
+                           <DEFINITION-REF DEST="INTEGER-PARAM-DEF">/TS_T2D18M3I0R0/Os/OsCounter/OsCounterTicksPerBase</DEFINITION-REF>
+                           <VALUE>10</VALUE>
+                        </INTEGER-VALUE>
+                        <ENUMERATION-VALUE>
+                           <DEFINITION-REF DEST="ENUMERATION-PARAM-DEF">/TS_T2D18M3I0R0/Os/OsCounter/OsCounterType</DEFINITION-REF>
+                           <VALUE>HARDWARE</VALUE>
+                        </ENUMERATION-VALUE>
+                     </PARAMETER-VALUES>
+                  </CONTAINER>
+                  <CONTAINER>
+                     <SHORT-NAME>SECONDTIMER</SHORT-NAME>
+                     <DEFINITION-REF DEST="PARAM-CONF-CONTAINER-DEF">/TS_T2D18M3I0R0/Os/OsCounter</DEFINITION-REF>
+                     <PARAMETER-VALUES>
+                        <INTEGER-VALUE>
+                           <DEFINITION-REF DEST="INTEGER-PARAM-DEF">/TS_T2D18M3I0R0/Os/OsCounter/OsCounterMaxAllowedValue</DEFINITION-REF>
+                           <VALUE>30000</VALUE>
+                        </INTEGER-VALUE>
+                        <INTEGER-VALUE>
+                           <DEFINITION-REF DEST="INTEGER-PARAM-DEF">/TS_T2D18M3I0R0/Os/OsCounter/OsCounterMinCycle</DEFINITION-REF>
+                           <VALUE>0</VALUE>
+                        </INTEGER-VALUE>
+                        <INTEGER-VALUE>
+                           <DEFINITION-REF DEST="INTEGER-PARAM-DEF">/TS_T2D18M3I0R0/Os/OsCounter/OsCounterTicksPerBase</DEFINITION-REF>
+                           <VALUE>10</VALUE>
+                        </INTEGER-VALUE>
+                        <ENUMERATION-VALUE>
+                           <DEFINITION-REF DEST="ENUMERATION-PARAM-DEF">/TS_T2D18M3I0R0/Os/OsCounter/OsCounterType</DEFINITION-REF>
+                           <VALUE>SOFTWARE</VALUE>
+                        </ENUMERATION-VALUE>
+                     </PARAMETER-VALUES>
+                     <REFERENCE-VALUES>
+                        <REFERENCE-VALUE>
+                           <DEFINITION-REF DEST="REFERENCE-PARAM-DEF">/TS_T2D18M3I0R0/Os/OsCounter/OsCounterAccessingApplication</DEFINITION-REF>
+                           <VALUE-REF DEST="CONTAINER">/OS/Os/RCV_APP</VALUE-REF>
+                        </REFERENCE-VALUE>
+                     </REFERENCE-VALUES>
+                  </CONTAINER>
+                  <CONTAINER>
+                     <SHORT-NAME>STCOUNTER</SHORT-NAME>
+                     <DEFINITION-REF DEST="PARAM-CONF-CONTAINER-DEF">/TS_T2D18M3I0R0/Os/OsCounter</DEFINITION-REF>
+                     <PARAMETER-VALUES>
+                        <INTEGER-VALUE>
+                           <DEFINITION-REF DEST="INTEGER-PARAM-DEF">/TS_T2D18M3I0R0/Os/OsCounter/OsCounterMaxAllowedValue</DEFINITION-REF>
+                           <VALUE>20</VALUE>
+                        </INTEGER-VALUE>
+                        <INTEGER-VALUE>
+                           <DEFINITION-REF DEST="INTEGER-PARAM-DEF">/TS_T2D18M3I0R0/Os/OsCounter/OsCounterMinCycle</DEFINITION-REF>
+                           <VALUE>0</VALUE>
+                        </INTEGER-VALUE>
+                        <INTEGER-VALUE>
+                           <DEFINITION-REF DEST="INTEGER-PARAM-DEF">/TS_T2D18M3I0R0/Os/OsCounter/OsCounterTicksPerBase</DEFINITION-REF>
+                           <VALUE>1</VALUE>
+                        </INTEGER-VALUE>
+                        <ENUMERATION-VALUE>
+                           <DEFINITION-REF DEST="ENUMERATION-PARAM-DEF">/TS_T2D18M3I0R0/Os/OsCounter/OsCounterType</DEFINITION-REF>
+                           <VALUE>SOFTWARE</VALUE>
+                        </ENUMERATION-VALUE>
+                     </PARAMETER-VALUES>
+                     <REFERENCE-VALUES>
+                        <REFERENCE-VALUE>
+                           <DEFINITION-REF DEST="REFERENCE-PARAM-DEF">/TS_T2D18M3I0R0/Os/OsCounter/OsCounterAccessingApplication</DEFINITION-REF>
+                           <VALUE-REF DEST="CONTAINER">/OS/Os/RCV_APP</VALUE-REF>
+                        </REFERENCE-VALUE>
+                     </REFERENCE-VALUES>
+                  </CONTAINER>
+                  <CONTAINER>
+                     <SHORT-NAME>MSGAEVENT</SHORT-NAME>
+                     <DEFINITION-REF DEST="PARAM-CONF-CONTAINER-DEF">/TS_T2D18M3I0R0/Os/OsEvent</DEFINITION-REF>
+                  </CONTAINER>
+                  <CONTAINER>
+                     <SHORT-NAME>TIMLIMITEVENT</SHORT-NAME>
+                     <DEFINITION-REF DEST="PARAM-CONF-CONTAINER-DEF">/TS_T2D18M3I0R0/Os/OsEvent</DEFINITION-REF>
+                  </CONTAINER>
+                  <CONTAINER>
+                     <SHORT-NAME>ISR1</SHORT-NAME>
+                     <DEFINITION-REF DEST="PARAM-CONF-CONTAINER-DEF">/TS_T2D18M3I0R0/Os/OsIsr</DEFINITION-REF>
+                     <PARAMETER-VALUES>
+                        <ENUMERATION-VALUE>
+                           <DEFINITION-REF DEST="ENUMERATION-PARAM-DEF">/TS_T2D18M3I0R0/Os/OsIsr/OsIsrCategory</DEFINITION-REF>
+                           <VALUE>CATEGORY_2</VALUE>
+                        </ENUMERATION-VALUE>
+                        <INTEGER-VALUE>
+                           <DEFINITION-REF DEST="INTEGER-PARAM-DEF">/TS_T2D18M3I0R0/Os/OsIsr/OsStackSize</DEFINITION-REF>
+                           <VALUE>512</VALUE>
+                        </INTEGER-VALUE>
+                        <INTEGER-VALUE>
+                           <DEFINITION-REF DEST="INTEGER-PARAM-DEF">/TS_T2D18M3I0R0/Os/OsIsr/OsPriority</DEFINITION-REF>
+                           <VALUE>5</VALUE>
+                        </INTEGER-VALUE>
+                     </PARAMETER-VALUES>
+                     <SUB-CONTAINERS>
+                        <CONTAINER>
+                           <SHORT-NAME>OsIrqChannel</SHORT-NAME>
+                           <DEFINITION-REF DEST="CHOICE-CONTAINER-DEF">/TS_T2D18M3I0R0/Os/OsIsr/OsIrqChannel</DEFINITION-REF>
+                           <SUB-CONTAINERS>
+                              <CONTAINER>
+                                 <SHORT-NAME>EXTERNAL</SHORT-NAME>
+                                 <DEFINITION-REF DEST="PARAM-CONF-CONTAINER-DEF">/TS_T2D18M3I0R0/Os/OsIsr/OsIrqChannel/EXTERNAL</DEFINITION-REF>
+                                 <PARAMETER-VALUES>
+                                    <INTEGER-VALUE>
+                                       <DEFINITION-REF DEST="INTEGER-PARAM-DEF">/TS_T2D18M3I0R0/Os/OsIsr/OsIrqChannel/EXTERNAL/OsIrqNumber</DEFINITION-REF>
+                                       <VALUE>2</VALUE>
+                                    </INTEGER-VALUE>
+                                 </PARAMETER-VALUES>
+                              </CONTAINER>
+                           </SUB-CONTAINERS>
+                        </CONTAINER>
+                     </SUB-CONTAINERS>
+                  </CONTAINER>
+                  <CONTAINER>
+                     <SHORT-NAME>os1</SHORT-NAME>
+                     <DEFINITION-REF DEST="PARAM-CONF-CONTAINER-DEF">/TS_T2D18M3I0R0/Os/OsOS</DEFINITION-REF>
+                     <PARAMETER-VALUES>
+                        <ENUMERATION-VALUE>
+                           <DEFINITION-REF DEST="ENUMERATION-PARAM-DEF">/TS_T2D18M3I0R0/Os/OsOS/OsScalabilityClass</DEFINITION-REF>
+                           <VALUE>SC3</VALUE>
+                        </ENUMERATION-VALUE>
+                        <BOOLEAN-VALUE>
+                           <DEFINITION-REF DEST="BOOLEAN-PARAM-DEF">/TS_T2D18M3I0R0/Os/OsOS/OsStackMonitoring</DEFINITION-REF>
+                           <VALUE>false</VALUE>
+                        </BOOLEAN-VALUE>
+                        <ENUMERATION-VALUE>
+                           <DEFINITION-REF DEST="ENUMERATION-PARAM-DEF">/TS_T2D18M3I0R0/Os/OsOS/OsStatus</DEFINITION-REF>
+                           <VALUE>EXTENDED</VALUE>
+                        </ENUMERATION-VALUE>
+                        <BOOLEAN-VALUE>
+                           <DEFINITION-REF DEST="BOOLEAN-PARAM-DEF">/TS_T2D18M3I0R0/Os/OsOS/OsUseGetServiceId</DEFINITION-REF>
+                           <VALUE>false</VALUE>
+                        </BOOLEAN-VALUE>
+                        <BOOLEAN-VALUE>
+                           <DEFINITION-REF DEST="BOOLEAN-PARAM-DEF">/TS_T2D18M3I0R0/Os/OsOS/OsUseParameterAccess</DEFINITION-REF>
+                           <VALUE>false</VALUE>
+                        </BOOLEAN-VALUE>
+                        <BOOLEAN-VALUE>
+                           <DEFINITION-REF DEST="BOOLEAN-PARAM-DEF">/TS_T2D18M3I0R0/Os/OsOS/OsUseResScheduler</DEFINITION-REF>
+                           <VALUE>true</VALUE>
+                        </BOOLEAN-VALUE>
+                        <INTEGER-VALUE>
+                           <DEFINITION-REF DEST="INTEGER-PARAM-DEF">/TS_T2D18M3I0R0/Os/OsOS/OsDebugLevel</DEFINITION-REF>
+                           <VALUE>2</VALUE>
+                        </INTEGER-VALUE>
+                     </PARAMETER-VALUES>
+                     <SUB-CONTAINERS>
+                        <CONTAINER>
+                           <SHORT-NAME>OsHooks</SHORT-NAME>
+                           <DEFINITION-REF DEST="PARAM-CONF-CONTAINER-DEF">/TS_T2D18M3I0R0/Os/OsOS/OsHooks</DEFINITION-REF>
+                           <PARAMETER-VALUES>
+                              <BOOLEAN-VALUE>
+                                 <DEFINITION-REF DEST="BOOLEAN-PARAM-DEF">/TS_T2D18M3I0R0/Os/OsOS/OsHooks/OsErrorHook</DEFINITION-REF>
+                                 <VALUE>false</VALUE>
+                              </BOOLEAN-VALUE>
+                              <BOOLEAN-VALUE>
+                                 <DEFINITION-REF DEST="BOOLEAN-PARAM-DEF">/TS_T2D18M3I0R0/Os/OsOS/OsHooks/OsPostTaskHook</DEFINITION-REF>
+                                 <VALUE>false</VALUE>
+                              </BOOLEAN-VALUE>
+                              <BOOLEAN-VALUE>
+                                 <DEFINITION-REF DEST="BOOLEAN-PARAM-DEF">/TS_T2D18M3I0R0/Os/OsOS/OsHooks/OsPreTaskHook</DEFINITION-REF>
+                                 <VALUE>false</VALUE>
+                              </BOOLEAN-VALUE>
+                              <BOOLEAN-VALUE>
+                                 <DEFINITION-REF DEST="BOOLEAN-PARAM-DEF">/TS_T2D18M3I0R0/Os/OsOS/OsHooks/OsProtectionHook</DEFINITION-REF>
+                                 <VALUE>true</VALUE>
+                              </BOOLEAN-VALUE>
+                              <BOOLEAN-VALUE>
+                                 <DEFINITION-REF DEST="BOOLEAN-PARAM-DEF">/TS_T2D18M3I0R0/Os/OsOS/OsHooks/OsShutdownHook</DEFINITION-REF>
+                                 <VALUE>false</VALUE>
+                              </BOOLEAN-VALUE>
+                              <BOOLEAN-VALUE>
+                                 <DEFINITION-REF DEST="BOOLEAN-PARAM-DEF">/TS_T2D18M3I0R0/Os/OsOS/OsHooks/OsStartupHook</DEFINITION-REF>
+                                 <VALUE>false</VALUE>
+                              </BOOLEAN-VALUE>
+                           </PARAMETER-VALUES>
+                        </CONTAINER>
+                        <CONTAINER>
+                           <SHORT-NAME>OsTargetMCU</SHORT-NAME>
+                           <DEFINITION-REF DEST="CHOICE-CONTAINER-DEF">/TS_T2D18M3I0R0/Os/OsOS/OsTargetMCU</DEFINITION-REF>
+                           <SUB-CONTAINERS>
+                              <CONTAINER>
+                                 <SHORT-NAME>MPC5644A</SHORT-NAME>
+                                 <DEFINITION-REF DEST="PARAM-CONF-CONTAINER-DEF">/TS_T2D18M3I0R0/Os/OsOS/OsTargetMCU/MPC5644A</DEFINITION-REF>
+                                 <SUB-CONTAINERS>
+                                    <CONTAINER>
+                                       <SHORT-NAME>OsInternalROM</SHORT-NAME>
+                                       <DEFINITION-REF DEST="CHOICE-CONTAINER-DEF">/TS_T2D18M3I0R0/Os/OsOS/OsTargetMCU/MPC5644A/OsInternalROM</DEFINITION-REF>
+                                       <SUB-CONTAINERS>
+                                          <CONTAINER>
+                                             <SHORT-NAME>TRUE</SHORT-NAME>
+                                             <DEFINITION-REF DEST="PARAM-CONF-CONTAINER-DEF">/TS_T2D18M3I0R0/Os/OsOS/OsTargetMCU/MPC5644A/OsInternalROM/TRUE</DEFINITION-REF>
+                                          </CONTAINER>
+                                       </SUB-CONTAINERS>
+                                    </CONTAINER>
+                                    <CONTAINER>
+                                       <SHORT-NAME>OsInternalRAM</SHORT-NAME>
+                                       <DEFINITION-REF DEST="CHOICE-CONTAINER-DEF">/TS_T2D18M3I0R0/Os/OsOS/OsTargetMCU/MPC5644A/OsInternalRAM</DEFINITION-REF>
+                                       <SUB-CONTAINERS>
+                                          <CONTAINER>
+                                             <SHORT-NAME>TRUE</SHORT-NAME>
+                                             <DEFINITION-REF DEST="PARAM-CONF-CONTAINER-DEF">/TS_T2D18M3I0R0/Os/OsOS/OsTargetMCU/MPC5644A/OsInternalRAM/TRUE</DEFINITION-REF>
+                                          </CONTAINER>
+                                       </SUB-CONTAINERS>
+                                    </CONTAINER>
+                                    <CONTAINER>
+                                       <SHORT-NAME>OsSysTimer</SHORT-NAME>
+                                       <DEFINITION-REF DEST="CHOICE-CONTAINER-DEF">/TS_T2D18M3I0R0/Os/OsOS/OsTargetMCU/MPC5644A/OsSysTimer</DEFINITION-REF>
+                                       <SUB-CONTAINERS>
+                                          <CONTAINER>
+                                             <SHORT-NAME>HWCOUNTER</SHORT-NAME>
+                                             <DEFINITION-REF DEST="PARAM-CONF-CONTAINER-DEF">/TS_T2D18M3I0R0/Os/OsOS/OsTargetMCU/MPC5644A/OsSysTimer/HWCOUNTER</DEFINITION-REF>
+                                             <PARAMETER-VALUES>
+                                                <INTEGER-VALUE>
+                                                   <DEFINITION-REF DEST="INTEGER-PARAM-DEF">/TS_T2D18M3I0R0/Os/OsOS/OsTargetMCU/MPC5644A/OsSysTimer/HWCOUNTER/OsIsrPriority</DEFINITION-REF>
+                                                   <VALUE>2</VALUE>
+                                                </INTEGER-VALUE>
+                                             </PARAMETER-VALUES>
+                                             <REFERENCE-VALUES>
+                                                <REFERENCE-VALUE>
+                                                   <DEFINITION-REF DEST="REFERENCE-PARAM-DEF">/TS_T2D18M3I0R0/Os/OsOS/OsTargetMCU/MPC5644A/OsSysTimer/HWCOUNTER/OsCounter</DEFINITION-REF>
+                                                   <VALUE-REF DEST="CONTAINER">/OS/Os/SYSTEMTIMER</VALUE-REF>
+                                                </REFERENCE-VALUE>
+                                             </REFERENCE-VALUES>
+                                             <SUB-CONTAINERS>
+                                                <CONTAINER>
+                                                   <SHORT-NAME>OsTimerHardware</SHORT-NAME>
+                                                   <DEFINITION-REF DEST="CHOICE-CONTAINER-DEF">/TS_T2D18M3I0R0/Os/OsOS/OsTargetMCU/MPC5644A/OsSysTimer/HWCOUNTER/OsTimerHardware</DEFINITION-REF>
+                                                   <SUB-CONTAINERS>
+                                                      <CONTAINER>
+                                                         <SHORT-NAME>eMIOS</SHORT-NAME>
+                                                         <DEFINITION-REF DEST="PARAM-CONF-CONTAINER-DEF">/TS_T2D18M3I0R0/Os/OsOS/OsTargetMCU/MPC5644A/OsSysTimer/HWCOUNTER/OsTimerHardware/eMIOS</DEFINITION-REF>
+                                                         <PARAMETER-VALUES>
+                                                            <INTEGER-VALUE>
+                                                               <DEFINITION-REF DEST="INTEGER-PARAM-DEF">/TS_T2D18M3I0R0/Os/OsOS/OsTargetMCU/MPC5644A/OsSysTimer/HWCOUNTER/OsTimerHardware/eMIOS/OsChannel</DEFINITION-REF>
+                                                               <VALUE>0</VALUE>
+                                                            </INTEGER-VALUE>
+                                                            <BOOLEAN-VALUE>
+                                                               <DEFINITION-REF DEST="BOOLEAN-PARAM-DEF">/TS_T2D18M3I0R0/Os/OsOS/OsTargetMCU/MPC5644A/OsSysTimer/HWCOUNTER/OsTimerHardware/eMIOS/OsFreeze</DEFINITION-REF>
+                                                               <VALUE>true</VALUE>
+                                                            </BOOLEAN-VALUE>
+                                                         </PARAMETER-VALUES>
+                                                         <SUB-CONTAINERS>
+                                                            <CONTAINER>
+                                                               <SHORT-NAME>OsPrescaler</SHORT-NAME>
+                                                               <DEFINITION-REF DEST="CHOICE-CONTAINER-DEF">/TS_T2D18M3I0R0/Os/OsOS/OsTargetMCU/MPC5644A/OsSysTimer/HWCOUNTER/OsTimerHardware/eMIOS/OsPrescaler</DEFINITION-REF>
+                                                               <SUB-CONTAINERS>
+                                                                  <CONTAINER>
+                                                                     <SHORT-NAME>OS</SHORT-NAME>
+                                                                     <DEFINITION-REF DEST="PARAM-CONF-CONTAINER-DEF">/TS_T2D18M3I0R0/Os/OsOS/OsTargetMCU/MPC5644A/OsSysTimer/HWCOUNTER/OsTimerHardware/eMIOS/OsPrescaler/OS</DEFINITION-REF>
+                                                                     <PARAMETER-VALUES>
+                                                                        <INTEGER-VALUE>
+                                                                           <DEFINITION-REF DEST="INTEGER-PARAM-DEF">/TS_T2D18M3I0R0/Os/OsOS/OsTargetMCU/MPC5644A/OsSysTimer/HWCOUNTER/OsTimerHardware/eMIOS/OsPrescaler/OS/OsValue</DEFINITION-REF>
+                                                                           <VALUE>0</VALUE>
+                                                                        </INTEGER-VALUE>
+                                                                     </PARAMETER-VALUES>
+                                                                  </CONTAINER>
+                                                               </SUB-CONTAINERS>
+                                                            </CONTAINER>
+                                                            <CONTAINER>
+                                                               <SHORT-NAME>OsGlobalMIOSPrescaler</SHORT-NAME>
+                                                               <DEFINITION-REF DEST="CHOICE-CONTAINER-DEF">/TS_T2D18M3I0R0/Os/OsOS/OsTargetMCU/MPC5644A/OsSysTimer/HWCOUNTER/OsTimerHardware/eMIOS/OsGlobalMIOSPrescaler</DEFINITION-REF>
+                                                               <SUB-CONTAINERS>
+                                                                  <CONTAINER>
+                                                                     <SHORT-NAME>OS</SHORT-NAME>
+                                                                     <DEFINITION-REF DEST="PARAM-CONF-CONTAINER-DEF">/TS_T2D18M3I0R0/Os/OsOS/OsTargetMCU/MPC5644A/OsSysTimer/HWCOUNTER/OsTimerHardware/eMIOS/OsGlobalMIOSPrescaler/OS</DEFINITION-REF>
+                                                                     <PARAMETER-VALUES>
+                                                                        <INTEGER-VALUE>
+                                                                           <DEFINITION-REF DEST="INTEGER-PARAM-DEF">/TS_T2D18M3I0R0/Os/OsOS/OsTargetMCU/MPC5644A/OsSysTimer/HWCOUNTER/OsTimerHardware/eMIOS/OsGlobalMIOSPrescaler/OS/OsValue</DEFINITION-REF>
+                                                                           <VALUE>0</VALUE>
+                                                                        </INTEGER-VALUE>
+                                                                     </PARAMETER-VALUES>
+                                                                  </CONTAINER>
+                                                               </SUB-CONTAINERS>
+                                                            </CONTAINER>
+                                                         </SUB-CONTAINERS>
+                                                      </CONTAINER>
+                                                   </SUB-CONTAINERS>
+                                                </CONTAINER>
+                                             </SUB-CONTAINERS>
+                                          </CONTAINER>
+                                       </SUB-CONTAINERS>
+                                    </CONTAINER>
+                                    <CONTAINER>
+                                       <SHORT-NAME>OsSecondTimer</SHORT-NAME>
+                                       <DEFINITION-REF DEST="CHOICE-CONTAINER-DEF">/TS_T2D18M3I0R0/Os/OsOS/OsTargetMCU/MPC5644A/OsSecondTimer</DEFINITION-REF>
+                                       <SUB-CONTAINERS>
+                                          <CONTAINER>
+                                             <SHORT-NAME>SWCOUNTER</SHORT-NAME>
+                                             <DEFINITION-REF DEST="PARAM-CONF-CONTAINER-DEF">/TS_T2D18M3I0R0/Os/OsOS/OsTargetMCU/MPC5644A/OsSecondTimer/SWCOUNTER</DEFINITION-REF>
+                                             <PARAMETER-VALUES>
+                                                <INTEGER-VALUE>
+                                                   <DEFINITION-REF DEST="INTEGER-PARAM-DEF">/TS_T2D18M3I0R0/Os/OsOS/OsTargetMCU/MPC5644A/OsSecondTimer/SWCOUNTER/OsIsrPriority</DEFINITION-REF>
+                                                   <VALUE>4</VALUE>
+                                                </INTEGER-VALUE>
+                                             </PARAMETER-VALUES>
+                                             <REFERENCE-VALUES>
+                                                <REFERENCE-VALUE>
+                                                   <DEFINITION-REF DEST="REFERENCE-PARAM-DEF">/TS_T2D18M3I0R0/Os/OsOS/OsTargetMCU/MPC5644A/OsSecondTimer/SWCOUNTER/OsCounter</DEFINITION-REF>
+                                                   <VALUE-REF DEST="CONTAINER">/OS/Os/SECONDTIMER</VALUE-REF>
+                                                </REFERENCE-VALUE>
+                                             </REFERENCE-VALUES>
+                                             <SUB-CONTAINERS>
+                                                <CONTAINER>
+                                                   <SHORT-NAME>OsTimerHardware</SHORT-NAME>
+                                                   <DEFINITION-REF DEST="CHOICE-CONTAINER-DEF">/TS_T2D18M3I0R0/Os/OsOS/OsTargetMCU/MPC5644A/OsSecondTimer/SWCOUNTER/OsTimerHardware</DEFINITION-REF>
+                                                   <SUB-CONTAINERS>
+                                                      <CONTAINER>
+                                                         <SHORT-NAME>PIT</SHORT-NAME>
+                                                         <DEFINITION-REF DEST="PARAM-CONF-CONTAINER-DEF">/TS_T2D18M3I0R0/Os/OsOS/OsTargetMCU/MPC5644A/OsSecondTimer/SWCOUNTER/OsTimerHardware/PIT</DEFINITION-REF>
+                                                         <PARAMETER-VALUES>
+                                                            <INTEGER-VALUE>
+                                                               <DEFINITION-REF DEST="INTEGER-PARAM-DEF">/TS_T2D18M3I0R0/Os/OsOS/OsTargetMCU/MPC5644A/OsSecondTimer/SWCOUNTER/OsTimerHardware/PIT/OsChannel</DEFINITION-REF>
+                                                               <VALUE>0</VALUE>
+                                                            </INTEGER-VALUE>
+                                                            <INTEGER-VALUE>
+                                                               <DEFINITION-REF DEST="INTEGER-PARAM-DEF">/TS_T2D18M3I0R0/Os/OsOS/OsTargetMCU/MPC5644A/OsSecondTimer/SWCOUNTER/OsTimerHardware/PIT/OsTimerModuloValue</DEFINITION-REF>
+                                                               <VALUE>30000</VALUE>
+                                                            </INTEGER-VALUE>
+                                                            <BOOLEAN-VALUE>
+                                                               <DEFINITION-REF DEST="BOOLEAN-PARAM-DEF">/TS_T2D18M3I0R0/Os/OsOS/OsTargetMCU/MPC5644A/OsSecondTimer/SWCOUNTER/OsTimerHardware/PIT/OsFreeze</DEFINITION-REF>
+                                                               <VALUE>true</VALUE>
+                                                            </BOOLEAN-VALUE>
+                                                         </PARAMETER-VALUES>
+                                                      </CONTAINER>
+                                                   </SUB-CONTAINERS>
+                                                </CONTAINER>
+                                             </SUB-CONTAINERS>
+                                          </CONTAINER>
+                                       </SUB-CONTAINERS>
+                                    </CONTAINER>
+                                 </SUB-CONTAINERS>
+                              </CONTAINER>
+                           </SUB-CONTAINERS>
+                        </CONTAINER>
+                     </SUB-CONTAINERS>
+                  </CONTAINER>
+                  <CONTAINER>
+                     <SHORT-NAME>MSGAACCESS</SHORT-NAME>
+                     <DEFINITION-REF DEST="PARAM-CONF-CONTAINER-DEF">/TS_T2D18M3I0R0/Os/OsResource</DEFINITION-REF>
+                     <PARAMETER-VALUES>
+                        <ENUMERATION-VALUE>
+                           <DEFINITION-REF DEST="ENUMERATION-PARAM-DEF">/TS_T2D18M3I0R0/Os/OsResource/OsResourceProperty</DEFINITION-REF>
+                           <VALUE>STANDARD</VALUE>
+                        </ENUMERATION-VALUE>
+                     </PARAMETER-VALUES>
+                     <REFERENCE-VALUES>
+                        <REFERENCE-VALUE>
+                           <DEFINITION-REF DEST="REFERENCE-PARAM-DEF">/TS_T2D18M3I0R0/Os/OsResource/OsResourceAccessingApplication</DEFINITION-REF>
+                           <VALUE-REF DEST="CONTAINER">/OS/Os/SND_APP</VALUE-REF>
+                        </REFERENCE-VALUE>
+                     </REFERENCE-VALUES>
+                  </CONTAINER>
+                  <CONTAINER>
+                     <SHORT-NAME>MSGBACCESS</SHORT-NAME>
+                     <DEFINITION-REF DEST="PARAM-CONF-CONTAINER-DEF">/TS_T2D18M3I0R0/Os/OsResource</DEFINITION-REF>
+                     <PARAMETER-VALUES>
+                        <ENUMERATION-VALUE>
+                           <DEFINITION-REF DEST="ENUMERATION-PARAM-DEF">/TS_T2D18M3I0R0/Os/OsResource/OsResourceProperty</DEFINITION-REF>
+                           <VALUE>STANDARD</VALUE>
+                        </ENUMERATION-VALUE>
+                     </PARAMETER-VALUES>
+                     <REFERENCE-VALUES>
+                        <REFERENCE-VALUE>
+                           <DEFINITION-REF DEST="REFERENCE-PARAM-DEF">/TS_T2D18M3I0R0/Os/OsResource/OsResourceAccessingApplication</DEFINITION-REF>
+                           <VALUE-REF DEST="CONTAINER">/OS/Os/SND_APP</VALUE-REF>
+                        </REFERENCE-VALUE>
+                     </REFERENCE-VALUES>
+                  </CONTAINER>
+                  <CONTAINER>
+                     <SHORT-NAME>SCHEDTAB</SHORT-NAME>
+                     <DEFINITION-REF DEST="PARAM-CONF-CONTAINER-DEF">/TS_T2D18M3I0R0/Os/OsScheduleTable</DEFINITION-REF>
+                     <PARAMETER-VALUES>
+                        <INTEGER-VALUE>
+                           <DEFINITION-REF DEST="INTEGER-PARAM-DEF">/TS_T2D18M3I0R0/Os/OsScheduleTable/OsScheduleTableDuration</DEFINITION-REF>
+                           <VALUE>30000</VALUE>
+                        </INTEGER-VALUE>
+                        <BOOLEAN-VALUE>
+                           <DEFINITION-REF DEST="BOOLEAN-PARAM-DEF">/TS_T2D18M3I0R0/Os/OsScheduleTable/OsScheduleTableRepeating</DEFINITION-REF>
+                           <VALUE>true</VALUE>
+                        </BOOLEAN-VALUE>
+                     </PARAMETER-VALUES>
+                     <REFERENCE-VALUES>
+                        <REFERENCE-VALUE>
+                           <DEFINITION-REF DEST="REFERENCE-PARAM-DEF">/TS_T2D18M3I0R0/Os/OsScheduleTable/OsSchTblAccessingApplication</DEFINITION-REF>
+                           <VALUE-REF DEST="CONTAINER">/OS/Os/RCV_APP</VALUE-REF>
+                        </REFERENCE-VALUE>
+                        <REFERENCE-VALUE>
+                           <DEFINITION-REF DEST="REFERENCE-PARAM-DEF">/TS_T2D18M3I0R0/Os/OsScheduleTable/OsSchTblAccessingApplication</DEFINITION-REF>
+                           <VALUE-REF DEST="CONTAINER">/OS/Os/TRUSTED_APP</VALUE-REF>
+                        </REFERENCE-VALUE>
+                        <REFERENCE-VALUE>
+                           <DEFINITION-REF DEST="REFERENCE-PARAM-DEF">/TS_T2D18M3I0R0/Os/OsScheduleTable/OsScheduleTableCounterRef</DEFINITION-REF>
+                           <VALUE-REF DEST="CONTAINER">/OS/Os/SYSTEMTIMER</VALUE-REF>
+                        </REFERENCE-VALUE>
+                     </REFERENCE-VALUES>
+                     <SUB-CONTAINERS>
+                        <CONTAINER>
+                           <SHORT-NAME>OsScheduleTableExpiryPoint0</SHORT-NAME>
+                           <DEFINITION-REF DEST="PARAM-CONF-CONTAINER-DEF">/TS_T2D18M3I0R0/Os/OsScheduleTable/OsScheduleTableExpiryPoint</DEFINITION-REF>
+                           <PARAMETER-VALUES>
+                              <INTEGER-VALUE>
+                                 <DEFINITION-REF DEST="INTEGER-PARAM-DEF">/TS_T2D18M3I0R0/Os/OsScheduleTable/OsScheduleTableExpiryPoint/OsScheduleTblExpPointOffset</DEFINITION-REF>
+                                 <VALUE>0</VALUE>
+                              </INTEGER-VALUE>
+                           </PARAMETER-VALUES>
+                           <SUB-CONTAINERS>
+                              <CONTAINER>
+                                 <SHORT-NAME>OsScheduleTableTaskActivation</SHORT-NAME>
+                                 <DEFINITION-REF DEST="PARAM-CONF-CONTAINER-DEF">/TS_T2D18M3I0R0/Os/OsScheduleTable/OsScheduleTableExpiryPoint/OsScheduleTableTaskActivation</DEFINITION-REF>
+                                 <REFERENCE-VALUES>
+                                    <REFERENCE-VALUE>
+                                       <DEFINITION-REF DEST="REFERENCE-PARAM-DEF">/TS_T2D18M3I0R0/Os/OsScheduleTable/OsScheduleTableExpiryPoint/OsScheduleTableTaskActivation/OsScheduleTableActivateTaskRef</DEFINITION-REF>
+                                       <VALUE-REF DEST="CONTAINER">/OS/Os/TASKSND1</VALUE-REF>
+                                    </REFERENCE-VALUE>
+                                 </REFERENCE-VALUES>
+                              </CONTAINER>
+                           </SUB-CONTAINERS>
+                        </CONTAINER>
+                        <CONTAINER>
+                           <SHORT-NAME>OsScheduleTableExpiryPoint1</SHORT-NAME>
+                           <DEFINITION-REF DEST="PARAM-CONF-CONTAINER-DEF">/TS_T2D18M3I0R0/Os/OsScheduleTable/OsScheduleTableExpiryPoint</DEFINITION-REF>
+                           <PARAMETER-VALUES>
+                              <INTEGER-VALUE>
+                                 <DEFINITION-REF DEST="INTEGER-PARAM-DEF">/TS_T2D18M3I0R0/Os/OsScheduleTable/OsScheduleTableExpiryPoint/OsScheduleTblExpPointOffset</DEFINITION-REF>
+                                 <VALUE>15000</VALUE>
+                              </INTEGER-VALUE>
+                           </PARAMETER-VALUES>
+                           <SUB-CONTAINERS>
+                              <CONTAINER>
+                                 <SHORT-NAME>OsScheduleTableTaskActivation</SHORT-NAME>
+                                 <DEFINITION-REF DEST="PARAM-CONF-CONTAINER-DEF">/TS_T2D18M3I0R0/Os/OsScheduleTable/OsScheduleTableExpiryPoint/OsScheduleTableTaskActivation</DEFINITION-REF>
+                                 <REFERENCE-VALUES>
+                                    <REFERENCE-VALUE>
+                                       <DEFINITION-REF DEST="REFERENCE-PARAM-DEF">/TS_T2D18M3I0R0/Os/OsScheduleTable/OsScheduleTableExpiryPoint/OsScheduleTableTaskActivation/OsScheduleTableActivateTaskRef</DEFINITION-REF>
+                                       <VALUE-REF DEST="CONTAINER">/OS/Os/TASKSND2</VALUE-REF>
+                                    </REFERENCE-VALUE>
+                                 </REFERENCE-VALUES>
+                              </CONTAINER>
+                           </SUB-CONTAINERS>
+                        </CONTAINER>
+                        <CONTAINER>
+                           <SHORT-NAME>OsScheduleTableExpiryPoint2</SHORT-NAME>
+                           <DEFINITION-REF DEST="PARAM-CONF-CONTAINER-DEF">/TS_T2D18M3I0R0/Os/OsScheduleTable/OsScheduleTableExpiryPoint</DEFINITION-REF>
+                           <PARAMETER-VALUES>
+                              <INTEGER-VALUE>
+                                 <DEFINITION-REF DEST="INTEGER-PARAM-DEF">/TS_T2D18M3I0R0/Os/OsScheduleTable/OsScheduleTableExpiryPoint/OsScheduleTblExpPointOffset</DEFINITION-REF>
+                                 <VALUE>22500</VALUE>
+                              </INTEGER-VALUE>
+                           </PARAMETER-VALUES>
+                           <SUB-CONTAINERS>
+                              <CONTAINER>
+                                 <SHORT-NAME>OsScheduleTableTaskActivation</SHORT-NAME>
+                                 <DEFINITION-REF DEST="PARAM-CONF-CONTAINER-DEF">/TS_T2D18M3I0R0/Os/OsScheduleTable/OsScheduleTableExpiryPoint/OsScheduleTableTaskActivation</DEFINITION-REF>
+                                 <REFERENCE-VALUES>
+                                    <REFERENCE-VALUE>
+                                       <DEFINITION-REF DEST="REFERENCE-PARAM-DEF">/TS_T2D18M3I0R0/Os/OsScheduleTable/OsScheduleTableExpiryPoint/OsScheduleTableTaskActivation/OsScheduleTableActivateTaskRef</DEFINITION-REF>
+                                       <VALUE-REF DEST="CONTAINER">/OS/Os/TASKCNT</VALUE-REF>
+                                    </REFERENCE-VALUE>
+                                 </REFERENCE-VALUES>
+                              </CONTAINER>
+                           </SUB-CONTAINERS>
+                        </CONTAINER>
+                     </SUB-CONTAINERS>
+                  </CONTAINER>
+                  <CONTAINER>
+                     <SHORT-NAME>TASKSND1</SHORT-NAME>
+                     <DEFINITION-REF DEST="PARAM-CONF-CONTAINER-DEF">/TS_T2D18M3I0R0/Os/OsTask</DEFINITION-REF>
+                     <PARAMETER-VALUES>
+                        <INTEGER-VALUE>
+                           <DEFINITION-REF DEST="INTEGER-PARAM-DEF">/TS_T2D18M3I0R0/Os/OsTask/OsTaskActivation</DEFINITION-REF>
+                           <VALUE>1</VALUE>
+                        </INTEGER-VALUE>
+                        <INTEGER-VALUE>
+                           <DEFINITION-REF DEST="INTEGER-PARAM-DEF">/TS_T2D18M3I0R0/Os/OsTask/OsTaskPriority</DEFINITION-REF>
+                           <VALUE>4</VALUE>
+                        </INTEGER-VALUE>
+                        <ENUMERATION-VALUE>
+                           <DEFINITION-REF DEST="ENUMERATION-PARAM-DEF">/TS_T2D18M3I0R0/Os/OsTask/OsTaskSchedule</DEFINITION-REF>
+                           <VALUE>FULL</VALUE>
+                        </ENUMERATION-VALUE>
+                        <INTEGER-VALUE>
+                           <DEFINITION-REF DEST="INTEGER-PARAM-DEF">/TS_T2D18M3I0R0/Os/OsTask/OsStackSize</DEFINITION-REF>
+                           <VALUE>512</VALUE>
+                        </INTEGER-VALUE>
+                     </PARAMETER-VALUES>
+                     <REFERENCE-VALUES>
+                        <REFERENCE-VALUE>
+                           <DEFINITION-REF DEST="REFERENCE-PARAM-DEF">/TS_T2D18M3I0R0/Os/OsTask/OsTaskResourceRef</DEFINITION-REF>
+                           <VALUE-REF DEST="CONTAINER">/OS/Os/MSGAACCESS</VALUE-REF>
+                        </REFERENCE-VALUE>
+                        <REFERENCE-VALUE>
+                           <DEFINITION-REF DEST="REFERENCE-PARAM-DEF">/TS_T2D18M3I0R0/Os/OsTask/OsTaskMessageRef</DEFINITION-REF>
+                           <VALUE-REF DEST="CONTAINER">/OS/Os/MsgA</VALUE-REF>
+                        </REFERENCE-VALUE>
+                     </REFERENCE-VALUES>
+                  </CONTAINER>
+                  <CONTAINER>
+                     <SHORT-NAME>TASKSND2</SHORT-NAME>
+                     <DEFINITION-REF DEST="PARAM-CONF-CONTAINER-DEF">/TS_T2D18M3I0R0/Os/OsTask</DEFINITION-REF>
+                     <PARAMETER-VALUES>
+                        <INTEGER-VALUE>
+                           <DEFINITION-REF DEST="INTEGER-PARAM-DEF">/TS_T2D18M3I0R0/Os/OsTask/OsTaskActivation</DEFINITION-REF>
+                           <VALUE>1</VALUE>
+                        </INTEGER-VALUE>
+                        <INTEGER-VALUE>
+                           <DEFINITION-REF DEST="INTEGER-PARAM-DEF">/TS_T2D18M3I0R0/Os/OsTask/OsTaskPriority</DEFINITION-REF>
+                           <VALUE>3</VALUE>
+                        </INTEGER-VALUE>
+                        <ENUMERATION-VALUE>
+                           <DEFINITION-REF DEST="ENUMERATION-PARAM-DEF">/TS_T2D18M3I0R0/Os/OsTask/OsTaskSchedule</DEFINITION-REF>
+                           <VALUE>FULL</VALUE>
+                        </ENUMERATION-VALUE>
+                        <INTEGER-VALUE>
+                           <DEFINITION-REF DEST="INTEGER-PARAM-DEF">/TS_T2D18M3I0R0/Os/OsTask/OsStackSize</DEFINITION-REF>
+                           <VALUE>512</VALUE>
+                        </INTEGER-VALUE>
+                     </PARAMETER-VALUES>
+                     <REFERENCE-VALUES>
+                        <REFERENCE-VALUE>
+                           <DEFINITION-REF DEST="REFERENCE-PARAM-DEF">/TS_T2D18M3I0R0/Os/OsTask/OsTaskResourceRef</DEFINITION-REF>
+                           <VALUE-REF DEST="CONTAINER">/OS/Os/MSGBACCESS</VALUE-REF>
+                        </REFERENCE-VALUE>
+                        <REFERENCE-VALUE>
+                           <DEFINITION-REF DEST="REFERENCE-PARAM-DEF">/TS_T2D18M3I0R0/Os/OsTask/OsTaskMessageRef</DEFINITION-REF>
+                           <VALUE-REF DEST="CONTAINER">/OS/Os/MsgB</VALUE-REF>
+                        </REFERENCE-VALUE>
+                     </REFERENCE-VALUES>
+                  </CONTAINER>
+                  <CONTAINER>
+                     <SHORT-NAME>TASKCNT</SHORT-NAME>
+                     <DEFINITION-REF DEST="PARAM-CONF-CONTAINER-DEF">/TS_T2D18M3I0R0/Os/OsTask</DEFINITION-REF>
+                     <PARAMETER-VALUES>
+                        <INTEGER-VALUE>
+                           <DEFINITION-REF DEST="INTEGER-PARAM-DEF">/TS_T2D18M3I0R0/Os/OsTask/OsTaskActivation</DEFINITION-REF>
+                           <VALUE>1</VALUE>
+                        </INTEGER-VALUE>
+                        <INTEGER-VALUE>
+                           <DEFINITION-REF DEST="INTEGER-PARAM-DEF">/TS_T2D18M3I0R0/Os/OsTask/OsTaskPriority</DEFINITION-REF>
+                           <VALUE>2</VALUE>
+                        </INTEGER-VALUE>
+                        <ENUMERATION-VALUE>
+                           <DEFINITION-REF DEST="ENUMERATION-PARAM-DEF">/TS_T2D18M3I0R0/Os/OsTask/OsTaskSchedule</DEFINITION-REF>
+                           <VALUE>NON</VALUE>
+                        </ENUMERATION-VALUE>
+                        <INTEGER-VALUE>
+                           <DEFINITION-REF DEST="INTEGER-PARAM-DEF">/TS_T2D18M3I0R0/Os/OsTask/OsStackSize</DEFINITION-REF>
+                           <VALUE>512</VALUE>
+                        </INTEGER-VALUE>
+                     </PARAMETER-VALUES>
+                  </CONTAINER>
+                  <CONTAINER>
+                     <SHORT-NAME>TASKRCV1</SHORT-NAME>
+                     <DEFINITION-REF DEST="PARAM-CONF-CONTAINER-DEF">/TS_T2D18M3I0R0/Os/OsTask</DEFINITION-REF>
+                     <PARAMETER-VALUES>
+                        <INTEGER-VALUE>
+                           <DEFINITION-REF DEST="INTEGER-PARAM-DEF">/TS_T2D18M3I0R0/Os/OsTask/OsTaskActivation</DEFINITION-REF>
+                           <VALUE>1</VALUE>
+                        </INTEGER-VALUE>
+                        <INTEGER-VALUE>
+                           <DEFINITION-REF DEST="INTEGER-PARAM-DEF">/TS_T2D18M3I0R0/Os/OsTask/OsTaskPriority</DEFINITION-REF>
+                           <VALUE>6</VALUE>
+                        </INTEGER-VALUE>
+                        <ENUMERATION-VALUE>
+                           <DEFINITION-REF DEST="ENUMERATION-PARAM-DEF">/TS_T2D18M3I0R0/Os/OsTask/OsTaskSchedule</DEFINITION-REF>
+                           <VALUE>FULL</VALUE>
+                        </ENUMERATION-VALUE>
+                        <INTEGER-VALUE>
+                           <DEFINITION-REF DEST="INTEGER-PARAM-DEF">/TS_T2D18M3I0R0/Os/OsTask/OsStackSize</DEFINITION-REF>
+                           <VALUE>512</VALUE>
+                        </INTEGER-VALUE>
+                     </PARAMETER-VALUES>
+                     <REFERENCE-VALUES>
+                        <REFERENCE-VALUE>
+                           <DEFINITION-REF DEST="REFERENCE-PARAM-DEF">/TS_T2D18M3I0R0/Os/OsTask/OsTaskEventRef</DEFINITION-REF>
+                           <VALUE-REF DEST="CONTAINER">/OS/Os/MSGAEVENT</VALUE-REF>
+                        </REFERENCE-VALUE>
+                        <REFERENCE-VALUE>
+                           <DEFINITION-REF DEST="REFERENCE-PARAM-DEF">/TS_T2D18M3I0R0/Os/OsTask/OsTaskEventRef</DEFINITION-REF>
+                           <VALUE-REF DEST="CONTAINER">/OS/Os/TIMLIMITEVENT</VALUE-REF>
+                        </REFERENCE-VALUE>
+                        <REFERENCE-VALUE>
+                           <DEFINITION-REF DEST="REFERENCE-PARAM-DEF">/TS_T2D18M3I0R0/Os/OsTask/OsTaskResourceRef</DEFINITION-REF>
+                           <VALUE-REF DEST="CONTAINER">/OS/Os/MSGAACCESS</VALUE-REF>
+                        </REFERENCE-VALUE>
+                        <REFERENCE-VALUE>
+                           <DEFINITION-REF DEST="REFERENCE-PARAM-DEF">/TS_T2D18M3I0R0/Os/OsTask/OsTaskMessageRef</DEFINITION-REF>
+                           <VALUE-REF DEST="CONTAINER">/OS/Os/MsgAReceived</VALUE-REF>
+                        </REFERENCE-VALUE>
+                     </REFERENCE-VALUES>
+                     <SUB-CONTAINERS>
+                        <CONTAINER>
+                           <SHORT-NAME>OsTaskAutostart</SHORT-NAME>
+                           <DEFINITION-REF DEST="PARAM-CONF-CONTAINER-DEF">/TS_T2D18M3I0R0/Os/OsTask/OsTaskAutostart</DEFINITION-REF>
+                           <REFERENCE-VALUES>
+                              <REFERENCE-VALUE>
+                                 <DEFINITION-REF DEST="REFERENCE-PARAM-DEF">/TS_T2D18M3I0R0/Os/OsTask/OsTaskAutostart/OsTaskAppModeRef</DEFINITION-REF>
+                                 <VALUE-REF DEST="CONTAINER">/OS/Os/Mode01</VALUE-REF>
+                              </REFERENCE-VALUE>
+                           </REFERENCE-VALUES>
+                        </CONTAINER>
+                     </SUB-CONTAINERS>
+                  </CONTAINER>
+                  <CONTAINER>
+                     <SHORT-NAME>TASKRCV2</SHORT-NAME>
+                     <DEFINITION-REF DEST="PARAM-CONF-CONTAINER-DEF">/TS_T2D18M3I0R0/Os/OsTask</DEFINITION-REF>
+                     <PARAMETER-VALUES>
+                        <INTEGER-VALUE>
+                           <DEFINITION-REF DEST="INTEGER-PARAM-DEF">/TS_T2D18M3I0R0/Os/OsTask/OsTaskActivation</DEFINITION-REF>
+                           <VALUE>1</VALUE>
+                        </INTEGER-VALUE>
+                        <INTEGER-VALUE>
+                           <DEFINITION-REF DEST="INTEGER-PARAM-DEF">/TS_T2D18M3I0R0/Os/OsTask/OsTaskPriority</DEFINITION-REF>
+                           <VALUE>5</VALUE>
+                        </INTEGER-VALUE>
+                        <ENUMERATION-VALUE>
+                           <DEFINITION-REF DEST="ENUMERATION-PARAM-DEF">/TS_T2D18M3I0R0/Os/OsTask/OsTaskSchedule</DEFINITION-REF>
+                           <VALUE>FULL</VALUE>
+                        </ENUMERATION-VALUE>
+                        <INTEGER-VALUE>
+                           <DEFINITION-REF DEST="INTEGER-PARAM-DEF">/TS_T2D18M3I0R0/Os/OsTask/OsStackSize</DEFINITION-REF>
+                           <VALUE>512</VALUE>
+                        </INTEGER-VALUE>
+                     </PARAMETER-VALUES>
+                     <REFERENCE-VALUES>
+                        <REFERENCE-VALUE>
+                           <DEFINITION-REF DEST="REFERENCE-PARAM-DEF">/TS_T2D18M3I0R0/Os/OsTask/OsTaskResourceRef</DEFINITION-REF>
+                           <VALUE-REF DEST="CONTAINER">/OS/Os/MSGBACCESS</VALUE-REF>
+                        </REFERENCE-VALUE>
+                        <REFERENCE-VALUE>
+                           <DEFINITION-REF DEST="REFERENCE-PARAM-DEF">/TS_T2D18M3I0R0/Os/OsTask/OsTaskMessageRef</DEFINITION-REF>
+                           <VALUE-REF DEST="CONTAINER">/OS/Os/MsgBReceived</VALUE-REF>
+                        </REFERENCE-VALUE>
+                     </REFERENCE-VALUES>
+                  </CONTAINER>
+                  <CONTAINER>
+                     <SHORT-NAME>TASKDUMMY</SHORT-NAME>
+                     <DEFINITION-REF DEST="PARAM-CONF-CONTAINER-DEF">/TS_T2D18M3I0R0/Os/OsTask</DEFINITION-REF>
+                     <PARAMETER-VALUES>
+                        <INTEGER-VALUE>
+                           <DEFINITION-REF DEST="INTEGER-PARAM-DEF">/TS_T2D18M3I0R0/Os/OsTask/OsTaskActivation</DEFINITION-REF>
+                           <VALUE>1</VALUE>
+                        </INTEGER-VALUE>
+                        <INTEGER-VALUE>
+                           <DEFINITION-REF DEST="INTEGER-PARAM-DEF">/TS_T2D18M3I0R0/Os/OsTask/OsTaskPriority</DEFINITION-REF>
+                           <VALUE>7</VALUE>
+                        </INTEGER-VALUE>
+                        <ENUMERATION-VALUE>
+                           <DEFINITION-REF DEST="ENUMERATION-PARAM-DEF">/TS_T2D18M3I0R0/Os/OsTask/OsTaskSchedule</DEFINITION-REF>
+                           <VALUE>FULL</VALUE>
+                        </ENUMERATION-VALUE>
+                        <INTEGER-VALUE>
+                           <DEFINITION-REF DEST="INTEGER-PARAM-DEF">/TS_T2D18M3I0R0/Os/OsTask/OsStackSize</DEFINITION-REF>
+                           <VALUE>512</VALUE>
+                        </INTEGER-VALUE>
+                     </PARAMETER-VALUES>
+                  </CONTAINER>
+                  <CONTAINER>
+                     <SHORT-NAME>TASKSTOP</SHORT-NAME>
+                     <DEFINITION-REF DEST="PARAM-CONF-CONTAINER-DEF">/TS_T2D18M3I0R0/Os/OsTask</DEFINITION-REF>
+                     <PARAMETER-VALUES>
+                        <INTEGER-VALUE>
+                           <DEFINITION-REF DEST="INTEGER-PARAM-DEF">/TS_T2D18M3I0R0/Os/OsTask/OsTaskActivation</DEFINITION-REF>
+                           <VALUE>1</VALUE>
+                        </INTEGER-VALUE>
+                        <INTEGER-VALUE>
+                           <DEFINITION-REF DEST="INTEGER-PARAM-DEF">/TS_T2D18M3I0R0/Os/OsTask/OsTaskPriority</DEFINITION-REF>
+                           <VALUE>1</VALUE>
+                        </INTEGER-VALUE>
+                        <ENUMERATION-VALUE>
+                           <DEFINITION-REF DEST="ENUMERATION-PARAM-DEF">/TS_T2D18M3I0R0/Os/OsTask/OsTaskSchedule</DEFINITION-REF>
+                           <VALUE>NON</VALUE>
+                        </ENUMERATION-VALUE>
+                        <INTEGER-VALUE>
+                           <DEFINITION-REF DEST="INTEGER-PARAM-DEF">/TS_T2D18M3I0R0/Os/OsTask/OsStackSize</DEFINITION-REF>
+                           <VALUE>512</VALUE>
+                        </INTEGER-VALUE>
+                     </PARAMETER-VALUES>
+                  </CONTAINER>
+                  <CONTAINER>
+                     <SHORT-NAME>MsgA</SHORT-NAME>
+                     <DEFINITION-REF DEST="PARAM-CONF-CONTAINER-DEF">/TS_T2D18M3I0R0/Os/OsMessage</DEFINITION-REF>
+                     <SUB-CONTAINERS>
+                        <CONTAINER>
+                           <SHORT-NAME>OsMessageProperty</SHORT-NAME>
+                           <DEFINITION-REF DEST="CHOICE-CONTAINER-DEF">/TS_T2D18M3I0R0/Os/OsMessage/OsMessageProperty</DEFINITION-REF>
+                           <SUB-CONTAINERS>
+                              <CONTAINER>
+                                 <SHORT-NAME>OsMsgSendStaticInternal</SHORT-NAME>
+                                 <DEFINITION-REF DEST="PARAM-CONF-CONTAINER-DEF">/TS_T2D18M3I0R0/Os/OsMessage/OsMessageProperty/OsMsgSendStaticInternal</DEFINITION-REF>
+                                 <PARAMETER-VALUES>
+                                    <STRING-VALUE>
+                                       <DEFINITION-REF DEST="STRING-PARAM-DEF">/TS_T2D18M3I0R0/Os/OsMessage/OsMessageProperty/OsMsgSendStaticInternal/CDataType</DEFINITION-REF>
+                                       <VALUE>MSGATYPE</VALUE>
+                                    </STRING-VALUE>
+                                 </PARAMETER-VALUES>
+                              </CONTAINER>
+                           </SUB-CONTAINERS>
+                        </CONTAINER>
+                     </SUB-CONTAINERS>
+                  </CONTAINER>
+                  <CONTAINER>
+                     <SHORT-NAME>MsgB</SHORT-NAME>
+                     <DEFINITION-REF DEST="PARAM-CONF-CONTAINER-DEF">/TS_T2D18M3I0R0/Os/OsMessage</DEFINITION-REF>
+                     <SUB-CONTAINERS>
+                        <CONTAINER>
+                           <SHORT-NAME>OsMessageProperty</SHORT-NAME>
+                           <DEFINITION-REF DEST="CHOICE-CONTAINER-DEF">/TS_T2D18M3I0R0/Os/OsMessage/OsMessageProperty</DEFINITION-REF>
+                           <SUB-CONTAINERS>
+                              <CONTAINER>
+                                 <SHORT-NAME>OsMsgSendStaticInternal</SHORT-NAME>
+                                 <DEFINITION-REF DEST="PARAM-CONF-CONTAINER-DEF">/TS_T2D18M3I0R0/Os/OsMessage/OsMessageProperty/OsMsgSendStaticInternal</DEFINITION-REF>
+                                 <PARAMETER-VALUES>
+                                    <STRING-VALUE>
+                                       <DEFINITION-REF DEST="STRING-PARAM-DEF">/TS_T2D18M3I0R0/Os/OsMessage/OsMessageProperty/OsMsgSendStaticInternal/CDataType</DEFINITION-REF>
+                                       <VALUE>MSGBTYPE</VALUE>
+                                    </STRING-VALUE>
+                                 </PARAMETER-VALUES>
+                              </CONTAINER>
+                           </SUB-CONTAINERS>
+                        </CONTAINER>
+                     </SUB-CONTAINERS>
+                  </CONTAINER>
+                  <CONTAINER>
+                     <SHORT-NAME>MsgAReceived</SHORT-NAME>
+                     <DEFINITION-REF DEST="PARAM-CONF-CONTAINER-DEF">/TS_T2D18M3I0R0/Os/OsMessage</DEFINITION-REF>
+                     <SUB-CONTAINERS>
+                        <CONTAINER>
+                           <SHORT-NAME>OsMessageProperty</SHORT-NAME>
+                           <DEFINITION-REF DEST="CHOICE-CONTAINER-DEF">/TS_T2D18M3I0R0/Os/OsMessage/OsMessageProperty</DEFINITION-REF>
+                           <SUB-CONTAINERS>
+                              <CONTAINER>
+                                 <SHORT-NAME>OsMsgReceiveUnqueuedInternal</SHORT-NAME>
+                                 <DEFINITION-REF DEST="PARAM-CONF-CONTAINER-DEF">/TS_T2D18M3I0R0/Os/OsMessage/OsMessageProperty/OsMsgReceiveUnqueuedInternal</DEFINITION-REF>
+                                 <PARAMETER-VALUES>
+                                    <INTEGER-VALUE>
+                                       <DEFINITION-REF DEST="INTEGER-PARAM-DEF">/TS_T2D18M3I0R0/Os/OsMessage/OsMessageProperty/OsMsgReceiveUnqueuedInternal/InitialValue</DEFINITION-REF>
+                                       <VALUE>0</VALUE>
+                                    </INTEGER-VALUE>
+                                 </PARAMETER-VALUES>
+                                 <REFERENCE-VALUES>
+                                    <REFERENCE-VALUE>
+                                       <DEFINITION-REF DEST="REFERENCE-PARAM-DEF">/TS_T2D18M3I0R0/Os/OsMessage/OsMessageProperty/OsMsgReceiveUnqueuedInternal/SendingMessage</DEFINITION-REF>
+                                       <VALUE-REF DEST="CONTAINER">/OS/Os/MsgA</VALUE-REF>
+                                    </REFERENCE-VALUE>
+                                 </REFERENCE-VALUES>
+                              </CONTAINER>
+                           </SUB-CONTAINERS>
+                        </CONTAINER>
+                        <CONTAINER>
+                           <SHORT-NAME>OsMsgNotification</SHORT-NAME>
+                           <DEFINITION-REF DEST="CHOICE-CONTAINER-DEF">/TS_T2D18M3I0R0/Os/OsMessage/OsMsgNotification</DEFINITION-REF>
+                           <SUB-CONTAINERS>
+                              <CONTAINER>
+                                 <SHORT-NAME>OsMsgSetEvent</SHORT-NAME>
+                                 <DEFINITION-REF DEST="PARAM-CONF-CONTAINER-DEF">/TS_T2D18M3I0R0/Os/OsMessage/OsMsgNotification/OsMsgSetEvent</DEFINITION-REF>
+                                 <REFERENCE-VALUES>
+                                    <REFERENCE-VALUE>
+                                       <DEFINITION-REF DEST="REFERENCE-PARAM-DEF">/TS_T2D18M3I0R0/Os/OsMessage/OsMsgNotification/OsMsgSetEvent/EventRef</DEFINITION-REF>
+                                       <VALUE-REF DEST="CONTAINER">/OS/Os/MSGAEVENT</VALUE-REF>
+                                    </REFERENCE-VALUE>
+                                    <REFERENCE-VALUE>
+                                       <DEFINITION-REF DEST="REFERENCE-PARAM-DEF">/TS_T2D18M3I0R0/Os/OsMessage/OsMsgNotification/OsMsgSetEvent/TaskRef</DEFINITION-REF>
+                                       <VALUE-REF DEST="CONTAINER">/OS/Os/TASKRCV1</VALUE-REF>
+                                    </REFERENCE-VALUE>
+                                 </REFERENCE-VALUES>
+                              </CONTAINER>
+                           </SUB-CONTAINERS>
+                        </CONTAINER>
+                     </SUB-CONTAINERS>
+                  </CONTAINER>
+                  <CONTAINER>
+                     <SHORT-NAME>MsgBReceived</SHORT-NAME>
+                     <DEFINITION-REF DEST="PARAM-CONF-CONTAINER-DEF">/TS_T2D18M3I0R0/Os/OsMessage</DEFINITION-REF>
+                     <SUB-CONTAINERS>
+                        <CONTAINER>
+                           <SHORT-NAME>OsMessageProperty</SHORT-NAME>
+                           <DEFINITION-REF DEST="CHOICE-CONTAINER-DEF">/TS_T2D18M3I0R0/Os/OsMessage/OsMessageProperty</DEFINITION-REF>
+                           <SUB-CONTAINERS>
+                              <CONTAINER>
+                                 <SHORT-NAME>OsMsgReceiveUnqueuedInternal</SHORT-NAME>
+                                 <DEFINITION-REF DEST="PARAM-CONF-CONTAINER-DEF">/TS_T2D18M3I0R0/Os/OsMessage/OsMessageProperty/OsMsgReceiveUnqueuedInternal</DEFINITION-REF>
+                                 <PARAMETER-VALUES>
+                                    <INTEGER-VALUE>
+                                       <DEFINITION-REF DEST="INTEGER-PARAM-DEF">/TS_T2D18M3I0R0/Os/OsMessage/OsMessageProperty/OsMsgReceiveUnqueuedInternal/InitialValue</DEFINITION-REF>
+                                       <VALUE>0</VALUE>
+                                    </INTEGER-VALUE>
+                                 </PARAMETER-VALUES>
+                                 <REFERENCE-VALUES>
+                                    <REFERENCE-VALUE>
+                                       <DEFINITION-REF DEST="REFERENCE-PARAM-DEF">/TS_T2D18M3I0R0/Os/OsMessage/OsMessageProperty/OsMsgReceiveUnqueuedInternal/SendingMessage</DEFINITION-REF>
+                                       <VALUE-REF DEST="CONTAINER">/OS/Os/MsgB</VALUE-REF>
+                                    </REFERENCE-VALUE>
+                                 </REFERENCE-VALUES>
+                              </CONTAINER>
+                           </SUB-CONTAINERS>
+                        </CONTAINER>
+                        <CONTAINER>
+                           <SHORT-NAME>OsMsgNotification</SHORT-NAME>
+                           <DEFINITION-REF DEST="CHOICE-CONTAINER-DEF">/TS_T2D18M3I0R0/Os/OsMessage/OsMsgNotification</DEFINITION-REF>
+                           <SUB-CONTAINERS>
+                              <CONTAINER>
+                                 <SHORT-NAME>OsMsgActivateTask</SHORT-NAME>
+                                 <DEFINITION-REF DEST="PARAM-CONF-CONTAINER-DEF">/TS_T2D18M3I0R0/Os/OsMessage/OsMsgNotification/OsMsgActivateTask</DEFINITION-REF>
+                                 <REFERENCE-VALUES>
+                                    <REFERENCE-VALUE>
+                                       <DEFINITION-REF DEST="REFERENCE-PARAM-DEF">/TS_T2D18M3I0R0/Os/OsMessage/OsMsgNotification/OsMsgActivateTask/TaskRef</DEFINITION-REF>
+                                       <VALUE-REF DEST="CONTAINER">/OS/Os/TASKRCV2</VALUE-REF>
+                                    </REFERENCE-VALUE>
+                                 </REFERENCE-VALUES>
+                              </CONTAINER>
+                           </SUB-CONTAINERS>
+                        </CONTAINER>
+                     </SUB-CONTAINERS>
+                  </CONTAINER>
+                  <CONTAINER>
+                     <SHORT-NAME>NM</SHORT-NAME>
+                     <DEFINITION-REF DEST="PARAM-CONF-CONTAINER-DEF">/TS_T2D18M3I0R0/Os/OsNm</DEFINITION-REF>
+                  </CONTAINER>
+                  <CONTAINER>
+                     <SHORT-NAME>COM1</SHORT-NAME>
+                     <DEFINITION-REF DEST="PARAM-CONF-CONTAINER-DEF">/TS_T2D18M3I0R0/Os/OsCom</DEFINITION-REF>
+                     <PARAMETER-VALUES>
+                        <STRING-VALUE>
+                           <DEFINITION-REF DEST="STRING-PARAM-DEF">/TS_T2D18M3I0R0/Os/OsCom/ComAppMode</DEFINITION-REF>
+                           <VALUE>ComAppMode</VALUE>
+                        </STRING-VALUE>
+                        <BOOLEAN-VALUE>
+                           <DEFINITION-REF DEST="BOOLEAN-PARAM-DEF">/TS_T2D18M3I0R0/Os/OsCom/ComErrorHook</DEFINITION-REF>
+                           <VALUE>false</VALUE>
+                        </BOOLEAN-VALUE>
+                        <BOOLEAN-VALUE>
+                           <DEFINITION-REF DEST="BOOLEAN-PARAM-DEF">/TS_T2D18M3I0R0/Os/OsCom/ComStartComExtension</DEFINITION-REF>
+                           <VALUE>false</VALUE>
+                        </BOOLEAN-VALUE>
+                        <BOOLEAN-VALUE>
+                           <DEFINITION-REF DEST="BOOLEAN-PARAM-DEF">/TS_T2D18M3I0R0/Os/OsCom/ComUseGetServiceId</DEFINITION-REF>
+                           <VALUE>false</VALUE>
+                        </BOOLEAN-VALUE>
+                        <BOOLEAN-VALUE>
+                           <DEFINITION-REF DEST="BOOLEAN-PARAM-DEF">/TS_T2D18M3I0R0/Os/OsCom/ComUseParameterAccess</DEFINITION-REF>
+                           <VALUE>false</VALUE>
+                        </BOOLEAN-VALUE>
+                        <ENUMERATION-VALUE>
+                           <DEFINITION-REF DEST="ENUMERATION-PARAM-DEF">/TS_T2D18M3I0R0/Os/OsCom/OsComStatus</DEFINITION-REF>
+                           <VALUE>COMEXTENDED</VALUE>
+                        </ENUMERATION-VALUE>
+                     </PARAMETER-VALUES>
+                  </CONTAINER>
+               </CONTAINERS>
+            </MODULE-CONFIGURATION>
+         </ELEMENTS>
+      </AR-PACKAGE>
+   </TOP-LEVEL-PACKAGES>
+</AUTOSAR>

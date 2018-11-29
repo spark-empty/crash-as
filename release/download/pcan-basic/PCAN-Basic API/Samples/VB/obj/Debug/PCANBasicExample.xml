@@ -1,0 +1,1280 @@
+﻿<?xml version="1.0"?>
+<doc>
+<assembly>
+<name>
+PCANBasicExample
+</name>
+</assembly>
+<members>
+<member name="T:Form1.MessageStatus">
+	<summary>
+ Message Status structure used to show CAN Messages
+ in a ListView
+ </summary>
+</member><member name="T:Form1.ReadDelegateHandler">
+	<summary>
+ Read-Delegate Handler
+ </summary>
+</member><member name="F:Form1.m_IsFD">
+	<summary>
+ Saves the desired connection mode
+ </summary>
+</member><member name="F:Form1.m_PcanHandle">
+	<summary>
+ Saves the handle of a PCAN hardware
+ </summary>
+</member><member name="F:Form1.m_Baudrate">
+	<summary>
+ Saves the baudrate register for a conenction
+ </summary>
+</member><member name="F:Form1.m_HwType">
+	<summary>
+ Saves the type of a non-plug-and-play hardware
+ </summary>
+</member><member name="F:Form1.m_LastMsgsList">
+	<summary>
+ Stores the status of received messages for its display
+ </summary>
+</member><member name="F:Form1.m_ReadDelegate">
+	<summary>
+ Read Delegate for calling the function "ReadMessages"
+ </summary>
+</member><member name="F:Form1.m_ReceiveEvent">
+	<summary>
+ Receive-Event
+ </summary>
+</member><member name="F:Form1.m_ReadThread">
+	<summary>
+ Thread for message reading (using events)
+ </summary>
+</member><member name="F:Form1.m_HandlesArray">
+	<summary>
+ Handles of the current available PCAN-Hardware
+ </summary>
+</member><member name="M:Form1.GetLengthFromDLC(System.Int32,System.Boolean)">
+	<summary>
+ Convert a CAN DLC value into the actual data length of the CAN/CAN-FD frame.
+ </summary>
+	<param name="dlc">A value between 0 and 15 (CAN and FD DLC range)</param>
+	<param name="isSTD">A value indicating if the msg is a standard CAN (FD Flag not checked)</param>
+	<returns>The length represented by the DLC</returns>
+</member><member name="M:Form1.InitializeBasicComponents">
+	<summary>
+ Initialization of PCAN-Basic components
+ </summary>
+</member><member name="M:Form1.ConfigureLogFile">
+	<summary>
+ Configures the Debug-Log file of PCAN-Basic
+ </summary>
+</member><member name="M:Form1.ConfigureTraceFile">
+	<summary>
+ Configures the Debug-Log file of PCAN-Basic
+ </summary>
+</member><member name="M:Form1.GetFormatedError(Peak.Can.Basic.TPCANStatus)">
+	<summary>
+ Help Function used to get an error as text
+ </summary>
+	<param name="error">Error code to be translated</param>
+	<returns>A text with the translated error</returns>
+</member><member name="M:Form1.IncludeTextMessage(System.String)">
+	<summary>
+ Includes a new line of text into the information Listview
+ </summary>
+	<param name="strMsg">Text to be included</param>
+</member><member name="M:Form1.GetFilterStatus(System.UInt32@)">
+	<summary>
+ Gets the current status of the PCAN-Basic message filter
+ </summary>
+	<param name="status">Buffer to retrieve the filter status</param>
+	<returns>If calling the function was successfull or not</returns>
+</member><member name="M:Form1.FillComboBoxData">
+	<summary>
+ Configures the data of all ComboBox components of the main-form
+ </summary>
+</member><member name="M:Form1.SetConnectionStatus(System.Boolean)">
+	<summary>
+ Activates/deaactivates the different controls of the main-form according
+ with the current connection status
+ </summary>
+	<param name="bConnected">Current status. True if connected, false otherwise</param>
+</member><member name="M:Form1.FormatChannelName(System.UInt16,System.Boolean)">
+	<summary>
+ Gets the formated text for a CPAN-Basic channel handle
+ </summary>
+	<param name="handle">PCAN-Basic Handle to format</param>
+	<param name="isFD">If the channel is FD capable</param>
+	<returns>The formatted text for a channel</returns>
+</member><member name="M:Form1.FormatChannelName(System.UInt16)">
+	<summary>
+ Gets the formated text for a CPAN-Basic channel handle
+ </summary>
+	<param name="handle">PCAN-Basic Handle to format</param>
+	<returns>The formatted text for a channel</returns>
+</member><member name="M:Form1.DisplayMessages">
+	<summary>
+ Display CAN messages in the Message-ListView
+ </summary>
+</member><member name="M:Form1.InsertMsgEntry(Peak.Can.Basic.TPCANMsgFD,System.UInt64)">
+	<summary>
+ Inserts a new entry for a new message in the Message-ListView
+ </summary>
+	<param name="newMsg">The messasge to be inserted</param>
+	<param name="timeStamp">The Timesamp of the new message</param>
+</member><member name="M:Form1.ProcessMessage(Peak.Can.Basic.TPCANMsgFD,System.UInt64)">
+	<summary>
+ Processes a received message, in order to show it in the Message-ListView
+ </summary>
+	<param name="theMsg">The received PCAN-Basic message</param>
+	<param name="itsTimeStamp">The Timestamp of the received message</param>
+</member><member name="M:Form1.ProcessMessage(Peak.Can.Basic.TPCANMsg,Peak.Can.Basic.TPCANTimestamp)">
+	<summary>
+ Processes a received message, in order to show it in the Message-ListView
+ </summary>
+	<param name="theMsg">The received PCAN-Basic message</param>
+	<param name="itsTimeStamp">The Timestamp of the received message</param>
+</member><member name="M:Form1.CANReadThreadFunc">
+	<summary>
+ Thread-Function used for reading PCAN-Basic messages
+ </summary>
+</member><member name="M:Form1.ReadMessageFD">
+	<summary>
+ Function for reading messages on FD devices
+ </summary>
+	<returns>A TPCANStatus error code</returns>
+</member><member name="M:Form1.ReadMessage">
+	<summary>
+ Function for reading CAN messages on normal CAN devices
+ </summary>
+	<returns>A TPCANStatus error code</returns>
+</member><member name="M:Form1.ReadMessages">
+	<summary>
+ Function for reading PCAN-Basic messages
+ </summary>
+</member><member name="F:Peak.Can.Basic.TPCANStatus.PCAN_ERROR_OK">
+	<summary>
+ No error
+ </summary>
+</member><member name="F:Peak.Can.Basic.TPCANStatus.PCAN_ERROR_XMTFULL">
+	<summary>
+ Transmit buffer in CAN controller is full
+ </summary>
+</member><member name="F:Peak.Can.Basic.TPCANStatus.PCAN_ERROR_OVERRUN">
+	<summary>
+ CAN controller was read too late
+ </summary>
+</member><member name="F:Peak.Can.Basic.TPCANStatus.PCAN_ERROR_BUSLIGHT">
+	<summary>
+ Bus error: an error counter reached the 'light' limit
+ </summary>
+</member><member name="F:Peak.Can.Basic.TPCANStatus.PCAN_ERROR_BUSHEAVY">
+	<summary>
+ Bus error: an error counter reached the 'heavy' limit
+ </summary>
+</member><member name="F:Peak.Can.Basic.TPCANStatus.PCAN_ERROR_BUSWARNING">
+	<summary>
+ Bus error: an error counter reached the 'warning' limit
+ </summary>
+</member><member name="F:Peak.Can.Basic.TPCANStatus.PCAN_ERROR_BUSPASSIVE">
+	<summary>
+ Bus error: the CAN controller is error passive
+ </summary>
+</member><member name="F:Peak.Can.Basic.TPCANStatus.PCAN_ERROR_BUSOFF">
+	<summary>
+ Bus error: the CAN controller is in bus-off state
+ </summary>
+</member><member name="F:Peak.Can.Basic.TPCANStatus.PCAN_ERROR_ANYBUSERR">
+	<summary>
+ Mask for all bus errors
+ </summary>
+</member><member name="F:Peak.Can.Basic.TPCANStatus.PCAN_ERROR_QRCVEMPTY">
+	<summary>
+ Receive queue is empty
+ </summary>
+</member><member name="F:Peak.Can.Basic.TPCANStatus.PCAN_ERROR_QOVERRUN">
+	<summary>
+ Receive queue was read too late
+ </summary>
+</member><member name="F:Peak.Can.Basic.TPCANStatus.PCAN_ERROR_QXMTFULL">
+	<summary>
+ Transmit queue is full
+ </summary>
+</member><member name="F:Peak.Can.Basic.TPCANStatus.PCAN_ERROR_REGTEST">
+	<summary>
+ Test of the CAN controller hardware registers failed (no hardware found)
+ </summary>
+</member><member name="F:Peak.Can.Basic.TPCANStatus.PCAN_ERROR_NODRIVER">
+	<summary>
+ Driver not loaded
+ </summary>
+</member><member name="F:Peak.Can.Basic.TPCANStatus.PCAN_ERROR_HWINUSE">
+	<summary>
+ Hardware already in use by a Net
+ </summary>
+</member><member name="F:Peak.Can.Basic.TPCANStatus.PCAN_ERROR_NETINUSE">
+	<summary>
+ A Client is already connected to the Net
+ </summary>
+</member><member name="F:Peak.Can.Basic.TPCANStatus.PCAN_ERROR_ILLHW">
+	<summary>
+ Hardware handle is invalid
+ </summary>
+</member><member name="F:Peak.Can.Basic.TPCANStatus.PCAN_ERROR_ILLNET">
+	<summary>
+ Net handle is invalid
+ </summary>
+</member><member name="F:Peak.Can.Basic.TPCANStatus.PCAN_ERROR_ILLCLIENT">
+	<summary>
+ Client handle is invalid
+ </summary>
+</member><member name="F:Peak.Can.Basic.TPCANStatus.PCAN_ERROR_ILLHANDLE">
+	<summary>
+ Mask for all handle errors
+ </summary>
+</member><member name="F:Peak.Can.Basic.TPCANStatus.PCAN_ERROR_RESOURCE">
+	<summary>
+ Resource (FIFO, Client, timeout) cannot be created
+ </summary>
+</member><member name="F:Peak.Can.Basic.TPCANStatus.PCAN_ERROR_ILLPARAMTYPE">
+	<summary>
+ Invalid parameter
+ </summary>
+</member><member name="F:Peak.Can.Basic.TPCANStatus.PCAN_ERROR_ILLPARAMVAL">
+	<summary>
+ Invalid parameter value
+ </summary>
+</member><member name="F:Peak.Can.Basic.TPCANStatus.PCAN_ERROR_UNKNOWN">
+	<summary>
+ Unknown error
+ </summary>
+</member><member name="F:Peak.Can.Basic.TPCANStatus.PCAN_ERROR_ILLDATA">
+	<summary>
+ Invalid data, function, or action.
+ </summary>
+</member><member name="F:Peak.Can.Basic.TPCANStatus.PCAN_ERROR_CAUTION">
+	<summary>
+ An operation was successfully carried out, however, irregularities were registered
+ </summary>
+</member><member name="F:Peak.Can.Basic.TPCANStatus.PCAN_ERROR_INITIALIZE">
+	<summary>
+ Channel is not initialized
+ <remarks>Value was changed from 0x40000 to 0x4000000</remarks>
+	</summary>
+</member><member name="F:Peak.Can.Basic.TPCANStatus.PCAN_ERROR_ILLOPERATION">
+	<summary>
+ Invalid operation
+ <remarks>Value was changed from 0x80000 to 0x8000000</remarks>
+	</summary>
+</member><member name="T:Peak.Can.Basic.TPCANStatus">
+	<summary>
+ Represents a PCAN status/error code
+ </summary>
+</member><member name="F:Peak.Can.Basic.TPCANDevice.PCAN_NONE">
+	<summary>
+ Undefined, unknown or not selected PCAN device value
+ </summary>
+</member><member name="F:Peak.Can.Basic.TPCANDevice.PCAN_PEAKCAN">
+	<summary>
+ PCAN Non-Plug And Play devices. NOT USED WITHIN PCAN-Basic API
+ </summary>
+</member><member name="F:Peak.Can.Basic.TPCANDevice.PCAN_ISA">
+	<summary>
+ PCAN-ISA, PCAN-PC/104, and PCAN-PC/104-Plus
+ </summary>
+</member><member name="F:Peak.Can.Basic.TPCANDevice.PCAN_DNG">
+	<summary>
+ PCAN-Dongle
+ </summary>
+</member><member name="F:Peak.Can.Basic.TPCANDevice.PCAN_PCI">
+	<summary>
+ PCAN-PCI, PCAN-cPCI, PCAN-miniPCI, and PCAN-PCI Express
+ </summary>
+</member><member name="F:Peak.Can.Basic.TPCANDevice.PCAN_USB">
+	<summary>
+ PCAN-USB and PCAN-USB Pro
+ </summary>
+</member><member name="F:Peak.Can.Basic.TPCANDevice.PCAN_PCC">
+	<summary>
+ PCAN-PC Card
+ </summary>
+</member><member name="F:Peak.Can.Basic.TPCANDevice.PCAN_VIRTUAL">
+	<summary>
+ PCAN Virtual hardware. NOT USED WITHIN PCAN-Basic API
+ </summary>
+</member><member name="F:Peak.Can.Basic.TPCANDevice.PCAN_LAN">
+	<summary>
+ PCAN Gateway devices
+ </summary>
+</member><member name="T:Peak.Can.Basic.TPCANDevice">
+	<summary>
+ Represents a PCAN device
+ </summary>
+</member><member name="F:Peak.Can.Basic.TPCANParameter.PCAN_DEVICE_NUMBER">
+	<summary>
+ PCAN-USB device number parameter
+ </summary>
+</member><member name="F:Peak.Can.Basic.TPCANParameter.PCAN_5VOLTS_POWER">
+	<summary>
+ PCAN-PC Card 5-Volt power parameter
+ </summary>
+</member><member name="F:Peak.Can.Basic.TPCANParameter.PCAN_RECEIVE_EVENT">
+	<summary>
+ PCAN receive event handler parameter
+ </summary>
+</member><member name="F:Peak.Can.Basic.TPCANParameter.PCAN_MESSAGE_FILTER">
+	<summary>
+ PCAN message filter parameter
+ </summary>
+</member><member name="F:Peak.Can.Basic.TPCANParameter.PCAN_API_VERSION">
+	<summary>
+ PCAN-Basic API version parameter
+ </summary>
+</member><member name="F:Peak.Can.Basic.TPCANParameter.PCAN_CHANNEL_VERSION">
+	<summary>
+ PCAN device channel version parameter
+ </summary>
+</member><member name="F:Peak.Can.Basic.TPCANParameter.PCAN_BUSOFF_AUTORESET">
+	<summary>
+ PCAN Reset-On-Busoff parameter
+ </summary>
+</member><member name="F:Peak.Can.Basic.TPCANParameter.PCAN_LISTEN_ONLY">
+	<summary>
+ PCAN Listen-Only parameter
+ </summary>
+</member><member name="F:Peak.Can.Basic.TPCANParameter.PCAN_LOG_LOCATION">
+	<summary>
+ Directory path for log files
+ </summary>
+</member><member name="F:Peak.Can.Basic.TPCANParameter.PCAN_LOG_STATUS">
+	<summary>
+ Debug-Log activation status
+ </summary>
+</member><member name="F:Peak.Can.Basic.TPCANParameter.PCAN_LOG_CONFIGURE">
+	<summary>
+ Configuration of the debugged information (LOG_FUNCTION_***)
+ </summary>
+</member><member name="F:Peak.Can.Basic.TPCANParameter.PCAN_LOG_TEXT">
+	<summary>
+ Custom insertion of text into the log file
+ </summary>
+</member><member name="F:Peak.Can.Basic.TPCANParameter.PCAN_CHANNEL_CONDITION">
+	<summary>
+ Availability status of a PCAN-Channel
+ </summary>
+</member><member name="F:Peak.Can.Basic.TPCANParameter.PCAN_HARDWARE_NAME">
+	<summary>
+ PCAN hardware name parameter
+ </summary>
+</member><member name="F:Peak.Can.Basic.TPCANParameter.PCAN_RECEIVE_STATUS">
+	<summary>
+ Message reception status of a PCAN-Channel
+ </summary>
+</member><member name="F:Peak.Can.Basic.TPCANParameter.PCAN_CONTROLLER_NUMBER">
+	<summary>
+ CAN-Controller number of a PCAN-Channel
+ </summary>
+</member><member name="F:Peak.Can.Basic.TPCANParameter.PCAN_TRACE_LOCATION">
+	<summary>
+ Directory path for PCAN trace files
+ </summary>
+</member><member name="F:Peak.Can.Basic.TPCANParameter.PCAN_TRACE_STATUS">
+	<summary>
+ CAN tracing activation status
+ </summary>
+</member><member name="F:Peak.Can.Basic.TPCANParameter.PCAN_TRACE_SIZE">
+	<summary>
+ Configuration of the maximum file size of a CAN trace
+ </summary>
+</member><member name="F:Peak.Can.Basic.TPCANParameter.PCAN_TRACE_CONFIGURE">
+	<summary>
+ Configuration of the trace file storing mode (TRACE_FILE_***)
+ </summary>
+</member><member name="F:Peak.Can.Basic.TPCANParameter.PCAN_CHANNEL_IDENTIFYING">
+	<summary>
+ Physical identification of a USB based PCAN-Channel by blinking its associated LED
+ </summary>
+</member><member name="F:Peak.Can.Basic.TPCANParameter.PCAN_CHANNEL_FEATURES">
+	<summary>
+ Capabilities of a PCAN device (FEATURE_***)
+ </summary>
+</member><member name="F:Peak.Can.Basic.TPCANParameter.PCAN_BITRATE_ADAPTING">
+	<summary>
+ Using of an existing bit rate (PCAN-View connected to a channel)
+ </summary>
+</member><member name="F:Peak.Can.Basic.TPCANParameter.PCAN_BITRATE_INFO">
+	<summary>
+ Configured bit rate as Btr0Btr1 value
+ </summary>
+</member><member name="F:Peak.Can.Basic.TPCANParameter.PCAN_BITRATE_INFO_FD">
+	<summary>
+ Configured bit rate as TPCANBitrateFD string
+ </summary>
+</member><member name="F:Peak.Can.Basic.TPCANParameter.PCAN_BUSSPEED_NOMINAL">
+	<summary>
+ Configured nominal CAN Bus speed as Bits per seconds
+ </summary>
+</member><member name="F:Peak.Can.Basic.TPCANParameter.PCAN_BUSSPEED_DATA">
+	<summary>
+ Configured CAN data speed as Bits per seconds
+ </summary>
+</member><member name="F:Peak.Can.Basic.TPCANParameter.PCAN_IP_ADDRESS">
+	<summary>
+ Remote address of a LAN channel as string in IPv4 format
+ </summary>
+</member><member name="F:Peak.Can.Basic.TPCANParameter.PCAN_LAN_SERVICE_STATUS">
+	<summary>
+ Status of the Virtual PCAN-Gateway Service 
+ </summary>
+</member><member name="F:Peak.Can.Basic.TPCANParameter.PCAN_ALLOW_STATUS_FRAMES">
+	<summary>
+ Status messages reception status within a PCAN-Channel
+ </summary>
+</member><member name="F:Peak.Can.Basic.TPCANParameter.PCAN_ALLOW_RTR_FRAMES">
+	<summary>
+ RTR messages reception status within a PCAN-Channel
+ </summary>
+</member><member name="F:Peak.Can.Basic.TPCANParameter.PCAN_ALLOW_ERROR_FRAMES">
+	<summary>
+ Error messages reception status within a PCAN-Channel
+ </summary>
+</member><member name="F:Peak.Can.Basic.TPCANParameter.PCAN_INTERFRAME_DELAY">
+	<summary>
+ Delay, in microseconds, between sending frames
+ </summary>
+</member><member name="F:Peak.Can.Basic.TPCANParameter.PCAN_ACCEPTANCE_FILTER_11BIT">
+	<summary>
+ Filter over code and mask patterns for 11-Bit messages
+ </summary>
+</member><member name="F:Peak.Can.Basic.TPCANParameter.PCAN_ACCEPTANCE_FILTER_29BIT">
+	<summary>
+ Filter over code and mask patterns for 29-Bit messages
+ </summary>
+</member><member name="F:Peak.Can.Basic.TPCANParameter.PCAN_IO_DIGITAL_CONFIGURATION">
+	<summary>
+ Output mode of 32 digital I/O pin of a PCAN-USB Chip. 1: Output-Active 0 : Output Inactive
+ </summary>
+</member><member name="F:Peak.Can.Basic.TPCANParameter.PCAN_IO_DIGITAL_VALUE">
+	<summary>
+ Value assigned to a 32 digital I/O pins of a PCAN-USB Chip
+ </summary>
+</member><member name="F:Peak.Can.Basic.TPCANParameter.PCAN_IO_DIGITAL_SET">
+	<summary>
+ Value assigned to a 32 digital I/O pins of a PCAN-USB Chip - Multiple digital I/O pins to 1 = High
+ </summary>
+</member><member name="F:Peak.Can.Basic.TPCANParameter.PCAN_IO_DIGITAL_CLEAR">
+	<summary>
+ Clear multiple digital I/O pins to 0
+ </summary>
+</member><member name="F:Peak.Can.Basic.TPCANParameter.PCAN_IO_ANALOG_VALUE">
+	<summary>
+ Get value of a single analog input pin
+ </summary>
+</member><member name="T:Peak.Can.Basic.TPCANParameter">
+	<summary>
+ Represents a PCAN parameter to be read or set
+ </summary>
+</member><member name="F:Peak.Can.Basic.TPCANMessageType.PCAN_MESSAGE_STANDARD">
+	<summary>
+ The PCAN message is a CAN Standard Frame (11-bit identifier)
+ </summary>
+</member><member name="F:Peak.Can.Basic.TPCANMessageType.PCAN_MESSAGE_RTR">
+	<summary>
+ The PCAN message is a CAN Remote-Transfer-Request Frame
+ </summary>
+</member><member name="F:Peak.Can.Basic.TPCANMessageType.PCAN_MESSAGE_EXTENDED">
+	<summary>
+ The PCAN message is a CAN Extended Frame (29-bit identifier)
+ </summary>
+</member><member name="F:Peak.Can.Basic.TPCANMessageType.PCAN_MESSAGE_FD">
+	<summary>
+ The PCAN message represents a FD frame in terms of CiA Specs
+ </summary>
+</member><member name="F:Peak.Can.Basic.TPCANMessageType.PCAN_MESSAGE_BRS">
+	<summary>
+ The PCAN message represents a FD bit rate switch (CAN data at a higher bit rate)
+ </summary>
+</member><member name="F:Peak.Can.Basic.TPCANMessageType.PCAN_MESSAGE_ESI">
+	<summary>
+ The PCAN message represents a FD error state indicator(CAN FD transmitter was error active)
+ </summary>
+</member><member name="F:Peak.Can.Basic.TPCANMessageType.PCAN_MESSAGE_ERRFRAME">
+	<summary>
+ The PCAN message represents an error frame
+ </summary>
+</member><member name="F:Peak.Can.Basic.TPCANMessageType.PCAN_MESSAGE_STATUS">
+	<summary>
+ The PCAN message represents a PCAN status message
+ </summary>
+</member><member name="T:Peak.Can.Basic.TPCANMessageType">
+	<summary>
+ Represents the type of a PCAN message
+ </summary>
+</member><member name="F:Peak.Can.Basic.TPCANMode.PCAN_MODE_STANDARD">
+	<summary>
+ Mode is Standard (11-bit identifier)
+ </summary>
+</member><member name="F:Peak.Can.Basic.TPCANMode.PCAN_MODE_EXTENDED">
+	<summary>
+ Mode is Extended (29-bit identifier)
+ </summary>
+</member><member name="T:Peak.Can.Basic.TPCANMode">
+	<summary>
+ Represents a PCAN filter mode
+ </summary>
+</member><member name="F:Peak.Can.Basic.TPCANBaudrate.PCAN_BAUD_1M">
+	<summary>
+ 1 MBit/s
+ </summary>
+</member><member name="F:Peak.Can.Basic.TPCANBaudrate.PCAN_BAUD_800K">
+	<summary>
+ 800 kBit/s
+ </summary>
+</member><member name="F:Peak.Can.Basic.TPCANBaudrate.PCAN_BAUD_500K">
+	<summary>
+ 500 kBit/s
+ </summary>
+</member><member name="F:Peak.Can.Basic.TPCANBaudrate.PCAN_BAUD_250K">
+	<summary>
+ 250 kBit/s
+ </summary>
+</member><member name="F:Peak.Can.Basic.TPCANBaudrate.PCAN_BAUD_125K">
+	<summary>
+ 125 kBit/s
+ </summary>
+</member><member name="F:Peak.Can.Basic.TPCANBaudrate.PCAN_BAUD_100K">
+	<summary>
+ 100 kBit/s
+ </summary>
+</member><member name="F:Peak.Can.Basic.TPCANBaudrate.PCAN_BAUD_95K">
+	<summary>
+ 95,238 kBit/s
+ </summary>
+</member><member name="F:Peak.Can.Basic.TPCANBaudrate.PCAN_BAUD_83K">
+	<summary>
+ 83,333 kBit/s
+ </summary>
+</member><member name="F:Peak.Can.Basic.TPCANBaudrate.PCAN_BAUD_50K">
+	<summary>
+ 50 kBit/s
+ </summary>
+</member><member name="F:Peak.Can.Basic.TPCANBaudrate.PCAN_BAUD_47K">
+	<summary>
+ 47,619 kBit/s
+ </summary>
+</member><member name="F:Peak.Can.Basic.TPCANBaudrate.PCAN_BAUD_33K">
+	<summary>
+ 33,333 kBit/s
+ </summary>
+</member><member name="F:Peak.Can.Basic.TPCANBaudrate.PCAN_BAUD_20K">
+	<summary>
+ 20 kBit/s
+ </summary>
+</member><member name="F:Peak.Can.Basic.TPCANBaudrate.PCAN_BAUD_10K">
+	<summary>
+ 10 kBit/s
+ </summary>
+</member><member name="F:Peak.Can.Basic.TPCANBaudrate.PCAN_BAUD_5K">
+	<summary>
+ 5 kBit/s
+ </summary>
+</member><member name="T:Peak.Can.Basic.TPCANBaudrate">
+	<summary>
+ Represents a PCAN Baud rate register value
+ </summary>
+</member><member name="F:Peak.Can.Basic.TPCANType.PCAN_TYPE_ISA">
+	<summary>
+ PCAN-ISA 82C200
+ </summary>
+</member><member name="F:Peak.Can.Basic.TPCANType.PCAN_TYPE_ISA_SJA">
+	<summary>
+ PCAN-ISA SJA1000
+ </summary>
+</member><member name="F:Peak.Can.Basic.TPCANType.PCAN_TYPE_ISA_PHYTEC">
+	<summary>
+ PHYTEC ISA 
+ </summary>
+</member><member name="F:Peak.Can.Basic.TPCANType.PCAN_TYPE_DNG">
+	<summary>
+ PCAN-Dongle 82C200
+ </summary>
+</member><member name="F:Peak.Can.Basic.TPCANType.PCAN_TYPE_DNG_EPP">
+	<summary>
+ PCAN-Dongle EPP 82C200
+ </summary>
+</member><member name="F:Peak.Can.Basic.TPCANType.PCAN_TYPE_DNG_SJA">
+	<summary>
+ PCAN-Dongle SJA1000
+ </summary>
+</member><member name="F:Peak.Can.Basic.TPCANType.PCAN_TYPE_DNG_SJA_EPP">
+	<summary>
+ PCAN-Dongle EPP SJA1000
+ </summary>
+</member><member name="T:Peak.Can.Basic.TPCANType">
+	<summary>
+ Represents the type of PCAN (non plug and play) hardware to be initialized
+ </summary>
+</member><member name="F:Peak.Can.Basic.TPCANMsg.ID">
+	<summary>
+ 11/29-bit message identifier
+ </summary>
+</member><member name="F:Peak.Can.Basic.TPCANMsg.MSGTYPE">
+	<summary>
+ Type of the message
+ </summary>
+</member><member name="F:Peak.Can.Basic.TPCANMsg.LEN">
+	<summary>
+ Data Length Code of the message (0..8)
+ </summary>
+</member><member name="F:Peak.Can.Basic.TPCANMsg.DATA">
+	<summary>
+ Data of the message (DATA[0]..DATA[7])
+ </summary>
+</member><member name="T:Peak.Can.Basic.TPCANMsg">
+	<summary>
+ Represents a PCAN message
+ </summary>
+</member><member name="F:Peak.Can.Basic.TPCANTimestamp.millis">
+	<summary>
+ Base-value: milliseconds: 0.. 2^32-1
+ </summary>
+</member><member name="F:Peak.Can.Basic.TPCANTimestamp.millis_overflow">
+	<summary>
+ Roll-arounds of millis
+ </summary>
+</member><member name="F:Peak.Can.Basic.TPCANTimestamp.micros">
+	<summary>
+ Microseconds: 0..999
+ </summary>
+</member><member name="T:Peak.Can.Basic.TPCANTimestamp">
+	<summary>
+ Represents a timestamp of a received PCAN message.
+ Total Microseconds = micros + 1000 * millis + 0x100000000 * 1000 * millis_overflow
+ </summary>
+</member><member name="F:Peak.Can.Basic.TPCANMsgFD.ID">
+	<summary>
+ 11/29-bit message identifier
+ </summary>
+</member><member name="F:Peak.Can.Basic.TPCANMsgFD.MSGTYPE">
+	<summary>
+ Type of the message
+ </summary>
+</member><member name="F:Peak.Can.Basic.TPCANMsgFD.DLC">
+	<summary>
+ Data Length Code of the message (0..15)
+ </summary>
+</member><member name="F:Peak.Can.Basic.TPCANMsgFD.DATA">
+	<summary>
+ Data of the message (DATA[0]..DATA[63])
+ </summary>
+</member><member name="T:Peak.Can.Basic.TPCANMsgFD">
+	<summary>
+ Represents a PCAN message from a FD capable hardware
+ </summary>
+</member><member name="F:Peak.Can.Basic.PCANBasic.PCAN_NONEBUS">
+	<summary>
+ Undefined/default value for a PCAN bus
+ </summary>
+</member><member name="F:Peak.Can.Basic.PCANBasic.PCAN_ISABUS1">
+	<summary>
+ PCAN-ISA interface, channel 1
+ </summary>
+</member><member name="F:Peak.Can.Basic.PCANBasic.PCAN_ISABUS2">
+	<summary>
+ PCAN-ISA interface, channel 2
+ </summary>
+</member><member name="F:Peak.Can.Basic.PCANBasic.PCAN_ISABUS3">
+	<summary>
+ PCAN-ISA interface, channel 3
+ </summary>
+</member><member name="F:Peak.Can.Basic.PCANBasic.PCAN_ISABUS4">
+	<summary>
+ PCAN-ISA interface, channel 4
+ </summary>
+</member><member name="F:Peak.Can.Basic.PCANBasic.PCAN_ISABUS5">
+	<summary>
+ PCAN-ISA interface, channel 5
+ </summary>
+</member><member name="F:Peak.Can.Basic.PCANBasic.PCAN_ISABUS6">
+	<summary>
+ PCAN-ISA interface, channel 6
+ </summary>
+</member><member name="F:Peak.Can.Basic.PCANBasic.PCAN_ISABUS7">
+	<summary>
+ PCAN-ISA interface, channel 7
+ </summary>
+</member><member name="F:Peak.Can.Basic.PCANBasic.PCAN_ISABUS8">
+	<summary>
+ PCAN-ISA interface, channel 8
+ </summary>
+</member><member name="F:Peak.Can.Basic.PCANBasic.PCAN_DNGBUS1">
+	<summary>
+ PPCAN-Dongle/LPT interface, channel 1 
+ </summary>
+</member><member name="F:Peak.Can.Basic.PCANBasic.PCAN_PCIBUS1">
+	<summary>
+ PCAN-PCI interface, channel 1
+ </summary>
+</member><member name="F:Peak.Can.Basic.PCANBasic.PCAN_PCIBUS2">
+	<summary>
+ PCAN-PCI interface, channel 2
+ </summary>
+</member><member name="F:Peak.Can.Basic.PCANBasic.PCAN_PCIBUS3">
+	<summary>
+ PCAN-PCI interface, channel 3
+ </summary>
+</member><member name="F:Peak.Can.Basic.PCANBasic.PCAN_PCIBUS4">
+	<summary>
+ PCAN-PCI interface, channel 4
+ </summary>
+</member><member name="F:Peak.Can.Basic.PCANBasic.PCAN_PCIBUS5">
+	<summary>
+ PCAN-PCI interface, channel 5
+ </summary>
+</member><member name="F:Peak.Can.Basic.PCANBasic.PCAN_PCIBUS6">
+	<summary>
+ PCAN-PCI interface, channel 6
+ </summary>
+</member><member name="F:Peak.Can.Basic.PCANBasic.PCAN_PCIBUS7">
+	<summary>
+ PCAN-PCI interface, channel 7
+ </summary>
+</member><member name="F:Peak.Can.Basic.PCANBasic.PCAN_PCIBUS8">
+	<summary>
+ PCAN-PCI interface, channel 8
+ </summary>
+</member><member name="F:Peak.Can.Basic.PCANBasic.PCAN_PCIBUS9">
+	<summary>
+ PCAN-PCI interface, channel 9
+ </summary>
+</member><member name="F:Peak.Can.Basic.PCANBasic.PCAN_PCIBUS10">
+	<summary>
+ PCAN-PCI interface, channel 10
+ </summary>
+</member><member name="F:Peak.Can.Basic.PCANBasic.PCAN_PCIBUS11">
+	<summary>
+ PCAN-PCI interface, channel 11
+ </summary>
+</member><member name="F:Peak.Can.Basic.PCANBasic.PCAN_PCIBUS12">
+	<summary>
+ PCAN-PCI interface, channel 12
+ </summary>
+</member><member name="F:Peak.Can.Basic.PCANBasic.PCAN_PCIBUS13">
+	<summary>
+ PCAN-PCI interface, channel 13
+ </summary>
+</member><member name="F:Peak.Can.Basic.PCANBasic.PCAN_PCIBUS14">
+	<summary>
+ PCAN-PCI interface, channel 14
+ </summary>
+</member><member name="F:Peak.Can.Basic.PCANBasic.PCAN_PCIBUS15">
+	<summary>
+ PCAN-PCI interface, channel 15
+ </summary>
+</member><member name="F:Peak.Can.Basic.PCANBasic.PCAN_PCIBUS16">
+	<summary>
+ PCAN-PCI interface, channel 16
+ </summary>
+</member><member name="F:Peak.Can.Basic.PCANBasic.PCAN_USBBUS1">
+	<summary>
+ PCAN-USB interface, channel 1
+ </summary>
+</member><member name="F:Peak.Can.Basic.PCANBasic.PCAN_USBBUS2">
+	<summary>
+ PCAN-USB interface, channel 2
+ </summary>
+</member><member name="F:Peak.Can.Basic.PCANBasic.PCAN_USBBUS3">
+	<summary>
+ PCAN-USB interface, channel 3
+ </summary>
+</member><member name="F:Peak.Can.Basic.PCANBasic.PCAN_USBBUS4">
+	<summary>
+ PCAN-USB interface, channel 4
+ </summary>
+</member><member name="F:Peak.Can.Basic.PCANBasic.PCAN_USBBUS5">
+	<summary>
+ PCAN-USB interface, channel 5
+ </summary>
+</member><member name="F:Peak.Can.Basic.PCANBasic.PCAN_USBBUS6">
+	<summary>
+ PCAN-USB interface, channel 6
+ </summary>
+</member><member name="F:Peak.Can.Basic.PCANBasic.PCAN_USBBUS7">
+	<summary>
+ PCAN-USB interface, channel 7
+ </summary>
+</member><member name="F:Peak.Can.Basic.PCANBasic.PCAN_USBBUS8">
+	<summary>
+ PCAN-USB interface, channel 8
+ </summary>
+</member><member name="F:Peak.Can.Basic.PCANBasic.PCAN_USBBUS9">
+	<summary>
+ PCAN-USB interface, channel 9
+ </summary>
+</member><member name="F:Peak.Can.Basic.PCANBasic.PCAN_USBBUS10">
+	<summary>
+ PCAN-USB interface, channel 10
+ </summary>
+</member><member name="F:Peak.Can.Basic.PCANBasic.PCAN_USBBUS11">
+	<summary>
+ PCAN-USB interface, channel 11
+ </summary>
+</member><member name="F:Peak.Can.Basic.PCANBasic.PCAN_USBBUS12">
+	<summary>
+ PCAN-USB interface, channel 12
+ </summary>
+</member><member name="F:Peak.Can.Basic.PCANBasic.PCAN_USBBUS13">
+	<summary>
+ PCAN-USB interface, channel 13
+ </summary>
+</member><member name="F:Peak.Can.Basic.PCANBasic.PCAN_USBBUS14">
+	<summary>
+ PCAN-USB interface, channel 14
+ </summary>
+</member><member name="F:Peak.Can.Basic.PCANBasic.PCAN_USBBUS15">
+	<summary>
+ PCAN-USB interface, channel 15
+ </summary>
+</member><member name="F:Peak.Can.Basic.PCANBasic.PCAN_USBBUS16">
+	<summary>
+ PCAN-USB interface, channel 16
+ </summary>
+</member><member name="F:Peak.Can.Basic.PCANBasic.PCAN_PCCBUS1">
+	<summary>
+ PCAN-PC Card interface, channel 1
+ </summary>
+</member><member name="F:Peak.Can.Basic.PCANBasic.PCAN_PCCBUS2">
+	<summary>
+ PCAN-PC Card interface, channel 2
+ </summary>
+</member><member name="F:Peak.Can.Basic.PCANBasic.PCAN_LANBUS1">
+	<summary>
+ PCAN-LAN interface, channel 1
+ </summary>
+</member><member name="F:Peak.Can.Basic.PCANBasic.PCAN_LANBUS2">
+	<summary>
+ PCAN-LAN interface, channel 2
+ </summary>
+</member><member name="F:Peak.Can.Basic.PCANBasic.PCAN_LANBUS3">
+	<summary>
+ PCAN-LAN interface, channel 3
+ </summary>
+</member><member name="F:Peak.Can.Basic.PCANBasic.PCAN_LANBUS4">
+	<summary>
+ PCAN-LAN interface, channel 4
+ </summary>
+</member><member name="F:Peak.Can.Basic.PCANBasic.PCAN_LANBUS5">
+	<summary>
+ PCAN-LAN interface, channel 5
+ </summary>
+</member><member name="F:Peak.Can.Basic.PCANBasic.PCAN_LANBUS6">
+	<summary>
+ PCAN-LAN interface, channel 6
+ </summary>
+</member><member name="F:Peak.Can.Basic.PCANBasic.PCAN_LANBUS7">
+	<summary>
+ PCAN-LAN interface, channel 7
+ </summary>
+</member><member name="F:Peak.Can.Basic.PCANBasic.PCAN_LANBUS8">
+	<summary>
+ PCAN-LAN interface, channel 8
+ </summary>
+</member><member name="F:Peak.Can.Basic.PCANBasic.PCAN_LANBUS9">
+	<summary>
+ PCAN-LAN interface, channel 9
+ </summary>
+</member><member name="F:Peak.Can.Basic.PCANBasic.PCAN_LANBUS10">
+	<summary>
+ PCAN-LAN interface, channel 10
+ </summary>
+</member><member name="F:Peak.Can.Basic.PCANBasic.PCAN_LANBUS11">
+	<summary>
+ PCAN-LAN interface, channel 11
+ </summary>
+</member><member name="F:Peak.Can.Basic.PCANBasic.PCAN_LANBUS12">
+	<summary>
+ PCAN-LAN interface, channel 12
+ </summary>
+</member><member name="F:Peak.Can.Basic.PCANBasic.PCAN_LANBUS13">
+	<summary>
+ PCAN-LAN interface, channel 13
+ </summary>
+</member><member name="F:Peak.Can.Basic.PCANBasic.PCAN_LANBUS14">
+	<summary>
+ PCAN-LAN interface, channel 14
+ </summary>
+</member><member name="F:Peak.Can.Basic.PCANBasic.PCAN_LANBUS15">
+	<summary>
+ PCAN-LAN interface, channel 15
+ </summary>
+</member><member name="F:Peak.Can.Basic.PCANBasic.PCAN_LANBUS16">
+	<summary>
+ PCAN-LAN interface, channel 16
+ </summary>
+</member><member name="F:Peak.Can.Basic.PCANBasic.PCAN_BR_CLOCK">
+	<summary>
+ Clock frequency in Herz (80000000, 60000000, 40000000, 30000000, 24000000, 20000000)
+ </summary>
+</member><member name="F:Peak.Can.Basic.PCANBasic.PCAN_BR_CLOCK_MHZ">
+	<summary>
+ Clock frequency in Megaherz (80, 60, 40, 30, 24, 20)
+ </summary>
+</member><member name="F:Peak.Can.Basic.PCANBasic.PCAN_BR_NOM_BRP">
+	<summary>
+ Clock prescaler for nominal time quantum
+ </summary>
+</member><member name="F:Peak.Can.Basic.PCANBasic.PCAN_BR_NOM_TSEG1">
+	<summary>
+ TSEG1 segment for nominal bit rate in time quanta
+ </summary>
+</member><member name="F:Peak.Can.Basic.PCANBasic.PCAN_BR_NOM_TSEG2">
+	<summary>
+ TSEG2 segment for nominal bit rate in time quanta
+ </summary>
+</member><member name="F:Peak.Can.Basic.PCANBasic.PCAN_BR_NOM_SJW">
+	<summary>
+ Synchronization Jump Width for nominal bit rate in time quanta
+ </summary>
+</member><member name="F:Peak.Can.Basic.PCANBasic.PCAN_BR_NOM_SAMPLE">
+	<summary>
+ Sample point for nominal bit rate
+ </summary>
+</member><member name="F:Peak.Can.Basic.PCANBasic.PCAN_BR_DATA_BRP">
+	<summary>
+ Clock prescaler for highspeed data time quantum
+ </summary>
+</member><member name="F:Peak.Can.Basic.PCANBasic.PCAN_BR_DATA_TSEG1">
+	<summary>
+ TSEG1 segment for fast data bit rate in time quanta
+ </summary>
+</member><member name="F:Peak.Can.Basic.PCANBasic.PCAN_BR_DATA_TSEG2">
+	<summary>
+ TSEG2 segment for fast data bit rate in time quanta
+ </summary>
+</member><member name="F:Peak.Can.Basic.PCANBasic.PCAN_BR_DATA_SJW">
+	<summary>
+ Synchronization Jump Width for highspeed data bit rate in time quanta
+ </summary>
+</member><member name="F:Peak.Can.Basic.PCANBasic.PCAN_BR_DATA_SAMPLE">
+	<summary>
+ Secondary sample point delay for highspeed data bit rate in cyles
+ </summary>
+</member><member name="F:Peak.Can.Basic.PCANBasic.PCAN_PARAMETER_OFF">
+	<summary>
+ The PCAN parameter is not set (inactive)
+ </summary>
+</member><member name="F:Peak.Can.Basic.PCANBasic.PCAN_PARAMETER_ON">
+	<summary>
+ The PCAN parameter is set (active)
+ </summary>
+</member><member name="F:Peak.Can.Basic.PCANBasic.PCAN_FILTER_CLOSE">
+	<summary>
+ The PCAN filter is closed. No messages will be received
+ </summary>
+</member><member name="F:Peak.Can.Basic.PCANBasic.PCAN_FILTER_OPEN">
+	<summary>
+ The PCAN filter is fully opened. All messages will be received
+ </summary>
+</member><member name="F:Peak.Can.Basic.PCANBasic.PCAN_FILTER_CUSTOM">
+	<summary>
+ The PCAN filter is custom configured. Only registered 
+ messages will be received
+ </summary>
+</member><member name="F:Peak.Can.Basic.PCANBasic.PCAN_CHANNEL_UNAVAILABLE">
+	<summary>
+ The PCAN-Channel handle is illegal, or its associated hardware is not available
+ </summary>
+</member><member name="F:Peak.Can.Basic.PCANBasic.PCAN_CHANNEL_AVAILABLE">
+	<summary>
+ The PCAN-Channel handle is available to be connected (Plug and Play Hardware: it means furthermore that the hardware is plugged-in)
+ </summary>
+</member><member name="F:Peak.Can.Basic.PCANBasic.PCAN_CHANNEL_OCCUPIED">
+	<summary>
+ The PCAN-Channel handle is valid, and is already being used
+ </summary>
+</member><member name="F:Peak.Can.Basic.PCANBasic.PCAN_CHANNEL_PCANVIEW">
+	<summary>
+ The PCAN-Channel handle is already being used by a PCAN-View application, but is available to connect
+ </summary>
+</member><member name="F:Peak.Can.Basic.PCANBasic.LOG_FUNCTION_DEFAULT">
+	<summary>
+ Logs system exceptions / errors
+ </summary>
+</member><member name="F:Peak.Can.Basic.PCANBasic.LOG_FUNCTION_ENTRY">
+	<summary>
+ Logs the entries to the PCAN-Basic API functions 
+ </summary>
+</member><member name="F:Peak.Can.Basic.PCANBasic.LOG_FUNCTION_PARAMETERS">
+	<summary>
+ Logs the parameters passed to the PCAN-Basic API functions 
+ </summary>
+</member><member name="F:Peak.Can.Basic.PCANBasic.LOG_FUNCTION_LEAVE">
+	<summary>
+ Logs the exits from the PCAN-Basic API functions 
+ </summary>
+</member><member name="F:Peak.Can.Basic.PCANBasic.LOG_FUNCTION_WRITE">
+	<summary>
+ Logs the CAN messages passed to the CAN_Write function
+ </summary>
+</member><member name="F:Peak.Can.Basic.PCANBasic.LOG_FUNCTION_READ">
+	<summary>
+ Logs the CAN messages received within the CAN_Read function
+ </summary>
+</member><member name="F:Peak.Can.Basic.PCANBasic.LOG_FUNCTION_ALL">
+	<summary>
+ Logs all possible information within the PCAN-Basic API functions
+ </summary>
+</member><member name="F:Peak.Can.Basic.PCANBasic.TRACE_FILE_SINGLE">
+	<summary>
+ A single file is written until it size reaches PAN_TRACE_SIZE
+ </summary>
+</member><member name="F:Peak.Can.Basic.PCANBasic.TRACE_FILE_SEGMENTED">
+	<summary>
+ Traced data is distributed in several files with size PAN_TRACE_SIZE
+ </summary>
+</member><member name="F:Peak.Can.Basic.PCANBasic.TRACE_FILE_DATE">
+	<summary>
+ Includes the date into the name of the trace file
+ </summary>
+</member><member name="F:Peak.Can.Basic.PCANBasic.TRACE_FILE_TIME">
+	<summary>
+ Includes the start time into the name of the trace file
+ </summary>
+</member><member name="F:Peak.Can.Basic.PCANBasic.TRACE_FILE_OVERWRITE">
+	<summary>
+ Causes the overwriting of available traces (same name)
+ </summary>
+</member><member name="F:Peak.Can.Basic.PCANBasic.FEATURE_FD_CAPABLE">
+	<summary>
+ Device supports flexible data-rate (CAN-FD)
+ </summary>
+</member><member name="F:Peak.Can.Basic.PCANBasic.FEATURE_DELAY_CAPABLE">
+	<summary>
+ Device supports a delay between sending frames (FPGA based USB devices)
+ </summary>
+</member><member name="F:Peak.Can.Basic.PCANBasic.FEATURE_IO_CAPABLE">
+	<summary>
+ Device supports I/O functionality for electronic circuits (USB-Chip devices)
+ </summary>
+</member><member name="F:Peak.Can.Basic.PCANBasic.SERVICE_STATUS_STOPPED">
+	<summary>
+ The service is not running
+ </summary>
+</member><member name="F:Peak.Can.Basic.PCANBasic.SERVICE_STATUS_RUNNING">
+	<summary>
+ The service is running
+ </summary>
+</member><member name="M:Peak.Can.Basic.PCANBasic.Initialize(System.UInt16,Peak.Can.Basic.TPCANBaudrate,Peak.Can.Basic.TPCANType,System.UInt32,System.UInt16)">
+	<summary>
+ Initializes a PCAN Channel 
+ </summary>
+	<param name="Channel">The handle of a PCAN Channel</param>
+	<param name="Btr0Btr1">The speed for the communication (BTR0BTR1 code)</param>
+	<param name="HwType">NON PLUG AND PLAY: The type of hardware and operation mode</param>
+	<param name="IOPort">NON PLUG AND PLAY: The I/O address for the parallel port</param>
+	<param name="Interrupt">NON PLUG AND PLAY: Interrupt number of the parallel por</param>
+	<returns>A TPCANStatus error code</returns>
+</member><member name="M:Peak.Can.Basic.PCANBasic.Initialize(System.UInt16,Peak.Can.Basic.TPCANBaudrate)">
+	<summary>
+ Initializes a PCAN Channel
+ </summary>
+	<param name="Channel">The handle of a PCAN Channel</param>
+	<param name="Btr0Btr1">The speed for the communication (BTR0BTR1 code)</param>
+	<returns>A TPCANStatus error code</returns>
+</member><member name="M:Peak.Can.Basic.PCANBasic.InitializeFD(System.UInt16,System.String)">
+	<summary>
+ Initializes a FD capable PCAN Channel 
+ </summary>
+	<param name="Channel">The handle of a FD capable PCAN Channel</param>
+	<param name="BitrateFD">The speed for the communication (FD bit rate string)</param>
+	<remarks> See PCAN_BR_* values
+ Bit rate string must follow the following construction rules:
+ * parameter and values must be separated by '='
+ * Couples of Parameter/value must be separated by ','
+ * Following Parameter must be filled out: f_clock, data_brp, data_sjw, data_tseg1, data_tseg2,
+   nom_brp, nom_sjw, nom_tseg1, nom_tseg2.
+ * Following Parameters are optional (not used yet): data_ssp_offset, nom_sam</remarks>
+	<example>f_clock=80000000,nom_brp=10,nom_tseg1=5,nom_tseg2=2,nom_sjw=1,data_brp=4,data_tseg1=7,data_tseg2=2,data_sjw=1</example>
+	<returns>A TPCANStatus error code</returns>
+</member><member name="M:Peak.Can.Basic.PCANBasic.Uninitialize(System.UInt16)">
+	<summary>
+ Uninitializes one or all PCAN Channels initialized by CAN_Initialize
+ </summary>
+	<remarks>Giving the TPCANHandle value "PCAN_NONEBUS", 
+ uninitialize all initialized channels</remarks>
+	<param name="Channel">The handle of a PCAN Channel</param>
+	<returns>A TPCANStatus error code</returns>
+</member><member name="M:Peak.Can.Basic.PCANBasic.Reset(System.UInt16)">
+	<summary>
+ Resets the receive and transmit queues of the PCAN Channel
+ </summary>
+	<remarks>A reset of the CAN controller is not performed</remarks>
+	<param name="Channel">The handle of a PCAN Channel</param>
+	<returns>A TPCANStatus error code</returns>
+</member><member name="M:Peak.Can.Basic.PCANBasic.GetStatus(System.UInt16)">
+	<summary>
+ Gets the current status of a PCAN Channel
+ </summary>
+	<param name="Channel">The handle of a PCAN Channel</param>
+	<returns>A TPCANStatus error code</returns>
+</member><member name="M:Peak.Can.Basic.PCANBasic.Read(System.UInt16,Peak.Can.Basic.TPCANMsg@,Peak.Can.Basic.TPCANTimestamp@)">
+	<summary>
+ Reads a CAN message from the receive queue of a PCAN Channel
+ </summary>
+	<param name="Channel">The handle of a PCAN Channel</param>
+	<param name="MessageBuffer">A TPCANMsg structure buffer to store the CAN message</param>
+	<param name="TimestampBuffer">A TPCANTimestamp structure buffer to get
+ the reception time of the message</param>
+	<returns>A TPCANStatus error code</returns>
+</member><member name="M:Peak.Can.Basic.PCANBasic.Read(System.UInt16,Peak.Can.Basic.TPCANMsg@)">
+	<summary>
+ Reads a CAN message from the receive queue of a PCAN Channel
+ </summary>
+	<param name="Channel">The handle of a PCAN Channel</param>
+	<param name="MessageBuffer">A TPCANMsg structure buffer to store the CAN message</param>
+	<returns>A TPCANStatus error code</returns>
+</member><member name="M:Peak.Can.Basic.PCANBasic.ReadFD(System.UInt16,Peak.Can.Basic.TPCANMsgFD@,System.UInt64@)">
+	<summary>
+ Reads a CAN message from the receive queue of a FD capable PCAN Channel 
+ </summary>
+	<param name="Channel">The handle of a FD capable PCAN Channel</param>
+	<param name="MessageBuffer">A TPCANMsgFD structure buffer to store the CAN message</param>
+	<param name="TimestampBuffer">A TPCANTimestampFD buffer to get the
+ reception time of the message</param>
+	<returns>A TPCANStatus error code</returns>
+</member><member name="M:Peak.Can.Basic.PCANBasic.ReadFD(System.UInt16,Peak.Can.Basic.TPCANMsgFD@)">
+	<summary>
+ Reads a CAN message from the receive queue of a FD capable PCAN Channel 
+ </summary>
+	<param name="Channel">The handle of a FD capable PCAN Channel</param>
+	<param name="MessageBuffer">A TPCANMsgFD structure buffer to store the CAN message</param>
+	<returns>A TPCANStatus error code</returns>
+</member><member name="M:Peak.Can.Basic.PCANBasic.Write(System.UInt16,Peak.Can.Basic.TPCANMsg@)">
+	<summary>
+  Transmits a CAN message 
+ </summary>
+	<param name="Channel">The handle of a PCAN Channel</param>
+	<param name="MessageBuffer">A TPCANMsg buffer with the message to be sent</param>
+	<returns>A TPCANStatus error code</returns>
+</member><member name="M:Peak.Can.Basic.PCANBasic.WriteFD(System.UInt16,Peak.Can.Basic.TPCANMsgFD@)">
+	<summary>
+ Transmits a CAN message over a FD capable PCAN Channel
+ </summary>
+	<param name="Channel">The handle of a FD capable PCAN Channel</param>
+	<param name="MessageBuffer">A TPCANMsgFD buffer with the message to be sent</param>
+	<returns>A TPCANStatus error code</returns>
+</member><member name="M:Peak.Can.Basic.PCANBasic.FilterMessages(System.UInt16,System.UInt32,System.UInt32,Peak.Can.Basic.TPCANMode)">
+	<summary>
+ Configures the reception filter
+ </summary>
+	<remarks>The message filter will be expanded with every call to 
+ this function. If it is desired to reset the filter, please use
+ the 'SetValue' function</remarks>
+	<param name="Channel">The handle of a PCAN Channel</param>
+	<param name="FromID">The lowest CAN ID to be received</param>
+	<param name="ToID">The highest CAN ID to be received</param>
+	<param name="Mode">Message type, Standard (11-bit identifier) or
+ Extended (29-bit identifier)</param>
+	<returns>A TPCANStatus error code</returns>
+</member><member name="M:Peak.Can.Basic.PCANBasic.GetValue(System.UInt16,Peak.Can.Basic.TPCANParameter,System.Text.StringBuilder,System.UInt32)">
+	<summary>
+ Retrieves a PCAN Channel value
+ </summary>
+	<remarks>Parameters can be present or not according with the kind 
+ of Hardware (PCAN Channel) being used. If a parameter is not available,
+ a PCAN_ERROR_ILLPARAMTYPE error will be returned</remarks>
+	<param name="Channel">The handle of a PCAN Channel</param>
+	<param name="Parameter">The TPCANParameter parameter to get</param>
+	<param name="StringBuffer">Buffer for the parameter value</param>
+	<param name="BufferLength">Size in bytes of the buffer</param>
+	<returns>A TPCANStatus error code</returns>
+</member><member name="M:Peak.Can.Basic.PCANBasic.GetValue(System.UInt16,Peak.Can.Basic.TPCANParameter,System.UInt32@,System.UInt32)">
+	<summary>
+ Retrieves a PCAN Channel value
+ </summary>
+	<remarks>Parameters can be present or not according with the kind 
+ of Hardware (PCAN Channel) being used. If a parameter is not available,
+ a PCAN_ERROR_ILLPARAMTYPE error will be returned</remarks>
+	<param name="Channel">The handle of a PCAN Channel</param>
+	<param name="Parameter">The TPCANParameter parameter to get</param>
+	<param name="NumericBuffer">Buffer for the parameter value</param>
+	<param name="BufferLength">Size in bytes of the buffer</param>
+	<returns>A TPCANStatus error code</returns>
+</member><member name="M:Peak.Can.Basic.PCANBasic.GetValue(System.UInt16,Peak.Can.Basic.TPCANParameter,System.UInt64@,System.UInt32)">
+	<summary>
+ Retrieves a PCAN Channel value
+ </summary>
+	<remarks>Parameters can be present or not according with the kind 
+ of Hardware (PCAN Channel) being used. If a parameter is not available,
+ a PCAN_ERROR_ILLPARAMTYPE error will be returned</remarks>
+	<param name="Channel">The handle of a PCAN Channel</param>
+	<param name="Parameter">The TPCANParameter parameter to get</param>
+	<param name="NumericBuffer">Buffer for the parameter value</param>
+	<param name="BufferLength">Size in bytes of the buffer</param>
+	<returns>A TPCANStatus error code</returns>
+</member><member name="M:Peak.Can.Basic.PCANBasic.SetValue(System.UInt16,Peak.Can.Basic.TPCANParameter,System.UInt32@,System.UInt32)">
+	<summary>
+ Configures or sets a PCAN Channel value 
+ </summary>
+	<remarks>Parameters can be present or not according with the kind 
+ of Hardware (PCAN Channel) being used. If a parameter is not available,
+ a PCAN_ERROR_ILLPARAMTYPE error will be returned</remarks>
+	<param name="Channel">The handle of a PCAN Channel</param>
+	<param name="Parameter">The TPCANParameter parameter to set</param>
+	<param name="NumericBuffer">Buffer with the value to be set</param>
+	<param name="BufferLength">Size in bytes of the buffer</param>
+	<returns>A TPCANStatus error code</returns>
+</member><member name="M:Peak.Can.Basic.PCANBasic.SetValue(System.UInt16,Peak.Can.Basic.TPCANParameter,System.UInt64@,System.UInt32)">
+	<summary>
+ Configures or sets a PCAN Channel value 
+ </summary>
+	<remarks>Parameters can be present or not according with the kind 
+ of Hardware (PCAN Channel) being used. If a parameter is not available,
+ a PCAN_ERROR_ILLPARAMTYPE error will be returned</remarks>
+	<param name="Channel">The handle of a PCAN Channel</param>
+	<param name="Parameter">The TPCANParameter parameter to set</param>
+	<param name="NumericBuffer">Buffer with the value to be set</param>
+	<param name="BufferLength">Size in bytes of the buffer</param>
+	<returns>A TPCANStatus error code</returns>
+</member><member name="M:Peak.Can.Basic.PCANBasic.SetValue(System.UInt16,Peak.Can.Basic.TPCANParameter,System.String,System.UInt32)">
+	<summary>
+ Configures or sets a PCAN Channel value 
+ </summary>
+	<remarks>Parameters can be present or not according with the kind 
+ of Hardware (PCAN Channel) being used. If a parameter is not available,
+ a PCAN_ERROR_ILLPARAMTYPE error will be returned</remarks>
+	<param name="Channel">The handle of a PCAN Channel</param>
+	<param name="Parameter"></param>
+	<param name="StringBuffer">Buffer with the value to be set</param>
+	<param name="BufferLength">Size in bytes of the buffer</param>
+	<returns>A TPCANStatus error code</returns>
+</member><member name="M:Peak.Can.Basic.PCANBasic.GetErrorText(Peak.Can.Basic.TPCANStatus,System.UInt16,System.Text.StringBuilder)">
+	<summary>
+ Returns a descriptive text of a given TPCANStatus error 
+ code, in any desired language
+ </summary>
+	<remarks>The current languages available for translation are: 
+ Neutral (0x00), German (0x07), English (0x09), Spanish (0x0A),
+ Italian (0x10) and French (0x0C)</remarks>
+	<param name="anError">A TPCANStatus error code</param>
+	<param name="Language">Indicates a 'Primary language ID'</param>
+	<param name="StringBuffer">Buffer for the text (must be at least 256 in length)</param>
+	<returns>A TPCANStatus error code</returns>
+</member><member name="T:Peak.Can.Basic.PCANBasic">
+	<summary>
+ PCAN-Basic API class implementation
+ </summary>
+</member><member name="P:My.Resources.Resources.ResourceManager">
+	<summary>
+  Returns the cached ResourceManager instance used by this class.
+</summary>
+</member><member name="P:My.Resources.Resources.Culture">
+	<summary>
+  Overrides the current thread's CurrentUICulture property for all
+  resource lookups using this strongly typed resource class.
+</summary>
+</member><member name="T:My.Resources.Resources">
+	<summary>
+  A strongly-typed resource class, for looking up localized strings, etc.
+</summary>
+</member>
+</members>
+</doc>

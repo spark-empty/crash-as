@@ -1,0 +1,60 @@
+; -------------------------------------------------------------------------------------- 
+;   Freescale(TM) and the Freescale logo are trademarks of Freescale Semiconductor, Inc. 
+;   All other product or service names are the property of their respective owners. 
+;   (C) Freescale Semiconductor, Inc. 2006-2009
+; 
+;   You can use this example for any purpose on any computer system with the
+;   following restrictions:
+;
+;   1. This example is provided "as is", without warranty.
+;
+;   2. You don't remove this copyright notice from this example or any direct derivation 
+;      thereof.
+;
+;   Description: This lauterbach script prints results of a performance test for bcc1
+;
+; -------------------------------------------------------------------------------------- 
+
+ENTRY &sc &logfile
+
+OPEN #1 &logfile /Create
+
+&mhz=64.0
+WRITE #1 "Performance test ecc1/&sc (for &mhz MHz bus clock)"
+WRITE #1 "==========================================================="
+WRITE #1 "Description               cycles  microseconds"
+WRITE #1 "==========================================================="
+WRITE #1 "Interrupt entry latency    	" %d DATA.LONG(interruptLatency)            "	"  DATA.LONG(interruptLatency)/&mhz
+WRITE #1 "ActivateTask from ISR      	" %d DATA.LONG(activateTask1FromIsr)        "	"  DATA.LONG(activateTask1FromIsr)/&mhz
+WRITE #1 "ISR to TASK_1              	" %d DATA.LONG(fromIsrToTask1)              "	"  DATA.LONG(fromIsrToTask1)/&mhz
+WRITE #1 "Activate to TASK_2         	" %d DATA.LONG(fromActivateToTask2)         "	"  DATA.LONG(fromActivateToTask2)/&mhz
+WRITE #1 "Terminate to TASK_1        	" %d DATA.LONG(fromTeriminateToTask1)       "	"  DATA.LONG(fromTeriminateToTask1)/&mhz
+WRITE #1 "Return to background       	" %d DATA.LONG(returnToBackgroundTask)      "	"  DATA.LONG(returnToBackgroundTask)/&mhz
+WRITE #1 "SetEvent within ISR        	" %d DATA.LONG(setEventWithinIsr)           "	"  DATA.LONG(setEventWithinIsr)/&mhz
+WRITE #1 "ISR to TASK_3_EVT          	" %d DATA.LONG(fromIsrToTASK_3_EVT)         "	"  DATA.LONG(fromIsrToTASK_3_EVT)/&mhz
+WRITE #1 "SetEvent TASK_3 to TASK_4  	" %d DATA.LONG(setEventFromTASK_3_EVTToTASK_4_EVT) "	"  DATA.LONG(setEventFromTASK_3_EVTToTASK_4_EVT)/&mhz
+WRITE #1 "Activate via alarm (ISR)   	" %d DATA.LONG(activateTaskA1ViaAlarm)      "	"  DATA.LONG(activateTaskA1ViaAlarm)/&mhz  "	including interrupt entry"
+WRITE #1 "ISR to TASK_ALM            	" %d DATA.LONG(fromSecondTimerIsrToTaskA1)  "	"  DATA.LONG(fromSecondTimerIsrToTaskA1)/&mhz
+WRITE #1 "SetEvent via alarm (ISR)   	" %d DATA.LONG(setEventToTaskA2ViaAlarm)    "	"  DATA.LONG(setEventToTaskA2ViaAlarm)/&mhz "	including interrupt entry" 
+WRITE #1 "ISR to TASK_ALM_EVT        	" %d DATA.LONG(fromIsrToTaskA2)             "	"  DATA.LONG(fromIsrToTaskA2)/&mhz
+WRITE #1 "<============  Schedule table  ============>"
+WRITE #1 "Schedule table ISR 1 task  	" %d DATA.LONG(activated1Task)              "	"  DATA.LONG(activated1Task)/&mhz  "	including interrupt entry"
+WRITE #1 "Schedule table ISR 4 task  	" %d DATA.LONG(activated4Tasks)             "	"  DATA.LONG(activated4Tasks)/&mhz  "	including interrupt entry"
+WRITE #1 "ISR to TASK_t1             	" %d DATA.LONG(fromIsrToTaskT1)             "	"  DATA.LONG(fromIsrToTaskT1)/&mhz
+WRITE #1 "ISR to TASK_t2             	" %d DATA.LONG(fromIsrToTaskT2)             "	"  DATA.LONG(fromIsrToTaskT2)/&mhz
+WRITE #1 "ISR to TASK_t3             	" %d DATA.LONG(fromIsrToTaskT3)             "	"  DATA.LONG(fromIsrToTaskT3)/&mhz
+WRITE #1 "ISR to TASK_t7             	" %d DATA.LONG(fromIsrToTaskT7)             "	"  DATA.LONG(fromIsrToTaskT7)/&mhz
+WRITE #1 "TASK_t7  to TASK_t4        	" %d DATA.LONG(fromTaskT7ToTaskT4)          "	"  DATA.LONG(fromTaskT7ToTaskT4)/&mhz
+WRITE #1 "<============  Harmonic Tasks  ============>"
+WRITE #1 "SecondTimerISR: 1 task     	" %d DATA.LONG(activated1ExtendedTask)      "	"  DATA.LONG(activated1ExtendedTask)/&mhz "	including interrupt entry"
+WRITE #1 "SecondTimerISR: 1 event    	" %d DATA.LONG(established1Event)           "	"  DATA.LONG(established1Event)/&mhz "	including interrupt entry"  
+WRITE #1 "SecondTimerISR: 4 tasks    	" %d DATA.LONG(activated4ExtendedTasks)     "	"  DATA.LONG(activated4ExtendedTasks)/&mhz "	including interrupt entry" 
+WRITE #1 "SecondTimerISR: 4 events   	" %d DATA.LONG(established4Events)          "	"  DATA.LONG(established4Events)/&mhz "	including interrupt entry" 
+WRITE #1 "ISR to TASK_h1             	" %d DATA.LONG(fromIsrToTaskH1)             "	"  DATA.LONG(fromIsrToTaskH1)/&mhz
+WRITE #1 "TASK_h1  to TASK_h4        	" %d DATA.LONG(fromTaskH1ToTaskH4)          "	"  DATA.LONG(fromTaskH1ToTaskH4)/&mhz
+WRITE #1 "ISR to TASK_h5             	" %d DATA.LONG(fromIsrToTaskH5)             "	"  DATA.LONG(fromIsrToTaskH5)/&mhz
+WRITE #1 "TASK_h5  to TASK_h8        	" %d DATA.LONG(fromTaskH5ToTaskH8)          "	"  DATA.LONG(fromTaskH5ToTaskH8)/&mhz
+
+CLOSE #1
+
+TYPE &logfile

@@ -1,0 +1,64 @@
+
+Name: config/Wdg.xdm
+SignatureKeyID: Freescale
+Signature: 11313377422264812848376328457622113524267556199160979563252
+ 7410386586575629355650382802006322510026490409082728
+SignatureKeyProviderID: plugin.launcher2.licenseFileKeyProvider
+SignatureAlgorithmID: DSA
+
+Name: generate_LT/src/Wdg_Lcfg.c
+SignatureKeyID: Freescale
+Signature: 11313377425238883943964402820916600630737632905809338770780
+ 5668990763785361195630862651135057317684595555603267
+SignatureKeyProviderID: plugin.launcher2.licenseFileKeyProvider
+SignatureAlgorithmID: DSA
+
+Name: generate_PC/src/Wdg_Cfg.c
+SignatureKeyID: Freescale
+Signature: 11313377425419791451835220967165175739888427945568196298046
+ 5420023231921746097083703056589576935391167459348992
+SignatureKeyProviderID: plugin.launcher2.licenseFileKeyProvider
+SignatureAlgorithmID: DSA
+
+Name: generate_PC/src/Wdg_VersionCheck_Src.m
+SignatureKeyID: Freescale
+Signature: 11313377425314380538183772772162015822077830357406056064721
+ 2652263989424992830289310270524017720819768020035475
+SignatureKeyProviderID: plugin.launcher2.licenseFileKeyProvider
+SignatureAlgorithmID: DSA
+
+Name: generate_LT/src/Wdg_VersionCheck_Src_LT.m
+SignatureKeyID: Freescale
+Signature: 11313377423167703658953313221256413251994907511745750152189
+ 6359074652691653018637162248760614877485603125632229
+SignatureKeyProviderID: plugin.launcher2.licenseFileKeyProvider
+SignatureAlgorithmID: DSA
+
+Name: generate_PB/src/Wdg_VersionCheck_Src_PB.m
+SignatureKeyID: Freescale
+Signature: 11313377420842567813529695248663604754310542416983033018569
+ 4069866577492759522023951130463220136628702942394368
+SignatureKeyProviderID: plugin.launcher2.licenseFileKeyProvider
+SignatureAlgorithmID: DSA
+
+Name: generate_PC/include/Wdg_Cfg.h
+SignatureKeyID: Freescale
+Signature: 11313377424089737162457690741733544191349656382032223859844
+ 8470973430061322075362481810480424672463461526054893
+SignatureKeyProviderID: plugin.launcher2.licenseFileKeyProvider
+SignatureAlgorithmID: DSA
+
+Name: generate_PB/src/Wdg_PBcfg.c
+SignatureKeyID: Freescale
+Signature: 11313377426219631370838302128542241425889603974127039336482
+ 1851669118275358185642442177418264719007271949364928
+SignatureKeyProviderID: plugin.launcher2.licenseFileKeyProvider
+SignatureAlgorithmID: DSA
+
+Name: generate_PC/include/Wdg_VersionCheck_Inc.m
+SignatureKeyID: Freescale
+Signature: 11313377422111303353458535519157850674301813914764563408489
+ 2233726923757272930690598901758896700860052097581214
+SignatureKeyProviderID: plugin.launcher2.licenseFileKeyProvider
+SignatureAlgorithmID: DSA
+

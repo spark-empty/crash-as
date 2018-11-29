@@ -1,0 +1,7 @@
+config ANY
+    string
+    option env="ANY"
+    default "none"
+
+source "$ASROOT/com/as.application/board.any/$ANY/Kconfig"
+

@@ -1,0 +1,7 @@
+FOO {
+  # explicitly list symbols to be exported
+  global: main; aslog_init;Qt_SetIpcParam;Qt_GetIpcFifo;Qt_GetRprocResourceTable;Ipc_IsReady;Qt_SetIpcBaseAddress;
+
+  # hide everything else
+  local: *;         
+};

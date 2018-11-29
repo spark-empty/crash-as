@@ -1,0 +1,1481 @@
+<?xml version='1.0'?>
+<!--
+===================================================================================================
+   @file        Wdg.xdm
+   @version     2.0.0
+   @brief       AUTOSAR Wdg_TS_T2D14M20I0R0 - Tresos Studio plugin schema file
+   @details     This file contains the schema configuration for and Wdg Tresos Studio plugin.
+   Project      : AUTOSAR 3.0 MCAL
+   Platform      : PA
+   Peripheral   : Swt
+   Dependencies : none
+   Autosar Version       : 3.0.0
+   Autosar Revision      : ASR_REL_3_0_REV_0003
+   Autosar Conf. Variant : 
+   Software Version      : 2.0.0
+   Build Version         : XPC563xM_MCAL_2_0_0_RTM_ASR_REL_3_0_REV_0003_20111223
+   (c) Copyright 2006-2011 by Freescale Semiconductor Inc and STMicroelectronics
+   All rights exclusively reserved for Freescale Semiconductor Inc and STMicroelectronics, 
+   unless expressly agreed to otherwise.
+===================================================================================================
+===================================================================================================
+-->
+
+
+<!-- /** @file    Wdg.xdm  */ -->
+<!-- /** @remarks Implements DWDG07000  */ -->
+<datamodel version="3.0"
+           xmlns="http://www.tresos.de/_projects/DataModel2/08/root.xsd"
+           xmlns:a="http://www.tresos.de/_projects/DataModel2/08/attribute.xsd"
+           xmlns:v="http://www.tresos.de/_projects/DataModel2/06/schema.xsd"
+           xmlns:d="http://www.tresos.de/_projects/DataModel2/06/data.xsd">
+
+  <d:ctr type="AUTOSAR" factory="autosar"
+         xmlns:ad="http://www.tresos.de/_projects/DataModel2/08/admindata.xsd"
+         xmlns:icc="http://www.tresos.de/_projects/DataModel2/08/implconfigclass.xsd">
+    <d:lst type="TOP-LEVEL-PACKAGES">
+       <d:ctr name="TS_T2D14M20I0R0" type="AR-PACKAGE">
+        <a:a name="UUID" value="ECUC:AUTOSAR"/>
+        <d:lst type="ELEMENTS">
+          <d:chc name="Wdg_AUTOSARParameterDefinition" type="AR-ELEMENT"
+                 value="ECU_PARAMETER_DEFINITION">
+            <d:ctr type="AR-ELEMENT">
+              <a:a name="DEF"
+                   value="ASPath:/AR_PACKAGE_SCHEMA/ECU_PARAMETER_DEFINITION"/>
+              <a:a name="UUID" value="ECUC:5997589c-7a4c-471c-a2d5-3509669e4b58"/>
+              <!-- /** @remarks Implements DWDG11000  */ -->
+              <d:lst name="MODULE_REF">
+                <d:ref type="MODULE_REF" value="ASPath:/TS_T2D14M20I0R0/Wdg"/>
+			  </d:lst>
+            </d:ctr>
+          </d:chc>
+          <d:chc name="Wdg" type="AR-ELEMENT" value="MODULE-DEF">
+            <v:ctr type="MODULE-DEF">
+                <a:a name="LOWER-MULTIPLICITY" value="1"/>
+                <a:a name="UPPER-MULTIPLICITY" value="1"/> 
+                <a:a name="ADMIN-DATA" type="ADMIN-DATA">
+                    <ad:ADMIN-DATA>
+                    <ad:LANGUAGE>EN</ad:LANGUAGE>
+                    <ad:DOC-REVISIONS>
+                        <ad:DOC-REVISION>
+                            <ad:REVISION-LABEL>1.0</ad:REVISION-LABEL>
+                            <ad:ISSUED-BY>Freescale</ad:ISSUED-BY>
+                            <ad:DATE>2011-12-06T17:30:00</ad:DATE>
+                            <ad:MODIFICATIONS>
+                                <ad:MODIFICATION>
+                                    <ad:CHANGE>
+                                    <ad:L-2 L="EN"> </ad:L-2>
+                                    </ad:CHANGE>
+                                    <ad:REASON>
+                                    <ad:L-2 L="EN"></ad:L-2>
+                                    </ad:REASON>
+                                </ad:MODIFICATION>
+                            </ad:MODIFICATIONS>
+                        </ad:DOC-REVISION>
+                    </ad:DOC-REVISIONS>
+                    </ad:ADMIN-DATA>
+                </a:a>
+                <a:a name="DESC">
+                    <a:v>
+                        <![CDATA[
+                           <html>
+                           <h1>Wdg</h1><p>
+                           Configuration of the Wdg (Watchdog driver) module</p>
+                           </html>
+                        ]]>
+                    </a:v>
+                </a:a>
+                <a:a name="UUID"
+                     value="ECUC:76a71f32-1ba8-4709-bd97-2aa3da844d40"/>  
+                <d:ref type="REFINED_MODULE_DEF" value="ASPath:/AUTOSAR/Wdg"/>       
+                <v:var name="IMPLEMENTATION_CONFIG_VARIANT" type="ENUMERATION">
+                    <a:a name="DESC">
+                    <a:v>
+                        <![CDATA[
+                           <html>
+                           <h1>Configuration classes</h1><p>
+                           Enable the parameters that are editable for specific configuration classes
+                           </p></html>
+                        ]]>
+                    </a:v>
+                    </a:a>
+                    <a:a name="LABEL" value="Configuration Variant"/>
+                    <a:da name="DEFAULT" value="VariantPreCompile"/>
+                    <a:da name="RANGE">
+                        <a:v>VariantPreCompile</a:v>
+                        <a:v>VariantLinkTime</a:v>
+                        <a:v>VariantPostBuild</a:v>
+                    </a:da>
+                </v:var>
+                <v:ctr name="WdgExternalConfiguration" type="IDENTIFIABLE">
+                <!-- /** @remarks Implements DWDG11007  */ -->
+                    <a:a name="DESC">
+                        <a:v>
+                        <![CDATA[
+                           <html>
+                           <h1>WdgExternalConfiguration</h1><p>
+                           Configuration items for an external watchdog hardware
+                           </p></html>
+                        ]]>
+                        </a:v>
+                    </a:a>
+                    <a:a name="UUID"
+                         value="ECUC:6b4c2cc0-2807-4640-ad80-e7e61aaba1fb"/>
+                    <a:a name="LOWER-MULTIPLICITY" value="1"/>
+                    <a:a name="UPPER-MULTIPLICITY" value="1"/>
+                    <v:ref name="WdgExternalContainerRef" type="CHOICE-REFERENCE">
+                        <!-- /** @remarks Implements DWDG11008  */ -->
+                        <a:a name="DESC">
+                            <a:v>
+                                <![CDATA[
+                                    <html>
+                                    <h1>WdgExternalContainerRef</h1><p>
+                                    Reference to either
+                                    <b>- a DioChannelGroup</b> container in case the hardware watchdog is connected via DIO pins
+                                    <b>- a SpiSequenceConfiguration</b> container in case the watchdog hardware is accessed via SPI
+                                    <b>Note:</b>This parameter is not used by current implementation
+                                    </p></html>
+                                ]]>
+                            </a:v>
+                        </a:a>
+                        <a:a name="ORIGIN" value="AUTOSAR_ECUC"/>
+                        <a:a name="UUID"
+                             value="ECUC:a72f2b02-d5f2-49ab-baa7-dd1c7d9aa5f5"/>
+                        <a:da name="REF">
+                            <a:v> ASPathDataOfSchema:/AUTOSAR/Spi/SpiDriver/SpiSequence </a:v>
+                            <a:v> ASPathDataOfSchema:/AUTOSAR/Dio/DioPort/DioChannelGroup</a:v>
+                        </a:da>
+                        <a:a name="LOWER-MULTIPLICITY" value="1"/>
+                        <a:a name="UPPER-MULTIPLICITY" value="1"/>
+                        <a:a name="IMPLEMENTATIONCONFIGCLASS"
+                             type="IMPLEMENTATIONCONFIGCLASS">
+                            <icc:v class="Link">VariantLinkTime</icc:v>
+                            <icc:v class="PreCompile">VariantPreCompile</icc:v>
+                            <icc:v class="PostBuild">VariantPostBuild</icc:v>
+                        </a:a>
+                        <a:da name="ENABLE" value="false"/>
+                    </v:ref>
+                </v:ctr>
+                <v:ctr name="WdgGeneral" type="IDENTIFIABLE">
+                    <!-- /** @remarks Implements DWDG11001  */ -->
+                    <a:a name="DESC">
+                        <a:v>
+                            <![CDATA[
+                               <html>
+                               <h1>WdgGeneral</h1><p>
+                               All general parameters of the watchdog driver are collected here
+                               </p></html>
+                            ]]>
+                        </a:v>
+                    </a:a>
+                    <a:a name="UUID"
+                         value="ECUC:c5f1e1fc-c438-4624-a12e-5b4363b26cb6"/>
+                    <a:a name="LOWER-MULTIPLICITY" value="1"/>
+                    <a:a name="UPPER-MULTIPLICITY" value="1"/>
+                    <v:var name="WdgDevErrorDetect" type="BOOLEAN">
+                    <!-- /** @remarks Implements DWDG11003  */ -->
+                        <a:a name="LABEL" value="Development Error Detection"/>
+                        <a:a name="DESC">
+                            <a:v>
+                            <![CDATA[
+                               <html>
+                               <h1>Wdg Development Error Detect</h1><p>
+                               Compile switch to enable / disable development error detection for this module.
+                               <b>True</b>: Development error detection enabled 
+                               <b>False</b>: Development error detection disabled
+                               </p></html>
+                            ]]>
+                            </a:v>
+                        </a:a>
+                        <a:a name="IMPLEMENTATIONCONFIGCLASS"
+                             type="IMPLEMENTATIONCONFIGCLASS">
+                            <icc:v class="PreCompile">VariantLinkTime</icc:v>
+                            <icc:v class="PreCompile">VariantPreCompile</icc:v>
+                            <icc:v class="PreCompile">VariantPostBuild</icc:v>
+                        </a:a>
+                        <a:a name="ORIGIN" value="AUTOSAR_ECUC"/>
+                        <a:a name="SYMBOLICNAMEVALUE" value="false"/>
+                        <a:a name="UUID"
+                             value="ECUC:ab50dd65-f8f4-44d8-bf9d-0e6db9c19b39"/>
+                        <a:da name="DEFAULT" value="true"/>
+                        <a:a name="LOWER-MULTIPLICITY" value="1"/>
+                        <a:a name="UPPER-MULTIPLICITY" value="1"/>
+                    </v:var>
+                    <v:var name="WdgDisableAllowed" type="BOOLEAN">
+                    <!-- /** @remarks Implements DWDG11004  */ -->
+                        <a:a name="LABEL" value="Wdg Disable Allowed"/>
+                        <a:a name="DESC">
+                             <a:v>
+                              <![CDATA[
+                                   <html>
+                                   <h1>Wdg Disable Allowed</h1><p>
+                                   Compile switch to allow / forbid disabling the watchdog driver during runtime.
+                                   <b>True</b>: Disabling the watchdog driver at runtime is allowed.
+                                   <b>False</b>:Disabling the watchdog driver at runtime is not allow
+                                   </p></html>
+                              ]]>
+                         </a:v>
+                        </a:a>
+                        <a:a name="IMPLEMENTATIONCONFIGCLASS"
+                             type="IMPLEMENTATIONCONFIGCLASS">
+                            <icc:v class="PreCompile">VariantLinkTime</icc:v>
+                            <icc:v class="PreCompile">VariantPreCompile</icc:v>
+                            <icc:v class="PreCompile">VariantPostBuild</icc:v>
+                        </a:a>
+                        <a:a name="ORIGIN" value="AUTOSAR_ECUC"/>
+                        <a:a name="SYMBOLICNAMEVALUE" value="false"/>
+                        <a:a name="UUID"
+                             value="ECUC:1429aaad-ab43-4327-814f-60f5f8837b4b"/>
+                        <a:da name="DEFAULT" value="true"/>
+                        <a:a name="LOWER-MULTIPLICITY" value="1"/>
+                        <a:a name="UPPER-MULTIPLICITY" value="1"/>
+                    </v:var>
+                    <v:var name="WdgIndex" type="INTEGER">
+                     <!-- /** @remarks Implements DWDG11005  */ -->
+                        <a:a name="LABEL" value="Wdg Index"/>
+                        <a:a name="DESC">
+                            <a:v>
+                            <![CDATA[
+                               <html>
+                               <h1>Wdg Index</h1><p>
+                               Represents the watchdog ID so that it can be referenced by the watchdog interface.
+                               </p></html>
+                            ]]>
+                            </a:v>
+                        </a:a>
+                        <a:a name="IMPLEMENTATIONCONFIGCLASS"
+                             type="IMPLEMENTATIONCONFIGCLASS">
+                            <icc:v class="PreCompile">VariantLinkTime</icc:v>
+                            <icc:v class="PreCompile">VariantPreCompile</icc:v>
+                            <icc:v class="PreCompile">VariantPostBuild</icc:v>
+                        </a:a>
+                        <a:a name="ORIGIN" value="AUTOSAR_ECUC"/>
+                        <a:a name="SYMBOLICNAMEVALUE" value="true"/>
+                        <a:a name="UUID"
+                             value="ECUC:6ee1fbae-3338-4739-81c3-0307dcbb30b3"/>
+                        <a:da name="DEFAULT" value="0"/>
+                        <!-- /** @remarks Covers WDG086  */ -->
+                        <a:da name="INVALID" type="Range">
+                            <a:tst expr="&lt;=254"/>
+                            <a:tst expr="&gt;=0"/>
+                        </a:da>
+                        <a:a name="LOWER-MULTIPLICITY" value="1"/>
+                        <a:a name="UPPER-MULTIPLICITY" value="1"/>    
+                    </v:var>
+                    <v:var name="WdgTriggerLocation" type="FUNCTION-NAME">
+                    <!-- /** @remarks Implements DWDG11006  */ -->
+                        <a:da name="EDITABLE" value="false"/>
+                        <a:a name="LABEL" value="Wdg Trigger Location"/>
+                        <a:a name="DESC">
+                            <a:v>
+                                <![CDATA[
+                                <html>
+                                <h1>Wdg Trigger Location</h1><p>
+                                Location (memory address) of the watchdog trigger routine.
+                                <b>Note:</b>Not supported by the current hardware.
+                                </p></html>
+                                ]]>
+                            </a:v>
+                        </a:a>
+                        <a:a name="IMPLEMENTATIONCONFIGCLASS"
+                             type="IMPLEMENTATIONCONFIGCLASS">
+                            <icc:v class="PreCompile">VariantLinkTime</icc:v>
+                            <icc:v class="PreCompile">VariantPreCompile</icc:v>
+                            <icc:v class="PreCompile">VariantPostBuild</icc:v>
+                        </a:a>
+                        <a:a name="ORIGIN" value="AUTOSAR_ECUC"/>
+                        <a:a name="SYMBOLICNAMEVALUE" value="false"/>
+                        <a:a name="UUID"
+                             value="ECUC:534fd928-d303-4bb5-ba33-a2e3ae400442"/>
+                        <a:da name="DEFAULT" value="a"/>
+                        <a:a name="LOWER-MULTIPLICITY" value="1"/>
+                        <a:a name="UPPER-MULTIPLICITY" value="1"/>                                                                                                    
+                    </v:var>
+                    <v:var name="WdgVersionInfoApi" type="BOOLEAN">
+                    <!-- /** @remarks Implements DWDG11002  */ -->
+                        <a:a name="LABEL" value="Provide Version Info API"/>
+                        <a:a name="DESC">
+                            <a:v>
+                                <![CDATA[
+                                <html>
+                                <h1>Wdg VersionInfo Api</h1><p>
+                                Compile switch to enable / disable the version information API.
+                                <b>True</b>: API enabled.
+                                <b>False</b>:API disables
+                                </p></html>
+                                ]]>
+                            </a:v>
+                        </a:a>
+                        <a:a name="IMPLEMENTATIONCONFIGCLASS"
+                             type="IMPLEMENTATIONCONFIGCLASS">
+                            <icc:v class="PreCompile">VariantLinkTime</icc:v>
+                            <icc:v class="PreCompile">VariantPreCompile</icc:v>
+                            <icc:v class="PreCompile">VariantPostBuild</icc:v>
+                        </a:a>
+                        <a:a name="ORIGIN" value="AUTOSAR_ECUC"/>
+                        <a:a name="SYMBOLICNAMEVALUE" value="false"/>
+                        <a:a name="UUID"
+                             value="ECUC:29e15c5a-6d11-4b2b-8b85-38223cafc55c"/>
+                        <a:da name="DEFAULT" value="true"/>
+                        <a:a name="LOWER-MULTIPLICITY" value="1"/>
+                        <a:a name="UPPER-MULTIPLICITY" value="1"/>    
+                    </v:var>
+                </v:ctr>
+                <v:lst name="WdgModeConfig" type="MULTIPLE-CONFIGURATION-CONTAINER">
+                    <a:da name="MIN" value="1"/>
+                    <a:da name="INVALID" type="XPath">
+                        <a:tst expr="(../IMPLEMENTATION_CONFIG_VARIANT = 'VariantPreCompile') and (num:i(count(../WdgModeConfig/*)) &gt; 1)" true="For VariantPreCompile, there should be only one WdgModeConfig."/>
+                    </a:da>
+                    <v:ctr name="WdgModeConfig" type="MULTIPLE-CONFIGURATION-CONTAINER">
+                        <!-- /** @remarks Implements DWDG11015  */ -->
+                        <a:a name="DESC">
+                            <a:v>
+                                <![CDATA[
+                                    <html>
+                                    <h1>WdgModeConfig</h1><p>
+                                    Configuration items for the different watchdog modes.
+                                    </p></html>
+                                ]]>
+                            </a:v>
+                        </a:a>
+                        <a:a name="UUID"
+                             value="ECUC:401875b9-9b57-4032-8e9c-5d20aaadb22f"/>
+                        <a:a name="LOWER-MULTIPLICITY" value="1"/>
+                        <a:a name="UPPER-MULTIPLICITY" value="1"/>    
+                        <v:var name="WdgDefaultMode" type="ENUMERATION">
+                        <!-- /** @remarks Implements DWDG11016  */ -->
+                            <a:a name="LABEL" value="Wdg Default Mode"/>
+                            <a:a name="DESC">
+                                <a:v>
+                                    <![CDATA[
+                                    <html>
+                                    <h1>Wdg Default Mode</h1><p>
+                                    Default mode for watchdog driver initialization.
+                                    </p></html>
+                                    ]]>
+                                </a:v>
+                            </a:a>
+                            <a:a name="IMPLEMENTATIONCONFIGCLASS"
+                                 type="IMPLEMENTATIONCONFIGCLASS">
+                                <icc:v class="PreCompile">VariantPreCompile</icc:v>
+                                <icc:v class="PostBuild">VariantLinkTime</icc:v>
+                                <icc:v class="PostBuild">VariantPostBuild</icc:v>
+                            </a:a>
+                            <a:a name="ORIGIN" value="AUTOSAR_ECUC"/>
+                            <a:a name="SYMBOLICNAMEVALUE" value="false"/>
+                            <a:a name="UUID"
+                                 value="ECUC:0fbeec80-146b-4f54-93ae-dda9b2ea4db4"/>
+                            <a:da name="DEFAULT" value="SlowMode"/>
+                            <a:da name="RANGE">
+                                <a:v>FastMode</a:v>
+                                <a:v>OffMode</a:v>
+                                <a:v>SlowMode</a:v>
+                            </a:da>
+                            <a:a name="LOWER-MULTIPLICITY" value="1"/>
+                            <a:a name="UPPER-MULTIPLICITY" value="1"/>    
+                        </v:var>
+                        <v:var name="WdgKeyedService" type="BOOLEAN">
+                        <!-- /** @remarks Implements DWDG11038  */ -->
+                            <a:a name="LABEL" value="Wdg Keyed Service"/>
+							<a:a name="DESC">
+                                <a:v>
+                                    <![CDATA[
+                                        <html>
+                                            <h1>Fixed Service Sequence or Keyed Service Mode.</h1><p>
+                                            False = Fixed Service Sequence, the fixed sequence 0xA602, 0xB480 is used to service the watchdog.
+                                            True = Keyed Service Mode, two pseudorandom key values are used to service the watchdog.</p>
+                                            <h1>Note</h1><p>This is an Implementation Specific Parameter.
+                                        </p></html>
+                                    ]]>
+                                </a:v>
+                            </a:a>
+                            <a:a name="IMPLEMENTATIONCONFIGCLASS" 
+                                 type="IMPLEMENTATIONCONFIGCLASS">
+                                 <icc:v class="PreCompile">VariantLinkTime</icc:v>
+                                 <icc:v class="PreCompile">VariantPreCompile</icc:v>
+                                 <icc:v class="PreCompile">VariantPostBuild</icc:v>
+                            </a:a>
+                            <a:a name="ORIGIN" value="Freescale"/>
+                            <a:a name="SYMBOLICNAMEVALUE" value="false"/>
+                            <a:a name="UUID" value="ECUC:06dea4d7-7030-4487-a558-8a68429db3c4"/>
+                            <a:da name="DEFAULT" value="false"/>
+                            <a:a name="LOWER-MULTIPLICITY" value="1"/>
+                            <a:a name="UPPER-MULTIPLICITY" value="1"/>    
+                        </v:var>
+                        <v:var name="WdgServiceKeyValue" type="INTEGER">
+                        <!-- /** @remarks Implements DWDG11039  */ -->
+						<a:a name="LABEL" value="Wdg Service Key Value"/>
+                            <a:a name="DESC">
+                                <a:v>
+                                    <![CDATA[
+                                        <html>
+                                            <h1>Service Key</h1><p>
+                                            This value is the initial service key value used in keyed service mode. 
+                                            If SWT_CR[KEY] is set, the next key value to be written to the SWT_SR is (17*SK+3) mod 2^16.
+                                        </p></html>
+                                    ]]>
+                                </a:v>
+                            </a:a>
+                            <a:a name="IMPLEMENTATIONCONFIGCLASS" 
+                                 type="IMPLEMENTATIONCONFIGCLASS">
+                                <icc:v class="PreCompile">VariantLinkTime</icc:v>
+                                <icc:v class="PreCompile">VariantPreCompile</icc:v>
+                                <icc:v class="PreCompile">VariantPostBuild</icc:v>
+                            </a:a>
+                            <a:a name="ORIGIN" value="Freescale"/>
+                            <a:a name="SYMBOLICNAMEVALUE" value="false"/>
+                            <a:a name="UUID" value="ECUC:dc037f05-6512-406d-bff2-370c52479cd8"/>
+                            <a:da name="DEFAULT" value="0"/>
+                            <a:da name="EDITABLE" type="Bound">
+                                <a:tst expr="../WdgKeyedService"/>
+                            </a:da>
+                            <a:da name="INVALID" type="Range">
+                                <a:tst expr="&lt;=65535"/>
+                                <a:tst expr="&gt;=0"/>
+                            </a:da>
+                            <a:a name="LOWER-MULTIPLICITY" value="1"/>
+                            <a:a name="UPPER-MULTIPLICITY" value="1"/>    
+                        </v:var>
+                        <v:ctr name="WdgSettingsOff" type="IDENTIFIABLE">
+                        <!-- /** @remarks Implements DWDG11018  */ -->
+                            <a:a name="DESC">
+                                <a:v>
+                                    <![CDATA[
+                                        <html>
+                                        <h1>WdgSettingsOff</h1><p>
+                                        Hardware dependent settings for the watchdog driver's off mode
+                                        </p></html>
+                                    ]]>
+                                </a:v>
+                            </a:a>
+                            <a:a name="UUID"
+                                 value="ECUC:dc24b240-c5a8-41fe-b5f3-78657c85b88b"/>
+                            <a:a name="LOWER-MULTIPLICITY" value="1"/>
+                            <a:a name="UPPER-MULTIPLICITY" value="1"/>    
+                            <v:var name="WdgReadOnly" type="BOOLEAN">
+                            <!-- /** @remarks Implements DWDG11028  */ -->
+                                <a:a name="LABEL" value="Wdg Read Only"/>
+                                <a:a name="DESC">
+                                    <a:v>
+                                        <![CDATA[
+                                        <html>
+                                        <h1>WdgReadOnly</h1><p>
+                                        This is the Implementation Specific parameter.Soft Lock for the Software Watchdog Timer Control (SWTCR) Register
+                                        <ul>
+                                        <li>Enabled : SWTCR can be read or written.</li>
+                                        <li>Disabled: SWTCR can be read only.
+                                        A system reset is required before this register can again be written.</li>
+                                        </ul>
+                                        The setting of this switch is intended to prevent accidental writes of the SWTCR from changing the defined system watchdog configuration.
+                                        </p></html>
+                                        ]]>
+                                    </a:v>
+                                </a:a>
+                                <a:a name="ORIGIN" value="Freescale"/>
+                                <a:a name="SYMBOLICNAMEVALUE" value="false"/>
+                                <a:a name="UUID"
+                                     value="ECUC:df0699d6-798c-41b6-af4b-1412afa7fce8"/>
+                                <a:da name="DEFAULT" value="false"/>
+                                <a:a name="LOWER-MULTIPLICITY" value="1"/>
+                                <a:a name="UPPER-MULTIPLICITY" value="1"/>    
+                            </v:var>
+                        </v:ctr>
+                        <v:ctr name="WdgSettingsSlow" type="IDENTIFIABLE">
+                        <!-- /** @remarks Implements DWDG11019  */ -->
+                            <a:a name="DESC">
+                                <a:v>
+                                    <![CDATA[
+                                        <html>
+                                        <h1>WdgSettingsSlow</h1><p>
+                                        Hardware dependent settings for the watchdog driver's slow mode
+                                        </p></html>
+                                    ]]>
+                                </a:v>
+                            </a:a>
+                            <a:a name="UUID"
+                                 value="ECUC:5f6a7588-9100-4407-895c-54dd9a95ee4e"/>
+                            <a:a name="LOWER-MULTIPLICITY" value="1"/>
+                            <a:a name="UPPER-MULTIPLICITY" value="1"/>         
+                            <v:var name="WdgReadOnly" type="BOOLEAN">
+                            <!-- /** @remarks Implements DWDG11029  */ -->
+                                <a:a name="LABEL" value="Wdg Read Only"/>
+                                <a:a name="DESC">
+                                    <a:v>
+                                        <![CDATA[
+                                            <html>
+                                            <h1>Wdg Read Only</h1><p>
+                                            This is the Implementation Specific parameter.Soft Lock for the Software Watchdog Timer Control (SWTCR) Register
+                                            <ul>
+                                            <li>Enabled :  SWTCR can be read or written.</li>
+                                            <li>Disabled:  SWTCR can be read only.
+                                            A system reset is required before this register can again be written.</li>
+                                            </ul>
+                                            The setting of this switch is intended to prevent accidental writes of the SWTCR from changing the defined system watchdog configuration.
+                                            </p></html>
+                                        ]]>
+                                    </a:v>
+                            </a:a>
+                                <a:a name="ORIGIN" value="Freescale"/>
+                                <a:a name="SYMBOLICNAMEVALUE" value="false"/>
+                                <a:a name="UUID"
+                                     value="ECUC:dc9b26bb-77b1-4f8a-be12-560e938e6246 "/>
+                                <a:da name="DEFAULT" value="false"/>
+                                <a:a name="LOWER-MULTIPLICITY" value="1"/>
+                                <a:a name="UPPER-MULTIPLICITY" value="1"/>    
+                            </v:var>
+                            <v:var name="WdgWindowMode" type="BOOLEAN">
+                            <!-- /** @remarks Implements DWDG11032  */ -->
+                                <a:a name="LABEL" value="Wdg Window Mode"/>
+                                <a:a name="DESC">
+                                <a:v>
+                                    <![CDATA[
+                                        <html>
+                                        <h1>Wdg WindowMode.</h1><p>
+                                        <ul>
+										<li>Disabled:   Regular mode, service sequence can be done at any time.</li>
+                                        <li>Enabled :  Windowed mode, the service sequence is only valid when the down counter is less than value in the SWTWN register.</li>
+                                        </ul>
+                                        </p></html>
+                                    ]]>
+                                </a:v>
+                                </a:a>
+                                <a:a name="ORIGIN" value="Freescale"/>
+                                <a:a name="SYMBOLICNAMEVALUE" value="false"/>
+                                <a:a name="UUID"
+                                     value="ECUC:197e4b02-dd25-4272-bbc0-fcff3e9c4ebb"/>
+                                <a:da name="DEFAULT" value="false"/>
+                                <a:a name="LOWER-MULTIPLICITY" value="1"/>
+                                <a:a name="UPPER-MULTIPLICITY" value="1"/>    
+                            </v:var>
+                            <v:var name="WdgRunsInStopMode" type="BOOLEAN">
+                            <!-- /** @remarks Implements DWDG11031  */ -->
+                                <a:a name="LABEL" value="Wdg Runs In Stop mode"/>
+                                <a:a name="DESC">
+                                    <a:v>
+                                        <![CDATA[
+                                            <html>
+                                            <h1>Wdg Runs in Stop Mode</h1><p>
+                                            This is the Implementation Specific parameter.
+                                            <ul>
+                                            <li>Enabled:  SWT continues to count even while the processor core is in stop mode.</li>
+                                            <li>Disabled: SWT stops counting if the processor core is in stop mode.</li>
+                                            </ul>
+                                            <b>Note:</b> The 'WdgRunsInStopMode' parameter specifies if the watchdog timer should run or not while the clock to the core is halted. 
+                                              This is true only for the STOP0 mode of the controller. It will always run while the controller is in the HALT0 mode.
+                                            </p></html>
+                                        ]]>
+                                    </a:v>
+                                </a:a>
+                                <a:a name="ORIGIN" value="Freescale"/>
+                                <a:a name="SYMBOLICNAMEVALUE" value="false"/>
+                                <a:a name="UUID"
+                                     value="ECUC:6eb0326e-5008-46af-887f-247b595240b9"/>
+                                <a:da name="DEFAULT" value="true"/>
+                                <a:a name="LOWER-MULTIPLICITY" value="1"/>
+                                <a:a name="UPPER-MULTIPLICITY" value="1"/>    
+                            </v:var>
+                            <v:var name="WdgRunsInDebugMode" type="BOOLEAN">
+                            <!-- /** @remarks Implements DWDG11030  */ -->
+                                <a:a name="LABEL" value="Wdg Runs In Debug Mode"/>
+                                <a:a name="DESC">
+                                    <a:v>
+                                        <![CDATA[
+                                            <html>
+                                            <h1>Wdg Runs In Debug Mode</h1><p>
+                                            This is the Implementation Specific parameter.
+                                            <ul>
+                                            <li>Enabled:   SWT continues to count even while the device enters the debug mode.</li>
+                                            <li>Disabled:  SWT stops counting if the processor core when the device enters the debug mode</li>
+                                            </ul>
+                                            </p></html>
+                                        ]]>
+                                    </a:v>
+                                </a:a>
+                                <a:a name="ORIGIN" value="Freescale"/>
+                                <a:a name="SYMBOLICNAMEVALUE" value="false"/>
+                                <a:a name="UUID"
+                                     value="ECUC:d800d870-f8f8-4b62-8f97-edf6f50f5a57"/>
+                                <a:da name="DEFAULT" value="false"/>
+                                <a:a name="LOWER-MULTIPLICITY" value="1"/>
+                                <a:a name="UPPER-MULTIPLICITY" value="1"/>    
+                            </v:var>
+                            <v:var name="WdgOperationMode" type="ENUMERATION">
+                            <!-- /** @remarks Implements DWDG11033  */ -->
+                                <a:a name="LABEL" value="Wdg Operation Mode"/>
+                                <a:a name="DESC">
+                                    <a:v>
+                                        <![CDATA[
+                                            <html>
+                                            <h1>Wdg Operation Mode</h1><p>
+                                            This is the Implementation Specific parameter.
+                                            <ul>
+                                            <li>ResetOnTimeOut:  Generate a reset on a time-out.</li>
+											<li>Interrupt:  Generate an interrupt on an initial time-out, reset on a second consecutive time-out.</li>
+                                            </ul>
+                                            </p></html>
+                                        ]]>
+                                    </a:v>
+                                </a:a>
+                                <a:a name="ORIGIN" value="Freescale"/>
+                                <a:a name="SYMBOLICNAMEVALUE" value="false"/>
+                                <a:a name="UUID"
+                                     value="ECUC:cfca7af8-2d00-480b-b479-f19ed24bc675"/>
+                                <a:da name="DEFAULT" value="ResetOnTimeOut"/>
+                                <a:da name="RANGE">
+                                    <a:v>ResetOnTimeOut</a:v>
+									<a:v>Interrupt</a:v>
+                                </a:da>
+                                <a:a name="LOWER-MULTIPLICITY" value="1"/>
+                                <a:a name="UPPER-MULTIPLICITY" value="1"/>    
+                            </v:var>
+                            <v:var name="WdgResetOnInvalidAccess" type="ENUMERATION">
+                            <!-- /** @remarks Implements DWDG11034  */ -->
+                                <a:a name="LABEL" value="Wdg Reset On Invalid Access"/>
+                                <a:a name="DESC">
+                                    <a:v>
+                                        <![CDATA[
+                                            <html>
+                                            <h1>Wdg Reset On Invalid Acces</h1><p>
+                                            If window mode is enabled, the service sequence must be
+                                            performed in the last part of the window time out period. The window is open when
+                                            the down counter is less than the value in the SWT_WN register. Outside of this window,
+                                            service sequence writes are invalid access and generate:
+                                            <ul>
+                                            <li>BUS error: Invalid access to the SWT generated a bus error</li>
+                                            <li>System Reset: Invalid access to the SWT causes a system reset (if wathdog is enabled).</li>
+                                            </ul>
+                                            </p></html>
+                                        ]]>
+                                    </a:v>
+                                </a:a>
+                                <a:a name="ORIGIN" value="Freescale"/>
+                                <a:a name="SYMBOLICNAMEVALUE" value="false"/>
+                                <a:a name="UUID"
+                                     value="ECUC:c58b1942-9e20-4749-acd1-d02b34104e2b"/>
+                                <a:da name="DEFAULT" value="BusError"/>
+                                <a:da name="RANGE">
+                                    <a:v>BusError</a:v>
+                                    <a:v>SystemReset</a:v>
+                                </a:da>
+                                <a:a name="LOWER-MULTIPLICITY" value="1"/>
+                                <a:a name="UPPER-MULTIPLICITY" value="1"/>    
+                            </v:var>
+                            <v:var name="WdgClockSelection" type="ENUMERATION">
+                            <!-- /** @remarks Implements DWDG11037 */ -->
+                                <a:da name="EDITABLE" value="false"/>
+                                <a:a name="LABEL" value="Wdg Clock Selection"/>
+                                <a:a name="DESC">
+                                    <a:v>
+                                        <![CDATA[
+                                            <html>
+                                            <h1>Wdg Clock Selection</h1><p>
+                                        The reset value for the clock source of the Software Watchdog Timer module (SWT) is the
+                                        oscillator clock. If the clock source is switched to the system clock by clearing Clock
+                                        Selection bit in the SWT Module Control Register (SWT_MCR[CSL] = 0), then the SWT has
+                                        a very small chance of entering an indeterminate state.Workaround: Only use the oscillator clock as the SWT clock source.
+                                            </p></html>
+                                        ]]>
+                                    </a:v>
+                                </a:a>
+                                <a:a name="ORIGIN" value="Freescale"/>
+                                <a:a name="SYMBOLICNAMEVALUE" value="false"/>
+                                <a:a name="UUID"
+                                     value="ECUC:584dd2bf-453f-4230-8f88-781541d4c5cc"/>
+                                <a:da name="DEFAULT" value="OscillatorClock"/>
+                                <a:da name="RANGE">
+                                    <a:v>OscillatorClock</a:v>
+                                    <a:v>SystemClock</a:v>
+                                    </a:da>
+                                <a:a name="LOWER-MULTIPLICITY" value="1"/>
+                                <a:a name="UPPER-MULTIPLICITY" value="1"/>        
+                            </v:var>
+                            <v:var name="WdgTimeoutPeriod" type="FLOAT">
+                            <!-- /** @remarks Implements DWDG11036 */ -->
+                                <a:a name="LABEL" value="Wdg Timeout Period [clock cycles]"/>
+                                <a:a name="DESC">
+                                    <a:v>
+                                        <![CDATA[
+                                            <html>
+                                            <h1>Wdg Timeout Period</h1><p>
+                                            This is the Implementation Specific parameter.
+                                            Software Watchdog Time-Out Period in miliseconds. Selects the time-out period for the SWT.
+                                            </p></html>
+                                        ]]>
+                                    </a:v>
+                                </a:a>
+                                <a:a name="ORIGIN" value="Freescale"/>
+                                <a:a name="SYMBOLICNAMEVALUE" value="false"/>
+                                <a:a name="UUID"
+                                     value="ECUC:cf1147c7-83ca-437e-9ec7-1d7447e672c9"/>
+                                <a:da name="DEFAULT" value="256"/>
+                                <!-- /** @remarks Covers WDG086  */ -->
+                                <a:da name="INVALID" type="Range">
+                                <a:tst expr="&lt;=4294967295"/>
+                                <a:tst expr="&gt;=256"/>
+                                </a:da>
+                                <a:a name="LOWER-MULTIPLICITY" value="1"/>
+                                <a:a name="UPPER-MULTIPLICITY" value="1"/>    
+                            </v:var>
+                            <v:var name="WdgWindowPeriod" type="FLOAT">
+                            <!-- /** @remarks Implements DWDG11035 */ -->
+                                <a:a name="LABEL" value="Wdg Window Period[clock cycles]"/>
+                                <a:a name="DESC">
+                                    <a:v>
+                                        <![CDATA[
+                                            <html>
+                                            <h1>Wdg Window Period</h1><p>
+                                            This is the Implementation Specific parameter.
+                                            Window start value. When window mode is enabled, the service sequence can only be written when
+                                            the internal down counter is less than this value.
+                                            </p></html>
+                                        ]]>
+                                    </a:v>
+                                </a:a>
+                                <a:a name="ORIGIN" value="Freescale"/>
+                                <a:a name="SYMBOLICNAMEVALUE" value="false"/>
+                                <a:a name="UUID"
+                                     value="ECUC:cc2ba784-e565-43df-8fd0-c8131ff43a18"/>
+                                <a:da name="EDITABLE"
+                                      type ="XPath"
+                                      expr ="../WdgWindowMode"/>
+                                <a:da name="DEFAULT" value="0"/>
+                                <!-- /** @remarks Covers WDG086  */ -->
+                                <a:da name="INVALID" type="Range">
+                                    <a:tst expr="&lt;=4294967295"/>
+                                    <a:tst expr="&gt;=0"/>
+                                </a:da>
+                                <a:a name="LOWER-MULTIPLICITY" value="1"/>
+                                <a:a name="UPPER-MULTIPLICITY" value="1"/>    
+                            </v:var>
+                        </v:ctr>
+                        <v:ctr name="WdgSettingsFast" type="IDENTIFIABLE">
+                        <!-- /** @remarks Implements DWDG11017  */ -->
+                            <a:a name="DESC">
+                                    <a:v>
+                                        <![CDATA[
+                                            <html>
+                                            <h1>WdgSettingsSlow</h1><p>
+                                            Hardware dependent settings for the watchdog driver's fast mode
+                                            </p></html>
+                                        ]]>
+                                    </a:v>
+                                </a:a>
+                            <a:a name="UUID"
+                                 value="ECUC:bed395c6-e8a0-4f98-a24c-745ae91fb68d"/>
+                            <a:a name="LOWER-MULTIPLICITY" value="1"/>
+                            <a:a name="UPPER-MULTIPLICITY" value="1"/>         
+                            <v:var name="WdgReadOnly" type="BOOLEAN">
+                            <!-- /** @remarks Implements DWDG11020  */ -->
+                                <a:a name="LABEL" value="Wdg Read Only"/>
+                                <a:a name="DESC">
+                                    <a:v>
+                                        <![CDATA[
+                                            <html>
+                                            <h1>Wdg Read Only</h1><p>
+                                            This is the Implementation Specific parameter.Soft Lock for the Software Watchdog Timer Control (SWTCR) Register
+                                            <ul>
+                                            <li>Enabled :  SWTCR can be read or written.</li>
+                                            <li>Disabled:  SWTCR can be read only.
+                                            A system reset is required before this register can again be written.</li>
+                                            </ul>
+                                            The setting of this switch is intended to prevent accidental writes of the SWTCR from changing the defined system watchdog configuration.
+                                            </p></html>
+                                        ]]>
+                                    </a:v>
+                            </a:a>
+                                <a:a name="ORIGIN" value="Freescale"/>
+                                <a:a name="SYMBOLICNAMEVALUE" value="false"/>
+                                <a:a name="UUID"
+                                     value="ECUC:ad5dd53a-ab73-447e-8c92-c559401fe387"/>
+                                <a:da name="DEFAULT" value="false"/>
+                                <a:a name="LOWER-MULTIPLICITY" value="1"/>
+                                <a:a name="UPPER-MULTIPLICITY" value="1"/>    
+                            </v:var>
+                            <v:var name="WdgWindowMode" type="BOOLEAN">
+                            <!-- /** @remarks Implements DWDG11023  */ -->
+                                <a:a name="LABEL" value="Wdg Window Mode"/>
+                                <a:a name="DESC">
+                                <a:v>
+                                    <![CDATA[
+                                        <html>
+                                        <h1>Wdg WindowMode.</h1><p>
+                                        <ul>
+                                        <li>Disabled:  Regular mode, service sequence can be done at any time.</li>
+                                        <li>Enabled :  Windowed mode, the service sequence is only valid when the down counter is less than value in the SWTWN register.</li>
+                                        </ul>
+                                        </p></html>
+                                    ]]>
+                                </a:v>
+                                </a:a>
+                                <a:a name="ORIGIN" value="Freescale"/>
+                                <a:a name="SYMBOLICNAMEVALUE" value="false"/>
+                                <a:a name="UUID"
+                                     value="ECUC:93cdf09b-740c-4e4b-a664-66c058472296"/>
+                                <a:da name="DEFAULT" value="false"/>
+                                <a:a name="LOWER-MULTIPLICITY" value="1"/>
+                                <a:a name="UPPER-MULTIPLICITY" value="1"/>    
+                            </v:var>
+                            <v:var name="WdgRunsInStopMode" type="BOOLEAN">
+                            <!-- /** @remarks Implements DWDG11022  */ -->
+                                <a:a name="LABEL" value="Wdg Runs In Stop mode"/>
+                                <a:a name="DESC">
+                                    <a:v>
+                                        <![CDATA[
+                                            <html>
+                                            <h1>Wdg Runs in Stop Mode</h1><p>
+                                            This is the Implementation Specific parameter.
+                                            <ul>
+                                            <li>Enabled:  SWT continues to count even while the processor core is in stop mode.</li>
+                                            <li>Disabled: SWT stops counting if the processor core is in stop mode.</li>
+                                            </ul>
+                                            <b>Note:</b> The 'WdgRunsInStopMode' parameter specifies if the watchdog timer should run or not while the clock to the core is halted. 
+                                              This is true only for the STOP0 mode of the controller. It will always run while the controller is in the HALT0 mode.
+                                            </p></html>
+                                        ]]>
+                                    </a:v>
+                                </a:a>
+                                <a:a name="ORIGIN" value="Freescale"/>
+                                <a:a name="SYMBOLICNAMEVALUE" value="false"/>
+                                <a:a name="UUID"
+                                     value="ECUC:cc6f5f7d-5359-4511-bbfe-ef85213f1804"/>
+                                <a:da name="DEFAULT" value="true"/>
+                                <a:a name="LOWER-MULTIPLICITY" value="1"/>
+                                <a:a name="UPPER-MULTIPLICITY" value="1"/>    
+                            </v:var>
+                            <v:var name="WdgRunsInDebugMode" type="BOOLEAN">
+                            <!-- /** @remarks Implements DWDG11021  */ -->
+                                <a:a name="LABEL" value="Wdg Runs In Debug Mode"/>
+                                <a:a name="DESC">
+                                    <a:v>
+                                        <![CDATA[
+                                            <html>
+                                            <h1>Wdg Runs In Debug Mode</h1><p>
+                                            This is the Implementation Specific parameter.
+                                            <ul>
+                                            <li>Enabled: SWT continues to count even while the device enters the debug mode.</li>
+                                            <li>Disabled: SWT stops counting if the processor core when the device enters the debug mode</li>
+                                            </ul>
+                                            </p></html>
+                                        ]]>
+                                    </a:v>
+                                </a:a>
+                                <a:a name="ORIGIN" value="Freescale"/>
+                                <a:a name="SYMBOLICNAMEVALUE" value="false"/>
+                                <a:a name="UUID"
+                                     value="ECUC:4a767bf1-a21d-4117-86d6-98a34267d409"/>
+                                <a:da name="DEFAULT" value="false"/>
+                                <a:a name="LOWER-MULTIPLICITY" value="1"/>
+                                <a:a name="UPPER-MULTIPLICITY" value="1"/>    
+                            </v:var>
+                            <v:var name="WdgOperationMode" type="ENUMERATION">
+                            <!-- /** @remarks Implements DWDG11025  */ -->
+                                <a:a name="LABEL" value="Wdg Operation Mode"/>
+                                <a:a name="DESC">
+                                    <a:v>
+                                        <![CDATA[
+                                            <html>
+                                            <h1>Wdg Operation Mode</h1><p>
+                                            This is the Implementation Specific parameter.
+                                            <ul>
+                                            <li>ResetOnTimeOut: Generate a reset on a time-out.</li>
+											<li>Interrupt: Generate an interrupt on an initial time-out, reset on a second consecutive time-out.</li>
+                                            </ul>
+                                            </p></html>
+                                        ]]>
+                                    </a:v>
+                                </a:a>
+                                <a:a name="ORIGIN" value="Freescale"/>
+                                <a:a name="SYMBOLICNAMEVALUE" value="false"/>
+                                <a:a name="UUID"
+                                     value="ECUC:41e9550c-166d-4216-841d-cc66335abcfa"/>
+                                <a:da name="DEFAULT" value="ResetOnTimeOut"/>
+                                <a:da name="RANGE">
+                                    <a:v>ResetOnTimeOut</a:v>
+									<a:v>Interrupt</a:v>
+                                </a:da>
+                                <a:a name="LOWER-MULTIPLICITY" value="1"/>
+                                <a:a name="UPPER-MULTIPLICITY" value="1"/>    
+                            </v:var>
+                            <v:var name="WdgResetOnInvalidAccess" type="ENUMERATION">
+                            <!-- /** @remarks Implements DWDG11024  */ -->
+                                <a:a name="LABEL" value="Wdg Reset On Invalid Access"/>
+                                <a:a name="DESC">
+                                    <a:v>
+                                        <![CDATA[
+                                            <html>
+                                            <h1>Wdg Reset On Invalid Acces</h1><p>
+                                            If window mode is enabled, the service sequence must be
+                                            performed in the last part of the window time out period. The window is open when
+                                            the down counter is less than the value in the SWT_WN register. Outside of this window,
+                                            service sequence writes are invalid access and generate:
+                                            <ul>
+                                            <li>BUS error:  Invalid access to the SWT generated a bus error</li>
+                                            <li>System Reset:  Invalid access to the SWT causes a system reset (if wathdog is enabled).</li>
+                                            </ul>
+                                            </p></html>
+                                        ]]>
+                                    </a:v>
+                                </a:a>
+                                <a:a name="ORIGIN" value="Freescale"/>
+                                <a:a name="SYMBOLICNAMEVALUE" value="false"/>
+                                <a:a name="UUID"
+                                     value="ECUC:b0f2efc9-8944-411c-9f1d-2bd0e242c83a"/>
+                                <a:da name="DEFAULT" value="BusError"/>
+                                <a:da name="RANGE">
+                                    <a:v>BusError</a:v>
+                                    <a:v>SystemReset</a:v>
+                                </a:da>
+                                <a:a name="LOWER-MULTIPLICITY" value="1"/>
+                                <a:a name="UPPER-MULTIPLICITY" value="1"/>    
+                            </v:var>
+                            <v:var name="WdgClockSelection" type="ENUMERATION">
+                            <!-- /** @remarks Implements DWDG11038 */ -->
+                                <a:da name="EDITABLE" value="false"/>
+                                <a:a name="LABEL" value="Wdg Clock Selection"/>
+                                <a:a name="DESC">
+                                    <a:v>
+                                        <![CDATA[
+                                            <html>
+                                            <h1>Wdg Clock Selection</h1><p>
+                                        The SWT counter clock will be the oscillator.
+					The reset value for the clock source of the Software Watchdog Timer module (SWT) is the
+                                        oscillator clock. If the clock source is switched to the system clock by clearing Clock
+                                        Selection bit in the SWT Module Control Register (SWT_MCR[CSL] = 0), then the SWT has
+                                        a very small chance of entering an indeterminate state.Workaround: Only use the oscillator clock as the SWT clock source.
+                                            </p></html>
+                                        ]]>
+                                    </a:v>
+                                </a:a>
+                                <a:a name="ORIGIN" value="Freescale"/>
+                                <a:a name="SYMBOLICNAMEVALUE" value="false"/>
+                                <a:a name="UUID"
+                                     value="ECUC:d260a56a-4cdc-4452-95b6-f4a3f7ba2b24"/>
+                                <a:da name="DEFAULT" value="OscillatorClock"/>
+                                <a:da name="RANGE">
+                                        <a:v>OscillatorClock</a:v>
+                                        <a:v>SystemClock</a:v>
+                                </a:da>
+                                <a:a name="LOWER-MULTIPLICITY" value="1"/>
+                                <a:a name="UPPER-MULTIPLICITY" value="1"/>    
+                            </v:var>
+                            <v:var name="WdgTimeoutPeriod" type="FLOAT">
+                            <!-- /** @remarks Implements DWDG11036 */ -->
+                                <a:a name="LABEL" value="Wdg Timeout Period [clock cycles]"/>
+                                <a:a name="DESC">
+                                    <a:v>
+                                        <![CDATA[
+                                            <html>
+                                            <h1>Wdg Timeout Period</h1><p>
+                                            This is the Implementation Specific parameter.
+                                            Software Watchdog Time-Out Period in miliseconds. Selects the time-out period for the SWT.
+                                            </p></html>
+                                        ]]>
+                                    </a:v>
+                                </a:a>
+                                <a:a name="ORIGIN" value="Freescale"/>
+                                <a:a name="SYMBOLICNAMEVALUE" value="false"/>
+                                <a:a name="UUID"
+                                     value="ECUC:de8deca6-e6af-4357-99fd-b3a1f54d03a4"/>
+                                <a:da name="DEFAULT" value="256"/>
+                                <!-- /** @remarks Covers WDG086  */ -->
+                                <a:da name="INVALID" type="Range">
+                                <a:tst expr="&lt;=4294967295"/>
+                                <a:tst expr="&gt;=256"/>
+                                </a:da>
+                                <a:a name="LOWER-MULTIPLICITY" value="1"/>
+                                <a:a name="UPPER-MULTIPLICITY" value="1"/>    
+                            </v:var>
+                            <v:var name="WdgWindowPeriod" type="FLOAT">
+                            <!-- /** @remarks Implements DWDG11035 */ -->
+                                <a:a name="LABEL" value="Wdg Window Period[clock cycles]"/>
+                                <a:a name="DESC">
+                                    <a:v>
+                                        <![CDATA[
+                                            <html>
+                                            <h1>Wdg Window Period</h1><p>
+                                            This is the Implementation Specific parameter.
+                                            Window start value. When window mode is enabled, the service sequence can only be written when
+                                            the internal down counter is less than this value.
+                                            </p></html>
+                                        ]]>
+                                    </a:v>
+                                </a:a>
+                                <a:a name="ORIGIN" value="Freescale"/>
+                                <a:a name="SYMBOLICNAMEVALUE" value="false"/>
+                                <a:a name="UUID"
+                                     value="ECUC:3298b917-4189-428e-89df-b31f4b4d5bde"/>
+                                <a:da name="EDITABLE"
+                                      type ="XPath"
+                                      expr ="../WdgWindowMode"/>
+                                <a:da name="DEFAULT" value="0"/>
+                                <!-- /** @remarks Covers WDG086  */ -->
+                                <a:da name="INVALID" type="Range">
+                                    <a:tst expr="&lt;=4294967295"/>
+                                    <a:tst expr="&gt;=0"/>
+                                </a:da>
+                                <a:a name="LOWER-MULTIPLICITY" value="1"/>
+                                <a:a name="UPPER-MULTIPLICITY" value="1"/>    
+                            </v:var>
+                        </v:ctr>
+                    </v:ctr>
+                </v:lst>    
+                <v:ctr name="CommonPublishedInformation" type="IDENTIFIABLE">
+                <!-- /** @remarks Covers BSW00374, BSW00318 */ -->
+                    <a:a name="DESC">
+                        <a:v>
+                            <![CDATA[
+                                <html>
+                                <h1>CommonPublishedInformation</h1><p>
+                                Common container, aggregated by all modules. It contains published information about vendor and versions.
+                                </p></html>
+                            ]]>
+                        </a:v>
+                    </a:a>
+                    <a:a name="UUID"
+                         value="ECUC:14dea568-36c8-4364-bc0a-2cc014dd53d3"/>
+                    <a:a name="LOWER-MULTIPLICITY" value="1"/>
+                    <a:a name="UPPER-MULTIPLICITY" value="1"/>    
+                    <v:var name="ArMajorVersion" type="INTEGER_LABEL">
+                        <a:a name="LABEL" value="AUTOSAR Major Version"/>
+                        <a:a name="DESC">
+                            <a:v>
+                                <![CDATA[
+                                    <html>
+                                    <h1>AUTOSAR Major Version</h1><p>
+                                    Major version number of AUTOSAR specification on which the appropriate implementation is based on.
+                                    </p></html>
+                                ]]>
+                            </a:v>
+                        </a:a>
+                        <a:a name="IMPLEMENTATIONCONFIGCLASS"
+                             value="PublishedInformation"/>
+                        <a:a name="ORIGIN" value="Freescale"/>
+                        <a:a name="SYMBOLICNAMEVALUE" value="false"/>
+                        <a:a name="UUID"
+                             value="ECUC:4d3194d5-4727-4ff3-8db2-b5d2fa4b46dc"/>
+                        <a:da name="DEFAULT" value="2"/>
+                        <a:a name="LOWER-MULTIPLICITY" value="1"/>
+                        <a:a name="UPPER-MULTIPLICITY" value="1"/>    
+                        <a:da name="INVALID" type="Range">
+                            <a:tst expr="&gt;=2"/>
+                            <a:tst expr="&lt;=2"/>
+                        </a:da>
+                    </v:var>
+                    <v:var name="ArMinorVersion" type="INTEGER_LABEL">
+                        <a:a name="LABEL" value="AUTOSAR Minor Version"/>
+                        <a:a name="DESC">
+                            <a:v>
+                                <![CDATA[
+                                    <html>
+                                    <h1>AUTOSAR Minor Version</h1><p>
+                                    Minor version number of AUTOSAR specification on which the appropriate implementation is based on.
+                                    </p></html>
+                                ]]>
+                            </a:v>
+                        </a:a>
+                        <a:a name="IMPLEMENTATIONCONFIGCLASS"
+                             value="PublishedInformation"/>
+                        <a:a name="ORIGIN" value="Freescale"/>
+                        <a:a name="SYMBOLICNAMEVALUE" value="false"/>
+                        <a:a name="UUID"
+                             value="ECUC:acee7386-30d5-42e0-986c-88d1e22ec48e"/>
+                        <a:da name="DEFAULT" value="2"/>
+                        <a:a name="LOWER-MULTIPLICITY" value="1"/>
+                        <a:a name="UPPER-MULTIPLICITY" value="1"/>    
+                        <a:da name="INVALID" type="Range">
+                            <a:tst expr="&gt;=2"/>
+                            <a:tst expr="&lt;=2"/>
+                        </a:da>
+                    </v:var>
+                    <v:var name="ArPatchVersion" type="INTEGER_LABEL">
+                        <a:a name="LABEL" value="AUTOSAR Patch Version"/>
+                        <a:a name="DESC">
+                            <a:v>
+                                <![CDATA[
+                                    <html>
+                                    <h1>AUTOSAR Patch Version</h1><p>
+                                    Patch version number of AUTOSAR specification on which the appropriate implementation is based on.
+                                    </p></html>
+                                ]]>
+                            </a:v>
+                        </a:a>
+                        <a:a name="IMPLEMENTATIONCONFIGCLASS"
+                             value="PublishedInformation"/>
+                        <a:a name="ORIGIN" value="Freescale"/>
+                        <a:a name="SYMBOLICNAMEVALUE" value="false"/>
+                        <a:a name="UUID"
+                             value="ECUC:29539933-af60-4490-b038-1441708edc27"/>
+                        <a:da name="DEFAULT" value="1"/>
+                        <a:a name="LOWER-MULTIPLICITY" value="1"/>
+                        <a:a name="UPPER-MULTIPLICITY" value="1"/>    
+                        <a:da name="INVALID" type="Range">
+                            <a:tst expr="&gt;=1"/>
+                            <a:tst expr="&lt;=1"/>
+                        </a:da>                    
+                    </v:var>
+                    <v:var name="ModuleId" type="INTEGER_LABEL">
+                        <a:a name="LABEL" value="Numeric Module ID"/>
+                        <a:a name="DESC">
+                            <a:v>
+                                <![CDATA[
+                                    <html>
+                                    <h1>Module ID</h1><p>
+                                    Module ID of this module.
+                                    </p></html>
+                                ]]>
+                            </a:v>
+                        </a:a>
+                        <a:a name="IMPLEMENTATIONCONFIGCLASS"
+                             value="PublishedInformation"/>
+                        <a:a name="ORIGIN" value="Freescale"/>
+                        <a:a name="SYMBOLICNAMEVALUE" value="false"/>
+                        <a:a name="UUID"
+                             value="ECUC:f4bf950d-706b-45aa-9cff-1fb018208f8d"/>
+                        <a:da name="DEFAULT" value="102"/>
+                        <a:a name="LOWER-MULTIPLICITY" value="1"/>
+                        <a:a name="UPPER-MULTIPLICITY" value="1"/>    
+                        <a:da name="INVALID" type="Range">
+                            <a:tst expr="&gt;=102"/>
+                            <a:tst expr="&lt;=102"/>
+                        </a:da>
+                    </v:var>
+                    <v:var name="SwMajorVersion" type="INTEGER_LABEL">
+                        <a:a name="LABEL" value="Software Major Version"/>
+                        <a:a name="DESC">
+                            <a:v>
+                                <![CDATA[
+                                    <html>
+                                    <h1>Software Major Version</h1><p>
+                                    Major version number of the vendor specific implementation of the module. The numbering is vendor specific.
+                                    </p></html>
+                                ]]>
+                            </a:v>
+                        </a:a>
+                        <a:a name="IMPLEMENTATIONCONFIGCLASS"
+                             value="PublishedInformation"/>
+                        <a:a name="ORIGIN" value="Freescale"/>
+                        <a:a name="SYMBOLICNAMEVALUE" value="false"/>
+                        <a:a name="UUID"
+                             value="ECUC:b4c391c7-dc4f-47f3-88ad-c3cbd99f3068"/>
+                        <a:da name="DEFAULT" value="2"/>
+                        <a:a name="LOWER-MULTIPLICITY" value="1"/>
+                        <a:a name="UPPER-MULTIPLICITY" value="1"/>    
+                        <a:da name="INVALID" type="Range">
+                            <a:tst expr="&gt;=2"/>
+                            <a:tst expr="&lt;=2"/>
+                        </a:da>
+                    </v:var>
+                    <v:var name="SwMinorVersion" type="INTEGER_LABEL">
+                        <a:a name="LABEL" value="Software Minor Version"/>
+                        <a:a name="DESC">
+                            <a:v>
+                                <![CDATA[
+                                    <html>
+                                    <h1>Software Minor Version</h1><p>
+                                    Minor version number of the vendor specific implementation of the module. The numbering is vendor specific.
+                                    </p></html>
+                                ]]>
+                            </a:v>
+                        </a:a>
+                        <a:a name="IMPLEMENTATIONCONFIGCLASS"
+                             value="PublishedInformation"/>
+                        <a:a name="ORIGIN" value="Freescale"/>
+                        <a:a name="SYMBOLICNAMEVALUE" value="false"/>
+                        <a:a name="UUID"
+                             value="ECUC:d69ee83a-8f7d-44bf-8285-e940303bfc90"/>
+                        <a:da name="DEFAULT" value="0"/>
+                        <a:a name="LOWER-MULTIPLICITY" value="1"/>
+                        <a:a name="UPPER-MULTIPLICITY" value="1"/>    
+                        <a:da name="INVALID" type="Range">
+                            <a:tst expr="&gt;=0"/>
+                            <a:tst expr="&lt;=0"/>
+                        </a:da>
+                    </v:var>
+                    <v:var name="SwPatchVersion" type="INTEGER_LABEL">
+                        <a:a name="LABEL" value="Software Patch Version"/>
+                        <a:a name="DESC">
+                            <a:v>
+                                <![CDATA[
+                                    <html>
+                                    <h1>Software Patch Version</h1><p>
+                                    Patch level version number of the vendor specific implementation of the module. The numbering is vendor specific.
+                                    </p></html>
+                                ]]>
+                            </a:v>
+                        </a:a>
+                        <a:a name="IMPLEMENTATIONCONFIGCLASS"
+                             value="PublishedInformation"/>
+                        <a:a name="ORIGIN" value="Freescale"/>
+                        <a:a name="SYMBOLICNAMEVALUE" value="false"/>
+                        <a:a name="UUID"
+                             value="ECUC:e1813bc8-3a26-405e-82a7-2b751910874d"/>
+                        <a:da name="DEFAULT" value="0"/>
+                        <a:a name="LOWER-MULTIPLICITY" value="1"/>
+                        <a:a name="UPPER-MULTIPLICITY" value="1"/>    
+                        <a:da name="INVALID" type="Range">
+                            <a:tst expr="&gt;=0"/>
+                            <a:tst expr="&lt;=0"/>
+                        </a:da>
+                    </v:var>
+                    <v:var name="VendorApiInfix" type="STRING_LABEL">
+                        <a:a name="LABEL" value="Vendor Api Infix"/>
+                        <a:a name="DESC">
+                            <a:v>
+                                <![CDATA[
+                                    <html>
+                                    <h1>Vendor Api Infix</h1><p>
+                                    In driver modules which can be instantiated several times on a single ECU, BSW00347 requires that the name of APIs is extended by the VendorId and a vendor specific name.
+                                    This parameter is used to specify the vendor specific name. In total, the implementation specific name is generated as follows:
+                                    &lt;ModuleName&gt;_&gt;VendorId&gt;_&lt;VendorApiInfix&gt;&lt;Api name from SWS&gt;.
+
+                                    E.g.  assuming that the VendorId of the implementor is 123 and the implementer chose a VendorApiInfix of &quot;v11r456&quot; a api name Can_Write defined in the SWS will translate to Can_123_v11r456Write.
+
+                                    This parameter is mandatory for all modules with upper multiplicity &gt; 1. It shall not be used for modules with upper multiplicity =1.
+                                    </p></html>
+                                ]]>
+                            </a:v>
+                        </a:a>
+                        <a:a name="IMPLEMENTATIONCONFIGCLASS"
+                             value="PublishedInformation"/>
+                        <a:a name="OPTIONAL" value="true"/>
+                        <a:a name="ORIGIN" value="Freescale"/>
+                        <a:a name="SYMBOLICNAMEVALUE" value="false"/>
+                        <a:a name="UUID"
+                        value="ECUC:e79d1a4a-7d18-4704-8282-8fb8d47681d2"/>
+                        <a:da name="DEFAULT" value=""/>
+                        <a:da name="ENABLE" value="false"/>
+                        <a:a name="LOWER-MULTIPLICITY" value="0"/>
+                        <a:a name="UPPER-MULTIPLICITY" value="1"/>    
+                    </v:var>
+                    <v:var name="VendorId" type="INTEGER_LABEL">
+                        <a:a name="LABEL" value="Vendor ID"/>
+                        <a:a name="DESC">
+                            <a:v>
+                                <![CDATA[
+                                    <html>
+                                    <h1>Vendor ID</h1><p>
+                                    Vendor ID of the dedicated implementation of this module according to the AUTOSAR vendor list.
+                                    </p></html>
+                                ]]>
+                            </a:v>
+                        </a:a>
+                        <a:a name="IMPLEMENTATIONCONFIGCLASS"
+                             value="PublishedInformation"/>
+                        <a:a name="ORIGIN" value="Freescale"/>
+                        <a:a name="SYMBOLICNAMEVALUE" value="false"/>
+                        <a:a name="UUID"
+                             value="ECUC:51c8820a-783e-45c4-8202-fc0bb1f9da46"/>
+                        <a:da name="DEFAULT" value="43"/>
+                        <a:a name="LOWER-MULTIPLICITY" value="1"/>
+                        <a:a name="UPPER-MULTIPLICITY" value="1"/>    
+                        <a:da name="INVALID" type="Range">
+                            <a:tst expr="&gt;=43"/>
+                            <a:tst expr="&lt;=43"/>
+                        </a:da>
+                    </v:var>
+                </v:ctr>
+                <v:ctr name="WdgPublishedInformation" type="IDENTIFIABLE">
+                <!-- /** @remarks Implements DWDG11037  */ -->
+                    <a:a name="DESC">
+                        <a:v>
+                            <![CDATA[
+                                <html>
+                                <h1>WdgPublishedInformation</h1><p>
+                                Container holding all Wdg specific published information parameters
+                                </p></html>
+                            ]]>
+                        </a:v>
+                    </a:a>
+                    <a:a name="UUID"
+                         value="ECUC:6cb58af3-351f-4135-8c87-712d3c65e14f"/>
+                    <a:a name="LOWER-MULTIPLICITY" value="1"/>
+                    <a:a name="UPPER-MULTIPLICITY" value="1"/>    
+                    <v:var name="WdgMaxTimeout" type="FLOAT_LABEL">
+                        <!-- /** @remarks Implements DWDG11009  */ -->
+                        <a:a name="LABEL" value="Wdg Max Timeout [clock cycles]"/>
+                        <a:a name="DESC">
+                            <a:v>
+                                <![CDATA[
+                                    <html>
+                                    <h1>Wdg Max Timeout</h1><p>
+                                        Maximum timeout period in [clock cycles].</p>
+                                        <p> The value of this field is computed to be (2^32-1)*WdgResolution.
+                                        2^32-1 (where 2^32 is 2 power 32) indicates the maximum value of clock
+                                        cycles that is able to be written as timeout
+                                    </p></html>
+                                ]]>
+                            </a:v>
+                        </a:a>
+                        <a:a name="IMPLEMENTATIONCONFIGCLASS"
+                             type="IMPLEMENTATIONCONFIGCLASS">
+                            <icc:v class="PublishedInformation">VariantLinkTime</icc:v>
+                            <icc:v class="PublishedInformation">VariantPreCompile</icc:v>
+                            <icc:v class="PublishedInformation">VariantPostBuild</icc:v>
+                        </a:a>
+                        <a:a name="ORIGIN" value="AUTOSAR_ECUC"/>
+                        <a:a name="SYMBOLICNAMEVALUE" value="false"/>
+                        <a:a name="UUID"
+                             value="ECUC:d99f4038-2308-41a3-96cb-9f218df89a56"/>
+                        <a:da name="DEFAULT" value="4294967295"/>
+                        <a:a name="OPTIONAL" value="true"/>
+                        <a:da name="ENABLE" value="true"/>
+                        <a:da name="INVALID" type="Range">
+                            <a:tst expr="&gt;=4294967295"/>
+                            <a:tst expr="&lt;=4294967295"/>
+                        </a:da>
+                    </v:var>
+                    <v:var name="WdgMinTimeout" type="FLOAT_LABEL">
+                    <!-- /** @remarks Implements DWDG11010  */ -->
+                        <a:a name="LABEL" value="Wdg Min Timeout [clock cycles]"/>
+                        <a:a name="DESC">
+                            <a:v>
+                                <![CDATA[
+                                    <html>
+                                    <h1>Wdg Min Timeout</h1><p>
+                                        Minimum timeout period in [clock cycles].</p>
+                                        <p> The value of this field is computed to be 256*WdgResolution. 
+                                        256 indicates the minimum value of clock cycles that can be written
+                                        as timeout.
+                                    </p></html>
+                                ]]>
+                            </a:v>
+                        </a:a>
+                        <a:a name="IMPLEMENTATIONCONFIGCLASS"
+                             type="IMPLEMENTATIONCONFIGCLASS">
+                            <icc:v class="PublishedInformation">VariantLinkTime</icc:v>
+                            <icc:v class="PublishedInformation">VariantPreCompile</icc:v>
+                            <icc:v class="PublishedInformation">VariantPostBuild</icc:v>
+                        </a:a>
+                        <a:a name="ORIGIN" value="AUTOSAR_ECUC"/>
+                        <a:a name="SYMBOLICNAMEVALUE" value="false"/>
+                        <a:a name="UUID"
+                             value="ECUC:5eeb76c9-8d4f-488d-8ce8-bd94a575e77f"/>
+                        <a:da name="DEFAULT" value="256"/>
+                        <a:a name="OPTIONAL" value="true"/>
+                        <a:da name="ENABLE" value="true"/>
+						<a:da name="INVALID" type="Range">
+                        <a:tst expr="&gt;=256"/>
+                        <a:tst expr="&lt;=256"/>
+                        </a:da>                    
+                    </v:var>
+                    <v:var name="WdgResolution" type="FLOAT_LABEL">
+                    <!-- /** @remarks Implements DWDG11011  */ -->
+                        <a:a name="LABEL" value="Wdg Resolution"/>
+                        <a:a name="DESC">
+                            <a:v>
+                                <![CDATA[
+                                    <html>
+                                    <h1>Wdg Resolution</h1><p>
+                                    The Hardware provides a uniform timeout resolution over the complete range.
+                                    The watchdog clock will be the oscillator clock . Depending on the 
+                                    this clock the resolution can be calculated to be 1/Frequency, where the frequency is 
+                                    the clock frequency selected to be the clock for the watchdog.
+                                    Note:The frequency should be in Hz.
+                                    </p></html>
+                                ]]>
+                            </a:v>
+                        </a:a>
+                        <a:a name="IMPLEMENTATIONCONFIGCLASS"
+                             type="IMPLEMENTATIONCONFIGCLASS">
+                            <icc:v class="PublishedInformation">VariantLinkTime</icc:v>
+                            <icc:v class="PublishedInformation">VariantPreCompile</icc:v>
+                            <icc:v class="PublishedInformation">VariantPostBuild</icc:v>
+                        </a:a>
+                        <a:a name="ORIGIN" value="AUTOSAR_ECUC"/>
+                        <a:a name="SYMBOLICNAMEVALUE" value="false"/>
+                        <a:a name="UUID"
+                             value="ECUC:17cb7cfa-08c8-4381-923e-df8274d3d486"/>
+                        <a:da name="DEFAULT" value=""/>
+                        <a:a name="OPTIONAL" value="true"/>
+                        <a:da name="ENABLE" value="true"/>
+                    </v:var>
+                    <v:var name="WdgTriggerMode" type="ENUMERATION">
+                        <a:a name="LABEL" value="Wdg Trigger Mode"/>
+                        <!-- /** @remarks Implements DWDG11012  */ -->
+                        <a:a name="DESC">
+                            <a:v>
+                            <![CDATA[
+                                <html>
+                                 <h1>Wdg Trigger Mode</h1><p>
+                                Watchdog trigger mode (toggle/window/both).
+                                </p></html>
+                            ]]>
+                            </a:v>
+                        </a:a>
+                        <a:a name="ORIGIN" value="AUTOSAR_ECUC"/>
+                        <a:a name="SYMBOLICNAMEVALUE" value="false"/>
+                        <a:a name="UUID"
+                             value="ECUC:78807365-fe0d-41ff-847b-00f28469be98"/>
+                        <a:a name="IMPLEMENTATIONCONFIGCLASS"
+                             type="IMPLEMENTATIONCONFIGCLASS">
+                            <icc:v class="PublishedInformation">VariantLinkTime</icc:v>
+                            <icc:v class="PublishedInformation">VariantPreCompile</icc:v>
+                            <icc:v class="PublishedInformation">VariantPostBuild</icc:v>
+                        </a:a>
+                        <a:da name="DEFAULT" value="WDG_BOTH"/>
+                        <a:da name="RANGE">
+                            <a:v>WDG_BOTH</a:v>
+                            <a:v>WDG_TOGGLE</a:v>
+                            <a:v>WDG_WINDOW</a:v>
+                        </a:da>
+                        <a:a name="LOWER-MULTIPLICITY" value="1"/>
+                        <a:a name="UPPER-MULTIPLICITY" value="1"/>    
+                    </v:var>
+                    <v:ctr name="WdgTimeoutList" type="IDENTIFIABLE">
+                    <!-- /** @remarks Implements DWDG11013  */ -->
+                        <a:a name="DESC">
+                            <a:v>
+                            <![CDATA[
+                                <html>
+                                <h1>Wdg Timeout List</h1><p>
+                                List of selectable timeout periods in [s].
+                                </p></html>
+                            ]]>
+                        </a:v>
+                        </a:a>
+                        <a:a name="UUID"
+                             value="ECUC:fe4573ee-44f5-468b-9151-fef8740fda1a"/>
+                        <a:a name="OPTIONAL" value="true"/>                       
+                        <a:da name="ENABLE" value="false"/>
+                        <v:lst name="WdgTimeoutPeriod">
+                            <!-- /** @remarks Implements DWDG11014  */ -->
+                            <a:da name="MIN" value="1"/>
+                            <v:var name="WdgTimeoutPeriod" type="FLOAT_LABEL">
+                                <a:a name="LABEL" value="Wdg Timeout Period [s]"/>
+        						<a:a name="DESC">
+									<a:v>
+									<![CDATA[
+										<html>
+										<h1>Wdg Timeout Period</h1><p>
+										EN: A single timeout period onto the Wdg can be configured.
+										</p></html>
+									]]>
+								</a:v>
+								</a:a>
+        						<a:a name="IMPLEMENTATIONCONFIGCLASS"
+                                     type="IMPLEMENTATIONCONFIGCLASS">
+                                    <icc:v class="PublishedInformation">VariantLinkTime</icc:v>
+                                    <icc:v class="PublishedInformation">VariantPreCompile</icc:v>
+                                    <icc:v class="PublishedInformation">VariantPostBuild</icc:v>
+                                </a:a>
+                                <a:a name="ORIGIN" value="AUTOSAR_ECUC"/>
+                                <a:a name="SYMBOLICNAMEVALUE" value="false"/>
+                                <a:a name="UUID"
+                                     value="ECUC:2517693f-0256-481f-8c2b-3debd36b38cc"/>
+                                <a:da name="DEFAULT" value="256"/>
+                                <a:da name="INVALID" type="Range">
+                                <a:tst expr="&lt;=4294967295"/>
+                                <a:tst expr="&gt;=256"/>
+								</a:da>
+                            </v:var>
+                        </v:lst>
+                    </v:ctr>
+                </v:ctr>
+            </v:ctr>
+          </d:chc>
+        </d:lst>
+      </d:ctr>
+    </d:lst>
+  </d:ctr>
+
+</datamodel>

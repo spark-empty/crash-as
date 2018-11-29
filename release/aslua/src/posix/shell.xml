@@ -1,0 +1,23 @@
+<?xml version='1.0' encoding='utf-8'?>
+<AS>
+	<Os>
+		<Task Name="TaskShell"  
+    		Activation="1" 
+			Autostart="True" 
+			Priority="1" 
+			Schedule="FULL" 
+			StackSize="2048"
+			Application="OsDefaultApp"
+     		Comment="*" >
+			<EventList>
+				<Event Name="EventShellInput" Mask="0x00000001" />
+			</EventList>
+			<ApplicationModeList Max="32">
+				<ApplicationMode 
+					Name="OSDEFAULTAPPMODE" 
+					Comment="should start in all the modes"
+				/>
+			</ApplicationModeList>
+		</Task>
+	</Os>
+</AS>

@@ -1,0 +1,28 @@
+
+config ARCH_ANY
+    bool
+    default y
+    select DEFAULT_ASKAR
+
+config ARCH
+    string
+    default "none"
+
+choice
+    prompt "CHIP"
+    default MPC5634M_MLQB80
+
+config MPC5632M
+    bool "MPC5632M"
+
+config MPC5633M
+    bool "MPC5633M"
+
+config MPC5634M_MLQB80
+    bool "MPC5634M_MLQB80"
+
+config MPC5634M_MLQC80
+    bool "MPC5634M_MLQC80"
+
+endchoice
+

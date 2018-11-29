@@ -1,0 +1,253 @@
+/*==================================================================================================
+
+   @file        autosar_os.lcf
+   @version     2.0.0
+
+   @brief       CW Linker Command File for Internal FLASH for XPC5643L
+   @details     CW Linker Command File for Internal FLASH for XPC5643L.
+
+   Project      : AUTOSAR 3.0 MCAL
+   Patform      : PA
+   Peripheral   : 
+   Dependencies : Base Det Dem Port Dio Mcu SchM Wdg WdgIf CanIf LinIf EcuM
+
+   Autosar Version       : 1.9.0
+   Autosar Revision      : ASR_REL_1_9_REV_0003
+   Autosar Conf. Variant :
+   Software Version      : 2.0.0
+   Build Version         : MPC563xMxM_MCAL_2_0_0_RTM_ASR_REL_1_9_REV_0003_20110214
+
+   (c) Copyright 2006-2011 Freescale Semiconductor Inc. & STMicroelectronics
+   All Rights Reserved.
+
+===================================================================================================
+
+Note: This linker command file to be used with 5634M device only.
+==================================================================================================*/
+
+MEMORY {
+
+    /* 5634M - Flash 1.5 MB - 0x00 - 0x17FFFF */
+
+	flash_memory      : origin = 0x00000000, length = 0x0003FFF0
+  flash_vec         : origin = 0x00040000, length = 0x00002000
+
+    /* 5634M - SRAM 94 KB : 0x40000000 - 0x400177FF */
+
+	int_sram     :     origin = 0x40000000, length = 0x00015FF8
+	iram_stack   :     origin = 0x40016000, length = 0x00001000
+	ram_rsvd2    :     origin = 0x40100000, length = 0
+
+}
+
+/*
+ Program layout for starting in ROM, copying data to RAM,
+ and continuing to execute out of ROM.
+*/
+
+SECTIONS
+{
+
+
+      GROUP : {
+		.rchwdata (TEXT)  : {}
+
+        /* Interrupt vector table */
+        .vects (VLECODE) ALIGN(0x1000) : {
+          *(.vects)
+          *(.vects_vle)
+        }
+
+        .init : {}
+        .init_vle (VLECODE) : {
+            *(.init)
+            *(.init_vle)
+        }
+
+        .init_cw (VLECODE) : { *(.init_cw) }
+        .text (TEXT) : {}
+        .text_vle (VLECODE) : {
+            . = ALIGN(0x100);
+            *(.text)
+            *(.text_vle)
+        }
+        /*  OS code and constant data */
+        /*.ostext_vle (VLECODE) : {*/
+        .ostext (VLECODE) : {
+            *(.ostext)
+            *(.ostext_vle)
+        }
+        .oshook (VLECODE) : {
+            *(.oshook)
+            *(.oshook_vle)
+        }
+        .appcode_vle (VLECODE) : {
+            *(.appcode)
+            *(.appcode_vle)
+        }
+
+        /* Constructor and destructor function ptrs */
+        .ctors : {}
+        .dtors : {}
+
+        extab : {}
+        extabindex : {}
+
+        .rodata (CONST) : {
+            *(.rdata)
+            *(.rodata)
+        }
+        .osrodata : {}
+        .ossrodata : {}
+
+        /* Small constants */
+        .sdata2  : {}
+        .sbss2  : {}
+        .sapp_c32  : {}      /* small constant sections for all trusted applications */
+        .sapp_c16  : {}
+        .sapp_cU   : {}
+        .sapp_c8   : {}
+
+        .osendcode : {}
+
+
+	} > flash_memory
+
+
+
+    /* Data/BSS group */
+    GROUP : {
+        /* OS stack */
+        .osstack : {}
+
+        .ramcode (VLECODE) ALIGN(0x10): { *(.ramcode)}
+        /* data sections */
+        .data  : {}
+        .osdata : {}
+
+        /* Small data sections */
+        .sapp_v32_data : {}   /* small data sections for all trusted applications */
+        .sapp_v16_data : {}
+        .sapp_vU_data  : {}
+        .sapp_v8_data  : {}
+        .ossdata : {}
+        .sdata0 : {}             /* default sdata threshold is 0, then sdata/sbss section are empty always. */
+        .sdata : {}             /* default sdata threshold is 0, then sdata/sbss section are empty always. */
+
+        /* Small bss sections */
+        .sbss : {}
+        .ossbss : {}
+        .sapp_v32_bss : {}    /* small bss sections for all trusted applications */
+        .sapp_v16_bss : {}
+        .sapp_vU_bss  : {}
+        .sapp_v8_bss  : {}
+
+        /* bss sections */
+        .osbss : {}
+        .bss   : {}
+
+    } > int_sram
+
+	/* The second section will allocate space for the initialized data
+         * (.data/.sdata) and the unititialized data (.bss/.sbss) in the "ram" section.
+         */
+
+    GROUP : {
+		.pbadc_cfg(DATA) : {}
+	}> flash_memory
+
+    GROUP : {
+		.pbcan_cfg(DATA) : {}
+	}> flash_memory
+
+    GROUP : {
+		.pbdio_cfg(DATA) : {}
+	}> flash_memory
+
+    GROUP : {
+		.pbfls_cfg(DATA) : {}
+	}> flash_memory
+
+    GROUP : {
+		.pbgpt_cfg(DATA) : {}
+	}> flash_memory
+
+    GROUP : {
+		.pbicu_cfg(DATA) : {}
+	}> flash_memory
+
+    GROUP : {
+		.pblin_cfg(DATA) : {}
+	}> flash_memory
+
+    GROUP : {
+		.pbmcu_cfg(DATA) : {}
+	}> flash_memory
+
+    GROUP : {
+		.pbport_cfg(DATA) : {}
+	}> flash_memory
+
+	GROUP : {
+		.pbpwm_cfg(DATA) : {}
+	}> flash_memory
+
+	GROUP : {
+		.pbspi_cfg(DATA) : {}
+	}> flash_memory
+
+	GROUP : {
+		.pbwdg_cfg(DATA) : {}
+	}> flash_memory
+
+
+
+	__IV_ADDR       = ADDR(.vects);
+
+	PB_ADC_CFG1     = ADDR(.pbadc_cfg);
+	PB_CAN_CFG1     = ADDR(.pbcan_cfg);
+	PB_DIO_CFG1     = ADDR(.pbdio_cfg);
+	PB_FLS_CFG1     = ADDR(.pbfls_cfg);
+	PB_GPT_CFG1     = ADDR(.pbgpt_cfg);
+	PB_ICU_CFG1     = ADDR(.pbicu_cfg);
+	PB_LIN_CFG1     = ADDR(.pblin_cfg);
+	PB_MCU_CFG1     = ADDR(.pbmcu_cfg);
+	PB_PORT_CFG1    = ADDR(.pbport_cfg);
+	PB_PWM_CFG1     = ADDR(.pbpwm_cfg);
+	PB_SPI_CFG1     = ADDR(.pbspi_cfg);
+	PB_WDG_CFG1     = ADDR(.pbwdg_cfg);
+
+    INT_SRAM_START  = ADDR(int_sram);
+    INT_SRAM_SIZE   = 0x177FF/64;
+
+    SBSS_SRAM_START = ADDR(.sbss);
+    SBSS_SRAM_SIZE  = (SIZEOF(.sbss)+3)/4;
+    BSS_SRAM_START  = ADDR(.bss);
+    BSS_SRAM_SIZE   = (SIZEOF(.bss)+3)/4;
+    SDATA_RW_START  = _SDA_BASE_;
+    SDATA_RO_START  = _SDA2_BASE_;
+
+    RC_RAMCODE_SRC =  _f_ramcode_rom;
+    RC_RAMCODE_DEST = _f_ramcode;
+    RC_RAMCODE_SIZE = (SIZEOF(.ramcode)+3) / 4;
+
+
+    RC_PPC_SDATA2_SRC =  _f_sdata0_rom;
+    RC_PPC_SDATA2_DEST = _f_sdata0;
+    RC_PPC_SDATA2_SIZE = (SIZEOF(.sdata0)+3) / 4;
+    RC_SDATA_SRC       = _f_sdata_rom;
+    RC_SDATA_DEST      = _f_sdata;
+    RC_SDATA_SIZE      = (SIZEOF(.sdata)+3) / 4;
+    RC_DATA_SRC        = _f_data_rom;
+    RC_DATA_DEST       = _f_data;                                 
+    RC_DATA_SIZE       = (SIZEOF(.data)+3) / 4;                                 
+
+	__SP_INIT      = ADDR(iram_stack) + SIZEOF(iram_stack);
+	__SP_END       = ADDR(iram_stack);
+	__STACK_SIZE   = SIZEOF(iram_stack);
+_stack_addr = ADDR(iram_stack)+SIZEOF(iram_stack);
+_stack_end  = ADDR(iram_stack);
+
+}
+
+FORCEFILES { CW_Startup_vle_os.o }

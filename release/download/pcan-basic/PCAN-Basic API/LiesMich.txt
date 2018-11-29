@@ -1,0 +1,134 @@
+===============================================================================
+LiesMich.txt
+
+PCAN-Basic V4.3.0.150
+Copyright (c) 2017 PEAK-System Technik GmbH Darmstadt
+Alle Rechte vorbehalten.
+===============================================================================
+
+Maximieren Sie das Editor-Fenster, um diese Datei leichter lesen zu können.
+
+
+Inhalt:
+-------
+  * Einleitung
+  * Systemvoraussetzungen
+  * Bedingungen zur Verwendung dieser Dateien
+  * Inhalt des Verzeichnisses
+  * Inbetriebnahme von PCAN-Hardware
+  * PEAK-System Technik GmbH kontaktieren
+
+
+Einleitung
+----------
+Das PCAN-System der Firma PEAK-System Technik GmbH besteht aus einer Sammlung
+von Windows Gerätetreibern. Diese sorgen für die Echtzeit-Anbindung von
+Windows-Applikationen an alle CAN-Busse, die mittels PCAN-Hardware an den
+PC angeschlossen sind.
+
+PCAN-Basic ist eine einfache Programmier-Schnittstelle zum PCAN-System. Über
+eine Interface-DLL wird die Verbindung eigener Applikationen an die
+Gerätetreiber und die PCAN-Hardware ermöglicht, um eine CAN-Kommunikation zu
+betreiben.
+
+Die mitgelieferten Treiber, die PCAN-Basic API und die CAN-Bus Monitor
+Software "PCAN-View" sind die im Funktionsumfang reduzierten Versionen
+der käuflich zu erwerbenden Software-Pakete PCAN-Developer und PCAN-Explorer.
+
+
+Bedingungen zur Verwendung dieser Dateien
+-----------------------------------------
+Die PEAK-System Technik GmbH räumt dem Kunden das Recht ein, die in diesem
+Softwarepaket enthaltenen Dateien zu verwenden, solange dies in Verbindung mit
+Hardware original von PEAK-System oder mit OEM-Hardware von PEAK-System
+geschieht. Es ist ausdrücklich NICHT erlaubt, diese Dateien (auch auszugsweise)
+mit Fremdhardware zu verwenden.
+
+Wenn Sie nicht sicher sind, ob Sie mit der verwendeten Hardware auch eine
+entsprechende Lizenz erworben haben, setzen Sie sich bitte mit unserem
+technischen Support in Verbindung (support@peak-system.com).
+
+
+Systemvoraussetzungen
+---------------------
+- Betriebssysteme: Windows 10/8/7/Vista
+  Treiber für Linux finden Sie unter www.peak-system.com/linux
+
+
+Inhalt des Verzeichnisses
+-------------------------
+LiesMich.txt
+    Diese Textdatei.
+
+ReadMe.txt
+    Diese Textdatei in englischer Übersetzung.
+
+PCANBasic_enu.chm
+    Die PCAN-Basic Dokumentation in englischer Sprache.
+
+PCANBasic_deu.chm
+    Die PCAN-Basic Dokumentation in deutscher Sprache.
+
+PCAN-Parameter_Documentation.pdf
+    Zusätzliche Dokumentation zu PCAN-Basic Get/Set-Parameter in englischer Sprache.
+
+\Include
+    Enthält PCAN-Basic Header-Dateien für verschiedene Programmiersprachen und
+    Entwicklungsumgebungen.
+
+\Win32
+    - Eine 32-Bit ausführbare Testdatei (EXE).
+    - Die 32-Bit Interface-DLL.
+
+    \BB_LIB
+        32-Bit LIB-Datei für C++ Builder.
+
+    \VC_LIB
+        32-Bit LIB-Datei für Visual C/C++.
+
+\x64
+    - Eine 64-Bit ausführbare Testdatei (EXE).
+    - Die 64-Bit Interface-DLL.
+
+    \VC_LIB
+        64-Bit LIB-Datei für Visual C/C++.
+
+\Samples
+    Enthält Beispieldateien, welche die Verwendung der PCAN-Basic API in
+    verschiedenen Programmiersprachen und Entwicklungsumgebungen demonstrieren
+    (wird ständig erweitert).
+
+
+Inbetriebnahme von PCAN-Hardware
+--------------------------------
+Für Informationen über die Inbetriebnahme von PCAN-Hardware beachten Sie bitte
+die Dokumentation der jeweiligen Hardware. Diese finden Sie im Verzeichnis
+<Produkt-CD>\Pdf.
+
+Bitte beachten Sie, dass bei keiner unserer Setup-Routinen die PCANBasic.dll
+installiert wird. Um Applikationen testen zu können, die Sie mit der
+PCAN-Basic API erstellt haben, müssen Sie die passende PCANBasic.dll von
+Hand auf Ihr Zielsystem kopieren. 
+
+Bei 32-Bit Windows Betriebssystemen:
+32-Bit DLL > Windows\System32
+
+Bei 64-Bit Windows Betriebssystemen:
+32-Bit DLL > Windows\SysWOW64
+64-Bit DLL > Windows\System32
+
+
+PEAK-System Technik GmbH kontaktieren
+-------------------------------------
+Haben Sie Fragen bezüglich der Inbetriebnahme von PCAN-Hardware, oder benötigen
+Sie Informationen über weitere PEAK CAN-Produkte, wenden Sie sich bitte an:
+
+PEAK-System Technik GmbH
+Otto-Röhm-Str. 69
+64293 Darmstadt
+
+Tel. +49 6151 / 8173-20
+FAX  +49 6151 / 8173-29
+
+support@peak-system.com
+http://www.peak-system.com

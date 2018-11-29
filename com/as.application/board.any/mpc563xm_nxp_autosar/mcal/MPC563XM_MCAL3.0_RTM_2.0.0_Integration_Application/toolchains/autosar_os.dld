@@ -1,0 +1,252 @@
+/*==================================================================================================
+
+   @file        autosar_os.dld
+   @version     2.0.0
+
+   @brief       DIAB Linker Command File for Internal FLASH for XPC5607B
+   @details     DIAB Linker Command File for Internal FLASH for XPC5607B.
+
+   Project      : AUTOSAR 3.0 MCAL
+   Patform      : PA
+   Peripheral   : 
+   Dependencies : Base Det Dem Port Dio Mcu SchM Wdg WdgIf CanIf LinIf EcuM
+
+   Autosar Version       : 1.9.0
+   Autosar Revision      : ASR_REL_1_9_REV_0003
+   Autosar Conf. Variant :
+   Software Version      : 2.0.0
+   Build Version         : MPC563xMxM_MCAL_2_0_0_RTM_ASR_REL_1_9_REV_0003_20110214
+
+   (c) Copyright 2006-2011 Freescale Semiconductor Inc. & STMicroelectronics
+   All Rights Reserved.
+
+===================================================================================================
+
+==================================================================================================*/
+MEMORY
+{
+    bamboot        : org = 0x00000000, len = 0x00000008
+    internal_flash : org = 0x00000010, len = 0x0003FFF0
+    vectors        : org = 0x00040000, len = 0x00002000
+
+    internal_ram   : org = 0x40000000, len = 0x00015FF8
+    stack          : org = 0x40016000, len = 0x00001000 /* Stack end location */
+}
+
+SECTIONS
+{
+    /* Code and constant group */
+    GROUP : {
+	.rchwdata : {}
+    } > bamboot
+
+
+    /* Code and constant group */
+    GROUP : {
+        /* Code and constant area (all code and constant sections shall be placed between .osbegincode and .osendcode sections) */
+        _f_osbegincode = .;
+        .osbegincode : {}
+
+        /*  OS code and constant data */
+        _f_ostext = .;
+        .ostext (TEXT) : {
+            *(.ostext)
+            *(.ostext_vle)
+         }
+        _e_ostext = .;
+        .oshook (TEXT) : {
+            *(.oshook)
+            *(.oshook_vle)
+         }
+
+        /* Code and constant data */
+        .init : { *(.init) *(.fini) }
+        .text : {}
+        .text_vle (TEXT) : {
+            *(.text)
+            *(.text_vle)
+         }
+        .appcode_vle (TEXT) : {
+            *(.appcode)
+            *(.appcode_vle)
+         }
+
+
+        .rodata : {}
+        .osrodata : {}
+        .sdata2 : {}
+        .ossrodata   : {}
+
+        /* constructor and destructor function ptrs */
+        .ctors : {}
+        .dtors : {}
+
+        .osendcode : {}
+        _e_osendcode = .;
+
+        __DATA_ROM = .;
+        _load_ramcode  = . ;
+
+    } > internal_flash
+
+
+   
+
+    /* Data/BSS group */
+    GROUP : {
+        _f_osstack = .;
+        .osstack      : {}
+        _e_osstack = .;
+
+        __DATA_RAM = .;
+         /* map consecutively .ramcode, .sdata0, sdata and .data sections */
+        .ramcode(TEXT) ALIGN(4) LOAD(_load_ramcode) : {}
+        .data (DATA) LOAD(ADDR(.data) - ADDR(.ramcode) + _load_ramcode) : {}
+        .osdata (DATA) LOAD(ADDR(.osdata) - ADDR(.ramcode) + _load_ramcode) : {}
+
+        /* Short data sections */
+        /* default sdata threshold is 0, then sdata/sbss section are empty always. */
+        .sdata (DATA) LOAD(ADDR(.sdata) - ADDR(.ramcode) + _load_ramcode) : {}
+        .sdata0(DATA) LOAD(ADDR(.sdata0) - ADDR(.ramcode) + _load_ramcode) : {}
+
+        __DATA_END = .;
+
+        __BSS_START = .;
+
+        /* Short bss sections */
+        .sbss : {}
+        .ossbss : {}
+
+        .bss   : {}
+        .osbss : {}
+
+        __BSS_END = .;
+
+    } > internal_ram
+    
+        GROUP : {
+        .pbadc_cfg(DATA) : {}
+    }> internal_flash
+
+    GROUP : {
+        .pbcan_cfg(DATA) : {}
+    }> internal_flash
+
+    GROUP : {
+        .pbdio_cfg(DATA) : {}
+    }> internal_flash
+    
+    GROUP : {
+        .pbfls_cfg(DATA) : {}
+    }> internal_flash
+
+    GROUP : {
+        .pbgpt_cfg(DATA) : {}
+    }> internal_flash
+
+    GROUP : {
+        .pbicu_cfg(DATA) : {}
+    }> internal_flash
+
+    GROUP : {
+        .pblin_cfg(DATA) : {}
+    }> internal_flash
+
+    GROUP : {
+        .pbmcu_cfg(DATA) : {}
+    }> internal_flash
+
+    GROUP : {
+        .pbport_cfg(DATA) : {}
+    }> internal_flash
+
+    GROUP : {
+        .pbpwm_cfg(DATA) : {}
+    }> internal_flash
+
+    GROUP : {
+        .pbspi_cfg(DATA) : {}
+    }> internal_flash
+
+    GROUP : {
+        .pbwdg_cfg(DATA) : {}
+    }> internal_flash
+    
+    GROUP : {
+        .pbfr_cfg(DATA) : {}
+    }> internal_flash
+
+        GROUP : {
+        _f_vects = .;
+        .vects (TEXT) ALIGN(0x1000): {
+          *(.vects)
+          *(.vects_vle)
+        }
+    } > vectors
+
+}
+
+  __IV_ADDR           = ADDR(.vects);
+    PB_ADC_CFG1         = ADDR(.pbadc_cfg);
+    PB_CAN_CFG1         = ADDR(.pbcan_cfg);
+    PB_DIO_CFG1         = ADDR(.pbdio_cfg);
+    PB_FLS_CFG1         = ADDR(.pbfls_cfg);
+    PB_GPT_CFG1         = ADDR(.pbgpt_cfg);
+    PB_ICU_CFG1         = ADDR(.pbicu_cfg);
+    PB_LIN_CFG1         = ADDR(.pblin_cfg);
+    PB_MCU_CFG1         = ADDR(.pbmcu_cfg);
+    PB_PORT_CFG1        = ADDR(.pbport_cfg);
+    PB_PWM_CFG1         = ADDR(.pbpwm_cfg);
+    PB_SPI_CFG1         = ADDR(.pbspi_cfg);
+    PB_WDG_CFG1         = ADDR(.pbwdg_cfg);
+    PB_FR_CFG1         = ADDR(.pbwdg_cfg);
+    
+    INT_SRAM_START      = ADDR(internal_ram);
+    INT_SRAM_SIZE       = 0x177FF/64;                   
+    
+    
+    SBSS_SRAM_START     = ADDR(.sbss);
+	SBSS_SRAM_SIZE  = (ADDR(.bss)-SBSS_SRAM_START +3)/4;
+    BSS_SRAM_START      = ADDR(.bss);
+	BSS_SRAM_SIZE   = (__BSS_END - BSS_SRAM_START+3)/4;
+    SDATA_RW_START      = _SDA_BASE_;
+    SDATA_RO_START      = _SDA2_BASE_;
+
+
+   /* generate symbols used in start-up code to init .ramcode section */
+    RC_RAMCODE_SRC =  _load_ramcode;
+    RC_RAMCODE_DEST = ADDR(.ramcode);
+    RC_RAMCODE_SIZE = (SIZEOF(.ramcode)+3) / 4;
+
+     /* generate symbols used in start-up code to init .sdata0 section */
+  RC_PPC_SDATA2_SRC  = ADDR(.sdata0) - ADDR(.sdata) + _load_ramcode;
+    RC_PPC_SDATA2_DEST = ADDR(.sdata0);
+    RC_PPC_SDATA2_SIZE = (SIZEOF(.sdata0)+3) / 4;
+
+    /* generate symbols used in start-up code to init .sdata section */
+  RC_SDATA_SRC       = ADDR(.sdata) - ADDR(.data) + _load_ramcode;
+    RC_SDATA_DEST      = ADDR(.sdata);
+    RC_SDATA_SIZE      = (SIZEOF(.sdata)+3) / 4;
+
+    /* generate symbols used in start-up code to init .data section */
+    RC_DATA_SRC        = ADDR(.data) - ADDR(.ramcode) + _load_ramcode;
+    RC_DATA_DEST       = ADDR(.data);
+    RC_DATA_SIZE       = (SIZEOF(.data)+3) / 4;
+
+__SP_INIT    = ADDR(stack)+SIZEOF(stack);
+__SP_END     = ADDR(stack);
+
+/* Some targets use an extra underscore in front of identifiers */
+
+___SP_INIT	  = __SP_INIT;
+___SP_END	  = __SP_END;
+___DATA_ROM	  = __DATA_ROM;
+___DATA_RAM	  = __DATA_RAM;
+___DATA_END	  = __DATA_END;
+___BSS_START  = __BSS_START;
+___BSS_END    = __BSS_END;
+
+/* 2 symbols for ORTI support */
+_OsOrtiStart	  = __SP_INIT;
+_OsOrtiStackStart = __SP_END;
+

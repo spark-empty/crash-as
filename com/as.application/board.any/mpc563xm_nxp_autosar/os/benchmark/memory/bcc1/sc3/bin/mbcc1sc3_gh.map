@@ -1,0 +1,587 @@
+Link Date:	Fri Mar 26 13:31:04 2010
+Host OS:	Windows XP Service Pack 2
+Version:	ELXR 5.0 (c) 1998-2009 Green Hills Software    Build: Aug 14 2009
+
+
+Load Map Fri Mar 26 13:31:04 2010
+Image Summary
+
+  Section              Base      Size(hex)    Size(dec)  SecOffs
+  .vects               40000000  00000124          292   0000220
+  .osbegincode         40000124  00000000            0   0000344
+  .ostext              40000124  0000225a         8794   0000344
+  .oshook              4000237e  00000000            0   000259e
+  .osrodata            40002380  0000067c         1660   00025a0
+  .ossrodata           400029fc  00000000            0   0002c1c
+  .appcode             400029fc  00000658         1624   0002c1c
+  .vletext             40003058  0000085e         2142   0003278
+  .syscall             400038b6  00000006            6   0003ad6
+  .secinfo             400038bc  00000018           24   0003adc
+  .rodata              400038d4  00000000            0   0003af4
+  .sdata2              400038d4  00000000            0   0003af4
+  .sapp_c32            400038d4  00000000            0   0003af4
+  .sapp_c16            400038d4  00000000            0   0003af4
+  .sapp_cU             400038d4  00000000            0   0003af4
+  .sapp_c8             400038d4  00000000            0   0003af4
+  .text                400038d4  00000000            0   0003af4
+  .osendcode           400038d4  00000000            0   0003af4
+  .osstack             400038e0  00000e20         3616   0003b00
+  .app0_v32_data       40004700  00000000            0   0003b00
+  .app0_v32_bss        40004700  00000000            0   0003b00
+  .app0_v16_data       40004700  00000000            0   0003b00
+  .app0_v16_bss        40004700  00000000            0   0003b00
+  .app0_v8_data        40004700  00000000            0   0003b00
+  .app0_v8_bss         40004700  00000000            0   0003b00
+  .app0_vU_data        40004700  00000000            0   0003b00
+  .app0_vU_bss         40004700  00000040           64   0003b00
+  .app0_v32_1_data     40004740  00000000            0   0003b00
+  .app0_v32_1_bss      40004740  00000000            0   0003b00
+  .app0_v16_1_data     40004740  00000000            0   0003b00
+  .app0_v16_1_bss      40004740  00000000            0   0003b00
+  .app0_v8_1_data      40004740  00000000            0   0003b00
+  .app0_v8_1_bss       40004740  00000000            0   0003b00
+  .app0_vU_1_data      40004740  00000000            0   0003b00
+  .app0_vU_1_bss       40004740  00000000            0   0003b00
+  .app0_v32_2_data     40004740  00000000            0   0003b00
+  .app0_v32_2_bss      40004740  00000000            0   0003b00
+  .app0_v16_2_data     40004740  00000000            0   0003b00
+  .app0_v16_2_bss      40004740  00000000            0   0003b00
+  .app0_v8_2_data      40004740  00000000            0   0003b00
+  .app0_v8_2_bss       40004740  00000000            0   0003b00
+  .app0_vU_2_data      40004740  00000000            0   0003b00
+  .app0_vU_2_bss       40004740  00000000            0   0003b00
+  .data                40004740  00000024           36   0003b00
+  .bss                 40004764  00000018           24   0003b24
+  .osdata              4000477c  00000000            0   0003b24
+  .osbss               4000477c  000008cc         2252   0003b24
+  .sdabase             40005050  00000000            0   0003b2c
+  .sdata               40005050  00000000            0   0003b2c
+  .sapp_var_data       40005050  00000000            0   0003b2c
+  .sbss                40005050  00000000            0   0003b2c
+  .sapp_var_bss        40005050  00000000            0   0003b2c
+  .ossbss              40005050  00000020           32   0003b2c
+  .sapp_v32_bss        40005070  00000000            0   0003b2c
+  .sapp_v16_bss        40005070  00000000            0   0003b2c
+  .sapp_vU_bss         40005070  0000000c           12   0003b2c
+  .sapp_v8_bss         4000507c  00000000            0   0003b2c
+  .sbss2               4000507c  00000000            0   0003b2c
+  .stack               40005080  00000400         1024   0003b30
+  .debug_info          00000000  0000da12        55826   0003b30
+  .debug_abbrev        00000000  00001207         4615   0011542
+  .debug_line          00000000  0000547b        21627   0012749
+  .debug_macinfo       00000000  0001ad93       109971   0017bc4
+  .debug_frame         00000000  00000ca8         3240   0032957
+  .ghs.uvfd.rout       00000000  00000000            0   00335ff
+  .ghs.uvfd.vtbl       00000000  00000000            0   00335ff
+  .PPC.EMB.apuinfo     00000000  00000020           32   00335ff
+  .comment             00000000  000000eb          235   003361f
+
+Load Map Fri Mar 26 13:31:04 2010
+Module Summary
+
+  Origin+Size    Section          Module
+40003058+0000f0  .vletext         crt0.o
+40002380+000580  .osrodata        mbcc1sc3_cfg.o
+00000000+000d42  .debug_info      mbcc1sc3_cfg.o
+00000000+000104  .debug_abbrev    mbcc1sc3_cfg.o
+00000000+00038c  .debug_line      mbcc1sc3_cfg.o
+00000000+001c92  .debug_macinfo   mbcc1sc3_cfg.o
+40000000+000124  .vects           vector.o
+00000d42+0006cb  .debug_info      vector.o
+00000104+000076  .debug_abbrev    vector.o
+0000038c+000399  .debug_line      vector.o
+00001c92+0012d9  .debug_macinfo   vector.o
+400029fc+0005f0  .appcode         mbcc1.o
+40005070+00000c  .sapp_vU_bss     mbcc1.o
+40004700+000040  .app0_vU_bss     mbcc1.o
+0000140d+000ec2  .debug_info      mbcc1.o
+0000017a+000179  .debug_abbrev    mbcc1.o
+00000725+0006a8  .debug_line      mbcc1.o
+00002f6b+002078  .debug_macinfo   mbcc1.o
+00000000+000210  .debug_frame     mbcc1.o
+40002fec+000068  .appcode         fmpll.o
+000022cf+000743  .debug_info      fmpll.o
+000002f3+0000cb  .debug_abbrev    fmpll.o
+00000dcd+0003fe  .debug_line      fmpll.o
+00004fe3+001380  .debug_macinfo   fmpll.o
+00000210+0000a8  .debug_frame     fmpll.o
+40002900+000088  .osrodata        os.o
+400038e0+000e20  .osstack         os.o
+4000477c+0006cc  .osbss           os.o
+40005050+000020  .ossbss          os.o
+00002a12+001214  .debug_info      os.o
+000003be+00010d  .debug_abbrev    os.o
+000011cb+000327  .debug_line      os.o
+00006363+001197  .debug_macinfo   os.o
+40000124+000230  .ostext          osset.o
+00003c26+001176  .debug_info      osset.o
+000004cb+00017e  .debug_abbrev    osset.o
+000014f2+000554  .debug_line      osset.o
+000074fa+001fdf  .debug_macinfo   osset.o
+000002b8+000108  .debug_frame     osset.o
+40000354+0002ae  .ostext          ossch.o
+00004d9c+000b49  .debug_info      ossch.o
+00000649+00014b  .debug_abbrev    ossch.o
+00001a46+000478  .debug_line      ossch.o
+000094d9+001ae4  .debug_macinfo   ossch.o
+000003c0+000120  .debug_frame     ossch.o
+000058e5+0006c8  .debug_info      ossct.o
+00000794+000076  .debug_abbrev    ossct.o
+00001ebe+00032a  .debug_line      ossct.o
+0000afbd+000f95  .debug_macinfo   ossct.o
+40000602+0004a6  .ostext          ostsk.o
+00005fad+000d77  .debug_info      ostsk.o
+0000080a+000164  .debug_abbrev    ostsk.o
+000021e8+00061c  .debug_line      ostsk.o
+0000bf52+00201d  .debug_macinfo   ostsk.o
+000004e0+000150  .debug_frame     ostsk.o
+40000aa8+000704  .ostext          osalm.o
+00006d24+0012c1  .debug_info      osalm.o
+0000096e+000185  .debug_abbrev    osalm.o
+00002804+0007c8  .debug_line      osalm.o
+0000df6f+001c4c  .debug_macinfo   osalm.o
+00000630+000198  .debug_frame     osalm.o
+400011ac+000572  .ostext          osctr.o
+00007fe5+000fc2  .debug_info      osctr.o
+00000af3+000194  .debug_abbrev    osctr.o
+00002fcc+000646  .debug_line      osctr.o
+0000fbbb+001c25  .debug_macinfo   osctr.o
+000007c8+000168  .debug_frame     osctr.o
+00008fa7+0006c8  .debug_info      osres.o
+00000c87+000076  .debug_abbrev    osres.o
+00003612+00032a  .debug_line      osres.o
+000117e0+000fc4  .debug_macinfo   osres.o
+0000966f+0006c8  .debug_info      osevt.o
+00000cfd+000076  .debug_abbrev    osevt.o
+0000393c+00032a  .debug_line      osevt.o
+000127a4+000fc4  .debug_macinfo   osevt.o
+4000171e+0006d0  .ostext          osisr.o
+00009d37+001208  .debug_info      osisr.o
+00000d73+000194  .debug_abbrev    osisr.o
+00003c66+00079d  .debug_line      osisr.o
+00013768+002210  .debug_macinfo   osisr.o
+00000930+0001e0  .debug_frame     osisr.o
+40001dee+00044c  .ostext          osmem.o
+40002988+000074  .osrodata        osmem.o
+40004e48+000200  .osbss           osmem.o
+0000af3f+00167c  .debug_info      osmem.o
+00000f07+00019e  .debug_abbrev    osmem.o
+00004403+0006fb  .debug_line      osmem.o
+00015978+002267  .debug_macinfo   osmem.o
+00000b10+000198  .debug_frame     osmem.o
+0000c5bb+0006c7  .debug_info      ostp.o
+000010a5+000076  .debug_abbrev    ostp.o
+00004afe+000329  .debug_line      ostp.o
+00017bdf+000f95  .debug_macinfo   ostp.o
+0000cc82+0006c8  .debug_info      osmsg.o
+0000111b+000076  .debug_abbrev    osmsg.o
+00004e27+00032a  .debug_line      osmsg.o
+00018b74+000fc4  .debug_macinfo   osmsg.o
+4000223a+000144  .ostext          ostrg.o
+0000d34a+0006c8  .debug_info      ostrg.o
+00001191+000076  .debug_abbrev    ostrg.o
+00005151+00032a  .debug_line      ostrg.o
+00019b38+00125b  .debug_macinfo   ostrg.o
+400038b6+000006  .syscall         libsys.a(ind_dots.o)
+40003148+0000e4  .vletext         libstartup.a(ind_mcpy.o)
+4000322c+0002c6  .vletext         libstartup.a(ind_crt0.o)
+400034f2+00008e  .vletext         libstartup.a(ind_uzip.o)
+40003580+000054  .vletext         libstartup.a(ind_mset.o)
+400035d4+000032  .vletext         libansi.a(ccexit.o)
+40003606+000070  .vletext         libsys.a(ind_exit.o)
+40004740+000004  .data            libsys.a(ind_exit.o)
+40004774+000004  .bss             libsys.a(ind_exit.o)
+40003676+000020  .vletext         libsys.a(ind_call.o)
+40003696+000116  .vletext         libsys.a(ind_crt1.o)
+40004744+000020  .data            libsys.a(ind_crt1.o)
+400037ac+000018  .vletext         libsys.a(ind_thrd.o)
+40004778+000004  .bss             libsys.a(ind_thrd.o)
+400037c4+00000c  .vletext         libsys.a(ind_errn.o)
+400037d0+00001a  .vletext         libarch.a(indarchb.o)
+400037ea+00001a  .vletext         libarch.a(indarcha.o)
+40003804+0000b2  .vletext         libarch.a(indarch.o)
+
+Load Map Fri Mar 26 13:31:04 2010
+Global Symbols (sorted numerically)
+
+                  00000000 __ghsbegin_picbase
+                  00000000 __ghsbegin_robase
+                  00000000 __ghsbegin_pidbase
+                  00000000 __ghs_rambootcodestart
+                  00000000 __ghs_rambootcodeend
+                  00000000 __ghs_rombootcodestart
+                  00000000 __ghs_rombootcodeend
+                  00000000 __ghs_board_memory_init
+                  00000000 __ghs_init_r14
+                  00000000 __ghs_init_r15
+                  00000000 __ghs_init_r16
+                  00000000 __ghs_init_r17
+                  00000000 __ghs_init_r18
+                  00000000 __ghs_init_r19
+                  00000000 __ghs_init_r20
+                  00000000 __ghs_init_r21
+                  00000000 __ghs_init_r22
+                  00000000 __ghs_init_r23
+                  00000000 OSKillAppISRs
+                  00000000 __ghs_board_cache_sync
+                  00000000 __ghs_undefined_func
+                  00000000 __ghsbegin_fixaddr
+                  00000000 __ghsend_fixaddr
+                  00000000 __ghsbegin_fixtype
+                  00000000 __ghs_checksum
+                  00000000 GetThreadLocalStorage
+                  00000000 __cpp_exception_cleanup
+                  00000000 __ghs_at_exit
+                  00000000 DefaultSignalHandler
+                  00000000 __ghs_board_devices_init
+                  00000000 __gh_iob_init
+                  00000000 __gh_error_init
+                  00000000 __gh_signal_init
+                  00000000 __cpp_exception_init
+                  00000000 __ghs_manprf_init
+                  00000000 __alt_init
+                  00000000 __get_eh_globals
+                  00000000 __ghs_SaveSignalContext
+                  00000000 __ghs_RestoreSignalContext
+                  00000000 __ghs_flock_file
+                  00000000 __ghs_funlock_file
+                  00000000 __ghs_ftrylock_file
+                  00000000 __ghs_flock_create
+                  00000000 __ghs_flock_destroy
+                  00000000 __gh_errno_ptr
+                  00000000 __gh_get_errno
+                  00000000 _savesmall_08
+                  00000000 _restsmall_08
+                  00000000 _savegpr_14
+                  00000000 _savegpr_15
+                  00000000 _savegpr_16
+                  00000000 _savegpr_17
+                  00000000 _savegpr_18
+                  00000000 _savegpr_19
+                  00000000 _savegpr_20
+                  00000000 _savegpr_21
+                  00000000 _savegpr_22
+                  00000000 _savegpr_23
+                  00000000 _savegpr_24
+                  00000000 _savegpr_25
+                  00000000 _savegpr_26
+                  00000000 _savegpr_27
+                  00000000 _savegpr_28
+                  00000000 _savegpr_29
+                  00000000 _savegpr_30
+                  00000000 _savegpr_31
+                  00000000 _restgpr_14
+                  00000000 _restgpr_15
+                  00000000 _restgpr_16
+                  00000000 _restgpr_17
+                  00000000 _restgpr_18
+                  00000000 _restgpr_19
+                  00000000 _restgpr_20
+                  00000000 _restgpr_21
+                  00000000 _restgpr_22
+                  00000000 _restgpr_23
+                  00000000 _restgpr_24
+                  00000000 _restgpr_25
+                  00000000 _restgpr_26
+                  00000000 _restgpr_27
+                  00000000 _restgpr_28
+                  00000000 _restgpr_29
+                  00000000 _restgpr_30
+                  00000000 _restgpr_31
+ .vects           40000000 VTABLE
+ .ostext          40000124 OSInitApplications
+ .osbegincode     40000124 __ghsbegin_osbegincode
+ .ostext          40000150 __ghs_eofn_OSInitApplications
+ .ostext          40000150 StartOS
+ .ostext          400002f4 __ghs_eofn_StartOS
+ .ostext          400002f4 OSShutdownOS
+ .ostext          4000033a __ghs_eofn_OSShutdownOS
+ .ostext          4000033a OS_ShutdownOS
+ .ostext          40000350 __ghs_eofn_OS_ShutdownOS
+ .ostext          40000350 OS_GetActiveApplicationMode
+ .ostext          40000354 __ghs_eofn_OS_GetActiveApplicationMode
+ .ostext          40000354 OSProtectedCallTask
+ .ostext          40000378 __ghs_eofn_OSProtectedCallTask
+ .ostext          40000378 OSTaskInternalDispatch
+ .ostext          4000049e __ghs_eofn_OSTaskInternalDispatch
+ .ostext          4000049e OS_ExceptionDispatch
+ .ostext          400004de __ghs_eofn_OS_ExceptionDispatch
+ .ostext          400004de OSTaskForceDispatch
+ .ostext          40000530 __ghs_eofn_OSTaskForceDispatch
+ .ostext          40000530 OSTaskTerminateDispatch
+ .ostext          40000592 __ghs_eofn_OSTaskTerminateDispatch
+ .ostext          40000592 OS_Schedule
+ .ostext          40000602 __ghs_eofn_OS_Schedule
+ .ostext          40000602 OS_ActivateTask
+ .ostext          4000070c __ghs_eofn_OS_ActivateTask
+ .ostext          4000070c OS_TerminateTask
+ .ostext          4000074c __ghs_eofn_OS_TerminateTask
+ .ostext          4000074c OS_ChainTask
+ .ostext          40000820 __ghs_eofn_OS_ChainTask
+ .ostext          40000820 OS_GetTaskID
+ .ostext          40000880 __ghs_eofn_OS_GetTaskID
+ .ostext          40000880 OS_GetTaskState
+ .ostext          4000098c __ghs_eofn_OS_GetTaskState
+ .ostext          4000098c OSKillTask
+ .ostext          400009fc __ghs_eofn_OSKillTask
+ .ostext          400009fc OSKillAppTasks
+ .ostext          40000a60 __ghs_eofn_OSKillAppTasks
+ .ostext          40000a60 OSKillRunningTask
+ .ostext          40000aa8 __ghs_eofn_OSKillRunningTask
+ .ostext          40000aa8 OSKillAlarm
+ .ostext          40000ac8 __ghs_eofn_OSKillAlarm
+ .ostext          40000ac8 OSNotifyAlarmAction
+ .ostext          40000afa __ghs_eofn_OSNotifyAlarmAction
+ .ostext          40000afa OSCheckAlarms
+ .ostext          40000bac __ghs_eofn_OSCheckAlarms
+ .ostext          40000bac OSInsertAlarm
+ .ostext          40000be4 __ghs_eofn_OSInsertAlarm
+ .ostext          40000be4 OSKillAppAlarms
+ .ostext          40000c24 __ghs_eofn_OSKillAppAlarms
+ .ostext          40000c24 OS_GetAlarmBase
+ .ostext          40000cea __ghs_eofn_OS_GetAlarmBase
+ .ostext          40000cea OS_GetAlarm
+ .ostext          40000e22 __ghs_eofn_OS_GetAlarm
+ .ostext          40000e22 OSSetAlarm
+ .ostext          40000e66 __ghs_eofn_OSSetAlarm
+ .ostext          40000e66 OS_SetRelAlarm
+ .ostext          40000fa0 __ghs_eofn_OS_SetRelAlarm
+ .ostext          40000fa0 OS_SetAbsAlarm
+ .ostext          400010ac __ghs_eofn_OS_SetAbsAlarm
+ .ostext          400010ac OS_CancelAlarm
+ .ostext          400011ac __ghs_eofn_OS_CancelAlarm
+ .ostext          400011ac OSSysTimerCancel
+ .ostext          400011d0 __ghs_eofn_OSSysTimerCancel
+ .ostext          400011d0 OSISRSystemTimer
+ .ostext          40001280 __ghs_eofn_OSISRSystemTimer
+ .ostext          40001280 OSShutdownSystemTimer
+ .ostext          400012a6 __ghs_eofn_OSShutdownSystemTimer
+ .ostext          400012a6 OSInitializeSystemTimer
+ .ostext          40001324 __ghs_eofn_OSInitializeSystemTimer
+ .ostext          40001324 OS_InitCounter
+ .ostext          4000138c __ghs_eofn_OS_InitCounter
+ .ostext          4000138c OS_GetCounterValue
+ .ostext          40001434 __ghs_eofn_OS_GetCounterValue
+ .ostext          40001434 OS_GetElapsedCounterValue
+ .ostext          40001546 __ghs_eofn_OS_GetElapsedCounterValue
+ .ostext          40001546 OS_IncrementCounter
+ .ostext          40001662 __ghs_eofn_OS_IncrementCounter
+ .ostext          40001662 OS_GetCounterInfo
+ .ostext          4000171e __ghs_eofn_OS_GetCounterInfo
+ .ostext          4000171e OSISRException
+ .ostext          40001724 __ghs_eofn_OSISRException
+ .ostext          40001724 OSInitializeISR
+ .ostext          400018fa __ghs_eofn_OSInitializeISR
+ .ostext          400018fa OSLeaveISR
+ .ostext          40001974 __ghs_eofn_OSLeaveISR
+ .ostext          40001974 OSInterruptDispatcher1
+ .ostext          40001ab6 __ghs_eofn_OSInterruptDispatcher1
+ .ostext          40001ab6 OS_DisableAllInterrupts
+ .ostext          40001aee __ghs_eofn_OS_DisableAllInterrupts
+ .ostext          40001aee OS_EnableAllInterrupts
+ .ostext          40001b16 __ghs_eofn_OS_EnableAllInterrupts
+ .ostext          40001b16 OS_SuspendAllInterrupts
+ .ostext          40001b52 __ghs_eofn_OS_SuspendAllInterrupts
+ .ostext          40001b52 OS_ResumeAllInterrupts
+ .ostext          40001b8a __ghs_eofn_OS_ResumeAllInterrupts
+ .ostext          40001b8a OS_SuspendOSInterrupts
+ .ostext          40001bd4 __ghs_eofn_OS_SuspendOSInterrupts
+ .ostext          40001bd4 OS_ResumeOSInterrupts
+ .ostext          40001c12 __ghs_eofn_OS_ResumeOSInterrupts
+ .ostext          40001c12 OS_GetISRID
+ .ostext          40001c5c __ghs_eofn_OS_GetISRID
+ .ostext          40001c5c OS_DisableInterruptSource
+ .ostext          40001d14 __ghs_eofn_OS_DisableInterruptSource
+ .ostext          40001d14 OS_EnableInterruptSource
+ .ostext          40001dee __ghs_eofn_OS_EnableInterruptSource
+ .ostext          40001dee __ghs_eofn_OSKillAppISRs
+ .ostext          40001dee OSInitMemProtection
+ .ostext          40001e82 __ghs_eofn_OSInitMemProtection
+ .ostext          40001e82 OSAppMemAccess
+ .ostext          40001ed8 __ghs_eofn_OSAppMemAccess
+ .ostext          40001ed8 OSCheckWriteAccess
+ .ostext          40001f2e __ghs_eofn_OSCheckWriteAccess
+ .ostext          40001f2e OS_CheckTaskMemoryAccess
+ .ostext          40001f78 __ghs_eofn_OS_CheckTaskMemoryAccess
+ .ostext          40001f78 OS_CheckObjectAccess
+ .ostext          40002042 __ghs_eofn_OS_CheckObjectAccess
+ .ostext          40002042 OSTerminateApplication
+ .ostext          4000206e __ghs_eofn_OSTerminateApplication
+ .ostext          4000206e OS_TerminateApplication
+ .ostext          40002158 __ghs_eofn_OS_TerminateApplication
+ .ostext          40002158 OS_CheckObjectOwnership
+ .ostext          400021d0 __ghs_eofn_OS_CheckObjectOwnership
+ .ostext          400021d0 OS_GetApplicationID
+ .ostext          400021ea __ghs_eofn_OS_GetApplicationID
+ .ostext          400021ea OSExceptionError
+ .ostext          40002234 __ghs_eofn_OSExceptionError
+ .ostext          40002234 OSTLBException
+ .ostext          4000223a __ghs_eofn_OSTLBException
+ .ostext          4000223a OSInterruptDispatcher
+ .ostext          40002260 OSSetJmp
+ .ostext          40002278 OSLongJmp
+ .ostext          4000228e OSSystemCall0
+ .ostext          40002294 OSSystemCall1
+ .ostext          4000229a OSSystemCall2
+ .ostext          400022a0 OSSystemCall3
+ .ostext          400022a4 OSServiceDispatcher
+ .ostext          40002316 OSCriticalException
+ .ostext          4000232c OSMachineCheckException
+ .ostext          40002342 OSNonCriticalException
+ .ostext          40002358 OSDebugException
+ .ostext          40002368 OSTLBErrorException
+ .osrodata        40002380 OsAppCfgTable
+ .osrodata        40002384 OsIsrCfg
+ .osrodata        400023b4 OsCountersCfg
+ .osrodata        400023c8 OsTaskCfgTable
+ .osrodata        400024d0 OsAlarmsCfg
+ .osrodata        40002548 OsIsr
+ .osrodata        40002900 OsLastServiceId
+ .osrodata        40002904 OsServices
+ .osrodata        40002988 OsMemRgn
+ .osrodata        400029ac OsMPU_ConstRGD
+ .appcode         400029fc StackProtectionOff
+ .appcode         40002a28 __ghs_eofn_StackProtectionOff
+ .appcode         40002a28 GetUsedBytes
+ .appcode         40002a42 __ghs_eofn_GetUsedBytes
+ .appcode         40002a42 main
+ .appcode         40002d34 __ghs_eofn_main
+ .appcode         40002d34 Count
+ .appcode         40002d60 __ghs_eofn_Count
+ .appcode         40002d60 EndMeasurement
+ .appcode         40002d62 __ghs_eofn_EndMeasurement
+ .appcode         40002d62 FuncTASKBGND
+ .appcode         40002fc4 __ghs_eofn_FuncTASKBGND
+ .appcode         40002fc4 FuncTASK1
+ .appcode         40002fc8 __ghs_eofn_FuncTASK1
+ .appcode         40002fc8 FuncTASK2
+ .appcode         40002fcc __ghs_eofn_FuncTASK2
+ .appcode         40002fcc FuncTASK3
+ .appcode         40002fd0 __ghs_eofn_FuncTASK3
+ .appcode         40002fd0 FuncTASK4
+ .appcode         40002fd4 __ghs_eofn_FuncTASK4
+ .appcode         40002fd4 FuncTASK5
+ .appcode         40002fd8 __ghs_eofn_FuncTASK5
+ .appcode         40002fd8 FuncTASK6
+ .appcode         40002fdc __ghs_eofn_FuncTASK6
+ .appcode         40002fdc FuncTASK7
+ .appcode         40002fe0 __ghs_eofn_FuncTASK7
+ .appcode         40002fe0 FuncTASK8
+ .appcode         40002fe4 __ghs_eofn_FuncTASK8
+ .appcode         40002fe4 FuncTASK9
+ .appcode         40002fe8 __ghs_eofn_FuncTASK9
+ .appcode         40002fe8 FuncTASK10
+ .appcode         40002fec __ghs_eofn_FuncTASK10
+ .appcode         40002fec SetPLL
+ .appcode         40003054 __ghs_eofn_SetPLL
+ .vletext         40003058 _start
+ .vletext         40003148 memcpy
+ .vletext         4000322c __ghs_ind_crt0
+ .vletext         400034f2 __ghs_decompress
+ .vletext         40003580 memset
+ .vletext         400035d4 exit
+ .vletext         40003606 _enter
+ .vletext         4000360e _Exit
+ .vletext         4000360e _exit
+ .vletext         40003676 __ghs_syscall
+ .vletext         40003696 __ghs_ind_crt1
+ .vletext         400037ac __ghs_GetThreadLocalStorageItem
+ .vletext         400037be __ghsLock
+ .vletext         400037c0 __ghsUnlock
+ .vletext         400037c2 __gh_lock_init
+ .vletext         400037c4 __gh_set_errno
+ .vletext         400037d0 _savesmall_24
+ .vletext         400037de _restsmall_24
+ .vletext         400037ea _savesmall_16
+ .vletext         400037f8 _restsmall_16
+ .vletext         40003810 _savegpr_14_l
+ .vletext         40003814 _savegpr_15_l
+ .vletext         40003818 _savegpr_16_l
+ .vletext         4000381c _savegpr_17_l
+ .vletext         40003820 _savegpr_18_l
+ .vletext         40003824 _savegpr_19_l
+ .vletext         40003828 _savegpr_20_l
+ .vletext         4000382c _savegpr_21_l
+ .vletext         40003830 _savegpr_22_l
+ .vletext         40003834 _savegpr_23_l
+ .vletext         40003838 _savegpr_24_l
+ .vletext         4000383c _savegpr_25_l
+ .vletext         40003840 _savegpr_26_l
+ .vletext         40003844 _savegpr_27_l
+ .vletext         40003848 _savegpr_28_l
+ .vletext         4000384c _savegpr_29_l
+ .vletext         40003850 _savegpr_30_l
+ .vletext         40003854 _savegpr_31_l
+ .vletext         40003864 _restgpr_14_l
+ .vletext         40003868 _restgpr_15_l
+ .vletext         4000386c _restgpr_16_l
+ .vletext         40003870 _restgpr_17_l
+ .vletext         40003874 _restgpr_18_l
+ .vletext         40003878 _restgpr_19_l
+ .vletext         4000387c _restgpr_20_l
+ .vletext         40003880 _restgpr_21_l
+ .vletext         40003884 _restgpr_22_l
+ .vletext         40003888 _restgpr_23_l
+ .vletext         4000388c _restgpr_24_l
+ .vletext         40003890 _restgpr_25_l
+ .vletext         40003894 _restgpr_26_l
+ .vletext         40003898 _restgpr_27_l
+ .vletext         4000389c _restgpr_28_l
+ .vletext         400038a0 _restgpr_29_l
+ .vletext         400038a4 _restgpr_30_l
+ .vletext         400038a8 _restgpr_31_l
+ .syscall         400038b6 __dotsyscall
+ .secinfo         400038bc __ghsbinfo_clear
+ .secinfo         400038bc __ghsbegin_secinfo
+ .secinfo         400038d4 __ghsbinfo_aclear
+ .secinfo         400038d4 __ghseinfo_clear
+ .secinfo         400038d4 __ghsbinfo_copy
+ .secinfo         400038d4 __ghsbinfo_acopy
+ .secinfo         400038d4 __ghsbinfo_tcopy
+ .secinfo         400038d4 __ghseinfo_copy
+ .secinfo         400038d4 __ghsbinfo_comcopy
+ .secinfo         400038d4 __ghsbinfo_comacopy
+ .secinfo         400038d4 __ghsbinfo_comtcopy
+ .secinfo         400038d4 __ghseinfo_comcopy
+ .sdata2          400038d4 __ghsbegin_sdata2
+ .osendcode       400038d4 __ghsend_osendcode
+ .osstack         400038e0 OsStacks
+ .osstack         400038e0 __ghsbegin_osstack
+ .app0_vU_bss     40004700 stackUsage
+ .osstack         40004700 __ghsend_osstack
+ .app0_vU_bss     40004734 tmpSP
+ .app0_vU_bss     40004738 tmpPtr
+ .app0_vU_bss     4000473c iterator
+ .bss             40004764 __atexit_cleanup
+ .bss             40004768 __stdio_cleanup
+ .bss             4000476c environ
+ .bss             40004770 errno
+ .osbss           4000477c OsTaskTable
+ .osbss           40004c8c OsCounters
+ .osbss           40004c9c OsAlarms
+ .osbss           40004db4 OsIsrTable
+ .osbss           40004dec OsIsrArray
+ .osbss           40004df0 OsAppTable
+ .osbss           40004df4 OsISRbufs
+ .osbss           40004e48 OsExceptionStack
+ .ossbss          40005050 OsOldMsr_
+ .sdabase         40005050 __ghsbegin_sdabase
+ .ossbss          40005054 OsOldInterruptMask_
+ .ossbss          40005058 OsOldIntMaskAll_
+ .ossbss          4000505c OsIsrLevel_
+ .ossbss          40005060 OsInitialMSR_
+ .ossbss          40005064 OsSchedulerVector1_
+ .ossbss          40005068 OsRunning_
+ .ossbss          4000506c OsKilled_
+ .ossbss          4000506d OsSuspendLevel_
+ .ossbss          4000506e OsSuspendLevelAll_
+ .sapp_vU_bss     40005070 sysCnt
+ .sapp_vU_bss     40005074 nosys
+ .sapp_vU_bss     40005078 procent
+                  40005080 _stack_end
+                  40005080 _OsOrtiStackStart
+ .stack           40005480 __ghsend_stack
+                  40005480 _stack_addr
+                  40005480 _OsOrtiStart
+ .sdata2          4000b8d4 _SDA2_BASE_
+ .sdabase         4000d050 _SDA_BASE_

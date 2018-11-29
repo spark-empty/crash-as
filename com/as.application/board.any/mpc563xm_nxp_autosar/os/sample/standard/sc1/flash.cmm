@@ -1,0 +1,188 @@
+;**************************************************************************************
+; 
+;   Freescale(TM) and the Freescale logo are trademarks of Freescale Semiconductor, Inc. 
+;   All other product or service names are the property of their respective owners. 
+;   (C) Freescale Semiconductor, Inc. 2009-2010
+; 
+;   You can use this example for any purpose on any computer system with the
+;   following restrictions:
+;
+;   1. This example is provided "as is", without warranty.
+;
+;   2. You don't remove this copyright notice from this example or any direct derivation 
+;      thereof.
+;
+;  Description:  Flash memory programming script
+;
+;**************************************************************************************
+
+local &elfname &mcu 
+entry &elfname &mcu 
+
+&flashbase=0x00000000
+&flashsize="tbd"
+&shadowbase="tbd"
+&shadow0base="tbd"
+&shadow1base="tbd"
+&rambase=0x40000000
+
+&flashdriver="tbd" 
+
+if (&mcu=="5634M")
+(
+  &shadowbase=0x00ffc000
+  &flashsize=0x000180000
+  &flashdriver="~~/demo/powerpc/flash/quad/c90fl563xm.bin"
+    
+  ;enable SPE
+  Register.Set SPE 1
+)
+else
+(
+  &shadow0base=0x00ffc000
+  &shadow1base=0x00efc000
+  &flashsize=0x000400000
+  &flashdriver="~~/demo/powerpc/flash/quad/c90fl5674.bin"
+)
+
+MMU.TLB1.SET 0x3 0xC0000400 0x40000008 0x4000003F
+
+;========================================================================
+; Flash declaration
+
+FLASH.RESet
+
+if (&mcu=="5634M")
+(
+FLASH.Create 1. (&flashbase+0x00000000)++0x03fff TARGET Quad 0. ; L0
+FLASH.Create 1. (&flashbase+0x00004000)++0x03fff TARGET Quad 1. ; L1a 
+FLASH.Create 1. (&flashbase+0x00008000)++0x07fff TARGET Quad 2. ; L1b 
+FLASH.Create 1. (&flashbase+0x00010000)++0x07fff TARGET Quad 3. ; L2a 
+FLASH.Create 1. (&flashbase+0x00018000)++0x03fff TARGET Quad 4. ; L2b 
+FLASH.Create 1. (&flashbase+0x0001c000)++0x03fff TARGET Quad 5. ; L3
+FLASH.Create 1. (&flashbase+0x00020000)++0x0ffff TARGET Quad 6. ; L4
+FLASH.Create 1. (&flashbase+0x00030000)++0x0ffff TARGET Quad 7. ; L5
+
+FLASH.Create 2. (&flashbase+0x00040000)++0x1ffff TARGET Quad 0. ; M0
+FLASH.Create 2. (&flashbase+0x00060000)++0x1ffff TARGET Quad 1. ; M1
+
+&flashaddr=&flashbase+0x00080000
+&Hx=0.
+while &flashaddr<(&flashbase+0x100000)
+(
+  FLASH.Create 3. &flashaddr++0x1ffff TARGET Quad &Hx ; H0..H3
+  &flashaddr=&flashaddr+0x20000
+  &Hx=&Hx+1.
+)
+
+&Hx=0.
+while &flashaddr<(&flashbase+&flashsize)
+(
+  FLASH.Create 4. &flashaddr++0x1ffff TARGET Quad &Hx ; H0..H3
+  &flashaddr=&flashaddr+0x20000
+  &Hx=&Hx+1.
+)
+
+; Shadow row
+FLASH.Create 5. (&shadowbase+0x00000000)++0x3fff NOP Quad
+)
+
+if (&mcu=="5644A")
+(
+; LAS
+FLASH.Create 1. (&flashbase+0x00000000)++0x03fff TARGET Quad 0.  ; L0 bank 0
+FLASH.Create 1. (&flashbase+0x00004000)++0x03fff TARGET Quad 1.  ; L1 bank 0
+FLASH.Create 1. (&flashbase+0x00008000)++0x03fff TARGET Quad 2.  ; L2 bank 0
+FLASH.Create 1. (&flashbase+0x0000c000)++0x03fff TARGET Quad 3.  ; L3 bank 0
+FLASH.Create 1. (&flashbase+0x00010000)++0x03fff TARGET Quad 4.  ; L4 bank 0
+FLASH.Create 1. (&flashbase+0x00014000)++0x03fff TARGET Quad 5.  ; L5 bank 0
+FLASH.Create 1. (&flashbase+0x00018000)++0x03fff TARGET Quad 6.  ; L6 bank 0
+FLASH.Create 1. (&flashbase+0x0001c000)++0x03fff TARGET Quad 7.  ; L7 bank 0
+FLASH.Create 1. (&flashbase+0x00020000)++0x0ffff TARGET Quad 8.  ; L8 bank 0
+FLASH.Create 1. (&flashbase+0x00030000)++0x0ffff TARGET Quad 9.  ; L9 bank 0
+FLASH.Create 1. (&flashbase+0x00040000)++0x1ffff TARGET Quad 10. ; M0 bank 0
+FLASH.Create 1. (&flashbase+0x00060000)++0x1ffff TARGET Quad 11. ; M1 bank 0
+
+; MAS
+FLASH.Create 2. (&flashbase+0x00080000)++0x3ffff TARGET Quad 0.  ; L0 bank 1
+FLASH.Create 2. (&flashbase+0x000c0000)++0x3ffff TARGET Quad 1.  ; M0 bank 1
+
+; HAS
+&flashaddr=&flashbase+0x00100000
+&Hx=0.
+while &flashaddr<(&flashbase+&flashsize)
+(
+  FLASH.Create 3. &flashaddr++0x7ffff TARGET Quad &Hx ; H0..H5 bank 0 + bank 1
+  &flashaddr=&flashaddr+0x80000
+  &Hx=&Hx+1.
+)
+
+; Shadow rows
+FLASH.Create 4. (&shadow0base+0x00000000)++0x3fff NOP Quad
+FLASH.Create 5. (&shadow1base+0x00000000)++0x3fff NOP Quad
+)
+
+if (&mcu=="5674F")
+(
+; LAS
+FLASH.Create 1. (&flashbase+0x00000000)++0x03fff TARGET Quad 0.  ; L0 bank 0
+FLASH.Create 1. (&flashbase+0x00004000)++0x03fff TARGET Quad 1.  ; L1 bank 0
+FLASH.Create 1. (&flashbase+0x00008000)++0x03fff TARGET Quad 2.  ; L2 bank 0
+FLASH.Create 1. (&flashbase+0x0000c000)++0x03fff TARGET Quad 3.  ; L3 bank 0
+FLASH.Create 1. (&flashbase+0x00010000)++0x03fff TARGET Quad 4.  ; L4 bank 0
+FLASH.Create 1. (&flashbase+0x00014000)++0x03fff TARGET Quad 5.  ; L5 bank 0
+FLASH.Create 1. (&flashbase+0x00018000)++0x03fff TARGET Quad 6.  ; L6 bank 0
+FLASH.Create 1. (&flashbase+0x0001c000)++0x03fff TARGET Quad 7.  ; L7 bank 0
+FLASH.Create 1. (&flashbase+0x00020000)++0x0ffff TARGET Quad 8.  ; L8 bank 0
+FLASH.Create 1. (&flashbase+0x00030000)++0x0ffff TARGET Quad 9.  ; L9 bank 0
+FLASH.Create 1. (&flashbase+0x00040000)++0x1ffff TARGET Quad 10. ; M0 bank 0
+FLASH.Create 1. (&flashbase+0x00060000)++0x1ffff TARGET Quad 11. ; M1 bank 0
+
+; MAS
+FLASH.Create 2. (&flashbase+0x00080000)++0x3ffff TARGET Quad 0.  ; L0 bank 1
+FLASH.Create 2. (&flashbase+0x000c0000)++0x3ffff TARGET Quad 1.  ; M0 bank 1
+
+; HAS
+&flashaddr=&flashbase+0x00100000
+&Hx=0.
+while &flashaddr<(&flashbase+&flashsize)
+(
+  FLASH.Create 3. &flashaddr++0x7ffff TARGET Quad &Hx ; H0..H5 bank 0 + bank 1
+  &flashaddr=&flashaddr+0x80000
+  &Hx=&Hx+1.
+)
+
+; Shadow rows
+FLASH.Create 4. (&shadow0base+0x00000000)++0x3fff NOP Quad
+FLASH.Create 5. (&shadow1base+0x00000000)++0x3fff NOP Quad
+)
+
+FLASH.TARGET E:&rambase E:&rambase+0x2800 0x1000 &flashdriver /STACKSIZE 0x0200
+
+;========================================================================
+; Flash programming example
+;
+; Flash programming speed is about three times faster when memory class E:
+; is used for data buffer (DUALPORT memory access). For DUALPORT access it
+; is required to setup MemAccess NEXUS for both, NEXUS and JTAG debugger. 
+
+DIALOG.YESNO "Flash programming prepared. Program flash memory now?"
+entry &progflash
+
+if &progflash 
+(
+  FLASH.ReProgram ALL /Erase
+  Data.LOAD &elfname.elf E:0x00--(&flashsize-1)  
+  FLASH.ReProgram OFF
+)
+else
+(
+  FLASH.LIST
+)
+
+;set JTAG clock back to default
+SYStem.BdmClock 4MHz
+
+ENDDO
+
+

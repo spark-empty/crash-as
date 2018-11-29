@@ -1,0 +1,140 @@
+import os
+from building import *
+
+Import('asenv')
+MODULES=asenv['MODULES']
+ASROOT=asenv['ASROOT']
+
+cwd = GetCurrentDir()
+
+objs = []
+
+if('CAN' in MODULES):
+    objs += Glob('mcal/Can.c')
+    asenv.Append(CPPDEFINES=['CAN_LL_DL=64'])
+    if(IsPlatformWSL()):
+        asenv.Append(CPPDEFINES='CAN_DEV_NAME=\'"socketwin"\'')
+
+if('DIO' in MODULES):
+    objs += Glob('mcal/Dio.c')
+
+if(('FATFS' in MODULES) or ('LWEXT4' in MODULES)):
+    objs += Glob('mcal/diskio.c')
+
+if('EEP' in MODULES):
+    objs += Glob('mcal/Eep.c')
+
+if('FLASH' in MODULES):
+    objs += Glob('mcal/Flash.c')
+
+if('FLS' in MODULES):
+    objs += Glob('mcal/Fls.c')
+
+if('IPC' in MODULES):
+    objs += Glob('mcal/Ipc.c')
+
+if('LCD' in MODULES):
+    objs += Glob('mcal/Lcd.c')
+
+if('MCU' in MODULES):
+    objs += Glob('mcal/Mcu.c')
+
+if('PORT' in MODULES):
+    objs += Glob('mcal/Port.c')
+
+if('STMO' in MODULES):
+    objs += Glob('mcal/Stmo.c')
+
+if('LWIP' in MODULES):
+    lwip=Package('lwip-contrib')
+    if(IsPlatformWindows()):
+        asenv.Append(CPPPATH='%s/ports/win32'%(lwip))
+        objs += ['%s/ports/win32/pcapif.c'%(lwip)]
+        #objs += Glob('lwip-contrib/ports/win32/pcapif_helper.c')
+        asenv.Append(CPPDEFINES='PCAPIF_HANDLE_LINKSTATE=0')
+        asenv.Append(CPPDEFINES='USE_PCAPIF')
+    else:
+        objs += Glob('lwip/tapif.c')
+
+    if(IsPlatformWindows()):
+        pcap=Package('https://www.winpcap.org/install/bin/WpdPack_4_1_2.zip')+'/WpdPack'
+        MKSymlink(pcap,'%s/WpdPack'%(cwd))
+        asenv.Append(CPPPATH=['%s/WpdPack/Include'%(cwd)])
+        if(asenv['msys2']):
+            objs += Glob('%s/WpdPack/Lib/x64/*.lib'%(cwd))
+        else:
+            asenv.Append(LIBS=['packet','wpcap'])
+            asenv.Append(LIBPATH=['%s/WpdPack/Lib'%(cwd)])
+        if('-D_MSC_VER' not in asenv['CCFLAGS']):
+            asenv.Append(CPPDEFINES='_MSC_VER')
+
+if('UIP' in MODULES):
+    uip=Package('contiki')
+    asenv.Append(CPPPATH=['%s/cpu/native'%(uip)])
+    if(IsPlatformWindows()):
+        asenv.Append(LIBS=['iphlpapi'])
+        objs += Glob('%s/cpu/native/net/wpcap*.c'%(uip))
+    else:
+        objs += Glob('%s/cpu/native/net/tapdev.c'%(uip))
+        objs += Glob('%s/cpu/native/net/tapdev-drv.c'%(uip))
+
+asenv.Append(CPPDEFINES='__AS_CAN_BUS__')
+asenv.Append(CPPPATH=['%s/com/as.infrastructure/communication/RPmsg'%(asenv['ASROOT'])])
+
+objs += SConscript('%s/com/as.tool/lua/SConscript'%(asenv['ASROOT']))
+
+if('GTK' in MODULES):
+    asenv.ParseConfig('%s --cflags gtk+-3.0'%(asenv['pkgconfig']))
+    asenv.ParseConfig('%s --libs gtk+-3.0 glib-2.0 gthread-2.0'%(asenv['pkgconfig']))
+    asenv.Append(CCFLAGS='-DGUI_USE_GTK')
+    if('-pthread' in asenv['CCFLAGS']):
+        asenv['CCFLAGS'].remove('-pthread')
+    if('-pthread' in asenv['LINKFLAGS']):
+        asenv['LINKFLAGS'].remove('-pthread')
+    if('-pthread' in asenv['LINKFLAGS']):
+        asenv['LINKFLAGS'].remove('-pthread')
+    if('dwmapi' in asenv['LIBS']):
+        asenv['LIBS'].remove('dwmapi')
+elif('OPENVG' in MODULES):
+    CPPPATH = ['%s/openvg/vg'%(cwd),
+               '%s/com/as.infrastructure/system/gui/Sg/openvg/include'%(ASROOT),
+               '%s/com/as.infrastructure/system/gui/Sg/openvg/include/EGL'%(ASROOT),
+               '%s/com/as.infrastructure/system/gui/Sg/openvg/include/VG'%(ASROOT)
+               ]
+    asenv.Append(CPPPATH=CPPPATH)
+    if(asenv['msys2'] is True):
+        asenv.Append(LIBS = ['Gdi32'])
+        env = Environment() # default is (TOOLS=['msvc'])
+        env.Append(CPPPATH=CPPPATH)
+        env.Append(CPPDEFINES=['_WIN32','OPENVG_DLL_EXPORTS'])
+        env.Append(LIBS = ['User32','Gdi32'])
+        dll = env.SharedLibrary('openVG.dll', Glob('openvg/vg/win32/*.cpp')+Glob('openvg/vg/*.cpp'))
+        objs += ['%s/openVG.dll'%(os.getcwd())]
+        if(os.path.exists('%s/openVG.dll'%(os.getcwd()))):
+            MKSymlink('%s/openVG.dll'%(os.getcwd()),
+                  '%s/release/%s/openVG.dll'%(asenv['ASROOT'],asenv['RELEASE']))
+    else:
+        asenv.Append(CPPDEFINES=['_WIN32','OPENVG_STATIC_LIBRARY','EGL_STATIC_LIBRARY'])
+        objs += Glob('openvg/vg/win32/*.cpp')
+        objs += Glob('openvg/vg/*.cpp')
+    asenv.Append(CXXFLAGS=['-fpermissive'])
+
+asenv.Append(LIBS=['pthread','stdc++','m'])
+
+if(IsPlatformWindows()):
+    asenv.Append(LIBS=['wsock32'])
+    asenv.Append(CPPDEFINES='__WINDOWS__')
+    if(asenv['msys2']):
+        asenv.Append(CPPDEFINES='__X86_64__')
+        print('WARNING: need modify the c:/msys64/mingw64/x86_64-w64-mingw32/include/ws2tcpip.h line 86-103, add WS2TCPIP_INLINE')
+        print('WARNING: need modify the c:/msys64/mingw64/x86_64-w64-mingw32/include/ws2ipdef.h line 127, add WS2TCPIP_INLINE')
+else:
+    asenv.Append(CPPDEFINES='__LINUX__')
+
+asenv.Append(CCFLAGS='-std=gnu99')
+asenv.Append(CCFLAGS='-O0')
+asenv.Append(CCFLAGS='-g')
+
+asenv.Append(CPPPATH='%s/mcal'%(cwd))
+
+Return('objs')

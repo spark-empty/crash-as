@@ -1,0 +1,14 @@
+<?xml version='1.0' encoding='utf-8'?>
+<AS>
+	<Os>
+		<Task Name="TaskCanIf"  
+    		Activation="5" 
+			Autostart="True" 
+			Priority="9" 
+			Schedule="FULL" 
+			StackSize="2048"
+			Application="OsDefaultApp"
+     		Comment="*" />
+	</Os>
+	<KSM> <CANIdle><Running/></CANIdle> </KSM>
+</AS>

@@ -1,0 +1,15 @@
+
+Name: generate_PC/include/modules.h
+SignatureKeyID: Freescale
+Signature: 28964594773967652509890964402847544093739912724133430787863
+ 875067338950332475915716012686928417646000590726697946
+SignatureKeyProviderID: plugin.launcher2.licenseFileKeyProvider
+SignatureAlgorithmID: DSA
+
+Name: config/Base.xdm
+SignatureKeyID: Freescale
+Signature: 11313377420408409368549213354250074193971805530469374586614
+ 1300058359653388013488579490333796711036047296138148
+SignatureKeyProviderID: plugin.launcher2.licenseFileKeyProvider
+SignatureAlgorithmID: DSA
+

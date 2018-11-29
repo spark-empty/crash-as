@@ -1,0 +1,441 @@
+<?xml version='1.0'?>
+<datamodel version="3.0" 
+           xmlns="http://www.tresos.de/_projects/DataModel2/08/root.xsd" 
+           xmlns:a="http://www.tresos.de/_projects/DataModel2/08/attribute.xsd" 
+           xmlns:v="http://www.tresos.de/_projects/DataModel2/06/schema.xsd" 
+           xmlns:d="http://www.tresos.de/_projects/DataModel2/06/data.xsd">
+
+  <d:ctr type="AUTOSAR" factory="autosar"  
+         xmlns:ad="http://www.tresos.de/_projects/DataModel2/08/admindata.xsd" 
+         xmlns:icc="http://www.tresos.de/_projects/DataModel2/08/implconfigclass.xsd">
+    <d:lst type="TOP-LEVEL-PACKAGES">
+      <d:ctr name="Mcu" type="AR-PACKAGE">
+        <d:lst type="ELEMENTS">
+          <d:chc name="Mcu" type="AR-ELEMENT" value="MODULE-CONFIGURATION">
+            <d:ctr type="MODULE-CONFIGURATION">
+              <a:a name="DEF" value="ASPath:/TS_T2D14M20I0R0/Mcu"/>
+              <a:a name="IMPORTER_INFO" value="Mcu"/>
+              <d:var name="IMPLEMENTATION_CONFIG_VARIANT" type="ENUMERATION" 
+                     value="VariantPostBuild">
+                <a:a name="IMPORTER_INFO" value="Mcu"/>
+              </d:var>
+              <d:ctr name="McuGeneralConfiguration" type="IDENTIFIABLE">
+                <a:a name="IMPORTER_INFO" value="Mcu"/>
+                <d:var name="McuDevErrorDetect" type="BOOLEAN" value="false">
+                  <a:a name="IMPORTER_INFO" value="Mcu"/>
+                </d:var>
+                <d:var name="McuPerformResetApi" type="BOOLEAN" value="false">
+                  <a:a name="IMPORTER_INFO" value="Mcu"/>
+                </d:var>
+                <d:var name="McuCalloutBeforePerformReset" type="BOOLEAN" 
+                       value="false">
+                  <a:a name="IMPORTER_INFO" value="@DEF"/>
+                </d:var>
+                <d:var name="McuPerformResetCallout" type="FUNCTION-NAME" 
+                       value="NULL_PTR">
+                  <a:a name="IMPORTER_INFO" value="@DEF"/>
+                </d:var>
+                <d:var name="McuVersionInfoApi" type="BOOLEAN" value="false">
+                  <a:a name="IMPORTER_INFO" value="Mcu"/>
+                </d:var>
+                <d:var name="McuConfigureFlash" type="BOOLEAN" value="true">
+                  <a:a name="IMPORTER_INFO" value="@DEF"/>
+                </d:var>
+                <d:var name="McuEnterLowPowerMode" type="BOOLEAN" value="true">
+                  <a:a name="IMPORTER_INFO" value="@DEF"/>
+                </d:var>
+              </d:ctr>
+              <d:ctr name="CommonPublishedInformation" type="IDENTIFIABLE">
+                <a:a name="IMPORTER_INFO" value="Mcu"/>
+                <d:var name="ArMajorVersion" type="INTEGER" value="2"/>
+                <d:var name="ArMinorVersion" type="INTEGER" value="2"/>
+                <d:var name="ArPatchVersion" type="INTEGER" value="2"/>
+                <d:var name="ModuleId" type="INTEGER" value="101">
+                  <a:a name="IMPORTER_INFO" value="Mcu"/>
+                </d:var>
+                <d:var name="SwMajorVersion" type="INTEGER" value="2"/>
+                <d:var name="SwMinorVersion" type="INTEGER" value="0"/>
+                <d:var name="SwPatchVersion" type="INTEGER" value="0">
+                  <a:a name="IMPORTER_INFO" value="Mcu"/>
+                </d:var>
+                <d:var name="VendorApiInfix" type="STRING" value="">
+                  <a:a name="ENABLE" value="false"/>
+                  <a:a name="IMPORTER_INFO" value="@DEF"/>
+                </d:var>
+                <d:var name="VendorId" type="INTEGER" value="43"/>
+              </d:ctr>
+              <d:lst name="McuModuleConfiguration" type="MAP">
+                <a:a name="IMPORTER_INFO" value="Mcu"/>
+                <d:ctr name="McuConfigPB_0" type="IDENTIFIABLE">
+                  <d:var name="McuClockSrcFailureNotification" 
+                         type="ENUMERATION" value="ENABLED">
+                    <a:a name="IMPORTER_INFO" value="Mcu"/>
+                  </d:var>
+                  <d:var name="McuNumberOfMcuModes" type="INTEGER" value="1">
+                    <a:a name="IMPORTER_INFO" value="Mcu"/>
+                  </d:var>
+                  <d:var name="McuRamSectors" type="INTEGER" value="0">
+                    <a:a name="IMPORTER_INFO" value="Mcu"/>
+                  </d:var>
+                  <d:var name="McuResetSetting" type="INTEGER" value="0">
+                    <a:a name="ENABLE" value="false"/>
+                    <a:a name="IMPORTER_INFO" value="@DEF"/>
+                  </d:var>
+                  <d:ctr name="McuClockSettingConfig" type="IDENTIFIABLE">
+                    <a:a name="IMPORTER_INFO" value="Mcu"/>
+                    <d:var name="CrystalFrequencyHz" type="FLOAT" 
+                           value="8000000.0"/>
+                    <d:var name="McuTimeout" type="INTEGER" value="10000">
+                      <a:a name="IMPORTER_INFO" value="Mcu"/>
+                    </d:var>
+                    <d:lst name="McuClockReferencePoint" type="MAP">
+                      <d:ctr name="McuClockReferencePoin_0" type="IDENTIFIABLE">
+                        <a:a name="IMPORTER_INFO" value="Mcu"/>
+                        <d:var name="McuClockReferencePointFrequency" 
+                               type="FLOAT" value="6.0E7">
+                          <a:a name="IMPORTER_INFO">
+                            <a:v>@CALC</a:v>
+                            <a:v>@DEF</a:v>
+                          </a:a>
+                        </d:var>
+                        <d:ctr name="GeneralClockSettings" type="IDENTIFIABLE">
+                          <a:a name="IMPORTER_INFO" value="Mcu"/>
+                          <d:var name="McuOperatingMode" type="ENUMERATION" 
+                                 value="Enhanced">
+                            <a:a name="IMPORTER_INFO" value="Mcu"/>
+                          </d:var>
+                          <d:var name="McuBypassDivider" type="BOOLEAN" 
+                                 value="true">
+                            <a:a name="IMPORTER_INFO" value="Mcu"/>
+                          </d:var>
+                          <d:var name="McuSystemClockDivider" type="INTEGER" 
+                                 value="2">
+                            <a:a name="IMPORTER_INFO" value="Mcu"/>
+                          </d:var>
+                        </d:ctr>
+                        <d:ctr name="McuExternalClock" type="IDENTIFIABLE">
+                          <a:a name="IMPORTER_INFO" value="Mcu"/>
+                          <d:var name="McuExternalBusTapSelect" type="BOOLEAN" 
+                                 value="false">
+                            <a:a name="IMPORTER_INFO" value="Mcu"/>
+                          </d:var>
+                          <d:var name="McuExternalBusDivisonFactor" 
+                                 type="INTEGER" value="1">
+                            <a:a name="IMPORTER_INFO" value="@DEF"/>
+                          </d:var>
+                        </d:ctr>
+                        <d:ctr name="McuPll" type="IDENTIFIABLE">
+                          <a:a name="IMPORTER_INFO" value="Mcu"/>
+                          <d:var name="McuPllClockFrequency" type="FLOAT" 
+                                 value="6.0E7">
+                            <a:a name="IMPORTER_INFO">
+                              <a:v>@CALC</a:v>
+                              <a:v>@DEF</a:v>
+                            </a:a>
+                          </d:var>
+                          <d:var name="McuPllMode" type="ENUMERATION" 
+                                 value="PllClockMode">
+                            <a:a name="IMPORTER_INFO" value="Mcu"/>
+                          </d:var>
+                          <d:var name="McuPllClockReference" type="ENUMERATION" 
+                                 value="Crystal">
+                            <a:a name="IMPORTER_INFO" value="Mcu"/>
+                          </d:var>
+                          <d:ctr name="McuPllParameter" type="IDENTIFIABLE">
+                            <a:a name="IMPORTER_INFO" value="Mcu"/>
+                            <d:var name="McuInputDivideRatio" type="INTEGER" 
+                                   value="1"/>
+                            <d:var name="McuFeedbackDivideRatio" type="INTEGER" 
+                                   value="60"/>
+                            <d:var name="McuOutputDivideRatio" type="INTEGER" 
+                                   value="2"/>
+                            <d:var name="McuPeaktoPeakModulationDepth" 
+                                   type="INTEGER" value="0">
+                              <a:a name="IMPORTER_INFO" value="Mcu"/>
+                            </d:var>
+                            <d:var name="McuLossOfClockEnable" type="BOOLEAN" 
+                                   value="false">
+                              <a:a name="IMPORTER_INFO" value="Mcu"/>
+                            </d:var>
+                            <d:var name="McuLossOfLockResetEnable" 
+                                   type="BOOLEAN" value="false">
+                              <a:a name="IMPORTER_INFO" value="Mcu"/>
+                            </d:var>
+                            <d:var name="McuLossOfClockResetEnable" 
+                                   type="BOOLEAN" value="false">
+                              <a:a name="IMPORTER_INFO" value="Mcu"/>
+                            </d:var>
+                            <d:var name="McuLossOfLockInterruptRequest" 
+                                   type="BOOLEAN" value="false">
+                              <a:a name="IMPORTER_INFO" value="Mcu"/>
+                            </d:var>
+                            <d:var name="McuLossOfClockInterruptRequest" 
+                                   type="BOOLEAN" value="false">
+                              <a:a name="IMPORTER_INFO" value="Mcu"/>
+                            </d:var>
+                            <d:var name="MODEN" type="BOOLEAN" value="false">
+                              <a:a name="IMPORTER_INFO" value="@DEF"/>
+                            </d:var>
+                            <d:var name="MODSEL" type="BOOLEAN" value="false">
+                              <a:a name="IMPORTER_INFO" value="@DEF"/>
+                            </d:var>
+                            <d:var name="McuModulationRate" type="INTEGER" 
+                                   value="10000">
+                              <a:a name="IMPORTER_INFO" value="@DEF"/>
+                            </d:var>
+                          </d:ctr>
+                        </d:ctr>
+                        <d:ctr name="McuEMIOSSettings" type="IDENTIFIABLE">
+                          <a:a name="IMPORTER_INFO" value="Mcu"/>
+                          <d:var name="GlobalPrescaler" type="INTEGER" 
+                                 value="59"/>
+                          <d:var name="MdisBit" type="BOOLEAN" value="false">
+                            <a:a name="IMPORTER_INFO" value="Mcu"/>
+                          </d:var>
+                          <d:var name="GlobalTimeBaseEnable" type="BOOLEAN" 
+                                 value="true">
+                            <a:a name="IMPORTER_INFO" value="Mcu"/>
+                          </d:var>
+                          <d:var name="FreezeBit" type="BOOLEAN" value="true"/>
+                          <d:var name="GlobalPrescalerEnable" type="BOOLEAN" 
+                                 value="true">
+                            <a:a name="IMPORTER_INFO" value="Mcu"/>
+                          </d:var>
+                          <d:var name="ServerTimeSlot" type="INTEGER" value="0">
+                            <a:a name="IMPORTER_INFO" value="@DEF"/>
+                          </d:var>
+                          <d:var name="ExternalTimeBase" type="BOOLEAN" 
+                                 value="false">
+                            <a:a name="IMPORTER_INFO" value="@DEF"/>
+                          </d:var>
+                        </d:ctr>
+                        <d:ctr name="McuFlashBIUCR0" type="IDENTIFIABLE">
+                          <d:var name="AddressPipeliningControl" type="INTEGER" 
+                                 value="7">
+                            <a:a name="IMPORTER_INFO" value="@DEF"/>
+                          </d:var>
+                          <d:var name="WriteWaitStateControl" type="INTEGER" 
+                                 value="3"/>
+                          <d:var name="ReadWaitStateControl" type="INTEGER" 
+                                 value="7">
+                            <a:a name="IMPORTER_INFO" value="@DEF"/>
+                          </d:var>
+                        </d:ctr>
+                      </d:ctr>
+                    </d:lst>
+                  </d:ctr>
+                  <d:lst name="McuModeSettingConf" type="MAP">
+                    <a:a name="IMPORTER_INFO" value="Mcu"/>
+                    <d:ctr name="McuModeSettingConf_0" type="IDENTIFIABLE">
+                      <a:a name="IMPORTER_INFO" value="Mcu"/>
+                      <d:var name="McuMode" type="INTEGER" value="0">
+                        <a:a name="IMPORTER_INFO">
+                          <a:v>@DEF</a:v>
+                          <a:v>@CALC</a:v>
+                        </a:a>
+                      </d:var>
+                      <d:ctr name="HaltRegister" type="IDENTIFIABLE">
+                        <a:a name="IMPORTER_INFO" value="Mcu"/>
+                        <d:var name="SIU_HLTACKTimeOut" type="INTEGER" 
+                               value="3000">
+                          <a:a name="IMPORTER_INFO" value="Mcu"/>
+                        </d:var>
+                        <d:var name="HaltCPU" type="BOOLEAN" value="false">
+                          <a:a name="IMPORTER_INFO" value="@DEF"/>
+                        </d:var>
+                        <d:var name="HalteTPU" type="BOOLEAN" value="false">
+                          <a:a name="IMPORTER_INFO" value="@DEF"/>
+                        </d:var>
+                        <d:var name="HaltNPC" type="BOOLEAN" value="false">
+                          <a:a name="IMPORTER_INFO" value="Mcu"/>
+                        </d:var>
+                        <d:var name="HaltEBI" type="BOOLEAN" value="false">
+                          <a:a name="IMPORTER_INFO" value="Mcu"/>
+                        </d:var>
+                        <d:var name="HaltADC" type="BOOLEAN" value="false">
+                          <a:a name="IMPORTER_INFO" value="@DEF"/>
+                        </d:var>
+                        <d:var name="HalteMIOS" type="BOOLEAN" value="false">
+                          <a:a name="IMPORTER_INFO" value="@DEF"/>
+                        </d:var>
+                        <d:var name="HaltDFILT" type="BOOLEAN" value="false">
+                          <a:a name="IMPORTER_INFO" value="Mcu"/>
+                        </d:var>
+                        <d:var name="HaltPIT" type="BOOLEAN" value="false">
+                          <a:a name="IMPORTER_INFO" value="Mcu"/>
+                        </d:var>
+                        <d:var name="HaltFlexCAN_C" type="BOOLEAN" value="false">
+                          <a:a name="IMPORTER_INFO" value="Mcu"/>
+                        </d:var>
+                        <d:var name="HaltFlexCAN_A" type="BOOLEAN" value="false">
+                          <a:a name="IMPORTER_INFO" value="Mcu"/>
+                        </d:var>
+                        <d:var name="HaltDSPI_C" type="BOOLEAN" value="false">
+                          <a:a name="IMPORTER_INFO" value="Mcu"/>
+                        </d:var>
+                        <d:var name="HaltDSPI_B" type="BOOLEAN" value="false">
+                          <a:a name="IMPORTER_INFO" value="Mcu"/>
+                        </d:var>
+                        <d:var name="HalteSCI_B" type="BOOLEAN" value="false">
+                          <a:a name="IMPORTER_INFO" value="Mcu"/>
+                        </d:var>
+                        <d:var name="HalteSCI_A" type="BOOLEAN" value="false">
+                          <a:a name="IMPORTER_INFO" value="Mcu"/>
+                        </d:var>
+                        <d:var name="HaltNDEDI" type="BOOLEAN" value="false">
+                          <a:a name="IMPORTER_INFO" value="@DEF"/>
+                        </d:var>
+                      </d:ctr>
+                    </d:ctr>
+                  </d:lst>
+                  <d:lst name="McuRamSectorSettingConf" type="MAP"/>
+                  <d:ctr name="McuEDMA_A_Config" type="IDENTIFIABLE">
+                    <a:a name="IMPORTER_INFO" value="Mcu"/>
+                    <d:var name="eDMAChannelPriority0" type="INTEGER" 
+                           value="66051">
+                      <a:a name="IMPORTER_INFO" value="Mcu"/>
+                    </d:var>
+                    <d:var name="eDMAChannelPriority4" type="INTEGER" 
+                           value="67438087">
+                      <a:a name="IMPORTER_INFO" value="Mcu"/>
+                    </d:var>
+                    <d:var name="eDMAChannelPriority8" type="INTEGER" 
+                           value="134810123">
+                      <a:a name="IMPORTER_INFO" value="Mcu"/>
+                    </d:var>
+                    <d:var name="eDMAChannelPriority12" type="INTEGER" 
+                           value="202182159">
+                      <a:a name="IMPORTER_INFO" value="Mcu"/>
+                    </d:var>
+                    <d:var name="eDMAChannelPriority16" type="INTEGER" 
+                           value="66051">
+                      <a:a name="IMPORTER_INFO" value="Mcu"/>
+                    </d:var>
+                    <d:var name="eDMAChannelPriority20" type="INTEGER" 
+                           value="67438087">
+                      <a:a name="IMPORTER_INFO" value="Mcu"/>
+                    </d:var>
+                    <d:var name="eDMAChannelPriority24" type="INTEGER" 
+                           value="134810123">
+                      <a:a name="IMPORTER_INFO" value="Mcu"/>
+                    </d:var>
+                    <d:var name="eDMAChannelPriority28" type="INTEGER" 
+                           value="202182159">
+                      <a:a name="IMPORTER_INFO" value="Mcu"/>
+                    </d:var>
+                    <d:var name="ERCA" type="BOOLEAN" value="false">
+                      <a:a name="IMPORTER_INFO" value="Mcu"/>
+                    </d:var>
+                    <d:var name="EDBG" type="BOOLEAN" value="false">
+                      <a:a name="IMPORTER_INFO" value="Mcu"/>
+                    </d:var>
+                    <d:var name="EBW" type="BOOLEAN" value="false">
+                      <a:a name="IMPORTER_INFO" value="Mcu"/>
+                    </d:var>
+                    <d:var name="DmaTimeOut" type="INTEGER" value="100">
+                      <a:a name="IMPORTER_INFO" value="Mcu"/>
+                    </d:var>
+                    <d:var name="ERGA" type="BOOLEAN" value="false">
+                      <a:a name="IMPORTER_INFO" value="@DEF"/>
+                    </d:var>
+                    <d:var name="GRP0PRI" type="INTEGER" value="0">
+                      <a:a name="IMPORTER_INFO" value="@DEF"/>
+                    </d:var>
+                    <d:var name="GRP1PRI" type="INTEGER" value="1">
+                      <a:a name="IMPORTER_INFO" value="@DEF"/>
+                    </d:var>
+                    <d:var name="GRP2PRI" type="INTEGER" value="2">
+                      <a:a name="IMPORTER_INFO" value="@DEF"/>
+                    </d:var>
+                    <d:var name="GRP3PRI" type="INTEGER" value="3">
+                      <a:a name="IMPORTER_INFO" value="@DEF"/>
+                    </d:var>
+                  </d:ctr>
+                  <d:ctr name="McuResetSource" type="IDENTIFIABLE">
+                    <a:a name="IMPORTER_INFO" value="Mcu"/>
+                    <d:var name="McuResetType" type="ENUMERATION" 
+                           value="SoftwareSystemReset">
+                      <a:a name="IMPORTER_INFO" value="Mcu"/>
+                    </d:var>
+                  </d:ctr>
+                  <d:ctr name="McuInterrupt" type="IDENTIFIABLE">
+                    <a:a name="IMPORTER_INFO" value="Mcu"/>
+                    <d:var name="McuClockLoss" type="BOOLEAN" value="false">
+                      <a:a name="IMPORTER_INFO" value="Mcu"/>
+                    </d:var>
+                    <d:var name="McuLockLoss" type="BOOLEAN" value="false">
+                      <a:a name="IMPORTER_INFO" value="Mcu"/>
+                    </d:var>
+                  </d:ctr>
+                  <d:ctr name="McuFlashBIUCR" type="IDENTIFIABLE">
+                    <d:var name="Master0PrefetchEnable" type="BOOLEAN" 
+                           value="false">
+                      <a:a name="IMPORTER_INFO" value="@DEF"/>
+                    </d:var>
+                    <d:var name="Master1PrefetchEnable" type="BOOLEAN" 
+                           value="false">
+                      <a:a name="IMPORTER_INFO" value="@DEF"/>
+                    </d:var>
+                    <d:var name="McuDataPrefetchEnable" type="BOOLEAN" 
+                           value="false">
+                      <a:a name="IMPORTER_INFO" value="@DEF"/>
+                    </d:var>
+                    <d:var name="McuInstructionPrefetchEnable" type="BOOLEAN" 
+                           value="false">
+                      <a:a name="IMPORTER_INFO" value="@DEF"/>
+                    </d:var>
+                    <d:var name="McuPFLASHPrefetchLimit" type="INTEGER" 
+                           value="0">
+                      <a:a name="IMPORTER_INFO" value="@DEF"/>
+                    </d:var>
+                    <d:var name="McuPFLASHLineReadBuffersEnable" type="BOOLEAN" 
+                           value="false">
+                      <a:a name="IMPORTER_INFO" value="@DEF"/>
+                    </d:var>
+                    <d:var name="Master2PrefetchEnable" type="BOOLEAN" 
+                           value="false">
+                      <a:a name="IMPORTER_INFO" value="@DEF"/>
+                    </d:var>
+                    <d:var name="Master3PrefetchEnable" type="BOOLEAN" 
+                           value="false">
+                      <a:a name="IMPORTER_INFO" value="@DEF"/>
+                    </d:var>
+                    <d:var name="GlobalConfigurationEnable" type="BOOLEAN" 
+                           value="false">
+                      <a:a name="IMPORTER_INFO" value="@DEF"/>
+                    </d:var>
+                  </d:ctr>
+                  <d:ctr name="McuFlashBIUAPR" type="IDENTIFIABLE">
+                    <d:var name="Master0AccessProtection" type="INTEGER" 
+                           value="3">
+                      <a:a name="IMPORTER_INFO" value="@DEF"/>
+                    </d:var>
+                    <d:var name="Master1AccessProtection" type="INTEGER" 
+                           value="0">
+                      <a:a name="IMPORTER_INFO" value="@DEF"/>
+                    </d:var>
+                    <d:var name="Master2AccessProtection" type="INTEGER" 
+                           value="3">
+                      <a:a name="IMPORTER_INFO" value="@DEF"/>
+                    </d:var>
+                    <d:var name="Master3AccessProtection" type="INTEGER" 
+                           value="3">
+                      <a:a name="IMPORTER_INFO" value="@DEF"/>
+                    </d:var>
+                  </d:ctr>
+                  <d:ctr name="McuFlashBIUCR2" type="IDENTIFIABLE">
+                    <d:var name="McuLineBufferConfiguration" type="INTEGER" 
+                           value="3">
+                      <a:a name="IMPORTER_INFO" value="@DEF"/>
+                    </d:var>
+                  </d:ctr>
+                </d:ctr>
+              </d:lst>
+            </d:ctr>
+          </d:chc>
+        </d:lst>
+      </d:ctr>
+    </d:lst>
+  </d:ctr>
+
+</datamodel>

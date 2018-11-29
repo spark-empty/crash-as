@@ -1,0 +1,176 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?eclipse version="3.2"?>
+
+<!--
+*   @file    plugin.xml
+*   @version 2.0.0
+*
+*   @brief   AUTOSAR Resource_TS_T2D14M20I0R0 - Tresos Studio plugin configuration file.
+*   @details This file contains the configuration for and Resource Tresos Studio plugin.
+-->
+<!--
+====================================================================================================
+*   Project              : AUTOSAR 3.0 MCAL
+*   Platform             : PA
+*   Peripheral           : XPC563XM
+*   Dependencies         : none
+*
+*   Autosar Version      : 3.0.0
+*   Autosar Revision     : ASR_REL_3_0_REV_0003
+*   Autosar Conf.Variant :
+*   SW Version           : 2.0.0
+*   Build Version        : XPC563xM_MCAL_2_0_0_RTM_ASR_REL_3_0_REV_0003_20111223
+*
+*   (c) Copyright 2006-2011 Freescale Semiconductor Inc and STMicroelectronics
+*   All rights exclusively reserved for Freescale Semiconductor Inc and STMicroelectronics, 
+*   unless expressly agreed to otherwise.
+====================================================================================================
+====================================================================================================
+====================================================================================================
+-->
+
+<plugin>
+  <extension point="dreisoft.tresos.launcher2.plugin.module"
+             id="Resource_TS_T2D14M20I0R0_ModuleId"
+             name="Resource_TS_T2D14M20I0R0 Module">
+
+    <module id="Resource_TS_T2D14M20I0R0"
+            label="Resource"
+            mandatory="true"
+            allowMultiple="false"
+            description="Resource BSW module"
+            copyright="(c) 2006-2011 Freescale Semiconductor Inc and STMicroelectronics"
+            swVersionMajor="2"
+            swVersionMinor="0"
+            swVersionPatch="0"
+            swVersionSuffix="RTM"
+            specVersionMajor="0"
+            specVersionMinor="0"
+            specVersionPatch="0"
+            specVersionSuffix=""
+            relVersionPrefix="AUTOSAR"
+            relVersionMajor="3"
+            relVersionMinor="0"
+            relVersionPatch="0"
+            relVersionSuffix="0003"
+            categoryType="Resource"
+            categoryLayer="MCAL"
+            categoryCategory="EB"
+            categoryComponent="ECUC">
+      <ecuType target="PA" derivate="XPC563XM"/>
+    </module>
+    </extension>
+	
+  <extension point="dreisoft.tresos.launcher2.plugin.configuration"
+             id="Resource_TS_T2D14M20I0R0_ConfigId"
+             name="Resource_TS_T2D14M20I0R0 Configuration">
+    <configuration moduleId="Resource_TS_T2D14M20I0R0">
+      <schema>
+        <manager class="dreisoft.tresos.autosar2.resourcehandling.AutosarSchemaManager"/>
+          <!-- register the main xdm configuration schema for Resource -->
+          <resource value="config/Resource.xdm" type="xdm"/>
+
+
+
+
+      </schema>
+
+      <data>
+        <manager class="dreisoft.tresos.autosar2.resourcehandling.AutosarConfigManager"/>
+        <schemaNode path="ASPath:/TS_T2D14M20I0R0/Resource"/>
+      </data>
+
+      <editor id="Resource_TS_T2D14M20I0R0_EditorId"
+              label="Default"
+              tooltip="Resource BSW module">
+        <class class="dreisoft.tresos.launcher2.editor.GenericConfigEditor">
+          <parameter name="schema" value="ASPath:/TS_T2D14M20I0R0/Resource"/>
+          <parameter name="title" value="Resource"/>
+          <parameter name="noTabs" value="false"/>
+          <parameter name="noLinks" value="true"/>
+          <parameter name="groupLinks" value="false"/>
+          <parameter name="groupContainers" value="false"/>
+          <parameter name="groupTables" value="true"/>
+          <parameter name="optionalGeneralTab" value="true"/>
+        </class>
+      </editor>
+    </configuration>
+  </extension>
+
+ <extension point="dreisoft.tresos.launcher2.plugin.generator"
+             id="EPCGenerator"
+             name="EPC Generator">
+  <generator moduleId="Resource_TS_T2D14M20I0R0"
+               id="Resource_TS_T2D14M20I0R0"
+               class="dreisoft.tresos.autosar2.generator.EPCFileGenerator">
+  <parameter name="cfgFilePath" value="output"/>
+  <parameter name="generateAllModules" value="false"/>
+  <parameter name="generateIntoOneFile" value="false"/>
+  <parameter name="contentType" value="asc:3.0"/>
+  </generator>
+ </extension>
+
+  <extension point="dreisoft.tresos.launcher2.plugin.generator"
+              id="Resource_TS_T2D14M20I0R0_GeneratorId"
+              name="Resource_TS_T2D14M20I0R0 Generator">
+    <generator moduleId="Resource_TS_T2D14M20I0R0"
+               class="dreisoft.tresos.launcher2.generator.TemplateBasedCodeGenerator">
+
+      <!-- common template path parameters -->
+      <parameter name="templates" mode="generate,verify" value="generate"/>
+    </generator>
+  </extension>
+ 
+  <extension point="dreisoft.tresos.autosar2.api.plugin.ecuresource">
+    <ecuresource
+      target="PA"
+      derivate="XPC563XM"
+      moduleId="Resource_TS_T2D14M20I0R0"
+      file="resource/PA_XPC563XM_mpc5634m_bga208.properties">
+      <parameter name="subderivative" value="mpc5634m_bga208"/>
+    </ecuresource>
+    <ecuresource
+      target="PA"
+      derivate="XPC563XM"
+      moduleId="Resource_TS_T2D14M20I0R0"
+      file="resource/PA_XPC563XM_mpc5634m_qfp144.properties">
+      <parameter name="subderivative" value="mpc5634m_qfp144"/>
+    </ecuresource>
+    <ecuresource
+      target="PA"
+      derivate="XPC563XM"
+      moduleId="Resource_TS_T2D14M20I0R0"
+      file="resource/PA_XPC563XM_mpc5634m_qfp176.properties">
+      <parameter name="subderivative" value="mpc5634m_qfp176"/>
+    </ecuresource>
+    <ecuresource
+      target="PA"
+      derivate="XPC563XM"
+      moduleId="Resource_TS_T2D14M20I0R0"
+      file="resource/PA_XPC563XM_spc563xm64_qfp144.properties">
+      <parameter name="subderivative" value="spc563xm64_qfp144"/>
+    </ecuresource>
+    <ecuresource
+      target="PA"
+      derivate="XPC563XM"
+      moduleId="Resource_TS_T2D14M20I0R0"
+      file="resource/PA_XPC563XM_spc563xm64_qfp176.properties">
+      <parameter name="subderivative" value="spc563xm64_qfp176"/>
+    </ecuresource>
+  </extension>
+
+  <extension point="dreisoft.tresos.autosar2.api.plugin.ecuresourcefinder">
+    <ecuresourcefinder>
+      <finder class="dreisoft.tresos.autosar2.api.ecuresource.DefaultEcuResourceFinder">
+        <parameter name="name" value="subderivative"/>
+        <parameter name="path" value="ASPath:/TS_T2D14M20I0R0/Resource/ResourceGeneral/ResourceSubderivative"/>
+      </finder>
+    </ecuresourcefinder>
+  </extension>
+
+  <extension point="org.eclipse.help.toc">
+    <toc file="anchors.xml" primary="true"/>
+    <toc file="$nl$/Resource/toc.xml" primary="false"/>
+    <!-- toc file="$nl$/ReleaseNotes/toc.xml" primary="false"/ !-->
+  </extension>
+</plugin>

@@ -1,0 +1,121 @@
+/**************************************************************************************
+* 
+*   Freescale(TM) and the Freescale logo are trademarks of Freescale Semiconductor, Inc. 
+*   All other product or service names are the property of their respective owners. 
+*   (C) Freescale Semiconductor, Inc. 2007 - 2010
+* 
+*   You can use this example for any purpose on any computer system with the
+*   following restrictions:
+*
+*   1. This example is provided "as is", without warranty.
+*
+*   2. You don't remove this copyright notice from this example or any direct derivation 
+*      thereof.
+*
+*  Description:  DIAB linker command file for AUTOSAR OS/MPC56xxAM benchmark 
+*                application.
+*
+**************************************************************************************/
+MEMORY
+{
+/* The memory areas for applications. Do not edit or delete this comment: it is used by the SysGen for Diab */
+/* The end of the memory areas for applications. Do not edit or delete this comment: it is used by the SysGen for Diab */
+}
+
+SECTIONS
+{   
+    GROUP : {     
+        /* Interrupt vector table */
+        .vects (TEXT) ALIGN(0x1000) : {
+          *(.vects)
+          *(.vects_vle)
+        }       
+
+        /* Code and constant area (all code and constant sections shall be placed between .osbegincode and .osendcode sections) */
+        .osbegincode ALIGN(0x20) : {}             
+        .text : { *(.text_vle) *(.rdata) *(.rodata) *(.init) *(.fini) }
+        .ostext (TEXT) : {
+            *(.ostext)
+            *(.ostext_vle)
+         }        
+        .oshook (TEXT) : {
+            *(.oshook)
+            *(.oshook_vle)
+         }        
+        .appcode (TEXT) : {
+            *(.appcode)
+            *(.appcode_vle)
+         } 
+        .rodata : {} 
+        .osrodata : {}
+        .sdata2 : {}       
+        .ossrodata : {}
+        .sapp_c32 : {} /* short constant sections for all trusted applications */
+        .sapp_c16 : {}
+        .sapp_cU : {}
+        .sapp_c8 : {}
+        .ctors : {}     
+        .dtors : {}        
+        .osendcode : {}     
+    
+        /* OS bss/sbss and trusted application sbss sections */
+        .osstack ALIGN(0x20) : {} 
+        /* Begin of the RAM area for applications. Do not edit or delete this comment: it is used by the SysGen for Diab */
+        /* End of the RAM area for applications. Do not edit or delete this comment: it is used by the SysGen for Diab */
+
+        /* Begin of the RAM area #1 for applications. Do not edit or delete this comment: it is used by the SysGen for Diab */ 
+        /* End of the RAM area #1 for applications. Do not edit or delete this comment: it is used by the SysGen for Diab */
+        
+        /* Begin of the RAM area #2 for applications. Do not edit or delete this comment: it is used by the SysGen for Diab */ 
+        /* End of the RAM area #2 for applications. Do not edit or delete this comment: it is used by the SysGen for Diab */
+        
+        __DATA_ROM = .;
+        __DATA_RAM = .;
+
+        .data : {}
+        .osdata : {}
+
+        /* Short data sections */
+        .sdata : {} /* default sdata threshold is 0, then sdata/sbss section are empty always. */
+        .sapp_v32_data : {} /* short data sections for all trusted applications */
+        .sapp_v16_data : {}
+        .sapp_vU_data : {}
+        .sapp_v8_data : {}
+        
+        __DATA_END = .;
+        
+        __BSS_START = .;       
+        /* Short bss sections */
+        .sbss : {}
+        .ossbss : {}
+        .sapp_v32_bss : {} /* short bss sections for all trusted applications */
+        .sapp_v16_bss : {}
+        .sapp_vU_bss : {}
+        .sapp_v8_bss : {}
+        .bss : {}
+        .osbss : {}
+        __BSS_END = .;
+      
+    } > OsInternalRAM
+}
+
+__SP_INIT    = ADDR(OsInternalRAM) + SIZEOF(OsInternalRAM);
+__SP_END     = __SP_INIT - 0x400;
+
+/* Some targets use an extra underscore in front of identifiers */
+___SP_INIT	 = __SP_INIT;
+___SP_END	 = __SP_END;
+___DATA_ROM	 = __DATA_ROM;
+___DATA_RAM	 = __DATA_RAM;
+___DATA_END	 = __DATA_END;
+___BSS_START = __BSS_START;
+___BSS_END	 = __BSS_END;
+
+_f_ostext      = ADDR(.ostext);
+_e_ostext      = ADDR(.ostext)+SIZEOF(.ostext);
+_f_vects       = ADDR(.vects);
+_e_vects       = ADDR(.vects)+SIZEOF(.vects);
+_f_osstack     = ADDR(.osstack);
+_e_osstack     = ADDR(.osstack)+SIZEOF(.osstack);
+_f_osbegincode = ADDR(.osbegincode);
+_e_osendcode   = ADDR(.osendcode);

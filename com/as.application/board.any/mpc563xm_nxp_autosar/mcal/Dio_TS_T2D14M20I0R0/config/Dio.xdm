@@ -1,0 +1,745 @@
+<?xml version='1.0'?>
+<!--
+===================================================================================================
+
+   @file        Dio.xml
+   @version     2.0.0
+
+   @brief       AUTOSAR Dio_TS_T2D14M20I0R0 - Tresos Studio plugin schema file
+   @details     This file contains the schema configuration for and Dio Tresos Studio plugin.
+
+   Project      : AUTOSAR 3.0 MCAL
+   Platform      : PA
+   Peripheral   : SIU
+   Dependencies : none
+
+   Autosar Version       : 3.0.0
+   Autosar Revision      : ASR_REL_3_0_REV_0003
+   Autosar Conf. Variant :
+   Software Version      : 2.0.0
+   Build Version         : XPC563xM_MCAL_2_0_0_RTM_ASR_REL_3_0_REV_0003_20111223
+
+   (c) Copyright 2006-2011 by Freescale Semiconductor Inc and STMicroelectronics
+   All rights exclusively reserved for Freescale Semiconductor Inc and STMicroelectronics,
+   unless expressly agreed to otherwise.
+
+===================================================================================================
+===================================================================================================
+-->
+<datamodel version="3.0"
+            xmlns="http://www.tresos.de/_projects/DataModel2/08/root.xsd"
+            xmlns:a="http://www.tresos.de/_projects/DataModel2/08/attribute.xsd"
+            xmlns:v="http://www.tresos.de/_projects/DataModel2/06/schema.xsd"
+            xmlns:d="http://www.tresos.de/_projects/DataModel2/06/data.xsd">
+
+    <d:ctr type="AUTOSAR" factory="autosar"
+            xmlns:ad="http://www.tresos.de/_projects/DataModel2/08/admindata.xsd"
+            xmlns:icc="http://www.tresos.de/_projects/DataModel2/08/implconfigclass.xsd">
+
+        <d:lst type="TOP-LEVEL-PACKAGES">
+            <d:ctr name="TS_T2D14M20I0R0" type="AR-PACKAGE">
+                <a:a name="UUID" value="ECUC:AUTOSAR"/>
+                <d:lst type="ELEMENTS">
+                    <d:chc name="Dio_AUTOSARParameterDefinition" type="AR-ELEMENT" value="ECU_PARAMETER_DEFINITION">
+                        <d:ctr type="AR-ELEMENT">
+                            <a:a name="DEF"
+                                value="ASPath:/AR_PACKAGE_SCHEMA/ECU_PARAMETER_DEFINITION"/>
+                            <a:a name="UUID" value="ECUC:f94ab35f-8cff-4624-bcc2-6fddfecdb391"/>
+                            <d:lst name="MODULE_REF">
+                                <d:ref type="MODULE_REF" value="ASPath:/TS_T2D14M20I0R0/Dio"/>
+                            </d:lst>
+                        </d:ctr>
+                    </d:chc>
+                    <d:chc name="Dio" type="AR-ELEMENT" value="MODULE-DEF">
+                        <v:ctr type="MODULE-DEF">
+                        <d:ref type="REFINED_MODULE_DEF" value="ASPath:/AUTOSAR/Dio"/>
+                            <a:a name="ADMIN-DATA" type="ADMIN-DATA">
+                                <ad:ADMIN-DATA>
+                                    <ad:LANGUAGE>EN</ad:LANGUAGE>
+                                    <ad:DOC-REVISIONS>
+                                        <ad:DOC-REVISION>
+                                            <ad:REVISION-LABEL>2.0.0</ad:REVISION-LABEL>
+                                            <ad:ISSUED-BY>Freescale</ad:ISSUED-BY>
+                                            <ad:DATE>2011-12-06T17:00:00</ad:DATE>
+                                            <ad:MODIFICATIONS>
+                                                <ad:MODIFICATION>
+                                                    <ad:CHANGE>
+                                                        <ad:L-2 L="EN">Release 2.0.0</ad:L-2>
+                                                    </ad:CHANGE>
+                                                    <ad:REASON>
+                                                        <ad:L-2 L="EN">Release 2.0.0</ad:L-2>
+                                                    </ad:REASON>
+                                                </ad:MODIFICATION>
+                                            </ad:MODIFICATIONS>
+                                        </ad:DOC-REVISION>
+                                    </ad:DOC-REVISIONS>
+                                </ad:ADMIN-DATA>
+                            </a:a>
+                            <a:a name="DESC">
+                                <a:v>
+                                    <![CDATA[
+                                    <html><p>
+                                        Configuration of the Dio module.
+                                    </p></html>
+                                    ]]>
+                                </a:v>
+                            </a:a>
+                            <a:a name="UUID" value="ECUC:405c8f5c-a993-408d-b674-43d695b9f453"/>
+                            <a:a name="LOWER-MULTIPLICITY" value="1"/>
+                            <a:a name="UPPER-MULTIPLICITY" value="1"/>
+                            <v:ctr name="CommonPublishedInformation" type="IDENTIFIABLE">
+                                <a:a name="DESC">
+                                    <a:v>
+                                        <![CDATA[
+                                        <html><p>
+                                            Common container, aggregated by all modules. It contains published information about vendor and versions.
+                                        </p></html>
+                                        ]]>
+                                    </a:v>
+                                </a:a>
+                                <a:a name="LOWER-MULTIPLICITY" value="1"/>
+                                <a:a name="UPPER-MULTIPLICITY" value="1"/>
+                                <a:a name="UUID" value="ECUC:128648b5-e6d2-48ce-81e7-b1b3cdefd327"/>
+                                <v:var name="ArMajorVersion" type="INTEGER_LABEL">
+                                    <a:a name="LABEL" value="AUTOSAR Major Version"/>
+                                    <a:a name="DESC">
+                                        <a:v>
+                                            <![CDATA[
+                                            <html><p>
+                                                Major version number of AUTOSAR specification on which the appropriate implementation is based on.
+                                            </p></html>
+                                            ]]>
+                                        </a:v>
+                                    </a:a>
+                                    <a:a name="LOWER-MULTIPLICITY" value="1"/>
+                                    <a:a name="UPPER-MULTIPLICITY" value="1"/>
+                                    <a:a name="IMPLEMENTATIONCONFIGCLASS" value="PublishedInformation"/>
+                                    <a:a name="ORIGIN" value="Freescale"/>
+                                    <a:a name="SYMBOLICNAMEVALUE" value="false"/>
+                                    <a:a name="UUID" value="ECUC:07ae8a7e-1c23-4085-b297-c34d91c4f8c8"/>
+                                    <a:da name="DEFAULT" value="2"/>
+                                    <a:da name="INVALID" type="Range">
+                                        <a:tst expr="&gt;=2"/>
+                                        <a:tst expr="&lt;=2"/>
+                                    </a:da>
+
+                                </v:var>
+                                <v:var name="ArMinorVersion" type="INTEGER_LABEL">
+                                    <a:a name="LABEL" value="AUTOSAR Minor Version"/>
+                                    <a:a name="DESC">
+                                        <a:v>
+                                            <![CDATA[
+                                            <html><p>
+                                                Minor version number of AUTOSAR specification on which the appropriate implementation is based on.
+                                            </p></html>
+                                            ]]>
+                                        </a:v>
+                                    </a:a>
+                                    <a:a name="LOWER-MULTIPLICITY" value="1"/>
+                                    <a:a name="UPPER-MULTIPLICITY" value="1"/>
+                                    <a:a name="IMPLEMENTATIONCONFIGCLASS" value="PublishedInformation"/>
+                                    <a:a name="ORIGIN" value="Freescale"/>
+                                    <a:a name="SYMBOLICNAMEVALUE" value="false"/>
+                                    <a:a name="UUID" value="ECUC:50483b66-43f1-413e-ab73-2709c610785b"/>
+                                    <a:da name="DEFAULT" value="2"/>
+                                    <a:da name="INVALID" type="Range">
+                                        <a:tst expr="&gt;=2"/>
+                                        <a:tst expr="&lt;=2"/>
+                                    </a:da>
+                                </v:var>
+                                <v:var name="ArPatchVersion" type="INTEGER_LABEL">
+                                    <a:a name="LABEL" value="AUTOSAR Patch Version"/>
+                                    <a:a name="DESC">
+                                        <a:v>
+                                            <![CDATA[
+                                            <html><p>
+                                                Patch version number of AUTOSAR specification on which the appropriate implementation is based on.
+                                            </p></html>
+                                            ]]>
+                                        </a:v>
+                                    </a:a>
+                                    <a:a name="LOWER-MULTIPLICITY" value="1"/>
+                                    <a:a name="UPPER-MULTIPLICITY" value="1"/>
+                                    <a:a name="IMPLEMENTATIONCONFIGCLASS" value="PublishedInformation"/>
+                                    <a:a name="ORIGIN" value="Freescale"/>
+                                    <a:a name="SYMBOLICNAMEVALUE" value="false"/>
+                                    <a:a name="UUID" value="ECUC:c1dfa181-a64d-4371-8be1-2c31e53b28e8"/>
+                                    <a:da name="DEFAULT" value="1"/>
+                                    <a:da name="INVALID" type="Range">
+                                        <a:tst expr="&gt;=1"/>
+                                        <a:tst expr="&lt;=1"/>
+                                    </a:da>
+                                </v:var>
+                                <v:var name="ModuleId" type="INTEGER_LABEL">
+                                    <a:a name="LABEL" value="Module Id."/>
+                                    <a:a name="DESC">
+                                        <a:v>
+                                            <![CDATA[
+                                            <html><p>
+                                                Module ID of this module from Module List.
+                                            </p></html>
+                                            ]]>
+                                        </a:v>
+                                    </a:a>
+                                    <a:a name="LOWER-MULTIPLICITY" value="1"/>
+                                    <a:a name="UPPER-MULTIPLICITY" value="1"/>
+                                    <a:a name="IMPLEMENTATIONCONFIGCLASS" value="PublishedInformation"/>
+                                    <a:a name="ORIGIN" value="Freescale"/>
+                                    <a:a name="SYMBOLICNAMEVALUE" value="false"/>
+                                    <a:a name="UUID" value="ECUC:b2162c16-d029-4a44-b3fe-6aaac4bca996"/>
+                                    <a:da name="DEFAULT" value="120"/>
+                                    <a:da name="INVALID" type="Range">
+                                        <a:tst expr="&gt;=120"/>
+                                        <a:tst expr="&lt;=120"/>
+                                    </a:da>
+                                </v:var>
+                                <v:var name="SwMajorVersion" type="INTEGER_LABEL">
+                                    <a:a name="LABEL" value="Software Major Version"/>
+                                    <a:a name="DESC">
+                                        <a:v>
+                                            <![CDATA[
+                                            <html><p>
+                                                Major version number of the vendor specific implementation of the module.
+                                            </p></html>
+                                            ]]>
+                                        </a:v>
+                                    </a:a>
+                                    <a:a name="LOWER-MULTIPLICITY" value="1"/>
+                                    <a:a name="UPPER-MULTIPLICITY" value="1"/>
+                                    <a:a name="IMPLEMENTATIONCONFIGCLASS" value="PublishedInformation"/>
+                                    <a:a name="ORIGIN" value="Freescale"/>
+                                    <a:a name="SYMBOLICNAMEVALUE" value="false"/>
+                                    <a:a name="UUID" value="ECUC:1b7dfc1b-14f0-49f6-8bc5-07896c4d0c9f"/>
+                                    <a:da name="DEFAULT" value="2"/>
+                                    <a:da name="INVALID" type="Range">
+                                        <a:tst expr="&gt;=2"/>
+                                        <a:tst expr="&lt;=2"/>
+                                    </a:da>
+                                </v:var>
+                                <v:var name="SwMinorVersion" type="INTEGER_LABEL">
+                                    <a:a name="LABEL" value="Software Minor Version"/>
+                                    <a:a name="DESC">
+                                        <a:v>
+                                            <![CDATA[
+                                            <html><p>
+                                                Minor version number of the vendor specific implementation of the module.
+                                            </p></html>
+                                            ]]>
+                                        </a:v>
+                                    </a:a>
+                                    <a:a name="LOWER-MULTIPLICITY" value="1"/>
+                                    <a:a name="UPPER-MULTIPLICITY" value="1"/>
+                                    <a:a name="IMPLEMENTATIONCONFIGCLASS" value="PublishedInformation"/>
+                                    <a:a name="ORIGIN" value="Freescale"/>
+                                    <a:a name="SYMBOLICNAMEVALUE" value="false"/>
+                                    <a:a name="UUID" value="ECUC:e82d7a4c-862e-4b69-b51b-649061499140"/>
+                                    <a:da name="DEFAULT" value="0"/>
+                                    <a:da name="INVALID" type="Range">
+                                        <a:tst expr="&gt;=0"/>
+                                        <a:tst expr="&lt;=0"/>
+                                    </a:da>
+                                </v:var>
+                                <v:var name="SwPatchVersion" type="INTEGER_LABEL">
+                                    <a:a name="LABEL" value="Software Patch Version"/>
+                                    <a:a name="DESC">
+                                        <a:v>
+                                            <![CDATA[
+                                            <html><p>
+                                                Patch version number of the vendor specific implementation of the module.
+                                            </p></html>
+                                            ]]>
+                                        </a:v>
+                                    </a:a>
+                                    <a:a name="LOWER-MULTIPLICITY" value="1"/>
+                                    <a:a name="UPPER-MULTIPLICITY" value="1"/>
+                                    <a:a name="IMPLEMENTATIONCONFIGCLASS" value="PublishedInformation"/>
+                                    <a:a name="ORIGIN" value="Freescale"/>
+                                    <a:a name="SYMBOLICNAMEVALUE" value="false"/>
+                                    <a:a name="UUID" value="ECUC:d518bcde-120c-4030-9285-2809826ec47c"/>
+                                    <a:da name="DEFAULT" value="0"/>
+                                    <a:da name="INVALID" type="Range">
+                                        <a:tst expr="&gt;=0"/>
+                                        <a:tst expr="&lt;=0"/>
+                                    </a:da>
+                                </v:var>
+                                <v:var name="VendorApiInfix" type="STRING_LABEL">
+                                    <a:a name="LABEL" value="Vendor Api Infix"/>
+                                    <a:a name="DESC">
+                                        <a:v>
+                                            <![CDATA[
+                                            <html><p>
+                                                In driver modules which can be instantiated several times on a single ECU, BSW00347 requires that the name of APIs is extended by the VendorId and a vendor specific name.
+                                                This parameter is used to specify the vendor specific name. In total, the implementation specific name is generated as follows:<br/>
+                                                &lt;ModuleName&gt;_&gt;VendorId&gt;_&lt;VendorApiInfix&gt;&lt;Api name from SWS&gt;<br/>
+                                                E.g. assuming that the VendorId of the implementor is 123 and the implementer chose a VendorApiInfix of &quot;v11r456&quot; a api name Can_Write defined in the SWS will translate to Can_123_v11r456Write.<br/>
+                                                This parameter is mandatory for all modules with upper multiplicity &gt; 1.
+                                                It shall not be used for modules with upper multiplicity = 1.
+                                            </p></html>
+                                            ]]>
+                                        </a:v>
+                                    </a:a>
+                                    <a:a name="IMPLEMENTATIONCONFIGCLASS" value="PublishedInformation"/>
+                                    <a:a name="ORIGIN" value="AUTOSAR_ECUC V1.0.0"/>
+                                    <a:a name="SYMBOLICNAMEVALUE" value="false"/>
+                                    <a:a name="UUID" value="ECUC:e56181b7-0162-4605-b78f-0541ae9b0d83"/>
+                                    <a:a name="OPTIONAL" value="true"/>
+                                    <a:da name="ENABLE" value="false"/>
+                                    <a:da name="DEFAULT" value=""/>
+                                </v:var>
+                                <v:var name="VendorId" type="INTEGER_LABEL">
+                                    <a:a name="LABEL" value="Vendor Id."/>
+                                    <a:a name="DESC">
+                                        <a:v>
+                                            <![CDATA[
+                                            <html><p>
+                                                Vendor ID of the dedicated implementation of this module.
+                                            </p></html>
+                                            ]]>
+                                        </a:v>
+                                    </a:a>
+                                    <a:a name="LOWER-MULTIPLICITY" value="1"/>
+                                    <a:a name="UPPER-MULTIPLICITY" value="1"/>
+                                    <a:a name="IMPLEMENTATIONCONFIGCLASS" value="PublishedInformation"/>
+                                    <a:a name="ORIGIN" value="Freescale"/>
+                                    <a:a name="SYMBOLICNAMEVALUE" value="false"/>
+                                    <a:a name="UUID" value="ECUC:406f5b72-c5bc-4c24-af6f-b1300a9d1d5c"/>
+                                    <a:da name="DEFAULT" value="43"/>
+                                    <a:da name="INVALID" type="Range">
+                                        <a:tst expr="&gt;=43"/>
+                                        <a:tst expr="&lt;=43"/>
+                                    </a:da>
+                                </v:var>
+                            </v:ctr>
+
+                            <v:var name="IMPLEMENTATION_CONFIG_VARIANT" type="ENUMERATION">
+                                <a:a name="LABEL" value="Config Variant"/>
+                                <a:a name="UUID" value="ECUC:1d12b0e0-b089-4b89-992d-a821f3e9f1e5"/>
+                                <a:a name="DESC">
+                                    <a:v>
+                                        <![CDATA[
+                                        <html><p>
+                                            VariantPreCompile: Only precompile time configuration parameters.<br/>
+                                            VariantPostBuild : Mix of precompile and postbuild time configuration parameters.<br/>
+                                            If Config Variant = VariantPreCompile, the files  Dio_Cfg.h and Dio_Cfg.c should be used.<br/>
+                                            If Config Variant = VariantPostBuild, the files Dio_Cfg.h and Dio_PBcfg.c should be used.<br/>
+                                        </p></html>
+                                        ]]>
+                                    </a:v>
+                                </a:a>
+                                <a:da name="DEFAULT" value="VariantPreCompile"/>
+                                <a:da name="RANGE">
+                                    <a:v>VariantPreCompile</a:v>
+                                    <a:v>VariantPostBuild</a:v>
+                                </a:da>
+                            </v:var>
+                            <!-- @remarks Covers DIO141 -->
+                            <!-- @remarks Implements DDIO03001 -->
+                            <v:ctr name="DioGeneral" type="IDENTIFIABLE">
+                                <a:a name="DESC">
+                                    <a:v>
+                                        <![CDATA[
+                                        <html><p>
+                                            General DIO module configuration parameters.
+                                        </p></html>
+                                       ]]>
+                                    </a:v>
+                                </a:a>
+                                <a:a name="UUID" value="ECUC:f63d8428-d828-40a8-a09c-bce5956a9dfc"/>
+                                <a:a name="LOWER-MULTIPLICITY" value="1"/>
+                                <a:a name="UPPER-MULTIPLICITY" value="1"/>
+                                <!-- @remarks Covers DIO142 -->
+                                <!-- @remarks Implements DDIO03001 -->
+                                <v:var name="DioDevErrorDetect" type="BOOLEAN">
+                                    <a:a name="LABEL" value="Dio Development Error Detect"/>
+                                    <a:a name="DESC">
+                                        <a:v>
+                                            <![CDATA[
+                                            <html><p>
+                                                Switches the Development Error Detection and Notification ON or OFF.
+                                            </p></html>
+                                            ]]>
+                                        </a:v>
+                                    </a:a>
+                                    <a:a name="IMPLEMENTATIONCONFIGCLASS" type="IMPLEMENTATIONCONFIGCLASS">
+                                        <icc:v class="PreCompile">VariantPreCompile</icc:v>
+                                        <icc:v class="PreCompile">VariantPostBuild</icc:v>
+                                    </a:a>
+                                    <a:a name="ORIGIN" value="AUTOSAR_ECUC"/>
+                                    <a:a name="SYMBOLICNAMEVALUE" value="false"/>
+                                    <a:a name="UUID" value="ECUC:77a8d75b-33dd-4f9d-911f-1f84ebec4204"/>
+                                    <a:da name="DEFAULT" value="true"/>
+                                    <a:a name="LOWER-MULTIPLICITY" value="1"/>
+                                    <a:a name="UPPER-MULTIPLICITY" value="1"/>
+                                </v:var>
+                                <!-- @remarks Covers DIO143, DIO124 -->
+                                <!-- @remarks Implements DDIO030014-->
+                                <v:var name="DioVersionInfoApi" type="BOOLEAN">
+                                    <a:a name="LABEL" value="Dio Version Info Api"/>
+                                    <a:a name="DESC">
+                                        <a:v>
+                                            <![CDATA[
+                                            <html><p>
+                                                Adds / removes the service Dio_GetVersionInfo() from the code.
+                                            </p></html>
+                                            ]]>
+                                        </a:v>
+                                    </a:a>
+                                    <a:a name="IMPLEMENTATIONCONFIGCLASS" type="IMPLEMENTATIONCONFIGCLASS">
+                                        <icc:v class="PreCompile">VariantPreCompile</icc:v>
+                                        <icc:v class="PreCompile">VariantPostBuild</icc:v>
+                                    </a:a>
+                                    <a:a name="ORIGIN" value="AUTOSAR_ECUC"/>
+                                    <a:a name="SYMBOLICNAMEVALUE" value="false"/>
+                                    <a:a name="UUID" value="ECUC:4d7be610-011d-42fb-93c5-2cdc700ff0d9"/>
+                                    <a:da name="DEFAULT" value="true"/>
+                                    <a:a name="LOWER-MULTIPLICITY" value="1"/>
+                                    <a:a name="UPPER-MULTIPLICITY" value="1"/>
+                                </v:var>
+                                <v:var name="DioReversePortBits" type="BOOLEAN">
+                                    <a:a name="LABEL" value="Dio Reverse Port Bits"/>
+                                    <a:a name="DESC">
+                                        <a:v>
+                                            <![CDATA[
+                                            <html><p>
+                                                If this box is checked, the bits written to defined ports will be reversed.<br/>
+                                                Writing 3 to PORTA with checkbox disabled will set pins 14 and 15<br/>
+                                                Writing 3 to PORTA with checkbox enabled will set pins 0 and 1<br/>
+                                            </p></html>
+                                            ]]>
+                                        </a:v>
+                                    </a:a>
+                                    <a:a name="IMPLEMENTATIONCONFIGCLASS" type="IMPLEMENTATIONCONFIGCLASS">
+                                        <icc:v class="PreCompile">VariantPreCompile</icc:v>
+                                        <icc:v class="PreCompile">VariantPostBuild</icc:v>
+                                    </a:a>
+                                    <a:a name="ORIGIN" value="Freescale"/>
+                                    <a:a name="SYMBOLICNAMEVALUE" value="false"/>
+                                    <a:a name="UUID" value="ECUC:f224ad86-938a-4732-916a-09b15cbf9404"/>
+                                    <a:da name="DEFAULT" value="false"/>
+                                    <a:a name="LOWER-MULTIPLICITY" value="1"/>
+                                    <a:a name="UPPER-MULTIPLICITY" value="1"/>
+                                    <a:da name="ENABLE" value="false"/>
+                                </v:var>
+                                <v:var name="DioMaskedWritePortApi" type="BOOLEAN">
+                                    <a:a name="LABEL" value="DioMaskedWritePort Api"/>
+                                    <a:a name="DESC">
+                                        <a:v>
+                                            <![CDATA[
+                                            <html><p>
+                                                Defines whether the driver function Dio_MaskedWritePort() will be
+                                                included at compile time or excluded.<br/>
+                                                True  - Dio_MaskedWritePort() API enabled.<br/>
+                                                False - Dio_MaskedWritePort() API disabled.<br/>
+                                            </p></html>
+                                            ]]>
+                                        </a:v>
+                                    </a:a>
+                                    <a:a name="IMPLEMENTATIONCONFIGCLASS" type="IMPLEMENTATIONCONFIGCLASS">
+                                        <icc:v class="PreCompile">VariantPreCompile</icc:v>
+                                        <icc:v class="PreCompile">VariantPostBuild</icc:v>
+                                    </a:a>
+                                    <a:a name="ORIGIN" value="Freescale"/>
+                                    <a:a name="SYMBOLICNAMEVALUE" value="false"/>
+                                    <a:a name="UUID" value="ECUC:4e75f581-489f-44b9-a6af-6bb592933c2d"/>
+                                    <a:da name="DEFAULT" value="false"/>
+                                    <a:a name="LOWER-MULTIPLICITY" value="1"/>
+                                    <a:a name="UPPER-MULTIPLICITY" value="1"/>
+                                    <a:da name="ENABLE" value="false"/>
+                                </v:var>
+                                <v:var name="DioReadZeroForUndefinedPortPins" type="BOOLEAN">
+                                    <a:a name="LABEL" value="DioReadZeroForUndefinedPort Pins"/>
+                                    <a:a name="DESC">
+                                        <a:v>
+                                            <![CDATA[
+                                            <html><p>
+                                                Defines whether the Dio_ReadPort() function includes the capability to
+                                                read the undefined port pins as 0.<br/>
+                                                True  - Enables the Dio_ReadPort() functionality to read the undefined port pins as 0<br/>
+                                                False - Disables the Dio_ReadPort() functionality to read the undefined port pins as 0<br/>
+                                                (Supports the normal functionality with Dio_ReadPort())
+                                            </p></html>
+                                            ]]>
+                                        </a:v>
+                                    </a:a>
+                                    <a:a name="IMPLEMENTATIONCONFIGCLASS" type="IMPLEMENTATIONCONFIGCLASS">
+                                        <icc:v class="PreCompile">VariantPreCompile</icc:v>
+                                        <icc:v class="PreCompile">VariantPostBuild</icc:v>
+                                    </a:a>
+                                    <a:a name="ORIGIN" value="Freescale"/>
+                                    <a:a name="SYMBOLICNAMEVALUE" value="false"/>
+                                    <a:a name="UUID" value="ECUC:fb9e8bce-c749-43b4-896f-a0315128678a"/>
+                                    <a:da name="DEFAULT" value="true"/>
+                                    <a:a name="LOWER-MULTIPLICITY" value="1"/>
+                                    <a:a name="UPPER-MULTIPLICITY" value="1"/>
+                                    <a:da name="ENABLE" value="false"/>
+                                </v:var>
+                            </v:ctr>
+                            <!-- @remarks Covers DIO144 -->
+                            <!-- @remarks Implements DDIO03001 -->
+                            <v:lst name="DioPort" type="MAP">
+                                <a:da name="MIN" value="1"/>
+                                <v:ctr name="DioPort" type="IDENTIFIABLE">
+                                    <a:a name="DESC">
+                                        <a:v>
+                                            <![CDATA[
+                                            <html><p>
+                                                Configuration of individual DIO ports, consisting of channels and possible channel groups.<br/>
+                                                The single DIO channel levels inside a DIO port represent a bit in the DIO port value. A channel group is a formal
+                                                logical combination of several adjoining DIO channels within a DIO port. The configuration process for Dio module
+                                                shall provide symbolic names for each configured DIO channel, port and group.
+                                            </p></html>
+                                            ]]>
+                                        </a:v>
+                                    </a:a>
+                                    <a:a name="UUID" value="ECUC:fb7b0fe9-0bf0-4528-9324-ab23fe1450b5"/>
+                                    <!-- @remarks Covers DIO145 -->
+                                    <!-- @remarks Implements DDIO03004 -->
+                                    <v:var name="DioPortId" type="INTEGER">
+                                    <a:a name="LABEL" value="DioPort Id"/>
+                                        <a:a name="DESC">
+                                            <a:v>
+                                                <![CDATA[
+                                                <html><p>
+                                                    Numeric identifier of the DIO port. Symbolic names will be generated for each port pin id
+                                                    for the pins which being used for configuration.<br/>
+                                                    NOTE: Use the following values to configure different ports.
+                                                    <ul>
+                                                    <li>PORT0=0 - pins from 0 to 15</li>
+                                                    <li>PORT1=1 - pins from 16 to 31</li>
+                                                    <li>PORT2=2 - pins from 32 to 47</li>
+                                                    <li>PORT3=3 - pins from 48 to 63</li>
+                                                    <li>PORT4=4 - pins from 64 to 79</li>
+                                                    <li>PORT5=5 - pins from 80 to 95</li>
+                                                    <li>PORT6=6 - pins from 96 to 111</li>
+                                                    <li>PORT7=7 - pins from 112 to 127</li>
+                                                    <li>PORT8=8 - pins from 128 to 143</li>
+                                                    <li>PORT9=9 - pins from 144 to 159</li>
+                                                    <li>PORT10=10 - pins from 160 to 175</li>
+                                                    <li>PORT11=11 - pins from 176 to 191</li>
+                                                    <li>PORT12=12 - pins from 192 to 207</li>
+                                                    <li>PORT13=13 - pins from 208 to 223</li>
+                                                    <li>PORT14=14 - pins from 224 to 239</li>
+                                                 </ul>
+                                                    </p>
+                                                    <p>The formula for calculating PORT number for PINx (PCR[x]) is:<br/>
+                                                    PORTx=integer(PINx/16)     e.g. for PCR[100] => PORT100=integer(100/16)=6
+                                                    </p>
+                                                </html>
+                                                ]]>
+                                            </a:v>
+                                        </a:a>
+                                        <a:a name="IMPLEMENTATIONCONFIGCLASS" type="IMPLEMENTATIONCONFIGCLASS">
+                                            <icc:v class="PreCompile">VariantPreCompile</icc:v>
+                                            <icc:v class="PostBuild">VariantPostBuild</icc:v>
+                                        </a:a>
+                                        <a:a name="ORIGIN" value="AUTOSAR_ECUC"/>
+                                        <a:a name="SYMBOLICNAMEVALUE" value="true"/>
+                                        <a:a name="UUID" value="ECUC:906edc6c-ae0d-4714-bc98-6d92b5214db4"/>
+                                        <a:da name="DEFAULT" type="XPath" expr="node:fallback(node:current()/../@index, '0')"/>
+                                        <a:a name="LOWER-MULTIPLICITY" value="1"/>
+                                        <a:a name="UPPER-MULTIPLICITY" value="1"/>
+                                        <a:da name="INVALID" type="Range">
+                                            <a:tst expr="&lt;=14"/>
+                                            <a:tst expr="&gt;=0"/>
+                                        </a:da>
+                                        <a:da name="RANGE" type="XPath">
+                                            <a:tst expr="text:uniq(node:fallback(../../*/DioPortId, text:split('1 2 3')), node:fallback(., 1))" false="DioPortId is repeated for two or more port.Use the Calc button to calculate correct default value."/>
+                                            <a:tst expr="count(text:grep(ecu:list(concat(&apos;Dio.NonAvailablePinsPort_&apos;, node:fallback(., 0))), '[0-9]*'))=16" true="This Port is not available for the selected package."/>>
+                                        </a:da>
+                                    </v:var>
+                                    <!-- @remarks Covers DIO146 -->
+                                    <!-- @remarks Implements DDIO03005 -->
+                                    <v:lst name="DioChannel" type="MAP">
+                                        <v:ctr name="DioChannel" type="IDENTIFIABLE">
+                                            <a:a name="DESC">
+                                                <a:v>
+                                                    <![CDATA[
+                                                    <html><p>
+                                                        Configuration of an individual DIO channel. Symbolic names will be generated for each channel.<br/>
+                                                        A general purpose digital IO pin represents a DIO channel, which will be having value either STD_HIGH or STD_LOW.
+                                                    </p></html>
+                                                    ]]>
+                                                </a:v>
+                                            </a:a>
+                                            <a:a name="UUID" value="ECUC:e4d43eaa-1362-4c0e-b7d5-7bc282ba179e"/>
+                                            <!-- @remarks Covers DIO147 -->
+                                            <!-- @remarks Implements DDIO03007 -->
+                                            <v:var name="DioChannelId" type="INTEGER">
+                                            <a:a name="LABEL" value="DioChannel Id"/>
+                                                <a:a name="DESC">
+                                                    <a:v>
+                                                        <![CDATA[
+                                                        <html><p>
+                                                            Channel Id of the DIO channel. This value will be assigned to the symbolic names.<br/>
+                                                            There is 16 pin in each port, logical value of each pin is the bit value of port.
+                                                            Channel id should be given with port id. Eg, if port id is given as DioPort_0, then channel should be DioChannel_01.
+                                                            </p>
+                                                            <p>The formula for calculating channel number for PINx (PCR[x]) is:<br/>
+                                                            CHANNELx=PINx % 16        e.g. for PCR[100] => CHANNEL100= 100 % 16 = 4
+                                                            </p>
+                                                        </html>
+                                                        ]]>
+                                                    </a:v>
+                                                </a:a>
+                                                <a:a name="IMPLEMENTATIONCONFIGCLASS" type="IMPLEMENTATIONCONFIGCLASS">
+                                                    <icc:v class="PreCompile">VariantPreCompile</icc:v>
+                                                    <icc:v class="PostBuild">VariantPostBuild</icc:v>
+                                                </a:a>
+                                                <a:a name="ORIGIN" value="AUTOSAR_ECUC"/>
+                                                <a:a name="SYMBOLICNAMEVALUE" value="true"/>
+                                                <a:a name="UUID" value="ECUC:50b9122f-35dd-447c-b74b-6f854bc91e13"/>
+                                                <a:da name="DEFAULT" type="XPath" expr="node:fallback(node:current()/../@index, '0')"/>
+                                                <a:a name="LOWER-MULTIPLICITY" value="1"/>
+                                                <a:a name="UPPER-MULTIPLICITY" value="1"/>
+                                                <a:da name="INVALID" type="Range">
+                                                    <a:tst expr="&lt;=15"/>
+                                                    <a:tst expr="&gt;=0"/>
+                                                </a:da>
+                                                <a:da name="RANGE" type="XPath">
+                                                    <a:tst expr="text:uniq(node:fallback(../../*/DioChannelId, text:split('1 2 3')), node:fallback(.,1))" false="DioChannelId is repeated for two or more channels.Use the Calc button to calculate correct default value."/>
+                                                    <a:tst expr="count(text:grep(ecu:list(concat(&apos;Dio.NonAvailablePinsPort_&apos;, node:fallback(../../../DioPortId, 0))), concat('^',node:fallback(., 0),'$')))>0" true="This channel is not available in the selected package."/>
+
+                                                </a:da>
+                                            </v:var>
+                                        </v:ctr>
+                                    </v:lst>
+                                    <!-- @remarks Covers DIO148 -->
+                                    <!-- @remarks Implements DDIO03006 -->
+                                    <v:lst name="DioChannelGroup" type="MAP">
+                                        <v:ctr name="DioChannelGroup" type="IDENTIFIABLE">
+                                            <a:a name="DESC">
+                                                <a:v>
+                                                    <![CDATA[
+                                                    <html><p>
+                                                        A channel group represents several adjoining DIO channels represented by a logical group.<br/>
+                                                        This container definition does not explicitly define a symbolic name parameter, but symbolic name will be generated for
+                                                        channel group. It provides a structure with parameters port, offset and mask.
+                                                    </p></html>
+                                                    ]]>
+                                                </a:v>
+                                            </a:a>
+                                            <a:a name="UUID" value="ECUC:92d8deb5-f0a3-4b5a-a0e1-8fa6605e08de"/>
+                                            <!-- @remarks Covers DIO149 -->
+                                            <!-- @remarks Implements DDIO03008 -->
+                                            <v:var name="DioChannelGroupIdentification" type="STRING">
+                                                <a:a name="LABEL" value="Dio Channel Group Identification"/>
+                                                <a:a name="DESC">
+                                                    <a:v>
+                                                        <![CDATA[
+                                                        <html><p>
+                                                            The DIO channel group is identified in DIO API by a pointer to a data structure of type Dio_ChannelGroupType. This data structure
+                                                            contains the channel group information. This parameter contains the code fragment that has to be inserted in the API call of the calling module to get the address
+                                                            of the variable in memory which holds the channel group information, a string value should be given for this parameter. Symbolic name will be generated for
+                                                            DioChannelGroup, which will be assigned with address of this string inorder to point to the structure parameters. Example:OutputGroup
+                                                        </p></html>
+                                                        ]]>
+                                                    </a:v>
+                                                </a:a>
+                                                <a:a name="IMPLEMENTATIONCONFIGCLASS" type="IMPLEMENTATIONCONFIGCLASS">
+                                                    <icc:v class="PreCompile">VariantPreCompile</icc:v>
+                                                    <icc:v class="PreCompile">VariantPostBuild</icc:v>
+                                                </a:a>
+                                                <a:a name="ORIGIN" value="AUTOSAR_ECUC"/>
+                                                <a:a name="SYMBOLICNAMEVALUE" value="true"/>
+                                                <a:a name="UUID" value="ECUC:d8247a5a-d371-45b9-9614-ad123fdbad7a"/>
+                                                <a:da name="DEFAULT" value="DioChannelGroup"/>
+                                                <a:a name="LOWER-MULTIPLICITY" value="1"/>
+                                                <a:a name="UPPER-MULTIPLICITY" value="1"/>
+                                                <a:da name="INVALID" type="XPath">
+                                                    <a:tst expr="text:match(normalize-space(.),'^[_a-zA-Z]+[_0-9a-zA-Z]*$') or normalize-space(.) = ' ' " false="DioChannelGroupIdentification name should be entered as string."/>
+                                                    <a:tst expr="text:uniq(//DioChannelGroupIdentification, .)" false="DioChannelGroupIdentification is repeated for two or more channel groups.Please enter different symbolic name."/>
+                                                </a:da>
+                                            </v:var>
+                                            <!-- @remarks Covers DIO150 -->
+                                            <!-- @remarks Implements DDIO03009 -->
+                                            <v:var name="DioPortMask" type="INTEGER">
+                                            <a:a name="LABEL" value="Dio Port Mask"/>
+                                                <a:a name="DESC">
+                                                    <a:v>
+                                                        <![CDATA[
+                                                        <html><p>
+                                                            This shall be the mask which defines the positions of the channel group.
+                                                            The data type depends on the port width.
+                                                        </p></html>
+                                                        ]]>
+                                                    </a:v>
+                                                </a:a>
+                                                <a:a name="IMPLEMENTATIONCONFIGCLASS" type="IMPLEMENTATIONCONFIGCLASS">
+                                                    <icc:v class="PreCompile">VariantPreCompile</icc:v>
+                                                    <icc:v class="PostBuild">VariantPostBuild</icc:v>
+                                                </a:a>
+                                                <a:a name="ORIGIN" value="AUTOSAR_ECUC"/>
+                                                <a:a name="SYMBOLICNAMEVALUE" value="false"/>
+                                                <a:a name="UUID" value="ECUC:afd6c082-0873-4be4-bc3e-8f64c833df8a"/>
+                                                <a:a name="LOWER-MULTIPLICITY" value="1"/>
+                                                <a:a name="UPPER-MULTIPLICITY" value="1"/>
+                                                <a:da name="DEFAULT" value='1'/>
+                                                <a:da name="INVALID" type="Range">
+                                                    <a:tst expr="&gt;=1"/>
+                                                    <a:tst expr="&lt;=65535"/>
+                                                </a:da>
+                                                <a:da name="RANGE" type="XPath">
+                                                    <a:tst expr="(node:fallback( ., 0) =1) or (node:fallback( ., 0) =2) or (node:fallback( ., 0) =3) or (node:fallback( ., 0) =4) or (node:fallback( ., 0) =6)  or (node:fallback( ., 0) =7) or                                                             (node:fallback( ., 0) =8) or (node:fallback( ., 0) =12) or (node:fallback( ., 0) =14) or (node:fallback( ., 0) =15) or (node:fallback( ., 0) =16)   or (node:fallback( ., 0) =24) or                                                                (node:fallback( ., 0) =28) or (node:fallback( ., 0) =30) or (node:fallback( ., 0) =31) or (node:fallback( ., 0) =32) or (node:fallback( ., 0) =48)  or (node:fallback( ., 0) =56) or                                                                (node:fallback( ., 0) =60) or (node:fallback( ., 0) =62) or (node:fallback( ., 0) =63) or (node:fallback( ., 0) =64) or (node:fallback( ., 0) =96)  or (node:fallback( ., 0) =112) or                                                               (node:fallback( ., 0) =120) or (node:fallback( ., 0) =124) or (node:fallback( ., 0) =126) or (node:fallback( ., 0) =127) or (node:fallback( ., 0) =128) or (node:fallback( ., 0) =192) or                                                                                                                               (node:fallback( ., 0) =224) or (node:fallback( ., 0) =240) or (node:fallback( ., 0) =248) or (node:fallback( ., 0) =252) or (node:fallback( ., 0) =254) or (node:fallback( ., 0) =255) or                                                               (node:fallback( ., 0) =256) or (node:fallback( ., 0) =384) or (node:fallback( ., 0) =448) or (node:fallback( ., 0) =480) or (node:fallback( ., 0) =496) or (node:fallback( ., 0) =504) or                                                               (node:fallback( ., 0) =508) or (node:fallback( ., 0) =510) or (node:fallback( ., 0) =511) or (node:fallback( ., 0) =512) or (node:fallback( ., 0) =768) or (node:fallback( ., 0) =896) or                                                               (node:fallback( ., 0) =960) or (node:fallback( ., 0) =992) or (node:fallback( ., 0) =1008) or (node:fallback( ., 0) =1016) or (node:fallback( ., 0) =1020)  or (node:fallback( ., 0) =1022) or                                                              (node:fallback( ., 0) =1023) or (node:fallback( ., 0) =1024) or (node:fallback( ., 0) =1536) or (node:fallback( ., 0) =1792) or (node:fallback( ., 0) =1920)    or (node:fallback( ., 0) =1984) or                                                              (node:fallback( ., 0) =2016) or (node:fallback( ., 0) =2032) or (node:fallback( ., 0) =2040) or (node:fallback( ., 0) =2044) or (node:fallback( ., 0) =2046)    or (node:fallback( ., 0) =2047) or                                                              (node:fallback( ., 0) =2048) or (node:fallback( ., 0) =3072) or (node:fallback( ., 0) =3584) or (node:fallback( ., 0) =3840) or (node:fallback( ., 0) =3968)    or (node:fallback( ., 0) =4032) or
+                                                                 (node:fallback( ., 0) =4064) or (node:fallback( ., 0) =4080) or (node:fallback( ., 0) =4092) or (node:fallback( ., 0) =4094) or (node:fallback( ., 0) =4095)    or (node:fallback( ., 0) =4096) or
+                                                                 (node:fallback( ., 0) =6144) or (node:fallback( ., 0) =7168) or (node:fallback( ., 0) =7680) or (node:fallback( ., 0) =7936) or (node:fallback( ., 0) =8064)    or (node:fallback( ., 0) =8128) or
+                                                                 (node:fallback( ., 0) =8160) or (node:fallback( ., 0) =8176) or (node:fallback( ., 0) =8184) or (node:fallback( ., 0) =8188) or (node:fallback( ., 0) =8190)    or (node:fallback( ., 0) =8191) or
+                                                                 (node:fallback( ., 0) =8192) or (node:fallback( ., 0) =12288) or (node:fallback( ., 0) =14336) or (node:fallback( ., 0) =15360) or (node:fallback( ., 0) =15872)    or (node:fallback( ., 0) =16128) or
+                                                                 (node:fallback( ., 0) =16256) or (node:fallback( ., 0) =16320) or (node:fallback( ., 0) =16352) or (node:fallback( ., 0) =16368) or (node:fallback( ., 0) =16376)   or (node:fallback( ., 0) =16380) or
+                                                                 (node:fallback( ., 0) =16382) or (node:fallback( ., 0) =16383) or (node:fallback( ., 0) =16384) or (node:fallback( ., 0) =24576) or (node:fallback( ., 0) =28672)   or (node:fallback( ., 0) =30720) or
+                                                                 (node:fallback( ., 0) =31744) or (node:fallback( ., 0) =32256) or (node:fallback( ., 0) =32512) or (node:fallback( ., 0) =32640) or (node:fallback( ., 0) =32704)   or (node:fallback( ., 0) =32736) or
+                                                                 (node:fallback( ., 0) =32752) or (node:fallback( ., 0) =32760) or (node:fallback( ., 0) =32764) or (node:fallback( ., 0) =32766) or (node:fallback( ., 0) =32767)   or (node:fallback( ., 0) =32768) or
+                                                                 (node:fallback( ., 0) =49152) or (node:fallback( ., 0) =57344) or (node:fallback( ., 0) =61440) or (node:fallback( ., 0) =63488) or (node:fallback( ., 0) =64512)   or (node:fallback( ., 0) =65024) or
+                                                                 (node:fallback( ., 0) =65280) or (node:fallback( ., 0) =65408) or (node:fallback( ., 0) =65472) or (node:fallback( ., 0) =65504) or (node:fallback( ., 0) =65520)   or (node:fallback( ., 0) =65528) or
+                                                                 (node:fallback( ., 0) =65532) or (node:fallback( ., 0) =65534) or (node:fallback( ., 0) =65535)
+                                                    " false="Only the values 1,2,3,4,6,7,8,12,14,15,16,24,28,30,31,32,48,56,60,62,63,64,96,112,120,124,126,127,128,192,224,240,248,252,254,255,256,384,448,480,496,504,508,510,511,512,768,896,960,992,1008,1016,1020,1022, 1023,1024,1536,1792,1920,1984,2016,2032,2040,2044,2046,2047,2048,3072,3584,3840,3968,4032,4064,4080,4088,4092,4094,4095,4096,6144,7168,7680,7936,8064,8128,8160,8176,8184,8188,8190,8191,8192,12288,14336,15360,15872,  16128,16256,16320,16352,16368,16376,16380,16382,16383,16384,24576,28672,30720,31744,32256,32512,32640,32704,32736,32752,32760,32764,32766,32767,32768,49152,57344,61440,63488,64512,65024,65280,65408,65472,65504,65520,65528,65532,65534,65535 are allowed"/>
+                                                </a:da>
+                                            </v:var>
+                                            <!-- @remarks Covers DIO151 -->
+                                            <!-- @remarks Implements DDIO03010 -->
+                                            <v:var name="DioPortOffset" type="INTEGER">
+                                                <a:a name="LABEL" value="Dio Port Offset"/>
+                                                <a:a name="CALCULATION-FORMULA" value="position of the first bit of dioportmask which is set to &apos;1&apos; counted from lsb"/>
+                                                <a:a name="CALCULATION-LANGUAGE" value="INFORMAL"/>
+                                                <a:a name="DERIVED" value="TRUE"/>
+                                                <a:a name="DESC">
+                                                    <a:v>
+                                                        <![CDATA[
+                                                        <html><p>
+                                                            The position of the Channel Group on the port, counted from the LSB. This value can be derived from DioPortMask.<br/>
+                                                            calculationFormula = Position of the first bit of DioPortMask which is set to '1' counted from LSB
+                                                        </p></html>
+                                                        ]]>
+                                                    </a:v>
+                                                </a:a>
+                                                <a:a name="IMPLEMENTATIONCONFIGCLASS" type="IMPLEMENTATIONCONFIGCLASS">
+                                                    <icc:v class="PreCompile">VariantPreCompile</icc:v>
+                                                    <icc:v class="PostBuild">VariantPostBuild</icc:v>
+                                                </a:a>
+                                                <a:a name="ORIGIN" value="AUTOSAR_ECUC"/>
+                                                <a:a name="SYMBOLICNAMEVALUE" value="false"/>
+                                                <a:a name="UUID" value="ECUC:f40ed2ac-5a25-41bd-a8b2-2aaa3760f927"/>
+                                                <a:a name="LOWER-MULTIPLICITY" value="1"/>
+                                                <a:a name="UPPER-MULTIPLICITY" value="1"/>
+                                                <a:da name="DEFAULT" type="XPath">
+                                                    <a:tst expr="num:i(number(text:split(text:grep(text:split('0_1 1_2 0_3 2_4 1_6 0_7 3_8 2_12 1_14 0_15 4_16 3_24 2_28 1_30 0_31 5_32 4_48 3_56 2_60 1_62 0_63 6_64 5_96 4_112 3_120 2_124 1_126 0_127 7_128 6_192 5_224 4_240 3_248 2_252 1_254 0_255 8_256 7_384 6_448 5_480 4_496 3_504 2_508 1_510 0_511 9_512 8_768 7_896 6_960 5_992 4_1008 3_1016 2_1020 1_1022 0_1023  10_1024 9_1536 8_1792 7_1920 6_1984 5_2016 4_2032 3_2040 2_2044 1_2046 0_2047  11_2048 10_3072 9 _3584 8_3840 7_3968 6_4032 5_4064 4_4080 3_4088 2_4092 1_4094 0_4095 12_4096  11_6144,10_7168 9_7680 8_7936 7_8064 6_8128 5_8160 4_8176 3_8184 2_8188 1_8190 0_8191 13_8192 12_12288 11_14336 10_15360 9_15872 8_16128 7_16256 6_16320 5_16352 4_16368 3_16376 2_16380 1_16382 0_16383 14_16384 13_24576 12_28672 11_30720 10_31744 9_32256 8_32512 7_32640 6_32704 5_32736 4_32752 3_32760 2_32764 1_32766 0_32767 15_32768 14_49152 13_57344 12_61440 11_63488 10_64512 9_65024 8_65280 7_65408 6_65472 5_65504 4_65520 3_65528 2_65532 1_65534 0_65535 '),concat('^[0-9]+_', node:fallback(../DioPortMask, '0'))),'_')[1]))"/>
+                                                </a:da>
+                                                <a:da name="INVALID" type="Range">
+                                                    <a:tst expr="&gt;=0"/>
+                                                    <a:tst expr="&lt;=15"/>
+                                                </a:da>
+                                                    <a:da name="RANGE" type="XPath">
+                                                    <a:tst expr="node:fallback(., 0) =(num:i(number(text:split(text:grep(text:split('0_1 1_2 0_3 2_4 1_6 0_7 3_8 2_12 1_14 0_15 4_16 3_24 2_28 1_30 0_31 5_32 4_48 3_56 2_60 1_62 0_63 6_64 5_96 4_112 3_120 2_124 1_126 0_127 7_128 6_192 5_224 4_240 3_248 2_252 1_254 0_255 8_256 7_384 6_448 5_480 4_496 3_504 2_508 1_510 0_511 9_512 8_768 7_896 6_960 5_992 4_1008 3_1016 2_1020 1_1022 0_1023  10_1024 9_1536 8_1792 7_1920 6_1984 5_2016 4_2032 3_2040 2_2044 1_2046 0_2047  11_2048 10_3072 9 _3584 8_3840 7_3968 6_4032 5_4064 4_4080 3_4088 2_4092 1_4094 0_4095 12_4096  11_6144,10_7168 9_7680 8_7936 7_8064 6_8128 5_8160 4_8176 3_8184 2_8188 1_8190 0_8191 13_8192 12_12288 11_14336 10_15360 9_15872 8_16128 7_16256 6_16320 5_16352 4_16368 3_16376 2_16380 1_16382 0_16383 14_16384 13_24576 12_28672 11_30720 10_31744 9_32256 8_32512 7_32640 6_32704 5_32736 4_32752 3_32760 2_32764 1_32766 0_32767 15_32768 14_49152 13_57344 12_61440 11_63488 10_64512 9_65024 8_65280 7_65408 6_65472 5_65504 4_65520 3_65528 2_65532 1_65534 0_65535'),concat('^[0-9]+_', node:fallback(../DioPortMask, '0'))),'_')[1])))" false="The value of the offset must match with the DioPortMask. For the correct value use the CALC button"/>
+                                                </a:da>
+                                            </v:var>
+                                        <a:da name="ENABLE" value="false"/>
+                                        </v:ctr>
+                                    </v:lst>
+                                </v:ctr>
+                            </v:lst>
+                        </v:ctr>
+                    </d:chc>
+                </d:lst>
+            </d:ctr>
+        </d:lst>
+    </d:ctr>
+</datamodel>

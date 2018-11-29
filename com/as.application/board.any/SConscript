@@ -1,0 +1,11 @@
+import os
+
+Import('asenv')
+BOARD = asenv['BOARD']
+
+objs = []
+
+ANY = os.getenv('ANY')
+assert(ANY is not None)
+objs += SConscript('%s/SConscript'%(ANY))
+Return('objs')

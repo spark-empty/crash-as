@@ -1,0 +1,9 @@
+P:\Produkte\Produkt-CD\Disk\Develop\PC interfaces\Windows\PCAN-Basic API\Samples\VB\bin\Debug\PCANBasicExample.exe
+P:\Produkte\Produkt-CD\Disk\Develop\PC interfaces\Windows\PCAN-Basic API\Samples\VB\bin\Debug\PCANBasicExample.pdb
+P:\Produkte\Produkt-CD\Disk\Develop\PC interfaces\Windows\PCAN-Basic API\Samples\VB\bin\Debug\PCANBasicExample.xml
+P:\Produkte\Produkt-CD\Disk\Develop\PC interfaces\Windows\PCAN-Basic API\Samples\VB\obj\Debug\Form1.resources
+P:\Produkte\Produkt-CD\Disk\Develop\PC interfaces\Windows\PCAN-Basic API\Samples\VB\obj\Debug\Resources.resources
+P:\Produkte\Produkt-CD\Disk\Develop\PC interfaces\Windows\PCAN-Basic API\Samples\VB\obj\Debug\PCANBasicExample.vbproj.GenerateResource.Cache
+P:\Produkte\Produkt-CD\Disk\Develop\PC interfaces\Windows\PCAN-Basic API\Samples\VB\obj\Debug\PCANBasicExample.exe
+P:\Produkte\Produkt-CD\Disk\Develop\PC interfaces\Windows\PCAN-Basic API\Samples\VB\obj\Debug\PCANBasicExample.xml
+P:\Produkte\Produkt-CD\Disk\Develop\PC interfaces\Windows\PCAN-Basic API\Samples\VB\obj\Debug\PCANBasicExample.pdb

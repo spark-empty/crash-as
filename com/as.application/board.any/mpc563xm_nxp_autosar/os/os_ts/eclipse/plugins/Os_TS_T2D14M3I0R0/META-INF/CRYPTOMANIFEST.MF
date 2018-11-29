@@ -1,0 +1,8 @@
+
+Name: config/Os.xdm
+SignatureKeyID: Freescale
+Signature: 11313377425717840919224691177493677904076997070747141039608
+ 1262884068412428952101598524083949732880854974683983
+SignatureKeyProviderID: plugin.launcher2.licenseFileKeyProvider
+SignatureAlgorithmID: DSA
+

@@ -1,0 +1,39 @@
+#!/bin/sh
+
+#/**
+# * AS - the open source Automotive Software on https://github.com/parai
+# *
+# * Copyright (C) 2015  AS <parai@foxmail.com>
+# *
+# * This source code is free software; you can redistribute it and/or modify it
+# * under the terms of the GNU General Public License version 2 as published by the
+# * Free Software Foundation; See <http://www.gnu.org/licenses/old-licenses/gpl-2.0.txt>.
+# *
+# * This program is distributed in the hope that it will be useful, but
+# * WITHOUT ANY WARRANTY; without even the implied warranty of MERCHANTABILITY
+# * or FITNESS FOR A PARTICULAR PURPOSE.  See the GNU General Public License
+# * for more details.
+# */
+
+# aslinux file system initialization script
+
+echo "  >> welcome to the world of aslinux <<"
+
+mount -a
+mdev -s
+
+mkdir -p  /mnt/mmcblk0p1
+mount -t ext2 /dev/mmcblk0p1 /mnt/mmcblk0p1
+
+echo 0 > /proc/sys/kernel/hung_task_timeout_secs
+ip link set can0 up
+ip link add dev can1 type vcan
+ip link set up can1
+
+echo "  >> login as root <<"
+
+/bin/hostname -F /etc/hostname
+
+# for systemd https://bbs.archlinux.org/viewtopic.php?id=192053, as it fail
+# systemctl mask systemd-logind.service
+

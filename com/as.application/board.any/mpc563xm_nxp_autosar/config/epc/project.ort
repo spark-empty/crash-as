@@ -1,0 +1,342 @@
+/******************************************************************************
+*
+*       Freescale(TM) and the Freescale logo are trademarks of Freescale Semiconductor, Inc.
+*       All other product or service names are the property of their respective owners.
+*       (C) Freescale Semiconductor, Inc. 2010
+*
+*       THIS SOURCE CODE IS CONFIDENTIAL AND PROPRIETARY AND MAY NOT
+*       BE USED OR DISTRIBUTED WITHOUT THE WRITTEN PERMISSION OF
+*       Freescale Semiconductor, Inc.
+*
+* Description: ORTI file
+*
+* Note: The implementation was used: AUTOSAR_MPC56xxAM
+*       System Generator for AUTOSAR OS/MPC56xxAM - Version: 3.0 Build 3.0.35
+*
+********************************************************************************/
+
+VERSION {
+    KOIL = "2.1";
+    OSSEMANTICS = "ORTI", "2.1";
+    };
+IMPLEMENTATION ORTI_AUTOSAR_MPC56xxAM {
+OS {
+    TOTRACE ENUM "unsigned char" [
+        "TaskCanIf" = "0",
+        "SchM_BswService" = "1",
+        "SchM_Startup" = "2",
+        "TaskApp" = "3",
+        "TaskShell" = "4",
+        "TaskIdle" = "5",
+        "NO_TASK" = "&(OsTaskTable[6])"
+    ] RUNNINGTASK, "Running Task Identification";
+    TOTRACE    ENUM "unsigned char" [
+        "NO_SERVICE" = 0,
+        "OSServiceId_StartOS" = 2,
+        "OSServiceId_ShutdownOS" = 4,
+        "OSServiceId_GetActiveApplicationMode" = 6,
+        "OSServiceId_GetApplicationID" = 8,
+        "OSServiceId_CallTrustedFunction" = 10,
+        "OSServiceId_CheckISRMemoryAccess" = 12,
+        "OSServiceId_CheckTaskMemoryAccess" = 14,
+        "OSServiceId_CheckObjectAccess" = 16,
+        "OSServiceId_CheckObjectOwnership" = 18,
+        "OSServiceId_TerminateApplication" = 20,
+        "OSServiceId_ActivateTask" = 32,
+        "OSServiceId_TerminateTask" = 34,
+        "OSServiceId_ChainTask" = 36,
+        "OSServiceId_Schedule" = 38,
+        "OSServiceId_GetTaskID" = 40,
+        "OSServiceId_GetTaskState" = 42,
+        "OSServiceId_ResumeAllInterrupts" = 48,
+        "OSServiceId_SuspendAllInterrupts" = 50,
+        "OSServiceId_ResumeOSInterrupts" = 52,
+        "OSServiceId_SuspendOSInterrupts" = 54,
+        "OSServiceId_EnableAllInterrupts" = 56,
+        "OSServiceId_DisableAllInterrupts" = 58,
+        "OSServiceId_EnableInterruptSource" = 60,
+        "OSServiceId_DisableInterruptSource" = 62,
+        "OSServiceId_GetISRID" = 64,
+        "OSServiceId_GetResource" = 80,
+        "OSServiceId_ReleaseResource" = 82,
+        "OSServiceId_SetEvent" = 96,
+        "OSServiceId_ClearEvent" = 98,
+        "OSServiceId_GetEvent" = 100,
+        "OSServiceId_WaitEvent" = 102,
+        "OSServiceId_SendMessage" = 112,
+        "OSServiceId_ReceiveMessage" = 114,
+        "OSServiceId_GetMessageStatus" = 120,
+        "OSServiceId_StartCOM" = 122,
+        "OSServiceId_StopCOM" = 124,
+        "OSServiceId_ReadFlag" = 130,
+        "OSServiceId_ResetFlag" = 132,
+        "OSServiceId_GetCOMApplicationMode" = 134,
+        "OSServiceId_InitMessage" = 136,
+        "OSServiceId_InitCounter" = 144,
+        "OSServiceId_IncrementCounter" = 146,
+        "OSServiceId_GetCounterValue" = 148,
+        "OSServiceId_GetElapsedCounterValue" = 150,
+        "OSServiceId_GetCounterInfo" = 152,
+        "OSServiceId_GetAlarmBase" = 160,
+        "OSServiceId_GetAlarm" = 162,
+        "OSServiceId_SetRelAlarm" = 164,
+        "OSServiceId_SetAbsAlarm" = 166,
+        "OSServiceId_CancelAlarm" = 168,
+        "OSServiceId_ErrorHook" = 176,
+        "OSServiceId_PreTaskHook" = 178,
+        "OSServiceId_PostTaskHook" = 180,
+        "OSServiceId_StartupHook" = 182,
+        "OSServiceId_ShutdownHook" = 184,
+        "OSServiceId_IdleLoopHook" = 186,
+        "OSServiceId_COMErrorHook" = 188,
+        "OSServiceId_ProtectionHook" = 190,
+        "OSServiceId_StartScheduleTableAbs" = 192,
+        "OSServiceId_StartScheduleTableRel" = 194,
+        "OSServiceId_StopScheduleTable" = 196,
+        "OSServiceId_NextScheduleTable" = 198,
+        "OSServiceId_SyncScheduleTable" = 200,
+        "OSServiceId_SetScheduleTableAsync" = 202,
+        "OSServiceId_GetScheduleTableStatus" = 204,
+        "OSServiceId_StartScheduleTableSynchron" = 206
+    ] SERVICETRACE, "OS Services Watch";
+    TOTRACE ENUM "unsigned short" [
+        "NO_ISR" = 2047,
+        "SYSTEM_TIMER" = 1,
+        "RTI_TickHandler" = 0
+    ] RUNNINGISR2, "Executed ISR Identification";
+    ENUM "unsigned char" [ 
+        "9" = 0,
+        "8" = 1,
+        "7" = 2,
+        "5" = 3,
+        "1" = 4,
+        "0" = 5,
+        "ISR_5" = 251,
+        "ISR_5" = 251,
+        "ISR_1" = 255
+    ] RUNNINGTASKPRIORITY, "Running TASK Priority";
+    ENUM "unsigned char" [ 
+        "E_OK" = 0,
+        "E_OS_ACCESS" = 1,
+        "E_OS_CALLEVEL" = 2,
+        "E_OS_ID" = 3,
+        "E_OS_LIMIT" = 4,
+        "E_OS_NOFUNC" = 5,
+        "E_OS_RESOURCE" = 6,
+        "E_OS_STATE" = 7,
+        "E_OS_VALUE" = 8,
+        "E_OS_SERVICEID" = 9,
+        "E_OS_RATE" = 10,
+        "E_OS_ILLEGAL_ADDRESS" = 11,
+        "E_OS_MISSINGEND" = 12,
+        "E_OS_DISABLEDINT" = 13,
+        "E_OS_STACKFAULT" = 14,
+        "E_OS_PROTECTION_MEMORY" = 15,
+        "E_OS_PROTECTION_TIME" = 16,
+        "E_OS_PROTECTION_LOCKED" = 17,
+        "E_OS_PROTECTION_EXCEPTION" = 18,
+        "E_OS_PROTECTION_RATE" = 19,
+        "E_OS_SYS_ORDER" = 20,
+        "E_COM_BUSY" = 33,
+        "E_COM_LOCKED" = 39,
+        "E_COM_NOMSG" = 41,
+        "E_COM_LIMIT" = 36,
+        "E_COM_ID" = 35
+    ] LASTERROR, "Error Code Identification";
+    ENUM "unsigned char" [
+        "Mode01" = 0
+    ] CURRENTAPPMODE, "Current Application Mode Identification";
+};
+
+TASK {
+    ENUM "unsigned char" [
+        "9" = 0,
+        "8" = 1,
+        "7" = 2,
+        "5" = 3,
+        "1" = 4,
+        "0" = 5,
+        "ISR_5" = 251,
+        "ISR_5" = 251,
+        "ISR_1" = 255
+    ] PRIORITY, "Task Priority";
+    ENUM "unsigned char" [ 
+        "RUNNING" = 0,
+        "WAITING" = 1,
+        "READY" = 2,
+        "SUSPENDED" = 3
+    ] STATE, "Task State";
+    CTYPE "unsigned char" vs_EVENTS, "Events State";
+    CTYPE "unsigned char" vs_WAITEVENTS, "Waited Events";
+    STRING vs_MASKS, "Task Event Masks";
+    ENUM [
+        "MAIN_STACK" = "&_OsOrtiStackStart",
+        "TaskShell_STACK" = "OsTaskCfgTable[4].bos",
+        "NO_STACK" = 0
+ ] STACK, "Current Task Stack";
+    CTYPE "unsigned short"     vs_SIZE,  "Stack Size";
+    STRING  vs_PROPERTY, "Task Properties";
+};
+
+STACK {
+    CTYPE    BASEADDRESS , "Stack Start Address";
+    CTYPE "unsigned short" SIZE , "Stack Size";
+    STRING STACKDIRECTION, "Direction of Stack Growth";
+    CTYPE "unsigned long" FILLPATTERN, "Fill Pattern";
+};
+
+vs_COUNTER {
+    STRING  vs_MAXALLOWEDVALUE, "MAXALLOWEDVALUE";
+    STRING vs_TICKSPERBASE, "TICKSPERBASE";
+    STRING vs_MINCYCLE,  "MINCYCLE";
+    CTYPE "unsigned long" vs_VALUE, "Current Value";
+    ENUM "unsigned char"  [
+        "NO_ALARM" = 0,
+        "ALARM" = 1,
+        "NO_ALARM" = 0
+    ] vs_STATE, "Activated Alarm";
+    STRING vs_PROPERTY, "Counter Properties";
+};
+
+ALARM   {
+    ENUM "unsigned char" [
+        "STOPPED" = 0,
+        "RUNNING" = 1
+    ] STATE, "Alarm State";
+    STRING COUNTER, "Assigned Counter";
+    STRING ACTION, "Action when the alarm expires";
+    CTYPE "unsigned long" ALARMTIME, "Time to expire";
+    CTYPE "unsigned long" CYCLETIME, "Cycle period";
+};
+
+RESOURCE    {
+    ENUM "unsigned char" [
+        "9" = 0,
+        "8" = 1,
+        "7" = 2,
+        "5" = 3,
+        "1" = 4,
+        "0" = 5,
+        "ISR_5" = 251,
+        "ISR_5" = 251,
+        "ISR_1" = 255    ] PRIORITY, "Resource Priority";
+    ENUM "unsigned char" [
+        "UNLOCKED" = 0,
+        "LOCKED" = 1
+    ] STATE, "Resource State";
+};
+
+};
+OS os1 {
+    RUNNINGTASK = "OsOrtiRunning";
+    SERVICETRACE = "OsOrtiRunningServiceId_";
+    RUNNINGISR2 = "OsISRId_";
+    RUNNINGTASKPRIORITY = "OsRunning_->curPrio";
+    LASTERROR = "OsLastError_";
+    CURRENTAPPMODE = "0";
+};
+TASK TaskCanIf
+{
+    PRIORITY = "0";
+    STATE = "( 0 != OsRunning_->taskId )*(((OsTaskTable[0].status  & 0x10) != 0) * 2 + ((OsTaskTable[0].status  & 0x10) == 0) * 3 )";
+    STACK = "&_OsOrtiStackStart";
+    vs_EVENTS = "0";
+    vs_WAITEVENTS = "0";
+    vs_MASKS = "";
+    vs_PROPERTY = "BASIC, FULLPREEMPT, Priority: 9, AUTOSTART";
+};
+TASK SchM_BswService
+{
+    PRIORITY = "1";
+    STATE = "( 1 != OsRunning_->taskId )*(((OsTaskTable[1].status  & 0x10) != 0) * 2 + ((OsTaskTable[1].status  & 0x10) == 0) * 3 )";
+    STACK = "&_OsOrtiStackStart";
+    vs_EVENTS = "0";
+    vs_WAITEVENTS = "0";
+    vs_MASKS = "";
+    vs_PROPERTY = "BASIC, FULLPREEMPT, Priority: 8";
+};
+TASK SchM_Startup
+{
+    PRIORITY = "2";
+    STATE = "( 2 != OsRunning_->taskId )*(((OsTaskTable[2].status  & 0x10) != 0) * 2 + ((OsTaskTable[2].status  & 0x10) == 0) * 3 )";
+    STACK = "&_OsOrtiStackStart";
+    vs_EVENTS = "0";
+    vs_WAITEVENTS = "0";
+    vs_MASKS = "";
+    vs_PROPERTY = "BASIC, FULLPREEMPT, Priority: 7, AUTOSTART";
+};
+TASK TaskApp
+{
+    PRIORITY = "3";
+    STATE = "( 3 != OsRunning_->taskId )*(((OsTaskTable[3].status  & 0x10) != 0) * 2 + ((OsTaskTable[3].status  & 0x10) == 0) * 3 )";
+    STACK = "&_OsOrtiStackStart";
+    vs_EVENTS = "0";
+    vs_WAITEVENTS = "0";
+    vs_MASKS = "";
+    vs_PROPERTY = "BASIC, FULLPREEMPT, Priority: 5, AUTOSTART";
+};
+TASK TaskShell
+{
+    PRIORITY = "4";
+    STATE = "( 4 != OsRunning_->taskId )*(((OsTaskTable[4].status & 0x04) != 0) + ((OsTaskTable[4].status & 0x04) == 0) * ((OsTaskTable[4].status  & 0x10) != 0) * 2 + ((OsTaskTable[4].status  & 0x10) == 0) * 3 )";
+    STACK = "OsTaskCfgTable[4].bos";
+    vs_EVENTS = "OsTaskTable[4].set_event";
+    vs_WAITEVENTS = "((( 4 != OsRunning_->taskId )*(OsTaskTable[4].status & 0x04) != 0) * OsTaskTable[4].wait_event)";
+    vs_MASKS = "EventShellInput = 1, ";
+    vs_SIZE = "2048";
+    vs_PROPERTY = "EXTENDED, FULLPREEMPT, Priority: 1, AUTOSTART";
+};
+TASK TaskIdle
+{
+    PRIORITY = "5";
+    STATE = "( 5 != OsRunning_->taskId )*(((OsTaskTable[5].status  & 0x10) != 0) * 2 + ((OsTaskTable[5].status  & 0x10) == 0) * 3 )";
+    STACK = "&_OsOrtiStackStart";
+    vs_EVENTS = "0";
+    vs_WAITEVENTS = "0";
+    vs_MASKS = "";
+    vs_PROPERTY = "BASIC, FULLPREEMPT, Priority: 0, AUTOSTART";
+};
+STACK MAIN_STACK {
+    BASEADDRESS = "&_OsOrtiStackStart";
+    SIZE = "&_OsOrtiStart - &_OsOrtiStackStart";
+    STACKDIRECTION = "DOWN";
+    FILLPATTERN = "3735901610";
+};
+STACK ISR_STACK {
+    BASEADDRESS = "OsIsrStack";
+    SIZE = "800";
+    STACKDIRECTION = "DOWN";
+    FILLPATTERN = "3735901610";
+};
+STACK TaskShell_STACK {
+    BASEADDRESS = "OsTaskCfgTable[4].bos";
+    SIZE = "2048";
+    STACKDIRECTION = "DOWN";
+    FILLPATTERN = "3735901610";
+};
+vs_COUNTER SYSTEMTIMER {
+    vs_MAXALLOWEDVALUE = "65535";
+    vs_TICKSPERBASE = "10";
+    vs_MINCYCLE = "0";
+    vs_VALUE = "(*(unsigned long*)0xc3fa0028)";
+    vs_STATE = "(OsCounters[0].alarm != 0)";
+    vs_PROPERTY = "OSTICKDURATION = 7 us, HWCOUNTER, STM";
+};
+ALARM AlarmApp {
+    STATE = "(OsAlarms[0].prev != 0)";
+    COUNTER = "SYSTEMTIMER";
+    ACTION = "Activate task: TaskApp";
+    ALARMTIME = "((int)OsAlarms[0].prev != 0)*(OsAlarms[0].value - (*(unsigned long*)0xc3fa0028) + ((OsAlarms[0].value - (*(unsigned long*)0xc3fa0028)) < 0)*(65535+1))";
+    CYCLETIME = "OsAlarms[0].cycle";
+};
+ALARM Alarm_BswService {
+    STATE = "(OsAlarms[1].prev != 0)";
+    COUNTER = "SYSTEMTIMER";
+    ACTION = "Activate task: SchM_BswService";
+    ALARMTIME = "((int)OsAlarms[1].prev != 0)*(OsAlarms[1].value - (*(unsigned long*)0xc3fa0028) + ((OsAlarms[1].value - (*(unsigned long*)0xc3fa0028)) < 0)*(65535+1))";
+    CYCLETIME = "OsAlarms[1].cycle";
+};
+RESOURCE RES_SCHEDULER    {
+    PRIORITY = "0";
+    STATE = "OsResources[0].isUsed != 0 ";
+};

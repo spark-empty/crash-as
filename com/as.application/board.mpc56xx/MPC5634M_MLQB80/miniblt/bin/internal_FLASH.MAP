@@ -1,0 +1,1587 @@
+Link map of __start
+  1] __start (func,global) found in Runtime.PPCEABI.VS.UC.a __start.o
+   2] __init_registers (func,weak) found in Runtime.PPCEABI.VS.UC.a __start.o
+    3] _stack_addr found as linker generated symbol
+    3] _SDA2_BASE_ found as linker generated symbol
+    3] _SDA_BASE_ found as linker generated symbol
+   2] __init_hardware (func,global) found in __ppc_eabi_init.o 
+    3] usr_init (func,global) found in MPC55xx_init.o 
+     4] INIT_Derivative (func,global) found in MPC5634M_MLQB80_HWInit.o 
+      5] L2SRAM_LOCATION found as linker generated symbol
+     4] EXCEP_InitExceptionHandlers (func,global) found in Exceptions.o 
+      5] EXCEPTION_HANDLERS found as linker generated symbol
+      5] EXCEP_CriticalInputHandler (func,global) found in Exceptions.o 
+       6] @29 (object,local) found in Exceptions.o 
+       6] __func__$32 (object,local) found in Exceptions.o 
+       6] printf (func,global) found in stdio_printf.o 
+       6] >>> UNREFERENCED DUPLICATE printf
+       6] >>> (func,global) found in MSL_C.PPCEABI.bare.VS.UC.a printf.o
+        7] vsnprintf (func,global) found in stdio_printf.o 
+        7] >>> UNREFERENCED DUPLICATE vsnprintf
+        7] >>> (func,global) found in MSL_C.PPCEABI.bare.VS.UC.a printf.o
+         8] __putchar (func,global) found in bl_hw.o 
+          9] WriteUARTN (func,global) found in bl_hw.o 
+         8] skip_atoi (func,local) found in stdio_printf.o 
+         8] __va_arg (func,global) found in Runtime.PPCEABI.VS.UC.a __va_arg.o
+         8] @531 (object,local) found in stdio_printf.o 
+         8] strlen (func,weak) found in stdio_printf.o 
+         8] >>> UNREFERENCED DUPLICATE strlen
+         8] >>> (func,weak) found in Runtime.PPCEABI.VS.UC.a __mem.o
+         8] print_number (func,local) found in stdio_printf.o 
+          9] @LOCAL@print_number__FPcPcliiii@large_digits@0 (object,local) found in stdio_printf.o 
+          9] @LOCAL@print_number__FPcPcliiii@small_digits (object,local) found in stdio_printf.o 
+          9] divide (func,local) found in stdio_printf.o 
+      5] EXCEP_MachineCheckHandler (func,global) found in Exceptions.o 
+       6] __func__$43 (object,local) found in Exceptions.o 
+      5] EXCEP_DataStorageHandler (func,global) found in Exceptions.o 
+       6] __func__$54 (object,local) found in Exceptions.o 
+      5] EXCEP_InstructionStorageHandler (func,global) found in Exceptions.o 
+       6] __func__$65 (object,local) found in Exceptions.o 
+      5] EXCEP_ExternalInputHandler (func,global) found in Exceptions.o 
+       6] __func__$76 (object,local) found in Exceptions.o 
+      5] EXCEP_AlignmentHandler (func,global) found in Exceptions.o 
+       6] __func__$87 (object,local) found in Exceptions.o 
+      5] EXCEP_ProgramHandler (func,global) found in Exceptions.o 
+       6] __func__$98 (object,local) found in Exceptions.o 
+      5] EXCEP_FloatingPointUnavailableHandler (func,global) found in Exceptions.o 
+       6] __func__$109 (object,local) found in Exceptions.o 
+      5] EXCEP_SystemCallHandler (func,global) found in Exceptions.o 
+       6] __func__$20 (object,local) found in Exceptions.o 
+      5] EXCEP_AuxiliaryProcessorHandler (func,global) found in Exceptions.o 
+       6] __func__$120 (object,local) found in Exceptions.o 
+      5] EXCEP_DecrementerHandler (func,global) found in Exceptions.o 
+      5] EXCEP_FixedIntervalTimerHandler (func,global) found in Exceptions.o 
+       6] __func__$131 (object,local) found in Exceptions.o 
+      5] EXCEP_WatchDogTimerHandler (func,global) found in Exceptions.o 
+       6] __func__$142 (object,local) found in Exceptions.o 
+      5] EXCEP_DataTlbErrorHandler (func,global) found in Exceptions.o 
+       6] __func__$153 (object,local) found in Exceptions.o 
+      5] EXCEP_InstructionTlbErrorHandler (func,global) found in Exceptions.o 
+       6] __func__$164 (object,local) found in Exceptions.o 
+      5] EXCEP_DebugHandler (func,global) found in Exceptions.o 
+       6] __func__$175 (object,local) found in Exceptions.o 
+      5] EXCEP_SPE_APU_UnavailableHandler (func,global) found in Exceptions.o 
+       6] __func__$186 (object,local) found in Exceptions.o 
+      5] EXCEP_SPEFloatingPointDataHandler (func,global) found in Exceptions.o 
+       6] __func__$197 (object,local) found in Exceptions.o 
+      5] EXCEP_SPEFloatingPointRoundHandler (func,global) found in Exceptions.o 
+       6] __func__$208 (object,local) found in Exceptions.o 
+     4] INTC_InitINTCInterrupts (func,global) found in IntcInterrupts.o 
+      5] INTC_INTCInterruptHandler (func,global) found in IntcInterrupts.o 
+      5] INTCInterruptsHandlerTable (object,global) found in IntcInterrupts.o 
+   2] __init_data (func,weak) found in Runtime.PPCEABI.VS.UC.a __start.o
+    3] _rom_copy_info (object,global) found in Linker Generated Symbol File 
+    3] __copy_rom_section (func,global) found in Runtime.PPCEABI.VS.UC.a __start.o
+     4] _savegpr_30 (notype,global) found in Runtime.PPCEABI.VS.UC.a runtime.o
+      5] __save_gpr (func,local) found in Runtime.PPCEABI.VS.UC.a runtime.o
+     4] memcpy (func,global) found in Runtime.PPCEABI.VS.UC.a __mem.o
+     4] __flush_cache (func,global) found in __ppc_eabi_init.o 
+     4] __restore_gpr_30_exit (func,global) found in Runtime.PPCEABI.VS.UC.a runtime.o
+      5] __finish_restore_frame_and_exit (notype,global) found in Runtime.PPCEABI.VS.UC.a runtime.o
+       6] __restore_gpr_31_exit (func,global) found in Runtime.PPCEABI.VS.UC.a runtime.o
+        7] __finish_restore_frame_and_exit2 (notype,global) found in Runtime.PPCEABI.VS.UC.a runtime.o
+         8] __restore_frame_and_exit (func,global) found in Runtime.PPCEABI.VS.UC.a runtime.o
+    3] _bss_init_info (object,global) found in Linker Generated Symbol File 
+    3] memset (func,global) found in Runtime.PPCEABI.VS.UC.a __mem.o
+     4] __fill_mem (func,global) found in Runtime.PPCEABI.VS.UC.a __mem.o
+   2] __init_user (func,global) found in __ppc_eabi_init.o 
+    3] FlashConfig (func,global) found in __ppc_eabi_init.o 
+     4] @22 (object,local) found in __ppc_eabi_init.o 
+   2] main (func,global) found in main.o 
+    3] EcuM_Init (func,global) found in main.o 
+     4] BL_HwInit (func,global) found in bl_hw.o 
+     4] >>> UNREFERENCED DUPLICATE BL_HwInit
+     4] >>> (func,weak) found in main.o 
+      5] CpuClockInit (func,global) found in bl_hw.o 
+      5] InitializeUART (func,global) found in bl_hw.o 
+      5] initCAN_A (func,global) found in bl_hw.o 
+     4] CanTp_Init (func,global) found in CanTpMini.o 
+      5] canTpRTE (object,local) found in CanTpMini.o 
+      5] canTpInstanceDefaultParameter (object,local) found in CanTpMini.o 
+     4] Dcm_Init (func,global) found in DcmMini.o 
+      5] dcmRTE (object,local) found in DcmMini.o 
+      5] dcmInstanceDefaultParameter (object,local) found in DcmMini.o 
+       6] rxPduInfo (object,local) found in DcmMini.o 
+        7] rxBuffer (object,local) found in DcmMini.o 
+       6] txPduInfo (object,local) found in DcmMini.o 
+        7] txBuffer (object,local) found in DcmMini.o 
+       6] sesList (object,local) found in DcmMini.o 
+       6] BL_GetSessionChangePermission (func,global) found in bl_sessec.o 
+        7] @150 (object,local) found in bl_sessec.o 
+        7] @151 (object,local) found in bl_sessec.o 
+        7] @285 (object,local) found in bl_sessec.o 
+        7] __func__$263 (object,local) found in bl_sessec.o 
+        7] Dcm_GetSecurityLevel (func,global) found in DcmMini.o 
+        7] bl_auto_prgs (object,local) found in bl_sessec.o 
+       6] secList (object,local) found in DcmMini.o 
+       6] secSeedKeySizeList (object,local) found in DcmMini.o 
+       6] getSeedList (object,local) found in DcmMini.o 
+        7] BL_GetExtendedSessionSeed (func,global) found in bl_sessec.o 
+         8] OsTickCounter (object,global) found in main.o 
+         8] bl_extds_seed (object,local) found in bl_sessec.o 
+         8] @152 (object,local) found in bl_sessec.o 
+         8] __func__$181 (object,local) found in bl_sessec.o 
+        7] BL_GetProgramSessionSeed (func,global) found in bl_sessec.o 
+         8] bl_prgs_seed (object,local) found in bl_sessec.o 
+         8] __func__$136 (object,local) found in bl_sessec.o 
+       6] compareKeyList (object,local) found in DcmMini.o 
+        7] BL_CompareExtendedSessionKey (func,global) found in bl_sessec.o 
+         8] @174 (object,local) found in bl_sessec.o 
+         8] __func__$200 (object,local) found in bl_sessec.o 
+        7] BL_CompareProgramSessionKey (func,global) found in bl_sessec.o 
+         8] __func__$158 (object,local) found in bl_sessec.o 
+         8] BL_StopAppTimer (func,global) found in bl_core.o 
+          9] appTimer (object,local) found in bl_core.o 
+       6] sesServiseList (object,local) found in DcmMini.o 
+        7] servicesInDFTS (object,local) found in DcmMini.o 
+        7] servicesInPRGS (object,local) found in DcmMini.o 
+        7] servicesInEXTDS (object,local) found in DcmMini.o 
+       6] secServiseList (object,local) found in DcmMini.o 
+        7] servicesInLevel1 (object,local) found in DcmMini.o 
+        7] servicesInLevel2 (object,local) found in DcmMini.o 
+     4] BL_Init (func,global) found in bl_core.o 
+      5] BL_SetAutoPRGS (func,global) found in bl_sessec.o 
+      5] @LOCAL@BL_Init__Fv@CanSduPtr (object,local) found in bl_core.o 
+      5] CanIf_RxIndication (func,global) found in main.o 
+       6] CanTp_RxIndication (func,global) found in CanTpMini.o 
+        7] @174 (object,local) found in CanTpMini.o 
+        7] @416 (object,local) found in CanTpMini.o 
+        7] @417 (object,local) found in CanTpMini.o 
+        7] @573 (object,local) found in CanTpMini.o 
+        7] __func__$651 (object,local) found in CanTpMini.o 
+        7] @419 (object,local) found in CanTpMini.o 
+        7] asAssertErrorHook (func,global) found in asdebug.o 
+         8] Irq_Disable (func,global) found in bl_hw.o 
+        7] ReceiveSF (func,local) found in CanTpMini.o 
+         8] @175 (object,local) found in CanTpMini.o 
+         8] @176 (object,local) found in CanTpMini.o 
+         8] Dcm_ProvideRxBuffer (func,global) found in DcmMini.o 
+          9] @636 (object,local) found in DcmMini.o 
+          9] @637 (object,local) found in DcmMini.o 
+          9] @638 (object,local) found in DcmMini.o 
+          9] @639 (object,local) found in DcmMini.o 
+          9] __func__$698 (object,local) found in DcmMini.o 
+          9] @640 (object,local) found in DcmMini.o 
+         8] Dcm_RxIndication (func,global) found in DcmMini.o 
+          9] __func__$651 (object,local) found in DcmMini.o 
+         8] @177 (object,local) found in CanTpMini.o 
+        7] ReceiveFF (func,local) found in CanTpMini.o 
+         8] @228 (object,local) found in CanTpMini.o 
+         8] SendFC (func,local) found in CanTpMini.o 
+          9] CanIf_Transmit (func,global) found in main.o 
+           10] Can_Write (func,global) found in bl_hw.o 
+         8] @229 (object,local) found in CanTpMini.o 
+        7] ReceiveCF (func,local) found in CanTpMini.o 
+         8] @277 (object,local) found in CanTpMini.o 
+         8] @278 (object,local) found in CanTpMini.o 
+        7] ReceiveFC (func,local) found in CanTpMini.o 
+         8] @312 (object,local) found in CanTpMini.o 
+        7] @685 (object,local) found in CanTpMini.o 
+     4] StartOS (func,global) found in main.o 
+      5] @LOCAL@StartOS__FUc@preTick (object,local) found in main.o 
+      5] StartupHook (func,global) found in main.o 
+       6] @137 (object,local) found in main.o 
+       6] @138 (object,local) found in main.o 
+       6] @139 (object,local) found in main.o 
+      5] StartOsTick (func,global) found in bl_hw.o 
+       6] RTI_SetFreqHz (func,global) found in bl_hw.o 
+        7] RTI_TickHandler (func,global) found in bl_hw.o 
+         8] OsTick (func,global) found in main.o 
+        7] INTC_InstallINTCInterruptHandler (func,global) found in IntcInterrupts.o 
+      5] Irq_Enable (func,global) found in bl_hw.o 
+      5] BL_HwMonitor (func,global) found in bl_hw.o 
+      5] >>> UNREFERENCED DUPLICATE BL_HwMonitor
+      5] >>> (func,weak) found in main.o 
+       6] CanIf_TxConfirmation (func,global) found in main.o 
+        7] CanTp_TxConfirmation (func,global) found in CanTpMini.o 
+         8] __func__$690 (object,local) found in CanTpMini.o 
+      5] CanTp_MainFunction (func,global) found in CanTpMini.o 
+       6] HandleWaiting (func,local) found in CanTpMini.o 
+        7] @540 (object,local) found in CanTpMini.o 
+        7] Dcm_TxConfirmation (func,global) found in DcmMini.o 
+         8] __func__$674 (object,local) found in DcmMini.o 
+        7] @418 (object,local) found in CanTpMini.o 
+        7] __func__$504 (object,local) found in CanTpMini.o 
+       6] StartTransmit (func,local) found in CanTpMini.o 
+        7] SendSF (func,local) found in CanTpMini.o 
+        7] SendFF (func,local) found in CanTpMini.o 
+       6] SendCF (func,local) found in CanTpMini.o 
+        7] __func__$344 (object,local) found in CanTpMini.o 
+      5] Dcm_MainFunction (func,global) found in DcmMini.o 
+       6] HandleRequest (func,local) found in DcmMini.o 
+        7] CheckSessionSecurity (func,local) found in DcmMini.o 
+         8] u8IndexOfList (func,local) found in DcmMini.o 
+         8] SendNRC (func,local) found in DcmMini.o 
+          9] HandleTransmit (func,local) found in DcmMini.o 
+           10] CanTp_Transmit (func,global) found in CanTpMini.o 
+            11] __func__$578 (object,local) found in CanTpMini.o 
+            11] Dcm_ProvideTxBuffer (func,global) found in DcmMini.o 
+             12] __func__$731 (object,local) found in DcmMini.o 
+            11] @625 (object,local) found in CanTpMini.o 
+            11] @626 (object,local) found in CanTpMini.o 
+        7] HandleSessionControl (func,local) found in DcmMini.o 
+         8] HandleSubFunction (func,local) found in DcmMini.o 
+         8] Dcm_AppendTX (func,global) found in DcmMini.o 
+         8] SendPRC (func,local) found in DcmMini.o 
+        7] HandleSecurityAccess (func,local) found in DcmMini.o 
+        7] HandleRoutineControl (func,local) found in DcmMini.o 
+         8] HandleRoutineControlStart (func,local) found in DcmMini.o 
+          9] BL_StartEraseFlash (func,local) found in DcmMini.o 
+           10] Dcm_EraseMemory (func,global) found in bl_core.o 
+            11] @181 (object,local) found in bl_core.o 
+            11] @182 (object,local) found in bl_core.o 
+            11] @331 (object,local) found in bl_core.o 
+            11] blMemoryIdentifier (object,local) found in bl_core.o 
+            11] __Irq_Save (func,global) found in bl_hw.o 
+            11] eraseFlash (func,local) found in bl_core.o 
+             12] blMemorySize (object,local) found in bl_core.o 
+             12] blMemoryAddress (object,local) found in bl_core.o 
+             12] blFlashParam (object,local) found in bl_core.o 
+             12] FlashHeader found as linker generated symbol
+             12] blMemoryData (object,local) found in bl_core.o 
+             12] @183 (object,local) found in bl_core.o 
+             12] @184 (object,local) found in bl_core.o 
+             12] @185 (object,local) found in bl_core.o 
+             12] @186 (object,local) found in bl_core.o 
+             12] __func__$141 (object,local) found in bl_core.o 
+             12] @187 (object,local) found in bl_core.o 
+            11] __func__$302 (object,local) found in bl_core.o 
+            11] Irq_Restore (func,global) found in bl_hw.o 
+          9] BL_StartApplication (func,local) found in DcmMini.o 
+           10] BL_TestJumpToApplicatin (func,global) found in bl_core.o 
+            11] application_main (func,global) found in bl_hw.o 
+             12] @234 (object,local) found in bl_hw.o 
+         8] HandleRoutineControlStop (func,local) found in DcmMini.o 
+         8] HandleRoutineControlResult (func,local) found in DcmMini.o 
+        7] HandleRequestDownloadOrUpload (func,local) found in DcmMini.o 
+         8] Dcm_CheckDataFormatIdentifier (func,global) found in bl_core.o 
+         8] >>> UNREFERENCED DUPLICATE Dcm_CheckDataFormatIdentifier
+         8] >>> (func,weak) found in DcmMini.o 
+         8] Dcm_CheckMemory (func,global) found in bl_core.o 
+         8] >>> UNREFERENCED DUPLICATE Dcm_CheckMemory
+         8] >>> (func,weak) found in DcmMini.o 
+          9] blMemoryList (object,local) found in bl_core.o 
+        7] HandleTransferData (func,local) found in DcmMini.o 
+         8] HandleTransferUpload (func,local) found in DcmMini.o 
+          9] Dcm_ReadMemory (func,global) found in bl_core.o 
+           10] @408 (object,local) found in bl_core.o 
+           10] readFlash (func,local) found in bl_core.o 
+            11] @275 (object,local) found in bl_core.o 
+            11] __func__$238 (object,local) found in bl_core.o 
+           10] readFlashDriver (func,local) found in bl_core.o 
+            11] FlashDriverRam found as linker generated symbol
+           10] __func__$378 (object,local) found in bl_core.o 
+         8] HandleTransferDownload (func,local) found in DcmMini.o 
+          9] Dcm_WriteMemory (func,global) found in bl_core.o 
+           10] @369 (object,local) found in bl_core.o 
+           10] writeFlash (func,local) found in bl_core.o 
+            11] @231 (object,local) found in bl_core.o 
+            11] __func__$194 (object,local) found in bl_core.o 
+           10] writeFlashDriver (func,local) found in bl_core.o 
+           10] __func__$339 (object,local) found in bl_core.o 
+        7] HandleRequestTransferExit (func,local) found in DcmMini.o 
+       6] @803 (object,local) found in DcmMini.o 
+       6] @804 (object,local) found in DcmMini.o 
+      5] BL_MainFunction (func,global) found in bl_core.o 
+       6] @499 (object,local) found in bl_core.o 
+       6] @500 (object,local) found in bl_core.o 
+   2] exit (func,weak) found in __ppc_eabi_init.o 
+    3] _ExitProcess (func,weak) found in __ppc_eabi_init.o 
+  1] bam_rchw (object,global) found in MPC55xx_init.o 
+  1] bam_resetvector (object,global) found in MPC55xx_init.o 
+  1] @189 (object,local) found in bl_core.o 
+   2] @188 (object,local) found in bl_core.o 
+  1] @233 (object,local) found in bl_core.o 
+   2] @232 (object,local) found in bl_core.o 
+  1] @277 (object,local) found in bl_core.o 
+   2] @276 (object,local) found in bl_core.o 
+  1] @287 (object,local) found in bl_core.o 
+   2] @286 (object,local) found in bl_core.o 
+  1] @297 (object,local) found in bl_core.o 
+   2] @296 (object,local) found in bl_core.o 
+  1] @333 (object,local) found in bl_core.o 
+   2] @332 (object,local) found in bl_core.o 
+  1] @372 (object,local) found in bl_core.o 
+   2] @371 (object,local) found in bl_core.o 
+  1] @411 (object,local) found in bl_core.o 
+   2] @410 (object,local) found in bl_core.o 
+  1] @433 (object,local) found in bl_core.o 
+   2] @432 (object,local) found in bl_core.o 
+  1] @444 (object,local) found in bl_core.o 
+   2] @443 (object,local) found in bl_core.o 
+  1] @455 (object,local) found in bl_core.o 
+   2] @454 (object,local) found in bl_core.o 
+  1] @463 (object,local) found in bl_core.o 
+   2] @462 (object,local) found in bl_core.o 
+  1] @502 (object,local) found in bl_core.o 
+   2] @501 (object,local) found in bl_core.o 
+  1] @156 (object,local) found in bl_sessec.o 
+   2] @155 (object,local) found in bl_sessec.o 
+  1] @177 (object,local) found in bl_sessec.o 
+   2] @176 (object,local) found in bl_sessec.o 
+  1] @198 (object,local) found in bl_sessec.o 
+   2] @197 (object,local) found in bl_sessec.o 
+  1] @218 (object,local) found in bl_sessec.o 
+   2] @217 (object,local) found in bl_sessec.o 
+  1] @287 (object,local) found in bl_sessec.o 
+   2] @286 (object,local) found in bl_sessec.o 
+  1] @141 (object,local) found in main.o 
+   2] @140 (object,local) found in main.o 
+  1] @154 (object,local) found in main.o 
+   2] @153 (object,local) found in main.o 
+  1] @167 (object,local) found in main.o 
+   2] @166 (object,local) found in main.o 
+  1] @189 (object,local) found in main.o 
+   2] @188 (object,local) found in main.o 
+  1] @211 (object,local) found in main.o 
+   2] @210 (object,local) found in main.o 
+  1] @221 (object,local) found in main.o 
+   2] @220 (object,local) found in main.o 
+  1] @234 (object,local) found in main.o 
+   2] @233 (object,local) found in main.o 
+  1] @180 (object,local) found in CanTpMini.o 
+   2] @179 (object,local) found in CanTpMini.o 
+  1] @232 (object,local) found in CanTpMini.o 
+   2] @231 (object,local) found in CanTpMini.o 
+  1] @281 (object,local) found in CanTpMini.o 
+   2] @280 (object,local) found in CanTpMini.o 
+  1] @315 (object,local) found in CanTpMini.o 
+   2] @314 (object,local) found in CanTpMini.o 
+  1] @342 (object,local) found in CanTpMini.o 
+   2] @341 (object,local) found in CanTpMini.o 
+  1] @421 (object,local) found in CanTpMini.o 
+   2] @420 (object,local) found in CanTpMini.o 
+  1] @448 (object,local) found in CanTpMini.o 
+   2] @447 (object,local) found in CanTpMini.o 
+  1] @488 (object,local) found in CanTpMini.o 
+   2] @487 (object,local) found in CanTpMini.o 
+  1] @502 (object,local) found in CanTpMini.o 
+   2] @501 (object,local) found in CanTpMini.o 
+  1] @542 (object,local) found in CanTpMini.o 
+   2] @541 (object,local) found in CanTpMini.o 
+  1] @554 (object,local) found in CanTpMini.o 
+   2] @553 (object,local) found in CanTpMini.o 
+  1] @629 (object,local) found in CanTpMini.o 
+   2] @628 (object,local) found in CanTpMini.o 
+  1] @648 (object,local) found in CanTpMini.o 
+   2] @647 (object,local) found in CanTpMini.o 
+  1] @688 (object,local) found in CanTpMini.o 
+   2] @687 (object,local) found in CanTpMini.o 
+  1] @708 (object,local) found in CanTpMini.o 
+   2] @707 (object,local) found in CanTpMini.o 
+  1] @217 (object,local) found in DcmMini.o 
+   2] @216 (object,local) found in DcmMini.o 
+  1] @236 (object,local) found in DcmMini.o 
+   2] @235 (object,local) found in DcmMini.o 
+  1] @274 (object,local) found in DcmMini.o 
+   2] @273 (object,local) found in DcmMini.o 
+  1] @304 (object,local) found in DcmMini.o 
+   2] @303 (object,local) found in DcmMini.o 
+  1] @315 (object,local) found in DcmMini.o 
+   2] @314 (object,local) found in DcmMini.o 
+  1] @327 (object,local) found in DcmMini.o 
+   2] @326 (object,local) found in DcmMini.o 
+  1] @334 (object,local) found in DcmMini.o 
+   2] @333 (object,local) found in DcmMini.o 
+  1] @341 (object,local) found in DcmMini.o 
+   2] @340 (object,local) found in DcmMini.o 
+  1] @356 (object,local) found in DcmMini.o 
+   2] @355 (object,local) found in DcmMini.o 
+  1] @407 (object,local) found in DcmMini.o 
+   2] @406 (object,local) found in DcmMini.o 
+  1] @442 (object,local) found in DcmMini.o 
+   2] @441 (object,local) found in DcmMini.o 
+  1] @477 (object,local) found in DcmMini.o 
+   2] @476 (object,local) found in DcmMini.o 
+  1] @488 (object,local) found in DcmMini.o 
+   2] @487 (object,local) found in DcmMini.o 
+  1] @502 (object,local) found in DcmMini.o 
+   2] @501 (object,local) found in DcmMini.o 
+  1] @533 (object,local) found in DcmMini.o 
+   2] @532 (object,local) found in DcmMini.o 
+  1] @566 (object,local) found in DcmMini.o 
+   2] @565 (object,local) found in DcmMini.o 
+  1] @577 (object,local) found in DcmMini.o 
+   2] @576 (object,local) found in DcmMini.o 
+  1] @594 (object,local) found in DcmMini.o 
+   2] @593 (object,local) found in DcmMini.o 
+  1] @605 (object,local) found in DcmMini.o 
+   2] @604 (object,local) found in DcmMini.o 
+  1] @617 (object,local) found in DcmMini.o 
+   2] @616 (object,local) found in DcmMini.o 
+  1] @671 (object,local) found in DcmMini.o 
+   2] @670 (object,local) found in DcmMini.o 
+  1] @694 (object,local) found in DcmMini.o 
+   2] @693 (object,local) found in DcmMini.o 
+  1] @727 (object,local) found in DcmMini.o 
+   2] @726 (object,local) found in DcmMini.o 
+  1] @760 (object,local) found in DcmMini.o 
+   2] @759 (object,local) found in DcmMini.o 
+  1] @806 (object,local) found in DcmMini.o 
+   2] @805 (object,local) found in DcmMini.o 
+  1] @822 (object,local) found in DcmMini.o 
+   2] @821 (object,local) found in DcmMini.o 
+  1] @124 (object,local) found in bl_hw.o 
+   2] @123 (object,local) found in bl_hw.o 
+  1] @139 (object,local) found in bl_hw.o 
+   2] @138 (object,local) found in bl_hw.o 
+  1] @146 (object,local) found in bl_hw.o 
+   2] @145 (object,local) found in bl_hw.o 
+  1] @152 (object,local) found in bl_hw.o 
+   2] @151 (object,local) found in bl_hw.o 
+  1] @166 (object,local) found in bl_hw.o 
+   2] @165 (object,local) found in bl_hw.o 
+  1] @181 (object,local) found in bl_hw.o 
+   2] @180 (object,local) found in bl_hw.o 
+  1] @187 (object,local) found in bl_hw.o 
+   2] @186 (object,local) found in bl_hw.o 
+  1] @210 (object,local) found in bl_hw.o 
+   2] @209 (object,local) found in bl_hw.o 
+  1] @236 (object,local) found in bl_hw.o 
+   2] @235 (object,local) found in bl_hw.o 
+  1] @76 (object,local) found in stdio_printf.o 
+   2] @75 (object,local) found in stdio_printf.o 
+  1] @89 (object,local) found in stdio_printf.o 
+   2] @88 (object,local) found in stdio_printf.o 
+  1] @274 (object,local) found in stdio_printf.o 
+   2] @273 (object,local) found in stdio_printf.o 
+  1] @287 (object,local) found in stdio_printf.o 
+   2] @286 (object,local) found in stdio_printf.o 
+  1] @535 (object,local) found in stdio_printf.o 
+   2] @534 (object,local) found in stdio_printf.o 
+  1] @577 (object,local) found in stdio_printf.o 
+   2] @576 (object,local) found in stdio_printf.o 
+  1] @96 (object,local) found in asdebug.o 
+   2] @95 (object,local) found in asdebug.o 
+  1] @13 (object,local) found in IntcInterrupts.o 
+   2] @12 (object,local) found in IntcInterrupts.o 
+  1] @19 (object,local) found in Exceptions.o 
+   2] @18 (object,local) found in Exceptions.o 
+  1] @31 (object,local) found in Exceptions.o 
+   2] @30 (object,local) found in Exceptions.o 
+  1] @42 (object,local) found in Exceptions.o 
+   2] @41 (object,local) found in Exceptions.o 
+  1] @53 (object,local) found in Exceptions.o 
+   2] @52 (object,local) found in Exceptions.o 
+  1] @64 (object,local) found in Exceptions.o 
+   2] @63 (object,local) found in Exceptions.o 
+  1] @75 (object,local) found in Exceptions.o 
+   2] @74 (object,local) found in Exceptions.o 
+  1] @86 (object,local) found in Exceptions.o 
+   2] @85 (object,local) found in Exceptions.o 
+  1] @97 (object,local) found in Exceptions.o 
+   2] @96 (object,local) found in Exceptions.o 
+  1] @108 (object,local) found in Exceptions.o 
+   2] @107 (object,local) found in Exceptions.o 
+  1] @119 (object,local) found in Exceptions.o 
+   2] @118 (object,local) found in Exceptions.o 
+  1] @130 (object,local) found in Exceptions.o 
+   2] @129 (object,local) found in Exceptions.o 
+  1] @141 (object,local) found in Exceptions.o 
+   2] @140 (object,local) found in Exceptions.o 
+  1] @152 (object,local) found in Exceptions.o 
+   2] @151 (object,local) found in Exceptions.o 
+  1] @163 (object,local) found in Exceptions.o 
+   2] @162 (object,local) found in Exceptions.o 
+  1] @174 (object,local) found in Exceptions.o 
+   2] @173 (object,local) found in Exceptions.o 
+  1] @185 (object,local) found in Exceptions.o 
+   2] @184 (object,local) found in Exceptions.o 
+  1] @196 (object,local) found in Exceptions.o 
+   2] @195 (object,local) found in Exceptions.o 
+  1] @207 (object,local) found in Exceptions.o 
+   2] @206 (object,local) found in Exceptions.o 
+  1] @218 (object,local) found in Exceptions.o 
+   2] @217 (object,local) found in Exceptions.o 
+  1] __init_cpp_exceptions_reference (object,global) found in Runtime.PPCEABI.VS.UC.a __init_cpp_exceptions.o
+   2] __init_cpp_exceptions (func,global) found in Runtime.PPCEABI.VS.UC.a __init_cpp_exceptions.o
+    3] fragmentID (object,local) found in Runtime.PPCEABI.VS.UC.a __init_cpp_exceptions.o
+    3] __exception_info_constants (func,weak) found in Runtime.PPCEABI.VS.UC.a __init_cpp_exceptions.o
+     4] _eti_init_info (object,global) found in Linker Generated Symbol File 
+    3] __register_fragment (func,global) found in Runtime.PPCEABI.VS.UC.a ExceptionPPC.o
+     4] fragmentinfo (object,local) found in Runtime.PPCEABI.VS.UC.a ExceptionPPC.o
+  1] __fini_cpp_exceptions_reference (object,global) found in Runtime.PPCEABI.VS.UC.a __init_cpp_exceptions.o
+   2] __fini_cpp_exceptions (func,global) found in Runtime.PPCEABI.VS.UC.a __init_cpp_exceptions.o
+    3] __unregister_fragment (func,global) found in Runtime.PPCEABI.VS.UC.a ExceptionPPC.o
+  1] _ctors (notype,global) found in Linker Generated Symbol File 
+  1] _ctors$99 (object,global) found in Linker Generated Symbol File 
+  1] _dtors (notype,global) found in Linker Generated Symbol File 
+  1] _dtors$99 (object,global) found in Linker Generated Symbol File 
+    3] .text (section,local) found in MPC5634M_MLQB80_HWInit.o 
+    3] .text.34 (notype,local) found in MPC5634M_MLQB80_HWInit.o 
+    3] .init (section,local) found in MPC55xx_init.o 
+    3] .init.13 (notype,local) found in MPC55xx_init.o 
+    3] .text (section,local) found in bl_core.o 
+    3] .text.541 (notype,local) found in bl_core.o 
+    3] .text (section,local) found in bl_sessec.o 
+    3] .text.312 (notype,local) found in bl_sessec.o 
+    3] .text (section,local) found in main.o 
+    3] .text.245 (notype,local) found in main.o 
+    3] .text (section,local) found in CanTpMini.o 
+    3] .text.749 (notype,local) found in CanTpMini.o 
+    3] .text (section,local) found in DcmMini.o 
+    3] .text.875 (notype,local) found in DcmMini.o 
+    3] .text (section,local) found in bl_hw.o 
+    3] .text.248 (notype,local) found in bl_hw.o 
+    3] .text (section,local) found in stdio_printf.o 
+    3] .text.628 (notype,local) found in stdio_printf.o 
+    3] .text (section,local) found in asdebug.o 
+    3] .text.130 (notype,local) found in asdebug.o 
+    3] .init (section,local) found in Runtime.PPCEABI.VS.UC.a __start.o
+    3] .init.130 (notype,local) found in Runtime.PPCEABI.VS.UC.a __start.o
+    3] .text (section,local) found in Runtime.PPCEABI.VS.UC.a __va_arg.o
+    3] .text.40 (notype,local) found in Runtime.PPCEABI.VS.UC.a __va_arg.o
+    3] .text (section,local) found in Runtime.PPCEABI.VS.UC.a ExceptionPPC.o
+    3] .text.1683 (notype,local) found in Runtime.PPCEABI.VS.UC.a ExceptionPPC.o
+    3] .text (section,local) found in Runtime.PPCEABI.VS.UC.a runtime.o
+    3] .text.205 (notype,local) found in Runtime.PPCEABI.VS.UC.a runtime.o
+
+
+.__bam_bootarea section layout
+  Starting        Virtual  File
+  address  Size   address  offset
+  ---------------------------------
+  00000000 000008 00000000 000003e0  1 .__bam_bootarea 	MPC55xx_init.o 
+  00000000 000004 00000000 000003e0  4 bam_rchw 	MPC55xx_init.o 
+  00000004 000004 00000004 000003e4  4 bam_resetvector 	MPC55xx_init.o 
+
+
+.init section layout
+  Starting        Virtual  File
+  address  Size   address  offset
+  ---------------------------------
+  00000000 0000c8 00000020 000003e8  1 .init 	Linker Generated Symbol File 
+  00000000 0000a8 00000020 000003e8  4 _rom_copy_info 	Linker Generated Symbol File 
+  000000a8 000020 000000c8 00000490  4 _bss_init_info 	Linker Generated Symbol File 
+
+
+.init_vle section layout
+  Starting        Virtual  File
+  address  Size   address  offset
+  ---------------------------------
+  00000000 000036 000000e8 000004b0  1 .init 	__ppc_eabi_init.o 
+  00000000 000014 000000e8 000004b0  2 __init_hardware 	__ppc_eabi_init.o 
+  00000014 000022 000000fc 000004c4  2 __flush_cache 	__ppc_eabi_init.o 
+  00000036 000012 0000011e 000004e6  1 .init 	MPC55xx_init.o 
+  00000036 000012 0000011e 000004e6  2 usr_init 	MPC55xx_init.o 
+  00000048 000000 00000130 000004f8  1 .init.13 	MPC55xx_init.o 
+  00000048 0000ea 00000130 000004f8  1 .init 	Runtime.PPCEABI.VS.UC.a __start.o
+  00000048 000048 00000130 000004f8  4 __start 	Runtime.PPCEABI.VS.UC.a __start.o
+  00000090 00002c 00000178 00000540  2 __copy_rom_section 	Runtime.PPCEABI.VS.UC.a __start.o
+  UNUSED   00000e ........ ........    __init_bss_section Runtime.PPCEABI.VS.UC.a __start.o
+  000000bc 00001a 000001a4 0000056c  2 __init_registers 	Runtime.PPCEABI.VS.UC.a __start.o
+  000000d6 00005c 000001be 00000586  2 __init_data 	Runtime.PPCEABI.VS.UC.a __start.o
+  00000132 000000 0000021a 000005e2  1 .init.130 	Runtime.PPCEABI.VS.UC.a __start.o
+  00000132 0000ca 0000021a 000005e2  1 .init 	Runtime.PPCEABI.VS.UC.a __mem.o
+  00000132 000038 0000021a 000005e2  2 memcpy 	Runtime.PPCEABI.VS.UC.a __mem.o
+  0000016a 000078 00000252 0000061a  2 __fill_mem 	Runtime.PPCEABI.VS.UC.a __mem.o
+  000001e2 00001a 000002ca 00000692  2 memset 	Runtime.PPCEABI.VS.UC.a __mem.o
+  000001fc 00000e 000002e4 000006ac  1 .init 	Runtime.PPCEABI.VS.UC.a __init_cpp_exceptions.o
+  000001fc 00000e 000002e4 000006ac  2 __exception_info_constants 	Runtime.PPCEABI.VS.UC.a __init_cpp_exceptions.o
+  UNUSED   000028 ........ ........    __find_exception_addresses Runtime.PPCEABI.VS.UC.a __init_cpp_exceptions.o
+
+
+.__exception_handlers section layout
+  Starting        Virtual  File
+  address  Size   address  offset
+  ---------------------------------
+  00000000 000096 00001000 000006c0  1 .__exception_handlers 	IntcInterrupts.o 
+  00000000 000096 00001000 000006c0 16 INTC_INTCInterruptHandler 	IntcInterrupts.o 
+  00000096 00000a 000010a0 00000760 16 *fill*
+  000000a0 000a38 000010a0 00000760  1 .__exception_handlers 	Exceptions.o 
+  000000a0 000012 000010a0 00000760 16 EXCEP_DecrementerHandler 	Exceptions.o 
+  000000c0 000088 000010c0 00000780 16 EXCEP_SystemCallHandler 	Exceptions.o 
+  00000150 000088 00001150 00000810 16 EXCEP_CriticalInputHandler 	Exceptions.o 
+  000001e0 000088 000011e0 000008a0 16 EXCEP_MachineCheckHandler 	Exceptions.o 
+  00000270 000088 00001270 00000930 16 EXCEP_DataStorageHandler 	Exceptions.o 
+  00000300 000088 00001300 000009c0 16 EXCEP_InstructionStorageHandler 	Exceptions.o 
+  00000390 000088 00001390 00000a50 16 EXCEP_ExternalInputHandler 	Exceptions.o 
+  00000420 000088 00001420 00000ae0 16 EXCEP_AlignmentHandler 	Exceptions.o 
+  000004b0 000088 000014b0 00000b70 16 EXCEP_ProgramHandler 	Exceptions.o 
+  00000540 000088 00001540 00000c00 16 EXCEP_FloatingPointUnavailableHandler 	Exceptions.o 
+  000005d0 000088 000015d0 00000c90 16 EXCEP_AuxiliaryProcessorHandler 	Exceptions.o 
+  00000660 000088 00001660 00000d20 16 EXCEP_FixedIntervalTimerHandler 	Exceptions.o 
+  000006f0 000088 000016f0 00000db0 16 EXCEP_WatchDogTimerHandler 	Exceptions.o 
+  00000780 000088 00001780 00000e40 16 EXCEP_DataTlbErrorHandler 	Exceptions.o 
+  00000810 000088 00001810 00000ed0 16 EXCEP_InstructionTlbErrorHandler 	Exceptions.o 
+  000008a0 000088 000018a0 00000f60 16 EXCEP_DebugHandler 	Exceptions.o 
+  00000930 000088 00001930 00000ff0 16 EXCEP_SPE_APU_UnavailableHandler 	Exceptions.o 
+  000009c0 000088 000019c0 00001080 16 EXCEP_SPEFloatingPointDataHandler 	Exceptions.o 
+  00000a50 000088 00001a50 00001110 16 EXCEP_SPEFloatingPointRoundHandler 	Exceptions.o 
+
+
+.text section layout
+  Starting        Virtual  File
+  address  Size   address  offset
+  ---------------------------------
+
+
+.text_vle section layout
+  Starting        Virtual  File
+  address  Size   address  offset
+  ---------------------------------
+  00000000 000064 00002000 000011a0  1 .text 	__ppc_eabi_init.o 
+  00000000 00003c 00002000 000011a0  2 FlashConfig 	__ppc_eabi_init.o 
+  0000003c 000012 0000203c 000011dc  2 __init_user 	__ppc_eabi_init.o 
+  0000004e 000014 0000204e 000011ee  2 exit 	__ppc_eabi_init.o 
+  00000062 000002 00002062 00001202  2 _ExitProcess 	__ppc_eabi_init.o 
+  00000064 00001e 00002064 00001204  1 .text 	MPC5634M_MLQB80_HWInit.o 
+  00000064 00001e 00002064 00001204  2 INIT_Derivative 	MPC5634M_MLQB80_HWInit.o 
+  UNUSED   000012 ........ ........    INIT_ExternalBusAndMemory MPC5634M_MLQB80_HWInit.o 
+  UNUSED   00000c ........ ........    InitPCRs MPC5634M_MLQB80_HWInit.o 
+  UNUSED   000064 ........ ........    __initSIUExtBusInterface MPC5634M_MLQB80_HWInit.o 
+  UNUSED   000002 ........ ........    __initEBIChipSelects MPC5634M_MLQB80_HWInit.o 
+  UNUSED   000016 ........ ........    WriteMMUTableEntry MPC5634M_MLQB80_HWInit.o 
+  UNUSED   000006 ........ ........    __initMMUExternalMemory MPC5634M_MLQB80_HWInit.o 
+  00000082 000000 00002082 00001222  1 .text.34 	MPC5634M_MLQB80_HWInit.o 
+  00000082 000898 00002082 00001222  1 .text 	bl_core.o 
+  00000082 00015c 00002082 00001222  2 eraseFlash 	bl_core.o 
+  000001de 000140 000021de 0000137e  2 writeFlash 	bl_core.o 
+  0000031e 000140 0000231e 000014be  2 readFlash 	bl_core.o 
+  0000045e 000030 0000245e 000015fe  2 writeFlashDriver 	bl_core.o 
+  0000048e 000030 0000248e 0000162e  2 readFlashDriver 	bl_core.o 
+  000004be 0000b8 000024be 0000165e  2 Dcm_EraseMemory 	bl_core.o 
+  00000576 0000de 00002576 00001716  2 Dcm_WriteMemory 	bl_core.o 
+  00000654 0000d8 00002654 000017f4  2 Dcm_ReadMemory 	bl_core.o 
+  0000072c 00008c 0000272c 000018cc  2 Dcm_CheckMemory 	bl_core.o 
+  000007b8 00001e 000027b8 00001958  2 Dcm_CheckDataFormatIdentifier 	bl_core.o 
+  000007d6 000030 000027d6 00001976  2 BL_TestJumpToApplicatin 	bl_core.o 
+  00000806 000030 00002806 000019a6  2 BL_Init 	bl_core.o 
+  00000836 000008 00002836 000019d6  2 BL_StopAppTimer 	bl_core.o 
+  0000083e 0000dc 0000283e 000019de  2 BL_MainFunction 	bl_core.o 
+  0000091a 000000 0000291a 00001aba  1 .text.541 	bl_core.o 
+  0000091a 0002e0 0000291a 00001aba  1 .text 	bl_sessec.o 
+  0000091a 000094 0000291a 00001aba  2 BL_GetProgramSessionSeed 	bl_sessec.o 
+  000009ae 000084 000029ae 00001b4e  2 BL_CompareProgramSessionKey 	bl_sessec.o 
+  00000a32 000094 00002a32 00001bd2  2 BL_GetExtendedSessionSeed 	bl_sessec.o 
+  00000ac6 000080 00002ac6 00001c66  2 BL_CompareExtendedSessionKey 	bl_sessec.o 
+  UNUSED   00003a ........ ........    BL_StartProtocolCbk bl_sessec.o 
+  UNUSED   00003a ........ ........    BL_StopProtocolCbk bl_sessec.o 
+  UNUSED   000036 ........ ........    BL_ProtocolIndicationCbk bl_sessec.o 
+  00000b46 0000ac 00002b46 00001ce6  2 BL_GetSessionChangePermission 	bl_sessec.o 
+  00000bf2 000008 00002bf2 00001d92  2 BL_SetAutoPRGS 	bl_sessec.o 
+  00000bfa 000000 00002bfa 00001d9a  1 .text.312 	bl_sessec.o 
+  00000bfa 0001c4 00002bfa 00001d9a  1 .text 	main.o 
+  00000bfa 00002c 00002bfa 00001d9a  2 StartupHook 	main.o 
+  UNUSED   000002 ........ ........    SchM_StartupHook main.o 
+  00000c26 000020 00002c26 00001dc6  2 CanIf_TxConfirmation 	main.o 
+  00000c46 00003a 00002c46 00001de6  2 CanIf_RxIndication 	main.o 
+  00000c80 000098 00002c80 00001e20  2 CanIf_Transmit 	main.o 
+  00000d18 000018 00002d18 00001eb8  2 OsTick 	main.o 
+  00000d30 000054 00002d30 00001ed0  2 StartOS 	main.o 
+  00000d84 000026 00002d84 00001f24  2 EcuM_Init 	main.o 
+  00000daa 000014 00002daa 00001f4a  2 main 	main.o 
+  00000dbe 000000 00002dbe 00001f5e  1 .text.245 	main.o 
+  00000dbe 0016ea 00002dbe 00001f5e  1 .text 	CanTpMini.o 
+  00000dbe 0001ac 00002dbe 00001f5e  2 ReceiveSF 	CanTpMini.o 
+  00000f6a 000262 00002f6a 0000210a  2 ReceiveFF 	CanTpMini.o 
+  000011cc 0002bc 000031cc 0000236c  2 ReceiveCF 	CanTpMini.o 
+  00001488 000110 00003488 00002628  2 ReceiveFC 	CanTpMini.o 
+  00001598 00017c 00003598 00002738  2 SendFC 	CanTpMini.o 
+  00001714 0003d2 00003714 000028b4  2 SendCF 	CanTpMini.o 
+  00001ae6 000160 00003ae6 00002c86  2 SendSF 	CanTpMini.o 
+  00001c46 0002a4 00003c46 00002de6  2 SendFF 	CanTpMini.o 
+  00001eea 00007c 00003eea 0000308a  2 StartTransmit 	CanTpMini.o 
+  00001f66 000134 00003f66 00003106  2 HandleWaiting 	CanTpMini.o 
+  0000209a 000058 0000409a 0000323a  2 CanTp_Init 	CanTpMini.o 
+  UNUSED   000070 ........ ........    CanTp_SetParameter CanTpMini.o 
+  000020f2 000206 000040f2 00003292  2 CanTp_Transmit 	CanTpMini.o 
+  000022f8 000076 000042f8 00003498  2 CanTp_MainFunction 	CanTpMini.o 
+  0000236e 0000dc 0000436e 0000350e  2 CanTp_RxIndication 	CanTpMini.o 
+  0000244a 00005e 0000444a 000035ea  2 CanTp_TxConfirmation 	CanTpMini.o 
+  000024a8 000000 000044a8 00003648  1 .text.749 	CanTpMini.o 
+  000024a8 001fa0 000044a8 00003648  1 .text 	DcmMini.o 
+  UNUSED   000010 ........ ........    Dcm_GetSessionChangePermission DcmMini.o 
+  UNUSED   000014 ........ ........    Dcm_GetSeed DcmMini.o 
+  UNUSED   000010 ........ ........    Dcm_CompareKey DcmMini.o 
+  000024a8 00005c 000044a8 00003648  2 HandleSubFunction 	DcmMini.o 
+  00002504 00003a 00004504 000036a4  2 u8IndexOfList 	DcmMini.o 
+  0000253e 00017a 0000453e 000036de  2 HandleSessionControl 	DcmMini.o 
+  000026b8 000410 000046b8 00003858  2 HandleSecurityAccess 	DcmMini.o 
+  00002ac8 0002b8 00004ac8 00003c68  2 BL_StartEraseFlash 	DcmMini.o 
+  00002d80 000060 00004d80 00003f20  2 BL_StartApplication 	DcmMini.o 
+  00002de0 00009e 00004de0 00003f80  2 HandleRoutineControlStart 	DcmMini.o 
+  00002e7e 00001c 00004e7e 0000401e  2 HandleRoutineControlStop 	DcmMini.o 
+  00002e9a 00001c 00004e9a 0000403a  2 HandleRoutineControlResult 	DcmMini.o 
+  00002eb6 000096 00004eb6 00004056  2 HandleRoutineControl 	DcmMini.o 
+  00002f4c 000314 00004f4c 000040ec  2 HandleRequestDownloadOrUpload 	DcmMini.o 
+  00003260 000260 00005260 00004400  2 HandleTransferDownload 	DcmMini.o 
+  000034c0 00026c 000054c0 00004660  2 HandleTransferUpload 	DcmMini.o 
+  0000372c 000058 0000572c 000048cc  2 HandleTransferData 	DcmMini.o 
+  00003784 00008e 00005784 00004924  2 HandleRequestTransferExit 	DcmMini.o 
+  00003812 0001ee 00005812 000049b2  2 CheckSessionSecurity 	DcmMini.o 
+  00003a00 0001a6 00005a00 00004ba0  2 HandleRequest 	DcmMini.o 
+  00003ba6 000068 00005ba6 00004d46  2 HandleTransmit 	DcmMini.o 
+  00003c0e 000154 00005c0e 00004dae  2 SendNRC 	DcmMini.o 
+  00003d62 0000fe 00005d62 00004f02  2 SendPRC 	DcmMini.o 
+  00003e60 000070 00005e60 00005000  2 Dcm_Init 	DcmMini.o 
+  UNUSED   000070 ........ ........    Dcm_SetParameter DcmMini.o 
+  00003ed0 00004e 00005ed0 00005070  2 Dcm_AppendTX 	DcmMini.o 
+  00003f1e 000096 00005f1e 000050be  2 Dcm_RxIndication 	DcmMini.o 
+  00003fb4 000080 00005fb4 00005154  2 Dcm_TxConfirmation 	DcmMini.o 
+  00004034 000100 00006034 000051d4  2 Dcm_ProvideRxBuffer 	DcmMini.o 
+  00004134 0000ec 00006134 000052d4  2 Dcm_ProvideTxBuffer 	DcmMini.o 
+  00004220 0001cc 00006220 000053c0  2 Dcm_MainFunction 	DcmMini.o 
+  000043ec 00005c 000063ec 0000558c  2 Dcm_GetSecurityLevel 	DcmMini.o 
+  00004448 000000 00006448 000055e8  1 .text.875 	DcmMini.o 
+  00004448 0004de 00006448 000055e8  1 .text 	bl_hw.o 
+  00004448 00002a 00006448 000055e8  2 InitializeUART 	bl_hw.o 
+  UNUSED   000022 ........ ........    ReadUARTN bl_hw.o 
+  00004472 000020 00006472 00005612  2 WriteUARTN 	bl_hw.o 
+  00004492 00001a 00006492 00005632  2 __putchar 	bl_hw.o 
+  000044ac 000032 000064ac 0000564c  2 CpuClockInit 	bl_hw.o 
+  000044de 000026 000064de 0000567e  2 RTI_TickHandler 	bl_hw.o 
+  00004504 00005e 00006504 000056a4  2 RTI_SetFreqHz 	bl_hw.o 
+  00004562 000016 00006562 00005702  2 StartOsTick 	bl_hw.o 
+  00004578 0000f0 00006578 00005718  2 Can_Write 	bl_hw.o 
+  00004668 000174 00006668 00005808  2 initCAN_A 	bl_hw.o 
+  000047dc 00001c 000067dc 0000597c  2 BL_HwInit 	bl_hw.o 
+  000047f8 0000cc 000067f8 00005998  2 BL_HwMonitor 	bl_hw.o 
+  000048c4 00000a 000068c4 00005a64  2 __Irq_Save 	bl_hw.o 
+  000048ce 000006 000068ce 00005a6e  2 Irq_Restore 	bl_hw.o 
+  000048d4 000006 000068d4 00005a74  2 Irq_Enable 	bl_hw.o 
+  000048da 000006 000068da 00005a7a  2 Irq_Disable 	bl_hw.o 
+  000048e0 000046 000068e0 00005a80  2 application_main 	bl_hw.o 
+  00004926 000000 00006926 00005ac6  1 .text.248 	bl_hw.o 
+  00004926 0008aa 00006926 00005ac6  1 .text 	stdio_printf.o 
+  00004926 00004a 00006926 00005ac6  2 divide 	stdio_printf.o 
+  00004970 000034 00006970 00005b10  2 skip_atoi 	stdio_printf.o 
+  000049a4 00026a 000069a4 00005b44  2 print_number 	stdio_printf.o 
+  00004c0e 00001a 00006c0e 00005dae  2 strlen 	stdio_printf.o 
+  00004c28 000544 00006c28 00005dc8  2 vsnprintf 	stdio_printf.o 
+  UNUSED   00006a ........ ........    snprintf stdio_printf.o 
+  UNUSED   000022 ........ ........    vsprintf stdio_printf.o 
+  UNUSED   000062 ........ ........    sprintf stdio_printf.o 
+  0000516c 000064 0000716c 0000630c  2 printf 	stdio_printf.o 
+  UNUSED   00001a ........ ........    puts stdio_printf.o 
+  UNUSED   00001e ........ ........    putchar stdio_printf.o 
+  000051d0 000000 000071d0 00006370  1 .text.628 	stdio_printf.o 
+  000051d0 000016 000071d0 00006370  1 .text 	asdebug.o 
+  UNUSED   0000f6 ........ ........    asmem asdebug.o 
+  UNUSED   000002 ........ ........    Sched_ShowRdyQ asdebug.o 
+  UNUSED   000002 ........ ........    flush_stdio asdebug.o 
+  000051d0 000016 000071d0 00006370  2 asAssertErrorHook 	asdebug.o 
+  UNUSED   00002a ........ ........    _assert asdebug.o 
+  UNUSED   00002e ........ ........    __assert_func asdebug.o 
+  000051e6 000000 000071e6 00006386  1 .text.130 	asdebug.o 
+  000051e6 000058 000071e6 00006386  1 .text 	IntcInterrupts.o 
+  000051e6 000030 000071e6 00006386  2 INTC_InstallINTCInterruptHandler 	IntcInterrupts.o 
+  00005216 000028 00007216 000063b6  2 INTC_InitINTCInterrupts 	IntcInterrupts.o 
+  0000523e 0000f2 0000723e 000063de  1 .text 	Exceptions.o 
+  0000523e 0000f2 0000723e 000063de  2 EXCEP_InitExceptionHandlers 	Exceptions.o 
+  00005330 000078 00007330 000064d0  1 .text 	Runtime.PPCEABI.VS.UC.a __va_arg.o
+  00005330 000078 00007330 000064d0  2 __va_arg 	Runtime.PPCEABI.VS.UC.a __va_arg.o
+  000053a8 000000 000073a8 00006548  1 .text.40 	Runtime.PPCEABI.VS.UC.a __va_arg.o
+  000053a8 00003a 000073a8 00006548  1 .text 	Runtime.PPCEABI.VS.UC.a ExceptionPPC.o
+  000053a8 00001e 000073a8 00006548  2 __register_fragment 	Runtime.PPCEABI.VS.UC.a ExceptionPPC.o
+  000053c6 00001c 000073c6 00006566  2 __unregister_fragment 	Runtime.PPCEABI.VS.UC.a ExceptionPPC.o
+  UNUSED   00005a ........ ........    ExPPC_FindExceptionFragment__FPcP12FragmentInfo Runtime.PPCEABI.VS.UC.a ExceptionPPC.o
+  UNUSED   0000e2 ........ ........    ExPPC_FindExceptionRecord__FPcP15MWExceptionInfo Runtime.PPCEABI.VS.UC.a ExceptionPPC.o
+  UNUSED   000006 ........ ........    ExPPC_PopR31__FPcP15MWExceptionInfo Runtime.PPCEABI.VS.UC.a ExceptionPPC.o
+  UNUSED   000012 ........ ........    ExPPC_CurrentAction__FPC14ActionIterator Runtime.PPCEABI.VS.UC.a ExceptionPPC.o
+  UNUSED   000168 ........ ........    ExPPC_NextAction__FP14ActionIterator Runtime.PPCEABI.VS.UC.a ExceptionPPC.o
+  UNUSED   00004a ........ ........    ExPPC_PopStackFrame__FP12ThrowContextP15MWExceptionInfo Runtime.PPCEABI.VS.UC.a ExceptionPPC.o
+  UNUSED   000268 ........ ........    ExPPC_UnwindStack__FP12ThrowContextP15MWExceptionInfoPv Runtime.PPCEABI.VS.UC.a ExceptionPPC.o
+  UNUSED   000046 ........ ........    ExPPC_DeletePointerCond_32__FP12ThrowContextPC23ex_deletepointercond_32 Runtime.PPCEABI.VS.UC.a ExceptionPPC.o
+  UNUSED   00004e ........ ........    ExPPC_DeletePointerCond__FP12ThrowContextPC20ex_deletepointercond Runtime.PPCEABI.VS.UC.a ExceptionPPC.o
+  UNUSED   000026 ........ ........    ExPPC_DeletePointer_32__FP12ThrowContextPC19ex_deletepointer_32 Runtime.PPCEABI.VS.UC.a ExceptionPPC.o
+  UNUSED   00002a ........ ........    ExPPC_DeletePointer__FP12ThrowContextPC16ex_deletepointer Runtime.PPCEABI.VS.UC.a ExceptionPPC.o
+  UNUSED   000058 ........ ........    ExPPC_DestroyMemberArray_32__FP12ThrowContextPC24ex_destroymemberarray_32 Runtime.PPCEABI.VS.UC.a ExceptionPPC.o
+  UNUSED   00005c ........ ........    ExPPC_DestroyMemberArray__FP12ThrowContextPC21ex_destroymemberarray Runtime.PPCEABI.VS.UC.a ExceptionPPC.o
+  UNUSED   00004a ........ ........    ExPPC_DestroyMemberCond_32__FP12ThrowContextPC23ex_destroymembercond_32 Runtime.PPCEABI.VS.UC.a ExceptionPPC.o
+  UNUSED   000052 ........ ........    ExPPC_DestroyMemberCond__FP12ThrowContextPC20ex_destroymembercond Runtime.PPCEABI.VS.UC.a ExceptionPPC.o
+  UNUSED   00006e ........ ........    ExPPC_DestroyVLA__FP12ThrowContextPC13ex_destroyvla Runtime.PPCEABI.VS.UC.a ExceptionPPC.o
+  UNUSED   00004c ........ ........    ExPPC_DestroyBaseVTT__FP12ThrowContextPC17ex_destroybasevtt Runtime.PPCEABI.VS.UC.a ExceptionPPC.o
+  UNUSED   00002c ........ ........    ExPPC_DestroyMember_32__FP12ThrowContextPC19ex_destroymember_32 Runtime.PPCEABI.VS.UC.a ExceptionPPC.o
+  UNUSED   000030 ........ ........    ExPPC_DestroyMember__FP12ThrowContextPC16ex_destroymember Runtime.PPCEABI.VS.UC.a ExceptionPPC.o
+  UNUSED   00002c ........ ........    ExPPC_DestroyBase_32__FP12ThrowContextPC19ex_destroymember_32 Runtime.PPCEABI.VS.UC.a ExceptionPPC.o
+  UNUSED   000030 ........ ........    ExPPC_DestroyBase__FP12ThrowContextPC16ex_destroymember Runtime.PPCEABI.VS.UC.a ExceptionPPC.o
+  UNUSED   000040 ........ ........    ExPPC_DestroyLocalArray_32__FP12ThrowContextPC23ex_destroylocalarray_32 Runtime.PPCEABI.VS.UC.a ExceptionPPC.o
+  UNUSED   000042 ........ ........    ExPPC_DestroyLocalArray__FP12ThrowContextPC20ex_destroylocalarray Runtime.PPCEABI.VS.UC.a ExceptionPPC.o
+  UNUSED   000028 ........ ........    ExPPC_DestroyLocalPointer_32__FP12ThrowContextPC25ex_destroylocalpointer_32 Runtime.PPCEABI.VS.UC.a ExceptionPPC.o
+  UNUSED   00002c ........ ........    ExPPC_DestroyLocalPointer__FP12ThrowContextPC22ex_destroylocalpointer Runtime.PPCEABI.VS.UC.a ExceptionPPC.o
+  UNUSED   000038 ........ ........    ExPPC_DestroyLocalCond_32__FP12ThrowContextPC22ex_destroylocalcond_32 Runtime.PPCEABI.VS.UC.a ExceptionPPC.o
+  UNUSED   00003e ........ ........    ExPPC_DestroyLocalCond__FP12ThrowContextPC19ex_destroylocalcond Runtime.PPCEABI.VS.UC.a ExceptionPPC.o
+  UNUSED   000014 ........ ........    ExPPC_DestroyLocal_32__FP12ThrowContextPC18ex_destroylocal_32 Runtime.PPCEABI.VS.UC.a ExceptionPPC.o
+  UNUSED   000016 ........ ........    ExPPC_DestroyLocal__FP12ThrowContextPC15ex_destroylocal Runtime.PPCEABI.VS.UC.a ExceptionPPC.o
+  UNUSED   000044 ........ ........    ExPPC_IsInSpecification__FPcP16ex_specification Runtime.PPCEABI.VS.UC.a ExceptionPPC.o
+  UNUSED   0000aa ........ ........    __unexpected Runtime.PPCEABI.VS.UC.a ExceptionPPC.o
+  UNUSED   000024 ........ ........    __dt__Q23std13bad_exceptionFv Runtime.PPCEABI.VS.UC.a ExceptionPPC.o
+  UNUSED   00000c ........ ........    __ct__Q23std13bad_exceptionFv Runtime.PPCEABI.VS.UC.a ExceptionPPC.o
+  UNUSED   000022 ........ ........    ExPPC_LongJump__FP12ThrowContextPvPv Runtime.PPCEABI.VS.UC.a ExceptionPPC.o
+  UNUSED   000042 ........ ........    ExPPC_HandleUnexpected__FP12ThrowContextP15MWExceptionInfoP16ex_specification Runtime.PPCEABI.VS.UC.a ExceptionPPC.o
+  UNUSED   000228 ........ ........    ExPPC_ThrowHandler__FP12ThrowContext Runtime.PPCEABI.VS.UC.a ExceptionPPC.o
+  UNUSED   000028 ........ ........    __as__15MWExceptionInfoFRC15MWExceptionInfo Runtime.PPCEABI.VS.UC.a ExceptionPPC.o
+  UNUSED   000052 ........ ........    __throw Runtime.PPCEABI.VS.UC.a ExceptionPPC.o
+  UNUSED   00001c ........ ........    __end__catch Runtime.PPCEABI.VS.UC.a ExceptionPPC.o
+  UNUSED   000086 ........ ........    __uncaught_exception_helper__FP12ThrowContext Runtime.PPCEABI.VS.UC.a ExceptionPPC.o
+  UNUSED   000028 ........ ........    __uncaught_exception Runtime.PPCEABI.VS.UC.a ExceptionPPC.o
+  UNUSED   00000a ........ ........    what__Q23std13bad_exceptionCFv Runtime.PPCEABI.VS.UC.a ExceptionPPC.o
+  000053e2 000000 000073e2 00006582  1 .text.1683 	Runtime.PPCEABI.VS.UC.a ExceptionPPC.o
+  000053e2 000064 000073e2 00006582  1 .text 	Runtime.PPCEABI.VS.UC.a runtime.o
+  000053e2 00004a 000073e2 00006582  2 __save_gpr 	Runtime.PPCEABI.VS.UC.a runtime.o
+  UNUSED   000000 ........ ........    _savegpr_14 Runtime.PPCEABI.VS.UC.a runtime.o
+  UNUSED   000000 ........ ........    _save32gpr_14 Runtime.PPCEABI.VS.UC.a runtime.o
+  UNUSED   000000 ........ ........    _savegpr_15 Runtime.PPCEABI.VS.UC.a runtime.o
+  UNUSED   000000 ........ ........    _save32gpr_15 Runtime.PPCEABI.VS.UC.a runtime.o
+  UNUSED   000000 ........ ........    _savegpr_16 Runtime.PPCEABI.VS.UC.a runtime.o
+  UNUSED   000000 ........ ........    _save32gpr_16 Runtime.PPCEABI.VS.UC.a runtime.o
+  UNUSED   000000 ........ ........    _savegpr_17 Runtime.PPCEABI.VS.UC.a runtime.o
+  UNUSED   000000 ........ ........    _save32gpr_17 Runtime.PPCEABI.VS.UC.a runtime.o
+  UNUSED   000000 ........ ........    _savegpr_18 Runtime.PPCEABI.VS.UC.a runtime.o
+  UNUSED   000000 ........ ........    _save32gpr_18 Runtime.PPCEABI.VS.UC.a runtime.o
+  UNUSED   000000 ........ ........    _savegpr_19 Runtime.PPCEABI.VS.UC.a runtime.o
+  UNUSED   000000 ........ ........    _save32gpr_19 Runtime.PPCEABI.VS.UC.a runtime.o
+  UNUSED   000000 ........ ........    _savegpr_20 Runtime.PPCEABI.VS.UC.a runtime.o
+  UNUSED   000000 ........ ........    _save32gpr_20 Runtime.PPCEABI.VS.UC.a runtime.o
+  UNUSED   000000 ........ ........    _savegpr_21 Runtime.PPCEABI.VS.UC.a runtime.o
+  UNUSED   000000 ........ ........    _save32gpr_21 Runtime.PPCEABI.VS.UC.a runtime.o
+  UNUSED   000000 ........ ........    _savegpr_22 Runtime.PPCEABI.VS.UC.a runtime.o
+  UNUSED   000000 ........ ........    _save32gpr_22 Runtime.PPCEABI.VS.UC.a runtime.o
+  UNUSED   000000 ........ ........    _savegpr_23 Runtime.PPCEABI.VS.UC.a runtime.o
+  UNUSED   000000 ........ ........    _save32gpr_23 Runtime.PPCEABI.VS.UC.a runtime.o
+  UNUSED   000000 ........ ........    _savegpr_24 Runtime.PPCEABI.VS.UC.a runtime.o
+  UNUSED   000000 ........ ........    _save32gpr_24 Runtime.PPCEABI.VS.UC.a runtime.o
+  UNUSED   000000 ........ ........    _savegpr_25 Runtime.PPCEABI.VS.UC.a runtime.o
+  UNUSED   000000 ........ ........    _save32gpr_25 Runtime.PPCEABI.VS.UC.a runtime.o
+  UNUSED   000000 ........ ........    _savegpr_26 Runtime.PPCEABI.VS.UC.a runtime.o
+  UNUSED   000000 ........ ........    _save32gpr_26 Runtime.PPCEABI.VS.UC.a runtime.o
+  UNUSED   000000 ........ ........    _savegpr_27 Runtime.PPCEABI.VS.UC.a runtime.o
+  UNUSED   000000 ........ ........    _save32gpr_27 Runtime.PPCEABI.VS.UC.a runtime.o
+  UNUSED   000000 ........ ........    _savegpr_28 Runtime.PPCEABI.VS.UC.a runtime.o
+  UNUSED   000000 ........ ........    _save32gpr_28 Runtime.PPCEABI.VS.UC.a runtime.o
+  UNUSED   000000 ........ ........    _savegpr_29 Runtime.PPCEABI.VS.UC.a runtime.o
+  UNUSED   000000 ........ ........    _save32gpr_29 Runtime.PPCEABI.VS.UC.a runtime.o
+  00005422 000000 00007422 000065c2    _savegpr_30 (entry of __save_gpr) 	Runtime.PPCEABI.VS.UC.a runtime.o
+  UNUSED   000000 ........ ........    _save32gpr_30 Runtime.PPCEABI.VS.UC.a runtime.o
+  UNUSED   000000 ........ ........    _savegpr_31 Runtime.PPCEABI.VS.UC.a runtime.o
+  UNUSED   000000 ........ ........    _save32gpr_31 Runtime.PPCEABI.VS.UC.a runtime.o
+  UNUSED   00004a ........ ........    __restore_gpr Runtime.PPCEABI.VS.UC.a runtime.o
+  UNUSED   000000 ........ ........    _restgpr_14 Runtime.PPCEABI.VS.UC.a runtime.o
+  UNUSED   000000 ........ ........    _rest32gpr_14 Runtime.PPCEABI.VS.UC.a runtime.o
+  UNUSED   000000 ........ ........    _restgpr_15 Runtime.PPCEABI.VS.UC.a runtime.o
+  UNUSED   000000 ........ ........    _rest32gpr_15 Runtime.PPCEABI.VS.UC.a runtime.o
+  UNUSED   000000 ........ ........    _restgpr_16 Runtime.PPCEABI.VS.UC.a runtime.o
+  UNUSED   000000 ........ ........    _rest32gpr_16 Runtime.PPCEABI.VS.UC.a runtime.o
+  UNUSED   000000 ........ ........    _restgpr_17 Runtime.PPCEABI.VS.UC.a runtime.o
+  UNUSED   000000 ........ ........    _rest32gpr_17 Runtime.PPCEABI.VS.UC.a runtime.o
+  UNUSED   000000 ........ ........    _restgpr_18 Runtime.PPCEABI.VS.UC.a runtime.o
+  UNUSED   000000 ........ ........    _rest32gpr_18 Runtime.PPCEABI.VS.UC.a runtime.o
+  UNUSED   000000 ........ ........    _restgpr_19 Runtime.PPCEABI.VS.UC.a runtime.o
+  UNUSED   000000 ........ ........    _rest32gpr_19 Runtime.PPCEABI.VS.UC.a runtime.o
+  UNUSED   000000 ........ ........    _restgpr_20 Runtime.PPCEABI.VS.UC.a runtime.o
+  UNUSED   000000 ........ ........    _rest32gpr_20 Runtime.PPCEABI.VS.UC.a runtime.o
+  UNUSED   000000 ........ ........    _restgpr_21 Runtime.PPCEABI.VS.UC.a runtime.o
+  UNUSED   000000 ........ ........    _rest32gpr_21 Runtime.PPCEABI.VS.UC.a runtime.o
+  UNUSED   000000 ........ ........    _restgpr_22 Runtime.PPCEABI.VS.UC.a runtime.o
+  UNUSED   000000 ........ ........    _rest32gpr_22 Runtime.PPCEABI.VS.UC.a runtime.o
+  UNUSED   000000 ........ ........    _restgpr_23 Runtime.PPCEABI.VS.UC.a runtime.o
+  UNUSED   000000 ........ ........    _rest32gpr_23 Runtime.PPCEABI.VS.UC.a runtime.o
+  UNUSED   000000 ........ ........    _restgpr_24 Runtime.PPCEABI.VS.UC.a runtime.o
+  UNUSED   000000 ........ ........    _rest32gpr_24 Runtime.PPCEABI.VS.UC.a runtime.o
+  UNUSED   000000 ........ ........    _restgpr_25 Runtime.PPCEABI.VS.UC.a runtime.o
+  UNUSED   000000 ........ ........    _rest32gpr_25 Runtime.PPCEABI.VS.UC.a runtime.o
+  UNUSED   000000 ........ ........    _restgpr_26 Runtime.PPCEABI.VS.UC.a runtime.o
+  UNUSED   000000 ........ ........    _rest32gpr_26 Runtime.PPCEABI.VS.UC.a runtime.o
+  UNUSED   000000 ........ ........    _restgpr_27 Runtime.PPCEABI.VS.UC.a runtime.o
+  UNUSED   000000 ........ ........    _rest32gpr_27 Runtime.PPCEABI.VS.UC.a runtime.o
+  UNUSED   000000 ........ ........    _restgpr_28 Runtime.PPCEABI.VS.UC.a runtime.o
+  UNUSED   000000 ........ ........    _rest32gpr_28 Runtime.PPCEABI.VS.UC.a runtime.o
+  UNUSED   000000 ........ ........    _restgpr_29 Runtime.PPCEABI.VS.UC.a runtime.o
+  UNUSED   000000 ........ ........    _rest32gpr_29 Runtime.PPCEABI.VS.UC.a runtime.o
+  UNUSED   000000 ........ ........    _restgpr_30 Runtime.PPCEABI.VS.UC.a runtime.o
+  UNUSED   000000 ........ ........    _rest32gpr_30 Runtime.PPCEABI.VS.UC.a runtime.o
+  UNUSED   000000 ........ ........    _restgpr_31 Runtime.PPCEABI.VS.UC.a runtime.o
+  UNUSED   000000 ........ ........    _rest32gpr_31 Runtime.PPCEABI.VS.UC.a runtime.o
+  0000542c 000008 0000742c 000065cc  2 __restore_frame_and_exit 	Runtime.PPCEABI.VS.UC.a runtime.o
+  0000542e 000000 0000742e 000065ce    __finish_restore_frame_and_exit2 (entry of __restore_frame_and_exit) 	Runtime.PPCEABI.VS.UC.a runtime.o
+  00005434 00000a 00007434 000065d4  2 __restore_gpr_31_exit 	Runtime.PPCEABI.VS.UC.a runtime.o
+  0000543a 000000 0000743a 000065da    __finish_restore_frame_and_exit (entry of __restore_gpr_31_exit) 	Runtime.PPCEABI.VS.UC.a runtime.o
+  0000543e 000008 0000743e 000065de  2 __restore_gpr_30_exit 	Runtime.PPCEABI.VS.UC.a runtime.o
+  UNUSED   000008 ........ ........    __restore_gpr_29_exit Runtime.PPCEABI.VS.UC.a runtime.o
+  UNUSED   000008 ........ ........    __restore_gpr_28_exit Runtime.PPCEABI.VS.UC.a runtime.o
+  UNUSED   000008 ........ ........    __restore_gpr_27_exit Runtime.PPCEABI.VS.UC.a runtime.o
+  UNUSED   000008 ........ ........    __restore_gpr_26_exit Runtime.PPCEABI.VS.UC.a runtime.o
+  UNUSED   00000a ........ ........    __restore_gpr_25_exit Runtime.PPCEABI.VS.UC.a runtime.o
+  UNUSED   000008 ........ ........    __restore_gpr_24_exit Runtime.PPCEABI.VS.UC.a runtime.o
+  UNUSED   000008 ........ ........    __restore_gpr_23_exit Runtime.PPCEABI.VS.UC.a runtime.o
+  UNUSED   000008 ........ ........    __restore_gpr_22_exit Runtime.PPCEABI.VS.UC.a runtime.o
+  UNUSED   000008 ........ ........    __restore_gpr_21_exit Runtime.PPCEABI.VS.UC.a runtime.o
+  UNUSED   000008 ........ ........    __restore_gpr_20_exit Runtime.PPCEABI.VS.UC.a runtime.o
+  UNUSED   000008 ........ ........    __restore_gpr_19_exit Runtime.PPCEABI.VS.UC.a runtime.o
+  UNUSED   000008 ........ ........    __restore_gpr_18_exit Runtime.PPCEABI.VS.UC.a runtime.o
+  UNUSED   000008 ........ ........    __restore_gpr_17_exit Runtime.PPCEABI.VS.UC.a runtime.o
+  UNUSED   000008 ........ ........    __restore_gpr_16_exit Runtime.PPCEABI.VS.UC.a runtime.o
+  UNUSED   000008 ........ ........    __restore_gpr_15_exit Runtime.PPCEABI.VS.UC.a runtime.o
+  UNUSED   000008 ........ ........    __restore_gpr_14_exit Runtime.PPCEABI.VS.UC.a runtime.o
+  UNUSED   00000c ........ ........    __create_frame Runtime.PPCEABI.VS.UC.a runtime.o
+  UNUSED   000000 ........ ........    __save_lr Runtime.PPCEABI.VS.UC.a runtime.o
+  UNUSED   00000c ........ ........    __create_frame_and_save_gpr_31 Runtime.PPCEABI.VS.UC.a runtime.o
+  UNUSED   00000c ........ ........    __create_frame_and_save_gpr_30 Runtime.PPCEABI.VS.UC.a runtime.o
+  UNUSED   00000c ........ ........    __create_frame_and_save_gpr_29 Runtime.PPCEABI.VS.UC.a runtime.o
+  UNUSED   00000c ........ ........    __create_frame_and_save_gpr_28 Runtime.PPCEABI.VS.UC.a runtime.o
+  UNUSED   00000c ........ ........    __create_frame_and_save_gpr_27 Runtime.PPCEABI.VS.UC.a runtime.o
+  UNUSED   00000c ........ ........    __create_frame_and_save_gpr_26 Runtime.PPCEABI.VS.UC.a runtime.o
+  UNUSED   00000c ........ ........    __create_frame_and_save_gpr_25 Runtime.PPCEABI.VS.UC.a runtime.o
+  UNUSED   00000c ........ ........    __create_frame_and_save_gpr_24 Runtime.PPCEABI.VS.UC.a runtime.o
+  UNUSED   00000c ........ ........    __create_frame_and_save_gpr_23 Runtime.PPCEABI.VS.UC.a runtime.o
+  UNUSED   00000c ........ ........    __create_frame_and_save_gpr_22 Runtime.PPCEABI.VS.UC.a runtime.o
+  UNUSED   00000c ........ ........    __create_frame_and_save_gpr_21 Runtime.PPCEABI.VS.UC.a runtime.o
+  UNUSED   00000c ........ ........    __create_frame_and_save_gpr_20 Runtime.PPCEABI.VS.UC.a runtime.o
+  UNUSED   00000c ........ ........    __create_frame_and_save_gpr_19 Runtime.PPCEABI.VS.UC.a runtime.o
+  UNUSED   00000c ........ ........    __create_frame_and_save_gpr_18 Runtime.PPCEABI.VS.UC.a runtime.o
+  UNUSED   00000c ........ ........    __create_frame_and_save_gpr_17 Runtime.PPCEABI.VS.UC.a runtime.o
+  UNUSED   00000c ........ ........    __create_frame_and_save_gpr_16 Runtime.PPCEABI.VS.UC.a runtime.o
+  UNUSED   00000c ........ ........    __create_frame_and_save_gpr_15 Runtime.PPCEABI.VS.UC.a runtime.o
+  UNUSED   00000c ........ ........    __create_frame_and_save_gpr_14 Runtime.PPCEABI.VS.UC.a runtime.o
+  UNUSED   0000c4 ........ ........    __div2u Runtime.PPCEABI.VS.UC.a runtime.o
+  UNUSED   000108 ........ ........    __div2i Runtime.PPCEABI.VS.UC.a runtime.o
+  UNUSED   0000ba ........ ........    __mod2u Runtime.PPCEABI.VS.UC.a runtime.o
+  UNUSED   0000e2 ........ ........    __mod2i Runtime.PPCEABI.VS.UC.a runtime.o
+  UNUSED   00001a ........ ........    __shl2i Runtime.PPCEABI.VS.UC.a runtime.o
+  UNUSED   00001a ........ ........    __shr2u Runtime.PPCEABI.VS.UC.a runtime.o
+  UNUSED   00001c ........ ........    __shr2i Runtime.PPCEABI.VS.UC.a runtime.o
+  00005446 000000 00007446 000065e6  1 .text.205 	Runtime.PPCEABI.VS.UC.a runtime.o
+  00005446 000050 00007446 000065e6  1 .text 	Runtime.PPCEABI.VS.UC.a __init_cpp_exceptions.o
+  00005446 00002e 00007446 000065e6  2 __init_cpp_exceptions 	Runtime.PPCEABI.VS.UC.a __init_cpp_exceptions.o
+  00005474 000022 00007474 00006614  2 __fini_cpp_exceptions 	Runtime.PPCEABI.VS.UC.a __init_cpp_exceptions.o
+
+
+.rodata section layout
+  Starting        Virtual  File
+  address  Size   address  offset
+  ---------------------------------
+  00000000 00000c 00007498 00006638  1 .rodata 	__ppc_eabi_init.o 
+  00000000 00000c 00007498 00006638  4 @22 	__ppc_eabi_init.o 
+  0000000c 000004 000074a8 00006648  8 *fill*
+  00000010 000057 000074a8 00006648  1 .rodata 	bl_core.o 
+  00000010 00000b 000074a8 00006648  4 __func__$141 	bl_core.o 
+  0000001c 00000b 000074b4 00006654  4 __func__$194 	bl_core.o 
+  00000028 00000a 000074c0 00006660  4 __func__$238 	bl_core.o 
+  00000038 000010 000074d0 00006670  8 __func__$302 	bl_core.o 
+  00000048 000010 000074e0 00006680  8 __func__$339 	bl_core.o 
+  00000058 00000f 000074f0 00006690  4 __func__$378 	bl_core.o 
+  00000067 000001 00007500 000066a0  8 *fill*
+  00000068 000092 00007500 000066a0  1 .rodata 	bl_sessec.o 
+  00000068 000019 00007500 000066a0  4 __func__$136 	bl_sessec.o 
+  00000084 00001c 0000751c 000066bc  4 __func__$158 	bl_sessec.o 
+  000000a0 00001a 00007538 000066d8  4 __func__$181 	bl_sessec.o 
+  000000bc 00001d 00007554 000066f4  4 __func__$200 	bl_sessec.o 
+  UNUSED   000014 ........ ........    __func__$220 bl_sessec.o 
+  UNUSED   000013 ........ ........    __func__$234 bl_sessec.o 
+  UNUSED   000019 ........ ........    __func__$248 bl_sessec.o 
+  000000dc 00001e 00007574 00006714  4 __func__$263 	bl_sessec.o 
+  000000fa 000006 00007598 00006738  8 *fill*
+  00000100 000055 00007598 00006738  1 .rodata 	CanTpMini.o 
+  00000100 00000c 00007598 00006738  4 canTpInstanceDefaultParameter 	CanTpMini.o 
+  UNUSED   00000a ........ ........    __func__$137 CanTpMini.o 
+  UNUSED   00000a ........ ........    __func__$183 CanTpMini.o 
+  UNUSED   00000a ........ ........    __func__$235 CanTpMini.o 
+  UNUSED   00000a ........ ........    __func__$284 CanTpMini.o 
+  0000010c 00000e 000075a4 00006744  4 __func__$504 	CanTpMini.o 
+  UNUSED   000013 ........ ........    __func__$557 CanTpMini.o 
+  0000011c 00000f 000075b4 00006754  4 __func__$578 	CanTpMini.o 
+  0000012c 000013 000075c4 00006764  4 __func__$651 	CanTpMini.o 
+  00000140 000015 000075d8 00006778  4 __func__$690 	CanTpMini.o 
+  00000155 000003 000075f0 00006790  8 *fill*
+  00000158 000090 000075f0 00006790  1 .rodata 	DcmMini.o 
+  00000158 000009 000075f0 00006790  4 servicesInPRGS 	DcmMini.o 
+  00000164 000034 000075fc 0000679c  4 dcmInstanceDefaultParameter 	DcmMini.o 
+  UNUSED   000011 ........ ........    __func__$620 DcmMini.o 
+  00000198 000011 00007630 000067d0  4 __func__$651 	DcmMini.o 
+  000001ac 000013 00007644 000067e4  4 __func__$674 	DcmMini.o 
+  000001c0 000014 00007658 000067f8  4 __func__$698 	DcmMini.o 
+  000001d4 000014 0000766c 0000680c  4 __func__$731 	DcmMini.o 
+  000001e8 000025 00007680 00006820  1 .rodata 	stdio_printf.o 
+  000001e8 000011 00007680 00006820  4 @LOCAL@print_number__FPcPcliiii@small_digits 	stdio_printf.o 
+  000001fc 000011 00007694 00006834  4 @LOCAL@print_number__FPcPcliiii@large_digits@0 	stdio_printf.o 
+  0000020d 000003 000076a8 00006848  8 *fill*
+  00000210 000223 000076a8 00006848  1 .rodata 	Exceptions.o 
+  00000210 000018 000076a8 00006848  8 __func__$20 	Exceptions.o 
+  00000228 00001b 000076c0 00006860  4 __func__$32 	Exceptions.o 
+  00000244 00001a 000076dc 0000687c  4 __func__$43 	Exceptions.o 
+  00000260 000019 000076f8 00006898  4 __func__$54 	Exceptions.o 
+  00000280 000020 00007718 000068b8  8 __func__$65 	Exceptions.o 
+  000002a0 00001b 00007738 000068d8  4 __func__$76 	Exceptions.o 
+  000002bc 000017 00007754 000068f4  4 __func__$87 	Exceptions.o 
+  000002d4 000015 0000776c 0000690c  4 __func__$98 	Exceptions.o 
+  000002ec 000026 00007784 00006924  4 __func__$109 	Exceptions.o 
+  00000318 000020 000077b0 00006950  8 __func__$120 	Exceptions.o 
+  00000338 000020 000077d0 00006970  8 __func__$131 	Exceptions.o 
+  00000358 00001b 000077f0 00006990  4 __func__$142 	Exceptions.o 
+  00000374 00001a 0000780c 000069ac  4 __func__$153 	Exceptions.o 
+  00000390 000021 00007828 000069c8  4 __func__$164 	Exceptions.o 
+  000003b4 000013 0000784c 000069ec  4 __func__$175 	Exceptions.o 
+  000003c8 000021 00007860 00006a00  4 __func__$186 	Exceptions.o 
+  000003ec 000022 00007884 00006a24  4 __func__$197 	Exceptions.o 
+  00000410 000023 000078a8 00006a48  4 __func__$208 	Exceptions.o 
+
+
+.ctors section layout
+  Starting        Virtual  File
+  address  Size   address  offset
+  ---------------------------------
+  00000000 000000 000078cc 00006a6c  1 .ctors$00 	Linker Generated Symbol File 
+  00000000 000000 000078cc 00006a6c  4 _ctors 	Linker Generated Symbol File 
+  00000000 000004 000078cc 00006a6c  1 .ctors$10 	Runtime.PPCEABI.VS.UC.a __init_cpp_exceptions.o
+  00000000 000004 000078cc 00006a6c  4 __init_cpp_exceptions_reference 	Runtime.PPCEABI.VS.UC.a __init_cpp_exceptions.o
+  00000004 000004 000078d0 00006a70  1 .ctors$99 	Linker Generated Symbol File 
+  00000004 000004 000078d0 00006a70  4 _ctors$99 	Linker Generated Symbol File 
+
+
+.dtors section layout
+  Starting        Virtual  File
+  address  Size   address  offset
+  ---------------------------------
+  00000000 000000 000078d4 00006a74  1 .dtors$00 	Linker Generated Symbol File 
+  00000000 000000 000078d4 00006a74  4 _dtors 	Linker Generated Symbol File 
+  00000000 000004 000078d4 00006a74  1 .dtors$15 	Runtime.PPCEABI.VS.UC.a __init_cpp_exceptions.o
+  00000000 000004 000078d4 00006a74  4 __fini_cpp_exceptions_reference 	Runtime.PPCEABI.VS.UC.a __init_cpp_exceptions.o
+  00000004 000004 000078d8 00006a78  1 .dtors$99 	Linker Generated Symbol File 
+  00000004 000004 000078d8 00006a78  4 _dtors$99 	Linker Generated Symbol File 
+
+
+extab section layout
+  Starting        Virtual  File
+  address  Size   address  offset
+  ---------------------------------
+  00000000 000068 000078dc 00006a7c  1 extab 	bl_core.o 
+  00000000 000008 000078dc 00006a7c  4 @188 	bl_core.o 
+  00000008 000008 000078e4 00006a84  4 @232 	bl_core.o 
+  00000010 000008 000078ec 00006a8c  4 @276 	bl_core.o 
+  00000018 000008 000078f4 00006a94  4 @286 	bl_core.o 
+  00000020 000008 000078fc 00006a9c  4 @296 	bl_core.o 
+  00000028 000008 00007904 00006aa4  4 @332 	bl_core.o 
+  00000030 000008 0000790c 00006aac  4 @371 	bl_core.o 
+  00000038 000008 00007914 00006ab4  4 @410 	bl_core.o 
+  00000040 000008 0000791c 00006abc  4 @432 	bl_core.o 
+  00000048 000008 00007924 00006ac4  4 @443 	bl_core.o 
+  00000050 000008 0000792c 00006acc  4 @454 	bl_core.o 
+  00000058 000008 00007934 00006ad4  4 @462 	bl_core.o 
+  00000060 000008 0000793c 00006adc  4 @501 	bl_core.o 
+  00000068 000028 00007944 00006ae4  1 extab 	bl_sessec.o 
+  00000068 000008 00007944 00006ae4  4 @155 	bl_sessec.o 
+  00000070 000008 0000794c 00006aec  4 @176 	bl_sessec.o 
+  00000078 000008 00007954 00006af4  4 @197 	bl_sessec.o 
+  00000080 000008 0000795c 00006afc  4 @217 	bl_sessec.o 
+  UNUSED   000008 ........ ........    @231 bl_sessec.o 
+  UNUSED   000008 ........ ........    @244 bl_sessec.o 
+  UNUSED   000008 ........ ........    @259 bl_sessec.o 
+  00000088 000008 00007964 00006b04  4 @286 	bl_sessec.o 
+  00000090 000038 0000796c 00006b0c  1 extab 	main.o 
+  00000090 000008 0000796c 00006b0c  4 @140 	main.o 
+  00000098 000008 00007974 00006b14  4 @153 	main.o 
+  000000a0 000008 0000797c 00006b1c  4 @166 	main.o 
+  000000a8 000008 00007984 00006b24  4 @188 	main.o 
+  000000b0 000008 0000798c 00006b2c  4 @210 	main.o 
+  000000b8 000008 00007994 00006b34  4 @220 	main.o 
+  000000c0 000008 0000799c 00006b3c  4 @233 	main.o 
+  000000c8 0000c8 000079a4 00006b44  1 extab 	CanTpMini.o 
+  000000c8 000008 000079a4 00006b44  4 @179 	CanTpMini.o 
+  000000d0 000008 000079ac 00006b4c  4 @231 	CanTpMini.o 
+  000000d8 000008 000079b4 00006b54  4 @280 	CanTpMini.o 
+  000000e0 000008 000079bc 00006b5c  4 @314 	CanTpMini.o 
+  000000e8 00001c 000079c4 00006b64  4 @341 	CanTpMini.o 
+  00000104 00001c 000079e0 00006b80  4 @420 	CanTpMini.o 
+  00000120 00001c 000079fc 00006b9c  4 @447 	CanTpMini.o 
+  0000013c 00001c 00007a18 00006bb8  4 @487 	CanTpMini.o 
+  00000158 000008 00007a34 00006bd4  4 @501 	CanTpMini.o 
+  00000160 000008 00007a3c 00006bdc  4 @541 	CanTpMini.o 
+  00000168 000008 00007a44 00006be4  4 @553 	CanTpMini.o 
+  UNUSED   000008 ........ ........    @574 CanTpMini.o 
+  00000170 000008 00007a4c 00006bec  4 @628 	CanTpMini.o 
+  00000178 000008 00007a54 00006bf4  4 @647 	CanTpMini.o 
+  00000180 000008 00007a5c 00006bfc  4 @687 	CanTpMini.o 
+  00000188 000008 00007a64 00006c04  4 @707 	CanTpMini.o 
+  00000190 0000d0 00007a6c 00006c0c  1 extab 	DcmMini.o 
+  UNUSED   000008 ........ ........    @161 DcmMini.o 
+  UNUSED   000008 ........ ........    @171 DcmMini.o 
+  UNUSED   000008 ........ ........    @179 DcmMini.o 
+  00000190 000008 00007a6c 00006c0c  4 @216 	DcmMini.o 
+  00000198 000008 00007a74 00006c14  4 @235 	DcmMini.o 
+  000001a0 000008 00007a7c 00006c1c  4 @273 	DcmMini.o 
+  000001a8 000008 00007a84 00006c24  4 @303 	DcmMini.o 
+  000001b0 000008 00007a8c 00006c2c  4 @314 	DcmMini.o 
+  000001b8 000008 00007a94 00006c34  4 @326 	DcmMini.o 
+  000001c0 000008 00007a9c 00006c3c  4 @333 	DcmMini.o 
+  000001c8 000008 00007aa4 00006c44  4 @340 	DcmMini.o 
+  000001d0 000008 00007aac 00006c4c  4 @355 	DcmMini.o 
+  000001d8 000008 00007ab4 00006c54  4 @406 	DcmMini.o 
+  000001e0 000008 00007abc 00006c5c  4 @441 	DcmMini.o 
+  000001e8 000008 00007ac4 00006c64  4 @476 	DcmMini.o 
+  000001f0 000008 00007acc 00006c6c  4 @487 	DcmMini.o 
+  000001f8 000008 00007ad4 00006c74  4 @501 	DcmMini.o 
+  00000200 000008 00007adc 00006c7c  4 @532 	DcmMini.o 
+  00000208 000008 00007ae4 00006c84  4 @565 	DcmMini.o 
+  00000210 000008 00007aec 00006c8c  4 @576 	DcmMini.o 
+  00000218 000008 00007af4 00006c94  4 @593 	DcmMini.o 
+  00000220 000008 00007afc 00006c9c  4 @604 	DcmMini.o 
+  00000228 000008 00007b04 00006ca4  4 @616 	DcmMini.o 
+  UNUSED   000008 ........ ........    @641 DcmMini.o 
+  00000230 000008 00007b0c 00006cac  4 @670 	DcmMini.o 
+  00000238 000008 00007b14 00006cb4  4 @693 	DcmMini.o 
+  00000240 000008 00007b1c 00006cbc  4 @726 	DcmMini.o 
+  00000248 000008 00007b24 00006cc4  4 @759 	DcmMini.o 
+  00000250 000008 00007b2c 00006ccc  4 @805 	DcmMini.o 
+  00000258 000008 00007b34 00006cd4  4 @821 	DcmMini.o 
+  00000260 000048 00007b3c 00006cdc  1 extab 	bl_hw.o 
+  00000260 000008 00007b3c 00006cdc  4 @123 	bl_hw.o 
+  00000268 000008 00007b44 00006ce4  4 @138 	bl_hw.o 
+  00000270 000008 00007b4c 00006cec  4 @145 	bl_hw.o 
+  00000278 000008 00007b54 00006cf4  4 @151 	bl_hw.o 
+  00000280 000008 00007b5c 00006cfc  4 @165 	bl_hw.o 
+  00000288 000008 00007b64 00006d04  4 @180 	bl_hw.o 
+  00000290 000008 00007b6c 00006d0c  4 @186 	bl_hw.o 
+  00000298 000008 00007b74 00006d14  4 @209 	bl_hw.o 
+  000002a0 000008 00007b7c 00006d1c  4 @235 	bl_hw.o 
+  000002a8 000030 00007b84 00006d24  1 extab 	stdio_printf.o 
+  000002a8 000008 00007b84 00006d24  4 @75 	stdio_printf.o 
+  000002b0 000008 00007b8c 00006d2c  4 @88 	stdio_printf.o 
+  000002b8 000008 00007b94 00006d34  4 @273 	stdio_printf.o 
+  000002c0 000008 00007b9c 00006d3c  4 @286 	stdio_printf.o 
+  000002c8 000008 00007ba4 00006d44  4 @534 	stdio_printf.o 
+  UNUSED   000008 ........ ........    @546 stdio_printf.o 
+  UNUSED   000008 ........ ........    @555 stdio_printf.o 
+  UNUSED   000008 ........ ........    @566 stdio_printf.o 
+  000002d0 000008 00007bac 00006d4c  4 @576 	stdio_printf.o 
+  UNUSED   000008 ........ ........    @584 stdio_printf.o 
+  UNUSED   000008 ........ ........    @591 stdio_printf.o 
+  000002d8 000008 00007bb4 00006d54  1 extab 	asdebug.o 
+  UNUSED   000008 ........ ........    @76 asdebug.o 
+  000002d8 000008 00007bb4 00006d54  4 @95 	asdebug.o 
+  UNUSED   000008 ........ ........    @105 asdebug.o 
+  UNUSED   000008 ........ ........    @116 asdebug.o 
+  000002e0 000008 00007bbc 00006d5c  1 extab 	IntcInterrupts.o 
+  000002e0 000008 00007bbc 00006d5c  4 @12 	IntcInterrupts.o 
+  000002e8 000098 00007bc4 00006d64  1 extab 	Exceptions.o 
+  000002e8 000008 00007bc4 00006d64  4 @18 	Exceptions.o 
+  000002f0 000008 00007bcc 00006d6c  4 @30 	Exceptions.o 
+  000002f8 000008 00007bd4 00006d74  4 @41 	Exceptions.o 
+  00000300 000008 00007bdc 00006d7c  4 @52 	Exceptions.o 
+  00000308 000008 00007be4 00006d84  4 @63 	Exceptions.o 
+  00000310 000008 00007bec 00006d8c  4 @74 	Exceptions.o 
+  00000318 000008 00007bf4 00006d94  4 @85 	Exceptions.o 
+  00000320 000008 00007bfc 00006d9c  4 @96 	Exceptions.o 
+  00000328 000008 00007c04 00006da4  4 @107 	Exceptions.o 
+  00000330 000008 00007c0c 00006dac  4 @118 	Exceptions.o 
+  00000338 000008 00007c14 00006db4  4 @129 	Exceptions.o 
+  00000340 000008 00007c1c 00006dbc  4 @140 	Exceptions.o 
+  00000348 000008 00007c24 00006dc4  4 @151 	Exceptions.o 
+  00000350 000008 00007c2c 00006dcc  4 @162 	Exceptions.o 
+  00000358 000008 00007c34 00006dd4  4 @173 	Exceptions.o 
+  00000360 000008 00007c3c 00006ddc  4 @184 	Exceptions.o 
+  00000368 000008 00007c44 00006de4  4 @195 	Exceptions.o 
+  00000370 000008 00007c4c 00006dec  4 @206 	Exceptions.o 
+  00000378 000008 00007c54 00006df4  4 @217 	Exceptions.o 
+
+
+extabindex section layout
+  Starting        Virtual  File
+  address  Size   address  offset
+  ---------------------------------
+
+
+.__uninitialized_intc_handlertable section layout
+  Starting        Virtual  File
+  address  Size   address  offset
+  ---------------------------------
+  00000000 001340 40000000 00007800  1 .__uninitialized_intc_handlertable 	IntcInterrupts.o 
+  00000000 001340 40000000 00007800  8 INTCInterruptsHandlerTable 	IntcInterrupts.o 
+
+
+.data section layout
+  Starting        Virtual  File
+  address  Size   address  offset
+  ---------------------------------
+  00000000 000202 40001340 00007800  1 .data 	bl_core.o 
+  00000000 00002c 40001340 00007800  4 blFlashParam 	bl_core.o 
+  00000030 000030 40001370 00007830  8 blMemoryList 	bl_core.o 
+  00000060 00002e 400013a0 00007860  4 @183 	bl_core.o 
+  00000090 000033 400013d0 00007890  4 @185 	bl_core.o 
+  000000c4 00000a 40001404 000078c4  4 @187 	bl_core.o 
+  000000d0 00002e 40001410 000078d0  4 @231 	bl_core.o 
+  00000100 00002d 40001440 00007900  4 @275 	bl_core.o 
+  00000130 00001e 40001470 00007930  4 @331 	bl_core.o 
+  00000150 00001e 40001490 00007950  4 @369 	bl_core.o 
+  00000170 00001d 400014b0 00007970  4 @408 	bl_core.o 
+  00000190 00003b 400014d0 00007990  4 @499 	bl_core.o 
+  000001cc 000036 4000150c 000079cc  4 @500 	bl_core.o 
+  00000202 000006 40001548 00007a08  8 *fill*
+  00000208 000033 40001548 00007a08  1 .data 	bl_sessec.o 
+  00000208 00000f 40001548 00007a08  4 @152 	bl_sessec.o 
+  00000218 000012 40001558 00007a18  4 @174 	bl_sessec.o 
+  UNUSED   000013 ........ ........    @230 bl_sessec.o 
+  UNUSED   000011 ........ ........    @258 bl_sessec.o 
+  0000022c 00000f 4000156c 00007a2c  4 @285 	bl_sessec.o 
+  0000023b 000005 40001580 00007a40  8 *fill*
+  00000240 000039 40001580 00007a40  1 .data 	main.o 
+  00000240 000022 40001580 00007a40  4 @137 	main.o 
+  00000264 00000c 400015a4 00007a64  4 @138 	main.o 
+  00000270 000009 400015b0 00007a70  4 @139 	main.o 
+  00000279 000007 400015c0 00007a80  8 *fill*
+  00000280 000248 400015c0 00007a80  1 .data 	CanTpMini.o 
+  00000280 000023 400015c0 00007a80  4 @176 	CanTpMini.o 
+  000002a4 000039 400015e4 00007aa4  4 @177 	CanTpMini.o 
+  000002e0 000023 40001620 00007ae0  4 @228 	CanTpMini.o 
+  00000304 000039 40001644 00007b04  4 @229 	CanTpMini.o 
+  00000340 000023 40001680 00007b40  4 @277 	CanTpMini.o 
+  00000364 000033 400016a4 00007b64  4 @278 	CanTpMini.o 
+  00000398 000022 400016d8 00007b98  4 @312 	CanTpMini.o 
+  000003bc 000033 400016fc 00007bbc  4 @417 	CanTpMini.o 
+  000003f0 00000c 40001730 00007bf0  4 @419 	CanTpMini.o 
+  000003fc 00001e 4000173c 00007bfc  4 @540 	CanTpMini.o 
+  0000041c 00001e 4000175c 00007c1c  4 @573 	CanTpMini.o 
+  0000043c 00003b 4000177c 00007c3c  4 @625 	CanTpMini.o 
+  00000478 000039 400017b8 00007c78  4 @626 	CanTpMini.o 
+  000004b8 000010 400017f8 00007cb8  8 @685 	CanTpMini.o 
+  000004c8 00007b 40001808 00007cc8  1 .data 	DcmMini.o 
+  000004c8 00000c 40001808 00007cc8  4 sesServiseList 	DcmMini.o 
+  000004d4 000033 40001814 00007cd4  4 @638 	DcmMini.o 
+  00000508 00001c 40001848 00007d08  4 @639 	DcmMini.o 
+  00000524 00000a 40001864 00007d24  4 @640 	DcmMini.o 
+  00000530 000013 40001870 00007d30  4 @804 	DcmMini.o 
+  00000543 000005 40001888 00007d48  8 *fill*
+  00000548 000028 40001888 00007d48  1 .data 	bl_hw.o 
+  00000548 000028 40001888 00007d48  8 @234 	bl_hw.o 
+
+
+.sdata section layout
+  Starting        Virtual  File
+  address  Size   address  offset
+  ---------------------------------
+  00000000 000016 400018b0 00007d70  1 .sdata 	bl_core.o 
+  00000000 000006 400018b0 00007d70  4 @181 	bl_core.o 
+  00000008 000003 400018b8 00007d78  4 @182 	bl_core.o 
+  0000000c 000007 400018bc 00007d7c  4 @184 	bl_core.o 
+  00000014 000002 400018c4 00007d84  4 @186 	bl_core.o 
+  00000016 000002 400018c8 00007d88  8 *fill*
+  00000018 000013 400018c8 00007d88  1 .sdata 	bl_sessec.o 
+  00000018 000004 400018c8 00007d88  4 bl_prgs_seed 	bl_sessec.o 
+  0000001c 000004 400018cc 00007d8c  4 bl_extds_seed 	bl_sessec.o 
+  00000020 000006 400018d0 00007d90  4 @150 	bl_sessec.o 
+  00000028 000003 400018d8 00007d98  4 @151 	bl_sessec.o 
+  0000002b 000005 400018e0 00007da0  8 *fill*
+  00000030 000008 400018e0 00007da0  1 .sdata 	main.o 
+  00000030 000004 400018e0 00007da0  4 OsTickCounter 	main.o 
+  00000034 000004 400018e4 00007da4  4 @LOCAL@StartOS__FUc@preTick 	main.o 
+  00000038 00001a 400018e8 00007da8  1 .sdata 	CanTpMini.o 
+  00000038 000006 400018e8 00007da8  4 @174 	CanTpMini.o 
+  00000040 000007 400018f0 00007db0  4 @175 	CanTpMini.o 
+  00000048 000007 400018f8 00007db8  4 @416 	CanTpMini.o 
+  00000050 000002 40001900 00007dc0  4 @418 	CanTpMini.o 
+  00000052 000006 40001908 00007dc8  8 *fill*
+  00000058 00001f 40001908 00007dc8  1 .sdata 	DcmMini.o 
+  00000058 000008 40001908 00007dc8  8 secServiseList 	DcmMini.o 
+  00000060 000006 40001910 00007dd0  4 @636 	DcmMini.o 
+  00000068 000007 40001918 00007dd8  4 @637 	DcmMini.o 
+  00000070 000007 40001920 00007de0  4 @803 	DcmMini.o 
+  00000077 000001 40001928 00007de8  8 *fill*
+  00000078 000007 40001928 00007de8  1 .sdata 	stdio_printf.o 
+  00000078 000007 40001928 00007de8  4 @531 	stdio_printf.o 
+  UNUSED   000004 ........ ........    @583 stdio_printf.o 
+  0000007f 000001 40001930 00007df0  8 *fill*
+  00000080 000007 40001930 00007df0  1 .sdata 	Exceptions.o 
+  00000080 000007 40001930 00007df0  4 @29 	Exceptions.o 
+  00000087 000001 40001938 00007df8  8 *fill*
+  00000088 000004 40001938 00007df8  1 .sdata 	Runtime.PPCEABI.VS.UC.a __init_cpp_exceptions.o
+  00000088 000004 40001938 00007df8  4 fragmentID 	Runtime.PPCEABI.VS.UC.a __init_cpp_exceptions.o
+
+
+.sbss section layout
+  Starting        Virtual  File
+  address  Size   address  offset
+  ---------------------------------
+  00000000 000011 40001940 00007e00  1 .sbss 	bl_core.o 
+  00000000 000004 40001940 00007e00  4 appTimer 	bl_core.o 
+  00000004 000004 40001944 00007e04  4 blMemoryData 	bl_core.o 
+  00000008 000004 40001948 00007e08  4 blMemorySize 	bl_core.o 
+  0000000c 000004 4000194c 00007e0c  4 blMemoryAddress 	bl_core.o 
+  00000010 000001 40001950 00007e10  1 blMemoryIdentifier 	bl_core.o 
+  00000011 000007 40001958 00007e18  8 *fill*
+  00000018 000001 40001958 00007e18  1 .sbss 	bl_sessec.o 
+  00000018 000001 40001958 00007e18  1 bl_auto_prgs 	bl_sessec.o 
+
+
+.sdata2 section layout
+  Starting        Virtual  File
+  address  Size   address  offset
+  ---------------------------------
+  00000000 000008 40001960 00007e00  1 .sdata2 	bl_core.o 
+  00000000 000008 40001960 00007e00  8 @LOCAL@BL_Init__Fv@CanSduPtr 	bl_core.o 
+  00000008 000007 40001968 00007e08  1 .sdata2 	CanTpMini.o 
+  UNUSED   000007 ........ ........    __func__$317 CanTpMini.o 
+  00000008 000007 40001968 00007e08  4 __func__$344 	CanTpMini.o 
+  UNUSED   000007 ........ ........    __func__$423 CanTpMini.o 
+  UNUSED   000007 ........ ........    __func__$450 CanTpMini.o 
+  0000000f 000001 40001970 00007e10  8 *fill*
+  00000010 000040 40001970 00007e10  1 .sdata2 	DcmMini.o 
+  00000010 000008 40001970 00007e10  8 rxPduInfo 	DcmMini.o 
+  00000018 000008 40001978 00007e18  8 txPduInfo 	DcmMini.o 
+  00000020 000004 40001980 00007e20  4 sesList 	DcmMini.o 
+  00000024 000002 40001984 00007e24  4 servicesInDFTS 	DcmMini.o 
+  00000028 000003 40001988 00007e28  4 servicesInEXTDS 	DcmMini.o 
+  0000002c 000003 4000198c 00007e2c  4 secList 	DcmMini.o 
+  00000030 000001 40001990 00007e30  4 servicesInLevel1 	DcmMini.o 
+  00000034 000007 40001994 00007e34  4 servicesInLevel2 	DcmMini.o 
+  0000003c 000002 4000199c 00007e3c  4 secSeedKeySizeList 	DcmMini.o 
+  00000040 000008 400019a0 00007e40  8 getSeedList 	DcmMini.o 
+  00000048 000008 400019a8 00007e48  8 compareKeyList 	DcmMini.o 
+
+
+.sbss2 section layout
+  Starting        Virtual  File
+  address  Size   address  offset
+  ---------------------------------
+
+
+.bss section layout
+  Starting        Virtual  File
+  address  Size   address  offset
+  ---------------------------------
+  00000000 000014 400019b0 00007e50  1 .bss 	CanTpMini.o 
+  00000000 000014 400019b0 00007e50  4 canTpRTE 	CanTpMini.o 
+  00000014 000004 400019c8 00007e68  8 *fill*
+  00000018 002028 400019c8 00007e68  1 .bss 	DcmMini.o 
+  00000018 001000 400019c8 00007e68  8 txBuffer 	DcmMini.o 
+  00001018 001000 400029c8 00008e68  8 rxBuffer 	DcmMini.o 
+  00002018 000028 400039c8 00009e68  8 dcmRTE 	DcmMini.o 
+  00002040 00000c 400039f0 00009e90  1 .bss 	Runtime.PPCEABI.VS.UC.a ExceptionPPC.o
+  00002040 00000c 400039f0 00009e90  4 fragmentinfo 	Runtime.PPCEABI.VS.UC.a ExceptionPPC.o
+
+
+extabindex section layout
+  Starting        Virtual  File
+  address  Size   address  offset
+  ---------------------------------
+  00000000 00000c 00007c5c 000072f4  4 @189 	bl_core.o 
+  0000000c 00000c 00007c68 000072f4  4 @233 	bl_core.o 
+  00000018 00000c 00007c74 000072f4  4 @277 	bl_core.o 
+  00000024 00000c 00007c80 000072f4  4 @287 	bl_core.o 
+  00000030 00000c 00007c8c 000072f4  4 @297 	bl_core.o 
+  0000003c 00000c 00007c98 000072f4  4 @333 	bl_core.o 
+  00000048 00000c 00007ca4 000072f4  4 @372 	bl_core.o 
+  00000054 00000c 00007cb0 000072f4  4 @411 	bl_core.o 
+  00000060 00000c 00007cbc 000072f4  4 @433 	bl_core.o 
+  0000006c 00000c 00007cc8 000072f4  4 @444 	bl_core.o 
+  00000078 00000c 00007cd4 000072f4  4 @455 	bl_core.o 
+  00000084 00000c 00007ce0 000072f4  4 @463 	bl_core.o 
+  00000090 00000c 00007cec 000072f4  4 @502 	bl_core.o 
+  0000009c 00000c 00007cf8 000072f4  4 @156 	bl_sessec.o 
+  000000a8 00000c 00007d04 000072f4  4 @177 	bl_sessec.o 
+  000000b4 00000c 00007d10 000072f4  4 @198 	bl_sessec.o 
+  000000c0 00000c 00007d1c 000072f4  4 @218 	bl_sessec.o 
+  000000cc 00000c 00007d28 000072f4  4 @287 	bl_sessec.o 
+  000000d8 00000c 00007d34 000072f4  4 @141 	main.o 
+  000000e4 00000c 00007d40 000072f4  4 @154 	main.o 
+  000000f0 00000c 00007d4c 000072f4  4 @167 	main.o 
+  000000fc 00000c 00007d58 000072f4  4 @189 	main.o 
+  00000108 00000c 00007d64 000072f4  4 @211 	main.o 
+  00000114 00000c 00007d70 000072f4  4 @221 	main.o 
+  00000120 00000c 00007d7c 000072f4  4 @234 	main.o 
+  0000012c 00000c 00007d88 000072f4  4 @180 	CanTpMini.o 
+  00000138 00000c 00007d94 000072f4  4 @232 	CanTpMini.o 
+  00000144 00000c 00007da0 000072f4  4 @281 	CanTpMini.o 
+  00000150 00000c 00007dac 000072f4  4 @315 	CanTpMini.o 
+  0000015c 00000c 00007db8 000072f4  4 @342 	CanTpMini.o 
+  00000168 00000c 00007dc4 000072f4  4 @421 	CanTpMini.o 
+  00000174 00000c 00007dd0 000072f4  4 @448 	CanTpMini.o 
+  00000180 00000c 00007ddc 000072f4  4 @488 	CanTpMini.o 
+  0000018c 00000c 00007de8 000072f4  4 @502 	CanTpMini.o 
+  00000198 00000c 00007df4 000072f4  4 @542 	CanTpMini.o 
+  000001a4 00000c 00007e00 000072f4  4 @554 	CanTpMini.o 
+  000001b0 00000c 00007e0c 000072f4  4 @629 	CanTpMini.o 
+  000001bc 00000c 00007e18 000072f4  4 @648 	CanTpMini.o 
+  000001c8 00000c 00007e24 000072f4  4 @688 	CanTpMini.o 
+  000001d4 00000c 00007e30 000072f4  4 @708 	CanTpMini.o 
+  000001e0 00000c 00007e3c 000072f4  4 @217 	DcmMini.o 
+  000001ec 00000c 00007e48 000072f4  4 @236 	DcmMini.o 
+  000001f8 00000c 00007e54 000072f4  4 @274 	DcmMini.o 
+  00000204 00000c 00007e60 000072f4  4 @304 	DcmMini.o 
+  00000210 00000c 00007e6c 000072f4  4 @315 	DcmMini.o 
+  0000021c 00000c 00007e78 000072f4  4 @327 	DcmMini.o 
+  00000228 00000c 00007e84 000072f4  4 @334 	DcmMini.o 
+  00000234 00000c 00007e90 000072f4  4 @341 	DcmMini.o 
+  00000240 00000c 00007e9c 000072f4  4 @356 	DcmMini.o 
+  0000024c 00000c 00007ea8 000072f4  4 @407 	DcmMini.o 
+  00000258 00000c 00007eb4 000072f4  4 @442 	DcmMini.o 
+  00000264 00000c 00007ec0 000072f4  4 @477 	DcmMini.o 
+  00000270 00000c 00007ecc 000072f4  4 @488 	DcmMini.o 
+  0000027c 00000c 00007ed8 000072f4  4 @502 	DcmMini.o 
+  00000288 00000c 00007ee4 000072f4  4 @533 	DcmMini.o 
+  00000294 00000c 00007ef0 000072f4  4 @566 	DcmMini.o 
+  000002a0 00000c 00007efc 000072f4  4 @577 	DcmMini.o 
+  000002ac 00000c 00007f08 000072f4  4 @594 	DcmMini.o 
+  000002b8 00000c 00007f14 000072f4  4 @605 	DcmMini.o 
+  000002c4 00000c 00007f20 000072f4  4 @617 	DcmMini.o 
+  000002d0 00000c 00007f2c 000072f4  4 @671 	DcmMini.o 
+  000002dc 00000c 00007f38 000072f4  4 @694 	DcmMini.o 
+  000002e8 00000c 00007f44 000072f4  4 @727 	DcmMini.o 
+  000002f4 00000c 00007f50 000072f4  4 @760 	DcmMini.o 
+  00000300 00000c 00007f5c 000072f4  4 @806 	DcmMini.o 
+  0000030c 00000c 00007f68 000072f4  4 @822 	DcmMini.o 
+  00000318 00000c 00007f74 000072f4  4 @124 	bl_hw.o 
+  00000324 00000c 00007f80 000072f4  4 @139 	bl_hw.o 
+  00000330 00000c 00007f8c 000072f4  4 @146 	bl_hw.o 
+  0000033c 00000c 00007f98 000072f4  4 @152 	bl_hw.o 
+  00000348 00000c 00007fa4 000072f4  4 @166 	bl_hw.o 
+  00000354 00000c 00007fb0 000072f4  4 @181 	bl_hw.o 
+  00000360 00000c 00007fbc 000072f4  4 @187 	bl_hw.o 
+  0000036c 00000c 00007fc8 000072f4  4 @210 	bl_hw.o 
+  00000378 00000c 00007fd4 000072f4  4 @236 	bl_hw.o 
+  00000384 00000c 00007fe0 000072f4  4 @76 	stdio_printf.o 
+  00000390 00000c 00007fec 000072f4  4 @89 	stdio_printf.o 
+  0000039c 00000c 00007ff8 000072f4  4 @274 	stdio_printf.o 
+  000003a8 00000c 00008004 000072f4  4 @287 	stdio_printf.o 
+  000003b4 00000c 00008010 000072f4  4 @535 	stdio_printf.o 
+  000003c0 00000c 0000801c 000072f4  4 @577 	stdio_printf.o 
+  000003cc 00000c 00008028 000072f4  4 @96 	asdebug.o 
+  000003d8 00000c 00008034 000072f4  4 @13 	IntcInterrupts.o 
+  000003e4 00000c 00008040 000072f4  4 @19 	Exceptions.o 
+  000003f0 00000c 0000804c 000072f4  4 @31 	Exceptions.o 
+  000003fc 00000c 00008058 000072f4  4 @42 	Exceptions.o 
+  00000408 00000c 00008064 000072f4  4 @53 	Exceptions.o 
+  00000414 00000c 00008070 000072f4  4 @64 	Exceptions.o 
+  00000420 00000c 0000807c 000072f4  4 @75 	Exceptions.o 
+  0000042c 00000c 00008088 000072f4  4 @86 	Exceptions.o 
+  00000438 00000c 00008094 000072f4  4 @97 	Exceptions.o 
+  00000444 00000c 000080a0 000072f4  4 @108 	Exceptions.o 
+  00000450 00000c 000080ac 000072f4  4 @119 	Exceptions.o 
+  0000045c 00000c 000080b8 000072f4  4 @130 	Exceptions.o 
+  00000468 00000c 000080c4 000072f4  4 @141 	Exceptions.o 
+  00000474 00000c 000080d0 000072f4  4 @152 	Exceptions.o 
+  00000480 00000c 000080dc 000072f4  4 @163 	Exceptions.o 
+  0000048c 00000c 000080e8 000072f4  4 @174 	Exceptions.o 
+  00000498 00000c 000080f4 000072f4  4 @185 	Exceptions.o 
+  000004a4 00000c 00008100 000072f4  4 @196 	Exceptions.o 
+  000004b0 00000c 0000810c 000072f4  4 @207 	Exceptions.o 
+  000004bc 00000c 00008118 000072f4  4 @218 	Exceptions.o 
+  000004c8 000030 00008124 000072f4  4 _eti_init_info 	Linker Generated Symbol File 
+  UNUSED   00000c ........ ........    @232 bl_sessec.o 
+  UNUSED   00000c ........ ........    @245 bl_sessec.o 
+  UNUSED   00000c ........ ........    @260 bl_sessec.o 
+  UNUSED   00000c ........ ........    @575 CanTpMini.o 
+  UNUSED   00000c ........ ........    @162 DcmMini.o 
+  UNUSED   00000c ........ ........    @172 DcmMini.o 
+  UNUSED   00000c ........ ........    @180 DcmMini.o 
+  UNUSED   00000c ........ ........    @642 DcmMini.o 
+  UNUSED   00000c ........ ........    @547 stdio_printf.o 
+  UNUSED   00000c ........ ........    @556 stdio_printf.o 
+  UNUSED   00000c ........ ........    @567 stdio_printf.o 
+  UNUSED   00000c ........ ........    @585 stdio_printf.o 
+  UNUSED   00000c ........ ........    @592 stdio_printf.o 
+  UNUSED   00000c ........ ........    @77 asdebug.o 
+  UNUSED   00000c ........ ........    @106 asdebug.o 
+  UNUSED   00000c ........ ........    @117 asdebug.o 
+  UNUSED   00000c ........ ........    @224 Runtime.PPCEABI.VS.UC.a ExceptionPPC.o
+  UNUSED   00000c ........ ........    @308 Runtime.PPCEABI.VS.UC.a ExceptionPPC.o
+  UNUSED   00000c ........ ........    @409 Runtime.PPCEABI.VS.UC.a ExceptionPPC.o
+  UNUSED   00000c ........ ........    @435 Runtime.PPCEABI.VS.UC.a ExceptionPPC.o
+  UNUSED   00000c ........ ........    @807 Runtime.PPCEABI.VS.UC.a ExceptionPPC.o
+  UNUSED   00000c ........ ........    @860 Runtime.PPCEABI.VS.UC.a ExceptionPPC.o
+  UNUSED   00000c ........ ........    @871 Runtime.PPCEABI.VS.UC.a ExceptionPPC.o
+  UNUSED   00000c ........ ........    @916 Runtime.PPCEABI.VS.UC.a ExceptionPPC.o
+  UNUSED   00000c ........ ........    @964 Runtime.PPCEABI.VS.UC.a ExceptionPPC.o
+  UNUSED   00000c ........ ........    @971 Runtime.PPCEABI.VS.UC.a ExceptionPPC.o
+  UNUSED   00000c ........ ........    @1028 Runtime.PPCEABI.VS.UC.a ExceptionPPC.o
+  UNUSED   00000c ........ ........    @1104 Runtime.PPCEABI.VS.UC.a ExceptionPPC.o
+  UNUSED   00000c ........ ........    @1119 Runtime.PPCEABI.VS.UC.a ExceptionPPC.o
+  UNUSED   00000c ........ ........    @1147 Runtime.PPCEABI.VS.UC.a ExceptionPPC.o
+  UNUSED   00000c ........ ........    @1421 Runtime.PPCEABI.VS.UC.a ExceptionPPC.o
+  UNUSED   00000c ........ ........    @1426 Runtime.PPCEABI.VS.UC.a ExceptionPPC.o
+  UNUSED   00000c ........ ........    @1532 Runtime.PPCEABI.VS.UC.a ExceptionPPC.o
+  UNUSED   00000c ........ ........    @1539 Runtime.PPCEABI.VS.UC.a ExceptionPPC.o
+
+
+Memory map:
+                       Starting Size     File     ROM      RAM Buffer  S-Record
+                       address           Offset   Address  Address     Line
+       .__bam_bootarea 00000000 00000008 000003e0 00000000 00000000          2
+                 .init 00000020 000000c8 000003e8 00000020 00000020          3
+             .init_vle 000000e8 0000020c 000004b0 000000e8 000000e8         13
+  .__exception_handlers 00001000 00000ad8 000006c0 00001000 00001000         40
+             .text_vle 00002000 00005498 000011a0 00002000 00002000        179
+               .rodata 00007498 00000434 00006638 00007498 00007498       1262
+                .ctors 000078cc 00000008 00006a6c 000078cc 000078cc       1316
+                .dtors 000078d4 00000008 00006a74 000078d4 000078d4       1317
+                 extab 000078dc 00000380 00006a7c 000078dc 000078dc       1318
+            extabindex 00007c5c 000004f8 00006dfc 00007c5c 00007c5c       1363
+  .__uninitialized_intc_handlertable 40000000 00001340 00007800 00008800 00008800          0
+                 .data 40001340 00000570 00007800 00008800 00008800       1427
+                .sdata 400018b0 0000008c 00007d70 00008d70 00008d70       1497
+                 .sbss 40001940 0000001c 00007e00 00008e00 00008e00          0
+               .sdata2 40001960 00000050 00007e00 00008e00 00008e00       1504
+                .sbss2 400019b0 00000000 00007e50 00008e50 00008e50          0
+                  .bss 400019b0 0000204c 00007e50 00008e50 00008e50          0
+      .PPC.EMB.apuinfo 00012b60 00000000 0001a9b0 0001b9b0 0001b9b0          0
+         .debug_abbrev          000001a9 00007e50
+           .debug_info          00005f55 00007ff9
+           .debug_line          0000557d 0000df4e
+            .debug_loc          00002bfa 000134cb
+       .debug_pubnames          00000aea 000160c5
+
+
+Linker generated symbols:
+           FlashDriverRam 40014000
+              FlashHeader 40014000
+       EXCEPTION_HANDLERS 00001000
+          L2SRAM_LOCATION 40000000
+        _f___bam_bootarea 00000000
+    _f___bam_bootarea_rom 00000000
+        _e___bam_bootarea 00000008
+                  _f_init 00000020
+              _f_init_rom 00000020
+                  _e_init 000000e8
+              _f_init_vle 000000e8
+          _f_init_vle_rom 000000e8
+              _e_init_vle 000002f4
+  _f___exception_handlers 00001000
+_f___exception_handlers_rom 00001000
+  _e___exception_handlers 00001ad8
+                  _f_text 00002000
+              _f_text_rom 00002000
+                  _e_text 00002000
+              _f_text_vle 00002000
+          _f_text_vle_rom 00002000
+              _e_text_vle 00007498
+                _f_rodata 00007498
+            _f_rodata_rom 00007498
+                _e_rodata 000078cc
+                 _f_ctors 000078cc
+             _f_ctors_rom 000078cc
+                 _e_ctors 000078d4
+                 _f_dtors 000078d4
+             _f_dtors_rom 000078d4
+                 _e_dtors 000078dc
+                  _fextab 000078dc
+              _fextab_rom 000078dc
+                  _eextab 00007c5c
+             _fextabindex 00007c5c
+         _fextabindex_rom 00007c5c
+             _eextabindex 00008154
+_f___uninitialized_intc_handlertable 40000000
+_e___uninitialized_intc_handlertable 40001340
+                  _f_data 40001340
+              _f_data_rom 00008800
+                  _e_data 400018b0
+                 _f_sdata 400018b0
+             _f_sdata_rom 00008d70
+                 _e_sdata 4000193c
+                  _f_sbss 40001940
+                  _e_sbss 4000195c
+                _f_sdata2 40001960
+            _f_sdata2_rom 00008e00
+                _e_sdata2 400019b0
+                 _f_sbss2 400019b0
+                 _e_sbss2 400019b0
+                   _f_bss 400019b0
+                   _e_bss 400039fc
+              _stack_addr 40017800
+               _stack_end 40016000
+               _heap_addr 40015000
+                _heap_end 40016000
+             _nbfunctions 0000008e
+           SIZEOF_HEADERS 000003e0
+               _SDA_BASE_ 400098b0
+              _SDA2_BASE_ 40009960
+           _ABS_SDA_BASE_ 400098b0
+          _ABS_SDA2_BASE_ 40009960

@@ -1,0 +1,64 @@
+
+Name: generate_PB/Port_VersionCheck_Src_PB.m
+SignatureKeyID: Freescale
+Signature: 11313377422923486902933959221442161556351823277496846825063
+ 3431955816100294405538403317056398064641594503055953
+SignatureKeyProviderID: plugin.launcher2.licenseFileKeyProvider
+SignatureAlgorithmID: DSA
+
+Name: generate_PC/src/Port_Cfg.c
+SignatureKeyID: Freescale
+Signature: 11313377420295183725880749775886165782716100033188422802158
+ 9297312233178913613203434829911931445032092310677438
+SignatureKeyProviderID: plugin.launcher2.licenseFileKeyProvider
+SignatureAlgorithmID: DSA
+
+Name: generate_PC/Port_VersionCheck_Inc.m
+SignatureKeyID: Freescale
+Signature: 28964594773973820568052897268921035681724751550324272108170
+ 530725056129646044294218505249149854765049016547785719
+SignatureKeyProviderID: plugin.launcher2.licenseFileKeyProvider
+SignatureAlgorithmID: DSA
+
+Name: generate_PB/src/Port_PBcfg.c
+SignatureKeyID: Freescale
+Signature: 11313377426015346171113683637098408991636954426902442106394
+ 2590791275014638097790637007824464104251019189900023
+SignatureKeyProviderID: plugin.launcher2.licenseFileKeyProvider
+SignatureAlgorithmID: DSA
+
+Name: generate_PB/MONACO_Resource.m
+SignatureKeyID: Freescale
+Signature: 11313377425545726266357001519766076098558159298609509345283
+ 3859290523300722306593081564829590640026339797855534
+SignatureKeyProviderID: plugin.launcher2.licenseFileKeyProvider
+SignatureAlgorithmID: DSA
+
+Name: generate_PC/Port_VersionCheck_Src.m
+SignatureKeyID: Freescale
+Signature: 28964594773965407620529492442577870193090487524129824010448
+ 345474031784303458792848799454820378153551715187874619
+SignatureKeyProviderID: plugin.launcher2.licenseFileKeyProvider
+SignatureAlgorithmID: DSA
+
+Name: generate_PC/include/Port_Cfg.h
+SignatureKeyID: Freescale
+Signature: 28964594753132808817902536307313094731845903423601178789496
+ 505542922402435937325803611822700679683266767283804413
+SignatureKeyProviderID: plugin.launcher2.licenseFileKeyProvider
+SignatureAlgorithmID: DSA
+
+Name: config/Port.xdm
+SignatureKeyID: Freescale
+Signature: 11313377421067908883736430861380437058463953585728523573060
+ 0095719451391739459016344191094239486299589246447147
+SignatureKeyProviderID: plugin.launcher2.licenseFileKeyProvider
+SignatureAlgorithmID: DSA
+
+Name: generate_PC/MONACO_Resource.m
+SignatureKeyID: Freescale
+Signature: 11313377426760627372744641538241946875524551614945677394164
+ 7606369128168449743059812078786331762156924964327550
+SignatureKeyProviderID: plugin.launcher2.licenseFileKeyProvider
+SignatureAlgorithmID: DSA
+

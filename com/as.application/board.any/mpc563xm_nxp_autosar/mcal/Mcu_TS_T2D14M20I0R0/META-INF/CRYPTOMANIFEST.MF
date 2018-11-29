@@ -1,0 +1,57 @@
+
+Name: generate_PB/src/Mcu_PBcfg.c
+SignatureKeyID: Freescale
+Signature: 11313377421848988031639288138458405011765732955509856831255
+ 4262638168389943916843557164070040561067317316855559
+SignatureKeyProviderID: plugin.launcher2.licenseFileKeyProvider
+SignatureAlgorithmID: DSA
+
+Name: generate_PC/include/Mcu_Cfg.h
+SignatureKeyID: Freescale
+Signature: 28964594773966390907286415676699305837150744953984006715595
+ 242839121178341971812895725852726220815196680262535373
+SignatureKeyProviderID: plugin.launcher2.licenseFileKeyProvider
+SignatureAlgorithmID: DSA
+
+Name: generate_PB/Mcu_checkvalues.m
+SignatureKeyID: Freescale
+Signature: 11313377426889184017489502678607211596058790053289421122248
+ 1456613528172540049463926199875315108498729681780257
+SignatureKeyProviderID: plugin.launcher2.licenseFileKeyProvider
+SignatureAlgorithmID: DSA
+
+Name: generate_PC/Mcu_checkvalues.m
+SignatureKeyID: Freescale
+Signature: 11313377420730856655395817234406898719165298328556390585333
+ 7637052722466410127055843815575554981222780237803975
+SignatureKeyProviderID: plugin.launcher2.licenseFileKeyProvider
+SignatureAlgorithmID: DSA
+
+Name: generate_PC/Mcu_RegOperations.m
+SignatureKeyID: Freescale
+Signature: 11313377420450255738900776701056212593746492494553891429565
+ 0409516535086796023521409666120442526905307882672329
+SignatureKeyProviderID: plugin.launcher2.licenseFileKeyProvider
+SignatureAlgorithmID: DSA
+
+Name: generate_PB/Mcu_RegOperations.m
+SignatureKeyID: Freescale
+Signature: 11313377423922781017271436735396263898032561034725438208485
+ 0783903278246282822216322950346183460285483135341732
+SignatureKeyProviderID: plugin.launcher2.licenseFileKeyProvider
+SignatureAlgorithmID: DSA
+
+Name: config/Mcu.xdm
+SignatureKeyID: Freescale
+Signature: 11313377420482309644261890817301161381462213338610466251698
+ 4791570523441774669793808366109235611007646307713049
+SignatureKeyProviderID: plugin.launcher2.licenseFileKeyProvider
+SignatureAlgorithmID: DSA
+
+Name: generate_PC/src/Mcu_Cfg.c
+SignatureKeyID: Freescale
+Signature: 11313377421848648447640827129564868584939508716114330125288
+ 0077064304980297957297843159966155085653478833601356
+SignatureKeyProviderID: plugin.launcher2.licenseFileKeyProvider
+SignatureAlgorithmID: DSA
+

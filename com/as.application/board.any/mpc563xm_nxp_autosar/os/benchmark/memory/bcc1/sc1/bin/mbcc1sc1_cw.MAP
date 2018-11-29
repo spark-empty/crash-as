@@ -1,0 +1,423 @@
+Link map of __start
+
+
+.vects section layout
+  Starting        Virtual  File
+  address  Size   address  offset
+  ---------------------------------
+  00000000 000124 40000000 00001000  1 .vects 	vector.o 
+  00000000 000124 40000000 00001000 16 VTABLE 	vector.o 
+  00000124 000000 40000124 00001124  1 .vects.173 	vector.o 
+
+
+.osbegincode section layout
+  Starting        Virtual  File
+  address  Size   address  offset
+  ---------------------------------
+
+
+.init section layout
+  Starting        Virtual  File
+  address  Size   address  offset
+  ---------------------------------
+  00000000 00008c 40000124 00001124  1 .init 	Linker Generated Symbol File 
+  00000000 00006c 40000124 00001124  4 _rom_copy_info 	Linker Generated Symbol File 
+  0000006c 000020 40000190 00001190  4 _bss_init_info 	Linker Generated Symbol File 
+
+
+.init_vle section layout
+  Starting        Virtual  File
+  address  Size   address  offset
+  ---------------------------------
+  00000000 0000de 400001b0 000011b0  1 .init 	__start.o 
+  00000000 000048 400001b0 000011b0  4 __start 	__start.o 
+  00000048 00001a 400001f8 000011f8  4 __init_registers 	__start.o 
+  00000064 00007a 40000214 00001214  4 __init_data 	__start.o 
+  000000de 000000 4000028e 0000128e  1 .init.113 	__start.o 
+  000000de 000002 40000290 00001290  4 *fill*
+  000000e0 00002e 40000290 00001290  1 .init 	__ppc_eabi_init.o 
+  000000e0 00000c 40000290 00001290  4 __init_hardware 	__ppc_eabi_init.o 
+  000000ec 000022 4000029c 0000129c  4 __flush_cache 	__ppc_eabi_init.o 
+  0000010e 000002 400002c0 000012c0  4 *fill*
+  00000110 0000ca 400002c0 000012c0  1 .init 	Runtime.PPCEABI.V.a __mem.o
+  00000110 000038 400002c0 000012c0  4 memcpy 	Runtime.PPCEABI.V.a __mem.o
+  00000148 000078 400002f8 000012f8  4 __fill_mem 	Runtime.PPCEABI.V.a __mem.o
+  000001c0 00001a 40000370 00001370  4 memset 	Runtime.PPCEABI.V.a __mem.o
+
+
+.ostext section layout
+  Starting        Virtual  File
+  address  Size   address  offset
+  ---------------------------------
+  00000000 0001b8 4000038c 0000138c  1 .ostext 	osset.o 
+  00000000 000176 4000038c 0000138c  4 StartOS 	osset.o 
+  00000178 000040 40000504 00001504  4 OSShutdownOS 	osset.o 
+  000001b8 000000 40000544 00001544  1 .ostext.255 	osset.o 
+  000001b8 000096 40000544 00001544  1 .ostext 	ossch.o 
+  000001b8 000096 40000544 00001544  4 OSTaskForceDispatch 	ossch.o 
+  0000024e 000000 400005da 000015da  1 .ostext.189 	ossch.o 
+  0000024e 000002 400005dc 000015dc  4 *fill*
+  00000250 000176 400005dc 000015dc  1 .ostext 	osalm.o 
+  00000250 00009e 400005dc 000015dc  4 OSCheckAlarms 	osalm.o 
+  000002f0 0000d6 4000067c 0000167c  4 OS_SetAbsAlarm 	osalm.o 
+  000003c6 000000 40000752 00001752  1 .ostext.392 	osalm.o 
+  000003c6 000002 40000754 00001754  4 *fill*
+  000003c8 000104 40000754 00001754  1 .ostext 	osctr.o 
+  000003c8 00007c 40000754 00001754  4 OSISRSystemTimer 	osctr.o 
+  00000444 000028 400007d0 000017d0  4 OSShutdownSystemTimer 	osctr.o 
+  0000046c 000060 400007f8 000017f8  4 OSInitializeSystemTimer 	osctr.o 
+  000004cc 000000 40000858 00001858  1 .ostext.237 	osctr.o 
+  000004cc 000386 40000858 00001858  1 .ostext 	osisr.o 
+  000004cc 000006 40000858 00001858  4 OSISRException 	osisr.o 
+  000004d4 0000a2 40000860 00001860  4 OSInitIVORS 	osisr.o 
+  00000578 000168 40000904 00001904  4 OSInitializeISR 	osisr.o 
+  000006e0 0000ba 40000a6c 00001a6c  4 OSLeaveISR 	osisr.o 
+  0000079c 0000b6 40000b28 00001b28  4 OSInterruptDispatcher1 	osisr.o 
+  00000852 000000 40000bde 00001bde  1 .ostext.294 	osisr.o 
+  00000852 000002 40000be0 00001be0  4 *fill*
+  00000854 00000e 40000be0 00001be0  1 .ostext 	osmem.o 
+  00000854 00000e 40000be0 00001be0  4 OSExceptionError 	osmem.o 
+  00000862 000000 40000bee 00001bee  1 .ostext.178 	osmem.o 
+  00000862 000002 40000bf0 00001bf0  4 *fill*
+  00000864 000060 40000bf0 00001bf0  1 .ostext 	ostrg.o 
+  00000864 000026 40000bf0 00001bf0  4 OSInterruptDispatcher 	ostrg.o 
+  0000088c 00000e 40000c18 00001c18  4 OSCriticalException 	ostrg.o 
+  0000089c 00000e 40000c28 00001c28  4 OSMachineCheckException 	ostrg.o 
+  000008ac 00000e 40000c38 00001c38  4 OSNonCriticalException 	ostrg.o 
+  000008bc 000008 40000c48 00001c48  4 OSDebugException 	ostrg.o 
+  000008c4 000000 40000c50 00001c50  1 .ostext.182 	ostrg.o 
+
+
+.oshook section layout
+  Starting        Virtual  File
+  address  Size   address  offset
+  ---------------------------------
+
+
+.osrodata section layout
+  Starting        Virtual  File
+  address  Size   address  offset
+  ---------------------------------
+  00000000 000438 40000c50 00001c50  1 .osrodata 	mbcc1sc1_cfg.o 
+  00000000 00000b 40000c50 00001c50  4 OsTaskProperty 	mbcc1sc1_cfg.o 
+  0000000c 00002c 40000c5c 00001c5c  4 OsTaskEntry 	mbcc1sc1_cfg.o 
+  00000038 000018 40000c88 00001c88  8 OsIsrCfg 	mbcc1sc1_cfg.o 
+  00000050 000028 40000ca0 00001ca0  8 OsAlarmsCfg 	mbcc1sc1_cfg.o 
+  00000078 000008 40000cc8 00001cc8  8 OsCountersCfg 	mbcc1sc1_cfg.o 
+  00000080 0003b8 40000cd0 00001cd0  8 OsIsr 	mbcc1sc1_cfg.o 
+
+
+.ossrodata section layout
+  Starting        Virtual  File
+  address  Size   address  offset
+  ---------------------------------
+
+
+.text section layout
+  Starting        Virtual  File
+  address  Size   address  offset
+  ---------------------------------
+
+
+.text_vle section layout
+  Starting        Virtual  File
+  address  Size   address  offset
+  ---------------------------------
+  00000000 00000e 40001090 00002090  1 .text 	__ppc_eabi_init.o 
+  00000000 000008 40001090 00002090  4 __init_user 	__ppc_eabi_init.o 
+  00000008 000004 40001098 00002098  4 exit 	__ppc_eabi_init.o 
+  0000000c 000002 4000109c 0000209c  4 _ExitProcess 	__ppc_eabi_init.o 
+  0000000e 000002 400010a0 000020a0  4 *fill*
+  00000010 000096 400010a0 000020a0  1 .text 	Runtime.PPCEABI.V.a runtime.o
+  00000010 00004a 400010a0 000020a0  4 __save_gpr 	Runtime.PPCEABI.V.a runtime.o
+  00000034 000000 400010c4 000020c4    _savegpr_23 (entry of __save_gpr) 	Runtime.PPCEABI.V.a runtime.o
+  00000038 000000 400010c8 000020c8    _savegpr_24 (entry of __save_gpr) 	Runtime.PPCEABI.V.a runtime.o
+  0000005c 00004a 400010ec 000020ec  4 __restore_gpr 	Runtime.PPCEABI.V.a runtime.o
+  00000080 000000 40001110 00002110    _restgpr_23 (entry of __restore_gpr) 	Runtime.PPCEABI.V.a runtime.o
+  00000084 000000 40001114 00002114    _restgpr_24 (entry of __restore_gpr) 	Runtime.PPCEABI.V.a runtime.o
+  000000a6 000000 40001136 00002136  1 .text.211 	Runtime.PPCEABI.V.a runtime.o
+
+
+.appcode_vle section layout
+  Starting        Virtual  File
+  address  Size   address  offset
+  ---------------------------------
+  00000000 000220 40001138 00002138  1 .appcode 	mbcc1.o 
+  00000000 00005a 40001138 00002138  4 main 	mbcc1.o 
+  0000005c 000160 40001194 00002194  4 FuncTASKBGND 	mbcc1.o 
+  000001bc 000002 400012f4 000022f4  4 EndMeasurement 	mbcc1.o 
+  000001c0 000036 400012f8 000022f8  4 Count 	mbcc1.o 
+  000001f8 000004 40001330 00002330  4 FuncTASK1 	mbcc1.o 
+  000001fc 000004 40001334 00002334  4 FuncTASK2 	mbcc1.o 
+  00000200 000004 40001338 00002338  4 FuncTASK3 	mbcc1.o 
+  00000204 000004 4000133c 0000233c  4 FuncTASK4 	mbcc1.o 
+  00000208 000004 40001340 00002340  4 FuncTASK5 	mbcc1.o 
+  0000020c 000004 40001344 00002344  4 FuncTASK6 	mbcc1.o 
+  00000210 000004 40001348 00002348  4 FuncTASK7 	mbcc1.o 
+  00000214 000004 4000134c 0000234c  4 FuncTASK8 	mbcc1.o 
+  00000218 000004 40001350 00002350  4 FuncTASK9 	mbcc1.o 
+  0000021c 000004 40001354 00002354  4 FuncTASK10 	mbcc1.o 
+  00000220 000080 40001358 00002358  1 .appcode 	fmpll.o 
+  00000220 000080 40001358 00002358  4 SetPLL 	fmpll.o 
+  000002a0 000000 400013d8 000023d8  1 .appcode.181 	fmpll.o 
+
+
+.rodata section layout
+  Starting        Virtual  File
+  address  Size   address  offset
+  ---------------------------------
+
+
+.sdata2 section layout
+  Starting        Virtual  File
+  address  Size   address  offset
+  ---------------------------------
+
+
+.ctors section layout
+  Starting        Virtual  File
+  address  Size   address  offset
+  ---------------------------------
+
+
+.dtors section layout
+  Starting        Virtual  File
+  address  Size   address  offset
+  ---------------------------------
+
+
+extab section layout
+  Starting        Virtual  File
+  address  Size   address  offset
+  ---------------------------------
+
+
+extabindex section layout
+  Starting        Virtual  File
+  address  Size   address  offset
+  ---------------------------------
+
+
+.osendcode section layout
+  Starting        Virtual  File
+  address  Size   address  offset
+  ---------------------------------
+
+
+.osstack section layout
+  Starting        Virtual  File
+  address  Size   address  offset
+  ---------------------------------
+
+
+.data section layout
+  Starting        Virtual  File
+  address  Size   address  offset
+  ---------------------------------
+
+
+.osdata section layout
+  Starting        Virtual  File
+  address  Size   address  offset
+  ---------------------------------
+
+
+.app0_vU section layout
+  Starting        Virtual  File
+  address  Size   address  offset
+  ---------------------------------
+  00000000 000010 400013d8 000023d8  1 .app0_vU 	mbcc1.o 
+  00000000 000000 400013d8 000023d8    ...app0_vU.0 (entry of .app0_vU) 	mbcc1.o 
+  00000000 000004 400013d8 000023d8  4 tmpSP 	mbcc1.o 
+  00000004 000004 400013dc 000023dc  4 tmpPtr 	mbcc1.o 
+  00000008 000004 400013e0 000023e0  4 iterator 	mbcc1.o 
+  0000000c 000004 400013e4 000023e4  4 stackUsage 	mbcc1.o 
+
+
+.sapp_vU_data section layout
+  Starting        Virtual  File
+  address  Size   address  offset
+  ---------------------------------
+
+
+.sdata section layout
+  Starting        Virtual  File
+  address  Size   address  offset
+  ---------------------------------
+
+
+.sbss section layout
+  Starting        Virtual  File
+  address  Size   address  offset
+  ---------------------------------
+
+
+.ossbss section layout
+  Starting        Virtual  File
+  address  Size   address  offset
+  ---------------------------------
+  00000000 000012 400013e8 000023e8  1 .ossbss 	os.o 
+  00000000 000004 400013e8 000023e8  4 OsRunning_ 	os.o 
+  00000004 000004 400013ec 000023ec  4 OsSchedulerVector1_ 	os.o 
+  00000008 000004 400013f0 000023f0  4 OsInitialMSR_ 	os.o 
+  0000000c 000004 400013f4 000023f4  4 OsIsrLevel_ 	os.o 
+  00000010 000001 400013f8 000023f8  1 OsSuspendLevelAll_ 	os.o 
+  00000011 000001 400013f9 000023f9  1 OsSuspendLevel_ 	os.o 
+
+
+.sapp_vU_bss section layout
+  Starting        Virtual  File
+  address  Size   address  offset
+  ---------------------------------
+  00000000 00000a 400013fc 000023e8  1 .sapp_vU_bss 	mbcc1.o 
+  00000000 000000 400013fc 000023e8    ...sapp_vU_bss.0 (entry of .sapp_vU_bss) 	mbcc1.o 
+  00000000 000004 400013fc 000023e8  4 sysCnt 	mbcc1.o 
+  00000004 000004 40001400 000023ec  4 nosys 	mbcc1.o 
+  00000008 000002 40001404 000023f0  2 procent 	mbcc1.o 
+
+
+.bss section layout
+  Starting        Virtual  File
+  address  Size   address  offset
+  ---------------------------------
+
+
+.osbss section layout
+  Starting        Virtual  File
+  address  Size   address  offset
+  ---------------------------------
+  00000000 0000fb 40001408 000023e8  1 .osbss 	os.o 
+  00000000 000018 40001408 000023e8  8 OsIsrTable 	os.o 
+  00000018 000004 40001420 00002400  4 OsIsrArray 	os.o 
+  00000020 0000c8 40001428 00002408  8 OsAlarms 	os.o 
+  000000e8 000008 400014f0 000024d0  8 OsCounters 	os.o 
+  000000f0 00000b 400014f8 000024d8  4 OsTaskStatus 	os.o 
+
+
+Memory map:
+                       Starting Size     File
+                       address           Offset
+                .vects 40000000 00000124 00001000
+                 .init 40000124 0000008c 00001124
+             .init_vle 400001b0 000001dc 000011b0
+               .ostext 4000038c 000008c4 0000138c
+               .oshook 40000c50 00000000 00001c50
+             .osrodata 40000c50 00000438 00001c50
+                 .text 40001088 00000000 00002090
+             .text_vle 40001090 000000a8 00002090
+          .appcode_vle 40001138 000002a0 00002138
+               .rodata 400013d8 00000000 000023d8
+               .sdata2 400013d8 00000000 000023d8
+                .ctors 400013d8 00000000 000023d8
+                .dtors 400013d8 00000000 000023d8
+                 extab 400013d8 00000000 000023d8
+            extabindex 400013d8 00000000 000023d8
+                 .data 400013d8 00000000 000023d8
+              .app0_vU 400013d8 00000010 000023d8
+                .sdata 400013e8 00000000 000023e8
+                 .sbss 400013e8 00000000 000023e8
+               .ossbss 400013e8 00000014 000023e8
+          .sapp_vU_bss 400013fc 0000000c 000023e8
+                  .bss 40001408 00000000 000023e8
+                .osbss 40001408 000000fc 000023e8
+      .PPC.EMB.apuinfo 00007594 00000000 00009980
+         .debug_abbrev          00000123 000023e8
+           .debug_info          00001e59 0000250b
+           .debug_line          00002d8a 00004364
+            .debug_loc          0000087d 000070ee
+       .debug_pubnames          00000594 0000796b
+
+
+Linker generated symbols:
+                 _f_vects 40000000
+             _f_vects_rom 40000000
+                 _e_vects 40000124
+           _f_osbegincode 40000124
+       _f_osbegincode_rom 40000140
+           _e_osbegincode 40000124
+                  _f_init 40000124
+              _f_init_rom 40000124
+                  _e_init 400001b0
+              _f_init_vle 400001b0
+          _f_init_vle_rom 400001b0
+              _e_init_vle 4000038c
+                _f_ostext 4000038c
+            _f_ostext_rom 4000038c
+                _e_ostext 40000c50
+                _f_oshook 40000c50
+            _f_oshook_rom 40000c50
+                _e_oshook 40000c50
+              _f_osrodata 40000c50
+          _f_osrodata_rom 40000c50
+              _e_osrodata 40001088
+             _f_ossrodata 40001088
+         _f_ossrodata_rom 40001088
+             _e_ossrodata 40001088
+                  _f_text 40001088
+              _f_text_rom 40001090
+                  _e_text 40001088
+              _f_text_vle 40001090
+          _f_text_vle_rom 40001090
+              _e_text_vle 40001138
+           _f_appcode_vle 40001138
+       _f_appcode_vle_rom 40001138
+           _e_appcode_vle 400013d8
+                _f_rodata 400013d8
+            _f_rodata_rom 400013d8
+                _e_rodata 400013d8
+                _f_sdata2 400013d8
+            _f_sdata2_rom 400013d8
+                _e_sdata2 400013d8
+                 _f_ctors 400013d8
+             _f_ctors_rom 400013d8
+                 _e_ctors 400013d8
+                 _f_dtors 400013d8
+             _f_dtors_rom 400013d8
+                 _e_dtors 400013d8
+                  _fextab 400013d8
+              _fextab_rom 400013d8
+                  _eextab 400013d8
+             _fextabindex 400013d8
+         _fextabindex_rom 400013d8
+             _eextabindex 400013d8
+             _f_osendcode 400013d8
+         _f_osendcode_rom 400013d8
+             _e_osendcode 400013d8
+               _f_osstack 400013d8
+           _f_osstack_rom 400013e0
+               _e_osstack 400013d8
+                  _f_data 400013d8
+              _f_data_rom 400013d8
+                  _e_data 400013d8
+                _f_osdata 400013d8
+            _f_osdata_rom 400013d8
+                _e_osdata 400013d8
+               _f_app0_vU 400013d8
+           _f_app0_vU_rom 400013d8
+               _e_app0_vU 400013e8
+          _f_sapp_vU_data 400013e8
+      _f_sapp_vU_data_rom 400013e8
+          _e_sapp_vU_data 400013e8
+                 _f_sdata 400013e8
+             _f_sdata_rom 400013e8
+                 _e_sdata 400013e8
+                  _f_sbss 400013e8
+                  _e_sbss 400013e8
+                _f_ossbss 400013e8
+                _e_ossbss 400013fc
+           _f_sapp_vU_bss 400013fc
+           _e_sapp_vU_bss 40001408
+                   _f_bss 40001408
+                   _e_bss 40001408
+                 _f_osbss 40001408
+                 _e_osbss 40001504
+              _stack_addr 4000c000
+               _stack_end 4000bc00
+               _heap_addr 002cfff0
+                _heap_end 003cfff0
+             _nbfunctions 00000030
+           SIZEOF_HEADERS 000001a0
+               _SDA_BASE_ 400093e8
+              _SDA2_BASE_ 400093d8
+           _ABS_SDA_BASE_ 400093e8
+          _ABS_SDA2_BASE_ 400093d8

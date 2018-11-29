@@ -1,0 +1,192 @@
+/**************************************************************************************
+* 
+*  Freescale(TM) and the Freescale logo are trademarks of Freescale Semiconductor, Inc. 
+*  All other product or service names are the property of their respective owners. 
+*  (C) Freescale Semiconductor, Inc. 2008 - 2009
+* 
+*  You can use this example for any purpose on any computer system with the
+*  following restrictions:
+*
+*  1. This example is provided "as is", without warranty.
+*
+*  2. You don't remove this copyright notice from this example or any direct derivation 
+*     thereof.
+*
+*  Description:  AUTOSAR OS/MPC56xxAM performance benchmark for BCC1/SC3
+*
+******************************************************************************/
+
+OIL_VERSION = "3.0";
+
+#include "os_mpc56xxAM.oin"
+
+CPU Cpu1 {
+    APPMODE Mode1;
+    
+    OS Os1 {
+#include "..\..\..\common\target.oin"
+		    InternalRAM = TRUE;
+		    InternalROM = TRUE;
+        };
+#include "..\..\..\..\common\options.oin"        
+        STATUS = EXTENDED;
+    };
+
+#include "..\..\..\common\performance.oin"
+
+    TASK TASK_BGND {
+        STACKSIZE = 512;
+    };    
+
+    ISR OneTaskISR {
+        STACKSIZE = 512;
+    };    
+
+    TASK TASK_1 {
+        STACKSIZE = 512;
+    };
+    TASK TASK_2 {
+        STACKSIZE = 512;
+    };
+
+    ISR SecondTimerISR {
+        STACKSIZE = 512;
+    };    
+
+    TASK TASK_ALM {
+        STACKSIZE = 512;
+    };
+   
+    ALARM ALARM_1 {
+        ACTION = ACTIVATETASK {
+            TASK = TASK_h1;
+        };                
+    };
+    ALARM ALARM_2 {
+        ACTION = ACTIVATETASK {
+            TASK = TASK_h2;
+        };                
+    };
+    ALARM ALARM_3 {
+        ACTION = ACTIVATETASK {
+            TASK = TASK_h3;
+        };                
+    };
+    ALARM ALARM_4 {
+        ACTION = ACTIVATETASK {
+            TASK = TASK_h4;
+        };        
+    };
+    ALARM ALARM_5 {
+        ACTION = ACTIVATETASK {
+            TASK = TASK_h5;
+        };        
+    };
+    ALARM ALARM_6 {
+        ACTION = ACTIVATETASK {
+            TASK = TASK_h6;
+        };                
+    };
+    ALARM ALARM_7 {
+        ACTION = ACTIVATETASK {
+            TASK = TASK_h7;
+        };        
+    };
+    ALARM ALARM_8 {
+        ACTION = ACTIVATETASK {
+            TASK = TASK_h8;
+        };                
+    };    
+        
+    TASK TASK_h1 {
+        AUTOSTART = FALSE;
+        STACKSIZE = 512;
+    };
+    TASK TASK_h2 {
+        AUTOSTART = FALSE;
+        STACKSIZE = 512;
+    };
+    TASK TASK_h3 {
+        AUTOSTART = FALSE;
+        STACKSIZE = 512;
+    };
+    TASK TASK_h4 {
+        AUTOSTART = FALSE;
+        STACKSIZE = 512;
+    };
+    TASK TASK_h5 {
+        STACKSIZE = 512;
+    };
+    TASK TASK_h6 {
+        STACKSIZE = 512;
+    };
+    TASK TASK_h7 {
+        STACKSIZE = 512;
+    };
+    TASK TASK_h8 {
+        STACKSIZE = 512;
+    };
+    
+    TASK TASK_t1 {
+        STACKSIZE = 512;
+    };    
+    TASK TASK_t2 {
+        STACKSIZE = 512;
+    };
+    TASK TASK_t3 {
+        STACKSIZE = 512;
+    };
+    TASK TASK_t4 {
+        STACKSIZE = 512;
+    };
+    TASK TASK_t5 {
+        STACKSIZE = 512;
+    };
+    TASK TASK_t6 {
+        STACKSIZE = 512;
+    };
+    TASK TASK_t7 {
+        STACKSIZE = 512;
+    };
+    
+    APPLICATION TrustedApplication {
+        TRUSTED = TRUE;
+        STARTUPHOOK = FALSE;
+        SHUTDOWNHOOK = FALSE;
+        ERRORHOOK = FALSE;
+        HAS_RESTARTTASK = FALSE;
+        COUNTER = Counter1;
+        COUNTER = Counter2;        
+        TASK = TASK_BGND; 
+        TASK = TASK_1;   
+        TASK = TASK_2;
+        TASK = TASK_ALM;
+        TASK = TASK_h1;
+        TASK = TASK_h2;
+        TASK = TASK_h3;
+        TASK = TASK_h4;
+        TASK = TASK_h5;
+        TASK = TASK_h6;
+        TASK = TASK_h7;
+        TASK = TASK_h8;
+        TASK = TASK_t1;
+        TASK = TASK_t2;
+        TASK = TASK_t3;
+        TASK = TASK_t4;
+        TASK = TASK_t5;
+        TASK = TASK_t6;
+        TASK = TASK_t7;
+        ISR = OneTaskISR;
+        ISR = SecondTimerISR;
+        ALARM = ALARM_ONE;
+        ALARM = ALARM_1;
+        ALARM = ALARM_2;
+        ALARM = ALARM_3;
+        ALARM = ALARM_4;
+        ALARM = ALARM_5;
+        ALARM = ALARM_6;
+        ALARM = ALARM_7;
+        ALARM = ALARM_8;
+        SCHEDULETABLE = ScheduleTable1;
+    };
+};

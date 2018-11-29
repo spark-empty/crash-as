@@ -1,0 +1,62 @@
+import os
+from building import *
+
+Import('asenv')
+MODULES=asenv['MODULES']
+ASROOT=asenv['ASROOT']
+
+cwd = GetCurrentDir()
+
+objs = []
+
+if('RTTHREAD' not in MODULES):
+    objs += Glob('bsp/*.c')
+else:
+    objs += Glob('rtbsp/*.c')
+    objs += Glob('bsp/pci.c')
+    asenv.Append(CPPPATH=['%s/rtbsp'%(cwd)])
+    asenv.Append(ASFLAGS=['-I%s/rtbsp'%(cwd)])
+
+if('CAN' in MODULES):
+    objs += Glob('mcal/Can.c')
+    asenv.Append(CPPDEFINES=['CAN_LL_DL=64'])
+    if(IsPlatformWSL()):
+        asenv.Append(CPPDEFINES='CAN_DEV_NAME=\'"socketwin"\'')
+
+if('LCD' in MODULES):
+    objs += Glob('mcal/Lcd.c')
+
+if('MCU' in MODULES):
+    objs += Glob('mcal/Mcu.c')
+
+if('EEP' in MODULES):
+    objs += Glob('../posix/mcal/Eep.c')
+
+if('FLS' in MODULES):
+    objs += Glob('../posix/mcal/Fls.c')
+
+if(('LWIP' in MODULES) or ('UIP' in MODULES)):
+    if(IsPlatformWindows()):
+        asenv.Append(CPPDEFINES='USE_PCAPIF')
+        print('INFO: set PACKET_LIB_ADAPTER_NR=0/1/2/3... to choose the right oracle virtual adapter')
+        if(os.getenv('PACKET_LIB_ADAPTER_NR')):
+            asenv.Append(CPPDEFINES=['PACKET_LIB_ADAPTER_NR=%s'%(os.getenv('PACKET_LIB_ADAPTER_NR'))])
+
+asenv.Append(CCFLAGS=['-O0','-g'])
+asenv.Append(ASFLAGS=['-g'])
+
+asenv.Append(CCFLAGS=['-mcpu=arm926ej-s','-marm'])
+asenv.Append(ASFLAGS=['-mcpu=arm926ej-s','-marm'])
+asenv.Append(CPPPATH=['%s/bsp'%(cwd),'%s/mcal'%(cwd)])
+
+asenv.Append(CCFLAGS=['-ffunction-sections','-fdata-sections'])
+asenv.Append(LINKFLAGS='--gc-sections')
+
+asenv.Append(LIBS=['c','gcc'])
+
+SelectCompilerArmNoneEabi()
+
+if(asenv['RELEASE']=='asboot'):
+    asenv['flsdrv']['objs'] += Glob('../common/mcal/RamFlash.c')
+    
+Return('objs')

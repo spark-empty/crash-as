@@ -1,0 +1,85 @@
+import os
+from building import *
+
+Import('asenv')
+MODULES=asenv['MODULES']
+ASROOT=asenv['ASROOT']
+
+cwd = GetCurrentDir()
+
+objs = []
+
+objs += Glob('bsp/i8259.c')
+objs += Glob('bsp/protect.c')
+objs += Glob('bsp/mmu.c')
+if('RTTHREAD' not in MODULES):
+    objs += Glob('bsp/serial.c')
+
+
+if(asenv.GetOption('clean')):
+    RunCommand('cd %s/bsp && rm -fv *.asm.obj'%(cwd))
+    RunCommand('cd %s/boot && rm -fv *.bin'%(cwd))
+else:
+    for src in Glob('bsp/*.asm'):
+        asm = os.path.basename(str(src))
+        MKObject(str(src), str(src)+'.obj', 
+                 'cd %s/bsp && nasm -f elf -g -o %s.obj %s'%(cwd,asm,asm))
+    for src in Glob('boot/*.asm'):
+        asm = os.path.basename(str(src))
+        MKObject(str(src), str(src)[:-4]+'.bin', 
+                 'cd %s/boot && nasm -o %s.bin %s'%(cwd,asm[:-4],asm))
+
+    target = 'x86'
+    if(os.name == 'nt'):
+        target += '.exe'
+    fatfs = '%s/com/as.infrastructure/system/fs/fatfs/fatfs.exe'%(ASROOT)
+    asenv['POSTACTION'].append('dd if=/dev/zero of=TINIX.IMG bs=512 count=2880')
+    asenv['POSTACTION'].append('%s mkfs TINIX.IMG'%(fatfs))
+    asenv['POSTACTION'].append('dd conv=notrunc if=%s of=TINIX.IMG bs=512 count=1'%(str(Glob('boot/boot.bin')[0])))
+    asenv['POSTACTION'].append('%s cp %s /loader.bin TINIX.IMG'%(fatfs,str(Glob('boot/loader.bin')[0])))
+    asenv['POSTACTION'].append('objcopy -S %s kernel.bin'%(target))
+    asenv['POSTACTION'].append('%s cp kernel.bin /kernel.bin TINIX.IMG'%(fatfs))
+
+objs += Glob('bsp/*.asm.obj')
+
+if('RTTHREAD' in MODULES):
+    SrcRemove(objs, ['irq_a.asm.obj'])
+
+asenv.Append(CPPDEFINES=['__X86__'])
+
+if('PCI' in MODULES):
+    objs += Glob('bsp/pci-x86.c')
+
+if('CAN' in MODULES):
+    objs += Glob('mcal/Can.c')
+    asenv.Append(CPPDEFINES=['CAN_LL_DL=64'])
+
+if('MCU' in MODULES):
+    objs += Glob('mcal/Mcu.c')
+
+if('EEP' in MODULES):
+    objs += Glob('../posix/mcal/Eep.c')
+
+if('FLS' in MODULES):
+    objs += Glob('../posix/mcal/Fls.c')
+
+if(('LWIP' in MODULES) or ('UIP' in MODULES)):
+    if(IsPlatformWindows()):
+        asenv.Append(CPPDEFINES='USE_PCAPIF')
+        print('INFO: set PACKET_LIB_ADAPTER_NR=0/1/2/3... to choose the right oracle virtual adapter')
+        if(os.getenv('PACKET_LIB_ADAPTER_NR')):
+            asenv.Append(CPPDEFINES=['PACKET_LIB_ADAPTER_NR=%s'%(os.getenv('PACKET_LIB_ADAPTER_NR'))])
+
+asenv.Append(CCFLAGS=['-O0','-g'])
+asenv.Append(ASFLAGS=['-g'])
+asenv.Append(ASFLAGS=['-I%s/bsp'%(cwd)])
+
+asenv.Append(CPPPATH=['%s/bsp'%(cwd),'%s/mcal'%(cwd)])
+
+
+asenv.Append(CCFLAGS=['-ffunction-sections','-fdata-sections'])
+asenv.Append(LINKFLAGS='--gc-sections')
+
+SelectCompilerX86()
+
+Return('objs')

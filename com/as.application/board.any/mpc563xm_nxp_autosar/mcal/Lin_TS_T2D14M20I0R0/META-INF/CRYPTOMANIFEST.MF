@@ -1,0 +1,64 @@
+
+Name: generate_PC/Lin_VersionCheck_Src.m
+SignatureKeyID: Freescale
+Signature: 28964594753690737212762872226784584949263002053665910149112
+ 912828285088383888482784252427042198822940552460613712
+SignatureKeyProviderID: plugin.launcher2.licenseFileKeyProvider
+SignatureAlgorithmID: DSA
+
+Name: generate_PB/Lin_BaudRate_Comp.m
+SignatureKeyID: Freescale
+Signature: 11313377420214340589410434114574878619208586841391739154135
+ 2202631971769471076476604798526131499046691527179513
+SignatureKeyProviderID: plugin.launcher2.licenseFileKeyProvider
+SignatureAlgorithmID: DSA
+
+Name: generate_PC/include/Lin_Cfg.h
+SignatureKeyID: Freescale
+Signature: 28964594773973270018990610124298338448591601805482090693914
+ 299135308516227754324254634886104004630082270367877165
+SignatureKeyProviderID: plugin.launcher2.licenseFileKeyProvider
+SignatureAlgorithmID: DSA
+
+Name: generate_PC/src/Lin_Cfg.c
+SignatureKeyID: Freescale
+Signature: 28964594773966670428484223007880721834156083959237037152575
+ 362171964955263180379425353484215135443825866767150744
+SignatureKeyProviderID: plugin.launcher2.licenseFileKeyProvider
+SignatureAlgorithmID: DSA
+
+Name: generate_PB/Lin_VersionCheck_Src_PB.m
+SignatureKeyID: Freescale
+Signature: 28964594773969568425493654493641057491234213550665041492039
+ 324560669554506439806366576331305470909429449756730725
+SignatureKeyProviderID: plugin.launcher2.licenseFileKeyProvider
+SignatureAlgorithmID: DSA
+
+Name: generate_PB/src/Lin_PBcfg.c
+SignatureKeyID: Freescale
+Signature: 11313377426001901507841980489757163733725149862066920779265
+ 0582624893587014136502307349923391462168054377686393
+SignatureKeyProviderID: plugin.launcher2.licenseFileKeyProvider
+SignatureAlgorithmID: DSA
+
+Name: generate_PC/Lin_BaudRate_Comp.m
+SignatureKeyID: Freescale
+Signature: 28964594753345951059261244153728809322817758352008311647966
+ 410332940330852082869041128206076530697972846350895858
+SignatureKeyProviderID: plugin.launcher2.licenseFileKeyProvider
+SignatureAlgorithmID: DSA
+
+Name: config/Lin.xdm
+SignatureKeyID: Freescale
+Signature: 11313377423522299716324799245475263784492462162166138503743
+ 8966932176431599356570969901207298378742476515676868
+SignatureKeyProviderID: plugin.launcher2.licenseFileKeyProvider
+SignatureAlgorithmID: DSA
+
+Name: generate_PC/Lin_VersionCheck_Inc.m
+SignatureKeyID: Freescale
+Signature: 11313377425553196109942077882254409889642813646550169608798
+ 6805934291502066932264160754027262564355829972310344
+SignatureKeyProviderID: plugin.launcher2.licenseFileKeyProvider
+SignatureAlgorithmID: DSA
+

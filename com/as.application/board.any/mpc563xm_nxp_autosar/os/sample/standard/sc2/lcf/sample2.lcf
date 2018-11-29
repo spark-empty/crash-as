@@ -1,0 +1,130 @@
+/**************************************************************************************
+* 
+*   Freescale(TM) and the Freescale logo are trademarks of Freescale Semiconductor, Inc. 
+*   All other product or service names are the property of their respective owners. 
+*   (C) Freescale Semiconductor, Inc. 2007-2010
+* 
+*   You can use this example for any purpose on any computer system with the
+*   following restrictions:
+*
+*   1. This example is provided "as is", without warranty.
+*
+*   2. You don't remove this copyright notice from this example or any direct derivation 
+*      thereof.
+*
+*  Description:  CodeWarrior linker command file for AUTOSAR OS/MPC56xxAMv3 sample 
+*                application.
+*
+**************************************************************************************/
+NO_VLE_MIN_ALIGN2
+
+MEMORY
+{
+    vectors      : org = 0x40000000, len = 0x00001000     
+    internal_ram : org = 0x40001000, len = 0x0000D000             
+    heap         : org = 0x4000E000, len = 0x00001000 /* Heap start location */
+    stack        : org = 0x4000F000, len = 0x00001000 /* Stack end location */    
+}
+
+SECTIONS
+{
+    /* Interrupt vector table */
+    GROUP : {
+        .vects (VLECODE) ALIGN(0x1000) : {
+          *(.vects)
+          *(.vects_vle)
+        }
+    } > vectors
+
+    /* Code and constant group */
+    GROUP : {
+        /* Code and constant area (all code and constant sections shall be placed between .osbegincode and .osendcode sections) */
+        .osbegincode : {}
+
+        .init : {}
+        .init_vle (VLECODE) : {
+            *(.init)
+            *(.init_vle)        
+        }
+
+        /*  OS code and constant data */
+        /*.ostext_vle (VLECODE) : {*/
+        .ostext (VLECODE) : {
+            *(.ostext)
+            *(.ostext_vle)
+         }
+        .oshook (VLECODE) : {
+            *(.oshook)
+            *(.oshook_vle)
+         }
+        .osrodata : {}
+        .ossrodata : {}
+
+        /* Code and constant data */
+        .text : {}
+        .text_vle (VLECODE) : {
+            *(.text)
+            *(.text_vle)
+         }
+        .appcode_vle (VLECODE) : {
+            *(.appcode)
+            *(.appcode_vle)
+         }
+         .rodata : {}
+
+        /* Small constants */
+        .sdata2 : {}
+        /* .sbss2 : {}  */
+        .sapp_c32 : {}      /* small constant sections for all trusted applications */
+        .sapp_c16 : {}
+        .sapp_cU  : {}
+        .sapp_c8  : {}
+
+        /* Constructor and destructor function ptrs */
+        .ctors : {}
+        .dtors : {}
+
+        extab : {}
+        extabindex : {}        
+
+        .osendcode : {}
+
+    } > internal_ram
+
+
+    /* Data/BSS group */
+    GROUP : {        
+        /* OS stack */
+        .osstack : {}
+ 
+        /* data sections */
+        .data  : {}       
+        .osdata : {}
+        
+        /* Small data sections */
+        .sapp_v32_data : {}   /* small data sections for all trusted applications */
+        .sapp_v16_data : {}
+        .sapp_vU_data  : {}
+        .sapp_v8_data  : {}
+        .sdata : {}             /* default sdata threshold is 0, then sdata/sbss section are empty always. */
+
+        /* Small bss sections */
+        .sbss : {}
+        .ossbss : {}
+        .sapp_v32_bss : {}    /* small bss sections for all trusted applications */
+        .sapp_v16_bss : {}
+        .sapp_vU_bss  : {}
+        .sapp_v8_bss  : {}
+
+
+        /* bss sections */
+        .bss   : {}
+        .osbss : {}
+
+    } > internal_ram
+}
+
+_heap_addr  = ADDR(heap);
+_heap_end   = ADDR(heap)+SIZEOF(heap);
+_stack_addr = ADDR(stack)+SIZEOF(stack);
+_stack_end  = ADDR(stack);
